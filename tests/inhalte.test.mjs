@@ -175,6 +175,9 @@ test('Impressum: entweder leer oder mit Name und Anschrift', () => {
   assert.ok(Array.isArray(daten.anschrift), 'anschrift muss eine Liste von Zeilen sein');
   if (daten.name) {
     assert.ok(daten.anschrift.length >= 2, 'Impressum braucht eine vollständige (ladungsfähige) Anschrift');
-    if (daten.email) assert.match(daten.email, /^[^@\s]+@[^@\s]+\.[^@\s]+$/, 'E-Mail-Adresse ungültig');
+    if (daten.email) {
+      assert.ok(!daten.email.includes('@'), 'E-Mail bitte verschleiert eintragen („name (at) domain.de“), damit Spam-Bots sie nicht finden');
+      assert.match(daten.email, /^[^@\s]+ [[(]at[\])] [^@\s]+\.[^@\s]+$/, 'E-Mail im Format „name (at) domain.de“ oder „name [at] domain.de“ eintragen');
+    }
   }
 });

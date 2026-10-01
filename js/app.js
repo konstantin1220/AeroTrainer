@@ -505,7 +505,12 @@ function impressumKarte(daten) {
       h('strong', {}, daten.name),
       (daten.anschrift ?? []).map((zeile) => h('span', {}, zeile)),
       daten.vertreten && h('span', {}, `Vertreten durch: ${daten.vertreten}`),
-      daten.email && h('span', {}, 'E-Mail: ', h('a', { href: `mailto:${daten.email}` }, daten.email)),
+      daten.email && h('span', {}, 'E-Mail: ', daten.email),
+      daten.email && h('button', {
+        type: 'button', class: 'knopf zweitrangig klein impressum-mail',
+        // Die Adresse steht nirgends im Klartext (Schutz vor Spam-Bots) – sie entsteht erst hier.
+        onclick: () => { location.href = `mailto:${daten.email.replace(/\s*[[(]at[\])]\s*/i, '@').replace(/\s*[[(]dot[\])]\s*/gi, '.')}`; },
+      }, 'E-Mail schreiben'),
     ),
   );
 }
