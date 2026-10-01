@@ -1453,6 +1453,55 @@ html[data-stufe="einsteiger"] .begriff {
 .probier summary { cursor: pointer; }
 .probier ol { margin: 0.5rem 0 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; font-size: 0.93rem; }
 
+.impressum { display: grid; gap: 0.15rem; font-style: normal; }
+
+/* Merkliste */
+.frage-werkzeuge { display: flex; justify-content: flex-end; margin: -0.35rem -0.3rem 0.35rem 0; }
+.merk-knopf {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  min-height: 36px; padding: 0.3rem 0.75rem 0.3rem 0.55rem;
+  border: 1px solid var(--rand); border-radius: 999px;
+  background: var(--flaeche); color: var(--leise);
+  font: inherit; font-size: 0.85rem; font-weight: 650; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.merk-knopf .ico { width: 1.15rem; height: 1.15rem; }
+.merk-knopf:hover { color: var(--text); border-color: var(--leise); }
+.merk-knopf[aria-pressed="true"] { background: color-mix(in srgb, var(--orange) 14%, var(--flaeche)); border-color: var(--orange); color: #a85a0e; }
+.merk-knopf[aria-pressed="true"] .ico .f { opacity: 1; }
+.merk-knopf:active { transform: scale(0.96); }
+.merk-knopf.klein { padding: 0.3rem; min-width: 36px; justify-content: center; }
+.fehlerliste li .merk-knopf { justify-self: start; margin-top: 0.25rem; }
+.pruef-meta-zeile { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem; }
+.pruef-meta-zeile .pruef-meta { margin: 0; }
+.merkliste-kachel {
+  display: flex; align-items: center; gap: 0.85rem; margin: 1rem 0 0;
+  padding: 0.85rem 1rem; border-radius: var(--radius-klein);
+  background: var(--flaeche); border: 1px solid var(--rand); box-shadow: var(--schatten);
+  color: var(--text); text-decoration: none;
+}
+.merkliste-kachel:hover { border-color: var(--orange); }
+.merkliste-kachel-symbol { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: color-mix(in srgb, var(--orange) 16%, transparent); color: #c06a14; }
+.merkliste-kachel-symbol .ico .f { opacity: 1; }
+.merkliste-kachel-text { flex: 1; display: grid; }
+.merkliste-kachel-text span { font-size: 0.88rem; color: var(--leise); }
+.merkliste-kachel > .ico { color: var(--leise); }
+.merkliste-thema-kopf { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.merkliste-thema-kopf h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 1.1rem; }
+.knopf.klein { min-height: 36px; padding: 0.3rem 0.8rem; font-size: 0.88rem; }
+.merkliste-eintraege { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; }
+.merkliste-eintraege li { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.7rem 0; border-top: 1px solid var(--rand); }
+.merkliste-frage { flex: 1; display: grid; gap: 0.2rem; font-weight: 600; line-height: 1.4; }
+.merkliste-meta { font-size: 0.8rem; font-weight: 400; color: var(--leise); }
+.merk-entfernen { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: var(--leise); cursor: pointer; }
+.merk-entfernen:hover { background: var(--fehler-hell); color: var(--fehler); }
+.merk-entfernen .ico { width: 1.1rem; height: 1.1rem; }
+@media (prefers-color-scheme: dark) {
+  .merk-knopf[aria-pressed="true"] { color: #ffb066; }
+  .merkliste-kachel-symbol { color: #ffb066; }
+}
+
 /* Quellen & Grundlagen */
 .quellen-status { white-space: nowrap; }
 .quellen-status .ico { width: 0.9rem; height: 0.9rem; }

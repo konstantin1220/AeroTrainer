@@ -2,7 +2,8 @@
 // Über Export/Import als JSON-Datei kann ihn jeder selbst sichern und auf andere
 // Geräte übertragen. Die Datei enthält nur den Lernstand, keine Lerninhalte.
 //
-// Aufbau: { module: { <modul-id>: {…} }, statistik: { tage: { "JJJJ-MM-TT": { a: Antworten, r: richtig } } } }
+// Aufbau: { module: { <modul-id>: {…} }, statistik: { tage: { "JJJJ-MM-TT": { a: Antworten, r: richtig } } },
+//          merkliste: [{ schluessel, modul, id, gemerkt, frage? }] }
 
 import { tagText, tagPlus } from './srs.js';
 
@@ -38,6 +39,10 @@ function vervollstaendigen(daten) {
   return {
     module: daten.module && typeof daten.module === 'object' ? daten.module : {},
     statistik: { tage: daten.statistik?.tage && typeof daten.statistik.tage === 'object' ? daten.statistik.tage : {} },
+    // Ältere Dateien haben noch keine Merkliste – dann ist sie einfach leer.
+    merkliste: Array.isArray(daten.merkliste)
+      ? daten.merkliste.filter((e) => e && typeof e.schluessel === 'string' && typeof e.modul === 'string' && typeof e.id === 'string')
+      : [],
   };
 }
 
@@ -96,7 +101,30 @@ export function serie() {
 }
 
 export function hatFortschritt() {
-  return Object.keys(stand.module).length > 0 || Object.keys(stand.statistik.tage).length > 0;
+  return Object.keys(stand.module).length > 0 || Object.keys(stand.statistik.tage).length > 0 || stand.merkliste.length > 0;
+}
+
+// ---------- Merkliste ----------
+// Feste Fragen werden über Modul und ID gemerkt. Bei erzeugten Rechenaufgaben wird die
+// konkrete Aufgabe mitgespeichert (frage), damit sie genau so wieder erscheint.
+
+export function merkliste() {
+  return structuredClone(stand.merkliste);
+}
+
+export function istGemerkt(schluessel) {
+  return stand.merkliste.some((e) => e.schluessel === schluessel);
+}
+
+export function merken(eintrag) {
+  if (istGemerkt(eintrag.schluessel)) return;
+  stand.merkliste = [{ ...eintrag, gemerkt: eintrag.gemerkt ?? new Date().toISOString() }, ...stand.merkliste];
+  schreiben(SCHLUESSEL_STAND, stand);
+}
+
+export function vergessen(schluessel) {
+  stand.merkliste = stand.merkliste.filter((e) => e.schluessel !== schluessel);
+  schreiben(SCHLUESSEL_STAND, stand);
 }
 
 export function letzteSicherung() {
@@ -121,6 +149,7 @@ export async function sichern() {
     exportiert: new Date().toISOString(),
     module: stand.module,
     statistik: stand.statistik,
+    merkliste: stand.merkliste,
     einstellungen,
   }, null, 2);
   const datei = new File([inhalt], DATEINAME, { type: 'application/json' });

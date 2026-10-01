@@ -5,73 +5,73 @@
     {
       "id": "edds-cavok",
       "titel": "Bilderbuchwetter",
-      "metar": "METAR EDDS 011020Z 24008KT CAVOK 21/09 Q1018 NOSIG",
+      "metar": "METAR XALT 011020Z 24008KT CAVOK 21/09 Q1018 NOSIG",
       "schwierigkeit": 1
     },
     {
       "id": "edny-few",
       "titel": "Ein paar Quellwolken",
-      "metar": "METAR EDNY 011050Z 06006KT 9999 FEW040 17/08 Q1021 NOSIG",
+      "metar": "METAR XMUS 011050Z 06006KT 9999 FEW040 17/08 Q1021 NOSIG",
       "schwierigkeit": 1
     },
     {
       "id": "eddh-vrb",
       "titel": "Kaum Wind",
-      "metar": "METAR EDDH 011150Z VRB03KT 9999 NSC 14/06 Q1024 NOSIG",
+      "metar": "METAR XBER 011150Z VRB03KT 9999 NSC 14/06 Q1024 NOSIG",
       "schwierigkeit": 2
     },
     {
       "id": "eddn-bkn",
       "titel": "Zwei Wolkenschichten",
-      "metar": "METAR EDDN 011120Z 28014KT 9999 SCT035 BKN060 16/07 Q1012 NOSIG",
+      "metar": "METAR XMUS 011120Z 28014KT 9999 SCT035 BKN060 16/07 Q1012 NOSIG",
       "schwierigkeit": 2
     },
     {
       "id": "edds-frost",
       "titel": "Kalter Wintertag",
-      "metar": "METAR EDDS 041750Z 08004KT 9999 BKN025 M02/M05 Q1031 NOSIG",
+      "metar": "METAR XALT 041750Z 08004KT 9999 BKN025 M02/M05 Q1031 NOSIG",
       "schwierigkeit": 2
     },
     {
       "id": "eddn-regen",
       "titel": "Landregen mit tiefen Wolken",
-      "metar": "METAR EDDN 030620Z 27012KT 4000 -RA BR BKN008 OVC015 11/10 Q1003 BECMG BKN012",
+      "metar": "METAR XMUS 030620Z 27012KT 4000 -RA BR BKN008 OVC015 11/10 Q1003 BECMG BKN012",
       "schwierigkeit": 3
     },
     {
       "id": "eddn-auto",
       "titel": "Früher Morgen, automatische Station",
-      "metar": "METAR EDDN 060450Z AUTO 00000KT 1500 0800NE BCFG NCD 03/02 Q1022",
+      "metar": "METAR XMUS 060450Z AUTO 00000KT 1500 0800NE BCFG NCD 03/02 Q1022",
       "schwierigkeit": 3
     },
     {
       "id": "edny-schauer",
       "titel": "Böig mit Schauern",
-      "metar": "METAR EDNY 021420Z 23015G28KT 200V270 9999 -SHRA FEW020CB SCT045 19/12 Q1009 TEMPO 26025G40KT 3000 TSRA",
+      "metar": "METAR XMUS 021420Z 23015G28KT 200V270 9999 -SHRA FEW020CB SCT045 19/12 Q1009 TEMPO 26025G40KT 3000 TSRA",
       "schwierigkeit": 4
     },
     {
       "id": "edds-nebel",
       "titel": "Dichter Nebel",
-      "metar": "METAR EDDS 020550Z 00000KT 0400 R25/0550D FG VV002 08/08 Q1026 BECMG 2000 BR",
+      "metar": "METAR XALT 020550Z 00000KT 0400 R25/0550D FG VV002 08/08 Q1026 BECMG 2000 BR",
       "schwierigkeit": 4
     },
     {
       "id": "eddh-gewitter-vorbei",
       "titel": "Nach dem Gewitter",
-      "metar": "METAR EDDH 031250Z 32018G30KT 9999 SHRA SCT015 BKN025CB 12/07 Q1001 RETSRA TEMPO 4000 +SHRA",
+      "metar": "METAR XBER 031250Z 32018G30KT 9999 SHRA SCT015 BKN025CB 12/07 Q1001 RETSRA TEMPO 4000 +SHRA",
       "schwierigkeit": 4
     },
     {
       "id": "eddh-tempo-zeit",
       "titel": "Gewitter im Anmarsch",
-      "metar": "METAR EDDH 071320Z 19012KT 9999 SCT030 23/14 Q1012 TEMPO FM1400 TL1500 20020G35KT 4000 TSRA BKN015CB",
+      "metar": "METAR XBER 071320Z 19012KT 9999 SCT030 23/14 Q1012 TEMPO FM1400 TL1500 20020G35KT 4000 TSRA BKN015CB",
       "schwierigkeit": 5
     },
     {
       "id": "eddr-schnee",
       "titel": "Schneefall",
-      "metar": "METAR EDDR 051320Z 21010KT 170V240 7000 -SN SCT008 BKN012 OVC020 M01/M03 Q0998 TEMPO 1500 SN BKN005",
+      "metar": "METAR XALT 051320Z 21010KT 170V240 7000 -SN SCT008 BKN012 OVC020 M01/M03 Q0998 TEMPO 1500 SN BKN005",
       "schwierigkeit": 5
     }
   ]

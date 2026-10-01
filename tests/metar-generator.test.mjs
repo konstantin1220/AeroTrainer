@@ -2,7 +2,7 @@
 // einhalten) sowie die Aufgaben der Lernstufen 2–4.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { metarErzeugen, LAGEN } from '../modules/metar/erzeugen.js';
+import { metarErzeugen, LAGEN, STATIONEN } from '../modules/metar/erzeugen.js';
 import { zerlegen, auswerten } from '../modules/metar/metar.js';
 import { zufallsquelle } from '../js/zufall.js';
 import { readFileSync } from 'node:fs';
@@ -119,4 +119,16 @@ test('Windkomponenten und Kontrollzonen-Minima', () => {
   assert.equal(ctrEntscheidung(1500, 600), 'sonder');
   assert.equal(ctrEntscheidung(1400, 2000), 'nein');
   assert.equal(ctrEntscheidung(3000, 500), 'nein');
+});
+
+test('Übungs-METARs nutzen nur erfundene Plätze des Übungsgebiets', () => {
+  const plaetze = JSON.parse(readFileSync(new URL('../modules/metar/content/plaetze.json', import.meta.url), 'utf8')).plaetze;
+  for (const station of STATIONEN) {
+    const platz = plaetze.find((p) => p.kennung === station.kennung);
+    assert.ok(platz, `${station.kennung} fehlt in plaetze.json`);
+    assert.deepEqual(station.pisten, platz.pisten, `${station.kennung}: Pisten passen nicht zur Übungskarte`);
+  }
+  for (const m of beispiele) assert.match(zerlegen(m.text).find((g) => g.typ === 'station').text, /^X/, `echte Kennung im erzeugten METAR: ${m.text}`);
+  const feste = JSON.parse(readFileSync(new URL('../modules/metar/content/beispiele.json', import.meta.url), 'utf8')).beispiele;
+  for (const b of feste) assert.match(zerlegen(b.metar).find((g) => g.typ === 'station').text, /^X/, `${b.id}: echte Kennung im Beispiel-METAR`);
 });

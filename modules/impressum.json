@@ -1,0 +1,7 @@
+{
+  "_hinweis": "Anbieterkennzeichnung nach § 18 Abs. 1 Medienstaatsvertrag: Name und ladungsfähige Anschrift (kein Postfach). Wird die App vom Verein angeboten: Name des Vereins, Anschrift und vertretungsberechtigter Vorstand. Solange 'name' leer ist, zeigt die App kein Impressum an. Die Anschrift bitte als Liste von Zeilen eintragen, z. B. [\"Musterstraße 1\", \"12345 Musterstadt\"].",
+  "name": null,
+  "anschrift": [],
+  "vertreten": null,
+  "email": null
+}

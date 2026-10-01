@@ -93,7 +93,7 @@ function deuten(t, zustand) {
 
   if (!zustand.station && /^[A-Z]{4}$/.test(t)) {
     zustand.station = true;
-    return { typ: 'station', bedeutung: `Flugplatz mit der ICAO-Kennung ${t}` };
+    return { typ: 'station', bedeutung: t.startsWith('X') ? `Flugplatz ${t} (frei erfundener Übungsplatz)` : `Flugplatz mit der ICAO-Kennung ${t}` };
   }
 
   if ((m = /^(\d{2})(\d{2})(\d{2})Z$/.exec(t))) {

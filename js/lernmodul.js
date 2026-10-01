@@ -15,6 +15,7 @@
 import { h, anhaengen, formatiert, ring, balken, abbildungKnoten, brotkrumen, leerzustand, mehrzahl } from './ui.js';
 import { icon, themenIcon } from './icons.js';
 import { fragerunde, frageKopf } from './quiz.js';
+import { merkKnopf } from './merkliste.js';
 import { lernrunde, uebungsrunde, statistik, karteBewerten, istSicher } from './srs.js';
 import { frageProblem, loesungText } from './fragen.js';
 import { zufall } from './zufall.js';
@@ -143,6 +144,7 @@ export function lernmodul({
     const eintrag = daten.aufgaben.get(id);
     return {
       id,
+      merken: { modul: ctx.modul.id, id, erzeugt: eintrag.quelle.typ === 'generator' },
       erzeugen: () => erzeugen(eintrag.quelle),
       abbildung: (name) => abbildung(name),
       beantworten: (richtig) => {
@@ -307,14 +309,16 @@ export function lernmodul({
             beispiele.map((frage) => {
               const problem = frageProblem(frage);
               if (problem) probleme.push(`${quelle.id}: ${problem}`);
-              return h('div', { class: 'pruef-beispiel' }, frageKopf(frage, (n) => abbildung(n)), loesungsBlock(frage), problem && h('p', { class: 'fehlerton' }, problem));
+              return h('div', { class: 'pruef-beispiel' },
+                h('div', { class: 'frage-werkzeuge' }, merkKnopf({ modul: ctx.modul.id, id: quelle.id, erzeugt: true }, frage)),
+                frageKopf(frage, (n) => abbildung(n)), loesungsBlock(frage), problem && h('p', { class: 'fehlerton' }, problem));
             }),
           );
         }
         const problem = frageProblem(quelle);
         if (problem) probleme.push(`${quelle.id}: ${problem}`);
         return h('div', { class: 'pruef-frage' },
-          h('p', { class: 'pruef-meta' }, `${quelle.id} · ${quelle.typ}`),
+          h('div', { class: 'pruef-meta-zeile' }, h('p', { class: 'pruef-meta' }, `${quelle.id} · ${quelle.typ}`), merkKnopf({ modul: ctx.modul.id, id: quelle.id, erzeugt: false }, quelle)),
           frageKopf(quelle, (n) => abbildung(n)),
           loesungsBlock(quelle),
           problem && h('p', { class: 'fehlerton' }, problem),

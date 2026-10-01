@@ -181,7 +181,7 @@ export function entscheidungsFrage(art, platz, flugzeug, metar) {
     case 'seitenwind': {
       if (!windNutzbar) return null;
       const k = komponenten[beste];
-      return { typ: 'zahl', code, gruppen, frage: `Wie groß ist die Seitenwindkomponente des mittleren Windes auf Piste ${beste}?`, loesung: Math.round(k.seite), toleranz: 2, einheit: 'kt', hinweis: 'Missweisung vernachlässigen. Faustregel: Wind unter 30° → ½, 45° → 0,7, 60° → 0,9 der Windgeschwindigkeit.', erklaerung: `Winkel zwischen Wind (${String(w.richtung).padStart(3, '0')}°) und Piste (${parseInt(beste, 10) * 10}°) → Seitenwind ≈ ${Math.round(k.seite)} kt von ${k.vonRechts ? 'rechts' : 'links'}.` };
+      return { typ: 'zahl', code, gruppen, frage: `Wie groß ist die Seitenwindkomponente des mittleren Windes auf Piste ${beste}?`, loesung: Math.round(k.seite), toleranz: 2, einheit: 'kt', hinweis: 'Missweisung vernachlässigen. Faustregel: Winkel 30° → ½, 45° → 0,7, 60° → 0,9 der Windgeschwindigkeit.', erklaerung: `Winkel zwischen Wind (${String(w.richtung).padStart(3, '0')}°) und Piste (${parseInt(beste, 10) * 10}°) → Seitenwind ≈ ${Math.round(k.seite)} kt von ${k.vonRechts ? 'rechts' : 'links'}.` };
     }
     case 'boeen': {
       if (!windNutzbar || !w.boeen) return null;

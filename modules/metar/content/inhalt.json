@@ -24,7 +24,7 @@
         {
           "typ": "formel",
           "titel": "Beispiel (frei erfunden)",
-          "text": "METAR EDDN 121420Z 24012G25KT 9999\n-SHRA FEW025CB BKN045 18/11 Q1009\nTEMPO 3000 TSRA"
+          "text": "METAR XMUS 121420Z 24012G25KT 9999\n-SHRA FEW025CB BKN045 18/11 Q1009\nTEMPO 3000 TSRA"
         },
         {
           "typ": "tabelle",
@@ -41,8 +41,8 @@
             ],
             [
               "Ortskennung",
-              "EDDN",
-              "ICAO-Kennung des Flugplatzes"
+              "XMUS",
+              "Kennung des Flugplatzes – hier ein frei erfundener Übungsplatz (echte deutsche Flugplätze beginnen mit ED oder ET)"
             ],
             [
               "Zeit",

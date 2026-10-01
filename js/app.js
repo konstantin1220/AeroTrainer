@@ -16,6 +16,7 @@ import { zufall } from './zufall.js';
 import * as lernstand from './storage.js';
 import { STUFEN, aktuelleStufe, stufeGewaehlt, stufeSetzen, stufeAnwenden, stufenUmschalter } from './stufe.js';
 import { lexikonLaden, neueSeite, alleBegriffe, erklaerungKnoten } from './lexikon.js';
+import { frageText } from './merkliste.js';
 
 const APP_VERSION = '1.0.0';
 const TAGE_BIS_SICHERUNGSHINWEIS = 7;
@@ -125,8 +126,9 @@ async function navigieren({ behalteScroll = false } = {}) {
     else if (seite === 'wiederholen') await wiederholenSeite(inhalt);
     else if (seite === 'lernstand') await lernstandSeite(inhalt);
     else if (seite === 'lexikon') lexikonSeite(inhalt, rest[0]);
-    else if (seite === 'info') infoSeite(inhalt);
+    else if (seite === 'info') infoSeite(inhalt, await impressumLaden());
     else if (seite === 'quellen') await quellenSeite(inhalt);
+    else if (seite === 'merkliste') await merklisteSeite(inhalt, rest);
     else await modulSeite(inhalt, seite, rest);
   } catch (fehler) {
     console.error(fehler);
@@ -139,6 +141,8 @@ async function navigieren({ behalteScroll = false } = {}) {
     window.scrollTo(0, scroll);
   } else if (seite === 'lexikon' && rest[0]) {
     document.getElementById(`begriff-${rest[0]}`)?.scrollIntoView({ block: 'start' });
+  } else if (seite === 'info' && rest[0]) {
+    document.getElementById(rest[0])?.scrollIntoView({ block: 'start' });
   } else if (seite === 'quellen' && rest[0]) {
     document.getElementById(`quellen-${rest[0]}`)?.scrollIntoView({ block: 'start' });
   } else {
@@ -233,6 +237,7 @@ async function startseite(el) {
       aktion,
     ),
     !lernstand.hatFortschritt() && h('p', { class: 'start-tipp' }, icon('lampe'), 'Tipp: Wähle ein Thema, lies ein Kapitel und starte dann eine Lernrunde. Der Rest ergibt sich von selbst.'),
+    merklisteKachel(),
     h('h2', { class: 'abschnitt-titel' }, 'Themen'),
     h('ul', { class: 'themen-raster' }, kacheln),
   );
@@ -439,6 +444,13 @@ async function lernstandSeite(el) {
         )))),
     ),
     h('section', { class: 'karte' },
+      h('h2', {}, icon('merken'), 'Merkliste'),
+      h('p', {}, lernstand.merkliste().length
+        ? `${mehrzahl(lernstand.merkliste().length, 'Frage', 'Fragen')} gemerkt.`
+        : 'Noch keine Fragen gemerkt. Tippe in einer Fragerunde oben rechts auf „Merken“.'),
+      h('a', { class: 'knopf zweitrangig', href: '#/merkliste' }, icon('merken'), 'Zur Merkliste'),
+    ),
+    h('section', { class: 'karte' },
       h('h2', {}, icon('sprechblase'), 'Wie ausführlich soll erklärt werden?'),
       stufenKarten(),
     ),
@@ -477,7 +489,28 @@ async function lernstandSeite(el) {
 
 // ---------- Info ----------
 
-function infoSeite(el) {
+// Anbieterkennzeichnung (modules/impressum.json). Erst wenn ein Name eingetragen ist, erscheint das Impressum.
+let impressumDaten = null;
+function impressumLaden() {
+  impressumDaten ??= ladeJSON('modules/impressum.json').then((d) => (d?.name ? d : null)).catch(() => null);
+  return impressumDaten;
+}
+
+function impressumKarte(daten) {
+  if (!daten) return null;
+  return h('section', { class: 'karte', id: 'impressum' },
+    h('h2', {}, icon('info'), 'Impressum'),
+    h('p', {}, 'Angaben nach § 18 Abs. 1 Medienstaatsvertrag:'),
+    h('address', { class: 'impressum' },
+      h('strong', {}, daten.name),
+      (daten.anschrift ?? []).map((zeile) => h('span', {}, zeile)),
+      daten.vertreten && h('span', {}, `Vertreten durch: ${daten.vertreten}`),
+      daten.email && h('span', {}, 'E-Mail: ', h('a', { href: `mailto:${daten.email}` }, daten.email)),
+    ),
+  );
+}
+
+function infoSeite(el, impressum = null) {
   anhaengen(el,
     h('header', { class: 'seitenkopf' }, h('h1', {}, 'Über AeroTrainer')),
     h('div', { class: 'karte wichtig' },
@@ -497,8 +530,13 @@ function infoSeite(el) {
     ),
     h('section', { class: 'karte' },
       h('h2', {}, icon('auge'), 'Datenschutz'),
-      h('p', {}, 'Die App sammelt keine Daten. Es gibt keine Benutzerkonten, kein Tracking und keinen Server. '
-        + 'Dein Lernstand bleibt im Browser auf deinem Gerät und in den Sicherungsdateien, die du selbst ablegst.'),
+      h('p', {}, 'Die App selbst sammelt keine Daten: keine Benutzerkonten, kein Tracking, keine Werbung, keine Cookies und kein eigener Server. '
+        + 'Dein Lernstand (auch deine Merkliste) bleibt im Browser auf deinem Gerät und in den Sicherungsdateien, die du selbst ablegst. '
+        + 'Gespeichert wird er nur, damit die App für dich funktioniert.'),
+      h('p', {}, 'Die App liegt bei ', h('strong', {}, 'GitHub Pages'), ' (GitHub, Inc., USA). Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie deine IP-Adresse, '
+        + 'um die Seite auszuliefern und vor Angriffen zu schützen. Details: ',
+        h('a', { href: 'https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement', target: '_blank', rel: 'noopener' }, 'Datenschutzerklärung von GitHub'), '.'),
+      impressum && h('p', {}, 'Verantwortlich für dieses Angebot: siehe ', h('a', { href: '#/info/impressum' }, 'Impressum'), '.'),
     ),
     h('section', { class: 'karte' },
       h('h2', {}, icon('theorie'), 'Inhalte'),
@@ -517,7 +555,120 @@ function infoSeite(el) {
         h('li', {}, 'Fremde Bestandteile: keine – ', h('a', { href: 'THIRD_PARTY_LICENSES.md' }, 'Übersicht')),
       ),
     ),
+    impressumKarte(impressum),
     h('p', { class: 'leise zentriert' }, `AeroTrainer ${APP_VERSION}`),
+  );
+}
+
+// ---------- Merkliste ----------
+
+function merklisteKachel() {
+  const anzahl = lernstand.merkliste().length;
+  if (!anzahl) return null;
+  return h('a', { class: 'merkliste-kachel', href: '#/merkliste' },
+    h('span', { class: 'merkliste-kachel-symbol' }, icon('merken')),
+    h('span', { class: 'merkliste-kachel-text' }, h('strong', {}, 'Deine Merkliste'), h('span', {}, mehrzahl(anzahl, 'gemerkte Frage', 'gemerkte Fragen'))),
+    icon('weiter'));
+}
+
+/** Lädt zu jedem Merk-Eintrag die Frage (aus dem Modul oder der gespeicherten Kopie) und eine Aufgabe für die Fragerunde. */
+async function merkEintraegeLaden() {
+  const eintraege = lernstand.merkliste();
+  const liste = await aktiveModule();
+  const geladen = new Map();
+  for (const modul of liste.filter((m) => eintraege.some((e) => e.modul === m.id))) {
+    try {
+      const { code, ctx } = await modulLaden(modul);
+      geladen.set(modul.id, { modul, code, ctx, daten: await code.api.laden(ctx) });
+    } catch (fehler) {
+      console.warn(`Modul ${modul.id} konnte nicht geladen werden`, fehler);
+    }
+  }
+  return eintraege.map((eintrag) => {
+    const m = geladen.get(eintrag.modul);
+    if (!m) return { eintrag, fehlt: true };
+    const { code, ctx, daten, modul } = m;
+    const bekannt = daten.aufgaben.get(eintrag.id);
+    if (eintrag.frage) {
+      // Erzeugte Aufgabe: genau die gespeicherte Fassung zeigen. Gehört sie zu einer Frage des
+      // Moduls (Rechenaufgabe), zählt die Antwort wie gewohnt für die Wiederholung.
+      const basis = bekannt ? code.api.aufgabe(ctx, eintrag.id, daten) : { id: eintrag.id, abbildung: (n) => code.api.abbildung(n) };
+      return { eintrag, modul, frage: eintrag.frage, erzeugt: true,
+        aufgabe: { ...basis, erzeugen: () => structuredClone(eintrag.frage), merken: { modul: modul.id, id: eintrag.id, erzeugt: true } } };
+    }
+    if (!bekannt) return { eintrag, modul, fehlt: true };
+    return { eintrag, modul, frage: bekannt.quelle, erzeugt: false, aufgabe: code.api.aufgabe(ctx, eintrag.id, daten) };
+  });
+}
+
+async function merklisteSeite(el, [teil, modulId]) {
+  const alle = await merkEintraegeLaden();
+  const nutzbar = alle.filter((e) => !e.fehlt);
+
+  if (teil === 'ueben') {
+    const auswahl = nutzbar.filter((e) => !modulId || e.modul.id === modulId);
+    if (!auswahl.length) { location.hash = '#/merkliste'; return; }
+    fragerunde(el, {
+      titel: modulId ? `Merkliste · ${auswahl[0].modul.titel}` : 'Merkliste',
+      aufgaben: zufall.mischen(auswahl.map((e) => e.aufgabe)),
+      zurueck: { href: '#/merkliste', text: 'Zur Merkliste' },
+      nochmal: () => { el.replaceChildren(); merklisteSeite(el, [teil, modulId]); },
+      amEnde: faelligeAktualisieren,
+    });
+    return;
+  }
+
+  const kopf = h('header', { class: 'seitenkopf' },
+    brotkrumen(['Start', '#/'], ['Merkliste']),
+    h('h1', {}, 'Merkliste'),
+    h('p', { class: 'einleitung' }, alle.length
+      ? `${mehrzahl(alle.length, 'Frage', 'Fragen')}, die du dir gemerkt hast. Übe sie gezielt – so oft du willst.`
+      : 'Hier sammelst du Fragen, die du dir gezielt noch einmal ansehen willst.'),
+  );
+  if (!alle.length) {
+    anhaengen(el, kopf, leerzustand('merken', 'Noch nichts gemerkt',
+      'Tippe bei einer Frage oben rechts auf „Merken“ – in jeder Lern- und Übungsrunde, in der Wiederholung, am Ende einer Runde und in der Prüfansicht. Die Fragen landen dann hier.',
+      h('a', { class: 'knopf gross', href: '#/' }, icon('start'), 'Zu den Themen')));
+    return;
+  }
+
+  const neuZeichnen = () => { el.replaceChildren(); merklisteSeite(el, []); };
+  const gruppen = new Map();
+  for (const e of alle) {
+    const id = e.modul?.id ?? e.eintrag.modul;
+    if (!gruppen.has(id)) gruppen.set(id, []);
+    gruppen.get(id).push(e);
+  }
+
+  anhaengen(el,
+    kopf,
+    h('div', { class: 'knopfreihe' },
+      h('a', { class: 'knopf gross', href: '#/merkliste/ueben', 'aria-disabled': String(!nutzbar.length) }, icon('ueben'), 'Merkliste üben'),
+    ),
+    [...gruppen].map(([id, eintraege]) => {
+      const modul = eintraege.find((e) => e.modul)?.modul;
+      return h('section', { class: 'karte merkliste-thema', 'data-modul': id },
+        h('div', { class: 'merkliste-thema-kopf' },
+          h('h2', {}, h('span', { class: 'quellen-symbol' }, themenIcon(id)), modul?.titel ?? id),
+          eintraege.some((e) => !e.fehlt) && h('a', { class: 'knopf zweitrangig klein', href: `#/merkliste/ueben/${encodeURIComponent(id)}` }, icon('ueben'), 'Nur diese üben'),
+        ),
+        h('ul', { class: 'merkliste-eintraege' }, eintraege.map((e) => h('li', {},
+          h('div', { class: 'merkliste-frage' },
+            e.fehlt
+              ? h('span', { class: 'leise' }, 'Diese Frage gibt es nicht mehr – sie wurde geändert oder entfernt.')
+              : h('span', {}, formatiert(frageText(e.frage) ?? '')),
+            h('span', { class: 'merkliste-meta' },
+              e.erzeugt ? 'Rechen- bzw. Übungsaufgabe · ' : '',
+              `gemerkt am ${datumText(new Date(e.eintrag.gemerkt))}`),
+          ),
+          h('button', {
+            type: 'button', class: 'merk-entfernen', 'aria-label': 'Von der Merkliste entfernen', title: 'Von der Merkliste entfernen',
+            onclick: () => { lernstand.vergessen(e.eintrag.schluessel); neuZeichnen(); },
+          }, icon('kreuz')),
+        ))),
+      );
+    }),
+    h('p', { class: 'hinweis-klein' }, 'Die Merkliste ist Teil deines Lernstands und wird beim Sichern mitgespeichert.'),
   );
 }
 
@@ -604,6 +755,9 @@ navigationAufbauen();
 window.addEventListener('hashchange', () => navigieren());
 window.addEventListener('stufe-geaendert', () => navigieren({ behalteScroll: true }));
 lexikonLaden().finally(() => navigieren());
+impressumLaden().then((daten) => {
+  if (daten) document.querySelector('.lernhilfe-hinweis')?.append(' · ', h('a', { href: '#/info/impressum' }, 'Impressum'));
+});
 faelligeAktualisieren();
 lernstand.dauerhaftenSpeicherAnfragen();
 

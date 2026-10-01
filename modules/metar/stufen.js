@@ -181,6 +181,7 @@ export function stufe2(el, [stufe], ctx) {
   const fragen = entschluesselnFragen(zufall, text);
   const neuZeichnen = () => { el.replaceChildren(); stufe2(el, [stufe], ctx); };
   fragerunde(el, {
+    merkModul: ctx.modul.id,
     titel: `Stufe 2 · Schwierigkeit ${stufe}`,
     aufgaben: fragen.map((frage, i) => ({ id: `s2-${i}`, erzeugen: () => frage })),
     zurueck: { href: ctx.link('2'), text: 'Schwierigkeit wählen' },
@@ -278,6 +279,7 @@ export function stufe4(el, [kennung], ctx, daten) {
   const szenario = szenarioErzeugen(zufall, daten.plaetze, kennung === 'zufall' ? null : kennung);
   const neuZeichnen = () => { el.replaceChildren(); stufe4(el, [kennung], ctx, daten); };
   fragerunde(el, {
+    merkModul: ctx.modul.id,
     titel: `Stufe 4 · ${szenario.platz.name}`,
     aufgaben: szenario.fragen.map((frage, i) => ({ id: `s4-${i}`, erzeugen: () => frage })),
     zurueck: { href: ctx.link('4'), text: 'Flugplatz wählen' },

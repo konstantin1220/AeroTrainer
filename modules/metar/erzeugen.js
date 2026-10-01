@@ -8,17 +8,12 @@
 //  - Wolkenschichten: 1. Schicht beliebig, 2. mindestens SCT, 3. mindestens BKN; nach OVC keine weitere.
 //  - CAVOK, wenn Sicht ≥ 10 km, kein Wetter, keine Wolken unter 5000 ft und kein CB/TCU.
 
+// Frei erfundene Plätze des Übungsgebiets (wie in content/plaetze.json und auf der Übungskarte).
+// Bewusst keine echten Kennungen: Die Wetterlagen sind erfunden und sollen nicht mit echten Meldungen verwechselt werden.
 export const STATIONEN = [
-  { kennung: 'EDDS', pisten: ['07', '25'] },
-  { kennung: 'EDDN', pisten: ['10', '28'] },
-  { kennung: 'EDDH', pisten: ['23', '33'] },
-  { kennung: 'EDNY', pisten: ['06', '24'] },
-  { kennung: 'EDDR', pisten: ['09', '27'] },
-  { kennung: 'EDDW', pisten: ['09', '27'] },
-  { kennung: 'EDDM', pisten: ['08L', '26R'] },
-  { kennung: 'EDDL', pisten: ['05R', '23L'] },
-  { kennung: 'EDDP', pisten: ['08R', '26L'] },
-  { kennung: 'EDDF', pisten: ['07C', '25C'] },
+  { kennung: 'XMUS', pisten: ['09', '27'] },
+  { kennung: 'XALT', pisten: ['07', '25'] },
+  { kennung: 'XBER', pisten: ['03', '21'] },
 ];
 
 const LAGEN = {

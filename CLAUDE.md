@@ -57,6 +57,7 @@ Gut sichtbar kennzeichnen: Die App ist eine **Lernhilfe** und kein offizielles o
 - **Interaktiv:** Wo sinnvoll, gibt es interaktive Darstellungen (`modules/<thema>/interaktiv.js`, Bausteine in `js/interaktiv.js`), eingebunden per Theorie-Block `{ "typ": "interaktiv", "id": … }`. Rechenlogik als exportierte reine Funktionen, damit sie getestet werden kann. Jedes Element hat `anleitung` (was tun, was zeigt die Grafik), `legende` (Farben, erscheint direkt unter der Grafik) und `probier` (kleine Aufgaben, je nach Erklär-Level offen, aufklappbar oder ausgeblendet). Linien dünn halten (1–2,5), Werte direkt in die Grafik schreiben.
 - **Übungsgebiet:** frei erfundene Plätze mit X-Kennungen (XMUS, XALT, XNEU, XBER, XSEE), gemeinsam genutzt von Navigation und METAR.
 - **Gestaltung:** alle Symbole und Grafiken selbst gezeichnet, keine Standard-Icons. Farben über CSS-Variablen, hell und dunkel.
+- **Impressum:** `modules/impressum.json` (Name und ladungsfähige Anschrift nach § 18 Abs. 1 MStV). Keine persönlichen Daten ohne ausdrückliche Freigabe eintragen.
 - **Quellen:** `modules/quellen.json`, angezeigt unter Info → Quellen & Grundlagen. Neue Inhalte dort mit Quelle, Fundstelle und ehrlichem Status eintragen; „abgeglichen“ nur, wenn wirklich mit dem amtlichen Originaltext verglichen (SERA auf EUR-Lex, LuftVO auf gesetze-im-internet.de).
 
 ## Arbeitsweise

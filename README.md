@@ -12,6 +12,8 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 - **8 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Masse & Schwerpunkt,
   Meteorologie, Aerodynamik, Signale – jeweils mit Theorie-Kapiteln, Abbildungen und Fragen.
 - **Verteilte Wiederholung** (Leitner-Karteikasten mit 5 Fächern): Jede Frage kommt wieder, wenn sie dran ist.
+- **Merkliste**: Jede Frage lässt sich überall mit „Merken“ vormerken und später gezielt üben – auch erzeugte Rechenaufgaben
+  (sie werden genau so gespeichert, wie sie gestellt wurden). Die Merkliste gehört zum Lernstand und wird mitgesichert.
   Fällige Fragen aller Themen lassen sich gemeinsam wiederholen.
 - **Rechenaufgaben, die jedes Mal neu entstehen**: Winddreieck, Missweisung, Schwerpunkt, Wolkenbasis,
   Lastvielfaches, Frequenzen sprechen, Kurs auf der Übungskarte messen u. v. m.
@@ -161,6 +163,10 @@ Branch `main`, Ordner `/ (root)` wählen. Alle Pfade sind relativ – die App l�
 `https://<name>.github.io/<repo>/`.
 
 ## Rechtliches
+
+- **Impressum:** Weil die App öffentlich erreichbar ist und nicht nur privaten Zwecken dient, braucht sie eine
+  Anbieterkennzeichnung (§ 18 Abs. 1 Medienstaatsvertrag: Name und ladungsfähige Anschrift). Die Angaben stehen in
+  `modules/impressum.json`; sobald `name` ausgefüllt ist, erscheinen Impressum und Link automatisch.
 
 - Nur eigene Inhalte. Keine Fragen aus dem Prüfungsfragenkatalog (ECQB), auch nicht umformuliert.
 - Grundlage sind frei zugängliche Vorschriften, vor allem SERA (Durchführungsverordnung (EU) Nr. 923/2012).

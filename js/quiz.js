@@ -6,6 +6,7 @@ import { icon } from './icons.js';
 import { bewerten, loesungText, zahlLesen } from './fragen.js';
 import { zufall } from './zufall.js';
 import { textMitBegriffen } from './lexikon.js';
+import { merkKnopf } from './merkliste.js';
 
 const LOB = ['Richtig!', 'Genau so.', 'Sauber gelöst.', 'Stimmt.', 'Sehr gut.'];
 const BUCHSTABEN = 'ABCDEFGH';
@@ -175,12 +176,14 @@ function eingabeFuer(frage, bereit, absenden) {
 
 /**
  * Startet eine Fragerunde im Element el.
- *   aufgaben:  [{ id, erzeugen(), abbildung?(name), beantworten?(richtig) }]
+ *   aufgaben:  [{ id, erzeugen(), abbildung?(name), beantworten?(richtig), merken?: { modul, id, erzeugt } }]
  *   zurueck:   { href, text } – Ziel nach der Runde
  *   nochmal:   Funktion für „Noch eine Runde“ (optional)
  *   amEnde:    wird nach der letzten Frage mit { gesamt, erstRichtig } aufgerufen (optional)
+ *   merkModul: Modul-ID für Aufgaben ohne eigene Merk-Angabe – sie werden als erzeugte Fragen gemerkt (optional)
  */
-export function fragerunde(el, { aufgaben, zurueck, nochmal, amEnde, titel, vorspann }) {
+export function fragerunde(el, { aufgaben, zurueck, nochmal, amEnde, titel, vorspann, merkModul }) {
+  const merkInfo = (aufgabe) => aufgabe.merken ?? (merkModul ? { modul: merkModul, id: String(aufgabe.id), erzeugt: true } : null);
   const schlange = aufgaben.map((a) => ({ aufgabe: a, frage: a.erzeugen(), wiederholung: false }));
   let position = 0;
   let erstRichtig = 0;
@@ -246,7 +249,9 @@ export function fragerunde(el, { aufgaben, zurueck, nochmal, amEnde, titel, vors
       titel && h('p', { class: 'runde-titel' }, titel, eintrag.wiederholung ? ' · Wiederholung' : ''),
       !titel && eintrag.wiederholung && h('p', { class: 'runde-titel' }, 'Wiederholung'),
       vorspann && position === 0 && h('div', { class: 'runde-vorspann' }, vorspann),
-      h('div', { class: 'frage-karte' }, frageKopf(frage, aufgabe.abbildung), eingabe.knoten),
+      h('div', { class: 'frage-karte' },
+        merkInfo(aufgabe) && h('div', { class: 'frage-werkzeuge' }, merkKnopf(merkInfo(aufgabe), frage)),
+        frageKopf(frage, aufgabe.abbildung), eingabe.knoten),
       fuss,
     ));
     window.scrollTo(0, 0);
@@ -265,9 +270,10 @@ export function fragerunde(el, { aufgaben, zurueck, nochmal, amEnde, titel, vors
       h('p', { class: 'einleitung' }, `${erstRichtig} von ${gesamt} Fragen beim ersten Versuch richtig.`),
       fehler.length > 0 && h('div', { class: 'karte fehlerliste' },
         h('h2', {}, 'Das solltest du dir noch einmal ansehen'),
-        h('ul', {}, fehler.map(({ frage }) => h('li', {},
+        h('ul', {}, fehler.map(({ frage, aufgabe }) => h('li', {},
           h('span', { class: 'fehler-frage' }, formatiert(frage.typ === 'wahrfalsch' ? frage.aussage : frage.frage)),
           h('span', { class: 'fehler-loesung' }, icon('haken'), ' ', formatiert(loesungText(frage))),
+          merkInfo(aufgabe) && merkKnopf(merkInfo(aufgabe), frage),
         ))),
       ),
       h('div', { class: 'knopfreihe zentriert' },

@@ -12,7 +12,7 @@
     },
     "station": {
       "titel": "Ortskennung",
-      "erklaerung": "Vierstellige ICAO-Kennung des Flugplatzes. Flugplätze in Deutschland beginnen mit ED (zivil) oder ET (militärisch)."
+      "erklaerung": "Vierstellige ICAO-Kennung des Flugplatzes. Flugplätze in Deutschland beginnen mit ED (zivil) oder ET (militärisch). Die Übungsplätze in dieser App beginnen mit X – sie sind frei erfunden."
     },
     "zeit": {
       "titel": "Beobachtungszeit",

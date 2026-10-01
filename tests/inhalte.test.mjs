@@ -98,7 +98,12 @@ for (const modul of aktiv) {
           const generator = generatoren[quelle.generator];
           assert.ok(generator, `${quelle.id}: Generator „${quelle.generator}“ fehlt`);
           const z = zufallsquelle(quelle.id.length * 7919);
-          for (let i = 0; i < 300; i++) frageVollstaendigPruefen(generator(z, quelle), `${quelle.id} (Durchlauf ${i})`, abbildungen);
+          for (let i = 0; i < 300; i++) {
+            const frage = generator(z, quelle);
+            frageVollstaendigPruefen(frage, `${quelle.id} (Durchlauf ${i})`, abbildungen);
+            // Gemerkte Rechenaufgaben werden als JSON gespeichert – das muss verlustfrei gehen.
+            assert.deepStrictEqual(JSON.parse(JSON.stringify(frage)), frage, `${quelle.id}: erzeugte Frage lässt sich nicht verlustfrei speichern`);
+          }
         } else {
           frageVollstaendigPruefen(quelle, quelle.id, abbildungen);
         }
@@ -162,5 +167,14 @@ test('Quellen: jedes Thema hat Einträge, Verweise und Status stimmen', () => {
       if (p.status !== 'erfunden') assert.ok(quellen.has(p.quelle), `${thema.modul}: Quelle „${p.quelle}“ fehlt in der Quellenliste`);
       if (p.status === 'abgeglichen') assert.ok(p.fundstelle, `${thema.modul}: „${p.inhalt}“ ist abgeglichen, aber ohne Fundstelle`);
     }
+  }
+});
+
+test('Impressum: entweder leer oder mit Name und Anschrift', () => {
+  const daten = json('../modules/impressum.json');
+  assert.ok(Array.isArray(daten.anschrift), 'anschrift muss eine Liste von Zeilen sein');
+  if (daten.name) {
+    assert.ok(daten.anschrift.length >= 2, 'Impressum braucht eine vollständige (ladungsfähige) Anschrift');
+    if (daten.email) assert.match(daten.email, /^[^@\s]+@[^@\s]+\.[^@\s]+$/, 'E-Mail-Adresse ungültig');
   }
 });
