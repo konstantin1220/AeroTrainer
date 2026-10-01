@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- Zeigt alle selbst gezeichneten Abbildungen aller Module auf einer Seite – zum Prüfen und Gegenlesen.
+     Mit ?modul=navigation nur ein Modul, mit ?dunkel=1 im dunklen Farbschema (falls das System hell ist, nur Hintergrund). -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AeroTrainer – alle Abbildungen</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    body { padding: 1rem; }
+    .raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1rem; }
+    .raster figure { margin: 0; }
+    .raster h3 { font-size: 0.85rem; font-family: var(--mono); margin: 0 0 0.3rem; color: var(--leise); }
+  </style>
+</head>
+<body>
+  <h1>Alle Abbildungen</h1>
+  <div id="inhalt"></div>
+  <script type="module">
+    import { abbildungKnoten, h } from '../js/ui.js';
+    const wunsch = new URLSearchParams(location.search).get('modul');
+    const module = ['luftraum', 'sprechfunk', 'navigation', 'masse-schwerpunkt', 'meteorologie', 'aerodynamik', 'signale'];
+    for (const id of module.filter((m) => !wunsch || m === wunsch)) {
+      const teile = await import(`../modules/${id}/abbildungen.js`);
+      let liste = teile.abbildungen;
+      if (!liste && teile.abbildungenFuer) {
+        const daten = await fetch(`../modules/${id}/content/flugzeug.json`).then((r) => r.json());
+        liste = teile.abbildungenFuer(daten);
+      }
+      const bereich = h('section', { 'data-modul': id }, h('h2', {}, id));
+      const raster = h('div', { class: 'raster' });
+      for (const [name, zeichnen] of Object.entries(liste)) raster.append(h('div', {}, h('h3', {}, name), abbildungKnoten(zeichnen())));
+      bereich.append(raster);
+      document.getElementById('inhalt').append(bereich);
+    }
+  </script>
+</body>
+</html>

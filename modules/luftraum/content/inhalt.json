@@ -1,0 +1,1047 @@
+{
+  "_hinweis": "Lerninhalte „Luftraum & Regeln“. Grundlage: Durchführungsverordnung (EU) Nr. 923/2012 (SERA). Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Luftraumklassen, Sichtflugbedingungen, Kontrollzonen, Mindesthöhen und Ausweichregeln – die Spielregeln für den Sichtflug.",
+  "kapitel": [
+    {
+      "id": "klassen",
+      "titel": "Luftraumklassen",
+      "kurz": "Wer braucht wo eine Freigabe, wer muss funken – und was bekommt man von der Flugsicherung?",
+      "kern": [
+        "In Deutschland gibt es vor allem die Klassen C, D, E (kontrolliert) und G (unkontrolliert).",
+        "Eine Freigabe brauchen VFR-Flüge in C und D – nicht in E und G.",
+        "Unter FL 100 gilt für VFR höchstens 250 kt IAS.",
+        "Kontrollzonen (CTR) sind Luftraum D."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Der Luftraum ist in **Klassen** eingeteilt. Die Klasse legt fest, ob du für einen Sichtflug eine **Freigabe** der Flugverkehrskontrolle brauchst, ob **Funkverbindung** Pflicht ist und welche Dienste du bekommst. International werden die Klassen mit den Buchstaben A bis G bezeichnet; die europäischen Regeln dazu stehen in SERA (Anlage 4)."
+        },
+        {
+          "typ": "einfach",
+          "text": "Lufträume sind wie Straßen mit unterschiedlichen Regeln: In C und D fragst du vorher „Darf ich?“ (Freigabe) und bleibst am Funk – wie an einer Baustellenampel. In E und G fährst du ohne Ampel, musst aber selbst gut aufpassen."
+        },
+        {
+          "typ": "absatz",
+          "text": "In Deutschland sind vor allem die Klassen **C, D, E und G** eingerichtet. C, D und E sind **kontrollierter** Luftraum, G ist **unkontrolliert**."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Klasse",
+            "Freigabe für VFR",
+            "Dauernde Funkverbindung",
+            "Dienst für VFR-Flüge",
+            "Höchstgeschwindigkeit unter FL 100"
+          ],
+          "zeilen": [
+            [
+              "**C**",
+              "erforderlich",
+              "erforderlich",
+              "Staffelung gegenüber IFR, Verkehrsinformationen über VFR",
+              "250 kt IAS"
+            ],
+            [
+              "**D**",
+              "erforderlich",
+              "erforderlich",
+              "Verkehrsinformationen über IFR und VFR",
+              "250 kt IAS"
+            ],
+            [
+              "**E**",
+              "nicht erforderlich",
+              "nicht erforderlich¹",
+              "Verkehrsinformationen, soweit möglich",
+              "250 kt IAS"
+            ],
+            [
+              "**G**",
+              "nicht erforderlich",
+              "nicht erforderlich¹",
+              "Fluginformationsdienst auf Anfrage",
+              "250 kt IAS"
+            ]
+          ],
+          "unterschrift": "¹ außer in einer Funkkontaktpflichtzone (RMZ). Werte nach SERA, Anlage 4."
+        },
+        {
+          "typ": "abbildung",
+          "id": "luftraumschnitt",
+          "unterschrift": "Beispielhafter Aufbau: unten der unkontrollierte Luftraum G, darüber E, um einen Flughafen die Kontrollzone (CTR) und weitere Bereiche der Klasse D, ganz oben C."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kontrollzone (CTR)"
+        },
+        {
+          "typ": "absatz",
+          "text": "Um Flugplätze mit Flugverkehrskontrolle liegt eine **Kontrollzone (CTR)**. Sie reicht vom Boden bis zu einer festgelegten Obergrenze und schützt An- und Abflüge. In Deutschland sind Kontrollzonen als **Luftraum D (CTR)** eingestuft – du brauchst also eine Freigabe und dauernde Funkverbindung."
+        },
+        {
+          "typ": "merke",
+          "text": "Kontrolliert heißt nicht automatisch Freigabe: Im Luftraum **E** fliegst du nach Sichtflugregeln ohne Freigabe und ohne Funkpflicht. Erst ab **D** (und in C) brauchst du eine Freigabe."
+        },
+        {
+          "typ": "absatz",
+          "text": "Egal in welcher Klasse: Beim Sichtflug bist du selbst dafür verantwortlich, anderen Luftfahrzeugen auszuweichen – **sehen und ausweichen**. Verkehrsinformationen helfen dabei, ersetzen den Blick nach draußen aber nicht."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "lr-kl-01",
+          "typ": "auswahl",
+          "frage": "In welchen dieser Luftraumklassen brauchst du für einen VFR-Flug eine Freigabe der Flugverkehrskontrolle?",
+          "richtig": "C und D",
+          "falsch": [
+            "C, D und E",
+            "Nur C",
+            "In jedem kontrollierten Luftraum"
+          ],
+          "erklaerung": "Freigabepflichtig sind für VFR die Klassen C und D. Luftraum E ist zwar kontrolliert, VFR-Flüge brauchen dort aber keine Freigabe."
+        },
+        {
+          "id": "lr-kl-02",
+          "typ": "wahrfalsch",
+          "aussage": "Im Luftraum E braucht ein VFR-Flug eine Freigabe der Flugverkehrskontrolle.",
+          "richtig": false,
+          "erklaerung": "Im Luftraum E brauchen nur IFR-Flüge eine Freigabe. VFR-Flüge fliegen dort ohne Freigabe und ohne Funkpflicht."
+        },
+        {
+          "id": "lr-kl-03",
+          "typ": "auswahl",
+          "frage": "Welche Höchstgeschwindigkeit gilt für VFR-Flüge unterhalb FL 100 im Luftraum E?",
+          "richtig": "250 kt IAS",
+          "falsch": [
+            "200 kt IAS",
+            "180 kt IAS",
+            "Es gibt keine Begrenzung"
+          ],
+          "erklaerung": "Unterhalb FL 100 gilt für VFR-Flüge in den Klassen C bis G eine Höchstgeschwindigkeit von 250 kt angezeigter Fluggeschwindigkeit (IAS)."
+        },
+        {
+          "id": "lr-kl-04",
+          "typ": "auswahl",
+          "frage": "Welchen Dienst bekommt ein VFR-Flug im Luftraum D von der Flugverkehrskontrolle?",
+          "richtig": "Verkehrsinformationen über IFR- und VFR-Flüge",
+          "falsch": [
+            "Staffelung gegenüber allen anderen Flügen",
+            "Staffelung gegenüber IFR-Flügen",
+            "Keinen, nur die Freigabe"
+          ],
+          "erklaerung": "Im Luftraum D werden VFR-Flüge nicht gestaffelt. Sie erhalten Verkehrsinformationen über andere Flüge – ausweichen müssen sie selbst."
+        },
+        {
+          "id": "lr-kl-05",
+          "typ": "auswahl",
+          "frage": "Wogegen wird ein VFR-Flug im Luftraum C gestaffelt?",
+          "richtig": "Gegen IFR-Flüge",
+          "falsch": [
+            "Gegen alle anderen Flüge",
+            "Nur gegen andere VFR-Flüge",
+            "Gegen gar keine Flüge"
+          ],
+          "erklaerung": "Im Luftraum C staffelt die Flugverkehrskontrolle VFR-Flüge gegenüber IFR-Flügen. Über andere VFR-Flüge gibt es Verkehrsinformationen."
+        },
+        {
+          "id": "lr-kl-06",
+          "typ": "wahrfalsch",
+          "aussage": "Der Luftraum G ist unkontrollierter Luftraum.",
+          "richtig": true,
+          "erklaerung": "In G gibt es keine Flugverkehrskontrolle. Auf Anfrage bekommst du Fluginformationsdienst (FIS)."
+        },
+        {
+          "id": "lr-kl-07",
+          "typ": "auswahl",
+          "frage": "Wie sind Kontrollzonen (CTR) in Deutschland eingestuft?",
+          "richtig": "Als Luftraum D",
+          "falsch": [
+            "Als Luftraum E",
+            "Als Luftraum G",
+            "Als Luftraum A"
+          ],
+          "erklaerung": "Kontrollzonen sind in Deutschland Luftraum D (CTR): Freigabe und dauernde Funkverbindung sind Pflicht."
+        },
+        {
+          "id": "lr-kl-08",
+          "typ": "zuordnung",
+          "frage": "Ordne jeder Luftraumklasse die passende Beschreibung für VFR-Flüge zu.",
+          "paare": [
+            [
+              "Luftraum C",
+              "Freigabe nötig, Staffelung gegen IFR"
+            ],
+            [
+              "Luftraum D",
+              "Freigabe nötig, nur Verkehrsinformationen"
+            ],
+            [
+              "Luftraum E",
+              "Kontrolliert, aber keine Freigabe nötig"
+            ],
+            [
+              "Luftraum G",
+              "Unkontrolliert"
+            ]
+          ]
+        },
+        {
+          "id": "lr-kl-09",
+          "typ": "wahrfalsch",
+          "aussage": "Auch mit Freigabe im Luftraum D bleibt der Pilot beim Sichtflug selbst für das Ausweichen verantwortlich.",
+          "richtig": true,
+          "erklaerung": "VFR-Flüge werden in D nicht gestaffelt. Es gilt „sehen und ausweichen“ – Verkehrsinformationen helfen dabei."
+        }
+      ]
+    },
+    {
+      "id": "vmc",
+      "titel": "Sichtflugbedingungen (VMC)",
+      "kurz": "Wie weit du sehen und wie viel Abstand du zu Wolken halten musst.",
+      "kern": [
+        "Unter FL 100: mindestens 5 km Flugsicht, 1500 m waagerecht und 1000 ft senkrecht Abstand zu Wolken.",
+        "Ab FL 100: mindestens 8 km Flugsicht.",
+        "Luftraum G bis 3000 ft MSL bzw. 1000 ft über Grund (der höhere Wert): frei von Wolken mit Erdsicht, in Deutschland 1,5 km Flugsicht."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Nach Sichtflugregeln (VFR) darfst du nur fliegen, wenn **Flugsicht** und **Abstand zu Wolken** mindestens den Werten in SERA.5001 entsprechen. Diese Bedingungen heißen **VMC** (Visual Meteorological Conditions)."
+        },
+        {
+          "typ": "einfach",
+          "text": "Sichtflug heißt: Du musst andere Flugzeuge rechtzeitig sehen können. Der Abstand zu Wolken sorgt dafür, dass niemand plötzlich aus einer Wolke auftaucht, ohne dass du noch ausweichen kannst – wie ein Sicherheitsabstand vor einer unübersichtlichen Kurve."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Höhenband",
+            "Luftraum",
+            "Flugsicht",
+            "Abstand zu Wolken"
+          ],
+          "zeilen": [
+            [
+              "ab FL 100",
+              "C, D, E, G",
+              "8 km",
+              "1500 m waagerecht, 1000 ft senkrecht"
+            ],
+            [
+              "unter FL 100, oberhalb 3000 ft MSL bzw. 1000 ft über Grund¹",
+              "C, D, E, G",
+              "5 km",
+              "1500 m waagerecht, 1000 ft senkrecht"
+            ],
+            [
+              "bis 3000 ft MSL bzw. 1000 ft über Grund¹",
+              "C, D, E",
+              "5 km",
+              "1500 m waagerecht, 1000 ft senkrecht"
+            ],
+            [
+              "bis 3000 ft MSL bzw. 1000 ft über Grund¹",
+              "G",
+              "5 km²",
+              "frei von Wolken, mit Erdsicht"
+            ]
+          ],
+          "unterschrift": "¹ Maßgeblich ist der jeweils höhere Wert. ² Die zuständige Behörde darf bis zu 1500 m Flugsicht zulassen (bei höchstens 140 kt IAS). In Deutschland gilt im Luftraum G unterhalb dieser Grenze eine Flugsicht von 1500 m (für Hubschrauber 800 m)."
+        },
+        {
+          "typ": "abbildung",
+          "id": "wolkenabstand",
+          "unterschrift": "1500 m waagerecht und 1000 ft senkrecht – dieser Abstand gilt überall außer im Luftraum G unterhalb der 3000-ft-/1000-ft-Grenze."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "vmc"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Die Grenze 3000 ft MSL bzw. 1000 ft über Grund"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Grenze ist der **höhere** der beiden Werte. Über flachem Land (Gelände 400 ft) sind 1000 ft über Grund nur 1400 ft MSL – es gilt also 3000 ft MSL. Über einem Mittelgebirge auf 2600 ft liegt die Grenze bei 3600 ft MSL, weil 1000 ft über Grund dort höher ist als 3000 ft MSL."
+        },
+        {
+          "typ": "merke",
+          "text": "**Flugsicht** ist die Sicht aus dem Cockpit in Flugrichtung. **Bodensicht** ist die am Flugplatz gemessene oder beobachtete Sicht – sie steht im METAR."
+        },
+        {
+          "typ": "achtung",
+          "text": "Die Werte sind Mindestwerte. Bei schlechter Sicht, Dunst gegen die Sonne oder tiefen Wolken über Hindernissen ist mehr Abstand oft die bessere Entscheidung."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "lr-vmc-01",
+          "typ": "zahl",
+          "frage": "Welche Flugsicht brauchst du nach SERA unterhalb FL 100 im Luftraum E mindestens?",
+          "loesung": 5,
+          "einheit": "km",
+          "erklaerung": "In den Lufträumen C, D und E gilt unterhalb FL 100 eine Flugsicht von mindestens 5 km."
+        },
+        {
+          "id": "lr-vmc-02",
+          "typ": "zahl",
+          "frage": "Welchen waagerechten Mindestabstand zu Wolken musst du im Luftraum D einhalten?",
+          "loesung": 1500,
+          "einheit": "m",
+          "erklaerung": "Im kontrollierten Luftraum gilt immer: 1500 m waagerecht und 1000 ft senkrecht."
+        },
+        {
+          "id": "lr-vmc-03",
+          "typ": "zahl",
+          "frage": "Welchen senkrechten Mindestabstand zu Wolken musst du im Luftraum E einhalten?",
+          "loesung": 1000,
+          "einheit": "ft",
+          "erklaerung": "1000 ft senkrecht (und 1500 m waagerecht)."
+        },
+        {
+          "id": "lr-vmc-04",
+          "typ": "zahl",
+          "frage": "Welche Flugsicht brauchst du ab FL 100?",
+          "loesung": 8,
+          "einheit": "km",
+          "erklaerung": "Ab FL 100 steigt die geforderte Flugsicht von 5 km auf 8 km."
+        },
+        {
+          "id": "lr-vmc-05",
+          "typ": "auswahl",
+          "frage": "Das Gelände liegt auf 2800 ft MSL. Bis zu welcher Höhe gilt im Luftraum G „frei von Wolken, mit Erdsicht“?",
+          "richtig": "3800 ft MSL",
+          "falsch": [
+            "3000 ft MSL",
+            "2800 ft MSL",
+            "5800 ft MSL"
+          ],
+          "erklaerung": "Maßgeblich ist der höhere Wert: 1000 ft über Grund sind hier 3800 ft MSL – das ist mehr als 3000 ft MSL."
+        },
+        {
+          "id": "lr-vmc-06",
+          "typ": "wahrfalsch",
+          "aussage": "Im Luftraum E darfst du unterhalb von 3000 ft MSL „frei von Wolken, mit Erdsicht“ fliegen.",
+          "richtig": false,
+          "erklaerung": "Die Erleichterung „frei von Wolken, mit Erdsicht“ gibt es nur im Luftraum G. Im Luftraum E gilt in jeder Höhe 1500 m waagerecht und 1000 ft senkrecht."
+        },
+        {
+          "id": "lr-vmc-07",
+          "typ": "auswahl",
+          "frage": "Welche Flugsicht gilt in Deutschland im Luftraum G unterhalb von 3000 ft MSL bzw. 1000 ft über Grund für Flugzeuge mit höchstens 140 kt IAS?",
+          "richtig": "1,5 km",
+          "falsch": [
+            "5 km",
+            "8 km",
+            "800 m"
+          ],
+          "erklaerung": "SERA erlaubt der Behörde, die Flugsicht hier auf 1500 m zu verringern – Deutschland macht davon Gebrauch. 800 m gelten für Hubschrauber."
+        },
+        {
+          "id": "lr-vmc-08",
+          "typ": "auswahl",
+          "frage": "Was ist mit „Flugsicht“ gemeint?",
+          "richtig": "Die Sicht aus dem Cockpit in Flugrichtung",
+          "falsch": [
+            "Die am Flugplatz gemeldete Sicht",
+            "Die Sicht senkrecht nach unten",
+            "Der Abstand zur nächsten Wolke"
+          ],
+          "erklaerung": "Die Flugsicht beurteilst du selbst im Flug. Die Bodensicht wird am Flugplatz beobachtet und im METAR gemeldet."
+        },
+        {
+          "id": "lr-vmc-09",
+          "typ": "generator",
+          "generator": "wolkenabstand"
+        },
+        {
+          "id": "lr-vmc-10",
+          "typ": "generator",
+          "generator": "wolkenabstand"
+        }
+      ]
+    },
+    {
+      "id": "ctr",
+      "titel": "Kontrollzone & Sonder-VFR",
+      "kurz": "Wann du an einem Platz in der CTR nach VFR starten darfst – und was Sonder-VFR bedeutet.",
+      "kern": [
+        "VFR an einem Platz in der Kontrollzone: Bodensicht ≥ 5 km und Hauptwolkenuntergrenze ≥ 1500 ft.",
+        "Sonder-VFR nur mit Freigabe: Bodensicht ≥ 1500 m, Wolkenuntergrenze ≥ 600 ft, höchstens 140 kt, frei von Wolken.",
+        "Ausgefülltes Dreieck = Pflichtmeldepunkt, leeres Dreieck = Meldepunkt auf Anforderung."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Für einen VFR-Start oder eine VFR-Landung an einem Flugplatz in einer Kontrollzone – und für den Einflug in seine Platzrunde – muss das gemeldete Wetter mindestens so gut sein (SERA.5005):"
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Kontrollzone ist der „Vorgarten“ eines Flughafens, in dem Verkehrsflugzeuge an- und abfliegen. Damit dort alles geordnet bleibt, gelten strengere Wetter-Mindestwerte – und für schlechteres Wetter gibt es eine Ausnahme mit Sondererlaubnis: Sonder-VFR."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Hauptwolkenuntergrenze** mindestens **1500 ft**",
+            "**Bodensicht** mindestens **5 km**"
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Ist es schlechter, geht es nur noch mit einer **Sonder-VFR-Freigabe** (SERA.5010). Sonder-VFR gibt es nur in Kontrollzonen und nur mit Freigabe der Flugverkehrskontrolle."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Sonder-VFR",
+            "Bedingung"
+          ],
+          "zeilen": [
+            [
+              "Wolken",
+              "frei von Wolken, mit Erdsicht"
+            ],
+            [
+              "Flugsicht",
+              "mindestens 1500 m (Hubschrauber 800 m)"
+            ],
+            [
+              "Geschwindigkeit",
+              "höchstens 140 kt IAS"
+            ],
+            [
+              "Start/Landung: Bodensicht",
+              "mindestens 1500 m (Hubschrauber 800 m)"
+            ],
+            [
+              "Start/Landung: Hauptwolkenuntergrenze",
+              "mindestens 600 ft"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "titel": "Eselsbrücke",
+          "text": "**1500 / 5** für VFR, **600 / 1,5** für Sonder-VFR – jeweils Wolkenuntergrenze in Fuß und Sicht in Kilometern."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "kontrollzone"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Meldepunkte"
+        },
+        {
+          "typ": "absatz",
+          "text": "In Kontrollzonen fliegst du meist über veröffentlichte **Meldepunkte** ein und aus. An einem **Pflichtmeldepunkt** meldest du dich immer, an einem **Meldepunkt auf Anforderung** nur, wenn die Flugverkehrskontrolle dich darum bittet."
+        },
+        {
+          "typ": "abbildung",
+          "id": "meldepunkte",
+          "unterschrift": "So sehen Meldepunkte in der Luftfahrtkarte aus."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "lr-ctr-01",
+          "typ": "zahl",
+          "frage": "Welche Hauptwolkenuntergrenze muss mindestens gemeldet sein, damit du an einem Platz in einer Kontrollzone ohne Sonder-VFR starten darfst?",
+          "loesung": 1500,
+          "einheit": "ft",
+          "erklaerung": "Für VFR an Plätzen in einer CTR: Hauptwolkenuntergrenze mindestens 1500 ft und Bodensicht mindestens 5 km."
+        },
+        {
+          "id": "lr-ctr-02",
+          "typ": "zahl",
+          "frage": "Welche Bodensicht muss dafür mindestens gemeldet sein?",
+          "loesung": 5,
+          "einheit": "km",
+          "erklaerung": "Mindestens 5 km Bodensicht – sonst geht es nur mit Sonder-VFR."
+        },
+        {
+          "id": "lr-ctr-03",
+          "typ": "zahl",
+          "frage": "Wie hoch muss die Hauptwolkenuntergrenze mindestens sein, damit ATC einem Flugzeug eine Sonder-VFR-Freigabe für den Start geben darf?",
+          "loesung": 600,
+          "einheit": "ft",
+          "erklaerung": "Unter 600 ft Hauptwolkenuntergrenze gibt es auch keine Sonder-VFR-Freigabe für Start oder Landung."
+        },
+        {
+          "id": "lr-ctr-04",
+          "typ": "zahl",
+          "frage": "Welche Bodensicht muss für einen Sonder-VFR-Start mit einem Flugzeug mindestens gemeldet sein?",
+          "loesung": 1500,
+          "einheit": "m",
+          "erklaerung": "1500 m für Flugzeuge, 800 m für Hubschrauber."
+        },
+        {
+          "id": "lr-ctr-05",
+          "typ": "zahl",
+          "frage": "Wie schnell darfst du unter Sonder-VFR höchstens fliegen?",
+          "loesung": 140,
+          "einheit": "kt IAS",
+          "erklaerung": "Sonder-VFR ist auf höchstens 140 kt angezeigte Fluggeschwindigkeit begrenzt – so bleibt Zeit, Hindernisse und Verkehr rechtzeitig zu sehen."
+        },
+        {
+          "id": "lr-ctr-06",
+          "typ": "wahrfalsch",
+          "aussage": "Sonder-VFR ist im gesamten Luftraum E möglich.",
+          "richtig": false,
+          "erklaerung": "Sonder-VFR gibt es nur in Kontrollzonen und nur mit Freigabe der Flugverkehrskontrolle."
+        },
+        {
+          "id": "lr-ctr-07",
+          "typ": "auswahl",
+          "frage": "Wie musst du unter Sonder-VFR zu den Wolken fliegen?",
+          "richtig": "Frei von Wolken, mit Erdsicht",
+          "falsch": [
+            "1500 m waagerecht und 1000 ft senkrecht",
+            "Mindestens 500 ft unter der Wolkenuntergrenze",
+            "Innerhalb der Wolken mit Freigabe"
+          ],
+          "erklaerung": "Sonder-VFR: frei von Wolken, mit Erdsicht, Flugsicht mindestens 1500 m."
+        },
+        {
+          "id": "lr-ctr-08",
+          "typ": "auswahl",
+          "frage": "Was bedeutet dieses ausgefüllte Dreieck in der Luftfahrtkarte?",
+          "abbildung": "dreieck-voll",
+          "richtig": "Pflichtmeldepunkt",
+          "falsch": [
+            "Meldepunkt auf Anforderung",
+            "Hindernis",
+            "Segelfluggelände"
+          ],
+          "erklaerung": "Ausgefülltes Dreieck = Pflichtmeldepunkt (immer melden). Leeres Dreieck = Meldepunkt auf Anforderung."
+        },
+        {
+          "id": "lr-ctr-09",
+          "typ": "generator",
+          "generator": "kontrollzone"
+        },
+        {
+          "id": "lr-ctr-10",
+          "typ": "generator",
+          "generator": "kontrollzone"
+        }
+      ]
+    },
+    {
+      "id": "zonen",
+      "titel": "RMZ, TMZ und Gebiete",
+      "kurz": "Funkpflicht, Transponderpflicht, Sperr-, Beschränkungs- und Gefahrengebiete.",
+      "kern": [
+        "RMZ: vor dem Einflug melden und dauernd mithören – eine Freigabe ist nicht nötig.",
+        "TMZ: Der Transponder muss eingeschaltet sein.",
+        "P = Luftsperrgebiet, R = Flugbeschränkungsgebiet, D = Gefahrengebiet; ob sie aktiv sind, steht in den NOTAM."
+      ],
+      "theorie": [
+        {
+          "typ": "zwischentitel",
+          "text": "Funkkontaktpflichtzone (RMZ)"
+        },
+        {
+          "typ": "einfach",
+          "text": "Eine RMZ ist wie ein Raum, in dem man sich beim Hereinkommen kurz vorstellt: „Hallo, ich bin's, ich fliege hier durch.“ In einer TMZ musst du dagegen für das Radar sichtbar sein – der Transponder ist wie eine Warnweste."
+        },
+        {
+          "typ": "absatz",
+          "text": "Eine **RMZ** (Radio Mandatory Zone) ist ein Bereich, in dem Funkkontakt Pflicht ist – oft um Flugplätze mit Instrumentenanflügen im Luftraum G. Vor dem Einflug rufst du die angegebene Station auf der veröffentlichten Frequenz und meldest dich mit:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Name der gerufenen Station",
+            "deinem **Rufzeichen**",
+            "dem **Luftfahrzeugmuster**",
+            "deinem **Standort** und deiner **Flughöhe**",
+            "deiner **Absicht**"
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Solange du in der RMZ bist, hörst du die Frequenz dauernd mit. Eine RMZ ändert die Luftraumklasse nicht – du brauchst dort also keine Freigabe."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Transponderpflichtzone (TMZ)"
+        },
+        {
+          "typ": "absatz",
+          "text": "In einer **TMZ** (Transponder Mandatory Zone) muss jedes Luftfahrzeug einen eingeschalteten Transponder mitführen, der in den Modi A und C oder im Modus S arbeitet. So sieht die Flugsicherung dich auf dem Radar mit Höhe."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Gebiete mit Einschränkungen"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Kennbuchstabe",
+            "Bezeichnung",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "P (Prohibited)",
+              "Luftsperrgebiet",
+              "Flüge sind verboten."
+            ],
+            [
+              "R (Restricted)",
+              "Flugbeschränkungsgebiet",
+              "Flüge nur unter bestimmten Bedingungen, z. B. mit Genehmigung oder außerhalb der Aktivierungszeiten."
+            ],
+            [
+              "D (Danger)",
+              "Gefahrengebiet",
+              "Zeitweise gefährliche Aktivitäten (z. B. Schießübungen)."
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Ob ein Gebiet gerade aktiv ist, erfährst du bei der Flugvorbereitung über NOTAM und im Flug beim Fluginformationsdienst (FIS)."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "lr-zo-01",
+          "typ": "auswahl",
+          "frage": "Was musst du vor dem Einflug in eine RMZ tun?",
+          "richtig": "Dich auf der vorgeschriebenen Frequenz bei der zuständigen Station melden",
+          "falsch": [
+            "Eine Freigabe der Flugverkehrskontrolle einholen",
+            "Den Transpondercode 7700 einstellen",
+            "Nichts, solange du nach VFR fliegst"
+          ],
+          "erklaerung": "In einer RMZ ist Funkkontakt Pflicht: Erstanruf vor dem Einflug und danach dauernde Hörbereitschaft. Eine Freigabe brauchst du nicht."
+        },
+        {
+          "id": "lr-zo-02",
+          "typ": "auswahl",
+          "frage": "Was ist in einer TMZ vorgeschrieben?",
+          "richtig": "Ein eingeschalteter Transponder (Modi A und C oder Modus S)",
+          "falsch": [
+            "Dauernde Funkverbindung mit der Flugsicherung",
+            "Eine Freigabe der Flugverkehrskontrolle",
+            "Ein aufgegebener Flugplan"
+          ],
+          "erklaerung": "TMZ = Transponder Mandatory Zone. Funkpflicht ist etwas anderes – die gibt es in der RMZ."
+        },
+        {
+          "id": "lr-zo-03",
+          "typ": "wahrfalsch",
+          "aussage": "Eine RMZ macht aus dem Luftraum G einen kontrollierten Luftraum.",
+          "richtig": false,
+          "erklaerung": "Die Luftraumklasse bleibt gleich. Es kommt nur die Pflicht zum Funkkontakt hinzu."
+        },
+        {
+          "id": "lr-zo-04",
+          "typ": "mehrfach",
+          "frage": "Welche Angaben gehören zum Erstanruf beim Einflug in eine RMZ?",
+          "richtig": [
+            "Rufzeichen",
+            "Luftfahrzeugmuster",
+            "Standort und Flughöhe",
+            "Absicht des Fluges"
+          ],
+          "falsch": [
+            "Name des Piloten",
+            "Flugerfahrung in Stunden"
+          ],
+          "erklaerung": "Rufzeichen, Muster, Standort, Höhe und Absicht – damit weiß die Station, wer du bist, wo du bist und was du vorhast."
+        },
+        {
+          "id": "lr-zo-05",
+          "typ": "zuordnung",
+          "frage": "Ordne die Gebietsarten ihrer Bedeutung zu.",
+          "paare": [
+            [
+              "P – Luftsperrgebiet",
+              "Flüge sind verboten"
+            ],
+            [
+              "R – Flugbeschränkungsgebiet",
+              "Flüge nur unter bestimmten Bedingungen"
+            ],
+            [
+              "D – Gefahrengebiet",
+              "Zeitweise gefährliche Aktivitäten"
+            ]
+          ]
+        },
+        {
+          "id": "lr-zo-06",
+          "typ": "auswahl",
+          "frage": "Wie erfährst du, ob ein Flugbeschränkungsgebiet auf deiner Strecke heute aktiv ist?",
+          "richtig": "Über NOTAM bei der Flugvorbereitung und beim Fluginformationsdienst",
+          "falsch": [
+            "Das steht im METAR",
+            "Gebiete sind immer aktiv",
+            "Das sieht man an Leuchtzeichen am Boden"
+          ],
+          "erklaerung": "Aktivierungen werden über NOTAM bekannt gegeben. Im Flug hilft der Fluginformationsdienst (FIS)."
+        },
+        {
+          "id": "lr-zo-07",
+          "typ": "wahrfalsch",
+          "aussage": "In einer RMZ musst du die Frequenz dauernd mithören, solange du dich darin aufhältst.",
+          "richtig": true,
+          "erklaerung": "Erstanruf vor dem Einflug, danach dauernde Hörbereitschaft auf der Frequenz."
+        }
+      ]
+    },
+    {
+      "id": "hoehen",
+      "titel": "Höhen, Mindesthöhen & Halbkreisflugregel",
+      "kurz": "Höhenmessereinstellung, wie tief du fliegen darfst und welche Reiseflughöhe zum Kurs passt.",
+      "kern": [
+        "QNH → Höhe über MSL; 1013,25 hPa → Flugfläche.",
+        "Über Städten mindestens 1000 ft über dem höchsten Hindernis im Umkreis von 600 m, sonst mindestens 500 ft über Grund.",
+        "Halbkreisflugregel mehr als 3000 ft über Grund: 000°–179° ungerade + 500 ft, 180°–359° gerade + 500 ft."
+      ],
+      "theorie": [
+        {
+          "typ": "zwischentitel",
+          "text": "Höhenmessereinstellung"
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Halbkreisflugregel funktioniert wie zwei Treppenhäuser: Wer nach Osten fliegt, nimmt die ungeraden Stockwerke, wer nach Westen fliegt, die geraden. So begegnen sich Flugzeuge mit Gegenkurs nie auf derselben Höhe."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Einstellung",
+            "Der Höhenmesser zeigt …",
+            "Bezeichnung"
+          ],
+          "zeilen": [
+            [
+              "**QNH**",
+              "die Höhe über dem mittleren Meeresspiegel (MSL)",
+              "Altitude, z. B. 3500 ft"
+            ],
+            [
+              "**Standard 1013,25 hPa**",
+              "die Druckhöhe",
+              "Flugfläche (FL), z. B. FL 75"
+            ],
+            [
+              "**QFE**",
+              "die Höhe über dem Flugplatz",
+              "Height"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Unterhalb der **Übergangshöhe** (Transition Altitude) fliegst du mit QNH, oberhalb der **Übergangsfläche** (Transition Level) nach Flugflächen mit 1013,25 hPa. In Deutschland liegt die Übergangshöhe meist bei 5000 ft MSL – die genauen Werte stehen im Luftfahrthandbuch (AIP)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Mindesthöhen (SERA.5005)"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Über **Städten, dicht besiedelten Gebieten und Menschenansammlungen**: mindestens **1000 ft über dem höchsten Hindernis** im Umkreis von **600 m**.",
+            "**Überall sonst**: mindestens **500 ft über Grund oder Wasser** bzw. 500 ft über dem höchsten Hindernis im Umkreis von 150 m.",
+            "Ausgenommen sind Start und Landung sowie Flüge mit besonderer Genehmigung."
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Für Überlandflüge mit motorgetriebenen Luftfahrzeugen schreibt die deutsche Luftverkehrs-Ordnung zusätzlich in der Regel eine Mindesthöhe von 2000 ft über Grund vor, soweit Luftraum und Wetter es zulassen."
+        },
+        {
+          "typ": "achtung",
+          "text": "Die Mindesthöhe muss so gewählt sein, dass bei einem Triebwerksausfall eine Notlandung ohne Gefährdung von Personen und Sachen am Boden möglich ist."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Halbkreisflugregel"
+        },
+        {
+          "typ": "absatz",
+          "text": "Im Reiseflug **mehr als 3000 ft über Grund** wählst du deine Höhe passend zum **missweisenden Kurs über Grund**:"
+        },
+        {
+          "typ": "abbildung",
+          "id": "halbkreis",
+          "unterschrift": "Ostwärts ungerade, westwärts gerade – jeweils plus 500 ft."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "halbkreis"
+        },
+        {
+          "typ": "merke",
+          "text": "So fliegen Gegenkurse immer mit mindestens 1000 ft Höhenunterschied – und VFR-Flüge liegen 500 ft neben den runden IFR-Höhen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "lr-hoe-01",
+          "typ": "auswahl",
+          "frage": "Du fliegst mit einem missweisenden Kurs von 090° mehr als 3000 ft über Grund. Welche Reiseflughöhe passt zur Halbkreisflugregel?",
+          "richtig": "5500 ft",
+          "falsch": [
+            "4500 ft",
+            "5000 ft",
+            "6500 ft"
+          ],
+          "erklaerung": "Kurs 000°–179°: ungerade Tausender plus 500 ft – also z. B. 3500, 5500 oder 7500 ft."
+        },
+        {
+          "id": "lr-hoe-02",
+          "typ": "generator",
+          "generator": "halbkreis"
+        },
+        {
+          "id": "lr-hoe-03",
+          "typ": "generator",
+          "generator": "halbkreis"
+        },
+        {
+          "id": "lr-hoe-04",
+          "typ": "zahl",
+          "frage": "Welchen Mindestabstand musst du über einer Stadt zum höchsten Hindernis im Umkreis von 600 m einhalten?",
+          "loesung": 1000,
+          "einheit": "ft",
+          "erklaerung": "Über Städten, dicht besiedelten Gebieten und Menschenansammlungen: 1000 ft über dem höchsten Hindernis im Umkreis von 600 m."
+        },
+        {
+          "id": "lr-hoe-05",
+          "typ": "zahl",
+          "frage": "Welche Mindesthöhe über Grund oder Wasser gilt nach SERA außerhalb von Städten und Menschenansammlungen?",
+          "loesung": 500,
+          "einheit": "ft",
+          "erklaerung": "500 ft über Grund oder Wasser bzw. über dem höchsten Hindernis im Umkreis von 150 m."
+        },
+        {
+          "id": "lr-hoe-06",
+          "typ": "auswahl",
+          "frage": "Was stellst du am Höhenmesser ein, wenn du nach Flugflächen fliegst?",
+          "richtig": "1013,25 hPa",
+          "falsch": [
+            "Das aktuelle QNH",
+            "Das QFE des Startplatzes",
+            "Den höchsten Luftdruck der Strecke"
+          ],
+          "erklaerung": "Flugflächen beziehen sich auf den Standarddruck von 1013,25 hPa. So fliegen alle mit derselben Einstellung."
+        },
+        {
+          "id": "lr-hoe-07",
+          "typ": "wahrfalsch",
+          "aussage": "Die Halbkreisflugregel richtet sich nach dem missweisenden Kurs über Grund.",
+          "richtig": true,
+          "erklaerung": "Maßgeblich ist der missweisende Kurs über Grund (Track), nicht der Steuerkurs."
+        },
+        {
+          "id": "lr-hoe-08",
+          "typ": "auswahl",
+          "frage": "Was zeigt der Höhenmesser am Boden an, wenn das QNH eingestellt ist?",
+          "richtig": "Die Platzhöhe über dem Meeresspiegel",
+          "falsch": [
+            "Null",
+            "Die Höhe über Grund",
+            "Die Druckhöhe"
+          ],
+          "erklaerung": "Mit QNH zeigt der Höhenmesser die Höhe über MSL – am Boden also die Platzhöhe. Mit QFE würde er dort null anzeigen."
+        },
+        {
+          "id": "lr-hoe-09",
+          "typ": "wahrfalsch",
+          "aussage": "Bei einer Flughöhe von 2000 ft über Grund musst du die Halbkreisflugregel einhalten.",
+          "richtig": false,
+          "erklaerung": "Die Halbkreisflugregel gilt im Reiseflug erst mehr als 3000 ft über Grund."
+        }
+      ]
+    },
+    {
+      "id": "ausweichen",
+      "titel": "Ausweichregeln",
+      "kurz": "Wer hat Vorflug? Gegenflug, kreuzende Kurse, Überholen und Landen.",
+      "kern": [
+        "Gegenflug: beide weichen nach rechts aus.",
+        "Kreuzende Kurse: Wer den anderen rechts sieht, weicht aus.",
+        "Überholen: Der Überholende weicht nach rechts aus.",
+        "Motorflugzeuge weichen Segelflugzeugen, Ballonen und Schleppverbänden aus; Segelflugzeuge weichen Ballonen aus."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Die Ausweichregeln stehen in SERA.3210. Grundsatz: Wer **Vorflug** hat, behält Kurs und Geschwindigkeit bei. Wer **ausweichen** muss, fliegt nicht knapp über, unter oder vor dem anderen vorbei – außer mit ausreichendem Abstand und mit Blick auf Wirbelschleppen."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wie im Straßenverkehr gilt „rechts vor links“ – und wer wendiger ist, weicht dem Schwerfälligeren aus. Ein Ballon kann kaum lenken, ein Segelflugzeug kann nicht einfach Gas geben – deshalb weicht das Motorflugzeug aus."
+        },
+        {
+          "typ": "abbildung",
+          "id": "ausweichen-gegenflug"
+        },
+        {
+          "typ": "abbildung",
+          "id": "ausweichen-kreuzen"
+        },
+        {
+          "typ": "abbildung",
+          "id": "ausweichen-ueberholen"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Die wichtigsten Fälle"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Gegenflug** (annähernd frontal): Beide weichen **nach rechts** aus.",
+            "**Kreuzende Kurse** in etwa gleicher Höhe: Wer den anderen **rechts von sich** hat, weicht aus.",
+            "**Überholen**: Der Überholte hat Vorflug. Der Überholende weicht **nach rechts** aus (Segelflugzeuge dürfen auch links überholen).",
+            "**Landen**: Wer fliegt oder rollt, weicht landenden Luftfahrzeugen aus. Nähern sich zwei zur Landung, hat das **tiefere** Vorrang – es darf aber nicht vor dem anderen einscheren oder es überholen.",
+            "Ein Luftfahrzeug, das erkennbar **zur Landung gezwungen** ist, hat immer Vorrang."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wer weicht wem aus?"
+        },
+        {
+          "typ": "absatz",
+          "text": "Bei kreuzenden Kursen gilt die Rechts-vor-links-Regel nur zwischen gleichen Arten. Sonst gilt die Rangfolge – wer weniger beweglich ist, hat Vorflug:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Wer …",
+            "… weicht aus gegenüber"
+          ],
+          "zeilen": [
+            [
+              "Motorgetriebene Flugzeuge und Hubschrauber",
+              "Luftschiffen, Segelflugzeugen, Ballonen und Luftfahrzeugen, die etwas schleppen"
+            ],
+            [
+              "Luftschiffe",
+              "Segelflugzeugen und Ballonen"
+            ],
+            [
+              "Segelflugzeuge",
+              "Ballonen"
+            ]
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Vorflug zu haben entbindet nie von der Pflicht, einen Zusammenstoß zu vermeiden. Wenn der andere nicht ausweicht, musst du handeln."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "ausweichen"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "lr-aw-01",
+          "typ": "auswahl",
+          "frage": "Zwei Motorflugzeuge fliegen sich in gleicher Höhe frontal entgegen. Was tun beide?",
+          "richtig": "Beide weichen nach rechts aus",
+          "falsch": [
+            "Beide weichen nach links aus",
+            "Das tiefere sinkt, das höhere steigt",
+            "Das langsamere weicht aus"
+          ],
+          "erklaerung": "Beim Gegenflug weichen beide nach rechts aus."
+        },
+        {
+          "id": "lr-aw-02",
+          "typ": "auswahl",
+          "frage": "Ein Motorflugzeug und ein Segelflugzeug kreuzen sich in etwa gleicher Höhe. Wer muss ausweichen?",
+          "richtig": "Das Motorflugzeug",
+          "falsch": [
+            "Das Segelflugzeug",
+            "Wer den anderen rechts sieht",
+            "Das Flugzeug, das von links kommt"
+          ],
+          "erklaerung": "Motorgetriebene Luftfahrzeuge weichen Segelflugzeugen immer aus – das Segelflugzeug ist weniger beweglich."
+        },
+        {
+          "id": "lr-aw-03",
+          "typ": "auswahl",
+          "frage": "Zwei Motorflugzeuge haben kreuzende Kurse in gleicher Höhe. Wer weicht aus?",
+          "richtig": "Wer das andere Flugzeug rechts von sich hat",
+          "falsch": [
+            "Wer das andere Flugzeug links von sich hat",
+            "Das schwerere Flugzeug",
+            "Beide weichen nach links aus"
+          ],
+          "erklaerung": "Zwischen gleichen Arten gilt: Wer den anderen rechts von sich sieht, weicht aus."
+        },
+        {
+          "id": "lr-aw-04",
+          "typ": "auswahl",
+          "frage": "Du überholst mit deinem Motorflugzeug ein langsameres Flugzeug. Wie weichst du aus?",
+          "richtig": "Nach rechts",
+          "falsch": [
+            "Nach links",
+            "Durch Überfliegen",
+            "Durch Unterfliegen"
+          ],
+          "erklaerung": "Der Überholte hat Vorflug; der Überholende weicht nach rechts aus."
+        },
+        {
+          "id": "lr-aw-05",
+          "typ": "wahrfalsch",
+          "aussage": "Wer Vorflug hat, behält Kurs und Geschwindigkeit bei.",
+          "richtig": true,
+          "erklaerung": "So bleibt das Verhalten vorhersehbar. Droht trotzdem ein Zusammenstoß, muss aber auch der Vorflugberechtigte handeln."
+        },
+        {
+          "id": "lr-aw-06",
+          "typ": "auswahl",
+          "frage": "Zwei Flugzeuge nähern sich gleichzeitig zur Landung. Wer hat Vorrang?",
+          "richtig": "Das tiefer fliegende – es darf aber nicht vor dem anderen einscheren",
+          "falsch": [
+            "Das höher fliegende",
+            "Das schnellere",
+            "Das, das sich zuerst gemeldet hat"
+          ],
+          "erklaerung": "Das tiefere Luftfahrzeug hat Vorrang, darf diesen Vorrang aber nicht ausnutzen, um vor das andere zu schneiden oder es zu überholen."
+        },
+        {
+          "id": "lr-aw-07",
+          "typ": "auswahl",
+          "frage": "Ein Segelflugzeug und ein Ballon kommen sich in gleicher Höhe nahe. Wer weicht aus?",
+          "richtig": "Das Segelflugzeug",
+          "falsch": [
+            "Der Ballon",
+            "Wer den anderen rechts sieht",
+            "Keiner, beide halten Kurs"
+          ],
+          "erklaerung": "Segelflugzeuge weichen Ballonen aus – ein Ballon kann praktisch nicht ausweichen."
+        },
+        {
+          "id": "lr-aw-08",
+          "typ": "wahrfalsch",
+          "aussage": "Ein Motorflugzeug muss einem Motorflugzeug ausweichen, das einen Segler schleppt.",
+          "richtig": true,
+          "erklaerung": "Luftfahrzeuge, die andere Luftfahrzeuge oder Gegenstände schleppen, sind eingeschränkt beweglich – motorgetriebene Luftfahrzeuge weichen ihnen aus."
+        },
+        {
+          "id": "lr-aw-09",
+          "typ": "wahrfalsch",
+          "aussage": "Wer Vorflug hat, muss nie selbst ausweichen.",
+          "richtig": false,
+          "erklaerung": "Vorflug entbindet nicht von der Pflicht, einen Zusammenstoß zu vermeiden. Reagiert der andere nicht, musst du handeln."
+        }
+      ]
+    }
+  ]
+}

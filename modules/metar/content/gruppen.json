@@ -1,0 +1,90 @@
+{
+  "_hinweis": "Allgemeine Erklärungen zu den Gruppen eines METARs. Fachlich vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "gruppen": {
+    "kennung": {
+      "titel": "Art der Meldung",
+      "erklaerung": "METAR ist die routinemäßige Wettermeldung eines Flugplatzes, an größeren Plätzen meist alle 30 Minuten. SPECI ist eine Sondermeldung, die zwischen den Routinemeldungen herausgegeben werden kann, wenn sich das Wetter deutlich ändert."
+    },
+    "zusatz": {
+      "titel": "Zusatzkennung",
+      "erklaerung": "AUTO bedeutet, dass die Meldung vollautomatisch von Messgeräten erstellt wurde, ohne menschlichen Beobachter. Einige Angaben (z. B. Wolkenart) sind dann nicht immer verfügbar. COR kennzeichnet eine korrigierte Meldung."
+    },
+    "station": {
+      "titel": "Ortskennung",
+      "erklaerung": "Vierstellige ICAO-Kennung des Flugplatzes. Flugplätze in Deutschland beginnen mit ED (zivil) oder ET (militärisch)."
+    },
+    "zeit": {
+      "titel": "Beobachtungszeit",
+      "erklaerung": "Tag des Monats, Stunde und Minute der Beobachtung in UTC (Z = „Zulu“). Die gesetzliche Zeit in Deutschland ist UTC plus 1 Stunde im Winter und UTC plus 2 Stunden im Sommer."
+    },
+    "wind": {
+      "titel": "Wind",
+      "erklaerung": "Die ersten drei Ziffern geben die Richtung an, aus der der Wind weht, in Grad bezogen auf rechtweisend Nord. Danach folgt die mittlere Windgeschwindigkeit der letzten 10 Minuten, meist in Knoten (KT). G steht für Böen und wird angegeben, wenn die Spitzen den Mittelwert um 10 kt oder mehr übersteigen. VRB bedeutet wechselnde Richtung, 00000KT Windstille. Pistenrichtungen beziehen sich dagegen auf missweisend Nord; in Mitteleuropa beträgt der Unterschied derzeit nur wenige Grad."
+    },
+    "windvariabel": {
+      "titel": "Schwankende Windrichtung",
+      "erklaerung": "Wird angegeben, wenn die Windrichtung in den letzten 10 Minuten um 60° oder mehr geschwankt hat und die mittlere Geschwindigkeit mindestens 3 kt beträgt. Die beiden Werte nennen die äußersten Richtungen, im Uhrzeigersinn gelesen."
+    },
+    "sicht": {
+      "titel": "Sicht",
+      "erklaerung": "Vorherrschende Sicht in Metern. 9999 bedeutet 10 km oder mehr, 0000 weniger als 50 m. Gemeldet wird immer in Metern: unter 800 m in 50-m-Schritten, bis 5000 m in 100-m-Schritten, darüber in 1000-m-Schritten."
+    },
+    "mindestsicht": {
+      "titel": "Geringste Sicht",
+      "erklaerung": "Ist die Sicht in einer Richtung deutlich schlechter als die vorherrschende Sicht, wird zusätzlich die geringste Sicht mit Himmelsrichtung gemeldet, z. B. 0800NE. Das ist der Fall, wenn sie unter 1500 m oder unter der Hälfte der vorherrschenden Sicht liegt (und unter 5000 m)."
+    },
+    "cavok": {
+      "titel": "CAVOK",
+      "erklaerung": "Ceiling And Visibility OK. Ersetzt die Gruppen für Sicht, Wetter und Wolken und bedeutet: Sicht 10 km oder mehr, keine Wolken unter 5000 ft (oder unter der höchsten Mindestsektorhöhe, wenn diese höher ist), keine CB oder TCU und keine signifikanten Wettererscheinungen. Achtung: CAVOK heißt nicht wolkenlos – oberhalb davon kann es durchaus Wolken geben."
+    },
+    "rvr": {
+      "titel": "Pistensichtweite (RVR)",
+      "erklaerung": "Runway Visual Range: wie weit ein Pilot auf der Piste die Pistenmarkierungen oder -befeuerung sehen kann. Wird gemeldet, wenn die Sicht oder die Pistensichtweite unter 1500 m liegt. Aufbau: R, Pistenbezeichnung, Schrägstrich, Wert in Metern. P bedeutet „mehr als“, M „weniger als“. Am Ende kann die Tendenz stehen: U zunehmend, D abnehmend, N gleichbleibend."
+    },
+    "wetter": {
+      "titel": "Wettererscheinungen",
+      "erklaerung": "Aktuelles Wetter am Flugplatz. Davor kann die Intensität stehen: - leicht, ohne Zeichen mäßig, + stark; VC bedeutet in der Umgebung (8–16 km). Dann folgt ggf. eine Beschreibung (z. B. SH Schauer, TS Gewitter, FZ gefrierend, BC Schwaden) und die Erscheinung selbst (z. B. RA Regen, SN Schnee, DZ Sprühregen, FG Nebel, BR feuchter Dunst, HZ trockener Dunst). FG wird bei Sicht unter 1000 m gemeldet, BR bei 1000 bis 5000 m."
+    },
+    "wolken": {
+      "titel": "Wolken",
+      "erklaerung": "Bedeckungsgrad und Untergrenze jeder Schicht. FEW 1–2 Achtel, SCT 3–4 Achtel, BKN 5–7 Achtel, OVC 8 Achtel. Die drei Ziffern geben die Untergrenze in Hundert Fuß über Platzhöhe an (025 = 2500 ft). Die niedrigste Schicht mit BKN oder OVC unter 20 000 ft heißt Hauptwolkenuntergrenze (Ceiling). Der Zusatz CB oder TCU kennzeichnet Gewitterwolken bzw. mächtige Quellwolken. NSC: keine signifikante Bewölkung. NCD: die automatische Station hat keine Wolken erkannt. VV: Vertikalsicht in Hundert Fuß, wenn der Himmel nicht erkennbar ist, etwa bei dichtem Nebel."
+    },
+    "temperatur": {
+      "titel": "Temperatur und Taupunkt",
+      "erklaerung": "Lufttemperatur und Taupunkt in ganzen Grad Celsius; M steht für minus. Der Abstand zwischen beiden heißt Spread. Je kleiner der Spread, desto feuchter die Luft. Bei sehr kleinem Spread muss man mit Dunst, Nebel oder tiefen Wolken rechnen, besonders wenn es abkühlt."
+    },
+    "qnh": {
+      "titel": "Luftdruck (QNH)",
+      "erklaerung": "Luftdruck, mit den Werten der ICAO-Standardatmosphäre auf Meereshöhe umgerechnet, in Hektopascal (Q). Stellt man das QNH am Höhenmesser ein, zeigt dieser am Boden die Platzhöhe über dem Meer an."
+    },
+    "vorwetter": {
+      "titel": "Kürzliches Wetter",
+      "erklaerung": "RE steht für „recent“: Diese Wettererscheinung ist seit der letzten Meldung aufgetreten, aber gerade nicht mehr (oder nur noch schwächer) vorhanden. Wichtig z. B. bei abgezogenen Gewittern oder gefrierendem Regen."
+    },
+    "windscherung": {
+      "titel": "Windscherung",
+      "erklaerung": "WS meldet Windscherung in den unteren Luftschichten, also eine plötzliche Änderung von Windrichtung oder -geschwindigkeit, etwa im Endanflug. WS R25 betrifft Piste 25, WS ALL RWY alle Pisten."
+    },
+    "pistenzustand": {
+      "titel": "Pistenzustand",
+      "erklaerung": "Vor allem im Winter: verschlüsselte Angaben zu Belag (z. B. nass, Schnee, Eis), Ausdehnung, Tiefe der Ablagerung und Bremswirkung einer Piste. CLRD bedeutet, dass die Verunreinigungen beseitigt wurden."
+    },
+    "trend": {
+      "titel": "Trend",
+      "erklaerung": "Kurze Landewettervorhersage für die nächsten 2 Stunden, nur an größeren Flugplätzen. NOSIG: keine wesentliche Änderung erwartet. BECMG (becoming): Das Wetter ändert sich dauerhaft zu den folgenden Werten. TEMPO (temporary): Die folgenden Werte treten nur vorübergehend auf, jeweils weniger als eine Stunde und insgesamt weniger als die Hälfte des Zeitraums."
+    },
+    "trendzeit": {
+      "titel": "Zeitangabe im Trend",
+      "erklaerung": "Grenzt eine Trendänderung zeitlich ein: FM (from) ab, TL (till) bis, AT um – jeweils mit Uhrzeit in UTC."
+    },
+    "rmk": {
+      "titel": "Bemerkungen (RMK)",
+      "erklaerung": "Alles ab RMK sind zusätzliche Angaben, die nicht zum internationalen Standard gehören und je nach Land unterschiedlich verwendet werden."
+    },
+    "unbekannt": {
+      "titel": "Unbekannte Gruppe",
+      "erklaerung": "Diese Gruppe kann die App noch nicht erklären."
+    }
+  }
+}

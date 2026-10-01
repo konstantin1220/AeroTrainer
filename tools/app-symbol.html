@@ -1,0 +1,18 @@
+<!doctype html>
+<!-- Erzeugt das App-Symbol in beliebiger Größe, z. B. app-symbol.html?groesse=512&rund=0
+     Daraus werden die PNG-Dateien in icons/ erstellt (siehe README, Abschnitt „App-Symbol“). -->
+<html lang="de">
+<head><meta charset="utf-8"><title>App-Symbol</title>
+<style>html, body { margin: 0; background: transparent; } svg { display: block; }</style></head>
+<body>
+<script type="module">
+  import { logoSvg } from '../js/icons.js';
+  const p = new URLSearchParams(location.search);
+  const groesse = Number(p.get('groesse') ?? 512);
+  document.body.innerHTML = logoSvg({ rund: p.get('rund') !== '0' });
+  const svg = document.querySelector('svg');
+  svg.setAttribute('width', groesse);
+  svg.setAttribute('height', groesse);
+</script>
+</body>
+</html>

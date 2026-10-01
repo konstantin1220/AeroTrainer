@@ -1,0 +1,10 @@
+{
+  "_hinweis": "Frei erfundene Flugplätze des Übungsgebiets (dieselben wie auf der Übungskarte im Modul Navigation). Die Kennungen beginnen mit X, damit sie nicht mit echten Flugplätzen verwechselt werden. Lizenz: CC BY 4.0.",
+  "flugzeug": { "name": "Übungsflugzeug MF-4", "seitenwind": 15 },
+  "plaetze": [
+    { "kennung": "XMUS", "name": "Flughafen Musterstadt", "hoehe": 1180, "pisten": ["09", "27"], "luftraum": "CTR", "platzrunde": null },
+    { "kennung": "XALT", "name": "Flugplatz Altdorf", "hoehe": 1450, "pisten": ["07", "25"], "luftraum": "G", "platzrunde": 1000 },
+    { "kennung": "XNEU", "name": "Segelfluggelände Neuheim", "hoehe": 980, "pisten": ["16", "34"], "luftraum": "G", "platzrunde": 1000 },
+    { "kennung": "XBER", "name": "Flugplatz Bergen", "hoehe": 2100, "pisten": ["03", "21"], "luftraum": "G", "platzrunde": 1000 }
+  ]
+}

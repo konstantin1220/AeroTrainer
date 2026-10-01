@@ -1,0 +1,713 @@
+{
+  "_hinweis": "Lerninhalte „Navigation“. Die Übungskarte zeigt ein frei erfundenes Gebiet und ist nicht für die Flugvorbereitung geeignet. Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Einheiten, Karte, Kurse, Winddreieck und Flugplanung – mit Rechenaufgaben, die jedes Mal neu entstehen, und einer eigenen Übungskarte.",
+  "kapitel": [
+    {
+      "id": "grundlagen",
+      "titel": "Erde, Einheiten & Zeit",
+      "kurz": "Koordinaten, nautische Meilen, Fuß, Knoten – und warum im Funk UTC gilt.",
+      "kern": [
+        "1 NM = 1852 m = eine Bogenminute; 1° Breite = 60 NM.",
+        "1 kt = 1 NM pro Stunde; 1 ft = 0,3048 m.",
+        "Die Luftfahrt rechnet in UTC: MEZ = UTC + 1 h, MESZ = UTC + 2 h.",
+        "Der Großkreis ist die kürzeste Verbindung zwischen zwei Orten."
+      ],
+      "theorie": [
+        {
+          "typ": "zwischentitel",
+          "text": "Koordinaten"
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Erde ist wie ein Ball mit einem unsichtbaren Netz: Breitenkreise laufen wie Ringe um den Ball, Längenkreise wie die Nähte von Pol zu Pol. So hat jeder Ort eine eindeutige „Hausnummer“."
+        },
+        {
+          "typ": "absatz",
+          "text": "Jeder Ort auf der Erde ist durch **geografische Breite** und **Länge** festgelegt. Breitenkreise (Parallelkreise) laufen parallel zum Äquator, 0° bis 90° Nord oder Süd. Längenkreise (Meridiane) verbinden die Pole, 0° bis 180° Ost oder West – gezählt ab dem Nullmeridian durch Greenwich."
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein **Großkreis** teilt die Erdkugel in zwei gleiche Hälften – der Äquator und jeder Meridian sind Großkreise. Der Bogen auf einem Großkreis ist die **kürzeste Verbindung** zwischen zwei Punkten. Eine **Loxodrome** dagegen schneidet alle Meridiane unter demselben Winkel: Man kann sie mit gleichbleibendem Kurs fliegen, sie ist aber etwas länger."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Einheiten in der Luftfahrt"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Größe",
+            "Einheit",
+            "Umrechnung",
+            "Faustregel"
+          ],
+          "zeilen": [
+            [
+              "Strecke",
+              "nautische Meile (NM)",
+              "1 NM = 1852 m",
+              "NM × 2 minus 10 % ≈ km"
+            ],
+            [
+              "Geschwindigkeit",
+              "Knoten (kt)",
+              "1 kt = 1 NM/h = 1,852 km/h",
+              "kt × 2 minus 10 % ≈ km/h"
+            ],
+            [
+              "Höhe",
+              "Fuß (ft)",
+              "1 ft = 0,3048 m",
+              "ft × 3 ÷ 10 ≈ m"
+            ],
+            [
+              "Sicht",
+              "Meter / Kilometer",
+              "–",
+              "–"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Eine nautische Meile ist genau eine **Bogenminute** auf einem Meridian. 1° Breite sind also 60 NM – das macht das Rechnen auf der Karte einfach."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zeit"
+        },
+        {
+          "typ": "absatz",
+          "text": "In der Luftfahrt gilt die **koordinierte Weltzeit UTC** (auch „Z“ für Zulu). In Deutschland gilt im Winter die **MEZ = UTC + 1 h**, im Sommer die **MESZ = UTC + 2 h**. Die Erde dreht sich in 24 Stunden einmal um 360° – also **15° Länge pro Stunde** bzw. 1° in 4 Minuten."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "na-gr-01",
+          "typ": "generator",
+          "generator": "einheiten"
+        },
+        {
+          "id": "na-gr-02",
+          "typ": "generator",
+          "generator": "einheiten"
+        },
+        {
+          "id": "na-gr-03",
+          "typ": "generator",
+          "generator": "einheiten"
+        },
+        {
+          "id": "na-gr-04",
+          "typ": "generator",
+          "generator": "zeitzone"
+        },
+        {
+          "id": "na-gr-05",
+          "typ": "generator",
+          "generator": "zeitzone"
+        },
+        {
+          "id": "na-gr-06",
+          "typ": "zahl",
+          "frage": "Wie viele Meter hat eine nautische Meile?",
+          "loesung": 1852,
+          "einheit": "m",
+          "erklaerung": "1 NM = 1852 m – eine Bogenminute auf einem Meridian."
+        },
+        {
+          "id": "na-gr-07",
+          "typ": "zahl",
+          "frage": "Wie viele nautische Meilen entsprechen 1° geografischer Breite?",
+          "loesung": 60,
+          "einheit": "NM",
+          "erklaerung": "1° = 60 Bogenminuten = 60 NM."
+        },
+        {
+          "id": "na-gr-08",
+          "typ": "auswahl",
+          "frage": "Welche Linie ist die kürzeste Verbindung zwischen zwei Orten auf der Erdkugel?",
+          "richtig": "Der Großkreis",
+          "falsch": [
+            "Die Loxodrome",
+            "Der Breitenkreis",
+            "Die Isogone"
+          ],
+          "erklaerung": "Der Großkreisbogen ist am kürzesten. Die Loxodrome hat überall denselben Kurs, ist aber länger."
+        },
+        {
+          "id": "na-gr-09",
+          "typ": "zahl",
+          "frage": "Um wie viel Grad geografischer Länge dreht sich die Erde in einer Stunde?",
+          "loesung": 15,
+          "einheit": "°",
+          "erklaerung": "360° in 24 Stunden = 15° pro Stunde."
+        },
+        {
+          "id": "na-gr-10",
+          "typ": "wahrfalsch",
+          "aussage": "Ein Knoten ist eine Geschwindigkeit von einer nautischen Meile pro Stunde.",
+          "richtig": true,
+          "erklaerung": "1 kt = 1 NM/h = 1,852 km/h."
+        }
+      ]
+    },
+    {
+      "id": "karte",
+      "titel": "Luftfahrtkarte & Symbole",
+      "kurz": "Maßstab, Projektion und die wichtigsten Kartenzeichen – an einer eigenen Übungskarte.",
+      "kern": [
+        "ICAO-Karte 1 : 500 000 – 1 cm entspricht 5 km.",
+        "Lambert-Projektion: winkeltreu; den Kurs am Meridian in der Streckenmitte messen.",
+        "Wichtige Symbole: Flugplätze, VOR, DME, NDB, Hindernisse, Meldepunkte, Isogonen."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Für den Sichtflug in Deutschland nutzt man vor allem die **Luftfahrtkarte ICAO 1 : 500 000**. Bei diesem Maßstab entspricht **1 cm auf der Karte 5 km** in der Natur."
+        },
+        {
+          "typ": "einfach",
+          "text": "Eine Luftfahrtkarte ist eine Landkarte mit einer zusätzlichen Ebene „in der Luft“: Neben Städten, Flüssen und Straßen zeigt sie Lufträume, Funkfeuer und Hindernisse – alles, was beim Fliegen wichtig ist."
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Karte ist in **Lambertscher Schnittkegelprojektion** gezeichnet. Sie ist **winkeltreu** (Kurse lassen sich direkt messen), Großkreise erscheinen nahezu als gerade Linien und der Maßstab ist auf dem ganzen Blatt fast gleich. Weil die Meridiane zu den Polen hin zusammenlaufen, misst man den Kurs am besten an einem **Meridian etwa in der Mitte der Strecke**."
+        },
+        {
+          "typ": "abbildung",
+          "id": "uebungskarte",
+          "unterschrift": "Übungskarte eines **frei erfundenen** Gebiets (60 × 60 NM, Gitterlinien alle 10 NM). Sie ist bewusst vereinfacht und keine echte Luftfahrtkarte."
+        },
+        {
+          "typ": "abbildung",
+          "id": "kartenlegende",
+          "unterschrift": "Was die Zeichen der Übungskarte bedeuten."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "kartemessen"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wichtige Kartenzeichen"
+        },
+        {
+          "typ": "abbildung",
+          "id": "kartensymbole",
+          "unterschrift": "Vereinfachte Darstellung nach dem ICAO-Muster. Die Legende deiner echten Karte ist maßgeblich."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**VOR** – UKW-Drehfunkfeuer: zeigt dir, auf welchem Radial (missweisender Kurs vom Funkfeuer weg) du dich befindest.",
+            "**DME** – misst die Schrägentfernung zur Bodenstation in NM.",
+            "**NDB** – ungerichtetes Funkfeuer, angepeilt mit dem Radiokompass (ADF).",
+            "**Hindernisse** sind mit ihrer Höhe über MSL (und oft über Grund) beschriftet.",
+            "**Isogonen** sind Linien gleicher Missweisung."
+          ]
+        }
+      ],
+      "fragen": [
+        {
+          "id": "na-ka-01",
+          "typ": "generator",
+          "generator": "massstab"
+        },
+        {
+          "id": "na-ka-02",
+          "typ": "generator",
+          "generator": "massstab"
+        },
+        {
+          "id": "na-ka-03",
+          "typ": "generator",
+          "generator": "kartensymbol"
+        },
+        {
+          "id": "na-ka-04",
+          "typ": "generator",
+          "generator": "kartensymbol"
+        },
+        {
+          "id": "na-ka-05",
+          "typ": "generator",
+          "generator": "kartensymbol"
+        },
+        {
+          "id": "na-ka-06",
+          "typ": "generator",
+          "generator": "kartenkurs"
+        },
+        {
+          "id": "na-ka-07",
+          "typ": "generator",
+          "generator": "kartenkurs"
+        },
+        {
+          "id": "na-ka-08",
+          "typ": "generator",
+          "generator": "kartenentfernung"
+        },
+        {
+          "id": "na-ka-09",
+          "typ": "auswahl",
+          "frage": "Welche Eigenschaft hat die Lambertsche Schnittkegelprojektion der ICAO-Karte?",
+          "richtig": "Sie ist winkeltreu",
+          "falsch": [
+            "Sie ist flächentreu, aber nicht winkeltreu",
+            "Alle Loxodromen sind gerade Linien",
+            "Der Maßstab ändert sich stark über das Kartenblatt"
+          ],
+          "erklaerung": "Winkeltreu, Großkreise nahezu gerade, Maßstab nahezu konstant – ideal zum Kurs-Messen."
+        },
+        {
+          "id": "na-ka-10",
+          "typ": "auswahl",
+          "frage": "Wo misst du den Kurs auf der ICAO-Karte am genauesten?",
+          "richtig": "An einem Meridian etwa in der Mitte der Strecke",
+          "falsch": [
+            "Am Meridian beim Startort",
+            "Am Breitenkreis beim Zielort",
+            "An der nächstgelegenen Isogone"
+          ],
+          "erklaerung": "Die Meridiane laufen leicht zusammen. In der Mitte der Strecke gleicht sich der Unterschied aus."
+        },
+        {
+          "id": "na-ka-11",
+          "typ": "auswahl",
+          "frage": "Was ist eine Isogone?",
+          "richtig": "Eine Linie gleicher Missweisung",
+          "falsch": [
+            "Eine Linie gleichen Luftdrucks",
+            "Eine Linie gleicher Höhe",
+            "Die Grenze einer Kontrollzone"
+          ],
+          "erklaerung": "Isogonen verbinden Orte mit gleicher Missweisung. Linien gleichen Luftdrucks heißen Isobaren, gleicher Höhe Höhenlinien."
+        }
+      ]
+    },
+    {
+      "id": "kurse",
+      "titel": "Kurse, Missweisung & Kompass",
+      "kurz": "Vom rechtweisenden Kurs zum Kompasskurs – und die Tücken des Magnetkompasses.",
+      "kern": [
+        "rwK − MW = mwK; mwK − Dev = KK.",
+        "Ostwerte abziehen, Westwerte dazuzählen.",
+        "Den Magnetkompass nur im ruhigen Geradeausflug ablesen.",
+        "Nordhalbkugel: Beschleunigen → Anzeige dreht nach Norden, Verzögern → nach Süden."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Auf der Karte misst du den **rechtweisenden Kurs (rwK)** gegenüber geografisch Nord. Der Magnetkompass zeigt aber nach **magnetisch Nord**. Der Winkel dazwischen ist die **Missweisung (MW)** – in Deutschland derzeit wenige Grad Ost."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Kompass zeigt nicht genau zum Nordpol, sondern zu einem Punkt daneben – dem magnetischen Nordpol. Die Missweisung ist dieser Unterschied. Dazu kommt die Deviation: Das Metall im Flugzeug lenkt die Nadel zusätzlich ein wenig ab."
+        },
+        {
+          "typ": "abbildung",
+          "id": "nordrichtungen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Auch das Flugzeug selbst stört den Kompass (Metall, Elektrik). Diese Abweichung heißt **Deviation (Dev)** und steht in der **Deviationstabelle** im Cockpit."
+        },
+        {
+          "typ": "formel",
+          "titel": "Rechenweg",
+          "text": "rwK − MW = mwK\nmwK − Dev = KK"
+        },
+        {
+          "typ": "interaktiv",
+          "id": "kurskette"
+        },
+        {
+          "typ": "merke",
+          "text": "Ostmissweisung und Ostdeviation werden **abgezogen**, Westwerte **dazugezählt**. Englische Eselsbrücke: „East is least, west is best.“"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Abkürzung",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "rwK",
+              "rechtweisender Kurs (True Course)"
+            ],
+            [
+              "MW",
+              "Missweisung (Variation)"
+            ],
+            [
+              "mwK",
+              "missweisender Kurs (Magnetic Course)"
+            ],
+            [
+              "Dev",
+              "Deviation"
+            ],
+            [
+              "KK",
+              "Kompasskurs (Compass Course)"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kompassfehler beim Kurven und Beschleunigen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Auf der Nordhalbkugel zeigt der Magnetkompass beim **Beschleunigen** auf Ost- oder Westkurs eine Drehung nach **Norden**, beim **Verzögern** nach **Süden** an. Beim **Kurven** aus Nordkursen heraus bleibt er zunächst zurück; Richtung Norden solltest du die Kurve daher etwas **früher** beenden, Richtung Süden etwas **später**."
+        },
+        {
+          "typ": "achtung",
+          "text": "Den Magnetkompass liest du nur im ruhigen, unbeschleunigten Geradeausflug ab. Den Kurskreisel gleichst du regelmäßig mit dem Kompass ab."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "na-ku-01",
+          "typ": "generator",
+          "generator": "missweisung"
+        },
+        {
+          "id": "na-ku-02",
+          "typ": "generator",
+          "generator": "missweisung"
+        },
+        {
+          "id": "na-ku-03",
+          "typ": "generator",
+          "generator": "kompasskurs"
+        },
+        {
+          "id": "na-ku-04",
+          "typ": "auswahl",
+          "frage": "Was ist die Missweisung?",
+          "richtig": "Der Winkel zwischen geografisch Nord und magnetisch Nord",
+          "falsch": [
+            "Der Fehler des Kompasses durch das Flugzeug selbst",
+            "Der Winkel zwischen Kurs und Steuerkurs",
+            "Der Unterschied zwischen Kurs und Kompasskurs bei Wind"
+          ],
+          "erklaerung": "Missweisung = rechtweisend Nord gegenüber missweisend Nord. Die Störung durch das Flugzeug heißt Deviation."
+        },
+        {
+          "id": "na-ku-05",
+          "typ": "auswahl",
+          "frage": "Wo findest du die Deviation deines Flugzeugs?",
+          "richtig": "In der Deviationstabelle im Cockpit",
+          "falsch": [
+            "Auf den Isogonen der Luftfahrtkarte",
+            "Im METAR",
+            "Im Flugplan"
+          ],
+          "erklaerung": "Die Deviation hängt vom einzelnen Flugzeug ab und steht in dessen Deviationstabelle."
+        },
+        {
+          "id": "na-ku-06",
+          "typ": "wahrfalsch",
+          "aussage": "Bei Ostmissweisung ist der missweisende Kurs kleiner als der rechtweisende.",
+          "richtig": true,
+          "erklaerung": "Ostmissweisung wird abgezogen: mwK = rwK − MW."
+        },
+        {
+          "id": "na-ku-07",
+          "typ": "auswahl",
+          "frage": "Du beschleunigst auf Westkurs (Nordhalbkugel). Was zeigt der Magnetkompass kurzzeitig an?",
+          "richtig": "Eine Drehung nach Norden",
+          "falsch": [
+            "Eine Drehung nach Süden",
+            "Gar keine Änderung",
+            "Er dreht sich einmal im Kreis"
+          ],
+          "erklaerung": "Beschleunigen → Nord, Verzögern → Süd (Nordhalbkugel, Ost-/Westkurse)."
+        },
+        {
+          "id": "na-ku-08",
+          "typ": "auswahl",
+          "frage": "Wann liest du den Magnetkompass zuverlässig ab?",
+          "richtig": "Im ruhigen, unbeschleunigten Geradeausflug",
+          "falsch": [
+            "In der Kurve",
+            "Beim Beschleunigen",
+            "Direkt nach dem Start"
+          ],
+          "erklaerung": "Kurven- und Beschleunigungsfehler verfälschen die Anzeige. Nur im ruhigen Geradeausflug stimmt sie."
+        }
+      ]
+    },
+    {
+      "id": "wind",
+      "titel": "Winddreieck",
+      "kurz": "Luvwinkel und Grundgeschwindigkeit – genau gerechnet und mit Faustformeln.",
+      "kern": [
+        "Gegen den Wind vorhalten: Wind von rechts → Steuerkurs größer, von links → kleiner.",
+        "Größter Luvwinkel ≈ 60 × Wind ÷ TAS.",
+        "Seitenwindanteil: 30° → ½, 45° → 0,7, 60° → 0,9.",
+        "Gegenwind verringert, Rückenwind erhöht die Grundgeschwindigkeit."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Das Flugzeug bewegt sich mit der Luft. Weht Seitenwind, wirst du abgetrieben. Damit du trotzdem auf Kurs bleibst, **hältst du gegen den Wind vor**: Der Steuerkurs weicht um den **Luvwinkel (WCA)** vom Kurs ab."
+        },
+        {
+          "typ": "einfach",
+          "text": "Stell dir vor, du schwimmst quer über einen Fluss: Schwimmst du einfach geradeaus, treibt dich die Strömung ab. Damit du genau gegenüber ankommst, schwimmst du leicht schräg gegen die Strömung. Genau das macht der Luvwinkel beim Wind."
+        },
+        {
+          "typ": "abbildung",
+          "id": "winddreieck"
+        },
+        {
+          "typ": "interaktiv",
+          "id": "winddreieck"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Wind von rechts** → Luvwinkel nach rechts → Steuerkurs = Kurs **+** Luvwinkel.",
+            "**Wind von links** → Luvwinkel nach links → Steuerkurs = Kurs **−** Luvwinkel.",
+            "**Gegenwind** verringert, **Rückenwind** erhöht die **Grundgeschwindigkeit (GS)**."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Faustformeln"
+        },
+        {
+          "typ": "formel",
+          "titel": "Größter Luvwinkel (Wind genau von der Seite)",
+          "text": "max. Luvwinkel ≈ 60 × Windgeschwindigkeit ÷ TAS"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Windeinfallswinkel",
+            "Seitenwindanteil",
+            "Gegenwindanteil"
+          ],
+          "zeilen": [
+            [
+              "0°",
+              "0",
+              "voll"
+            ],
+            [
+              "30°",
+              "½",
+              "≈ 0,9"
+            ],
+            [
+              "45°",
+              "≈ 0,7",
+              "≈ 0,7"
+            ],
+            [
+              "60°",
+              "≈ 0,9",
+              "½"
+            ],
+            [
+              "90°",
+              "voll",
+              "0"
+            ]
+          ],
+          "unterschrift": "Windeinfallswinkel = Winkel zwischen Windrichtung und Kurs."
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel: TAS 100 kt, Wind 20 kt genau von rechts → größter Luvwinkel ≈ 60 × 20 ÷ 100 = 12°. Kommt der Wind nur unter 30° von rechts, ist es etwa die Hälfte, also 6°."
+        },
+        {
+          "typ": "merke",
+          "text": "Wind in Vorhersagen für die Flugplanung und im METAR ist auf **rechtweisend Nord** bezogen – passend zum rechtweisenden Kurs aus der Karte."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "na-wi-01",
+          "typ": "generator",
+          "generator": "steuerkurs"
+        },
+        {
+          "id": "na-wi-02",
+          "typ": "generator",
+          "generator": "steuerkurs"
+        },
+        {
+          "id": "na-wi-03",
+          "typ": "generator",
+          "generator": "steuerkurs"
+        },
+        {
+          "id": "na-wi-04",
+          "typ": "generator",
+          "generator": "grundgeschwindigkeit"
+        },
+        {
+          "id": "na-wi-05",
+          "typ": "generator",
+          "generator": "grundgeschwindigkeit"
+        },
+        {
+          "id": "na-wi-06",
+          "typ": "zahl",
+          "frage": "TAS 120 kt, Wind 20 kt genau von der Seite. Wie groß ist der Luvwinkel nach der Faustformel?",
+          "loesung": 10,
+          "toleranz": 0.5,
+          "einheit": "°",
+          "erklaerung": "60 × 20 ÷ 120 = 10°."
+        },
+        {
+          "id": "na-wi-07",
+          "typ": "auswahl",
+          "frage": "Der Wind kommt von links. Wie hältst du vor?",
+          "richtig": "Nach links – Steuerkurs kleiner als Kurs",
+          "falsch": [
+            "Nach rechts – Steuerkurs größer als Kurs",
+            "Gar nicht, der Wind gleicht sich aus",
+            "Durch Steigen in eine andere Höhe"
+          ],
+          "erklaerung": "Man hält immer gegen den Wind vor, also zur Seite, aus der er kommt."
+        },
+        {
+          "id": "na-wi-08",
+          "typ": "auswahl",
+          "frage": "Wie groß ist etwa der Seitenwindanteil, wenn der Wind unter 30° zum Kurs einfällt?",
+          "richtig": "Die Hälfte der Windgeschwindigkeit",
+          "falsch": [
+            "Die volle Windgeschwindigkeit",
+            "Ein Viertel der Windgeschwindigkeit",
+            "Null"
+          ],
+          "erklaerung": "sin 30° = 0,5 – also die Hälfte."
+        }
+      ]
+    },
+    {
+      "id": "planung",
+      "titel": "Zeit, Kraftstoff & 1:60-Regel",
+      "kurz": "Flugzeit, Verbrauch, Reserven und wie du unterwegs Kursfehler korrigierst.",
+      "kern": [
+        "Zeit = Strecke ÷ Grundgeschwindigkeit; Kraftstoff = Zeit × Verbrauch.",
+        "Flugzeuge nach Part-NCO: am Tag mindestens 30 min Reserve (in Sichtweite des Platzes 10 min).",
+        "1:60-Regel: 1° Kursfehler ≈ 1 NM Ablage nach 60 NM."
+      ],
+      "theorie": [
+        {
+          "typ": "formel",
+          "titel": "Zeit, Strecke, Geschwindigkeit",
+          "text": "Zeit = Strecke ÷ Grundgeschwindigkeit\nKraftstoff = Zeit × Verbrauch"
+        },
+        {
+          "typ": "einfach",
+          "text": "Flugplanung ist wie eine Autofahrt mit begrenztem Tank, aber ohne Tankstelle unterwegs: Du rechnest vorher aus, wie lange du brauchst und wie viel Sprit das kostet – und packst immer eine Reserve dazu."
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel: 45 NM bei 90 kt GS = 0,5 h = 30 min. Bei 24 l/h verbrauchst du dafür 12 l."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kraftstoffreserve"
+        },
+        {
+          "typ": "absatz",
+          "text": "Für nichtgewerbliche Flüge mit Flugzeugen nach EASA-Regeln (Part-NCO) gilt am Tag nach VFR: Kraftstoff für den Flug zum Zielflugplatz und danach noch für **mindestens 30 Minuten** in normaler Reiseflughöhe. Für Platzrunden und Flüge in Sichtweite des Startplatzes sind es mindestens 10 Minuten. Für andere Luftfahrzeugarten können andere Regeln gelten."
+        },
+        {
+          "typ": "achtung",
+          "text": "Die Reserve ist für Unvorhergesehenes da – nicht zum Einplanen. Plane zusätzlich Kraftstoff für Rollen, Steigflug, Ausweichflugplatz und Gegenwind ein."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Die 1:60-Regel"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein Kursfehler von 1° führt nach 60 NM zu etwa 1 NM Ablage. Daraus kannst du unterwegs schnell den Fehler bestimmen:"
+        },
+        {
+          "typ": "abbildung",
+          "id": "einszusechzig"
+        },
+        {
+          "typ": "interaktiv",
+          "id": "einszusechzig"
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel: Nach 30 NM bist du 2 NM links vom Kurs → Kursfehler = 2 × 60 ÷ 30 = 4°. Um wieder parallel zum Kurs zu fliegen, drehst du 4° nach rechts. Um das Ziel direkt zu erreichen, kommt noch der Winkel für die Reststrecke dazu."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "na-pl-01",
+          "typ": "generator",
+          "generator": "flugzeit"
+        },
+        {
+          "id": "na-pl-02",
+          "typ": "generator",
+          "generator": "flugzeit"
+        },
+        {
+          "id": "na-pl-03",
+          "typ": "generator",
+          "generator": "kraftstoff"
+        },
+        {
+          "id": "na-pl-04",
+          "typ": "generator",
+          "generator": "kraftstoff"
+        },
+        {
+          "id": "na-pl-05",
+          "typ": "generator",
+          "generator": "einszusechzig"
+        },
+        {
+          "id": "na-pl-06",
+          "typ": "generator",
+          "generator": "einszusechzig"
+        },
+        {
+          "id": "na-pl-07",
+          "typ": "zahl",
+          "frage": "Wie viele Minuten Kraftstoffreserve sind nach Part-NCO für einen VFR-Überlandflug mit einem Flugzeug am Tag mindestens vorgeschrieben?",
+          "loesung": 30,
+          "einheit": "min",
+          "erklaerung": "Mindestens 30 Minuten in normaler Reiseflughöhe nach Erreichen des Zielflugplatzes."
+        },
+        {
+          "id": "na-pl-08",
+          "typ": "auswahl",
+          "frage": "Wofür ist die vorgeschriebene Kraftstoffreserve gedacht?",
+          "richtig": "Für Unvorhergesehenes – sie wird nicht für den geplanten Flug verbraucht",
+          "falsch": [
+            "Für den Steigflug nach dem Start",
+            "Für das Rollen am Boden",
+            "Für den Fall, dass der Wind wie vorhergesagt ist"
+          ],
+          "erklaerung": "Rollen, Steigflug und erwarteter Wind gehören in die normale Planung. Die Reserve ist der Puffer obendrauf."
+        },
+        {
+          "id": "na-pl-09",
+          "typ": "wahrfalsch",
+          "aussage": "Nach der 1:60-Regel führt 1° Kursfehler nach 60 NM zu etwa 1 NM Ablage.",
+          "richtig": true,
+          "erklaerung": "Genau das sagt die Regel – praktisch für Kopfrechnen im Flug."
+        }
+      ]
+    }
+  ]
+}

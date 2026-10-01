@@ -1,0 +1,1117 @@
+{
+  "_hinweis": "Lerninhalte „Sprechfunk“. Grundlage: ICAO-Sprechfunkverfahren und SERA (Abschnitt 14). Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Buchstabieralphabet, Zahlen, Standardwörter, Funkverfahren und Notmeldungen – die Grundlagen für BZF und den Funk im Flugalltag.",
+  "kapitel": [
+    {
+      "id": "alphabet",
+      "titel": "Buchstabieralphabet",
+      "kurz": "Alfa bis Zulu – und warum es „Alfa“ und „Juliett“ geschrieben wird.",
+      "kern": [
+        "Buchstaben werden im Funk mit dem ICAO-Alphabet gesprochen: Alfa, Bravo, Charlie …",
+        "Schreibweise beachten: Alfa mit f, Juliett mit zwei t.",
+        "Betonung beachten: ho-TELL, pa-PAH, ke-BECK, no-VEM-ber.",
+        "Kennzeichen D-E… einmotorige Flugzeuge bis 2 t, D-K… Motorsegler, D-M… Ultraleicht."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Im Sprechfunk werden Buchstaben mit dem **ICAO-Buchstabieralphabet** gesprochen. So kann man auch bei Rauschen und schlechter Verbindung „B“ und „D“ oder „M“ und „N“ sicher unterscheiden – und es klingt in jeder Sprache gleich."
+        },
+        {
+          "typ": "einfach",
+          "text": "Über Funk klingen viele Buchstaben fast gleich – „B“, „D“, „P“ und „T“ sind kaum zu unterscheiden. Deshalb sagt man ganze Wörter, die man auch bei Rauschen noch versteht. Das kennst du vom Telefon: „D wie Dora“."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Buchstabe",
+            "Wort",
+            "Aussprache (ICAO) · Lesehilfe"
+          ],
+          "zeilen": [
+            [
+              "A",
+              "Alfa",
+              "**AL**-fah · ÄL-fa"
+            ],
+            [
+              "B",
+              "Bravo",
+              "**BRAH**-voh · BRA-wo"
+            ],
+            [
+              "C",
+              "Charlie",
+              "**CHAR**-lee · TSCHAR-li"
+            ],
+            [
+              "D",
+              "Delta",
+              "**DELL**-tah · DÄLL-ta"
+            ],
+            [
+              "E",
+              "Echo",
+              "**ECK**-oh · ÄCK-o"
+            ],
+            [
+              "F",
+              "Foxtrot",
+              "**FOKS**-trot · FOX-trott"
+            ],
+            [
+              "G",
+              "Golf",
+              "**GOLF** · GOLF"
+            ],
+            [
+              "H",
+              "Hotel",
+              "hoh-**TELL** · ho-TÄLL"
+            ],
+            [
+              "I",
+              "India",
+              "**IN**-dee-ah · IN-di-a"
+            ],
+            [
+              "J",
+              "Juliett",
+              "**JEW**-lee-ett · DSCHU-li-ätt"
+            ],
+            [
+              "K",
+              "Kilo",
+              "**KEY**-loh · KI-lo"
+            ],
+            [
+              "L",
+              "Lima",
+              "**LEE**-mah · LI-ma"
+            ],
+            [
+              "M",
+              "Mike",
+              "**MIKE** · MEIK"
+            ],
+            [
+              "N",
+              "November",
+              "no-**VEM**-ber · no-WÄMM-ber"
+            ],
+            [
+              "O",
+              "Oscar",
+              "**OSS**-cah · OSS-ka"
+            ],
+            [
+              "P",
+              "Papa",
+              "pah-**PAH** · pa-PA"
+            ],
+            [
+              "Q",
+              "Quebec",
+              "keh-**BECK** · ke-BÄCK"
+            ],
+            [
+              "R",
+              "Romeo",
+              "**ROW**-me-oh · RO-mi-o"
+            ],
+            [
+              "S",
+              "Sierra",
+              "see-**AIR**-rah · si-ÄR-ra"
+            ],
+            [
+              "T",
+              "Tango",
+              "**TANG**-go · TÄNG-go"
+            ],
+            [
+              "U",
+              "Uniform",
+              "**YOU**-nee-form · JU-ni-form"
+            ],
+            [
+              "V",
+              "Victor",
+              "**VIK**-tah · WICK-ta"
+            ],
+            [
+              "W",
+              "Whiskey",
+              "**WISS**-key · WISS-ki"
+            ],
+            [
+              "X",
+              "X-ray",
+              "**ECKS**-ray · ÄCKS-reh"
+            ],
+            [
+              "Y",
+              "Yankee",
+              "**YANG**-key · JÄNG-ki"
+            ],
+            [
+              "Z",
+              "Zulu",
+              "**ZOO**-loo · SU-lu"
+            ]
+          ],
+          "unterschrift": "Fett = betonte Silbe. Die Lesehilfe zeigt ungefähr, wie es ein Deutschsprachiger sprechen würde."
+        },
+        {
+          "typ": "merke",
+          "text": "**Alfa** mit f und **Juliett** mit zwei t – so schreibt es die ICAO, damit es in allen Sprachen gleich ausgesprochen wird. Achtung bei der Betonung: **ho-TELL**, **pa-PAH**, **ke-BECK**, **no-VEM-ber** und **si-AIR-ra** werden anders betont als im Deutschen."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "buchstabieren"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kennzeichen buchstabieren"
+        },
+        {
+          "typ": "absatz",
+          "text": "Dein Rufzeichen ist meist das Kennzeichen des Luftfahrzeugs. **D-EKLM** wird zu „Delta Echo Kilo Lima Mike“. Der zweite Buchstabe verrät in Deutschland die Art: **E** einmotorige Flugzeuge bis 2 t, **K** Motorsegler, **M** Ultraleichtflugzeuge. Segelflugzeuge haben Ziffern (z. B. D-1234)."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-al-01",
+          "typ": "generator",
+          "generator": "buchstabe"
+        },
+        {
+          "id": "sf-al-02",
+          "typ": "generator",
+          "generator": "buchstabe"
+        },
+        {
+          "id": "sf-al-03",
+          "typ": "generator",
+          "generator": "buchstabe"
+        },
+        {
+          "id": "sf-al-10",
+          "typ": "generator",
+          "generator": "betonung"
+        },
+        {
+          "id": "sf-al-11",
+          "typ": "generator",
+          "generator": "betonung"
+        },
+        {
+          "id": "sf-al-04",
+          "typ": "generator",
+          "generator": "kennzeichen"
+        },
+        {
+          "id": "sf-al-05",
+          "typ": "generator",
+          "generator": "kennzeichen"
+        },
+        {
+          "id": "sf-al-06",
+          "typ": "auswahl",
+          "frage": "Wie schreibt die ICAO das Wort für den Buchstaben A?",
+          "richtig": "Alfa",
+          "falsch": [
+            "Alpha",
+            "Alfah",
+            "Albert"
+          ],
+          "erklaerung": "Die ICAO schreibt „Alfa“ – mit f, damit es in allen Sprachen gleich ausgesprochen wird."
+        },
+        {
+          "id": "sf-al-07",
+          "typ": "auswahl",
+          "frage": "Wie schreibt die ICAO das Wort für den Buchstaben J?",
+          "richtig": "Juliett",
+          "falsch": [
+            "Juliet",
+            "Julia",
+            "Juliette"
+          ],
+          "erklaerung": "„Juliett“ mit zwei t – so wird das t am Ende auch von französischsprachigen Sprechern ausgesprochen."
+        },
+        {
+          "id": "sf-al-08",
+          "typ": "zuordnung",
+          "frage": "Ordne die Buchstaben den Wörtern zu.",
+          "paare": [
+            [
+              "M",
+              "Mike"
+            ],
+            [
+              "N",
+              "November"
+            ],
+            [
+              "Q",
+              "Quebec"
+            ],
+            [
+              "Y",
+              "Yankee"
+            ]
+          ]
+        },
+        {
+          "id": "sf-al-09",
+          "typ": "auswahl",
+          "frage": "Wofür steht das „M“ im Kennzeichen D-MXYZ?",
+          "richtig": "Ultraleichtflugzeug",
+          "falsch": [
+            "Motorsegler",
+            "Mehrmotoriges Flugzeug",
+            "Militärflugzeug"
+          ],
+          "erklaerung": "In Deutschland: D-E… einmotorige Flugzeuge bis 2 t, D-K… Motorsegler, D-M… Ultraleichtflugzeuge."
+        }
+      ]
+    },
+    {
+      "id": "zahlen",
+      "titel": "Zahlen, Höhen und Frequenzen",
+      "kurz": "Wie Ziffern, Höhen, Kurse, Luftdruck und Frequenzen gesprochen werden.",
+      "kern": [
+        "Zahlen werden Ziffer für Ziffer gesprochen; englisch tree, fife und niner.",
+        "Im deutschen Funk heißt es „zwo“ statt „zwei“.",
+        "Höhen mit thousand und hundred: 2500 ft = two thousand five hundred feet.",
+        "Frequenzen: alle sechs Ziffern – außer die letzten beiden sind null."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Zahlen werden im Sprechfunk grundsätzlich **Ziffer für Ziffer** gesprochen. Im englischen Funk gibt es dafür eine eigene Aussprache, die auch über Rauschen gut zu verstehen ist – die 3 klingt wie „tree“, die 5 wie „fife“ und die 9 wie „niner“:"
+        },
+        {
+          "typ": "einfach",
+          "text": "„Zwei“ und „drei“ klingen über ein knisterndes Funkgerät fast gleich, „zwo“ dagegen nicht. Genauso klingt das englische „nine“ wie das deutsche „nein“ – deshalb heißt es „niner“."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Ziffer",
+            "Wort",
+            "Aussprache (ICAO) · Lesehilfe"
+          ],
+          "zeilen": [
+            [
+              "0",
+              "zero",
+              "**ZE**-ro · SI-ro"
+            ],
+            [
+              "1",
+              "one",
+              "**WUN** · wann"
+            ],
+            [
+              "2",
+              "two",
+              "**TOO** · tu"
+            ],
+            [
+              "3",
+              "three",
+              "**TREE** · tri"
+            ],
+            [
+              "4",
+              "four",
+              "**FOW**-er · FAU-er"
+            ],
+            [
+              "5",
+              "five",
+              "**FIFE** · faif"
+            ],
+            [
+              "6",
+              "six",
+              "**SIX** · sicks"
+            ],
+            [
+              "7",
+              "seven",
+              "**SEV**-en · SÄW-en"
+            ],
+            [
+              "8",
+              "eight",
+              "**AIT** · eit"
+            ],
+            [
+              "9",
+              "niner",
+              "**NIN**-er · NEI-ner"
+            ]
+          ],
+          "unterschrift": "Dazu: decimal (**DAY**-see-mal), hundred (**HUN**-dred) und thousand (**TOU**-sand). Fett = betonte Silbe."
+        },
+        {
+          "typ": "merke",
+          "text": "Im **deutschen** Sprechfunk sagt man **„zwo“** statt „zwei“ – damit es nicht mit „drei“ verwechselt wird."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "So werden Werte gesprochen"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Wert",
+            "Gesprochen"
+          ],
+          "zeilen": [
+            [
+              "Höhe 2500 ft",
+              "two thousand five hundred feet"
+            ],
+            [
+              "Höhe 10 000 ft",
+              "one zero thousand feet"
+            ],
+            [
+              "Flugfläche 75",
+              "flight level seven five"
+            ],
+            [
+              "Steuerkurs 090°",
+              "heading zero niner zero"
+            ],
+            [
+              "QNH 1009",
+              "QNH one zero zero niner"
+            ],
+            [
+              "Wind 240° 12 kt",
+              "wind two four zero degrees one two knots"
+            ],
+            [
+              "Frequenz 121,500",
+              "one two one decimal five"
+            ],
+            [
+              "Frequenz 118,050",
+              "one one eight decimal zero five zero"
+            ],
+            [
+              "Transponder 7000",
+              "squawk seven zero zero zero"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Frequenzen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Seit es Frequenzen im 8,33-kHz-Raster gibt, werden **alle sechs Ziffern** gesprochen. Nur wenn die **letzten beiden Ziffern null** sind, reichen die ersten vier: 122,800 wird zu „one two two decimal eight“, 122,805 dagegen zu „one two two decimal eight zero five“."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "zahlen"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-za-01",
+          "typ": "generator",
+          "generator": "frequenz"
+        },
+        {
+          "id": "sf-za-02",
+          "typ": "generator",
+          "generator": "frequenz"
+        },
+        {
+          "id": "sf-za-03",
+          "typ": "generator",
+          "generator": "frequenz"
+        },
+        {
+          "id": "sf-za-04",
+          "typ": "generator",
+          "generator": "qnh"
+        },
+        {
+          "id": "sf-za-05",
+          "typ": "generator",
+          "generator": "hoehe"
+        },
+        {
+          "id": "sf-za-06",
+          "typ": "generator",
+          "generator": "hoehe"
+        },
+        {
+          "id": "sf-za-07",
+          "typ": "generator",
+          "generator": "steuerkurs"
+        },
+        {
+          "id": "sf-za-08",
+          "typ": "auswahl",
+          "frage": "Wie wird die Ziffer 9 im englischen Sprechfunk ausgesprochen?",
+          "richtig": "NIN-er",
+          "falsch": [
+            "NINE",
+            "NEIN",
+            "NAIN-ty"
+          ],
+          "erklaerung": "„Niner“ – damit die 9 nicht mit dem deutschen „nein“ oder der 5 verwechselt wird."
+        },
+        {
+          "id": "sf-za-09",
+          "typ": "auswahl",
+          "frage": "Warum sagt man im deutschen Sprechfunk „zwo“ statt „zwei“?",
+          "richtig": "Damit es nicht mit „drei“ verwechselt wird",
+          "falsch": [
+            "Weil es kürzer ist",
+            "Weil es der ICAO-Aussprache entspricht",
+            "Aus Tradition, ohne besonderen Grund"
+          ],
+          "erklaerung": "„Zwei“ und „drei“ klingen über Funk sehr ähnlich. „Zwo“ ist eindeutig."
+        },
+        {
+          "id": "sf-za-10",
+          "typ": "auswahl",
+          "frage": "Wie sprichst du die Höhe 10 000 ft?",
+          "richtig": "one zero thousand feet",
+          "falsch": [
+            "ten thousand feet",
+            "one zero zero zero zero feet",
+            "one hundred hundred feet"
+          ],
+          "erklaerung": "Die Tausender werden Ziffer für Ziffer gesprochen, gefolgt von „thousand“."
+        },
+        {
+          "id": "sf-za-11",
+          "typ": "auswahl",
+          "frage": "Wie sprichst du Steuerkurs Nord?",
+          "richtig": "heading three six zero",
+          "falsch": [
+            "heading zero zero zero",
+            "heading north",
+            "heading zero"
+          ],
+          "erklaerung": "Norden ist im Sprechfunk 360°, nicht 000°."
+        }
+      ]
+    },
+    {
+      "id": "begriffe",
+      "titel": "Standardwörter",
+      "kurz": "Roger, Wilco, Affirm, Standby & Co. – was sie genau bedeuten.",
+      "kern": [
+        "ROGER = erhalten, WILCO = wird ausgeführt, AFFIRM = ja, NEGATIVE = nein.",
+        "STANDBY = warten, SAY AGAIN = bitte wiederholen, UNABLE = geht nicht.",
+        "Freigaben und Anweisungen werden zurückgelesen – „Roger“ reicht dafür nicht."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Standardwörter haben im Sprechfunk eine **genau festgelegte Bedeutung**. Wer sie richtig benutzt, funkt kurz und missverständnisfrei."
+        },
+        {
+          "typ": "einfach",
+          "text": "Standardwörter sind wie Verkehrszeichen: Jeder kennt ihre Bedeutung, und es gibt keine Missverständnisse. Statt eines langen Satzes genügt ein einziges Wort."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Wort",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "**ROGER**",
+              "Ich habe deine letzte Übermittlung vollständig erhalten."
+            ],
+            [
+              "**WILCO**",
+              "Verstanden, wird ausgeführt (will comply)."
+            ],
+            [
+              "**AFFIRM**",
+              "Ja."
+            ],
+            [
+              "**NEGATIVE**",
+              "Nein – oder: Erlaubnis nicht erteilt, das ist nicht richtig."
+            ],
+            [
+              "**STANDBY**",
+              "Warte, ich rufe dich wieder."
+            ],
+            [
+              "**SAY AGAIN**",
+              "Wiederhole bitte (alles oder den genannten Teil)."
+            ],
+            [
+              "**I SAY AGAIN**",
+              "Ich wiederhole zur Verdeutlichung."
+            ],
+            [
+              "**CORRECTION**",
+              "Ich habe mich vertan, richtig ist …"
+            ],
+            [
+              "**DISREGARD**",
+              "Nicht beachten."
+            ],
+            [
+              "**READ BACK**",
+              "Wiederhole die Nachricht genau so, wie du sie empfangen hast."
+            ],
+            [
+              "**CONFIRM**",
+              "Bitte bestätige (z. B. ob eine Freigabe oder Angabe so gemeint ist)."
+            ],
+            [
+              "**REPORT**",
+              "Melde mir …"
+            ],
+            [
+              "**REQUEST**",
+              "Ich möchte … / ich bitte um …"
+            ],
+            [
+              "**APPROVED**",
+              "Die beantragte Handlung ist genehmigt."
+            ],
+            [
+              "**CLEARED**",
+              "Freigegeben – unter den genannten Bedingungen."
+            ],
+            [
+              "**UNABLE**",
+              "Ich kann dem nicht nachkommen."
+            ],
+            [
+              "**CONTACT**",
+              "Nimm Funkverbindung auf mit …"
+            ],
+            [
+              "**MONITOR**",
+              "Höre die Frequenz mit."
+            ]
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "**ROGER** ist keine Antwort auf eine Frage und ersetzt kein Zurücklesen. Freigaben und Anweisungen, die zurückgelesen werden müssen, liest du zurück – mit deinem Rufzeichen am Ende."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wie gut hörst du mich? – Lesbarkeit"
+        },
+        {
+          "typ": "absatz",
+          "text": "Auf „How do you read?“ antwortest du mit einer Zahl von 1 bis 5, z. B. „Readability five“ bzw. „Ich höre Sie fünf“."
+        },
+        {
+          "typ": "abbildung",
+          "id": "lesbarkeit"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-be-01",
+          "typ": "zuordnung",
+          "frage": "Ordne die Standardwörter ihrer Bedeutung zu.",
+          "paare": [
+            [
+              "ROGER",
+              "Letzte Übermittlung vollständig erhalten"
+            ],
+            [
+              "WILCO",
+              "Verstanden, wird ausgeführt"
+            ],
+            [
+              "AFFIRM",
+              "Ja"
+            ],
+            [
+              "NEGATIVE",
+              "Nein"
+            ]
+          ]
+        },
+        {
+          "id": "sf-be-02",
+          "typ": "auswahl",
+          "frage": "Was bedeutet STANDBY?",
+          "richtig": "Warte, ich rufe dich wieder",
+          "falsch": [
+            "Bleib auf dieser Frequenz in Bereitschaft für immer",
+            "Halte deine Position",
+            "Ich bin bereit zum Start"
+          ],
+          "erklaerung": "STANDBY heißt: Warte – die Station meldet sich wieder."
+        },
+        {
+          "id": "sf-be-03",
+          "typ": "wahrfalsch",
+          "aussage": "Eine Landefreigabe kannst du mit „Roger“ bestätigen.",
+          "richtig": false,
+          "erklaerung": "Freigaben zum Landen, Starten, Rollen auf Pisten usw. müssen zurückgelesen werden – „Roger“ reicht nicht."
+        },
+        {
+          "id": "sf-be-04",
+          "typ": "auswahl",
+          "frage": "Du hast eine Anweisung nicht verstanden. Was sagst du?",
+          "richtig": "SAY AGAIN",
+          "falsch": [
+            "I SAY AGAIN",
+            "REPEAT",
+            "CONFIRM ROGER"
+          ],
+          "erklaerung": "„Say again“ bittet um Wiederholung. „Repeat“ wird im Flugfunk nicht verwendet."
+        },
+        {
+          "id": "sf-be-05",
+          "typ": "auswahl",
+          "frage": "Du kannst eine Anweisung nicht befolgen, weil Wolken im Weg sind. Welches Wort leitet deine Antwort ein?",
+          "richtig": "UNABLE",
+          "falsch": [
+            "NEGATIVE",
+            "DISREGARD",
+            "STANDBY"
+          ],
+          "erklaerung": "„Unable“ heißt: Ich kann dem nicht nachkommen – am besten mit kurzem Grund."
+        },
+        {
+          "id": "sf-be-06",
+          "typ": "auswahl",
+          "frage": "Du hast dich beim Funken versprochen. Mit welchem Wort korrigierst du dich?",
+          "richtig": "CORRECTION",
+          "falsch": [
+            "DISREGARD",
+            "NEGATIVE",
+            "SAY AGAIN"
+          ],
+          "erklaerung": "„Correction“ – dann folgt die richtige Fassung."
+        },
+        {
+          "id": "sf-be-07",
+          "typ": "auswahl",
+          "frage": "Was bedeutet WILCO?",
+          "richtig": "Verstanden, wird ausgeführt",
+          "falsch": [
+            "Willkommen",
+            "Bitte wiederholen",
+            "Ich warte"
+          ],
+          "erklaerung": "WILCO kommt von „will comply“."
+        },
+        {
+          "id": "sf-be-08",
+          "typ": "zuordnung",
+          "frage": "Ordne die Lesbarkeitsstufen zu.",
+          "paare": [
+            [
+              "Lesbarkeit 1",
+              "unverständlich"
+            ],
+            [
+              "Lesbarkeit 3",
+              "schwer verständlich"
+            ],
+            [
+              "Lesbarkeit 5",
+              "einwandfrei verständlich"
+            ]
+          ]
+        },
+        {
+          "id": "sf-be-09",
+          "typ": "auswahl",
+          "frage": "Die Bodenstation sagt: „Report downwind“. Was sollst du tun?",
+          "richtig": "Dich melden, wenn du im Gegenanflug bist",
+          "falsch": [
+            "Sofort in den Gegenanflug drehen",
+            "Den Wind am Platz melden",
+            "Die Frequenz wechseln"
+          ],
+          "erklaerung": "REPORT heißt „Melde …“ – hier: Melde, wenn du im Gegenanflug (downwind) bist."
+        },
+        {
+          "id": "sf-be-10",
+          "typ": "wahrfalsch",
+          "aussage": "Mit „Affirm“ antwortest du im Sprechfunk mit Ja.",
+          "richtig": true,
+          "erklaerung": "AFFIRM ist das Standardwort für Ja. „Yes“ ist kurz und schlecht verständlich."
+        }
+      ]
+    },
+    {
+      "id": "verfahren",
+      "titel": "Funkverfahren",
+      "kurz": "Erstanruf, Rufzeichen abkürzen, zurücklesen – und was bei Funkausfall zu tun ist.",
+      "kern": [
+        "Erstanruf: Wen rufst du – wer bist du – wo bist du – was willst du.",
+        "Das Rufzeichen erst abkürzen, wenn die Bodenstation es abgekürzt hat.",
+        "Pistenfreigaben, QNH, Transpondercodes, Frequenzen, Höhe, Kurs und Geschwindigkeit immer zurücklesen.",
+        "Funkausfall (VFR): 7600 einstellen, in VMC weiterfliegen, nächsten geeigneten Platz anfliegen."
+      ],
+      "theorie": [
+        {
+          "typ": "zwischentitel",
+          "text": "Der Erstanruf"
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein Erstanruf ist wie ein Anruf in einer Firma: Erst nennst du, wen du sprechen willst, dann wer du bist, wo du gerade bist und was du möchtest. So weiß die Gegenstelle sofort Bescheid."
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein Erstanruf folgt immer demselben Muster: **Wen rufst du – wer bist du – wo bist du – was willst du.**"
+        },
+        {
+          "typ": "formel",
+          "titel": "Beispiel",
+          "text": "„Altdorf Info, D-EKLM, Cessna 172,\n5 NM südlich, 2500 ft,\nzur Landung.“"
+        },
+        {
+          "typ": "absatz",
+          "text": "Das Beispiel nutzt einen frei erfundenen Platz. Wie genau du dich meldest, hängt vom Platz und vom Luftraum ab – üblich sind zusätzlich z. B. die Information über die aktuelle ATIS-Kennung."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Rufzeichen abkürzen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Dein Rufzeichen darfst du erst abkürzen, **nachdem die Bodenstation es selbst abgekürzt hat**. Die Kurzform besteht aus dem ersten Zeichen und mindestens den letzten beiden: D-EKLM wird zu **D-LM** („Delta Lima Mike“)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zurücklesen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Sicherheitswichtige Teile von Freigaben und Anweisungen liest du **immer zurück** (SERA.8015), und zwar mit deinem Rufzeichen:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Streckenfreigaben",
+            "Freigaben und Anweisungen zum Aufrollen, Landen, Starten, Halten vor, Überqueren und Zurückrollen auf einer **Piste**",
+            "die **Piste in Benutzung**, **Höhenmessereinstellungen**, **Transpondercodes** und neue **Frequenzen**",
+            "Anweisungen zu **Höhe**, **Steuerkurs** und **Geschwindigkeit**"
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Funkausfall"
+        },
+        {
+          "typ": "absatz",
+          "text": "Fällt dein Funk aus, prüfst du zuerst Lautstärke, Frequenz, Kopfhörer und Sicherungen. Klappt es weiter nicht, gilt nach SERA für VFR-Flüge:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Transpondercode **7600** einstellen",
+            "in Sichtflugwetterbedingungen weiterfliegen",
+            "auf dem nächsten geeigneten Flugplatz landen",
+            "die Landung umgehend der zuständigen Flugverkehrskontrollstelle melden"
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Hörst du die Station noch, kannst aber nicht senden, kannst du Meldungen trotzdem **blind senden** – vielleicht kommen sie an."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-ve-01",
+          "typ": "auswahl",
+          "frage": "In welcher Reihenfolge baust du einen Erstanruf auf?",
+          "richtig": "Gerufene Station – Rufzeichen – Standort – Absicht",
+          "falsch": [
+            "Rufzeichen – gerufene Station – Absicht – Standort",
+            "Absicht – Standort – Rufzeichen – gerufene Station",
+            "Gerufene Station – Absicht – Rufzeichen – Standort"
+          ],
+          "erklaerung": "Wen rufst du – wer bist du – wo bist du – was willst du."
+        },
+        {
+          "id": "sf-ve-02",
+          "typ": "generator",
+          "generator": "kurzrufzeichen"
+        },
+        {
+          "id": "sf-ve-03",
+          "typ": "wahrfalsch",
+          "aussage": "Du darfst dein Rufzeichen abkürzen, sobald du dich einmal vollständig gemeldet hast.",
+          "richtig": false,
+          "erklaerung": "Erst wenn die Bodenstation dein Rufzeichen abgekürzt hat, darfst du die Kurzform benutzen."
+        },
+        {
+          "id": "sf-ve-04",
+          "typ": "mehrfach",
+          "frage": "Was musst du immer zurücklesen?",
+          "richtig": [
+            "Höhenmessereinstellung (QNH)",
+            "Transpondercode",
+            "Freigabe zum Aufrollen auf eine Piste",
+            "Neue Frequenz"
+          ],
+          "falsch": [
+            "Verkehrsinformationen",
+            "Wetterinformationen zur Sicht"
+          ],
+          "erklaerung": "Zurückgelesen werden u. a. Pistenfreigaben, Piste in Benutzung, Höhenmessereinstellungen, Transpondercodes, Frequenzen sowie Höhen-, Kurs- und Geschwindigkeitsanweisungen."
+        },
+        {
+          "id": "sf-ve-05",
+          "typ": "auswahl",
+          "frage": "Womit endet das Zurücklesen einer Freigabe?",
+          "richtig": "Mit deinem Rufzeichen",
+          "falsch": [
+            "Mit „Roger“",
+            "Mit „Over“",
+            "Mit dem Namen der Bodenstation"
+          ],
+          "erklaerung": "So weiß die Station, wer zurückgelesen hat."
+        },
+        {
+          "id": "sf-ve-06",
+          "typ": "auswahl",
+          "frage": "Welchen Transpondercode stellst du bei Funkausfall ein?",
+          "richtig": "7600",
+          "falsch": [
+            "7700",
+            "7500",
+            "7000"
+          ],
+          "erklaerung": "7600 = Funkausfall. 7700 = Notfall, 7500 = widerrechtlicher Eingriff, 7000 = VFR ohne zugeteilten Code."
+        },
+        {
+          "id": "sf-ve-07",
+          "typ": "auswahl",
+          "frage": "Dein Funkgerät fällt im VFR-Flug endgültig aus. Was sieht SERA vor?",
+          "richtig": "In VMC weiterfliegen, auf dem nächsten geeigneten Flugplatz landen und die Landung melden",
+          "falsch": [
+            "Sofort zum Startflugplatz zurückfliegen",
+            "Kreisen, bis sich die Verbindung wieder aufbaut",
+            "In eine Kontrollzone einfliegen, um gesehen zu werden"
+          ],
+          "erklaerung": "Code 7600, in Sichtflugwetter bleiben, nächsten geeigneten Platz anfliegen und die Ankunft umgehend der Flugverkehrskontrolle melden."
+        },
+        {
+          "id": "sf-ve-08",
+          "typ": "wahrfalsch",
+          "aussage": "Verkehrsinformationen musst du immer vollständig zurücklesen.",
+          "richtig": false,
+          "erklaerung": "Verkehrsinformationen bestätigst du – z. B. mit „Traffic in sight“ oder „Looking out“ – musst sie aber nicht zurücklesen."
+        }
+      ]
+    },
+    {
+      "id": "notfall",
+      "titel": "Not- und Dringlichkeitsmeldungen",
+      "kurz": "MAYDAY, PAN PAN, 121,5 MHz und die Transpondercodes für den Notfall.",
+      "kern": [
+        "MAYDAY (3×) = Notlage, sofortige Hilfe nötig; PAN PAN (3×) = Dringlichkeit.",
+        "Inhalt: Rufzeichen, Art des Notfalls, Absicht, Position, Höhe und Kurs.",
+        "Zuerst auf der aktuellen Frequenz senden, sonst auf 121,500 MHz.",
+        "Transponder: 7700 Notfall, 7600 Funkausfall, 7500 widerrechtlicher Eingriff."
+      ],
+      "theorie": [
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Meldung",
+            "Wann?",
+            "Einleitung"
+          ],
+          "zeilen": [
+            [
+              "**Notmeldung**",
+              "Schwere oder unmittelbare Gefahr – sofortige Hilfe nötig (z. B. Feuer, Motorausfall über unlandbarem Gelände)",
+              "MAYDAY MAYDAY MAYDAY"
+            ],
+            [
+              "**Dringlichkeitsmeldung**",
+              "Die Sicherheit eines Luftfahrzeugs oder einer Person ist gefährdet, sofortige Hilfe aber nicht nötig (z. B. Orientierung verloren, kranker Passagier)",
+              "PAN PAN, PAN PAN, PAN PAN"
+            ]
+          ]
+        },
+        {
+          "typ": "einfach",
+          "text": "MAYDAY ist der Notruf 112 der Luftfahrt – für echte Lebensgefahr. PAN PAN ist eher wie ein dringender Anruf beim Arzt: Es ist ernst, aber nicht sofort lebensbedrohlich."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Inhalt einer Notmeldung"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Name der gerufenen Station (wenn Zeit dafür ist)",
+            "dein **Rufzeichen**",
+            "die **Art des Notfalls**",
+            "deine **Absicht**",
+            "**Position, Höhe und Steuerkurs**",
+            "weitere hilfreiche Angaben, z. B. Personen an Bord"
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Du sendest die Meldung zuerst auf der **Frequenz, auf der du gerade bist** – dort kennt man dich. Bist du nirgends in Verbindung, nimmst du die Notfrequenz **121,500 MHz**."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Transpondercode",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "**7700**",
+              "Notfall"
+            ],
+            [
+              "**7600**",
+              "Funkausfall"
+            ],
+            [
+              "**7500**",
+              "Widerrechtlicher Eingriff (Entführung)"
+            ],
+            [
+              "**7000**",
+              "VFR-Flug ohne zugeteilten Code"
+            ]
+          ]
+        },
+        {
+          "typ": "abbildung",
+          "id": "transponder-7000",
+          "unterschrift": "Transponder mit dem VFR-Code 7000."
+        },
+        {
+          "typ": "merke",
+          "text": "Im Notfall gilt: **Aviate – Navigate – Communicate.** Erst fliegen, dann navigieren, dann funken."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-no-01",
+          "typ": "zahl",
+          "frage": "Wie lautet die internationale Notfrequenz (in MHz)?",
+          "loesung": 121.5,
+          "einheit": "MHz",
+          "erklaerung": "121,500 MHz – sie wird ständig abgehört."
+        },
+        {
+          "id": "sf-no-02",
+          "typ": "generator",
+          "generator": "transpondercode"
+        },
+        {
+          "id": "sf-no-03",
+          "typ": "generator",
+          "generator": "transpondercode"
+        },
+        {
+          "id": "sf-no-04",
+          "typ": "auswahl",
+          "frage": "Dein Motor fällt über geschlossenem Wald aus. Wie leitest du die Meldung ein?",
+          "richtig": "MAYDAY MAYDAY MAYDAY",
+          "falsch": [
+            "PAN PAN, PAN PAN, PAN PAN",
+            "SECURITÉ, SECURITÉ, SECURITÉ",
+            "EMERGENCY EMERGENCY"
+          ],
+          "erklaerung": "Unmittelbare Gefahr, sofortige Hilfe nötig – das ist eine Notlage: MAYDAY."
+        },
+        {
+          "id": "sf-no-05",
+          "typ": "auswahl",
+          "frage": "Du hast die Orientierung verloren, Kraftstoff und Wetter sind aber noch gut. Welche Meldung passt?",
+          "richtig": "Dringlichkeitsmeldung mit PAN PAN",
+          "falsch": [
+            "Notmeldung mit MAYDAY",
+            "Gar keine – das ist kein Funkfall",
+            "Transponder auf 7500"
+          ],
+          "erklaerung": "Die Sicherheit ist gefährdet, aber sofortige Hilfe ist nicht nötig: Dringlichkeit, PAN PAN. Der Fluginformationsdienst kann dir helfen."
+        },
+        {
+          "id": "sf-no-06",
+          "typ": "mehrfach",
+          "frage": "Was gehört in eine Notmeldung?",
+          "richtig": [
+            "Rufzeichen",
+            "Art des Notfalls",
+            "Absicht des Piloten",
+            "Position, Höhe und Steuerkurs"
+          ],
+          "falsch": [
+            "Name des Halters",
+            "Abflugzeit am Startflugplatz"
+          ],
+          "erklaerung": "Rufzeichen, Art des Notfalls, Absicht, Position/Höhe/Kurs und weitere hilfreiche Angaben."
+        },
+        {
+          "id": "sf-no-07",
+          "typ": "wahrfalsch",
+          "aussage": "Eine Notmeldung darfst du nur auf 121,500 MHz absetzen.",
+          "richtig": false,
+          "erklaerung": "Zuerst auf der Frequenz, auf der du gerade bist. 121,500 MHz ist die Alternative, wenn du sonst keine Verbindung hast."
+        },
+        {
+          "id": "sf-no-08",
+          "typ": "zuordnung",
+          "frage": "Ordne die Transpondercodes zu.",
+          "paare": [
+            [
+              "7700",
+              "Notfall"
+            ],
+            [
+              "7600",
+              "Funkausfall"
+            ],
+            [
+              "7500",
+              "Widerrechtlicher Eingriff"
+            ],
+            [
+              "7000",
+              "VFR ohne zugeteilten Code"
+            ]
+          ]
+        },
+        {
+          "id": "sf-no-09",
+          "typ": "auswahl",
+          "frage": "Was bedeutet „Aviate – Navigate – Communicate“?",
+          "richtig": "Erst das Flugzeug fliegen, dann navigieren, dann funken",
+          "falsch": [
+            "Erst funken, dann navigieren, dann fliegen",
+            "Navigation ist im Notfall am wichtigsten",
+            "Funk hat im Notfall Vorrang vor allem anderen"
+          ],
+          "erklaerung": "Die Kontrolle über das Flugzeug kommt immer zuerst."
+        }
+      ]
+    }
+  ]
+}

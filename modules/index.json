@@ -1,0 +1,61 @@
+{
+  "_hinweis": "Liste aller Lernmodule. Ein neues Modul bekommt hier einen Eintrag und einen eigenen Ordner unter modules/. status: \"aktiv\" oder \"geplant\".",
+  "module": [
+    {
+      "id": "metar",
+      "titel": "METAR lesen",
+      "beschreibung": "Flugplatz-Wettermeldungen lesen, verstehen und bewerten.",
+      "pfad": "modules/metar/",
+      "status": "aktiv"
+    },
+    {
+      "id": "luftraum",
+      "titel": "Luftraum & Regeln",
+      "beschreibung": "Luftraumklassen, Sichtflugbedingungen, Kontrollzonen und Ausweichregeln.",
+      "status": "aktiv",
+      "pfad": "modules/luftraum/"
+    },
+    {
+      "id": "sprechfunk",
+      "titel": "Sprechfunk",
+      "beschreibung": "Buchstabieralphabet, Zahlen, Standardwörter, Verfahren und Notmeldungen.",
+      "status": "aktiv",
+      "pfad": "modules/sprechfunk/"
+    },
+    {
+      "id": "navigation",
+      "titel": "Navigation",
+      "beschreibung": "Einheiten, Karte, Kurse, Winddreieck und Flugplanung – mit Übungskarte.",
+      "status": "aktiv",
+      "pfad": "modules/navigation/"
+    },
+    {
+      "id": "masse-schwerpunkt",
+      "titel": "Masse & Schwerpunkt",
+      "beschreibung": "Beladung berechnen, Schwerpunkt prüfen – mit Beladungsrechner.",
+      "status": "aktiv",
+      "pfad": "modules/masse-schwerpunkt/"
+    },
+    {
+      "id": "meteorologie",
+      "titel": "Meteorologie",
+      "beschreibung": "Atmosphäre, Luftdruck, Wolken, Wind, Fronten und Wettergefahren.",
+      "status": "aktiv",
+      "pfad": "modules/meteorologie/"
+    },
+    {
+      "id": "aerodynamik",
+      "titel": "Aerodynamik",
+      "beschreibung": "Auftrieb, Widerstand, Überziehen, Stabilität und Flugleistung.",
+      "status": "aktiv",
+      "pfad": "modules/aerodynamik/"
+    },
+    {
+      "id": "signale",
+      "titel": "Signale",
+      "beschreibung": "Lichtsignale, Bodensignale, Not- und Abfangsignale.",
+      "status": "aktiv",
+      "pfad": "modules/signale/"
+    }
+  ]
+}

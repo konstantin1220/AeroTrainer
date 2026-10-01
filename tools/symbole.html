@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AeroTrainer – Symbolübersicht</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    body { padding: 1rem; }
+    .raster { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .raster figure { margin: 0; width: 6.5rem; text-align: center; font-size: .75rem; color: var(--leise); }
+    .raster .ico { width: 2.5rem; height: 2.5rem; color: var(--text); }
+    .raster .ico-thema { width: 3.5rem; height: 3.5rem; }
+    .logo { width: 6rem; height: 6rem; }
+  </style>
+</head>
+<body>
+  <h1>Symbolübersicht</h1>
+  <p class="leise">Alle Symbole sind selbst gezeichnet (js/icons.js).</p>
+  <div id="logo"></div>
+  <h2>Bedienung</h2>
+  <div class="raster" id="bedienung"></div>
+  <h2>Themen</h2>
+  <div class="raster" id="themen"></div>
+  <script type="module">
+    import { icon, themenIcon, logo } from '../js/icons.js';
+    import { ICON_NAMEN, THEMEN_NAMEN } from '../js/icons.js';
+    document.getElementById('logo').append(logo());
+    for (const name of ICON_NAMEN) {
+      const f = document.createElement('figure');
+      f.append(icon(name), Object.assign(document.createElement('figcaption'), { textContent: name }));
+      document.getElementById('bedienung').append(f);
+    }
+    for (const name of THEMEN_NAMEN) {
+      const f = document.createElement('figure');
+      f.dataset.modul = name;
+      f.append(themenIcon(name), Object.assign(document.createElement('figcaption'), { textContent: name }));
+      document.getElementById('themen').append(f);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,759 @@
+{
+  "_hinweis": "Wissenskapitel „METAR lesen“. Alle METARs werden frei erfunden (Generator in erzeugen.js, Beispiele in beispiele.json). Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Flugplatz-Wettermeldungen lesen, verstehen und bewerten – in vier Stufen vom Antippen bis zur Flugentscheidung, dazu Wissenskapitel mit Wiederholung.",
+  "kapitel": [
+    {
+      "id": "aufbau",
+      "titel": "Aufbau eines METAR",
+      "kurz": "Welche Gruppen es gibt und in welcher Reihenfolge sie stehen.",
+      "kern": [
+        "Ein METAR ist die aktuelle Wettermeldung eines Flugplatzes – an großen Plätzen meist alle 30 Minuten.",
+        "Die Gruppen stehen immer in derselben Reihenfolge: Kennung, Ort, Zeit, Wind, Sicht, Wetter, Wolken, Temperatur/Taupunkt, QNH, Trend.",
+        "Zeiten in UTC, Wolkenhöhen in Hundert Fuß über dem Platz, Windrichtung rechtweisend."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Ein **METAR** ist die routinemäßige Wettermeldung eines Flugplatzes. An größeren Flugplätzen erscheint es meist alle 30 Minuten. Die Gruppen stehen immer in derselben Reihenfolge – wer sie kennt, liest ein METAR in Sekunden."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein METAR ist wie eine SMS vom Flugplatz: kurz, immer im gleichen Aufbau und ohne überflüssige Wörter. Wer die Reihenfolge kennt, kann jede Gruppe zuordnen – so wie man bei einer Adresse weiß, dass erst die Straße und dann der Ort kommt."
+        },
+        {
+          "typ": "formel",
+          "titel": "Beispiel (frei erfunden)",
+          "text": "METAR EDDN 121420Z 24012G25KT 9999\n-SHRA FEW025CB BKN045 18/11 Q1009\nTEMPO 3000 TSRA"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Gruppe",
+            "Beispiel",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "Art der Meldung",
+              "METAR",
+              "Routinemeldung (SPECI = Sondermeldung)"
+            ],
+            [
+              "Ortskennung",
+              "EDDN",
+              "ICAO-Kennung des Flugplatzes"
+            ],
+            [
+              "Zeit",
+              "121420Z",
+              "am 12. um 14:20 UTC"
+            ],
+            [
+              "Wind",
+              "24012G25KT",
+              "aus 240° mit 12 kt, Böen 25 kt"
+            ],
+            [
+              "Sicht",
+              "9999",
+              "10 km oder mehr"
+            ],
+            [
+              "Wetter",
+              "-SHRA",
+              "leichter Regenschauer"
+            ],
+            [
+              "Wolken",
+              "FEW025CB BKN045",
+              "wenige CB in 2500 ft, durchbrochen in 4500 ft"
+            ],
+            [
+              "Temperatur/Taupunkt",
+              "18/11",
+              "18 °C, Taupunkt 11 °C"
+            ],
+            [
+              "Luftdruck",
+              "Q1009",
+              "QNH 1009 hPa"
+            ],
+            [
+              "Trend",
+              "TEMPO 3000 TSRA",
+              "vorübergehend 3000 m Sicht und Gewitter mit Regen"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Alle Zeiten sind in **UTC**, Wolkenhöhen in **Hundert Fuß über Platzhöhe**, die Windrichtung bezieht sich auf **rechtweisend Nord**."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "baukasten"
+        },
+        {
+          "typ": "absatz",
+          "text": "In **Stufe 1** kannst du jede Gruppe an Beispielen antippen und dir erklären lassen. Die Kapitel hier fassen das Wissen zusammen; die Wiederholungsfragen nutzen jedes Mal neue, frei erfundene METARs."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "mt-au-01",
+          "typ": "generator",
+          "generator": "kuerzel"
+        },
+        {
+          "id": "mt-au-02",
+          "typ": "generator",
+          "generator": "kuerzel"
+        },
+        {
+          "id": "mt-au-03",
+          "typ": "generator",
+          "generator": "kuerzel"
+        },
+        {
+          "id": "mt-au-04",
+          "typ": "generator",
+          "generator": "gruppe"
+        },
+        {
+          "id": "mt-au-05",
+          "typ": "generator",
+          "generator": "gruppe"
+        },
+        {
+          "id": "mt-au-06",
+          "typ": "generator",
+          "generator": "gruppe"
+        },
+        {
+          "id": "mt-au-07",
+          "typ": "auswahl",
+          "frage": "In welcher Zeit sind die Uhrzeiten im METAR angegeben?",
+          "richtig": "In UTC",
+          "falsch": [
+            "In Ortszeit",
+            "In MEZ, auch im Sommer",
+            "In der Zeit des Flughafens"
+          ],
+          "erklaerung": "Das „Z“ (Zulu) steht für UTC."
+        },
+        {
+          "id": "mt-au-08",
+          "typ": "auswahl",
+          "frage": "Für welchen Zeitraum gilt der Trend am Ende eines METARs?",
+          "richtig": "Für die nächsten 2 Stunden",
+          "falsch": [
+            "Für die nächsten 30 Minuten",
+            "Für die nächsten 6 Stunden",
+            "Für den ganzen Tag"
+          ],
+          "erklaerung": "Der Trend ist eine kurze Landewettervorhersage für 2 Stunden."
+        },
+        {
+          "id": "mt-au-09",
+          "typ": "auswahl",
+          "frage": "Was ist ein SPECI?",
+          "richtig": "Eine Sondermeldung bei deutlicher Wetteränderung",
+          "falsch": [
+            "Eine Vorhersage für 24 Stunden",
+            "Ein METAR eines militärischen Flugplatzes",
+            "Eine Meldung nur für Segelflieger"
+          ],
+          "erklaerung": "SPECI kann zwischen den Routinemeldungen erscheinen, wenn sich das Wetter deutlich ändert."
+        },
+        {
+          "id": "mt-au-10",
+          "typ": "auswahl",
+          "frage": "Worauf beziehen sich die Wolkenhöhen im METAR?",
+          "richtig": "Auf die Platzhöhe (über Grund am Flugplatz)",
+          "falsch": [
+            "Auf den mittleren Meeresspiegel (MSL)",
+            "Auf die Standarddruckfläche 1013,25 hPa",
+            "Auf die höchste Erhebung im Umkreis"
+          ],
+          "erklaerung": "BKN012 heißt: Untergrenze 1200 ft über dem Flugplatz."
+        }
+      ]
+    },
+    {
+      "id": "wind-sicht",
+      "titel": "Wind & Sicht",
+      "kurz": "Windrichtung, Böen, schwankender Wind, Sicht und Pistensichtweite.",
+      "kern": [
+        "24012G25KT: Wind aus 240° mit 12 kt, Böen bis 25 kt.",
+        "VRB = wechselnde Richtung, 00000KT = Windstille.",
+        "9999 = Sicht 10 km oder mehr; kleinere Werte stehen in Metern.",
+        "Böen werden erst gemeldet, wenn sie mindestens 10 kt über dem Mittelwind liegen."
+      ],
+      "theorie": [
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Gruppe",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "24012KT",
+              "Wind aus 240° (rechtweisend) mit 12 kt"
+            ],
+            [
+              "24012G25KT",
+              "… mit Böen bis 25 kt (gemeldet, wenn die Spitzen den Mittelwert um mindestens 10 kt übersteigen)"
+            ],
+            [
+              "VRB03KT",
+              "wechselnde Richtung mit 3 kt"
+            ],
+            [
+              "00000KT",
+              "Windstille"
+            ],
+            [
+              "210V270",
+              "Richtung schwankt zwischen 210° und 270° (ab 60° Schwankung und mindestens 3 kt)"
+            ]
+          ]
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Windrichtung sagt immer, **woher** der Wind kommt – so wie der Windsack mit seiner Öffnung in den Wind zeigt. 240° heißt also: Der Wind kommt aus Westsüdwest und weht nach Ostnordost."
+        },
+        {
+          "typ": "achtung",
+          "text": "Die Windrichtung im METAR ist **rechtweisend**, die Pistenrichtung **missweisend**. In Mitteleuropa beträgt der Unterschied derzeit nur wenige Grad. Bei der Landeinformation per Funk (Turm, ATIS) wird der Wind dagegen missweisend angegeben."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Gruppe",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "9999",
+              "Sicht 10 km oder mehr"
+            ],
+            [
+              "4500",
+              "Sicht 4500 m"
+            ],
+            [
+              "0800",
+              "Sicht 800 m"
+            ],
+            [
+              "1200SW",
+              "zusätzlich: geringste Sicht 1200 m Richtung Südwest"
+            ],
+            [
+              "R25/0550D",
+              "Pistensichtweite Piste 25: 550 m, abnehmend"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Unter 5 km steht die Sicht in Metern, darüber in Kilometer-Schritten (5000, 6000 …). **9999** heißt nicht „9,999 km“, sondern **10 km oder mehr**."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "mt-ws-01",
+          "typ": "generator",
+          "generator": "wind"
+        },
+        {
+          "id": "mt-ws-02",
+          "typ": "generator",
+          "generator": "wind"
+        },
+        {
+          "id": "mt-ws-03",
+          "typ": "generator",
+          "generator": "wind"
+        },
+        {
+          "id": "mt-ws-04",
+          "typ": "generator",
+          "generator": "sicht"
+        },
+        {
+          "id": "mt-ws-05",
+          "typ": "generator",
+          "generator": "sicht"
+        },
+        {
+          "id": "mt-ws-06",
+          "typ": "auswahl",
+          "frage": "Worauf bezieht sich die Windrichtung im METAR?",
+          "richtig": "Auf rechtweisend Nord",
+          "falsch": [
+            "Auf missweisend Nord",
+            "Auf die Pistenrichtung",
+            "Auf die Flugrichtung"
+          ],
+          "erklaerung": "METAR-Wind ist rechtweisend. Die Pistenbezeichnung ist missweisend."
+        },
+        {
+          "id": "mt-ws-07",
+          "typ": "auswahl",
+          "frage": "Wann werden Böen im METAR gemeldet?",
+          "richtig": "Wenn die Spitzen den Mittelwind um 10 kt oder mehr übersteigen",
+          "falsch": [
+            "Immer, wenn der Wind über 15 kt liegt",
+            "Wenn die Spitzen den Mittelwind um 5 kt übersteigen",
+            "Nur bei Gewittern"
+          ],
+          "erklaerung": "Böen erscheinen als G-Gruppe, wenn sie mindestens 10 kt über dem Mittelwert liegen."
+        },
+        {
+          "id": "mt-ws-08",
+          "typ": "wahrfalsch",
+          "aussage": "„9999“ bedeutet eine Sicht von genau 9999 Metern.",
+          "richtig": false,
+          "erklaerung": "9999 steht für 10 km oder mehr."
+        }
+      ]
+    },
+    {
+      "id": "wetter-wolken",
+      "titel": "Wetter & Wolken",
+      "kurz": "Wetterabkürzungen, Bedeckungsgrade, Hauptwolkenuntergrenze und CAVOK.",
+      "kern": [
+        "Wetter: − leicht, + stark, VC in der Umgebung; z. B. -SHRA = leichter Regenschauer.",
+        "FEW 1–2, SCT 3–4, BKN 5–7, OVC 8 Achtel; die Höhe steht in Hundert Fuß.",
+        "Hauptwolkenuntergrenze = niedrigste Schicht mit BKN oder OVC.",
+        "CAVOK: Sicht ≥ 10 km, keine Wolken unter 5000 ft, kein CB/TCU, kein signifikantes Wetter."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Wettergruppen setzen sich zusammen aus **Intensität oder Nähe** (− leicht, ohne Zeichen mäßig, + stark, VC in der Umgebung), einer **Beschreibung** und der **Erscheinung**."
+        },
+        {
+          "typ": "einfach",
+          "text": "Stell dir den Himmel wie eine Pizza mit acht Stücken vor: Bei FEW sind ein bis zwei Stücke mit Wolken belegt, bei OVC alle acht. Ab BKN – mehr als die Hälfte – spricht man von einer „Decke“, unter der man nicht einfach hindurchsehen kann."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Beschreibung",
+            "Erscheinung"
+          ],
+          "zeilen": [
+            [
+              "SH Schauer",
+              "RA Regen"
+            ],
+            [
+              "TS Gewitter",
+              "DZ Sprühregen"
+            ],
+            [
+              "FZ gefrierend",
+              "SN Schnee"
+            ],
+            [
+              "BC Schwaden",
+              "GR Hagel"
+            ],
+            [
+              "MI flach",
+              "FG Nebel (Sicht unter 1000 m)"
+            ],
+            [
+              "BL treibend, DR fegend",
+              "BR feuchter Dunst (1000–5000 m), HZ trockener Dunst"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiele: **-SHRA** leichter Regenschauer, **+TSRA** starkes Gewitter mit Regen, **FZDZ** gefrierender Sprühregen, **BCFG** Nebelschwaden, **VCSH** Schauer in der Umgebung."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wolken"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Abkürzung",
+            "Bedeckung"
+          ],
+          "zeilen": [
+            [
+              "FEW",
+              "1–2 Achtel"
+            ],
+            [
+              "SCT",
+              "3–4 Achtel"
+            ],
+            [
+              "BKN",
+              "5–7 Achtel"
+            ],
+            [
+              "OVC",
+              "8 Achtel"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Die **Hauptwolkenuntergrenze** (Ceiling) ist die niedrigste Schicht mit **BKN oder OVC** unter 20 000 ft. FEW und SCT zählen nicht."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**CAVOK**: Sicht 10 km oder mehr, keine Wolken unter 5000 ft (bzw. unter der höchsten Mindestsektorhöhe), keine CB/TCU, kein signifikantes Wetter. Nicht unbedingt wolkenlos!",
+            "**NSC**: keine signifikante Bewölkung. **NCD**: automatische Station hat keine Wolken erkannt.",
+            "**VV002**: Himmel nicht erkennbar (z. B. Nebel), Vertikalsicht 200 ft.",
+            "**CB** und **TCU** werden an die Wolkengruppe angehängt, z. B. FEW030CB."
+          ]
+        }
+      ],
+      "fragen": [
+        {
+          "id": "mt-ww-01",
+          "typ": "generator",
+          "generator": "wetter"
+        },
+        {
+          "id": "mt-ww-02",
+          "typ": "generator",
+          "generator": "wetter"
+        },
+        {
+          "id": "mt-ww-03",
+          "typ": "generator",
+          "generator": "wolken"
+        },
+        {
+          "id": "mt-ww-04",
+          "typ": "generator",
+          "generator": "wolken"
+        },
+        {
+          "id": "mt-ww-05",
+          "typ": "generator",
+          "generator": "wolken"
+        },
+        {
+          "id": "mt-ww-06",
+          "typ": "mehrfach",
+          "frage": "Welche Bedingungen gehören zu CAVOK?",
+          "richtig": [
+            "Sicht 10 km oder mehr",
+            "Keine Wolken unter 5000 ft",
+            "Keine CB oder TCU",
+            "Kein signifikantes Wetter"
+          ],
+          "falsch": [
+            "Wolkenloser Himmel",
+            "Windstille"
+          ],
+          "erklaerung": "CAVOK sagt nichts über Wolken oberhalb von 5000 ft und nichts über den Wind."
+        },
+        {
+          "id": "mt-ww-07",
+          "typ": "wahrfalsch",
+          "aussage": "Bei CAVOK ist der Himmel immer wolkenlos.",
+          "richtig": false,
+          "erklaerung": "Oberhalb von 5000 ft (bzw. der höchsten Mindestsektorhöhe) kann es durchaus Wolken geben."
+        },
+        {
+          "id": "mt-ww-08",
+          "typ": "auswahl",
+          "frage": "Wo liegt bei „FEW008 SCT015 BKN030“ die Hauptwolkenuntergrenze?",
+          "richtig": "Bei 3000 ft",
+          "falsch": [
+            "Bei 800 ft",
+            "Bei 1500 ft",
+            "Es gibt keine"
+          ],
+          "erklaerung": "Erst BKN030 bedeckt mehr als die Hälfte des Himmels – das ist die Hauptwolkenuntergrenze."
+        },
+        {
+          "id": "mt-ww-09",
+          "typ": "auswahl",
+          "frage": "Was bedeutet „+TSRA“?",
+          "richtig": "Starkes Gewitter mit Regen",
+          "falsch": [
+            "Leichter Regenschauer",
+            "Gewitter in der Umgebung",
+            "Starker Regen ohne Gewitter"
+          ],
+          "erklaerung": "+ = stark, TS = Gewitter, RA = Regen."
+        }
+      ]
+    },
+    {
+      "id": "temperatur-trend",
+      "titel": "Temperatur, QNH & Trend",
+      "kurz": "Spread, Luftdruck und was NOSIG, BECMG und TEMPO bedeuten.",
+      "kern": [
+        "18/11 = Temperatur 18 °C, Taupunkt 11 °C; M steht für minus.",
+        "Kleiner Spread = feuchte Luft – Nebelgefahr, besonders abends.",
+        "Q1013 = QNH in Hektopascal.",
+        "Trend für 2 Stunden: NOSIG keine Änderung, BECMG dauerhaft, TEMPO vorübergehend."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "**18/11** heißt 18 °C und Taupunkt 11 °C, **M02/M05** minus 2 °C und Taupunkt minus 5 °C. Ein kleiner **Spread** (Abstand zwischen Temperatur und Taupunkt) bedeutet feuchte Luft – besonders abends ein Warnsignal für **Nebel**."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Taupunkt ist die Temperatur, bei der die Luft „überläuft“ wie ein volles Glas Wasser. Liegen Temperatur und Taupunkt dicht beieinander, ist das Glas fast voll – schon eine kleine Abkühlung reicht, und es bildet sich Nebel."
+        },
+        {
+          "typ": "absatz",
+          "text": "**Q1013** ist das QNH in Hektopascal. Damit eingestellt zeigt dein Höhenmesser am Boden die Platzhöhe."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Trend"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Kennung",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "NOSIG",
+              "keine wesentliche Änderung in den nächsten 2 Stunden"
+            ],
+            [
+              "BECMG",
+              "dauerhafte Änderung zu den folgenden Werten"
+            ],
+            [
+              "TEMPO",
+              "vorübergehend: einzelne Phasen von jeweils weniger als einer Stunde, zusammen weniger als die Hälfte des Zeitraums"
+            ],
+            [
+              "FM / TL / AT",
+              "ab / bis / um (Uhrzeit UTC)"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Weitere Angaben"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**RE**: kürzlich aufgetretenes Wetter, z. B. RETSRA – ein Gewitter ist gerade erst abgezogen.",
+            "**WS**: Windscherung, z. B. WS R25.",
+            "**RMK**: Bemerkungen, je nach Land unterschiedlich."
+          ]
+        }
+      ],
+      "fragen": [
+        {
+          "id": "mt-tt-01",
+          "typ": "generator",
+          "generator": "temperatur"
+        },
+        {
+          "id": "mt-tt-02",
+          "typ": "generator",
+          "generator": "temperatur"
+        },
+        {
+          "id": "mt-tt-03",
+          "typ": "generator",
+          "generator": "trend"
+        },
+        {
+          "id": "mt-tt-04",
+          "typ": "generator",
+          "generator": "trend"
+        },
+        {
+          "id": "mt-tt-05",
+          "typ": "auswahl",
+          "frage": "Am Abend meldet das METAR „09/08“ bei klarem Himmel und schwachem Wind. Womit musst du rechnen?",
+          "richtig": "Mit Nebel oder Dunst in der Nacht",
+          "falsch": [
+            "Mit Gewittern",
+            "Mit starkem Wind",
+            "Mit Schneefall"
+          ],
+          "erklaerung": "Spread nur 1 °C, klarer Himmel, wenig Wind: Kühlt es weiter ab, wird der Taupunkt erreicht – Strahlungsnebel droht."
+        },
+        {
+          "id": "mt-tt-06",
+          "typ": "auswahl",
+          "frage": "Was ist der Unterschied zwischen BECMG und TEMPO?",
+          "richtig": "BECMG: dauerhafte Änderung – TEMPO: nur vorübergehend",
+          "falsch": [
+            "BECMG: vorübergehend – TEMPO: dauerhaft",
+            "Beide bedeuten dasselbe",
+            "BECMG gilt nur für Wind, TEMPO nur für Sicht"
+          ],
+          "erklaerung": "Nach BECMG gilt das neue Wetter, bei TEMPO kommt das alte Wetter wieder."
+        },
+        {
+          "id": "mt-tt-07",
+          "typ": "auswahl",
+          "frage": "Was bedeutet „RETSRA“?",
+          "richtig": "Seit der letzten Meldung gab es ein Gewitter mit Regen – jetzt nicht mehr",
+          "falsch": [
+            "Gerade jetzt Gewitter mit Regen",
+            "Gewitter mit Regen wird erwartet",
+            "Regen ohne Gewitter"
+          ],
+          "erklaerung": "RE steht für „recent“ – kürzlich, aber nicht mehr aktuell."
+        },
+        {
+          "id": "mt-tt-08",
+          "typ": "zahl",
+          "frage": "Wie hoch ist der Taupunkt bei „M03/M07“?",
+          "loesung": -7,
+          "einheit": "°C",
+          "erklaerung": "M steht für minus: Temperatur −3 °C, Taupunkt −7 °C."
+        }
+      ]
+    },
+    {
+      "id": "entscheiden",
+      "titel": "Entscheiden: Kann ich fliegen?",
+      "kurz": "Piste wählen, Seitenwind abschätzen, Wolken und Sicht mit den Regeln vergleichen.",
+      "kern": [
+        "Gelandet und gestartet wird möglichst gegen den Wind.",
+        "Seitenwind ≈ Windstärke × Anteil: 30° → ½, 45° → 0,7, 60° → 0,9.",
+        "Kontrollzone: VFR ab 5 km Bodensicht und 1500 ft Wolkenuntergrenze, darunter nur mit Sonder-VFR.",
+        "Gewitter (TS, CB) bedeuten Böen und Turbulenz – lieber warten."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Ein METAR liest du nicht zum Selbstzweck, sondern um zu entscheiden: **Passt das Wetter zu mir, meinem Flugzeug und dem Flugplatz?**"
+        },
+        {
+          "typ": "einfach",
+          "text": "Gegen den Wind zu landen ist wie Bremsen mit dem Fahrrad bei Gegenwind: Du bist über dem Boden langsamer und kommst schneller zum Stehen. Seitenwind dagegen versucht, das Flugzeug seitlich von der Piste zu schieben."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Piste und Seitenwind"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Pistenbezeichnung ist die missweisende Richtung in Zehnergraden: Piste 25 zeigt etwa nach 250°. Gelandet und gestartet wird möglichst **gegen den Wind**. Den Seitenwind schätzt du aus dem Winkel zwischen Wind und Piste:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Winkel Wind – Piste",
+            "Seitenwindanteil"
+          ],
+          "zeilen": [
+            [
+              "10°",
+              "etwa 1/6"
+            ],
+            [
+              "20°",
+              "etwa 1/3"
+            ],
+            [
+              "30°",
+              "½"
+            ],
+            [
+              "45°",
+              "etwa 0,7"
+            ],
+            [
+              "60° und mehr",
+              "etwa 0,9 bis voll"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel: Piste 25, Wind 280°/16 kt → 30° Unterschied → Seitenwind etwa 8 kt. Mit Böen (G26) rechnest du sicherheitshalber auch mit dem Böenwert: etwa 13 kt."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "seitenwind"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wolken und Sicht"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Kontrollzone**: VFR nur ab 5 km Bodensicht und 1500 ft Hauptwolkenuntergrenze – darunter nur mit Sonder-VFR (ab 1500 m Bodensicht und 600 ft).",
+            "**Platzrunde**: Die Hauptwolkenuntergrenze muss deutlich über der Platzrundenhöhe liegen, denn du musst frei von Wolken bleiben.",
+            "**Gewitter (TS, CB)**: Böen, Turbulenz und Windscherung – lieber warten."
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Die nachgewiesene Seitenwindkomponente aus dem Flughandbuch ist kein Freibrief. Deine persönlichen Grenzen und die Regeln deines Vereins können strenger sein – und sollten es als Flugschüler auch."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "mt-en-01",
+          "typ": "generator",
+          "generator": "pistenwahl"
+        },
+        {
+          "id": "mt-en-02",
+          "typ": "generator",
+          "generator": "seitenwind"
+        },
+        {
+          "id": "mt-en-03",
+          "typ": "generator",
+          "generator": "seitenwind"
+        },
+        {
+          "id": "mt-en-04",
+          "typ": "generator",
+          "generator": "boeen"
+        },
+        {
+          "id": "mt-en-05",
+          "typ": "generator",
+          "generator": "kontrollzone"
+        },
+        {
+          "id": "mt-en-06",
+          "typ": "generator",
+          "generator": "kontrollzone"
+        },
+        {
+          "id": "mt-en-07",
+          "typ": "generator",
+          "generator": "platzrunde"
+        },
+        {
+          "id": "mt-en-08",
+          "typ": "zahl",
+          "frage": "Piste 25, Wind 280°/16 kt. Wie groß ist die Seitenwindkomponente nach der Faustregel?",
+          "loesung": 8,
+          "toleranz": 1,
+          "einheit": "kt",
+          "erklaerung": "280° − 250° = 30° → Seitenwindanteil ½ → 8 kt."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,519 @@
+{
+  "_hinweis": "Lerninhalte „Signale“. Grundlage: Durchführungsverordnung (EU) Nr. 923/2012 (SERA), Anlage 1, und ICAO-Sichtzeichen für Such- und Rettungsdienst. Alle Grafiken selbst gezeichnet. Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Lichtsignale vom Turm, Zeichen auf der Signalfläche, Not- und Abfangsignale – für den Fall, dass der Funk nicht weiterhilft.",
+  "kapitel": [
+    {
+      "id": "licht",
+      "titel": "Lichtsignale",
+      "kurz": "Grün, rot, weiß – als Dauerlicht oder Blinkfolge. Und wie du bestätigst.",
+      "kern": [
+        "Grün heißt „los“: Landung bzw. Start frei; blinkend: zurückkehren bzw. rollen.",
+        "Rot heißt „stopp“: dauerhaft kreisen bzw. halten; blinkend nicht landen bzw. Landefläche räumen.",
+        "Weiß blinkend: landen und zum Vorfeld rollen bzw. zurück zum Ausgangspunkt.",
+        "Bestätigen am Tag: im Flug mit den Tragflächen wackeln, am Boden ein Ruder bewegen."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Fällt der Funk aus, kann der Turm dir mit einem **Signalscheinwerfer** Anweisungen geben. Die Bedeutung hängt davon ab, ob du **in der Luft** oder **am Boden** bist."
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Lichtsignale funktionieren wie eine Ampel – nur mit Blinken als zusätzlichem Zeichen. Gebraucht werden sie, wenn der Funk ausfällt: Der Turm „spricht“ dann mit Licht."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Signal",
+            "Im Flug",
+            "Am Boden"
+          ],
+          "zeilen": [
+            [
+              "Grünes Dauerlicht",
+              "Landung freigegeben",
+              "Start freigegeben"
+            ],
+            [
+              "Rotes Dauerlicht",
+              "Anderen Luftfahrzeugen ausweichen und weiter kreisen",
+              "Halt"
+            ],
+            [
+              "Grüne Blinkfolge",
+              "Zur Landung zurückkehren (Lande- und Rollfreigabe folgen)",
+              "Rollen freigegeben"
+            ],
+            [
+              "Rote Blinkfolge",
+              "Flugplatz unsicher – nicht landen",
+              "Die benutzte Landefläche freimachen"
+            ],
+            [
+              "Weiße Blinkfolge",
+              "Auf diesem Flugplatz landen und zum Vorfeld rollen (Freigaben folgen)",
+              "Zum Ausgangspunkt auf dem Flugplatz zurückkehren"
+            ],
+            [
+              "Rote Leuchtrakete",
+              "Ungeachtet früherer Anweisungen vorerst nicht landen",
+              "–"
+            ]
+          ]
+        },
+        {
+          "typ": "abbildung",
+          "id": "licht-gruen-dauer",
+          "unterschrift": "Grünes Dauerlicht: im Flug „Landung freigegeben“, am Boden „Start freigegeben“."
+        },
+        {
+          "typ": "abbildung",
+          "id": "licht-rot-blinken",
+          "unterschrift": "Rote Blinkfolge: im Flug „nicht landen“, am Boden „Landefläche freimachen“."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "turm"
+        },
+        {
+          "typ": "merke",
+          "titel": "Eselsbrücke",
+          "text": "**Grün** heißt „los“ (landen, starten, rollen), **rot** heißt „stopp“ (nicht landen, halten, freimachen), **weiß** heißt „zurück zum Ausgangspunkt bzw. zum Vorfeld“."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Bestätigen"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "",
+            "Am Tag",
+            "In der Nacht"
+          ],
+          "zeilen": [
+            [
+              "Im Flug",
+              "mit den Tragflächen wackeln (nicht im Quer- und Endanflug)",
+              "Landescheinwerfer zweimal ein- und ausschalten (sonst die Positionslichter)"
+            ],
+            [
+              "Am Boden",
+              "Querruder oder Seitenruder bewegen",
+              "Landescheinwerfer zweimal ein- und ausschalten (sonst die Positionslichter)"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Warnsignal vor Sperrgebieten"
+        },
+        {
+          "typ": "absatz",
+          "text": "Eine Folge von Leuchtgeschossen im Abstand von etwa 10 Sekunden, die **rote und grüne** Lichter zeigen, warnt ein Luftfahrzeug: Es fliegt in ein Sperr-, Beschränkungs- oder Gefahrengebiet ein (oder ist kurz davor) und muss sofort Abhilfe schaffen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "si-li-01",
+          "typ": "generator",
+          "generator": "lichtsignal"
+        },
+        {
+          "id": "si-li-02",
+          "typ": "generator",
+          "generator": "lichtsignal"
+        },
+        {
+          "id": "si-li-03",
+          "typ": "generator",
+          "generator": "lichtsignal"
+        },
+        {
+          "id": "si-li-04",
+          "typ": "generator",
+          "generator": "lichtsignal"
+        },
+        {
+          "id": "si-li-05",
+          "typ": "auswahl",
+          "frage": "Du siehst im Endanflug ein grünes Dauerlicht vom Turm. Was bedeutet es?",
+          "abbildung": "licht-gruen-dauer",
+          "richtig": "Landung freigegeben",
+          "falsch": [
+            "Start freigegeben",
+            "Zur Landung zurückkehren",
+            "Rollen freigegeben"
+          ],
+          "erklaerung": "Grünes Dauerlicht: im Flug Landefreigabe, am Boden Startfreigabe."
+        },
+        {
+          "id": "si-li-06",
+          "typ": "auswahl",
+          "frage": "Wie bestätigst du am Tag im Flug ein Lichtsignal?",
+          "richtig": "Mit den Tragflächen wackeln – außer im Quer- und Endanflug",
+          "falsch": [
+            "Landescheinwerfer zweimal ein- und ausschalten",
+            "Höhenruder bewegen",
+            "Kurz steigen und wieder sinken"
+          ],
+          "erklaerung": "Am Tag: Tragflächen wackeln (nicht im Quer- und Endanflug). Nachts: Landescheinwerfer zweimal aus und ein."
+        },
+        {
+          "id": "si-li-07",
+          "typ": "auswahl",
+          "frage": "Wie bestätigst du am Tag am Boden ein Lichtsignal?",
+          "richtig": "Querruder oder Seitenruder bewegen",
+          "falsch": [
+            "Mit den Tragflächen wackeln",
+            "Den Motor kurz hochdrehen",
+            "Die Positionslichter einschalten"
+          ],
+          "erklaerung": "Am Boden am Tag bewegst du Querruder oder Seitenruder, damit der Turm es sieht."
+        },
+        {
+          "id": "si-li-08",
+          "typ": "auswahl",
+          "frage": "Was bedeutet eine rote Leuchtrakete für ein Luftfahrzeug im Flug?",
+          "abbildung": "licht-rakete",
+          "richtig": "Ungeachtet früherer Anweisungen vorerst nicht landen",
+          "falsch": [
+            "Notlandung sofort durchführen",
+            "Landung freigegeben",
+            "Zum Vorfeld rollen"
+          ],
+          "erklaerung": "Die rote Leuchtrakete hebt frühere Anweisungen auf: Erst einmal nicht landen."
+        },
+        {
+          "id": "si-li-09",
+          "typ": "auswahl",
+          "frage": "Was bedeuten rot und grün leuchtende Geschosse im Abstand von etwa 10 Sekunden?",
+          "richtig": "Du fliegst in ein Sperr-, Beschränkungs- oder Gefahrengebiet ein und musst sofort Abhilfe schaffen",
+          "falsch": [
+            "Landung auf diesem Platz freigegeben",
+            "Der Flugplatz ist geschlossen",
+            "Eine Notlandung ist im Gange"
+          ],
+          "erklaerung": "Das ist das Warnsignal vor Gebieten mit Flugbeschränkungen."
+        },
+        {
+          "id": "si-li-10",
+          "typ": "zuordnung",
+          "frage": "Du bist im Flug. Ordne die Signale vom Turm zu.",
+          "paare": [
+            [
+              "Grünes Dauerlicht",
+              "Landung freigegeben"
+            ],
+            [
+              "Rotes Dauerlicht",
+              "Ausweichen und weiter kreisen"
+            ],
+            [
+              "Rote Blinkfolge",
+              "Flugplatz unsicher – nicht landen"
+            ],
+            [
+              "Weiße Blinkfolge",
+              "Hier landen und zum Vorfeld rollen"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boden",
+      "titel": "Bodensignale & Signalfläche",
+      "kurz": "Was die Zeichen auf der Signalfläche eines Flugplatzes bedeuten.",
+      "kern": [
+        "Rotes Quadrat mit gelbem Kreuz: Landen verboten; mit einer Diagonale: besondere Vorsicht.",
+        "Weiße Hantel: nur auf Pisten und Rollwegen bewegen.",
+        "Lande-T: auf das T zu landen; Pfeil nach rechts: Rechtsplatzrunde.",
+        "Doppeltes weißes Kreuz: Segelflugbetrieb; schwarzes C auf Gelb: Meldestelle."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Auf vielen Flugplätzen gibt es eine **Signalfläche**, gut aus der Luft zu sehen. Dort ausgelegte Zeichen geben Hinweise, die du vor allem ohne Funk beachten musst."
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Signalfläche ist wie ein großes Hinweisschild am Boden – gemacht, um es aus der Luft zu lesen. Wer ohne Funk anfliegt, schaut dort nach, welche Regeln gerade gelten."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-landeverbot",
+          "unterschrift": "Rotes Quadrat mit zwei gelben Diagonalen: **Landen verboten** (voraussichtlich länger)."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-vorsicht",
+          "unterschrift": "Rotes Quadrat mit einer gelben Diagonale: **besondere Vorsicht** beim Anflug und bei der Landung."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-hantel",
+          "unterschrift": "Weiße Hantel: Starten, Landen und Rollen **nur auf Pisten und Rollwegen**."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-hantelStreifen",
+          "unterschrift": "Hantel mit schwarzen Querstreifen: Starten und Landen nur auf Pisten, sonst darf auch daneben gerollt werden."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-landeT",
+          "unterschrift": "Lande-T (weiß oder orange): Landung und Start **parallel zum Längsbalken in Richtung Querbalken**."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-rechtsverkehr",
+          "unterschrift": "Auffälliger Pfeil nach rechts: Vor der Landung und nach dem Start **Rechtskurven**."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-meldestelle",
+          "unterschrift": "Schwarzes C auf gelbem Grund: **Meldestelle** der Flugverkehrsdienste."
+        },
+        {
+          "typ": "abbildung",
+          "id": "boden-sperrkreuz",
+          "unterschrift": "Kreuze (weiß oder gelb) auf Pisten oder Rollwegen: Dieser Bereich ist **nicht benutzbar**."
+        },
+        {
+          "typ": "absatz",
+          "text": "Weitere Zeichen: Ein **doppeltes weißes Kreuz** auf der Signalfläche zeigt **Segelflugbetrieb** an. Zwei Ziffern auf einer senkrechten Tafel nahe dem Turm geben die **Startrichtung** in Zehnergraden (missweisend) an."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "si-bo-01",
+          "typ": "generator",
+          "generator": "bodensignal"
+        },
+        {
+          "id": "si-bo-02",
+          "typ": "generator",
+          "generator": "bodensignal"
+        },
+        {
+          "id": "si-bo-03",
+          "typ": "generator",
+          "generator": "bodensignal"
+        },
+        {
+          "id": "si-bo-04",
+          "typ": "auswahl",
+          "frage": "Was bedeutet ein doppeltes weißes Kreuz auf der Signalfläche?",
+          "richtig": "Segelflugbetrieb",
+          "falsch": [
+            "Landen verboten",
+            "Flugplatz gesperrt",
+            "Rechtsplatzrunde"
+          ],
+          "erklaerung": "Das doppelte weiße Kreuz zeigt: Hier wird Segelflug betrieben."
+        },
+        {
+          "id": "si-bo-05",
+          "typ": "auswahl",
+          "frage": "In welche Richtung landest du nach dem Lande-T?",
+          "abbildung": "boden-landeT",
+          "richtig": "Parallel zum Längsbalken in Richtung des Querbalkens",
+          "falsch": [
+            "Parallel zum Querbalken",
+            "Vom Querbalken weg",
+            "Quer zum Längsbalken"
+          ],
+          "erklaerung": "Man landet „auf das T zu“ – vom Fuß des Längsbalkens in Richtung Querbalken."
+        },
+        {
+          "id": "si-bo-06",
+          "typ": "wahrfalsch",
+          "aussage": "Zwei Ziffern auf einer Tafel am Turm geben die Startrichtung in Zehnergraden an.",
+          "richtig": true,
+          "erklaerung": "Z. B. „25“ für eine Startrichtung von etwa 250° missweisend."
+        },
+        {
+          "id": "si-bo-07",
+          "typ": "auswahl",
+          "frage": "Was unterscheidet die Hantel mit schwarzen Querstreifen von der einfachen weißen Hantel?",
+          "richtig": "Mit Streifen darf außerhalb von Pisten und Rollwegen gerollt werden, gestartet und gelandet wird nur auf Pisten",
+          "falsch": [
+            "Mit Streifen ist der Flugplatz ganz gesperrt",
+            "Mit Streifen darf überall gelandet werden",
+            "Es gibt keinen Unterschied"
+          ],
+          "erklaerung": "Weiße Hantel: alles nur auf Pisten und Rollwegen. Mit Streifen: nur Start und Landung auf Pisten."
+        }
+      ]
+    },
+    {
+      "id": "not",
+      "titel": "Not-, Abfang- und Rettungssignale",
+      "kurz": "Sichtbare Not- und Dringlichkeitszeichen, Abfangverfahren und Zeichen für Suchflugzeuge.",
+      "kern": [
+        "Not: MAYDAY, SOS, rote Leuchtraketen; Dringlichkeit: PAN PAN, Landescheinwerfer ein- und ausschalten.",
+        "Abgefangen: folgen, auf 121,500 MHz rufen, Transponder 7700.",
+        "Zeichen am Boden: V Hilfe, X ärztliche Hilfe, N nein, Y ja."
+      ],
+      "theorie": [
+        {
+          "typ": "zwischentitel",
+          "text": "Not und Dringlichkeit"
+        },
+        {
+          "typ": "einfach",
+          "text": "Diese Zeichen sind die „Gebärdensprache“ der Luftfahrt: Sie funktionieren ohne Funk und werden überall auf der Welt gleich verstanden."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "",
+            "Signale"
+          ],
+          "zeilen": [
+            [
+              "**Not** (unmittelbare Gefahr)",
+              "MAYDAY im Sprechfunk, SOS (· · · – – – · · ·), rote Leuchtraketen einzeln in kurzen Abständen, Fallschirmleuchtrakete mit rotem Licht"
+            ],
+            [
+              "**Dringlichkeit**",
+              "PAN PAN im Sprechfunk, wiederholtes Ein- und Ausschalten der Landescheinwerfer oder der Positionslichter (anders als normales Blinken)"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Abfangen durch ein Militärflugzeug"
+        },
+        {
+          "typ": "absatz",
+          "text": "Wirst du abgefangen, befolgst du die Anweisungen des abfangenden Flugzeugs, versuchst Funkkontakt auf **121,500 MHz** herzustellen und stellst den Transpondercode **7700** ein (wenn nichts anderes angewiesen wird)."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Das abfangende Flugzeug …",
+            "bedeutet",
+            "Du antwortest mit …"
+          ],
+          "zeilen": [
+            [
+              "wackelt mit den Tragflächen etwas über und vor dir (meist links) und kurvt dann langsam ab",
+              "Du wirst abgefangen – folge mir",
+              "Tragflächen wackeln und folgen"
+            ],
+            [
+              "dreht in einer steigenden Kurve von 90° oder mehr abrupt ab, ohne deine Flugbahn zu kreuzen",
+              "Du darfst weiterfliegen",
+              "Tragflächen wackeln"
+            ],
+            [
+              "fährt das Fahrwerk aus, schaltet die Landescheinwerfer ein und überfliegt die Piste",
+              "Lande auf diesem Flugplatz",
+              "Fahrwerk ausfahren (falls vorhanden), Landescheinwerfer ein, folgen und landen"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zeichen von Überlebenden für Suchflugzeuge"
+        },
+        {
+          "typ": "abbildung",
+          "id": "sar-zeichen",
+          "unterschrift": "Große Zeichen am Boden, z. B. aus Steinen, Ästen oder Stoff."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "si-no-01",
+          "typ": "auswahl",
+          "frage": "Welches Lichtsignal zeigt eine Notlage an?",
+          "richtig": "Rote Leuchtraketen, einzeln in kurzen Abständen abgefeuert",
+          "falsch": [
+            "Grüne Leuchtraketen",
+            "Wiederholtes Ein- und Ausschalten der Landescheinwerfer",
+            "Weiße Blinkfolge"
+          ],
+          "erklaerung": "Rote Leuchtraketen oder eine rote Fallschirmleuchtrakete bedeuten Not. Das Ein- und Ausschalten der Landescheinwerfer bedeutet Dringlichkeit."
+        },
+        {
+          "id": "si-no-02",
+          "typ": "auswahl",
+          "frage": "Ein Militärflugzeug wackelt etwas über und vor dir mit den Tragflächen. Was bedeutet das?",
+          "richtig": "Du wirst abgefangen – folge mir",
+          "falsch": [
+            "Du darfst weiterfliegen",
+            "Grüße unter Piloten",
+            "Lande sofort auf dem nächsten Feld"
+          ],
+          "erklaerung": "Das ist das Signal „Sie sind abgefangen, folgen Sie mir“. Antwort: Tragflächen wackeln und folgen."
+        },
+        {
+          "id": "si-no-03",
+          "typ": "auswahl",
+          "frage": "Welchen Transpondercode stellst du ein, wenn du abgefangen wirst (ohne andere Anweisung)?",
+          "richtig": "7700",
+          "falsch": [
+            "7600",
+            "7500",
+            "7000"
+          ],
+          "erklaerung": "Abgefangene Luftfahrzeuge stellen 7700 ein, sofern nichts anderes angewiesen wird."
+        },
+        {
+          "id": "si-no-04",
+          "typ": "zahl",
+          "frage": "Auf welcher Frequenz versuchst du Kontakt zum abfangenden Flugzeug herzustellen (MHz)?",
+          "loesung": 121.5,
+          "einheit": "MHz",
+          "erklaerung": "Auf der Notfrequenz 121,500 MHz."
+        },
+        {
+          "id": "si-no-05",
+          "typ": "zuordnung",
+          "frage": "Ordne die Zeichen von Überlebenden zu.",
+          "paare": [
+            [
+              "V",
+              "Hilfe benötigt"
+            ],
+            [
+              "X",
+              "Ärztliche Hilfe benötigt"
+            ],
+            [
+              "N",
+              "Nein"
+            ],
+            [
+              "Y",
+              "Ja"
+            ]
+          ]
+        },
+        {
+          "id": "si-no-06",
+          "typ": "auswahl",
+          "frage": "Das abfangende Flugzeug dreht abrupt in einer steigenden Kurve ab, ohne deine Bahn zu kreuzen. Was bedeutet das?",
+          "richtig": "Du darfst weiterfliegen",
+          "falsch": [
+            "Folge mir",
+            "Lande auf diesem Flugplatz",
+            "Gefahr – sofort sinken"
+          ],
+          "erklaerung": "Das steile Abdrehen heißt „Sie können weiterfliegen“."
+        },
+        {
+          "id": "si-no-07",
+          "typ": "wahrfalsch",
+          "aussage": "Wiederholtes Ein- und Ausschalten der Landescheinwerfer zeigt eine Dringlichkeit an.",
+          "richtig": true,
+          "erklaerung": "So zeigt ein Luftfahrzeug ohne Funk, dass es eine dringende Meldung hat, aber keine unmittelbare Gefahr besteht."
+        }
+      ]
+    }
+  ]
+}

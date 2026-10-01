@@ -1,0 +1,939 @@
+{
+  "_hinweis": "Lerninhalte „Meteorologie“. Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Faustwerte sind als solche gekennzeichnet. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Atmosphäre, Luftdruck, Wolken und Nebel, Wind, Fronten und Wettergefahren – mit Rechenaufgaben zu Wolkenbasis, Höhenmesser und Dichtehöhe.",
+  "kapitel": [
+    {
+      "id": "atmosphaere",
+      "titel": "Atmosphäre & Standardatmosphäre",
+      "kurz": "Aufbau der Lufthülle und die ICAO-Standardatmosphäre als Bezugsgröße.",
+      "kern": [
+        "Das Wetter spielt sich in der Troposphäre ab (bei uns bis etwa 11 km).",
+        "ISA: 15 °C und 1013,25 hPa auf Meereshöhe, −2 °C je 1000 ft.",
+        "In etwa 18 000 ft ist der Luftdruck nur noch halb so groß."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Die Luft besteht zu etwa **78 % aus Stickstoff** und **21 % aus Sauerstoff**, dazu kommen Edelgase, Kohlendioxid und – sehr wechselnd – Wasserdampf. Das Wetter spielt sich in der untersten Schicht ab, der **Troposphäre**. Ihre Obergrenze, die **Tropopause**, liegt in unseren Breiten bei etwa 11 km, über den Polen niedriger und über den Tropen deutlich höher."
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Luft ist wie ein riesiger Stapel Matratzen: Die unteren werden von allen darüber zusammengedrückt und sind deshalb dichter. Je höher du kommst, desto weniger liegt auf dir – Druck und Dichte nehmen ab."
+        },
+        {
+          "typ": "abbildung",
+          "id": "atmosphaere"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "ICAO-Standardatmosphäre (ISA)"
+        },
+        {
+          "typ": "absatz",
+          "text": "Damit Höhenmesser und Flugleistungen vergleichbar sind, gibt es eine gedachte Normatmosphäre:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Größe",
+            "Wert"
+          ],
+          "zeilen": [
+            [
+              "Temperatur auf Meereshöhe",
+              "15 °C"
+            ],
+            [
+              "Luftdruck auf Meereshöhe",
+              "1013,25 hPa"
+            ],
+            [
+              "Temperaturabnahme bis 11 km",
+              "6,5 °C je km bzw. etwa 2 °C je 1000 ft"
+            ],
+            [
+              "Temperatur an der Tropopause",
+              "−56,5 °C"
+            ],
+            [
+              "Druckabnahme in Bodennähe",
+              "etwa 1 hPa je 30 ft (8 m)"
+            ]
+          ]
+        },
+        {
+          "typ": "interaktiv",
+          "id": "standardatmosphaere"
+        },
+        {
+          "typ": "merke",
+          "text": "In etwa **18 000 ft (5,5 km)** ist der Luftdruck nur noch halb so groß wie am Boden. Mit der Höhe nehmen Druck, Dichte und meist auch die Temperatur ab."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "me-at-01",
+          "typ": "generator",
+          "generator": "isaTemperatur"
+        },
+        {
+          "id": "me-at-02",
+          "typ": "generator",
+          "generator": "isaAbweichung"
+        },
+        {
+          "id": "me-at-03",
+          "typ": "zahl",
+          "frage": "Welche Temperatur hat die ICAO-Standardatmosphäre auf Meereshöhe?",
+          "loesung": 15,
+          "einheit": "°C",
+          "erklaerung": "ISA: 15 °C und 1013,25 hPa auf Meereshöhe."
+        },
+        {
+          "id": "me-at-04",
+          "typ": "zahl",
+          "frage": "Welchen Luftdruck hat die ICAO-Standardatmosphäre auf Meereshöhe (in hPa)?",
+          "loesung": 1013.25,
+          "toleranz": 0.01,
+          "einheit": "hPa",
+          "erklaerung": "1013,25 hPa – auf diesen Wert stellst du den Höhenmesser beim Flug nach Flugflächen."
+        },
+        {
+          "id": "me-at-05",
+          "typ": "auswahl",
+          "frage": "Um wie viel nimmt die Temperatur in der ISA je 1000 ft ab?",
+          "richtig": "Um etwa 2 °C",
+          "falsch": [
+            "Um etwa 1 °C",
+            "Um etwa 3 °C",
+            "Um etwa 6,5 °C"
+          ],
+          "erklaerung": "6,5 °C je km entsprechen etwa 2 °C je 1000 ft."
+        },
+        {
+          "id": "me-at-06",
+          "typ": "auswahl",
+          "frage": "In welcher Schicht der Atmosphäre spielt sich das Wetter ab?",
+          "richtig": "In der Troposphäre",
+          "falsch": [
+            "In der Stratosphäre",
+            "In der Tropopause",
+            "In der Ionosphäre"
+          ],
+          "erklaerung": "Wolken, Niederschlag und fast der gesamte Wasserdampf befinden sich in der Troposphäre."
+        },
+        {
+          "id": "me-at-07",
+          "typ": "auswahl",
+          "frage": "Wie hoch liegt die Tropopause in mittleren Breiten etwa?",
+          "richtig": "Etwa 11 km",
+          "falsch": [
+            "Etwa 3 km",
+            "Etwa 25 km",
+            "Etwa 50 km"
+          ],
+          "erklaerung": "Rund 11 km in mittleren Breiten – niedriger über den Polen, höher über den Tropen."
+        },
+        {
+          "id": "me-at-08",
+          "typ": "zahl",
+          "frage": "Wie viel Prozent der Luft sind ungefähr Sauerstoff?",
+          "loesung": 21,
+          "toleranz": 1,
+          "einheit": "%",
+          "erklaerung": "Etwa 21 % Sauerstoff, 78 % Stickstoff."
+        }
+      ]
+    },
+    {
+      "id": "druck",
+      "titel": "Luftdruck & Höhenmesser",
+      "kurz": "QNH, QFE, Standarddruck – und warum der Höhenmesser lügen kann.",
+      "kern": [
+        "QNH → am Boden die Platzhöhe, QFE → null, 1013,25 hPa → Druckhöhe.",
+        "1 hPa entspricht etwa 30 ft.",
+        "Vom Hoch ins Tief und in kalter Luft bist du tiefer, als der Höhenmesser anzeigt.",
+        "Heiß, hoch und feucht: große Dichtehöhe, schlechte Flugleistung."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Der Höhenmesser ist ein Barometer: Er misst den Luftdruck und rechnet ihn mit der Standardatmosphäre in eine Höhe um. Welche Höhe er anzeigt, hängt von der **Einstellung im Skalenfenster** ab."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Höhenmesser ist eigentlich eine Waage für die Luft über dir. Weil sich der Luftdruck mit dem Wetter ändert, musst du ihn „nullen“ – wie eine Küchenwaage, bevor die Schüssel daraufkommt. Das QNH ist dieser Nullwert."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Einstellung",
+            "Anzeige",
+            "Am Boden zeigt er …"
+          ],
+          "zeilen": [
+            [
+              "QNH",
+              "Höhe über MSL",
+              "die Platzhöhe"
+            ],
+            [
+              "QFE",
+              "Höhe über dem Platz",
+              "null"
+            ],
+            [
+              "1013,25 hPa",
+              "Druckhöhe / Flugfläche",
+              "die Druckhöhe des Platzes"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wenn der Höhenmesser lügt"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Fliegst du ohne neue Einstellung **vom Hoch ins Tief**, sinkt der Luftdruck – der Höhenmesser glaubt, du steigst, und zeigt **zu viel** an. Du bist tiefer, als du denkst.",
+            "In **kalter Luft** ist die Luftsäule zusammengedrückt: Auch dann bist du **tiefer**, als der Höhenmesser anzeigt.",
+            "Ist das Skalenfenster um 1 hPa zu hoch eingestellt, zeigt der Höhenmesser etwa **30 ft zu viel**."
+          ]
+        },
+        {
+          "typ": "merke",
+          "titel": "Eselsbrücke",
+          "text": "„**Vom Hoch ins Tief – geht's schief.**“ Und: Im Kalten ist es tiefer, als man glaubt."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "hoehenmesser"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Druckhöhe und Dichtehöhe"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die **Druckhöhe** ist die Höhe in der Standardatmosphäre, die zum gemessenen Druck passt. Die **Dichtehöhe** berücksichtigt zusätzlich die Temperatur: An heißen Tagen ist die Luft dünner, das Flugzeug verhält sich so, als wäre es höher. Start- und Steigleistung werden schlechter."
+        },
+        {
+          "typ": "formel",
+          "titel": "Faustformeln",
+          "text": "Druckhöhe ≈ Höhe + (1013 − QNH) × 30 ft\nDichtehöhe ≈ Druckhöhe + 120 ft × (Temperatur − ISA-Temperatur)"
+        },
+        {
+          "typ": "achtung",
+          "text": "**Heiß, hoch und feucht** sind schlecht für die Flugleistung. Prüfe an warmen Tagen die Startstrecke mit dem Flughandbuch."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "me-dr-01",
+          "typ": "generator",
+          "generator": "hoehenmesserFehler"
+        },
+        {
+          "id": "me-dr-02",
+          "typ": "generator",
+          "generator": "hoehenmesserFehler"
+        },
+        {
+          "id": "me-dr-03",
+          "typ": "generator",
+          "generator": "druckhoehe"
+        },
+        {
+          "id": "me-dr-04",
+          "typ": "generator",
+          "generator": "dichtehoehe"
+        },
+        {
+          "id": "me-dr-05",
+          "typ": "auswahl",
+          "frage": "Du fliegst von einem Hoch in ein Tief, ohne den Höhenmesser neu einzustellen. Was passiert?",
+          "richtig": "Du bist tiefer, als der Höhenmesser anzeigt",
+          "falsch": [
+            "Du bist höher, als der Höhenmesser anzeigt",
+            "Die Anzeige bleibt richtig",
+            "Der Höhenmesser fällt aus"
+          ],
+          "erklaerung": "Im Tief ist der Druck geringer. Der Höhenmesser hält das für Steigen und zeigt zu viel – gefährlich in Bodennähe."
+        },
+        {
+          "id": "me-dr-06",
+          "typ": "auswahl",
+          "frage": "Was zeigt der Höhenmesser am Boden an, wenn das QFE eingestellt ist?",
+          "richtig": "Null",
+          "falsch": [
+            "Die Platzhöhe über MSL",
+            "Die Druckhöhe",
+            "1013 ft"
+          ],
+          "erklaerung": "QFE ist der Luftdruck in Platzhöhe – der Höhenmesser zeigt am Platz null."
+        },
+        {
+          "id": "me-dr-07",
+          "typ": "wahrfalsch",
+          "aussage": "In sehr kalter Luft bist du tiefer, als der (richtig eingestellte) Höhenmesser anzeigt.",
+          "richtig": true,
+          "erklaerung": "Kalte Luft ist dichter, die Druckflächen liegen tiefer. Der Höhenmesser zeigt zu viel."
+        },
+        {
+          "id": "me-dr-08",
+          "typ": "auswahl",
+          "frage": "Wie wirkt sich eine hohe Dichtehöhe auf die Flugleistung aus?",
+          "richtig": "Startstrecke länger, Steigrate geringer",
+          "falsch": [
+            "Startstrecke kürzer, Steigrate höher",
+            "Kein Einfluss auf die Flugleistung",
+            "Nur die Landestrecke wird kürzer"
+          ],
+          "erklaerung": "Dünnere Luft liefert weniger Auftrieb und weniger Motor- und Propellerleistung."
+        }
+      ]
+    },
+    {
+      "id": "feuchte",
+      "titel": "Feuchte, Wolken & Nebel",
+      "kurz": "Taupunkt, Spread, Wolkenarten, Stabilität und wie Nebel entsteht.",
+      "kern": [
+        "Erreicht die Luft ihren Taupunkt, kondensiert der Wasserdampf.",
+        "Aufsteigende Luft kühlt trocken um 1 °C, gesättigt um etwa 0,6 °C je 100 m ab.",
+        "Wolkenbasis ≈ Spread × 400 ft.",
+        "Labil: Quellwolken und Schauer; stabil: Schichtwolken und Dunst. Nebel heißt Sicht unter 1000 m."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Warme Luft kann mehr Wasserdampf aufnehmen als kalte. Kühlt Luft ab, steigt die **relative Feuchte**, bis sie am **Taupunkt** 100 % erreicht – dann kondensiert der Wasserdampf zu Wolken oder Nebel. Den Abstand zwischen Temperatur und Taupunkt nennt man **Spread**."
+        },
+        {
+          "typ": "einfach",
+          "text": "Warme Luft ist wie ein großer Schwamm, kalte Luft wie ein kleiner. Kühlt die Luft ab, wird der Schwamm kleiner – irgendwann kann er das Wasser nicht mehr halten, und es tropft heraus: Es bilden sich Wolken oder Nebel."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Aufsteigende Luft kühlt ab"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Vorgang",
+            "Abkühlung je 100 m",
+            "je 1000 ft"
+          ],
+          "zeilen": [
+            [
+              "ungesättigte Luft (trockenadiabatisch)",
+              "1 °C",
+              "etwa 3 °C"
+            ],
+            [
+              "gesättigte Luft (feuchtadiabatisch)",
+              "etwa 0,6 °C",
+              "etwa 1,8 °C"
+            ],
+            [
+              "Taupunkt der aufsteigenden Luft",
+              "etwa 0,2 °C",
+              "etwa 0,6 °C"
+            ]
+          ],
+          "unterschrift": "Der feuchtadiabatische Wert hängt von der Temperatur ab; die Zahlen sind Mittelwerte."
+        },
+        {
+          "typ": "formel",
+          "titel": "Basis von Quellwolken (Faustformel)",
+          "text": "Wolkenbasis über Grund ≈ Spread × 400 ft (≈ Spread × 125 m)"
+        },
+        {
+          "typ": "interaktiv",
+          "id": "wolkenbasis"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Stabil oder labil?"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ist die Luft **labil**, steigt ein angestoßenes Luftpaket von selbst weiter: Es bilden sich **Quellwolken** (Cumulus bis Cumulonimbus), dazwischen ist die Sicht meist gut, aber es kann Schauer, Gewitter und Turbulenz geben. **Stabile** Luft lässt Aufsteigen kaum zu: Es entstehen **Schichtwolken**, die Sicht ist oft schlecht (Dunst), die Luft ist ruhig."
+        },
+        {
+          "typ": "abbildung",
+          "id": "wolkenstockwerke"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Nebel"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Nebelart",
+            "So entsteht er"
+          ],
+          "zeilen": [
+            [
+              "Strahlungsnebel",
+              "In klaren, windschwachen Nächten kühlt der Boden ab, die Luft darüber erreicht den Taupunkt. Löst sich meist am Vormittag auf."
+            ],
+            [
+              "Advektionsnebel",
+              "Feuchtwarme Luft strömt über eine kalte Oberfläche (z. B. kaltes Meer, Schnee). Kann auch bei Wind entstehen und lange anhalten."
+            ],
+            [
+              "Orografischer Nebel",
+              "Feuchte Luft wird am Hang hochgedrückt und kühlt dabei bis zum Taupunkt ab."
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Nebel heißt im METAR **FG** (Sicht unter 1000 m), feuchter Dunst **BR** (1000 bis 5000 m). Achte am Abend auf einen kleinen Spread – dann droht Nebel."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "me-fe-01",
+          "typ": "generator",
+          "generator": "wolkenbasis"
+        },
+        {
+          "id": "me-fe-02",
+          "typ": "generator",
+          "generator": "wolkenbasis"
+        },
+        {
+          "id": "me-fe-03",
+          "typ": "auswahl",
+          "frage": "Was ist der Taupunkt?",
+          "richtig": "Die Temperatur, bei der die Luft mit Wasserdampf gesättigt ist",
+          "falsch": [
+            "Die tiefste Temperatur des Tages",
+            "Die Temperatur, bei der Wasser gefriert",
+            "Der Abstand zwischen Temperatur und Feuchte"
+          ],
+          "erklaerung": "Kühlt die Luft bis zum Taupunkt ab, erreicht die relative Feuchte 100 % und Wasserdampf kondensiert."
+        },
+        {
+          "id": "me-fe-04",
+          "typ": "auswahl",
+          "frage": "Um wie viel kühlt ungesättigte, aufsteigende Luft je 100 m ab?",
+          "richtig": "Um etwa 1 °C",
+          "falsch": [
+            "Um etwa 0,6 °C",
+            "Um etwa 0,2 °C",
+            "Um etwa 2 °C"
+          ],
+          "erklaerung": "Trockenadiabatisch: 1 °C je 100 m. Gesättigte Luft kühlt langsamer ab (etwa 0,6 °C je 100 m)."
+        },
+        {
+          "id": "me-fe-05",
+          "typ": "auswahl",
+          "frage": "Welches Wetter ist typisch für labile Luft?",
+          "richtig": "Quellwolken, gute Sicht, Schauer und Turbulenz",
+          "falsch": [
+            "Schichtwolken, Dunst und ruhige Luft",
+            "Wolkenloser Himmel und Nebel",
+            "Dauerregen aus Nimbostratus"
+          ],
+          "erklaerung": "Labile Luft steigt von selbst auf – Cumulus und Cumulonimbus mit Schauern, dazwischen meist gute Sicht."
+        },
+        {
+          "id": "me-fe-06",
+          "typ": "auswahl",
+          "frage": "Wie entsteht Strahlungsnebel?",
+          "richtig": "In klaren, windschwachen Nächten kühlt der Boden aus und die Luft darüber erreicht den Taupunkt",
+          "falsch": [
+            "Feuchtwarme Luft strömt über kaltes Wasser",
+            "Feuchte Luft wird am Berghang hochgedrückt",
+            "Kalte Luft strömt über warmes Wasser"
+          ],
+          "erklaerung": "Klarer Himmel lässt den Boden nachts auskühlen; ohne Wind bleibt die kalte, feuchte Luft am Boden liegen."
+        },
+        {
+          "id": "me-fe-07",
+          "typ": "auswahl",
+          "frage": "Welche Wolke gehört zu den tiefen Wolken?",
+          "richtig": "Stratus",
+          "falsch": [
+            "Cirrus",
+            "Altostratus",
+            "Cirrocumulus"
+          ],
+          "erklaerung": "Stratus und Stratocumulus sind tiefe Wolken; „Alto-“ steht für mittelhohe, „Cirro-“ für hohe Wolken."
+        },
+        {
+          "id": "me-fe-08",
+          "typ": "wahrfalsch",
+          "aussage": "Je kleiner der Spread, desto feuchter ist die Luft.",
+          "richtig": true,
+          "erklaerung": "Kleiner Spread = Temperatur nahe am Taupunkt = hohe relative Feuchte."
+        },
+        {
+          "id": "me-fe-09",
+          "typ": "auswahl",
+          "frage": "Ab welcher Sicht spricht man von Nebel (FG)?",
+          "richtig": "Unter 1000 m",
+          "falsch": [
+            "Unter 5000 m",
+            "Unter 3000 m",
+            "Unter 100 m"
+          ],
+          "erklaerung": "Nebel: Sicht unter 1000 m. Bei 1000 bis 5000 m und feuchter Luft spricht man von feuchtem Dunst (BR)."
+        }
+      ]
+    },
+    {
+      "id": "wind",
+      "titel": "Wind",
+      "kurz": "Warum der Wind weht, wie er um Hoch und Tief dreht und welche örtlichen Winde es gibt.",
+      "kern": [
+        "Wind weht vom Hoch zum Tief; eng liegende Isobaren bedeuten starken Wind.",
+        "Nordhalbkugel: um das Tief gegen, um das Hoch im Uhrzeigersinn.",
+        "Buys-Ballot: Rücken zum Wind – das Tief liegt links.",
+        "Seewind tagsüber vom Meer zum Land; Föhn: warm und trocken im Lee, mit Turbulenz."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Wind entsteht durch **Luftdruckunterschiede**: Die Luft strömt vom hohen zum tiefen Druck. Je dichter die **Isobaren** (Linien gleichen Luftdrucks) auf der Wetterkarte liegen, desto stärker der Wind."
+        },
+        {
+          "typ": "einfach",
+          "text": "Luft verhält sich wie Wasser in zwei verbundenen Gefäßen mit unterschiedlichem Füllstand: Sie strömt vom vollen (Hoch) zum leeren (Tief). Weil sich die Erde dreht, fließt sie aber nicht geradeaus, sondern wird abgelenkt und kreist um das Tief."
+        },
+        {
+          "typ": "absatz",
+          "text": "Durch die Erddrehung wird die Strömung auf der Nordhalbkugel **nach rechts abgelenkt (Corioliskraft)**. In der Höhe weht der Wind deshalb fast parallel zu den Isobaren. Am Boden bremst die **Reibung**: Der Wind ist schwächer und weht schräg ins Tief hinein."
+        },
+        {
+          "typ": "abbildung",
+          "id": "hoch-tief"
+        },
+        {
+          "typ": "merke",
+          "titel": "Regel von Buys-Ballot (Nordhalbkugel)",
+          "text": "Stehst du mit dem **Rücken zum Wind**, liegt das **Tief links** vor dir und das Hoch rechts hinter dir."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Örtliche Winde"
+        },
+        {
+          "typ": "abbildung",
+          "id": "seewind"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Seewind**: tagsüber vom Meer zum wärmeren Land. Nachts kehrt sich das als schwächerer **Landwind** um.",
+            "**Talwind / Hangaufwind**: tagsüber talaufwärts und die sonnigen Hänge hinauf. Nachts fließt kalte Luft als **Bergwind** talabwärts.",
+            "**Föhn**: Luft steigt auf der Luvseite eines Gebirges auf, regnet sich ab und fällt auf der Leeseite warm und trocken herab. Im Lee drohen starke Abwinde, Rotoren und Turbulenz; Lentikulariswolken sind ein Hinweis."
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Hinter Hindernissen, Gebäuden und Waldkanten wird bodennaher Wind verwirbelt. Rechne beim Landeanflug mit Böen und plötzlichen Änderungen (Windscherung)."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "me-wi-01",
+          "typ": "auswahl",
+          "frage": "Wie weht der Wind auf der Nordhalbkugel um ein Tiefdruckgebiet?",
+          "richtig": "Gegen den Uhrzeigersinn, am Boden etwas ins Tief hinein",
+          "falsch": [
+            "Im Uhrzeigersinn, am Boden aus dem Tief heraus",
+            "Genau auf den Tiefkern zu",
+            "Gegen den Uhrzeigersinn, am Boden aus dem Tief heraus"
+          ],
+          "erklaerung": "Um ein Tief dreht der Wind auf der Nordhalbkugel gegen den Uhrzeigersinn; durch die Bodenreibung strömt er schräg hinein."
+        },
+        {
+          "id": "me-wi-02",
+          "typ": "auswahl",
+          "frage": "Du stehst mit dem Rücken zum Wind (Nordhalbkugel). Wo liegt das Tief?",
+          "richtig": "Links von dir",
+          "falsch": [
+            "Rechts von dir",
+            "Direkt hinter dir",
+            "Direkt vor dir"
+          ],
+          "erklaerung": "Regel von Buys-Ballot: Rücken zum Wind – Tief links."
+        },
+        {
+          "id": "me-wi-03",
+          "typ": "auswahl",
+          "frage": "Woran erkennst du auf der Bodenwetterkarte starken Wind?",
+          "richtig": "An eng beieinander liegenden Isobaren",
+          "falsch": [
+            "An weit auseinander liegenden Isobaren",
+            "An der Farbe der Fronten",
+            "An vielen Hochdruckgebieten"
+          ],
+          "erklaerung": "Eng liegende Isobaren = großer Druckunterschied auf kurzer Strecke = starker Wind."
+        },
+        {
+          "id": "me-wi-04",
+          "typ": "auswahl",
+          "frage": "Was bewirkt die Reibung am Boden beim Wind?",
+          "richtig": "Er wird schwächer und weht schräg zum tiefen Druck hin",
+          "falsch": [
+            "Er wird stärker und dreht vom Tief weg",
+            "Er weht genau parallel zu den Isobaren",
+            "Er hat keinen Einfluss"
+          ],
+          "erklaerung": "Reibung bremst den Wind, dadurch wirkt die Corioliskraft schwächer und er strömt schräg ins Tief."
+        },
+        {
+          "id": "me-wi-05",
+          "typ": "auswahl",
+          "frage": "Woher weht der Seewind an einem sonnigen Tag?",
+          "richtig": "Vom Meer zum Land",
+          "falsch": [
+            "Vom Land zum Meer",
+            "Parallel zur Küste",
+            "Abwechselnd aus allen Richtungen"
+          ],
+          "erklaerung": "Das Land erwärmt sich stärker, die Luft steigt dort auf, und kühlere Meeresluft strömt nach."
+        },
+        {
+          "id": "me-wi-06",
+          "typ": "mehrfach",
+          "frage": "Was ist typisch für Föhn auf der Leeseite eines Gebirges?",
+          "richtig": [
+            "Warme, trockene Luft",
+            "Starke Abwinde und Turbulenz",
+            "Rotoren unter Lentikulariswolken"
+          ],
+          "falsch": [
+            "Dauerregen",
+            "Besonders ruhige Luft"
+          ],
+          "erklaerung": "Im Lee fällt die Luft warm und trocken herab. Abwinde, Rotoren und Turbulenz machen das Fliegen dort gefährlich."
+        },
+        {
+          "id": "me-wi-07",
+          "typ": "wahrfalsch",
+          "aussage": "Auf der Nordhalbkugel wird bewegte Luft durch die Erddrehung nach rechts abgelenkt.",
+          "richtig": true,
+          "erklaerung": "Das ist die Corioliskraft. Auf der Südhalbkugel wird nach links abgelenkt."
+        }
+      ]
+    },
+    {
+      "id": "fronten",
+      "titel": "Luftmassen & Fronten",
+      "kurz": "Warmfront, Kaltfront und Okklusion – und was dich dort erwartet.",
+      "kern": [
+        "Warmfront: Ci → Cs → As → Ns, breiter Landregen, danach wärmer.",
+        "Kaltfront: Cb, Schauer, Gewitter und Böen, danach kälter und oft klar.",
+        "Bei jedem Frontdurchgang dreht der Wind nach rechts.",
+        "Okklusion: Die Kaltfront hat die Warmfront eingeholt."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Eine **Luftmasse** ist ein großes Luftpaket mit ähnlicher Temperatur und Feuchte. Sie wird nach ihrer Herkunft benannt – polar oder tropisch, maritim (feucht) oder kontinental (trocken). Wo zwei Luftmassen aufeinandertreffen, liegt eine **Front**."
+        },
+        {
+          "typ": "einfach",
+          "text": "Eine Front ist die Grenze zwischen zwei „Luftsorten“ – wie warmes und kaltes Wasser in der Badewanne, die sich nicht sofort mischen. Schiebt sich warme Luft langsam über kalte, regnet es lange und gleichmäßig; drängt kalte Luft die warme schnell nach oben, wird es stürmisch."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Warmfront"
+        },
+        {
+          "typ": "abbildung",
+          "id": "warmfront"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die leichtere Warmluft gleitet flach auf die Kaltluft auf. Lange vorher kündigen **Cirrus** und **Cirrostratus** die Front an, dann folgen **Altostratus** und **Nimbostratus** mit Landregen über ein breites Gebiet. Die Wolkenuntergrenze sinkt, die Sicht wird schlecht. Der Luftdruck fällt; nach dem Durchgang wird es wärmer und der Wind dreht nach rechts."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kaltfront"
+        },
+        {
+          "typ": "abbildung",
+          "id": "kaltfront"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die schwerere Kaltluft schiebt sich unter die Warmluft und hebt sie steil an. An der Front gibt es oft **Cumulonimbus**, kräftige **Schauer**, **Gewitter** und **Böen** – auf einem schmaleren Streifen. Danach steigt der Luftdruck, es wird kälter, der Wind dreht nach rechts (z. B. von Südwest auf Nordwest), und die Sicht wird oft sehr gut – mit einzelnen Schauern im „Rückseitenwetter“."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Okklusion"
+        },
+        {
+          "typ": "absatz",
+          "text": "Kaltfronten ziehen meist schneller als Warmfronten. Holt die Kaltfront die Warmfront ein, wird die Warmluft vom Boden abgehoben – das ist eine **Okklusion**. Ihr Wetter vereint Merkmale beider Fronten."
+        },
+        {
+          "typ": "merke",
+          "text": "Bei beiden Frontdurchgängen dreht der Wind auf der Nordhalbkugel **nach rechts**."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "me-fr-01",
+          "typ": "auswahl",
+          "frage": "Welche Wolkenfolge kündigt eine Warmfront an?",
+          "richtig": "Cirrus → Cirrostratus → Altostratus → Nimbostratus",
+          "falsch": [
+            "Cumulus → Cumulonimbus → Stratus",
+            "Nimbostratus → Altostratus → Cirrus",
+            "Stratus → Cumulus → Cirrus"
+          ],
+          "erklaerung": "Die Warmluft gleitet flach auf – zuerst sieht man hohe Wolken, dann werden sie immer tiefer und dichter."
+        },
+        {
+          "id": "me-fr-02",
+          "typ": "auswahl",
+          "frage": "Welches Wetter ist typisch an einer Kaltfront?",
+          "richtig": "Cumulonimbus, Schauer, Gewitter und Böen",
+          "falsch": [
+            "Lang anhaltender Landregen aus Nimbostratus",
+            "Nebel und Hochnebel",
+            "Wolkenloser Himmel"
+          ],
+          "erklaerung": "Die Kaltluft hebt die Warmluft steil an – es entstehen hochreichende Quellwolken mit Schauern und Gewittern."
+        },
+        {
+          "id": "me-fr-03",
+          "typ": "auswahl",
+          "frage": "Was passiert nach dem Durchgang einer Kaltfront?",
+          "richtig": "Es wird kälter, der Luftdruck steigt, die Sicht wird oft gut",
+          "falsch": [
+            "Es wird wärmer und der Luftdruck fällt",
+            "Es bildet sich dichter Nebel",
+            "Der Wind dreht nach links"
+          ],
+          "erklaerung": "Kühlere, oft klare Luft folgt. Der Wind dreht nach rechts, es kann noch einzelne Schauer geben."
+        },
+        {
+          "id": "me-fr-04",
+          "typ": "wahrfalsch",
+          "aussage": "An einer Warmfront ist das Niederschlagsgebiet meist breiter als an einer Kaltfront.",
+          "richtig": true,
+          "erklaerung": "Die flache Aufgleitfläche der Warmfront erzeugt ein breites Gebiet mit Landregen."
+        },
+        {
+          "id": "me-fr-05",
+          "typ": "auswahl",
+          "frage": "Was ist eine Okklusion?",
+          "richtig": "Eine Kaltfront hat die Warmfront eingeholt und die Warmluft vom Boden abgehoben",
+          "falsch": [
+            "Eine Front, die sich nicht bewegt",
+            "Ein besonders starkes Hoch",
+            "Eine Warmfront hinter einer Kaltfront"
+          ],
+          "erklaerung": "Kaltfronten ziehen schneller – holen sie die Warmfront ein, entsteht eine Okklusion."
+        },
+        {
+          "id": "me-fr-06",
+          "typ": "auswahl",
+          "frage": "Wie dreht der Wind auf der Nordhalbkugel bei einem Frontdurchgang?",
+          "richtig": "Nach rechts (im Uhrzeigersinn)",
+          "falsch": [
+            "Nach links (gegen den Uhrzeigersinn)",
+            "Gar nicht",
+            "Er dreht um genau 180°"
+          ],
+          "erklaerung": "Bei Warm- und Kaltfrontdurchgang dreht der Wind nach rechts, z. B. von Süd über Südwest nach West."
+        }
+      ]
+    },
+    {
+      "id": "gefahren",
+      "titel": "Gewitter & Vereisung",
+      "kurz": "Wie Gewitter entstehen und warum man sie weiträumig umfliegt – und wann Eis droht.",
+      "kern": [
+        "Gewitter brauchen Feuchte, labile Luft und einen Auslöser.",
+        "Gefahren: Turbulenz, Hagel, Blitz, Vereisung, Fallböen – Gewitter weiträumig umfliegen.",
+        "Klareis ist die gefährlichste Vereisung; Reif vor dem Start vollständig entfernen.",
+        "Vergaservereisung ist auch bei Plusgraden möglich – Vergaservorwärmung nutzen."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Für ein Gewitter braucht es **feuchte Luft**, **labile Schichtung** und einen **Auslöser**, der die Luft anhebt (Sonneneinstrahlung, Front, Gebirge)."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein Gewitter ist wie ein riesiger Topf mit kochendem Wasser: In der Mitte schießt die Luft nach oben, an anderen Stellen stürzt sie herunter. Ein kleines Flugzeug wird darin hin und her geworfen – deshalb hält man großen Abstand."
+        },
+        {
+          "typ": "abbildung",
+          "id": "gewitterstadien"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Aufbau** (Cumulus-Stadium): kräftige Aufwinde, die Wolke wächst schnell.",
+            "**Reife**: Auf- und Abwinde nebeneinander, Niederschlag, Blitz, Hagel, Böenfront.",
+            "**Auflösung**: Abwinde überwiegen, die Wolke regnet aus."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Gefahren eines Gewitters"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "schwere Turbulenz und Windscherung",
+            "Hagel – auch außerhalb der Wolke unter dem Amboss",
+            "Blitzschlag",
+            "Vereisung",
+            "Fallböen (Downbursts) und Böenwalze, die viele Kilometer vor dem Gewitter auftreten können",
+            "Starkregen mit stark eingeschränkter Sicht"
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Gewitter werden mit **großem Abstand umflogen** – niemals untendurch oder hindurch. Wenn du unsicher bist: am Boden bleiben oder umkehren."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Vereisung"
+        },
+        {
+          "typ": "absatz",
+          "text": "In Wolken gibt es auch unter 0 °C noch flüssige, **unterkühlte Wassertropfen**. Treffen sie auf das Flugzeug, gefrieren sie schlagartig."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Art",
+            "Entstehung",
+            "Merkmale"
+          ],
+          "zeilen": [
+            [
+              "Klareis",
+              "große unterkühlte Tropfen, oft zwischen 0 und −10 °C, besonders in gefrierendem Regen",
+              "glasig, schwer, verändert das Profil – am gefährlichsten"
+            ],
+            [
+              "Raueis",
+              "kleine unterkühlte Tröpfchen, eher bei tieferen Temperaturen",
+              "weiß, rau, setzt sich an Vorderkanten an"
+            ],
+            [
+              "Reif",
+              "Wasserdampf gefriert direkt an kalten Oberflächen, z. B. am abgestellten Flugzeug",
+              "dünne Kristallschicht – vor dem Start vollständig entfernen"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Vergaservereisung"
+        },
+        {
+          "typ": "absatz",
+          "text": "Im Vergaser kühlt die Luft durch Unterdruck und verdunstenden Kraftstoff stark ab. Bei hoher Luftfeuchte kann sich dort Eis bilden – **auch bei Außentemperaturen deutlich über 0 °C**, besonders bei Teillast (z. B. im Sinkflug). Erste Anzeichen sind Drehzahlverlust und unruhiger Motorlauf; Abhilfe schafft die **Vergaservorwärmung**."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "me-ge-01",
+          "typ": "mehrfach",
+          "frage": "Was braucht es, damit ein Gewitter entsteht?",
+          "richtig": [
+            "Feuchte Luft",
+            "Labile Schichtung",
+            "Einen Auslöser, der die Luft anhebt"
+          ],
+          "falsch": [
+            "Eine stabile Inversion",
+            "Trockene Luft"
+          ],
+          "erklaerung": "Feuchte, Labilität und ein Auslöser – fehlt eines davon, bleibt es meist bei Quellwolken."
+        },
+        {
+          "id": "me-ge-02",
+          "typ": "auswahl",
+          "frage": "In welchem Stadium ist ein Gewitter am gefährlichsten?",
+          "richtig": "Im Reifestadium mit Auf- und Abwinden, Hagel und Blitzen",
+          "falsch": [
+            "Im Aufbaustadium als harmloser Cumulus",
+            "Im Auflösungsstadium",
+            "Alle Stadien sind gleich harmlos"
+          ],
+          "erklaerung": "Im Reifestadium treten alle Gefahren gleichzeitig auf."
+        },
+        {
+          "id": "me-ge-03",
+          "typ": "auswahl",
+          "frage": "Wie verhältst du dich bei einem Gewitter auf deiner Strecke?",
+          "richtig": "Weiträumig umfliegen oder umkehren",
+          "falsch": [
+            "Unter der Wolkenbasis durchfliegen",
+            "Möglichst schnell durch die Wolke fliegen",
+            "Dicht an der Wolke entlangfliegen, dort ist es ruhig"
+          ],
+          "erklaerung": "Turbulenz, Hagel, Fallböen und Blitze reichen weit über die sichtbare Wolke hinaus."
+        },
+        {
+          "id": "me-ge-04",
+          "typ": "auswahl",
+          "frage": "Welche Vereisung gilt als besonders gefährlich?",
+          "richtig": "Klareis",
+          "falsch": [
+            "Raueis",
+            "Reif",
+            "Alle Vereisungen sind ungefährlich"
+          ],
+          "erklaerung": "Klareis ist schwer, schwer zu erkennen und verändert das Tragflächenprofil stark."
+        },
+        {
+          "id": "me-ge-05",
+          "typ": "wahrfalsch",
+          "aussage": "Vergaservereisung kann auch bei Außentemperaturen von +15 °C auftreten.",
+          "richtig": true,
+          "erklaerung": "Im Vergaser kühlt die Luft stark ab. Bei hoher Feuchte ist Vergaservereisung auch bei deutlich positiven Temperaturen möglich."
+        },
+        {
+          "id": "me-ge-06",
+          "typ": "auswahl",
+          "frage": "Woran merkst du Vergaservereisung bei einem Flugzeug mit Festpropeller zuerst?",
+          "richtig": "Die Drehzahl sinkt, der Motor läuft unruhig",
+          "falsch": [
+            "Die Öltemperatur steigt stark",
+            "Der Fahrtmesser fällt aus",
+            "Die Drehzahl steigt"
+          ],
+          "erklaerung": "Eis verengt den Ansaugweg – weniger Gemisch, weniger Leistung. Dann Vergaservorwärmung ziehen."
+        },
+        {
+          "id": "me-ge-07",
+          "typ": "wahrfalsch",
+          "aussage": "Reif auf den Tragflächen kann vor dem Start bleiben, er ist ja nur dünn.",
+          "richtig": false,
+          "erklaerung": "Schon dünner Reif stört die Strömung am Profil deutlich und erhöht die Überziehgeschwindigkeit. Er muss vollständig entfernt werden."
+        },
+        {
+          "id": "me-ge-08",
+          "typ": "auswahl",
+          "frage": "Was ist eine Böenwalze?",
+          "richtig": "Die Front ausfließender Kaltluft vor einem Gewitter mit plötzlichen, starken Böen",
+          "falsch": [
+            "Eine besondere Wolkenart in großer Höhe",
+            "Ein ruhiger Bereich unter der Gewitterwolke",
+            "Ein Aufwindband an der Sonnenseite eines Hangs"
+          ],
+          "erklaerung": "Die Kaltluft aus dem Gewitter breitet sich am Boden aus – mit Windsprüngen und Turbulenz, oft weit vor dem Regen."
+        }
+      ]
+    }
+  ]
+}

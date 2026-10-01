@@ -1,0 +1,15 @@
+{
+  "_hinweis": "Frei erfundenes Übungsflugzeug. Die Daten gehören zu keinem echten Flugzeugmuster und dürfen nie für eine echte Beladung verwendet werden – dort gilt ausschließlich das Flughandbuch.",
+  "name": "Übungsflugzeug MF-4",
+  "mtom": 1150,
+  "leermasse": 735,
+  "leerArm": 0.96,
+  "kraftstoffDichte": 0.72,
+  "stationen": [
+    { "id": "vorn", "name": "Pilot und Fluggast vorn", "kurz": "Vordersitze", "arm": 0.94, "max": 220, "einheit": "kg" },
+    { "id": "hinten", "name": "Rücksitzbank", "kurz": "Rücksitze", "arm": 1.85, "max": 200, "einheit": "kg" },
+    { "id": "kraftstoff", "name": "Kraftstoff (AVGAS)", "kurz": "Kraftstoff", "arm": 1.22, "max": 150, "einheit": "l" },
+    { "id": "gepaeck", "name": "Gepäckraum", "kurz": "Gepäck", "arm": 2.4, "max": 50, "einheit": "kg" }
+  ],
+  "huellkurve": [[0.89, 700], [0.89, 950], [0.96, 1150], [1.16, 1150], [1.16, 700]]
+}

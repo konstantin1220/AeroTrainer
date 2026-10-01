@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Zeigt eine Grafik eines interaktiven Elements mit mehreren Einstellungen nebeneinander – zum Prüfen von Grenzfällen.
+     Aufruf: tools/grafiktest.html?modul=navigation&element=winddreieck -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AeroTrainer – Grafiktest</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>body { padding: 8px; } .raster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; } .raster > div { border: 1px solid #ccc; } .raster p { margin: 0; font: 11px monospace; }</style>
+</head>
+<body>
+  <div class="raster buehne" id="raster"></div>
+  <script type="module">
+    const p = new URLSearchParams(location.search);
+    const teile = await import(`../modules/${p.get('modul')}/interaktiv.js`);
+    const liste = teile.interaktiv ?? teile.interaktivFuer(await fetch(`../modules/${p.get('modul')}/content/flugzeug.json`).then((r) => r.json()));
+    const element = liste[p.get('element')];
+    const knoten = element.erstellen();
+    document.body.append(knoten);
+    const regler = [...knoten.querySelectorAll('input[type=range]')];
+    const varianten = JSON.parse(p.get('werte') ?? '[]');
+    for (const werte of varianten) {
+      werte.forEach((w, i) => { if (w !== null && regler[i]) { regler[i].value = w; regler[i].dispatchEvent(new Event('input', { bubbles: true })); } });
+      const kasten = document.createElement('div');
+      kasten.innerHTML = knoten.querySelector('svg').outerHTML;
+      kasten.append(Object.assign(document.createElement('p'), { textContent: JSON.stringify(werte) }));
+      document.getElementById('raster').append(kasten);
+    }
+    knoten.remove();
+  </script>
+</body>
+</html>

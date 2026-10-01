@@ -1,0 +1,435 @@
+{
+  "_hinweis": "Lerninhalte „Masse & Schwerpunkt“. Alle Flugzeugdaten (content/flugzeug.json) sind frei erfunden. Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Massen, Momente und Schwerpunkt berechnen – mit einem frei erfundenen Übungsflugzeug und einem Beladungsrechner zum Ausprobieren.",
+  "kapitel": [
+    {
+      "id": "grundlagen",
+      "titel": "Warum Masse und Schwerpunkt zählen",
+      "kurz": "Begriffe und was passiert, wenn das Flugzeug zu schwer oder falsch beladen ist.",
+      "kern": [
+        "Höchstzulässige Startmasse (MTOM) und Schwerpunktbereich stehen im Flughandbuch.",
+        "Zu schwer: längerer Start, schlechteres Steigen, höhere Überziehgeschwindigkeit.",
+        "Schwerpunkt zu weit vorn: große Steuerkräfte, Abfangen schwierig.",
+        "Schwerpunkt zu weit hinten: instabil – besonders gefährlich."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Jedes Flugzeug darf nur bis zu einer **höchstzulässigen Startmasse (MTOM)** beladen werden, und sein **Schwerpunkt** muss in einem festgelegten Bereich liegen. Beides steht im **Flughandbuch** und ist vor jedem Flug zu prüfen."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein Flugzeug ist wie eine Wippe auf dem Spielplatz: Es balanciert um einen Punkt. Sitzen alle Kinder auf einer Seite, kippt die Wippe. Deshalb muss die Beladung so verteilt sein, dass der Schwerpunkt im erlaubten Bereich liegt."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Begriff",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "Leermasse",
+              "Masse des leeren Flugzeugs laut Wägebericht (was genau dazugehört, z. B. nicht ausfliegbarer Kraftstoff und Öl, regelt das Flughandbuch)"
+            ],
+            [
+              "Zuladung",
+              "Alles, was dazukommt: Personen, Gepäck, Kraftstoff"
+            ],
+            [
+              "Höchstzulässige Startmasse (MTOM)",
+              "Die Masse, mit der das Flugzeug höchstens starten darf"
+            ],
+            [
+              "Bezugsebene",
+              "Festgelegte Linie, von der aus alle Hebelarme gemessen werden"
+            ],
+            [
+              "Hebelarm",
+              "Abstand eines Gewichts von der Bezugsebene"
+            ],
+            [
+              "Moment",
+              "Masse × Hebelarm"
+            ],
+            [
+              "Schwerpunkt",
+              "Der Punkt, in dem man sich die gesamte Masse vereint denken kann"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zu schwer"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "längere Startstrecke und schlechteres Steigen",
+            "höhere Überziehgeschwindigkeit",
+            "längere Landestrecke",
+            "höhere Belastung der Struktur – Gefahr von Schäden"
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Schwerpunkt zu weit vorn"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "hohe Steuerkräfte am Höhenruder",
+            "Ausschweben und Abfangen bei der Landung werden schwierig – das Höhenruder reicht unter Umständen nicht",
+            "höhere Überziehgeschwindigkeit"
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Schwerpunkt zu weit hinten"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "das Flugzeug wird um die Querachse instabil",
+            "es reagiert sehr empfindlich und lässt sich schwer trimmen",
+            "ein Überziehen oder Trudeln kann unbeherrschbar werden"
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Ein zu weit hinten liegender Schwerpunkt ist besonders gefährlich, weil das Flugzeug sich am Boden oft ganz normal anfühlt – das Problem zeigt sich erst im Flug."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ms-gr-01",
+          "typ": "auswahl",
+          "frage": "Was ist das Moment einer Last?",
+          "richtig": "Masse × Hebelarm",
+          "falsch": [
+            "Masse ÷ Hebelarm",
+            "Masse + Hebelarm",
+            "Hebelarm ÷ Masse"
+          ],
+          "erklaerung": "Moment = Masse × Hebelarm, z. B. 80 kg × 1,85 m = 148 kg·m."
+        },
+        {
+          "id": "ms-gr-02",
+          "typ": "auswahl",
+          "frage": "Von wo aus werden die Hebelarme gemessen?",
+          "richtig": "Von der Bezugsebene",
+          "falsch": [
+            "Vom Schwerpunkt",
+            "Von der Flugzeugnase",
+            "Von der Tragflächenhinterkante"
+          ],
+          "erklaerung": "Die Bezugsebene ist im Flughandbuch festgelegt; alle Hebelarme beziehen sich auf sie."
+        },
+        {
+          "id": "ms-gr-03",
+          "typ": "mehrfach",
+          "frage": "Was passiert, wenn ein Flugzeug zu schwer beladen ist?",
+          "richtig": [
+            "Die Startstrecke wird länger",
+            "Die Überziehgeschwindigkeit steigt",
+            "Die Steigleistung nimmt ab"
+          ],
+          "falsch": [
+            "Der Kraftstoffverbrauch sinkt",
+            "Die Landestrecke wird kürzer"
+          ],
+          "erklaerung": "Mehr Masse braucht mehr Auftrieb: längerer Start, schlechteres Steigen, höhere Überziehgeschwindigkeit, längere Landung."
+        },
+        {
+          "id": "ms-gr-04",
+          "typ": "auswahl",
+          "frage": "Welche Gefahr bringt ein zu weit hinten liegender Schwerpunkt?",
+          "richtig": "Das Flugzeug wird instabil, Überziehen und Trudeln können unbeherrschbar werden",
+          "falsch": [
+            "Das Höhenruder reicht zum Abfangen nicht mehr aus",
+            "Die Steuerkräfte werden sehr groß",
+            "Die Überziehgeschwindigkeit steigt stark"
+          ],
+          "erklaerung": "Hinten liegender Schwerpunkt = geringere Längsstabilität. Die anderen Antworten beschreiben einen zu weit vorn liegenden Schwerpunkt."
+        },
+        {
+          "id": "ms-gr-05",
+          "typ": "auswahl",
+          "frage": "Was ist typisch für einen zu weit vorn liegenden Schwerpunkt?",
+          "richtig": "Große Steuerkräfte und Schwierigkeiten beim Abfangen zur Landung",
+          "falsch": [
+            "Das Flugzeug reagiert überempfindlich",
+            "Das Flugzeug neigt zum Trudeln",
+            "Die Überziehgeschwindigkeit sinkt"
+          ],
+          "erklaerung": "Das Höhenruder muss viel mehr Kraft aufbringen; im Extremfall reicht der Ausschlag beim Abfangen nicht."
+        },
+        {
+          "id": "ms-gr-06",
+          "typ": "wahrfalsch",
+          "aussage": "Wo Masse und Schwerpunkt deines Flugzeugs liegen dürfen, steht im Flughandbuch.",
+          "richtig": true,
+          "erklaerung": "Das Flughandbuch (bzw. der Wägebericht) ist die einzige verbindliche Quelle für dein Flugzeug."
+        },
+        {
+          "id": "ms-gr-07",
+          "typ": "wahrfalsch",
+          "aussage": "Solange die höchstzulässige Startmasse eingehalten ist, kann der Schwerpunkt nicht außerhalb der Grenzen liegen.",
+          "richtig": false,
+          "erklaerung": "Auch ein leichtes Flugzeug kann falsch beladen sein – z. B. mit viel Gepäck ganz hinten. Masse und Schwerpunkt müssen beide geprüft werden."
+        }
+      ]
+    },
+    {
+      "id": "berechnung",
+      "titel": "Schwerpunkt berechnen",
+      "kurz": "Mit Ladeliste, Momenten und Hüllkurve – Schritt für Schritt.",
+      "kern": [
+        "Moment = Masse × Hebelarm.",
+        "Schwerpunkt = Summe der Momente ÷ Gesamtmasse.",
+        "Kraftstoff in kg umrechnen: AVGAS ≈ 0,72 kg/l.",
+        "Mit der Hüllkurve prüfen – für den Start und für die Landung."
+      ],
+      "theorie": [
+        {
+          "typ": "abbildung",
+          "id": "hebel"
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein schwerer Koffer kurz hinter dem Pilotensitz wirkt weniger als ein leichter ganz hinten im Heck – genau wie bei der Wippe: Je weiter weg vom Drehpunkt, desto stärker die Wirkung. Das Moment fasst Gewicht und Abstand in einer Zahl zusammen."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "wippe"
+        },
+        {
+          "typ": "absatz",
+          "text": "Für jede Last schreibst du Masse und Hebelarm auf und berechnest das **Moment**. Dann addierst du alle Massen und alle Momente. Der Schwerpunkt ergibt sich aus:"
+        },
+        {
+          "typ": "formel",
+          "titel": "Schwerpunkt",
+          "text": "Schwerpunkt = Summe der Momente ÷ Gesamtmasse"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Beispiel mit dem Übungsflugzeug MF-4"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Station",
+            "Masse",
+            "Hebelarm",
+            "Moment"
+          ],
+          "zeilen": [
+            [
+              "Leermasse",
+              "735 kg",
+              "0,96 m",
+              "705,6 kg·m"
+            ],
+            [
+              "Vordersitze",
+              "160 kg",
+              "0,94 m",
+              "150,4 kg·m"
+            ],
+            [
+              "Rücksitze",
+              "70 kg",
+              "1,85 m",
+              "129,5 kg·m"
+            ],
+            [
+              "Kraftstoff 100 l × 0,72",
+              "72 kg",
+              "1,22 m",
+              "87,84 kg·m"
+            ],
+            [
+              "Gepäck",
+              "20 kg",
+              "2,40 m",
+              "48,0 kg·m"
+            ],
+            [
+              "**Summe**",
+              "**1057 kg**",
+              "**1,061 m**",
+              "**1121,34 kg·m**"
+            ]
+          ],
+          "unterschrift": "1121,34 kg·m ÷ 1057 kg = 1,061 m. Die Masse liegt unter der MTOM von 1150 kg."
+        },
+        {
+          "typ": "absatz",
+          "text": "Zum Schluss prüfst du in der **Hüllkurve**, ob der Punkt aus Masse und Schwerpunkt im zulässigen Bereich liegt:"
+        },
+        {
+          "typ": "abbildung",
+          "id": "huellkurve",
+          "unterschrift": "Hüllkurve des frei erfundenen Übungsflugzeugs MF-4."
+        },
+        {
+          "typ": "merke",
+          "text": "Kraftstoff wird in Litern getankt, aber in Kilogramm gerechnet: **AVGAS ≈ 0,72 kg/l**. Prüfe den Schwerpunkt auch für die **Landung** – dann ist weniger Kraftstoff an Bord."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ms-be-01",
+          "typ": "generator",
+          "generator": "moment"
+        },
+        {
+          "id": "ms-be-02",
+          "typ": "generator",
+          "generator": "kraftstoffmasse"
+        },
+        {
+          "id": "ms-be-03",
+          "typ": "generator",
+          "generator": "gesamtmasse"
+        },
+        {
+          "id": "ms-be-04",
+          "typ": "generator",
+          "generator": "schwerpunkt"
+        },
+        {
+          "id": "ms-be-05",
+          "typ": "generator",
+          "generator": "schwerpunkt"
+        },
+        {
+          "id": "ms-be-06",
+          "typ": "generator",
+          "generator": "zulaessig"
+        },
+        {
+          "id": "ms-be-07",
+          "typ": "generator",
+          "generator": "zulaessig"
+        },
+        {
+          "id": "ms-be-08",
+          "typ": "generator",
+          "generator": "restzuladung"
+        },
+        {
+          "id": "ms-be-09",
+          "typ": "auswahl",
+          "frage": "Wie berechnest du den Schwerpunkt?",
+          "richtig": "Summe aller Momente ÷ Gesamtmasse",
+          "falsch": [
+            "Gesamtmasse ÷ Summe aller Momente",
+            "Summe aller Hebelarme ÷ Anzahl der Stationen",
+            "Gesamtmasse × mittlerer Hebelarm"
+          ],
+          "erklaerung": "Der Schwerpunkt ist der „mittlere Hebelarm“, gewichtet mit den Massen: Summe der Momente ÷ Gesamtmasse."
+        },
+        {
+          "id": "ms-be-10",
+          "typ": "zahl",
+          "frage": "Mit welcher Dichte rechnest du für AVGAS üblicherweise?",
+          "loesung": 0.72,
+          "toleranz": 0.01,
+          "einheit": "kg/l",
+          "erklaerung": "AVGAS wiegt etwa 0,72 kg pro Liter."
+        }
+      ]
+    },
+    {
+      "id": "verschieben",
+      "titel": "Massen verschieben & verbrauchen",
+      "kurz": "Wie sich der Schwerpunkt ändert, wenn Gepäck umgeladen oder Kraftstoff verbraucht wird.",
+      "kern": [
+        "Verschieben ändert nur den Schwerpunkt, nicht die Masse.",
+        "Änderung = verschobene Masse × Weg ÷ Gesamtmasse.",
+        "Kraftstoffverbrauch verändert Masse und Schwerpunkt – die Landung mitprüfen."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Wird eine Last im Flugzeug **verschoben**, bleibt die Gesamtmasse gleich – nur der Schwerpunkt wandert. Das lässt sich direkt ausrechnen:"
+        },
+        {
+          "typ": "einfach",
+          "text": "Rutscht ein Fluggast von hinten nach vorn, wird das Flugzeug nicht leichter – aber es ist weniger „hecklastig“. Und während des Flugs verbrennt Kraftstoff: Das Flugzeug wird leichter, und der Schwerpunkt wandert."
+        },
+        {
+          "typ": "formel",
+          "titel": "Schwerpunktverschiebung",
+          "text": "Änderung = verschobene Masse × Weg ÷ Gesamtmasse"
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel: Ein Fluggast (80 kg) wechselt im MF-4 von der Rückbank (1,85 m) nach vorn (0,94 m) – also 0,91 m nach vorn. Bei 1057 kg Gesamtmasse wandert der Schwerpunkt um 80 × 0,91 ÷ 1057 ≈ 0,069 m, also knapp 7 cm nach vorn."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kraftstoffverbrauch"
+        },
+        {
+          "typ": "absatz",
+          "text": "Wird Kraftstoff verbraucht, ändern sich **Masse und Schwerpunkt** gleichzeitig. Liegt der Tank hinter dem Schwerpunkt, wandert der Schwerpunkt im Flug nach vorn, liegt er davor, nach hinten. Deshalb prüfst du die Beladung für Start **und** Landung."
+        },
+        {
+          "typ": "merke",
+          "text": "Probiere es unten im **Beladungsrechner** aus: Gib den Verbrauch bis zur Landung ein und sieh, wie der Punkt in der Hüllkurve wandert."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "rechner"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ms-ve-01",
+          "typ": "generator",
+          "generator": "verschiebung"
+        },
+        {
+          "id": "ms-ve-02",
+          "typ": "generator",
+          "generator": "verschiebung"
+        },
+        {
+          "id": "ms-ve-03",
+          "typ": "wahrfalsch",
+          "aussage": "Wenn du Gepäck im Flugzeug nach vorn umlädst, ändert sich die Gesamtmasse nicht.",
+          "richtig": true,
+          "erklaerung": "Verschieben ändert nur den Schwerpunkt, nicht die Masse."
+        },
+        {
+          "id": "ms-ve-04",
+          "typ": "auswahl",
+          "frage": "Der Kraftstofftank liegt hinter dem Schwerpunkt. Wohin wandert der Schwerpunkt im Laufe des Fluges?",
+          "richtig": "Nach vorn",
+          "falsch": [
+            "Nach hinten",
+            "Er bleibt gleich",
+            "Das hängt nur von der Flughöhe ab"
+          ],
+          "erklaerung": "Es verschwindet Masse hinter dem Schwerpunkt – der Schwerpunkt wandert dadurch nach vorn."
+        },
+        {
+          "id": "ms-ve-05",
+          "typ": "auswahl",
+          "frage": "Warum prüfst du die Beladung auch für die Landung?",
+          "richtig": "Weil sich durch den Kraftstoffverbrauch Masse und Schwerpunkt ändern",
+          "falsch": [
+            "Weil die Landemasse immer größer ist",
+            "Weil das Flughandbuch nur Landewerte enthält",
+            "Das ist nicht nötig"
+          ],
+          "erklaerung": "Mit weniger Kraftstoff liegt der Punkt in der Hüllkurve an einer anderen Stelle – er muss auch dort im zulässigen Bereich sein."
+        }
+      ]
+    }
+  ]
+}

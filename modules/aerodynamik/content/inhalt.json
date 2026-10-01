@@ -1,0 +1,795 @@
+{
+  "_hinweis": "Lerninhalte „Aerodynamik“. Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Verfahren (z. B. Trudeln beenden) stehen nur allgemein – maßgeblich ist das Flughandbuch. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Wie ein Flügel Auftrieb erzeugt, woher der Widerstand kommt, wann die Strömung abreißt und was das Flugzeug stabil hält.",
+  "kapitel": [
+    {
+      "id": "auftrieb",
+      "titel": "Strömung & Auftrieb",
+      "kurz": "Profil, Anstellwinkel und die Formel, von der alles abhängt.",
+      "kern": [
+        "Oben strömt die Luft schneller – dort entsteht ein Sog, der den Großteil des Auftriebs liefert.",
+        "Anstellwinkel = Winkel zwischen Profilsehne und Anströmung.",
+        "A = cA · ½ ρ v² · S: doppelte Geschwindigkeit, vierfacher Auftrieb.",
+        "Wer langsamer fliegt, braucht mehr Anstellwinkel."
+      ],
+      "theorie": [
+        {
+          "typ": "abbildung",
+          "id": "kraefte",
+          "unterschrift": "Im unbeschleunigten Geradeausflug halten sich Auftrieb und Gewichtskraft sowie Schub und Widerstand die Waage."
+        },
+        {
+          "typ": "einfach",
+          "text": "Halte deine flache Hand aus dem Autofenster und kippe sie leicht nach oben: Sie wird nach oben gedrückt. Je schneller das Auto fährt und je mehr du die Hand kippst, desto stärker der Druck. Genau so erzeugt ein Flügel Auftrieb."
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein Tragflügel ist so geformt und angestellt, dass die Luft an der **Oberseite schneller** strömt als an der Unterseite. Nach **Bernoulli** sinkt dort der statische Druck: Oben entsteht ein **Sog**, unten ein leichter **Überdruck**. Der größere Teil des Auftriebs kommt vom Sog auf der Oberseite."
+        },
+        {
+          "typ": "abbildung",
+          "id": "profil"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Begriff",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "Profilsehne",
+              "gedachte Linie von der Vorderkante zur Hinterkante"
+            ],
+            [
+              "Anstellwinkel (α)",
+              "Winkel zwischen Profilsehne und Anströmung – ihn veränderst du mit dem Höhenruder"
+            ],
+            [
+              "Einstellwinkel",
+              "fester Winkel, mit dem der Flügel am Rumpf angebaut ist"
+            ],
+            [
+              "Wölbung",
+              "Krümmung des Profils; mehr Wölbung (z. B. durch Klappen) bringt mehr Auftrieb"
+            ]
+          ]
+        },
+        {
+          "typ": "formel",
+          "titel": "Auftrieb",
+          "text": "A = cA · ½ ρ v² · S"
+        },
+        {
+          "typ": "absatz",
+          "text": "**cA** ist der Auftriebsbeiwert (hängt vor allem vom Anstellwinkel ab), **ρ** die Luftdichte, **v** die Geschwindigkeit und **S** die Flügelfläche. Der Ausdruck **½ ρ v²** heißt **Staudruck** – ihn misst der Fahrtmesser."
+        },
+        {
+          "typ": "merke",
+          "text": "Der Auftrieb wächst mit dem **Quadrat der Geschwindigkeit**: doppelte Geschwindigkeit, vierfacher Auftrieb (bei gleichem Anstellwinkel). Wird es langsamer, musst du den Anstellwinkel vergrößern, um gleich viel Auftrieb zu erzeugen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ae-au-01",
+          "typ": "generator",
+          "generator": "auftriebGeschwindigkeit"
+        },
+        {
+          "id": "ae-au-02",
+          "typ": "auswahl",
+          "frage": "Was ist der Anstellwinkel?",
+          "richtig": "Der Winkel zwischen Profilsehne und Anströmung",
+          "falsch": [
+            "Der Winkel zwischen Flügel und Rumpf",
+            "Der Winkel zwischen Flugbahn und Horizont",
+            "Die Querneigung in der Kurve"
+          ],
+          "erklaerung": "Der Anstellwinkel bezieht sich auf die Anströmung, nicht auf den Horizont. Der Winkel Flügel–Rumpf heißt Einstellwinkel."
+        },
+        {
+          "id": "ae-au-03",
+          "typ": "auswahl",
+          "frage": "Wo entsteht der größere Teil des Auftriebs?",
+          "richtig": "Durch den Sog auf der Flügeloberseite",
+          "falsch": [
+            "Durch den Überdruck auf der Unterseite",
+            "Am Höhenleitwerk",
+            "Am Propeller"
+          ],
+          "erklaerung": "Auf der Oberseite strömt die Luft schneller, der Druck sinkt – dieser Sog liefert den Hauptanteil."
+        },
+        {
+          "id": "ae-au-04",
+          "typ": "auswahl",
+          "frage": "Was zeigt der Fahrtmesser eigentlich an?",
+          "richtig": "Den Staudruck – umgerechnet in eine Geschwindigkeit",
+          "falsch": [
+            "Die Geschwindigkeit über Grund",
+            "Die Drehzahl des Propellers",
+            "Die Windgeschwindigkeit"
+          ],
+          "erklaerung": "Der Fahrtmesser vergleicht Gesamtdruck und statischen Druck. Der Unterschied ist der Staudruck ½ ρ v²."
+        },
+        {
+          "id": "ae-au-05",
+          "typ": "mehrfach",
+          "frage": "Wovon hängt der Auftrieb nach der Formel A = cA · ½ ρ v² · S ab?",
+          "richtig": [
+            "Anstellwinkel bzw. Auftriebsbeiwert",
+            "Luftdichte",
+            "Geschwindigkeit",
+            "Flügelfläche"
+          ],
+          "falsch": [
+            "Motorleistung",
+            "Flughöhe über Grund"
+          ],
+          "erklaerung": "Alle vier Größen stehen in der Formel. Die Flughöhe wirkt nur indirekt über die Dichte."
+        },
+        {
+          "id": "ae-au-06",
+          "typ": "wahrfalsch",
+          "aussage": "Wenn du langsamer fliegst und gleich viel Auftrieb brauchst, musst du den Anstellwinkel vergrößern.",
+          "richtig": true,
+          "erklaerung": "Weniger Geschwindigkeit bedeutet weniger Staudruck – das muss ein größerer Auftriebsbeiwert (größerer Anstellwinkel) ausgleichen."
+        },
+        {
+          "id": "ae-au-07",
+          "typ": "auswahl",
+          "frage": "Wie wirken Landeklappen?",
+          "richtig": "Sie vergrößern die Wölbung: mehr Auftrieb, mehr Widerstand, geringere Überziehgeschwindigkeit",
+          "falsch": [
+            "Sie verringern den Widerstand für den Reiseflug",
+            "Sie vergrößern nur die Geschwindigkeit",
+            "Sie haben nur Einfluss auf die Querlage"
+          ],
+          "erklaerung": "Klappen erlauben langsameres Fliegen und steilere Anflüge – dafür steigt der Widerstand."
+        }
+      ]
+    },
+    {
+      "id": "widerstand",
+      "titel": "Widerstand & Gleitflug",
+      "kurz": "Induzierter und schädlicher Widerstand, Gleitzahl und bestes Gleiten.",
+      "kern": [
+        "Induzierter Widerstand ist im Langsamflug groß, schädlicher Widerstand im Schnellflug.",
+        "Am weitesten gleitet man im Minimum des Gesamtwiderstands.",
+        "Gleitstrecke = Höhe × Gleitzahl; Gegenwind verkürzt sie.",
+        "Lange, schlanke Flügel verringern den induzierten Widerstand."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Der **Gesamtwiderstand** setzt sich aus zwei Teilen zusammen:"
+        },
+        {
+          "typ": "einfach",
+          "text": "Beim Radfahren kostet der Fahrtwind Kraft – das ist der schädliche Widerstand, und er wächst mit dem Tempo. Der induzierte Widerstand ist dagegen der Preis fürs Tragen: Er ist am größten, wenn du langsam fliegst und der Flügel besonders hart arbeiten muss."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Induzierter Widerstand** entsteht als „Preis“ für den Auftrieb: An den Flügelspitzen strömt Luft von unten nach oben und bildet **Randwirbel**. Er ist **groß bei langsamer Fahrt** (großer Anstellwinkel) und wird bei höherer Geschwindigkeit kleiner. Lange, schlanke Flügel (große **Streckung**) und Winglets verringern ihn.",
+            "**Schädlicher Widerstand** umfasst Form-, Reibungs- und Interferenzwiderstand. Er **wächst mit dem Quadrat der Geschwindigkeit**."
+          ]
+        },
+        {
+          "typ": "abbildung",
+          "id": "widerstandskurve"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Gleitflug"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ohne Motor gleitet das Flugzeug. Die **Gleitzahl** gibt an, wie viele Meter es pro Meter Höhenverlust vorwärtskommt – sie entspricht dem Verhältnis von Auftrieb zu Widerstand. Am weitesten kommst du bei der **Geschwindigkeit des besten Gleitens**, dort ist der Gesamtwiderstand am kleinsten."
+        },
+        {
+          "typ": "formel",
+          "titel": "Gleitstrecke (Windstille)",
+          "text": "Gleitstrecke = Höhe × Gleitzahl"
+        },
+        {
+          "typ": "interaktiv",
+          "id": "gleitflug"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Gegenwind** verkürzt die Gleitstrecke über Grund, **Rückenwind** verlängert sie.",
+            "Mehr **Masse** ändert die Gleitzahl kaum, verschiebt aber das beste Gleiten zu höherer Geschwindigkeit.",
+            "Das **geringste Sinken** (längste Zeit in der Luft) liegt bei einer **kleineren** Geschwindigkeit als das beste Gleiten."
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Typische Gleitzahlen: Motorflugzeug mit stehendem Propeller etwa 1 : 8 bis 1 : 10, Segelflugzeuge 1 : 30 bis über 1 : 50. Die genauen Werte stehen im Flughandbuch."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ae-wi-01",
+          "typ": "generator",
+          "generator": "gleitstrecke"
+        },
+        {
+          "id": "ae-wi-02",
+          "typ": "generator",
+          "generator": "gleitstrecke"
+        },
+        {
+          "id": "ae-wi-03",
+          "typ": "auswahl",
+          "frage": "Wann ist der induzierte Widerstand am größten?",
+          "richtig": "Im Langsamflug mit großem Anstellwinkel",
+          "falsch": [
+            "Im schnellen Reiseflug",
+            "Bei ausgefahrenem Fahrwerk",
+            "Er ist immer gleich groß"
+          ],
+          "erklaerung": "Großer Anstellwinkel bedeutet starke Randwirbel – der induzierte Widerstand ist im Langsamflug am größten."
+        },
+        {
+          "id": "ae-wi-04",
+          "typ": "auswahl",
+          "frage": "Wie verändert sich der schädliche Widerstand mit der Geschwindigkeit?",
+          "richtig": "Er wächst mit dem Quadrat der Geschwindigkeit",
+          "falsch": [
+            "Er sinkt mit steigender Geschwindigkeit",
+            "Er bleibt gleich",
+            "Er wächst nur linear"
+          ],
+          "erklaerung": "Doppelte Geschwindigkeit, etwa vierfacher schädlicher Widerstand."
+        },
+        {
+          "id": "ae-wi-05",
+          "typ": "auswahl",
+          "frage": "Bei welcher Geschwindigkeit gleitest du am weitesten?",
+          "richtig": "Bei der Geschwindigkeit des besten Gleitens, wo der Gesamtwiderstand am kleinsten ist",
+          "falsch": [
+            "So langsam wie möglich",
+            "So schnell wie möglich",
+            "Bei der Geschwindigkeit des geringsten Sinkens"
+          ],
+          "erklaerung": "Das beste Gleiten liegt im Minimum des Gesamtwiderstands. Das geringste Sinken liegt etwas langsamer."
+        },
+        {
+          "id": "ae-wi-06",
+          "typ": "wahrfalsch",
+          "aussage": "Gegenwind verlängert die Gleitstrecke über Grund.",
+          "richtig": false,
+          "erklaerung": "Gegenwind verringert die Geschwindigkeit über Grund – bei gleicher Sinkzeit kommst du weniger weit."
+        },
+        {
+          "id": "ae-wi-07",
+          "typ": "auswahl",
+          "frage": "Was verringert den induzierten Widerstand?",
+          "richtig": "Lange, schlanke Flügel (große Streckung)",
+          "falsch": [
+            "Kurze, breite Flügel",
+            "Ausgefahrene Landeklappen",
+            "Ein größerer Anstellwinkel"
+          ],
+          "erklaerung": "Bei großer Streckung fallen die Randwirbel im Verhältnis kleiner aus – deshalb haben Segelflugzeuge so lange Flügel."
+        }
+      ]
+    },
+    {
+      "id": "ueberziehen",
+      "titel": "Überziehen, Kurvenflug & Trudeln",
+      "kurz": "Kritischer Anstellwinkel, Lastvielfaches und warum die Überziehgeschwindigkeit nicht fest ist.",
+      "kern": [
+        "Die Strömung reißt beim kritischen Anstellwinkel ab (etwa 15–18°) – in jeder Lage und bei jeder Geschwindigkeit.",
+        "Lastvielfaches n = 1 ÷ cos(Querlage); bei 60° sind es 2 g.",
+        "Die Überziehgeschwindigkeit steigt mit √n und mit der Masse.",
+        "Abfangen: zuerst den Anstellwinkel verringern."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Vergrößerst du den Anstellwinkel, steigt der Auftrieb – aber nur bis zum **kritischen Anstellwinkel** (bei vielen Profilen etwa 15 bis 18°). Darüber kann die Strömung der Oberseite nicht mehr folgen und **reißt ab**: Der Auftrieb bricht ein, der Widerstand steigt stark."
+        },
+        {
+          "typ": "einfach",
+          "text": "Kippst du die Hand im Fahrtwind zu steil, wird sie plötzlich nicht mehr hochgedrückt, sondern flattert nur noch – die Luft kann der Form nicht mehr folgen. Das ist der Strömungsabriss. Die Lösung: die Hand wieder flacher halten."
+        },
+        {
+          "typ": "abbildung",
+          "id": "auftriebskurve"
+        },
+        {
+          "typ": "interaktiv",
+          "id": "anstellwinkel"
+        },
+        {
+          "typ": "merke",
+          "text": "Ein Strömungsabriss hängt am **Anstellwinkel**, nicht an der Geschwindigkeit. Er ist in jeder Fluglage und bei jeder Geschwindigkeit möglich – etwa beim ruckartigen Ziehen in einer steilen Kurve."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kurvenflug und Lastvielfaches"
+        },
+        {
+          "typ": "abbildung",
+          "id": "kurvenflug"
+        },
+        {
+          "typ": "absatz",
+          "text": "In der Kurve ist der Auftrieb geneigt. Damit sein senkrechter Teil das Gewicht trägt, muss er **größer** sein. Das Verhältnis heißt **Lastvielfaches n**. Mit ihm steigt die **Überziehgeschwindigkeit** – um den Faktor √n."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Querlage",
+            "Lastvielfaches n",
+            "Überziehgeschwindigkeit"
+          ],
+          "zeilen": [
+            [
+              "0°",
+              "1,0",
+              "100 %"
+            ],
+            [
+              "30°",
+              "1,15",
+              "≈ 107 %"
+            ],
+            [
+              "45°",
+              "1,41",
+              "≈ 119 %"
+            ],
+            [
+              "60°",
+              "2,0",
+              "≈ 141 %"
+            ]
+          ]
+        },
+        {
+          "typ": "interaktiv",
+          "id": "kurvenflug"
+        },
+        {
+          "typ": "absatz",
+          "text": "Auch eine **höhere Masse** erhöht die Überziehgeschwindigkeit (um die Wurzel aus dem Massenverhältnis). **Landeklappen** senken sie."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Anzeichen und Abfangen"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Überziehwarnung (Horn, Lampe), Schütteln (Buffeting), weiche Ruder",
+            "Abfangen: **Anstellwinkel verringern** (Höhenruder nachlassen), Flügel waagerecht, Leistung nach Flughandbuch"
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Trudeln"
+        },
+        {
+          "typ": "absatz",
+          "text": "Wird ein überzogenes Flugzeug zusätzlich um die Hochachse gedreht (z. B. durch Seitenruder oder schiebenden Kurvenflug), reißt die Strömung an einem Flügel stärker ab: Das Flugzeug kippt ab und dreht sich in einer steilen Spirale nach unten – es **trudelt**. Ein häufig gelehrtes Ausleitverfahren ist: Leistung auf Leerlauf, Querruder neutral, voll Seitenruder gegen die Drehrichtung, Höhenruder nachlassen bis die Drehung aufhört, dann Seitenruder neutral und aus dem Sturzflug weich abfangen."
+        },
+        {
+          "typ": "achtung",
+          "text": "Das verbindliche Verfahren zum Beenden des Trudelns steht im Flughandbuch deines Flugzeugs. Trudeln wird nur mit Fluglehrer und mit Flugzeugen geübt, die dafür zugelassen sind."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ae-ue-01",
+          "typ": "generator",
+          "generator": "lastvielfaches"
+        },
+        {
+          "id": "ae-ue-02",
+          "typ": "generator",
+          "generator": "lastvielfaches"
+        },
+        {
+          "id": "ae-ue-03",
+          "typ": "generator",
+          "generator": "ueberziehenKurve"
+        },
+        {
+          "id": "ae-ue-04",
+          "typ": "generator",
+          "generator": "ueberziehenMasse"
+        },
+        {
+          "id": "ae-ue-05",
+          "typ": "auswahl",
+          "frage": "Wovon hängt ein Strömungsabriss in erster Linie ab?",
+          "richtig": "Vom Anstellwinkel",
+          "falsch": [
+            "Von der Geschwindigkeit",
+            "Von der Flughöhe",
+            "Von der Fluglage zum Horizont"
+          ],
+          "erklaerung": "Wird der kritische Anstellwinkel überschritten, reißt die Strömung ab – unabhängig von Geschwindigkeit und Fluglage."
+        },
+        {
+          "id": "ae-ue-06",
+          "typ": "auswahl",
+          "frage": "Was ist der erste Schritt beim Abfangen eines überzogenen Flugzeugs?",
+          "richtig": "Den Anstellwinkel verringern",
+          "falsch": [
+            "Stärker ziehen",
+            "Mit dem Querruder den hängenden Flügel anheben",
+            "Klappen einfahren"
+          ],
+          "erklaerung": "Die Ursache ist zu großer Anstellwinkel – also Höhenruder nachlassen. Querruder bei abgerissener Strömung können die Lage verschlimmern."
+        },
+        {
+          "id": "ae-ue-07",
+          "typ": "wahrfalsch",
+          "aussage": "Eine höhere Masse erhöht die Überziehgeschwindigkeit.",
+          "richtig": true,
+          "erklaerung": "Mehr Masse braucht mehr Auftrieb – der kritische Anstellwinkel ist schon bei höherer Geschwindigkeit erreicht."
+        },
+        {
+          "id": "ae-ue-08",
+          "typ": "auswahl",
+          "frage": "Wie groß ist das Lastvielfache in einer horizontalen 60°-Kurve?",
+          "richtig": "2",
+          "falsch": [
+            "1,15",
+            "1,41",
+            "3"
+          ],
+          "erklaerung": "1 ÷ cos 60° = 2. Das Flugzeug und alle Insassen wiegen „doppelt so viel“."
+        },
+        {
+          "id": "ae-ue-09",
+          "typ": "wahrfalsch",
+          "aussage": "Ein Strömungsabriss ist nur bei geringer Geschwindigkeit möglich.",
+          "richtig": false,
+          "erklaerung": "Wird zu schnell und zu stark gezogen, kann der kritische Anstellwinkel auch bei hoher Geschwindigkeit überschritten werden."
+        }
+      ]
+    },
+    {
+      "id": "steuerung",
+      "titel": "Achsen, Ruder & Stabilität",
+      "kurz": "Rollen, Nicken, Gieren – und was ein Flugzeug von selbst stabil hält.",
+      "kern": [
+        "Längsachse – Rollen – Querruder; Querachse – Nicken – Höhenruder; Hochachse – Gieren – Seitenruder.",
+        "Das negative Wendemoment gleichst du mit dem Seitenruder aus.",
+        "Leitwerke und V-Stellung sorgen für Stabilität; die Trimmung nimmt die Steuerkräfte weg."
+      ],
+      "theorie": [
+        {
+          "typ": "abbildung",
+          "id": "achsen"
+        },
+        {
+          "typ": "einfach",
+          "text": "Die drei Achsen kennst du vom eigenen Kopf: Nicken („ja“), Kopfschütteln („nein“) und den Kopf zur Schulter neigen. Ein Flugzeug kann genau diese drei Bewegungen machen – jede mit einem eigenen Ruder."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Achse",
+            "Bewegung",
+            "Ruder"
+          ],
+          "zeilen": [
+            [
+              "Längsachse",
+              "Rollen",
+              "Querruder"
+            ],
+            [
+              "Querachse",
+              "Nicken",
+              "Höhenruder"
+            ],
+            [
+              "Hochachse",
+              "Gieren",
+              "Seitenruder"
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Negatives Wendemoment"
+        },
+        {
+          "typ": "absatz",
+          "text": "Beim Kurveneinleiten geht ein Querruder nach unten – dieser Flügel erzeugt mehr Auftrieb, aber auch **mehr Widerstand**. Das Flugzeug giert dadurch kurz **gegen die Kurvenrichtung**. Gegenmittel: koordiniert mit dem **Seitenruder** in die Kurve treten; viele Flugzeuge haben außerdem **Differenzialquerruder** (das obere Ruder schlägt weiter aus)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Stabilität"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Längsstabilität** (um die Querachse): durch das Höhenleitwerk und einen Schwerpunkt vor dem Neutralpunkt.",
+            "**Richtungsstabilität** (um die Hochachse): durch das Seitenleitwerk – es wirkt wie eine Windfahne.",
+            "**Querstabilität** (um die Längsachse): z. B. durch V-Stellung der Flügel oder einen hoch angesetzten Flügel."
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Mit der **Trimmung** stellst du die Ruderkräfte so ein, dass das Flugzeug ohne Kraft am Steuer in der gewünschten Fluglage bleibt."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ae-st-01",
+          "typ": "zuordnung",
+          "frage": "Ordne jeder Achse die Bewegung zu.",
+          "paare": [
+            [
+              "Längsachse",
+              "Rollen"
+            ],
+            [
+              "Querachse",
+              "Nicken"
+            ],
+            [
+              "Hochachse",
+              "Gieren"
+            ]
+          ]
+        },
+        {
+          "id": "ae-st-02",
+          "typ": "zuordnung",
+          "frage": "Ordne jeder Bewegung das Ruder zu.",
+          "paare": [
+            [
+              "Rollen",
+              "Querruder"
+            ],
+            [
+              "Nicken",
+              "Höhenruder"
+            ],
+            [
+              "Gieren",
+              "Seitenruder"
+            ]
+          ]
+        },
+        {
+          "id": "ae-st-03",
+          "typ": "auswahl",
+          "frage": "Was ist das negative Wendemoment?",
+          "richtig": "Beim Querruderausschlag giert das Flugzeug kurz gegen die Kurvenrichtung",
+          "falsch": [
+            "Das Flugzeug dreht in der Kurve zu stark ein",
+            "Das Flugzeug verliert in der Kurve an Höhe",
+            "Der Propeller dreht das Flugzeug nach links"
+          ],
+          "erklaerung": "Das nach unten ausschlagende Querruder erzeugt mehr Widerstand – der Flügel wird gebremst, die Nase giert kurz nach außen."
+        },
+        {
+          "id": "ae-st-04",
+          "typ": "auswahl",
+          "frage": "Was sorgt vor allem für die Richtungsstabilität?",
+          "richtig": "Das Seitenleitwerk",
+          "falsch": [
+            "Das Höhenleitwerk",
+            "Die Querruder",
+            "Die Landeklappen"
+          ],
+          "erklaerung": "Das Seitenleitwerk richtet das Flugzeug wie eine Windfahne in die Anströmung aus."
+        },
+        {
+          "id": "ae-st-05",
+          "typ": "wahrfalsch",
+          "aussage": "Die V-Stellung der Flügel trägt zur Querstabilität bei.",
+          "richtig": true,
+          "erklaerung": "Hängt ein Flügel, wird er stärker angeströmt und erzeugt mehr Auftrieb – das richtet das Flugzeug wieder auf."
+        },
+        {
+          "id": "ae-st-06",
+          "typ": "auswahl",
+          "frage": "Wozu dient die Trimmung?",
+          "richtig": "Damit das Flugzeug ohne Kraft am Steuer in der gewünschten Fluglage bleibt",
+          "falsch": [
+            "Um die Geschwindigkeit zu begrenzen",
+            "Um den Strömungsabriss zu verhindern",
+            "Um das Flugzeug am Boden zu lenken"
+          ],
+          "erklaerung": "Die Trimmung nimmt dir die Haltekräfte ab – so kannst du entspannt und genau fliegen."
+        }
+      ]
+    },
+    {
+      "id": "leistung",
+      "titel": "Flugleistung & Wirbelschleppen",
+      "kurz": "Start- und Landestrecke, Steigen, Bodeneffekt und Wirbelschleppen.",
+      "kern": [
+        "Die Startstrecke wird länger bei hoher Masse, Hitze, hoch gelegenem Platz, Rückenwind und nassem Gras.",
+        "Vx = bester Steigwinkel (über ein Hindernis), Vy = beste Steigrate.",
+        "Bodeneffekt: weniger induzierter Widerstand – das Flugzeug schwebt länger.",
+        "Wirbelschleppen: über der Bahn großer Flugzeuge bleiben, hinter deren Aufsetzpunkt landen."
+      ],
+      "theorie": [
+        {
+          "typ": "zwischentitel",
+          "text": "Start- und Landestrecke"
+        },
+        {
+          "typ": "einfach",
+          "text": "An einem heißen Tag auf einem hoch gelegenen Platz ist die Luft „dünner“ – wie Radfahren mit zu wenig Luft im Reifen: Alles geht schwerer. Der Motor hat weniger Kraft, der Flügel weniger Auftrieb, und der Start dauert länger."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Einfluss",
+            "Startstrecke",
+            "Landestrecke"
+          ],
+          "zeilen": [
+            [
+              "höhere Masse",
+              "länger",
+              "länger"
+            ],
+            [
+              "große Dichtehöhe (heiß, hoch)",
+              "länger",
+              "länger"
+            ],
+            [
+              "Gegenwind",
+              "kürzer",
+              "kürzer"
+            ],
+            [
+              "Rückenwind",
+              "deutlich länger",
+              "deutlich länger"
+            ],
+            [
+              "Gras, nasses oder hohes Gras",
+              "länger",
+              "meist länger"
+            ],
+            [
+              "Piste bergauf",
+              "länger",
+              "kürzer"
+            ]
+          ],
+          "unterschrift": "Die genauen Werte und Zuschläge stehen im Flughandbuch."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Steigen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Mit **Vx** (Geschwindigkeit des besten Steigwinkels) gewinnst du auf kürzester Strecke am meisten Höhe – z. B. über ein Hindernis. Mit **Vy** (Geschwindigkeit der besten Steigrate) gewinnst du in kürzester Zeit am meisten Höhe. Vx ist kleiner als Vy."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Bodeneffekt"
+        },
+        {
+          "typ": "absatz",
+          "text": "Bis etwa eine Spannweite über dem Boden können sich die Randwirbel nicht voll ausbilden – der **induzierte Widerstand sinkt**. Das Flugzeug „schwebt“ bei der Landung länger und kann beim Start schon abheben, bevor es außerhalb des Bodeneffekts sicher steigt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wirbelschleppen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Jedes Flugzeug zieht hinter den Flügelspitzen zwei Wirbel hinter sich her. Am stärksten sind sie bei **schweren, langsamen Flugzeugen in Reiseflugkonfiguration** – also auch im Start und Anflug großer Flugzeuge. Die Wirbel **sinken ab** und **treiben mit dem Wind**."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "über der Flugbahn eines schweren Flugzeugs bleiben",
+            "bei der Landung **hinter** dessen Aufsetzpunkt aufsetzen",
+            "beim Start **vor** dessen Abhebepunkt abheben",
+            "ausreichend Zeit verstreichen lassen, bevor du startest"
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Wirbelschleppen sind unsichtbar und können ein kleines Flugzeug schlagartig auf den Rücken drehen – besonders gefährlich in Bodennähe."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ae-le-01",
+          "typ": "auswahl",
+          "frage": "Welche Geschwindigkeit fliegst du, um ein Hindernis nach dem Start auf kürzester Strecke zu überfliegen?",
+          "richtig": "Vx – bester Steigwinkel",
+          "falsch": [
+            "Vy – beste Steigrate",
+            "Die Reisegeschwindigkeit",
+            "Die Geschwindigkeit des geringsten Sinkens"
+          ],
+          "erklaerung": "Vx bringt die meiste Höhe pro Strecke, Vy die meiste Höhe pro Zeit."
+        },
+        {
+          "id": "ae-le-02",
+          "typ": "mehrfach",
+          "frage": "Was verlängert die Startstrecke?",
+          "richtig": [
+            "Hohe Außentemperatur",
+            "Hoch gelegener Flugplatz",
+            "Nasses Gras",
+            "Rückenwind"
+          ],
+          "falsch": [
+            "Gegenwind",
+            "Geringe Masse"
+          ],
+          "erklaerung": "Dünne Luft, Rollwiderstand und Rückenwind verlängern die Startstrecke. Gegenwind und geringe Masse verkürzen sie."
+        },
+        {
+          "id": "ae-le-03",
+          "typ": "auswahl",
+          "frage": "Was passiert im Bodeneffekt?",
+          "richtig": "Der induzierte Widerstand sinkt, das Flugzeug schwebt länger",
+          "falsch": [
+            "Der Auftrieb bricht zusammen",
+            "Der schädliche Widerstand steigt stark",
+            "Das Flugzeug wird zum Boden gezogen"
+          ],
+          "erklaerung": "Nahe am Boden können sich die Randwirbel nicht voll ausbilden – weniger induzierter Widerstand."
+        },
+        {
+          "id": "ae-le-04",
+          "typ": "auswahl",
+          "frage": "Wann erzeugt ein Flugzeug die stärksten Wirbelschleppen?",
+          "richtig": "Schwer, langsam und mit eingefahrenen Klappen",
+          "falsch": [
+            "Leicht, schnell und mit ausgefahrenen Klappen",
+            "Nur im Reiseflug in großer Höhe",
+            "Nur am Boden beim Rollen"
+          ],
+          "erklaerung": "Viel Auftrieb bei großem Anstellwinkel bedeutet starke Randwirbel."
+        },
+        {
+          "id": "ae-le-05",
+          "typ": "auswahl",
+          "frage": "Du landest hinter einem schweren Flugzeug. Wo setzt du auf?",
+          "richtig": "Hinter dessen Aufsetzpunkt",
+          "falsch": [
+            "Vor dessen Aufsetzpunkt",
+            "Genau auf dessen Aufsetzpunkt",
+            "Das spielt keine Rolle"
+          ],
+          "erklaerung": "Die Wirbelschleppen enden, wo das schwere Flugzeug aufsetzt. Bleib über seiner Bahn und setz dahinter auf."
+        },
+        {
+          "id": "ae-le-06",
+          "typ": "wahrfalsch",
+          "aussage": "Wirbelschleppen sinken ab und treiben mit dem Wind.",
+          "richtig": true,
+          "erklaerung": "Deshalb können sie bei Seitenwind auch auf eine Parallelpiste getragen werden."
+        },
+        {
+          "id": "ae-le-07",
+          "typ": "auswahl",
+          "frage": "Wie wirkt sich eine bergauf geneigte Piste aus?",
+          "richtig": "Start länger, Landung kürzer",
+          "falsch": [
+            "Start kürzer, Landung länger",
+            "Start und Landung kürzer",
+            "Gar nicht"
+          ],
+          "erklaerung": "Beim Start arbeitest du gegen die Steigung, bei der Landung bremst sie dich."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- Vorschau der App in Handybreite, z. B. tools/handy.html?seite=metar/1&hoehe=2000
+     Nützlich für Bildschirmfotos und zum Testen am PC. -->
+<html lang="de">
+<head><meta charset="utf-8"><title>AeroTrainer – Handyvorschau</title>
+<style>html, body { margin: 0; background: #888; } iframe { display: block; border: 0; width: 390px; }</style></head>
+<body>
+<script>
+  const p = new URLSearchParams(location.search);
+  const rahmen = document.createElement('iframe');
+  rahmen.style.height = `${p.get('hoehe') ?? 844}px`;
+  rahmen.src = `../index.html#/${p.get('seite') ?? ''}`;
+  document.body.append(rahmen);
+</script>
+</body>
+</html>

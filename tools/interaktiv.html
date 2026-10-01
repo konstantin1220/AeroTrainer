@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- Zeigt alle interaktiven Elemente aller Module auf einer Seite – zum Testen.
+     Mit ?modul=navigation nur ein Modul. -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AeroTrainer – alle interaktiven Elemente</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    body { padding: 1rem; }
+    .raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 1rem; align-items: start; }
+    .raster > section { margin: 0; }
+  </style>
+</head>
+<body>
+  <h1>Alle interaktiven Elemente</h1>
+  <div id="inhalt"></div>
+  <script type="module">
+    import { h } from '../js/ui.js';
+    import { icon } from '../js/icons.js';
+    const wunsch = new URLSearchParams(location.search).get('modul');
+    const module = ['metar', 'luftraum', 'sprechfunk', 'navigation', 'masse-schwerpunkt', 'meteorologie', 'aerodynamik', 'signale'];
+    for (const id of module.filter((m) => !wunsch || m === wunsch)) {
+      const teile = await import(`../modules/${id}/interaktiv.js`);
+      let liste = teile.interaktiv;
+      if (!liste && teile.interaktivFuer) {
+        const daten = await fetch(`../modules/${id}/content/flugzeug.json`).then((r) => r.json());
+        liste = teile.interaktivFuer(daten);
+      }
+      const raster = h('div', { class: 'raster' });
+      for (const [name, element] of Object.entries(liste)) {
+        raster.append(h('section', { class: 'interaktiv', 'data-modul': id },
+          h('header', { class: 'interaktiv-kopf' }, h('span', { class: 'interaktiv-symbol' }, icon(element.symbol)), h('div', {}, h('span', { class: 'interaktiv-marke' }, `${id} · ${name}`), h('h3', {}, element.titel))),
+          element.erstellen()));
+      }
+      document.getElementById('inhalt').append(h('section', { 'data-modul': id }, h('h2', {}, id), raster));
+    }
+  </script>
+</body>
+</html>
