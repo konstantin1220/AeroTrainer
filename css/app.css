@@ -1453,6 +1453,39 @@ html[data-stufe="einsteiger"] .begriff {
 .probier summary { cursor: pointer; }
 .probier ol { margin: 0.5rem 0 0; padding-left: 1.3rem; display: grid; gap: 0.35rem; font-size: 0.93rem; }
 
+/* Quellen & Grundlagen */
+.quellen-status { white-space: nowrap; }
+.quellen-status .ico { width: 0.9rem; height: 0.9rem; }
+.quellen-status.status-abgeglichen { background: var(--ok-hell); color: var(--ok); border-color: transparent; }
+.quellen-status.status-offen { background: var(--warn-hell); color: #9a5b00; border-color: var(--warn-rand); }
+.quellen-status.status-herleitung { background: var(--primaer-hell); color: var(--primaer); border-color: transparent; }
+.quellen-bilanz, .quellen-pruefung, .quellen-liste, .quellen-punkte { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.quellen-bilanz li { display: grid; grid-template-columns: 2.2rem auto 1fr; align-items: center; gap: 0.6rem; font-size: 0.9rem; color: var(--leise); }
+.quellen-bilanz strong { font-size: 1.25rem; color: var(--text); text-align: right; }
+.quellen-bilanz .chip { justify-self: start; }
+@media (max-width: 520px) {
+  .quellen-bilanz li { grid-template-columns: 2.2rem 1fr; }
+  .quellen-bilanz li > span:last-child { grid-column: 2; }
+}
+.quellen-pruefung li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.4rem 0.75rem; padding: 0.35rem 0; border-bottom: 1px solid var(--rand); }
+.quellen-pruefung li:last-child { border-bottom: 0; }
+.quellen-pruefung a { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; text-decoration: none; color: var(--text); }
+.quellen-pruefung a .ico, .quellen-symbol .ico { color: var(--mf, var(--primaer)); }
+.quellen-liste li { display: grid; gap: 0.15rem; padding: 0.6rem 0.75rem; border-radius: var(--radius-klein); background: var(--flaeche-2); border: 1px solid var(--rand); font-size: 0.92rem; scroll-margin-top: 6rem; }
+.quellen-liste li:target { border-color: var(--primaer); }
+.quellen-liste a { display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; justify-self: start; }
+.quellen-thema { scroll-margin-top: 1rem; }
+.quellen-thema h3 { display: flex; align-items: center; gap: 0.5rem; margin: 0; }
+.quellen-punkte li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.6rem; padding: 0.55rem 0; border-bottom: 1px solid var(--rand); }
+.quellen-punkte li:last-child { border-bottom: 0; }
+.quellen-inhalt { flex: 1 1 100%; font-weight: 600; }
+.quellen-fundstelle { font-size: 0.86rem; color: var(--leise); }
+.quellen-fundstelle a { color: inherit; }
+.quellen-hinweis { flex: 1 1 100%; font-size: 0.84rem; color: var(--leise); font-style: italic; }
+@media (prefers-color-scheme: dark) {
+  .quellen-status.status-offen { color: #ffcf70; }
+}
+
 /* Sprechfunk: Lautschrift */
 .sprechliste li { gap: 0.1rem; min-width: 4.6rem; }
 .sprech-zeichen { font: 800 1.15rem var(--mono); }

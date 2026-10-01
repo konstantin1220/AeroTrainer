@@ -143,3 +143,24 @@ test('Lexikon: Aufbau und Verweise', () => {
   }
   assert.ok(begriffe.length >= 80);
 });
+
+test('Quellen: jedes Thema hat Einträge, Verweise und Status stimmen', () => {
+  const daten = json('../modules/quellen.json');
+  const quellen = new Set(daten.quellen.map((q) => q.id));
+  assert.equal(quellen.size, daten.quellen.length, 'doppelte Quellen-ID');
+  assert.match(daten.abgleich, /^\d{4}-\d{2}-\d{2}$/, 'Datum des Abgleichs im Format JJJJ-MM-TT');
+  for (const q of daten.quellen) {
+    assert.ok(q.titel && q.voll && q.art, `Quelle „${q.id}“ unvollständig`);
+    if (q.link) assert.match(q.link, /^https:\/\//, `Quelle „${q.id}“: Link muss mit https:// beginnen`);
+  }
+  for (const m of aktiv) assert.ok(daten.themen.some((t) => t.modul === m.id), `Für das Thema „${m.id}“ fehlen Quellenangaben`);
+  for (const thema of daten.themen) {
+    assert.ok(aktiv.some((m) => m.id === thema.modul), `Quellen für unbekanntes Thema „${thema.modul}“`);
+    for (const p of thema.punkte) {
+      assert.ok(p.inhalt, `${thema.modul}: Eintrag ohne Inhalt`);
+      assert.ok(['abgeglichen', 'grundlage', 'herleitung', 'erfunden', 'offen'].includes(p.status), `${thema.modul}: unbekannter Status „${p.status}“`);
+      if (p.status !== 'erfunden') assert.ok(quellen.has(p.quelle), `${thema.modul}: Quelle „${p.quelle}“ fehlt in der Quellenliste`);
+      if (p.status === 'abgeglichen') assert.ok(p.fundstelle, `${thema.modul}: „${p.inhalt}“ ist abgeglichen, aber ohne Fundstelle`);
+    }
+  }
+});

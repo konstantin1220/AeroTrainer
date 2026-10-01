@@ -33,7 +33,7 @@
             "Freigabe für VFR",
             "Dauernde Funkverbindung",
             "Dienst für VFR-Flüge",
-            "Höchstgeschwindigkeit unter FL 100"
+            "Höchstgeschwindigkeit unter 10 000 ft MSL"
           ],
           "zeilen": [
             [
@@ -741,7 +741,7 @@
         },
         {
           "typ": "absatz",
-          "text": "Unterhalb der **Übergangshöhe** (Transition Altitude) fliegst du mit QNH, oberhalb der **Übergangsfläche** (Transition Level) nach Flugflächen mit 1013,25 hPa. In Deutschland liegt die Übergangshöhe meist bei 5000 ft MSL – die genauen Werte stehen im Luftfahrthandbuch (AIP)."
+          "text": "Unterhalb der **Übergangshöhe** (Transition Altitude) fliegst du mit QNH, oberhalb der **Übergangsfläche** (Transition Level) nach Flugflächen mit 1013,25 hPa. In Deutschland stellst du bei Überlandflügen nach Sichtflugregeln bis **5000 ft MSL** bzw. **2000 ft über Grund** (der höhere Wert ist maßgebend) das QNH ein, darüber 1013,25 hPa. Die Höhe legt das Bundesaufsichtsamt für Flugsicherung fest (§ 35 LuftVO); die gültigen Werte stehen im Luftfahrthandbuch (AIP)."
         },
         {
           "typ": "zwischentitel",
@@ -752,16 +752,18 @@
           "punkte": [
             "Über **Städten, dicht besiedelten Gebieten und Menschenansammlungen**: mindestens **1000 ft über dem höchsten Hindernis** im Umkreis von **600 m**.",
             "**Überall sonst**: mindestens **500 ft über Grund oder Wasser** bzw. 500 ft über dem höchsten Hindernis im Umkreis von 150 m.",
-            "Ausgenommen sind Start und Landung sowie Flüge mit besonderer Genehmigung."
+            "Ausgenommen sind Start und Landung sowie Flüge mit besonderer Genehmigung.",
+            "In Deutschland dürfen **Segelflugzeuge, Ballone, Hängegleiter und Gleitsegler** die 500-ft-Regel unterschreiten, wenn die Art ihres Betriebs es nötig macht und niemand gefährdet wird (§ 37 LuftVO) – z. B. beim Hangflug oder im Anflug auf ein Außenlandefeld. Über Städten und Menschenansammlungen gilt das nicht.",
+            "**Brücken, Freileitungen und Antennen** dürfen nie unterflogen werden (§ 37 LuftVO)."
           ]
         },
         {
           "typ": "absatz",
-          "text": "Für Überlandflüge mit motorgetriebenen Luftfahrzeugen schreibt die deutsche Luftverkehrs-Ordnung zusätzlich in der Regel eine Mindesthöhe von 2000 ft über Grund vor, soweit Luftraum und Wetter es zulassen."
+          "text": "Das sind Mindestwerte. Plane Überlandflüge – wo Luftraum und Wetter es zulassen – deutlich höher: Mehr Höhe bedeutet mehr Zeit und mehr Auswahl an Landefeldern, falls der Motor ausfällt. (Die frühere deutsche Regel „Überlandflüge mit Motorflugzeugen mindestens 2000 ft über Grund“ gilt seit der neuen Luftverkehrs-Ordnung von 2015 nicht mehr.)"
         },
         {
           "typ": "achtung",
-          "text": "Die Mindesthöhe muss so gewählt sein, dass bei einem Triebwerksausfall eine Notlandung ohne Gefährdung von Personen und Sachen am Boden möglich ist."
+          "text": "Über Städten, dicht besiedelten Gebieten und Menschenansammlungen musst du außerdem immer so hoch fliegen, dass du im Notfall landen kannst, ohne Menschen oder Sachen am Boden ungebührlich zu gefährden (SERA.3105)."
         },
         {
           "typ": "zwischentitel",

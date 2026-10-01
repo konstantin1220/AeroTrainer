@@ -36,7 +36,7 @@ export const interaktiv = {
       }
       zeichnen();
       return h('div', {}, bild.el, bedienfeld(farbe.el, art.el), im.el, am.el,
-        h('p', { class: 'interaktiv-erklaerung' }, 'Nach SERA, Anlage 1. Bestätigen am Tag: im Flug mit den Tragflächen wackeln, am Boden Querruder oder Seitenruder bewegen.'));
+        h('p', { class: 'interaktiv-erklaerung' }, 'Nach SERA, Anlage 1. Bestätigen am Tag: im Flug Querruder wechselweise betätigen (mit den Tragflächen wackeln) – außer im Quer- oder Endanflug; am Boden Querruder oder Seitenruder bewegen. Nachts: Landescheinwerfer zweimal aus- und einschalten.'));
     },
   },
 };

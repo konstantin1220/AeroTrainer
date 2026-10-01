@@ -76,10 +76,10 @@ function ctrBild(sicht, decke) {
 // ---------- Ausweichregeln ----------
 
 const ARTEN = {
-  motor: { text: 'Motorflugzeug', klasse: 'motor' },
-  segel: { text: 'Segelflugzeug', klasse: 'segel' },
-  ballon: { text: 'Ballon', klasse: 'ballon' },
-  schlepp: { text: 'Flugzeug im Schlepp', klasse: 'schlepp' },
+  motor: { text: 'Motorflugzeug', artikel: 'Das', klasse: 'motor' },
+  segel: { text: 'Segelflugzeug', artikel: 'Das', klasse: 'segel' },
+  ballon: { text: 'Ballon', artikel: 'Der', klasse: 'ballon' },
+  schlepp: { text: 'Schleppzug', artikel: 'Der', klasse: 'schlepp' },
 };
 
 /** Wer weicht aus? Ergebnis: { du: 'ausweichen'|'vorflug'|'beide'|'unklar', text } */
@@ -93,13 +93,15 @@ export function vorflug(eigen, anderer, lage) {
       : { du: 'vorflug', text: 'Gleiche Art, der andere kommt von links: Du hast Vorflug – Kurs und Geschwindigkeit beibehalten.' };
   }
   const paar = [eigen, anderer].sort().join('+');
-  if (['schlepp+segel', 'ballon+schlepp'].includes(paar)) return { du: 'unklar', text: 'Diese Kombination ist in SERA nicht ausdrücklich geregelt. Frühzeitig und deutlich ausweichen – im Zweifel weicht der Wendigere aus.' };
+  if (paar === 'schlepp+segel') return { du: 'unklar', text: 'Nach dem Wortlaut von SERA.3210 weichen motorgetriebene Luftfahrzeuge Segelflugzeugen aus – ein Schleppzug ist aber erkennbar in seiner Beweglichkeit eingeschränkt (SERA.3210 b). Frühzeitig und deutlich ausweichen – im Zweifel weicht der Wendigere aus.' };
   const rang = { motor: 0, schlepp: 1, segel: 2, ballon: 3 };
   if (eigen === 'motor' && anderer === 'schlepp') return { du: 'ausweichen', text: 'Motorgetriebene Luftfahrzeuge weichen Luftfahrzeugen aus, die etwas schleppen.' };
   if (eigen === 'schlepp' && anderer === 'motor') return { du: 'vorflug', text: 'Wer schleppt, ist eingeschränkt beweglich – das Motorflugzeug weicht dir aus.' };
+  if (eigen === 'schlepp' && anderer === 'ballon') return { du: 'ausweichen', text: 'Auch ein Schleppzug ist motorgetrieben – und motorgetriebene Luftfahrzeuge weichen Ballonen immer aus.' };
+  if (eigen === 'ballon' && anderer === 'schlepp') return { du: 'vorflug', text: 'Der Schleppzug muss dir ausweichen – motorgetriebene Luftfahrzeuge weichen Ballonen immer aus.' };
   return rang[eigen] < rang[anderer]
     ? { du: 'ausweichen', text: `Als ${ARTEN[eigen].text} weichst du einem ${ARTEN[anderer].text} aus – es ist weniger beweglich.` }
-    : { du: 'vorflug', text: `Das ${ARTEN[anderer].text} muss dir ausweichen – du bist weniger beweglich. Trotzdem aufmerksam bleiben!` };
+    : { du: 'vorflug', text: `${ARTEN[anderer].artikel} ${ARTEN[anderer].text} muss dir ausweichen – du bist weniger beweglich. Trotzdem aufmerksam bleiben!` };
 }
 
 function ausweichBild(lage, ergebnis, eigen, anderer) {

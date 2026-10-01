@@ -1,0 +1,344 @@
+{
+  "_hinweis": "Quellen und Grundlagen der Lerninhalte – angezeigt unter Info → Quellen & Grundlagen. Status: abgeglichen = Punkt für Punkt mit dem amtlichen Originaltext verglichen (Datum siehe 'abgleich'); grundlage = Inhalt beruht auf dieser Quelle, der Abgleich mit dem Originaltext steht noch aus; herleitung = physikalische oder mathematische Herleitung; erfunden = frei erfundenes Übungsbeispiel; offen = bitte prüfen. Nach einem neuen Abgleich bitte Datum und Status anpassen.",
+  "abgleich": "2026-10-01",
+  "einleitung": "Hier steht, worauf die Inhalte von AeroTrainer beruhen – und wie weit sie schon geprüft sind. So kannst du jede Regel selbst im Original nachlesen.",
+  "entstehung": [
+    "Alle Erklärungen, Fragen und Grafiken wurden eigens für AeroTrainer geschrieben bzw. gezeichnet – mit Unterstützung der KI Claude (Anthropic). Nichts davon ist aus Lehrbüchern, Apps oder Karten übernommen.",
+    "Es werden **keine Fragen aus dem amtlichen Prüfungsfragenkatalog (ECQB)** verwendet, auch nicht umformuliert.",
+    "Die Regeln aus den Vorschriften wurden am 1. Oktober 2026 Punkt für Punkt mit dem **amtlichen Originaltext** verglichen (SERA in der konsolidierten Fassung vom 1. Mai 2025 und die Luftverkehrs-Ordnung). Dabei gefundene Abweichungen wurden korrigiert.",
+    "Alle Beispiele – Wettermeldungen, Flugplätze, Karte und Flugzeugdaten – sind frei erfunden und nicht für die echte Flugvorbereitung geeignet."
+  ],
+  "quellen": [
+    {
+      "id": "sera",
+      "titel": "SERA – Europäische Luftverkehrsregeln",
+      "voll": "Durchführungsverordnung (EU) Nr. 923/2012 der Kommission (Standardised European Rules of the Air), konsolidierte Fassung vom 1. Mai 2025",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:02012R0923-20250501"
+    },
+    {
+      "id": "luftvo",
+      "titel": "Luftverkehrs-Ordnung (LuftVO)",
+      "voll": "Luftverkehrs-Ordnung vom 29. Oktober 2015 – ergänzende deutsche Regeln zu SERA",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://www.gesetze-im-internet.de/luftvo_2015/"
+    },
+    {
+      "id": "aip",
+      "titel": "Luftfahrthandbuch Deutschland (AIP)",
+      "voll": "Luftfahrthandbuch der DFS Deutsche Flugsicherung, insbesondere AIP VFR",
+      "art": "Amtliche Veröffentlichung, online einsehbar",
+      "link": "https://aip.dfs.de/"
+    },
+    {
+      "id": "icao-annex3",
+      "titel": "ICAO Annex 3 und WMO-Nr. 306",
+      "voll": "ICAO Annex 3 „Meteorological Service for International Air Navigation“ und WMO Manual on Codes (WMO-Nr. 306), Schlüssel FM 15 METAR",
+      "art": "Internationale Norm (ICAO-Dokumente sind kostenpflichtig)",
+      "link": "https://library.wmo.int/"
+    },
+    {
+      "id": "icao-annex10",
+      "titel": "ICAO Annex 10, Band II",
+      "voll": "ICAO Annex 10 „Aeronautical Telecommunications“, Band II: Fernmeldeverfahren – Buchstabieralphabet, Aussprache der Zahlen, Sprechfunkverfahren",
+      "art": "Internationale Norm (kostenpflichtig)"
+    },
+    {
+      "id": "icao-annex12",
+      "titel": "ICAO Annex 12",
+      "voll": "ICAO Annex 12 „Search and Rescue“ – Boden-Luft-Sichtzeichen für Überlebende",
+      "art": "Internationale Norm (kostenpflichtig)"
+    },
+    {
+      "id": "icao-annex4",
+      "titel": "ICAO Annex 4",
+      "voll": "ICAO Annex 4 „Aeronautical Charts“ – Kartenzeichen der Luftfahrtkarte",
+      "art": "Internationale Norm (kostenpflichtig)"
+    },
+    {
+      "id": "icao-doc7488",
+      "titel": "ICAO Doc 7488",
+      "voll": "ICAO Doc 7488 „Manual of the ICAO Standard Atmosphere“ – Normwerte der Standardatmosphäre",
+      "art": "Internationale Norm (kostenpflichtig)"
+    },
+    {
+      "id": "wolkenatlas",
+      "titel": "WMO Internationaler Wolkenatlas",
+      "voll": "World Meteorological Organization: International Cloud Atlas – Wolkengattungen und Stockwerke",
+      "art": "Frei zugänglich",
+      "link": "https://cloudatlas.wmo.int/"
+    },
+    {
+      "id": "physik",
+      "titel": "Physikalische und mathematische Grundlagen",
+      "voll": "Strömungslehre, Mechanik (Hebelgesetz, Kräfte im Kurvenflug), Trigonometrie (Winddreieck, Windkomponenten, 1:60-Regel) und allgemeine Meteorologie",
+      "art": "Allgemeines Lehrwissen"
+    }
+  ],
+  "themen": [
+    {
+      "modul": "metar",
+      "punkte": [
+        {
+          "inhalt": "Aufbau des METAR und Bedeutung der Gruppen (Wind, Sicht, Wetter, Wolken, Temperatur, QNH, Trend, RMK)",
+          "quelle": "icao-annex3",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Melderegeln, z. B. Böen erst ab 10 kt über dem Mittelwind, CAVOK, Dunst (BR) und Nebel (FG)",
+          "quelle": "icao-annex3",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Wetterbedingungen für Sichtflug in Kontrollzonen und Sonder-VFR (Entscheidungsfragen)",
+          "quelle": "sera",
+          "fundstelle": "SERA.5005 b, SERA.5010",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Gegen- und Seitenwindkomponente",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Alle Beispiel-METARs und die Flugplätze XMUS, XALT, XNEU, XBER, XSEE",
+          "status": "erfunden"
+        }
+      ]
+    },
+    {
+      "modul": "luftraum",
+      "punkte": [
+        {
+          "inhalt": "Luftraumklassen: Freigabe, Funk, Dienste, 250 kt unter 10 000 ft",
+          "quelle": "sera",
+          "fundstelle": "SERA Anlage 4",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Sichtflugwetterbedingungen: Flugsicht und Wolkenabstand",
+          "quelle": "sera",
+          "fundstelle": "SERA.5001, Tabelle S5-1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "1500 m Flugsicht im Luftraum G (Deutschland)",
+          "quelle": "luftvo",
+          "fundstelle": "§ 40 LuftVO",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Sichtflug in Kontrollzonen (1500 ft, 5 km) und Sonder-VFR (600 ft, 1500 m, 140 kt)",
+          "quelle": "sera",
+          "fundstelle": "SERA.5005 b, SERA.5010",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Mindesthöhen (1000 ft über Städten, sonst 500 ft) und Notlandemöglichkeit über bebautem Gebiet",
+          "quelle": "sera",
+          "fundstelle": "SERA.5005 f, SERA.3105",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Ausnahmen für Segelflugzeuge, Ballone, Hängegleiter und Gleitsegler; Unterfliegen von Brücken und Leitungen verboten",
+          "quelle": "luftvo",
+          "fundstelle": "§ 37 LuftVO",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Halbkreisflugregel und Reiseflughöhen",
+          "quelle": "sera",
+          "fundstelle": "SERA.5005 g, Anlage 3",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Höhenmessereinstellung bei Überlandflügen (QNH bzw. 1013,25 hPa)",
+          "quelle": "luftvo",
+          "fundstelle": "§ 35 LuftVO",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Umstellhöhe 5000 ft MSL bzw. 2000 ft über Grund",
+          "quelle": "aip",
+          "status": "offen",
+          "hinweis": "Zahlenwerte bitte im aktuellen AIP VFR prüfen."
+        },
+        {
+          "inhalt": "Ausweichregeln (Gegenflug, Kreuzen, Überholen, Landung)",
+          "quelle": "sera",
+          "fundstelle": "SERA.3210",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "RMZ, TMZ, Flugbeschränkungs-, Sperr- und Gefahrengebiete",
+          "quelle": "sera",
+          "status": "grundlage"
+        }
+      ]
+    },
+    {
+      "modul": "sprechfunk",
+      "punkte": [
+        {
+          "inhalt": "Buchstabieralphabet, Zahlen und ihre Aussprache",
+          "quelle": "icao-annex10",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Was immer zurückgelesen werden muss",
+          "quelle": "sera",
+          "fundstelle": "SERA.8015 e",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Verfahren bei Funkausfall",
+          "quelle": "sera",
+          "fundstelle": "SERA.14083",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Transpondercodes 7700, 7600, 7500 und 7000",
+          "quelle": "sera",
+          "fundstelle": "SERA.13005",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Not- und Dringlichkeitsmeldungen (MAYDAY, PAN PAN)",
+          "quelle": "sera",
+          "fundstelle": "SERA Anlage 1, Nr. 1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Sprechgruppen, Rufzeichen und Ablauf von Funkgesprächen",
+          "quelle": "icao-annex10",
+          "status": "grundlage"
+        }
+      ]
+    },
+    {
+      "modul": "navigation",
+      "punkte": [
+        {
+          "inhalt": "Kartenzeichen (vereinfacht)",
+          "quelle": "icao-annex4",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Kurse, Missweisung, Deviation, Winddreieck, 1:60-Regel, Zeit- und Kraftstoffrechnung",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Übungskarte „Übungsgebiet Mittelland“ mit allen Orten und Funkfeuern",
+          "status": "erfunden"
+        }
+      ]
+    },
+    {
+      "modul": "masse-schwerpunkt",
+      "punkte": [
+        {
+          "inhalt": "Moment, Schwerpunkt, Hüllkurve",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Dichte von AVGAS (rund 0,72 kg/l)",
+          "quelle": "physik",
+          "status": "grundlage",
+          "hinweis": "Üblicher Richtwert – maßgeblich ist das Flughandbuch."
+        },
+        {
+          "inhalt": "Übungsflugzeug MF-4 mit allen Beladungsdaten",
+          "status": "erfunden",
+          "hinweis": "Für echte Flüge gilt ausschließlich das Flughandbuch deines Luftfahrzeugs."
+        }
+      ]
+    },
+    {
+      "modul": "meteorologie",
+      "punkte": [
+        {
+          "inhalt": "Standardatmosphäre (15 °C, 1013,25 hPa, 2 °C je 1000 ft, Tropopause 11 km, −56,5 °C)",
+          "quelle": "icao-doc7488",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Wolkengattungen und Stockwerke",
+          "quelle": "wolkenatlas",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Luftdruck, Feuchte, Wind, Fronten, Gewitter, Vereisung",
+          "quelle": "physik",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Wolkenbasis und Höhenmesserfehler (Faustformeln)",
+          "quelle": "physik",
+          "status": "herleitung"
+        }
+      ]
+    },
+    {
+      "modul": "aerodynamik",
+      "punkte": [
+        {
+          "inhalt": "Auftrieb, Widerstand, Strömungsabriss, Kurvenflug, Stabilität, Flugleistung",
+          "quelle": "physik",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Lastvielfaches, Überziehgeschwindigkeit in der Kurve, Gleitstrecke",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Zahlenwerte des Beispielprofils (z. B. kritischer Anstellwinkel 16°)",
+          "status": "erfunden",
+          "hinweis": "Typische, vereinfachte Werte – je nach Profil verschieden."
+        }
+      ]
+    },
+    {
+      "modul": "signale",
+      "punkte": [
+        {
+          "inhalt": "Lichtsignale vom Turm und ihre Bestätigung",
+          "quelle": "sera",
+          "fundstelle": "SERA Anlage 1, Nr. 3.1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Bodensignale in der Signalfläche",
+          "quelle": "sera",
+          "fundstelle": "SERA Anlage 1, Nr. 3.2",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Not- und Dringlichkeitssignale",
+          "quelle": "sera",
+          "fundstelle": "SERA Anlage 1, Nr. 1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Warnsignal vor Flugbeschränkungs-, Sperr- und Gefahrengebieten",
+          "quelle": "sera",
+          "fundstelle": "SERA Anlage 1, Nr. 2",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Signale beim Ansteuern (Abfangen)",
+          "quelle": "sera",
+          "fundstelle": "SERA.11015, Tabellen S11-1 und S11-2",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Boden-Luft-Sichtzeichen (V, X, N, Y, Pfeil)",
+          "quelle": "icao-annex12",
+          "status": "grundlage"
+        }
+      ]
+    }
+  ]
+}

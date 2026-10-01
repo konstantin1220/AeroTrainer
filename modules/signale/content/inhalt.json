@@ -9,7 +9,7 @@
       "kurz": "Grün, rot, weiß – als Dauerlicht oder Blinkfolge. Und wie du bestätigst.",
       "kern": [
         "Grün heißt „los“: Landung bzw. Start frei; blinkend: zurückkehren bzw. rollen.",
-        "Rot heißt „stopp“: dauerhaft kreisen bzw. halten; blinkend nicht landen bzw. Landefläche räumen.",
+        "Rot heißt „stopp“: dauerhaft – anderer hat Vorflug, Platzrunde fortsetzen bzw. Halt; blinkend – nicht landen bzw. Landefläche freimachen.",
         "Weiß blinkend: landen und zum Vorfeld rollen bzw. zurück zum Ausgangspunkt.",
         "Bestätigen am Tag: im Flug mit den Tragflächen wackeln, am Boden ein Ruder bewegen."
       ],
@@ -37,17 +37,17 @@
             ],
             [
               "Rotes Dauerlicht",
-              "Anderen Luftfahrzeugen ausweichen und weiter kreisen",
+              "Anderes Luftfahrzeug hat Vorflug – Platzrunde fortsetzen",
               "Halt"
             ],
             [
               "Grüne Blinkfolge",
-              "Zur Landung zurückkehren (Lande- und Rollfreigabe folgen)",
-              "Rollen freigegeben"
+              "Zwecks Landung zurückkehren (Lande- und Rollfreigabe folgen)",
+              "Rollerlaubnis erteilt"
             ],
             [
               "Rote Blinkfolge",
-              "Flugplatz unsicher – nicht landen",
+              "Nicht landen – Flugplatz unbenutzbar",
               "Die benutzte Landefläche freimachen"
             ],
             [
@@ -57,7 +57,7 @@
             ],
             [
               "Rote Leuchtrakete",
-              "Ungeachtet früherer Anweisungen vorerst nicht landen",
+              "Ungeachtet aller früheren Anweisungen zurzeit nicht landen",
               "–"
             ]
           ]
@@ -143,8 +143,8 @@
           "richtig": "Landung freigegeben",
           "falsch": [
             "Start freigegeben",
-            "Zur Landung zurückkehren",
-            "Rollen freigegeben"
+            "Zwecks Landung zurückkehren",
+            "Rollerlaubnis erteilt"
           ],
           "erklaerung": "Grünes Dauerlicht: im Flug Landefreigabe, am Boden Startfreigabe."
         },
@@ -177,7 +177,7 @@
           "typ": "auswahl",
           "frage": "Was bedeutet eine rote Leuchtrakete für ein Luftfahrzeug im Flug?",
           "abbildung": "licht-rakete",
-          "richtig": "Ungeachtet früherer Anweisungen vorerst nicht landen",
+          "richtig": "Ungeachtet aller früheren Anweisungen zurzeit nicht landen",
           "falsch": [
             "Notlandung sofort durchführen",
             "Landung freigegeben",
@@ -208,11 +208,11 @@
             ],
             [
               "Rotes Dauerlicht",
-              "Ausweichen und weiter kreisen"
+              "Anderer hat Vorflug – Platzrunde fortsetzen"
             ],
             [
               "Rote Blinkfolge",
-              "Flugplatz unsicher – nicht landen"
+              "Nicht landen – Flugplatz unbenutzbar"
             ],
             [
               "Weiße Blinkfolge",

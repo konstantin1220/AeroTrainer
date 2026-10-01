@@ -5,7 +5,7 @@
 // ausführen. Das trägt alle Dateien in DATEIEN ein und erhöht VERSION – dann laden alle
 // Geräte die Dateien beim nächsten Start frisch und alte Zwischenspeicher werden gelöscht.
 
-const VERSION = 'v9';
+const VERSION = 'v11';
 const CACHE = `aerotrainer-${VERSION}`;
 
 const DATEIEN = [
@@ -70,6 +70,7 @@ const DATEIEN = [
   'modules/navigation/generatoren.js',
   'modules/navigation/interaktiv.js',
   'modules/navigation/module.js',
+  'modules/quellen.json',
   'modules/signale/abbildungen.js',
   'modules/signale/content/inhalt.json',
   'modules/signale/generatoren.js',

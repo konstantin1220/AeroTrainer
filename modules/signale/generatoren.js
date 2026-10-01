@@ -4,16 +4,16 @@ import { lichtsignal, rotesFeuerwerk, BODENSIGNALE } from './abbildungen.js';
 export const LICHTSIGNALE = {
   flug: [
     { farbe: 'gruen', art: 'dauer', bedeutung: 'Landung freigegeben' },
-    { farbe: 'rot', art: 'dauer', bedeutung: 'Anderen Luftfahrzeugen ausweichen und weiter kreisen' },
-    { farbe: 'gruen', art: 'blinken', bedeutung: 'Zur Landung zurückkehren' },
-    { farbe: 'rot', art: 'blinken', bedeutung: 'Flugplatz unsicher – nicht landen' },
+    { farbe: 'rot', art: 'dauer', bedeutung: 'Anderes Luftfahrzeug hat Vorflug – Platzrunde fortsetzen' },
+    { farbe: 'gruen', art: 'blinken', bedeutung: 'Zwecks Landung zurückkehren' },
+    { farbe: 'rot', art: 'blinken', bedeutung: 'Nicht landen – Flugplatz unbenutzbar' },
     { farbe: 'weiss', art: 'blinken', bedeutung: 'Auf diesem Flugplatz landen und zum Vorfeld rollen' },
-    { farbe: 'rot', art: 'rakete', bedeutung: 'Ungeachtet früherer Anweisungen vorerst nicht landen' },
+    { farbe: 'rot', art: 'rakete', bedeutung: 'Ungeachtet aller früheren Anweisungen zurzeit nicht landen' },
   ],
   boden: [
     { farbe: 'gruen', art: 'dauer', bedeutung: 'Start freigegeben' },
     { farbe: 'rot', art: 'dauer', bedeutung: 'Halt' },
-    { farbe: 'gruen', art: 'blinken', bedeutung: 'Rollen freigegeben' },
+    { farbe: 'gruen', art: 'blinken', bedeutung: 'Rollerlaubnis erteilt' },
     { farbe: 'rot', art: 'blinken', bedeutung: 'Die benutzte Landefläche freimachen' },
     { farbe: 'weiss', art: 'blinken', bedeutung: 'Zum Ausgangspunkt auf dem Flugplatz zurückkehren' },
   ],

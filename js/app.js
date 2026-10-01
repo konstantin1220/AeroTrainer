@@ -8,7 +8,7 @@
 //   aufgaben(ctx)                      – alle Fragen für die gemeinsame Wiederholung (optional)
 // Die meisten Module nutzen dafür den Baukasten in js/lernmodul.js.
 
-import { h, anhaengen, ladeJSON, fehlerAnzeige, datumText, ring, balken, leerzustand, mehrzahl } from './ui.js';
+import { h, anhaengen, ladeJSON, fehlerAnzeige, datumText, ring, balken, leerzustand, mehrzahl, formatiert, brotkrumen } from './ui.js';
 import { icon, themenIcon, logo } from './icons.js';
 import { fragerunde } from './quiz.js';
 import { tagText, tagPlus, istFaellig, ABSTAND_TAGE, SICHER_AB_BOX } from './srs.js';
@@ -95,6 +95,7 @@ function navigationAufbauen() {
 }
 
 function navigationMarkieren(seite) {
+  if (seite === 'quellen') seite = 'info';
   const modulSeite = !NAVIGATION.some((n) => n.ziel === (seite ?? ''));
   for (const link of document.querySelectorAll('[data-ziel]')) {
     const aktiv = link.dataset.ziel === (seite ?? '') || (modulSeite && link.dataset.ziel === '');
@@ -125,6 +126,7 @@ async function navigieren({ behalteScroll = false } = {}) {
     else if (seite === 'lernstand') await lernstandSeite(inhalt);
     else if (seite === 'lexikon') lexikonSeite(inhalt, rest[0]);
     else if (seite === 'info') infoSeite(inhalt);
+    else if (seite === 'quellen') await quellenSeite(inhalt);
     else await modulSeite(inhalt, seite, rest);
   } catch (fehler) {
     console.error(fehler);
@@ -137,6 +139,8 @@ async function navigieren({ behalteScroll = false } = {}) {
     window.scrollTo(0, scroll);
   } else if (seite === 'lexikon' && rest[0]) {
     document.getElementById(`begriff-${rest[0]}`)?.scrollIntoView({ block: 'start' });
+  } else if (seite === 'quellen' && rest[0]) {
+    document.getElementById(`quellen-${rest[0]}`)?.scrollIntoView({ block: 'start' });
   } else {
     window.scrollTo(0, 0);
   }
@@ -499,9 +503,10 @@ function infoSeite(el) {
     h('section', { class: 'karte' },
       h('h2', {}, icon('theorie'), 'Inhalte'),
       h('p', {}, 'Alle Erklärungen, Fragen, Grafiken und Symbole wurden eigens für diese App erstellt. '
-        + 'Fragen aus dem amtlichen Prüfungsfragenkatalog werden nicht verwendet. Grundlage sind u. a. die frei zugänglichen Vorschriften '
-        + '(z. B. die europäischen Luftverkehrsregeln SERA). Die Inhalte sollen vor der Freigabe von Fluglehrern gegengelesen werden – '
-        + 'jedes Thema hat dafür eine Prüfansicht.'),
+        + 'Fragen aus dem amtlichen Prüfungsfragenkatalog werden nicht verwendet. Grundlage sind die amtlichen Vorschriften '
+        + '(z. B. die europäischen Luftverkehrsregeln SERA und die Luftverkehrs-Ordnung) und internationale Normen. '
+        + 'Die Inhalte sollen vor der Freigabe von Fluglehrern gegengelesen werden – jedes Thema hat dafür eine Prüfansicht.'),
+      h('a', { class: 'knopf zweitrangig', href: '#/quellen' }, icon('lexikon'), 'Quellen & Grundlagen ansehen'),
       h('p', {}, 'Hast du einen Fehler gefunden? Sag bitte im Verein Bescheid.'),
     ),
     h('section', { class: 'karte' },
@@ -513,6 +518,82 @@ function infoSeite(el) {
       ),
     ),
     h('p', { class: 'leise zentriert' }, `AeroTrainer ${APP_VERSION}`),
+  );
+}
+
+// ---------- Quellen & Grundlagen ----------
+
+const QUELLEN_STATUS = {
+  abgeglichen: { text: 'Am Original geprüft', symbol: 'haken', erklaerung: 'Punkt für Punkt mit dem amtlichen Originaltext verglichen.' },
+  grundlage: { text: 'Grundlage', symbol: 'theorie', erklaerung: 'Beruht auf dieser Quelle; der Abgleich mit dem Originaltext steht noch aus.' },
+  herleitung: { text: 'Herleitung', symbol: 'rechner', erklaerung: 'Physikalisch oder mathematisch hergeleitet; die Rechenwege werden mit automatischen Tests geprüft.' },
+  erfunden: { text: 'Übungsbeispiel', symbol: 'wuerfel', erklaerung: 'Frei erfunden – nicht für die echte Flugvorbereitung.' },
+  offen: { text: 'Bitte prüfen', symbol: 'warnung', erklaerung: 'Noch nicht bestätigt – bitte im genannten Dokument nachsehen.' },
+};
+
+function quellenStatus(status) {
+  const s = QUELLEN_STATUS[status] ?? QUELLEN_STATUS.grundlage;
+  return h('span', { class: `chip quellen-status status-${status}`, title: s.erklaerung }, icon(s.symbol), s.text);
+}
+
+async function quellenSeite(el) {
+  const [daten, liste] = await Promise.all([ladeJSON('modules/quellen.json'), module()]);
+  const quellen = new Map(daten.quellen.map((q) => [q.id, q]));
+  const aktiv = liste.filter((m) => m.status === 'aktiv');
+  // Fachliche Prüfung je Thema steht in den Inhaltsdateien („_geprueft“)
+  const geprueft = await Promise.all(aktiv.map((m) => ladeJSON(`${m.pfad}content/inhalt.json`).then((d) => d._geprueft ?? null).catch(() => null)));
+  const alle = daten.themen.flatMap((t) => t.punkte);
+  const anzahl = (status) => alle.filter((p) => p.status === status).length;
+  const abgleich = datumText(new Date(`${daten.abgleich}T12:00:00`));
+
+  anhaengen(el,
+    h('header', { class: 'seitenkopf' },
+      brotkrumen(['Info', '#/info'], ['Quellen & Grundlagen']),
+      h('h1', {}, 'Quellen & Grundlagen'),
+      h('p', { class: 'einleitung' }, daten.einleitung),
+    ),
+    h('section', { class: 'karte' },
+      h('h2', {}, icon('theorie'), 'So sind die Inhalte entstanden'),
+      h('ul', { class: 'theorie-liste' }, daten.entstehung.map((t) => h('li', {}, formatiert(t)))),
+    ),
+    h('section', { class: 'karte' },
+      h('h2', {}, icon('pruefen'), 'Stand der Prüfung'),
+      h('ul', { class: 'quellen-bilanz' },
+        Object.keys(QUELLEN_STATUS).filter((s) => anzahl(s)).map((s) => h('li', {},
+          h('strong', {}, String(anzahl(s))), quellenStatus(s), h('span', {}, QUELLEN_STATUS[s].erklaerung)))),
+      h('p', { class: 'leise' }, `Letzter Abgleich mit den Originaltexten: ${abgleich}.`),
+      h('h3', {}, 'Fachliche Prüfung durch Fluglehrer'),
+      h('ul', { class: 'quellen-pruefung' }, aktiv.map((m, i) => h('li', {},
+        h('a', { href: `#/${m.id}/pruefen`, 'data-modul': m.id }, themenIcon(m.id), m.titel),
+        geprueft[i]
+          ? h('span', { class: 'chip quellen-status status-abgeglichen' }, icon('haken'), String(geprueft[i]))
+          : h('span', { class: 'chip quellen-status status-offen' }, 'noch nicht geprüft')))),
+    ),
+    h('section', { class: 'karte' },
+      h('h2', {}, icon('lexikon'), 'Quellen'),
+      h('ul', { class: 'quellen-liste' }, daten.quellen.map((q) => h('li', { id: `quelle-${q.id}` },
+        h('strong', {}, q.titel),
+        h('span', {}, q.voll),
+        h('span', { class: 'leise' }, q.art),
+        q.link && h('a', { href: q.link, target: '_blank', rel: 'noopener' }, 'Zum Text', icon('weiter'))))),
+    ),
+    h('h2', { class: 'abschnitt-titel' }, 'Nach Thema'),
+    daten.themen.map((thema) => {
+      const modul = aktiv.find((m) => m.id === thema.modul);
+      if (!modul) return null;
+      return h('section', { class: 'karte quellen-thema', id: `quellen-${modul.id}`, 'data-modul': modul.id },
+        h('h3', {}, h('span', { class: 'quellen-symbol' }, themenIcon(modul.id)), modul.titel),
+        h('ul', { class: 'quellen-punkte' }, thema.punkte.map((p) => {
+          const q = quellen.get(p.quelle);
+          return h('li', {},
+            h('span', { class: 'quellen-inhalt' }, p.inhalt),
+            h('span', { class: 'quellen-fundstelle' },
+              q && h('a', { href: `#/quellen`, onclick: (e) => { e.preventDefault(); document.getElementById(`quelle-${q.id}`)?.scrollIntoView({ block: 'center' }); } }, q.titel),
+              p.fundstelle && ` · ${p.fundstelle}`),
+            quellenStatus(p.status),
+            p.hinweis && h('span', { class: 'quellen-hinweis' }, p.hinweis));
+        })));
+    }),
   );
 }
 

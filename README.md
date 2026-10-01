@@ -127,6 +127,11 @@ Die Reihenfolge der Antworten wird in der App gemischt. Nach der fachlichen Prü
 oben in der Datei auf Name und Datum setzen, z. B. `"_geprueft": "M. Muster, 2026-10-15"` –
 die Prüfansicht zeigt das dann an. Wichtig: Frage-IDs nie ändern, sonst geht der Lernstand dieser Frage verloren.
 
+Die **Quellen** stehen in `modules/quellen.json` und erscheinen in der App unter *Info → Quellen & Grundlagen*.
+Jeder Punkt hat eine Quelle, ggf. eine Fundstelle (z. B. `SERA.5001`) und einen Status: `abgeglichen` (mit dem amtlichen
+Originaltext verglichen), `grundlage`, `herleitung`, `erfunden` oder `offen`. Nach einem neuen Abgleich `abgleich` (Datum) und
+den Status anpassen. Der Fluglehrer-Vermerk `_geprueft` wird dort automatisch je Thema angezeigt.
+
 ## Ein neues Thema anlegen
 
 1. Ordner `modules/<id>/` mit `content/inhalt.json` und einer `module.js`:

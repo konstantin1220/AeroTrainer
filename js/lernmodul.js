@@ -224,6 +224,7 @@ export function lernmodul({
       ),
       h('h2', { class: 'abschnitt-titel' }, icon('theorie'), 'Kapitel'),
       h('ol', { class: 'kapitelliste' }, kapitelListe),
+      h('p', { class: 'pruef-hinweis' }, icon('lexikon'), h('a', { href: `#/quellen/${ctx.modul.id}` }, 'Quellen und Grundlagen dieses Themas')),
       h('p', { class: 'pruef-hinweis' }, icon('pruefen'), h('a', { href: ctx.link('pruefen') }, 'Alle Inhalte zum Gegenlesen anzeigen'), ' (für Fluglehrer)'),
     );
   }

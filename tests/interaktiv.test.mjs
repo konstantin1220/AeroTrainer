@@ -34,6 +34,10 @@ test('Ausweichregeln', () => {
   assert.equal(vorflug('ballon', 'segel', 'rechts').du, 'vorflug');
   assert.equal(vorflug('motor', 'schlepp', 'links').du, 'ausweichen');
   assert.equal(vorflug('segel', 'schlepp', 'rechts').du, 'unklar');
+  assert.equal(vorflug('schlepp', 'ballon', 'links').du, 'ausweichen');
+  assert.equal(vorflug('ballon', 'schlepp', 'rechts').du, 'vorflug');
+  assert.match(vorflug('motor', 'ballon', 'links').text, /einem Ballon/);
+  assert.match(vorflug('ballon', 'segel', 'rechts').text, /^Das Segelflugzeug/);
   assert.equal(vorflug('segel', 'ballon', 'gegen').du, 'beide');
   assert.equal(vorflug('ballon', 'motor', 'ueberholen').du, 'ausweichen');
 });
