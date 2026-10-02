@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Anbieterkennzeichnung nach § 18 Abs. 1 Medienstaatsvertrag: Name und ladungsfähige Anschrift (kein Postfach). Wird die App vom Verein angeboten: Name des Vereins, Anschrift und vertretungsberechtigter Vorstand. Solange 'name' leer ist, zeigt die App kein Impressum an. Die Anschrift bitte als Liste von Zeilen eintragen, z. B. [\"Musterstraße 1\", \"12345 Musterstadt\"]. Die E-Mail-Adresse bitte verschleiert eintragen, z. B. \"name (at) domain.de\" – so finden Spam-Bots sie nicht. Die App setzt sie erst beim Antippen von „E-Mail schreiben“ zusammen.",
+  "_hinweis": "Anbieterkennzeichnung nach § 18 Abs. 1 Medienstaatsvertrag: Name und ladungsfähige Anschrift (kein Postfach). Wird die App vom Verein angeboten: Name des Vereins, Anschrift und vertretungsberechtigter Vorstand. Solange 'name' leer ist, zeigt die App kein Impressum an. Die Anschrift bitte als Liste von Zeilen eintragen, z. B. [\"Musterstraße 1\", \"12345 Musterstadt\"]. Die E-Mail-Adresse bitte verschleiert eintragen, z. B. \"name (at) domain.de\" – so finden Spam-Bots sie nicht. Sie erscheint nur als Text – ohne Link und ohne Knopf.",
   "name": "Konstantin Scheffler",
   "anschrift": [
     "Im Sanktwendel 33",
