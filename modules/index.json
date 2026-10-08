@@ -17,8 +17,8 @@
     },
     {
       "id": "sprechfunk",
-      "titel": "Sprechfunk",
-      "beschreibung": "Buchstabieralphabet, Zahlen, Standardwörter, Verfahren und Notmeldungen.",
+      "titel": "Sprechfunk (BZF I und II)",
+      "beschreibung": "Funkzeugnis, Buchstabieralphabet, Sprechgruppen auf Deutsch und Englisch, Funkgespräche zum Üben.",
       "status": "aktiv",
       "pfad": "modules/sprechfunk/"
     },

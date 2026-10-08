@@ -5,7 +5,7 @@
 // ausführen. Das trägt alle Dateien in DATEIEN ein und erhöht VERSION – dann laden alle
 // Geräte die Dateien beim nächsten Start frisch und alte Zwischenspeicher werden gelöscht.
 
-const VERSION = 'v18';
+const VERSION = 'v23';
 const CACHE = `aerotrainer-${VERSION}`;
 
 const DATEIEN = [
@@ -80,10 +80,16 @@ const DATEIEN = [
   'modules/signale/module.js',
   'modules/sprechfunk/abbildungen.js',
   'modules/sprechfunk/aussprache.js',
+  'modules/sprechfunk/content/funkgespraeche.json',
   'modules/sprechfunk/content/inhalt.json',
+  'modules/sprechfunk/content/uebersetzungen.json',
+  'modules/sprechfunk/funk.js',
+  'modules/sprechfunk/funklogik.js',
+  'modules/sprechfunk/funkwerte.js',
   'modules/sprechfunk/generatoren.js',
   'modules/sprechfunk/interaktiv.js',
   'modules/sprechfunk/module.js',
+  'modules/sprechfunk/uebungsgebiet.js',
 ];
 
 self.addEventListener('install', (event) => {

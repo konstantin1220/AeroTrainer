@@ -1,0 +1,59 @@
+{
+  "_hinweis": "Übungstexte für die Übersetzungsaufgabe des BZF I (Verordnung über Flugfunkzeugnisse, Anlage 1, Nr. 2.2.3). Alle Texte sind frei erfunden und im Stil eines Luftfahrthandbuchs geschrieben – sie beschreiben die erfundenen Plätze des Übungsgebiets und sind keine Auszüge aus dem echten Luftfahrthandbuch. Lizenz: CC BY 4.0.",
+  "texte": [
+    {
+      "id": "xmus-regeln",
+      "titel": "Musterstadt: örtliche Verkehrsregeln",
+      "englisch": "MUSTERSTADT (XMUS) – LOCAL TRAFFIC REGULATIONS\n1. VFR flights shall enter and leave the control zone via the reporting points NOVEMBER (N) or WHISKEY (W) at 2500 ft MSL, unless otherwise instructed by ATC.\n2. Before taxiing, pilots shall listen to the ATIS on 128.330 MHz and state the current ATIS designator on initial contact with MUSTERSTADT TOWER.\n3. The traffic circuit is south of the aerodrome at 2200 ft MSL. Overflying the town of Musterstadt below 3000 ft MSL shall be avoided.\n4. Touch-and-go landings and training flights are only permitted with prior permission (PPR) from TOWER between 0800 and 1800 local time.\n5. In case of radio failure, squawk 7600 and follow the published radio failure procedure.",
+      "deutsch": "MUSTERSTADT (XMUS) – ÖRTLICHE VERKEHRSREGELN\n1. VFR-Flüge fliegen über die Meldepunkte NOVEMBER (N) oder WHISKEY (W) in 2500 ft MSL in die Kontrollzone ein und aus, sofern die Flugverkehrskontrolle nichts anderes anweist.\n2. Vor dem Rollen hören die Piloten die ATIS auf 128,330 MHz ab und nennen beim Erstanruf bei MUSTERSTADT TURM die aktuelle ATIS-Kennung.\n3. Die Platzrunde liegt südlich des Flugplatzes in 2200 ft MSL. Das Überfliegen der Stadt Musterstadt unterhalb von 3000 ft MSL ist zu vermeiden.\n4. Aufsetzen und Durchstarten sowie Schulflüge sind nur mit vorheriger Genehmigung (PPR) des Turms zwischen 08:00 und 18:00 Uhr Ortszeit erlaubt.\n5. Bei Funkausfall den Transpondercode 7600 einstellen und das veröffentlichte Verfahren bei Funkausfall befolgen.",
+      "vokabeln": [
+        ["shall", "muss / soll (verbindlich)"],
+        ["reporting point", "Meldepunkt"],
+        ["unless otherwise instructed", "sofern nicht anders angewiesen"],
+        ["initial contact", "Erstanruf"],
+        ["traffic circuit", "Platzrunde"],
+        ["to overfly", "überfliegen"],
+        ["touch-and-go landing", "Aufsetzen und Durchstarten"],
+        ["prior permission required (PPR)", "vorherige Genehmigung erforderlich"],
+        ["local time", "Ortszeit"],
+        ["radio failure", "Funkausfall"]
+      ]
+    },
+    {
+      "id": "xalt-info",
+      "titel": "Altdorf: Flugplatzinformationen",
+      "englisch": "ALTDORF (XALT) – AERODROME INFORMATION\nAltdorf is an aerodrome without air traffic services. The ground station ALTDORF RADIO on 123.505 MHz provides information only; it does not issue clearances. Hours of operation: daily from sunrise to sunset. Outside these hours, prior permission is required (PPR).\nThe traffic circuit is north of the runway at 1000 ft above ground. Runway 25: right-hand circuit, runway 07: left-hand circuit. Pilots shall report their position and intentions on each leg of the circuit.\nGlider operations take place south of the runway. Caution: winch launching up to 1500 ft above ground. Noise abatement: avoid flying over the village of Altdorf south-east of the aerodrome.",
+      "deutsch": "ALTDORF (XALT) – FLUGPLATZINFORMATIONEN\nAltdorf ist ein Flugplatz ohne Flugverkehrsdienste. Die Bodenfunkstelle ALTDORF RADIO auf 123,505 MHz gibt nur Informationen; sie erteilt keine Freigaben. Betriebszeiten: täglich von Sonnenaufgang bis Sonnenuntergang. Außerhalb dieser Zeiten ist eine vorherige Genehmigung erforderlich (PPR).\nDie Platzrunde liegt nördlich der Piste in 1000 ft über Grund. Piste 25: Rechtsplatzrunde, Piste 07: Linksplatzrunde. Piloten melden in jedem Teil der Platzrunde ihre Position und ihre Absicht.\nSegelflugbetrieb findet südlich der Piste statt. Vorsicht: Windenstart bis 1500 ft über Grund. Lärmschutz: Das Überfliegen des Ortes Altdorf südöstlich des Flugplatzes vermeiden.",
+      "vokabeln": [
+        ["aerodrome without air traffic services", "Flugplatz ohne Flugverkehrsdienste"],
+        ["ground station", "Bodenfunkstelle"],
+        ["to issue clearances", "Freigaben erteilen"],
+        ["hours of operation", "Betriebszeiten"],
+        ["sunrise / sunset", "Sonnenaufgang / Sonnenuntergang"],
+        ["right-hand circuit", "Rechtsplatzrunde"],
+        ["leg (of the circuit)", "Teil (der Platzrunde)"],
+        ["glider operations", "Segelflugbetrieb"],
+        ["winch launching", "Windenstart"],
+        ["noise abatement", "Lärmschutz"]
+      ]
+    },
+    {
+      "id": "xber-rmz",
+      "titel": "Bergen: Zone mit Funkpflicht",
+      "englisch": "BERGEN (XBER) – RADIO MANDATORY ZONE\nA radio mandatory zone (RMZ) is established around Bergen aerodrome from ground up to 2500 ft above ground within a radius of 5 NM. Before entering the RMZ, pilots shall contact BERGEN RADIO on 122.605 MHz and report aircraft type, position, flight rules, altitude and intentions. Pilots shall maintain a continuous listening watch while inside the RMZ and report when leaving it. These reports shall also be made if the ground station does not answer.\nRunway 21 is preferred for landing in calm wind conditions. Parachute jumping may take place up to FL 100 north of the aerodrome; information is available from BERGEN RADIO.",
+      "deutsch": "BERGEN (XBER) – ZONE MIT FUNKKOMMUNIKATIONSPFLICHT\nUm den Flugplatz Bergen ist eine Zone mit Funkkommunikationspflicht (RMZ) vom Boden bis 2500 ft über Grund in einem Umkreis von 5 NM eingerichtet. Vor dem Einflug in die RMZ rufen Piloten BERGEN RADIO auf 122,605 MHz und melden Luftfahrzeugmuster, Position, Flugregeln, Flughöhe und Absichten. In der RMZ halten Piloten ständige Hörbereitschaft und melden das Verlassen der Zone. Diese Meldungen sind auch abzugeben, wenn die Bodenfunkstelle nicht antwortet.\nBei Windstille wird Piste 21 für die Landung bevorzugt. Nördlich des Flugplatzes kann Fallschirmspringen bis Flugfläche 100 stattfinden; Informationen gibt BERGEN RADIO.",
+      "vokabeln": [
+        ["radio mandatory zone (RMZ)", "Zone mit Funkkommunikationspflicht"],
+        ["is established", "ist eingerichtet"],
+        ["within a radius of", "in einem Umkreis von"],
+        ["flight rules", "Flugregeln"],
+        ["continuous listening watch", "ständige Hörbereitschaft"],
+        ["calm wind", "Windstille"],
+        ["preferred", "bevorzugt"],
+        ["parachute jumping", "Fallschirmspringen"],
+        ["flight level (FL)", "Flugfläche"],
+        ["is available from", "ist erhältlich bei"]
+      ]
+    }
+  ]
+}

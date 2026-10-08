@@ -2,6 +2,9 @@
 // Aussprache nach ICAO: Ziffern einzeln, „niner“ für 9, „decimal“ bei Frequenzen.
 import { transponder } from './abbildungen.js';
 import { BUCHSTABEN as AUSSPRACHE } from './aussprache.js';
+import * as funk from './funkwerte.js';
+import { STATIONEN, MUSTERSTADT } from './uebungsgebiet.js';
+import { uhrzeigerstellung } from './abbildungen.js';
 
 export const ALPHABET = {
   A: 'Alfa', B: 'Bravo', C: 'Charlie', D: 'Delta', E: 'Echo', F: 'Foxtrot', G: 'Golf', H: 'Hotel',
@@ -143,18 +146,19 @@ export const generatoren = {
 
   qnh(z) {
     const qnh = z.ganz(986, 1036);
-    const richtig = `QNH ${ziffernweise(qnh)}`;
+    const richtig = `QNH ${funk.qnh(qnh, 'en')}`;
     const falsch = [
       qnh >= 1000 ? `QNH ten ${ziffernweise(qnh % 100).replace(/^zero /, 'oh ')}` : `QNH nine hundred ${ziffernweise(qnh % 100)}`,
       `QNH ${qnh >= 1000 ? 'one thousand' : 'nine hundred'} ${qnh % 100 < 10 ? ziffernweise(qnh % 100) : `${ziffernweise(Math.floor((qnh % 100) / 10))} ${ziffernweise(qnh % 10)}`}`,
       `QNH ${ziffernweise(String(qnh).split('').reverse().join(''))}`,
+      `QNH ${ziffernweise(qnh)}`,
     ];
     return {
       typ: 'auswahl',
       frage: `Wie sprichst du **QNH ${qnh}** im englischen Sprechfunk?`,
       richtig,
       falsch: eindeutig(richtig, falsch),
-      erklaerung: 'Der Luftdruck wird Ziffer für Ziffer gesprochen – die 9 als „niner“.',
+      erklaerung: 'Der Luftdruck wird Ziffer für Ziffer gesprochen – die 9 als „niner“. Nur 1000 hPa heißt „one thousand“ (NfL 2024-1-3266, Nr. 10).',
     };
   },
 
@@ -191,6 +195,167 @@ export const generatoren = {
       richtig,
       falsch: eindeutig(richtig, falsch),
       erklaerung: 'Steuerkurse werden immer dreistellig und Ziffer für Ziffer gesprochen. Norden ist „three six zero“.',
+    };
+  },
+
+  // ---------- BZF: Zurücklesen, Zahlen, Platzrunde, Englisch ----------
+
+  zuruecklesen(z) {
+    const r = funk.zufallsRufzeichen(z);
+    const k = funk.kurzform(r);
+    const piste = z.wahl(MUSTERSTADT.pisten);
+    const andere = MUSTERSTADT.pisten.find((p) => p !== piste);
+    const qnh = z.ganz(995, 1030);
+    const code = `${z.ganz(2, 6)}${z.ganz(1, 7)}${z.ganz(0, 7)}${z.ganz(1, 7)}`;
+    const wind = `${String(z.ganz(1, 36) * 10).padStart(3, '0')} Grad, ${z.ganz(3, 14)} Knoten`;
+    const faelle = [
+      () => ({ ansage: `${k}, rollen Sie zum Rollhalt Piste ${piste}`, richtig: `Rolle zum Rollhalt Piste ${piste}, ${k}`,
+        falsch: [`Verstanden, ${k}`, `Rolle zum Rollhalt Piste ${andere}, ${k}`, `${k}, abflugbereit`],
+        erklaerung: 'Rollanweisungen zu einer Piste liest du zurück – mit Pistenbezeichnung und Rufzeichen.' }),
+      () => ({ ansage: `${k}, rollen Sie zum Abflugpunkt Piste ${piste}, dort halten`, richtig: `Rolle zum Abflugpunkt Piste ${piste}, dort halten, ${k}`,
+        falsch: [`Rolle zum Abflugpunkt Piste ${piste}, ${k}`, `Piste ${piste}, Start frei, ${k}`, `Wilco, ${k}`],
+        erklaerung: '„Dort halten“ gehört unbedingt in die Rückmeldung – du darfst noch nicht starten.' }),
+      () => ({ ansage: `${k}, Wind ${wind}, Piste ${piste}, Start frei`, richtig: `Piste ${piste}, Start frei, ${k}`,
+        falsch: [`Start frei, ${k}`, `Verstanden, ${k}`, `Piste ${andere}, Start frei, ${k}`],
+        erklaerung: 'Startfreigaben liest du mit Pistenbezeichnung zurück. Den Wind musst du nicht wiederholen.' }),
+      () => ({ ansage: `${k}, Wind ${wind}, Piste ${piste}, Landung frei`, richtig: `Piste ${piste}, Landung frei, ${k}`,
+        falsch: [`Landung frei, ${k}`, `Roger, ${k}`, `Piste ${andere}, Landung frei, ${k}`],
+        erklaerung: 'Landefreigaben liest du mit Pistenbezeichnung zurück.' }),
+      () => ({ ansage: `${k}, fliegen Sie in die Kontrollzone über Whiskey in 2500 ft, QNH ${qnh}`,
+        richtig: `Fliege in die Kontrollzone über Whiskey in 2500 ft, QNH ${qnh}, ${k}`,
+        falsch: [`Fliege in die Kontrollzone über Whiskey, ${k}`, `Fliege in die Kontrollzone über Whiskey in 2500 ft, QNH ${qnh + 1}, ${k}`, `Verstanden, Whiskey, ${k}`],
+        erklaerung: 'Freigaben, Höhen und den Höhenmesserwert (QNH) liest du vollständig zurück.' }),
+      () => ({ ansage: `${k}, Squawk ${code}`, richtig: `Squawk ${code}, ${k}`,
+        falsch: [`Verstanden, ${k}`, `Squawk ${code.split('').reverse().join('')}, ${k}`, `Squawk 7000, ${k}`],
+        erklaerung: 'Transpondercodes liest du immer zurück.' }),
+      () => ({ ansage: `${k}, rufen Sie ${STATIONEN.mittelland.de} auf ${STATIONEN.mittelland.frequenz}`,
+        richtig: `${STATIONEN.mittelland.de} auf ${STATIONEN.mittelland.frequenz}, ${k}`,
+        falsch: [`Wilco, ${k}`, `${STATIONEN.mittelland.de}, ${k}`, `${STATIONEN.mittelland.de} auf ${STATIONEN.mittelland.frequenz.slice(0, -1)}0, ${k}`],
+        erklaerung: 'Neue Frequenzen liest du zurück – sonst merkt niemand, wenn du dich verhört hast.' }),
+    ];
+    const f = z.wahl(faelle)();
+    return {
+      typ: 'auswahl',
+      frage: `Der Turm sagt: „${f.ansage}“. Was antwortest du?`,
+      richtig: f.richtig,
+      falsch: eindeutig(f.richtig, f.falsch),
+      erklaerung: `${f.erklaerung} (Pflicht zum Zurücklesen: SERA.8015 e)`,
+    };
+  },
+
+  zahlensprechen(z) {
+    const sprache = z.wahl(['de', 'en']);
+    const de = sprache === 'de';
+    const art = z.wahl(['qnh', 'squawk', 'frequenz', 'hoehe']);
+    let wert, richtig, falsch, frage, erklaerung;
+    if (art === 'qnh') {
+      wert = z.janein(0.2) ? 1000 : z.ganz(990, 1035);
+      richtig = `QNH ${funk.qnh(wert, sprache)}`;
+      falsch = [`QNH ${funk.ziffern(wert + 1, sprache)}`, de ? `QNH ${wert} Hektopascal` : `QNH ${wert} hectopascal`, `QNH ${funk.ziffern(String(wert).slice(1), sprache)}`];
+      if (wert === 1000) falsch[0] = `QNH ${funk.ziffern(1000, sprache)}`;
+      frage = `Wie sprichst du **QNH ${wert}** ${de ? 'auf Deutsch' : 'auf Englisch'}?`;
+      erklaerung = 'Den Höhenmesserwert sprichst du Ziffer für Ziffer – nur 1000 hPa heißt „ein tausend“ / „one thousand“.';
+    } else if (art === 'squawk') {
+      wert = z.janein(0.3) ? String(z.ganz(1, 7) * 1000) : `${z.ganz(1, 6)}${z.ganz(0, 7)}${z.ganz(0, 7)}${z.ganz(1, 7)}`;
+      richtig = `Squawk ${funk.squawk(wert, sprache)}`;
+      const ganz = Number(wert) % 1000 === 0;
+      falsch = [
+        ganz ? `Squawk ${funk.ziffern(wert, sprache)}` : `Squawk ${funk.ziffern(wert.slice(0, 2), sprache)} ${de ? 'hundert' : 'hundred'} ${funk.ziffern(wert.slice(2), sprache)}`,
+        `Squawk ${funk.ziffern(wert.split('').reverse().join(''), sprache)}`,
+        de ? `Squawk ${funk.ziffern(wert, 'de').replace(/zwo/g, 'zwei')}` : `Squawk ${funk.ziffern(wert, 'en').replace(/niner/g, 'nine')}`,
+      ];
+      frage = `Wie sprichst du **Squawk ${wert}** ${de ? 'auf Deutsch' : 'auf Englisch'}?`;
+      erklaerung = 'Transpondercodes sprichst du Ziffer für Ziffer – Codes aus ganzen Tausendern mit „tausend“ / „thousand“ (z. B. 7000 = „sieben tausend“).';
+    } else if (art === 'frequenz') {
+      wert = z.wahl([STATIONEN.musterstadtTurm.frequenz, STATIONEN.mittelland.frequenz, STATIONEN.altdorf.frequenz, '118.100', '121.500', '132.000']);
+      richtig = funk.frequenz(wert, sprache);
+      const [mhz, khz] = wert.split('.');
+      falsch = [
+        `${funk.ziffern(mhz, sprache)} ${de ? 'punkt' : 'point'} ${funk.ziffern(khz, sprache)}`,
+        `${funk.ziffern(mhz, sprache)} ${de ? 'komma' : 'decimal'} ${funk.ziffern(khz.slice(0, 1), sprache)}`,
+        `${funk.ziffern(mhz, sprache)} ${de ? 'komma' : 'decimal'} ${funk.ziffern(khz, sprache)}`,
+        `${funk.ziffern(mhz, sprache)} ${de ? 'komma' : 'decimal'} ${funk.ziffern(khz.slice(0, 2), sprache)}`,
+      ];
+      frage = `Wie sprichst du die Frequenz **${wert}** ${de ? 'auf Deutsch' : 'auf Englisch'}?`;
+      erklaerung = 'Frequenzen mit „komma“ / „decimal“ und allen sechs Ziffern – nur wenn die fünfte und sechste Ziffer beide null sind, sprichst du die ersten vier.';
+    } else {
+      wert = z.wahl([1500, 2000, 2500, 3400, 4500, 1000, 1700, 12000]);
+      richtig = `${funk.hoehe(wert, sprache)} ${de ? 'Fuß' : 'feet'}`;
+      falsch = [
+        `${funk.ziffern(wert, sprache)} ${de ? 'Fuß' : 'feet'}`,
+        de ? `${wert.toLocaleString('de-DE')} Fuß` : `${wert} feet`,
+        `${funk.hoehe(wert + 100, sprache)} ${de ? 'Fuß' : 'feet'}`,
+      ];
+      frage = `Wie sprichst du die Höhe **${wert} ft** ${de ? 'auf Deutsch' : 'auf Englisch'}?`;
+      erklaerung = 'Höhen sprichst du mit „tausend“ und „hundert“: 3400 = „drei tausend vier hundert“, 12 000 = „eins zwo tausend“.';
+    }
+    return { typ: 'auswahl', frage, richtig, falsch: eindeutig(richtig, falsch), erklaerung: `${erklaerung} (NfL 2024-1-3266, Nr. 10)` };
+  },
+
+  platzrundenmeldung(z) {
+    const r = funk.zufallsRufzeichen(z);
+    const piste = z.wahl(['07', '25']);
+    const rechts = piste === '25';
+    const teil = z.wahl(['Gegenanflug', 'Queranflug', 'Endanflug']);
+    const absicht = z.wahl(['zur Landung', 'Aufsetzen und Durchstarten']);
+    const richtig = `${r}, ${rechts ? `rechter ${teil}` : teil} Piste ${piste}, ${absicht}`;
+    const falsch = [
+      `${r}, ${rechts ? teil : `rechter ${teil}`} Piste ${piste}, ${absicht}`,
+      `${r}, im ${teil}, erbitte Landeinformationen`,
+      `${r}, ${rechts ? `rechter ${teil}` : teil} Piste ${piste}, erbitte Landefreigabe`,
+      `${r}, kurz vor der Landung`,
+    ];
+    return {
+      typ: 'auswahl',
+      frage: `Du fliegst in Altdorf (Bodenfunkstelle „Altdorf Radio“) die Platzrunde zur Piste ${piste} – das ist dort eine **${rechts ? 'rechte' : 'linke'} Platzrunde**. Du bist im **${teil}** und möchtest ${absicht === 'zur Landung' ? 'landen' : 'aufsetzen und durchstarten'}. Was meldest du?`,
+      richtig,
+      falsch: eindeutig(richtig, falsch),
+      erklaerung: 'In der Platzrunde meldest du Platzrundenteil, Piste und Absicht. Bei einer Rechtsplatzrunde kommt „rechter“ davor. Eine RADIO-Station gibt keine Landefreigabe. (NfL 2024-1-3240, Nr. 6.2)',
+    };
+  },
+
+  englischphrase(z) {
+    const paare = [
+      ['Rollen Sie zum Rollhalt Piste 27', 'Taxi to holding point runway 27'],
+      ['Rollen Sie zum Abflugpunkt Piste 27, dort halten', 'Line up runway 27 and wait'],
+      ['Piste 27, Start frei', 'Runway 27, cleared for take-off'],
+      ['Piste 27, Landung frei', 'Runway 27, cleared to land'],
+      ['Melden Sie abflugbereit', 'Report when ready for departure'],
+      ['Fliegen Sie in den Gegenanflug Piste 27', 'Join downwind runway 27'],
+      ['Melden Sie Queranflug', 'Report base'],
+      ['Melden Sie Endanflug', 'Report final'],
+      ['Starten Sie durch', 'Go around'],
+      ['Fliegen Sie in die Kontrollzone über Whiskey', 'Enter control zone via Whiskey'],
+      ['Verlassen Sie die Kontrollzone über November', 'Leave control zone via November'],
+      ['Rufen Sie Rollkontrolle', 'Contact ground'],
+      ['Halte Ausschau', 'Looking out'],
+      ['Verkehr in Sicht', 'Traffic in sight'],
+      ['Kein Kontakt', 'Negative contact'],
+      ['Wiederholen Sie', 'Say again'],
+      ['Nicht möglich', 'Unable'],
+      ['Werde in RMZ einfliegen', 'Will enter RMZ'],
+    ];
+    const [de, en] = z.wahl(paare);
+    const rueckwaerts = z.janein();
+    const andere = paare.filter((p) => p[0] !== de);
+    return rueckwaerts
+      ? { typ: 'auswahl', frage: `Was bedeutet **„${en}“**?`, richtig: de, falsch: z.ziehen(andere, 3).map((p) => p[0]),
+        erklaerung: 'Die englischen Sprechgruppen entsprechen den deutschen – siehe Bekanntmachung über die Sprechfunkverfahren, Anlage 1.' }
+      : { typ: 'auswahl', frage: `Wie heißt **„${de}“** im englischen Sprechfunk?`, richtig: en, falsch: z.ziehen(andere, 3).map((p) => p[1]),
+        erklaerung: 'Die englischen Sprechgruppen entsprechen den deutschen – siehe Bekanntmachung über die Sprechfunkverfahren, Anlage 1.' };
+  },
+
+  uhrzeit(z) {
+    const uhr = z.ganz(1, 12);
+    const richtung = { 12: 'genau voraus', 1: 'rechts vorne', 2: 'rechts vorne', 3: 'rechts (querab)', 4: 'rechts hinten', 5: 'rechts hinten', 6: 'genau hinter dir', 7: 'links hinten', 8: 'links hinten', 9: 'links (querab)', 10: 'links vorne', 11: 'links vorne' };
+    const alle = [...new Set(Object.values(richtung))];
+    return {
+      typ: 'auswahl',
+      frage: `Der Fluginformationsdienst meldet: „Verkehr auf **${uhr} Uhr**“. Wo suchst du?`,
+      svg: uhrzeigerstellung(uhr),
+      richtig: richtung[uhr],
+      falsch: z.ziehen(alle.filter((a) => a !== richtung[uhr]), 3),
+      erklaerung: 'Die Uhrzeigerstellung bezieht sich auf deine Flugrichtung: 12 Uhr ist geradeaus, 3 Uhr rechts, 6 Uhr hinten, 9 Uhr links.',
     };
   },
 

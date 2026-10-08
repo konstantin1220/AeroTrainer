@@ -17,6 +17,7 @@ import * as lernstand from './storage.js';
 import { STUFEN, aktuelleStufe, stufeGewaehlt, stufeSetzen, stufeAnwenden, stufenUmschalter } from './stufe.js';
 import { lexikonLaden, neueSeite, alleBegriffe, erklaerungKnoten } from './lexikon.js';
 import { frageText } from './merkliste.js';
+import { umschalter } from './interaktiv.js';
 
 const APP_VERSION = '1.0.0';
 const TAGE_BIS_SICHERUNGSHINWEIS = 7;
@@ -125,7 +126,7 @@ async function navigieren({ behalteScroll = false } = {}) {
     if (!seite) await startseite(inhalt);
     else if (seite === 'wiederholen') await wiederholenSeite(inhalt);
     else if (seite === 'lernstand') await lernstandSeite(inhalt);
-    else if (seite === 'lexikon') lexikonSeite(inhalt, rest[0]);
+    else if (seite === 'lexikon') await lexikonSeite(inhalt, rest[0]);
     else if (seite === 'info') infoSeite(inhalt, await impressumLaden());
     else if (seite === 'quellen') await quellenSeite(inhalt);
     else if (seite === 'merkliste') await merklisteSeite(inhalt, rest);
@@ -264,17 +265,32 @@ function stufenAbfrage() {
 
 // ---------- Lexikon ----------
 
-function lexikonSeite(el, offen) {
-  const begriffe = [...alleBegriffe()].sort((a, b) => a.begriff.localeCompare(b.begriff, 'de'));
+async function lexikonSeite(el, offen) {
+  const alle = alleBegriffe();
+  const module = await aktiveModule().catch(() => []);
+  const themenTitel = new Map(module.map((m) => [m.id, m.titel]));
   const liste = h('div', { class: 'lexikon-liste' });
-  const suche = h('input', { type: 'search', class: 'texteingabe lexikon-suche', placeholder: 'Begriff suchen …', 'aria-label': 'Begriff suchen', oninput: zeichnen });
+  const suche = h('input', { type: 'search', class: 'texteingabe lexikon-suche', placeholder: 'Begriff suchen – deutsch oder englisch …', 'aria-label': 'Begriff suchen', oninput: zeichnen });
+  const sprache = umschalter({
+    name: 'Sortieren nach', optionen: [['de', 'Deutsch'], ['en', 'Englisch']],
+    wert: lernstand.einstellung('lexikonSprache', 'de'), beiAenderung: (w) => { lernstand.einstellungSetzen('lexikonSprache', w); zeichnen(); },
+  });
+  const themen = [...new Set(alle.map((b) => b.thema).filter(Boolean))].sort((a, b) => (themenTitel.get(a) ?? a).localeCompare(themenTitel.get(b) ?? b, 'de'));
+  const thema = h('select', { class: 'texteingabe lexikon-thema-wahl', 'aria-label': 'Thema', onchange: zeichnen },
+    h('option', { value: '' }, 'Alle Themen'), themen.map((t) => h('option', { value: t }, themenTitel.get(t) ?? t)));
 
   function zeichnen() {
+    const englisch = sprache.wert === 'en';
     const wort = suche.value.trim().toLowerCase();
-    const treffer = begriffe.filter((b) => !wort || b.begriff.toLowerCase().includes(wort) || b.kurz.toLowerCase().includes(wort) || (b.suche ?? []).some((v) => v.toLowerCase().includes(wort)));
+    const titel = (b) => (englisch ? b.en : b.begriff);
+    const treffer = alle
+      .filter((b) => !englisch || b.en)
+      .filter((b) => !thema.value || b.thema === thema.value)
+      .filter((b) => !wort || [b.begriff, b.en, b.kurz, b.lang, ...(b.suche ?? [])].some((v) => v && v.toLowerCase().includes(wort)))
+      .sort((a, b) => titel(a).localeCompare(titel(b), englisch ? 'en' : 'de'));
     const gruppen = new Map();
     for (const b of treffer) {
-      const buchstabe = b.begriff[0].toUpperCase().replace(/[ÄÖÜ]/, (u) => ({ Ä: 'A', Ö: 'O', Ü: 'U' })[u]);
+      const buchstabe = titel(b)[0].toUpperCase().replace(/[ÄÖÜ]/, (u) => ({ Ä: 'A', Ö: 'O', Ü: 'U' })[u]);
       if (!gruppen.has(buchstabe)) gruppen.set(buchstabe, []);
       gruppen.get(buchstabe).push(b);
     }
@@ -284,19 +300,23 @@ function lexikonSeite(el, offen) {
       [...gruppen].map(([buchstabe, eintraege]) => h('section', { class: 'lexikon-gruppe' },
         h('h2', {}, buchstabe),
         eintraege.map((b) => h('details', { class: 'lexikon-eintrag', id: `begriff-${b.id}`, open: b.id === offen || Boolean(wort) },
-          h('summary', {}, h('strong', {}, b.begriff), b.lang && h('span', { class: 'leise' }, ` – ${b.lang}`)),
-          h('div', { class: 'lexikon-text' }, erklaerungKnoten(b),
-            b.thema && h('a', { class: 'lexikon-thema', href: `#/${b.thema}` }, 'Zum Thema', icon('weiter'))))))),
+          h('summary', {},
+            englisch ? [h('strong', { lang: 'en' }, b.en), h('span', { class: 'leise' }, ` – ${b.begriff}`)]
+              : [h('strong', {}, b.begriff), b.lang && h('span', { class: 'leise' }, ` – ${b.lang}`)]),
+          h('div', { class: 'lexikon-text' },
+            !englisch && b.en && h('p', { class: 'lexikon-englisch' }, h('span', { class: 'chip' }, 'Englisch'), ' ', h('span', { lang: 'en' }, b.en)),
+            erklaerungKnoten(b),
+            b.thema && h('a', { class: 'lexikon-thema', href: `#/${b.thema}` }, `Zum Thema ${themenTitel.get(b.thema) ?? ''}`.trim(), icon('weiter'))))))),
     );
   }
   zeichnen();
   anhaengen(el,
     h('header', { class: 'seitenkopf' },
       h('h1', {}, 'Lexikon'),
-      h('p', { class: 'einleitung' }, `${begriffe.length} Fachbegriffe, kurz erklärt. In den Kapiteln kannst du markierte Begriffe direkt antippen.`),
+      h('p', { class: 'einleitung' }, `${alle.length} Fachbegriffe, kurz erklärt – ${alle.filter((b) => b.en).length} davon mit englischem Begriff für den Sprechfunk und die Prüfung zum BZF I. In den Kapiteln kannst du markierte Begriffe direkt antippen.`),
       stufenUmschalter({ kompakt: true }),
     ),
-    suche,
+    h('div', { class: 'lexikon-werkzeuge' }, suche, h('div', { class: 'lexikon-filter' }, sprache.el, thema)),
     liste,
   );
 }

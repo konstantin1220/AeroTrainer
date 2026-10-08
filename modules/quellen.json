@@ -1,12 +1,13 @@
 {
   "_hinweis": "Quellen und Grundlagen der Lerninhalte – angezeigt unter Info → Quellen & Grundlagen. Status: abgeglichen = Punkt für Punkt mit dem amtlichen Originaltext verglichen (Datum siehe 'abgleich'); grundlage = Inhalt beruht auf dieser Quelle, der Abgleich mit dem Originaltext steht noch aus; herleitung = physikalische oder mathematische Herleitung; erfunden = frei erfundenes Übungsbeispiel; offen = bitte prüfen. Nach einem neuen Abgleich bitte Datum und Status anpassen.",
-  "abgleich": "2026-10-01",
+  "abgleich": "2026-10-06",
   "einleitung": "Hier steht, worauf die Inhalte von AeroTrainer beruhen – und wie weit sie schon geprüft sind. So kannst du jede Regel selbst im Original nachlesen.",
   "entstehung": [
     "Alle Erklärungen, Fragen und Grafiken wurden eigens für AeroTrainer geschrieben bzw. gezeichnet – mit Unterstützung der KI Claude (Anthropic). Nichts davon ist aus Lehrbüchern, Apps oder Karten übernommen.",
     "Es werden **keine Fragen aus dem amtlichen Prüfungsfragenkatalog (ECQB)** verwendet, auch nicht umformuliert.",
-    "Die Regeln aus den Vorschriften wurden am 1. Oktober 2026 Punkt für Punkt mit dem **amtlichen Originaltext** verglichen (SERA in der konsolidierten Fassung vom 1. Mai 2025 und die Luftverkehrs-Ordnung). Dabei gefundene Abweichungen wurden korrigiert.",
-    "Alle Beispiele – Wettermeldungen, Flugplätze, Karte und Flugzeugdaten – sind frei erfunden und nicht für die echte Flugvorbereitung geeignet."
+    "Die Regeln aus den Vorschriften wurden am 1. und 6. Oktober 2026 Punkt für Punkt mit dem **amtlichen Originaltext** verglichen: SERA in der konsolidierten Fassung vom 1. Mai 2025, die Luftverkehrs-Ordnung, die Verordnung über Flugfunkzeugnisse und die Bekanntmachungen zum Sprechfunk (NfL 2024-1-3266 und NfL 2024-1-3240). Dabei gefundene Abweichungen wurden korrigiert.",
+    "Alle Beispiele – Wettermeldungen, Flugplätze, Karte und Flugzeugdaten – sind frei erfunden und nicht für die echte Flugvorbereitung geeignet.",
+    "Karten aus dem Luftfahrthandbuch der DFS (z. B. Sichtanflugkarten) sind urheberrechtlich geschützt und werden deshalb **nicht** gezeigt. Alle Karten in der App sind selbst gezeichnet und zeigen ein erfundenes Übungsgebiet."
   ],
   "quellen": [
     {
@@ -26,7 +27,7 @@
     {
       "id": "aip",
       "titel": "Luftfahrthandbuch Deutschland (AIP)",
-      "voll": "Luftfahrthandbuch der DFS Deutsche Flugsicherung, insbesondere AIP VFR",
+      "voll": "Luftfahrthandbuch der DFS Deutsche Flugsicherung, insbesondere AIP VFR mit den Sichtanflugkarten. Wird nur als Verweis genannt – Karten daraus sind urheberrechtlich geschützt und werden nicht abgebildet.",
       "art": "Amtliche Veröffentlichung, online einsehbar",
       "link": "https://aip.dfs.de/"
     },
@@ -73,6 +74,34 @@
       "titel": "Physikalische und mathematische Grundlagen",
       "voll": "Strömungslehre, Mechanik (Hebelgesetz, Kräfte im Kurvenflug), Trigonometrie (Winddreieck, Windkomponenten, 1:60-Regel) und allgemeine Meteorologie",
       "art": "Allgemeines Lehrwissen"
+    },
+    {
+      "id": "nfl-sprechfunk",
+      "titel": "Bekanntmachung über die Sprechfunkverfahren",
+      "voll": "Bundesaufsichtsamt für Flugsicherung, Nachrichten für Luftfahrer NfL 2024-1-3266 vom 12. November 2024, gültig ab 28. November 2024 – deutsche und englische Sprechgruppen",
+      "art": "Amtliche Bekanntmachung, frei zugänglich",
+      "link": "https://www.dfs.de/homepage/de/medien/ifr-vfr-informationen/ifr-informationen/neues-sprechfunk-nfl-2024-1-3266/sprechfunk24.pdf"
+    },
+    {
+      "id": "nfl-radio",
+      "titel": "Richtlinien für den Flugfunk auf Flugplätzen ohne Flugverkehrsdienste",
+      "voll": "Bundesministerium für Digitales und Verkehr, Nachrichten für Luftfahrer NfL 2024-1-3240 vom 9. Oktober 2024, Version 1.0",
+      "art": "Amtliche Bekanntmachung, frei zugänglich",
+      "link": "https://www.lds.sachsen.de/anlagen/?ID=21906&art_param=403&abteilung_id=5&referat_id=26"
+    },
+    {
+      "id": "flugfunkv",
+      "titel": "Verordnung über Flugfunkzeugnisse (FlugfunkV)",
+      "voll": "Insbesondere Anlage 1: Prüfungsbestimmungen für den Erwerb von Flugfunkzeugnissen",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://www.gesetze-im-internet.de/flugfunkv_2008/anlage_1.html"
+    },
+    {
+      "id": "bnetza",
+      "titel": "Bundesnetzagentur: Flugfunkzeugnisse",
+      "voll": "Zeugnisarten, Voraussetzungen, Prüfung und Englischprüfung (Language Proficiency). Die dort veröffentlichten Prüfungsfragen sind für die Prüfung verbindlich, werden in dieser App aber bewusst nicht verwendet.",
+      "art": "Amtliche Informationsseite, frei zugänglich",
+      "link": "https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Frequenzen/Funkzeugnisse/Flugfunk/start.html"
     }
   ],
   "themen": [
@@ -180,38 +209,147 @@
       "modul": "sprechfunk",
       "punkte": [
         {
-          "inhalt": "Buchstabieralphabet, Zahlen und ihre Aussprache",
+          "inhalt": "Zeugnisarten BZF II, BZF I, BZF E und AZF, Mindestalter",
+          "quelle": "bnetza",
+          "fundstelle": "Flugfunkzeugnisse – Zeugnisarten",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Prüfungsinhalte: schriftlicher und praktischer Teil, englische Übersetzung beim BZF I",
+          "quelle": "flugfunkv",
+          "fundstelle": "FlugfunkV, Anlage 1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Englischprüfung (Language Proficiency) auf Stufe 4",
+          "quelle": "bnetza",
+          "fundstelle": "Prüfung von Kenntnissen der englischen Sprache",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Buchstabieralphabet und deutsche Lesehilfe",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 6",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Englische Silbentrennung der Buchstabierwörter (ICAO-Schreibweise)",
           "quelle": "icao-annex10",
           "status": "grundlage"
         },
         {
-          "inhalt": "Was immer zurückgelesen werden muss",
+          "inhalt": "Zahlen sprechen: Ziffern, Höhen, QNH, Transpondercodes, Frequenzen – deutsch und englisch",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 10 und 11",
+          "status": "abgeglichen",
+          "hinweis": "Die Umwandlung wird automatisch an den Beispielen der Bekanntmachung getestet."
+        },
+        {
+          "inhalt": "Standardwörter mit deutschen und englischen Entsprechungen",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 12",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Rufzeichen und ihre Abkürzung",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 13 und 14",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Funkprobe und Verständlichkeitsskala",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 17",
+          "status": "abgeglichen",
+          "hinweis": "Die Bekanntmachung legt die Bestandteile der Antwort fest, nicht deren genauen Wortlaut."
+        },
+        {
+          "inhalt": "Bezeichnungen der Bodenfunkstellen (TURM, ROLLKONTROLLE, INFORMATION, RADIO …)",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 34 und 35",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Was zurückgelesen werden muss",
           "quelle": "sera",
           "fundstelle": "SERA.8015 e",
           "status": "abgeglichen"
         },
         {
-          "inhalt": "Verfahren bei Funkausfall",
+          "inhalt": "Verfahren bei Funkausfall und Transpondercodes 7700, 7600, 7500, 7000",
           "quelle": "sera",
-          "fundstelle": "SERA.14083",
+          "fundstelle": "SERA.14083, SERA.13005",
           "status": "abgeglichen"
         },
         {
-          "inhalt": "Transpondercodes 7700, 7600, 7500 und 7000",
-          "quelle": "sera",
-          "fundstelle": "SERA.13005",
+          "inhalt": "Blindsendungen",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 20",
           "status": "abgeglichen"
         },
         {
-          "inhalt": "Not- und Dringlichkeitsmeldungen (MAYDAY, PAN PAN)",
-          "quelle": "sera",
-          "fundstelle": "SERA Anlage 1, Nr. 1",
+          "inhalt": "Not- und Dringlichkeitsverkehr (MAYDAY, PAN PAN)",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Nr. 22; SERA Anlage 1, Nr. 1",
           "status": "abgeglichen"
         },
         {
-          "inhalt": "Sprechgruppen, Rufzeichen und Ablauf von Funkgesprächen",
-          "quelle": "icao-annex10",
-          "status": "grundlage"
+          "inhalt": "Flugplätze ohne Flugverkehrsdienst: Rolle der RADIO-Station, erlaubte Inhalte, Windkategorien, empfohlene Sprechgruppen",
+          "quelle": "nfl-radio",
+          "fundstelle": "NfL 2024-1-3240, Nr. 4 bis 6",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Sprechgruppen an kontrollierten Flugplätzen: Rollen, Abflug, Start, Platzrunde, Landung",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1, 1.4",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Einflug in und Ausflug aus der Kontrollzone",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1, 1.2.1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Frequenzwechsel",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1, 1.1.4",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Verkehrsinformationen und Uhrzeigerstellung",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1, 1.1.7; Nr. 10",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Transponder-Sprechgruppen (Squawk, Ident)",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1, 2.3",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Meldungen zur RMZ",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1, Punkt 7",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Englische Sprechgruppen und die englischen Sprechfunk-Begriffe im Lexikon",
+          "quelle": "nfl-sprechfunk",
+          "fundstelle": "NfL 2024-1-3266, Anlage 1",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Funkgespräche, Übungsgebiet Mittelland mit Plätzen, Frequenzen und Meldepunkten, Sichtanflugkarte Musterstadt, Platzrunde Altdorf",
+          "status": "erfunden",
+          "hinweis": "Die Gespräche verwenden die amtlichen Sprechgruppen. Echte Sichtanflugkarten (AIP VFR der DFS) sind urheberrechtlich geschützt und werden deshalb nicht gezeigt."
+        },
+        {
+          "inhalt": "Übungstexte für die Übersetzung im Stil des Luftfahrthandbuchs",
+          "status": "erfunden",
+          "hinweis": "Keine Auszüge aus dem echten Luftfahrthandbuch."
         }
       ]
     },

@@ -1,2 +1,6 @@
 .DS_Store
 .claude/settings.local.json
+
+# Persönliche Lernstand-Sicherungen nie veröffentlichen
+flug-lernstand*.json
+Teststreifen/

@@ -12,6 +12,13 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 - **8 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Masse & Schwerpunkt,
   Meteorologie, Aerodynamik, Signale – jeweils mit Theorie-Kapiteln, Abbildungen und Fragen.
 - **Verteilte Wiederholung** (Leitner-Karteikasten mit 5 Fächern): Jede Frage kommt wieder, wenn sie dran ist.
+- **BZF-Trainer** (Thema Sprechfunk): Lernkapitel zu BZF I und II, Plätzen mit und ohne Tower, FIS/RMZ und Englisch,
+  eine Übersetzungsübung wie in der BZF-I-Prüfung und **Funkgespräche** zum Durchspielen – auf Deutsch oder Englisch,
+  in vier Stufen: auswählen, große Bausteine, kleine Bausteine (Wort für Wort) und frei tippen. Die freie Eingabe
+  ist tolerant bei Groß-/Kleinschreibung, Satzzeichen und kleinen Tippfehlern, aber streng bei Zahlen und Rufzeichen.
+  Sprechgruppen nach NfL 2024-1-3266 und NfL 2024-1-3240.
+  Szenarien in `modules/sprechfunk/content/funkgespraeche.json`, Logik in `funklogik.js` (getestet).
+- **Lexikon** mit über 150 Begriffen, viele mit englischer Entsprechung; nach Deutsch oder Englisch sortierbar.
 - **Merkliste**: Jede Frage lässt sich überall mit „Merken“ vormerken und später gezielt üben – auch erzeugte Rechenaufgaben
   (sie werden genau so gespeichert, wie sie gestellt wurden). Die Merkliste gehört zum Lernstand und wird mitgesichert.
   Fällige Fragen aller Themen lassen sich gemeinsam wiederholen.

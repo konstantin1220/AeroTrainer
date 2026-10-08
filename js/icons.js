@@ -98,6 +98,37 @@ const BEDIENUNG = {
   stufen: `
     <path class="f" d="M3.5 20.5v-4h5v-4h5v-4h5v-4h2v16z"/>
     <path d="M3.5 20.5v-4h5v-4h5v-4h5v-4h2M3.5 20.5h17"/>`,
+  // Stufen der Funkgespräche: auswählen, große Bausteine, kleine Bausteine, frei tippen
+  stufeAuswahl: `
+    <rect class="f" x="3.5" y="3.5" width="17" height="5" rx="1.5"/>
+    <rect x="3.5" y="3.5" width="17" height="5" rx="1.5"/>
+    <rect x="3.5" y="10.5" width="17" height="4" rx="1.5"/>
+    <rect x="3.5" y="16.5" width="17" height="4" rx="1.5"/>
+    <path d="M6.3 6l1.2 1.1 2-2.1M11.5 6h6M6.5 12.5h8M6.5 18.5h6"/>`,
+  stufeBausteine: `
+    <rect class="f" x="3" y="5" width="10" height="6" rx="1.5"/>
+    <rect x="3" y="5" width="10" height="6" rx="1.5"/>
+    <rect x="14.5" y="5" width="6.5" height="6" rx="1.5"/>
+    <rect class="f" x="6" y="14" width="12" height="6" rx="1.5"/>
+    <rect x="6" y="14" width="12" height="6" rx="1.5"/>`,
+  stufeWoerter: `
+    <rect class="f" x="2.5" y="4.5" width="5" height="4" rx="1"/>
+    <rect x="2.5" y="4.5" width="5" height="4" rx="1"/>
+    <rect x="9" y="4.5" width="4" height="4" rx="1"/>
+    <rect x="14.5" y="4.5" width="7" height="4" rx="1"/>
+    <rect x="2.5" y="10.5" width="7" height="4" rx="1"/>
+    <rect class="f" x="11" y="10.5" width="4" height="4" rx="1"/>
+    <rect x="11" y="10.5" width="4" height="4" rx="1"/>
+    <rect x="16.5" y="10.5" width="5" height="4" rx="1"/>
+    <rect x="5.5" y="16.5" width="5" height="4" rx="1"/>
+    <rect x="12" y="16.5" width="6" height="4" rx="1"/>`,
+  stufeFrei: `
+    <rect class="f" x="2.5" y="5.5" width="19" height="13" rx="2.5"/>
+    <rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/>
+    <path d="M5.5 10h7M5.5 14h4M15.5 8.5v7M14 8.5h3M14 15.5h3"/>`,
+  tipp: `
+    <path class="f" d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9v.7h5v-.7c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"/>
+    <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9v.7h5v-.7c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3zM9.5 19.5h5M10.5 22h3M12 6.5a2.5 2.5 0 0 0-2.5 2.5"/>`,
 };
 
 const THEMEN = {

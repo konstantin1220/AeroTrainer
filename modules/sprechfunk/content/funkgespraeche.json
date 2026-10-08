@@ -1,0 +1,603 @@
+{
+  "_hinweis": "Funkgespräche zum Üben (BZF II deutsch, BZF I englisch). Alle Plätze, Frequenzen und Situationen sind frei erfunden (Übungsgebiet Mittelland). Die Sprechgruppen folgen der Bekanntmachung über die Sprechfunkverfahren (NfL 2024-1-3266) und den Richtlinien für den Flugfunk auf Flugplätzen ohne Flugverkehrsdienste (NfL 2024-1-3240). Platzhalter in geschweiften Klammern werden bei jedem Durchgang neu gefüllt (siehe modules/sprechfunk/funk.js). Schritte: 'du' = eigene Meldung (mit Aufgabe, falschen Antworten und Pflichtteilen für die freie Eingabe; 'A|B' heißt: A oder B, etwa das abgekürzte oder das volle Rufzeichen; 'tabu' = Wörter, die bei freier Eingabe nicht vorkommen dürfen, z. B. „frei“ bei einer RADIO-Stelle; 'reihenfolge' = Pflichtteile, deren Reihenfolge zählt, z. B. gerufene Stelle vor eigenem Rufzeichen), 'station' = Bodenfunkstelle, 'info' = Erzähltext. Lizenz: CC BY 4.0.",
+  "szenarien": [
+    {
+      "id": "funkprobe",
+      "titel": "Funkprobe vor dem Abflug",
+      "kurz": "Prüfe am Vorfeld in Altdorf, ob dein Funkgerät funktioniert.",
+      "thema": "radio",
+      "stufe": 1,
+      "station": "altdorf",
+      "karte": "platzrunde-xalt",
+      "pisten": ["25", "07"],
+      "platzrunde_rechts": ["25"],
+      "lage": "Du sitzt in deiner {muster} {rufzeichen} am Vorfeld in Altdorf und willst vor dem Rollen prüfen, ob dein Funkgerät funktioniert. Die Bodenfunkstelle Altdorf Radio ist besetzt, Frequenz {frequenz}.",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Bitte Altdorf Radio um eine Funkprobe.",
+          "de": "Altdorf Radio, {rufzeichen}, Radio Check {frequenz}",
+          "en": "Altdorf Radio, {rufzeichen}, radio check {frequenz}",
+          "falsch": {
+            "de": ["Altdorf Radio, {rufzeichen}, wie ist meine Lesbarkeit?", "{rufzeichen}, Altdorf Radio, Radio Check", "Altdorf Info, {rufzeichen}, Funkprobe {frequenz}"],
+            "en": ["Altdorf Radio, {rufzeichen}, how is my readability?", "{rufzeichen}, Altdorf Radio, radio check", "Altdorf Info, {rufzeichen}, radio check {frequenz}"]
+          },
+          "pflicht": { "de": ["Altdorf Radio", "{rufzeichen}", "Radio Check", "{frequenz}"], "en": ["Altdorf Radio", "{rufzeichen}", "radio check", "{frequenz}"] },
+          "reihenfolge": ["Altdorf Radio", "{rufzeichen}"],
+          "erklaerung": "Eine Funkprobe besteht aus der gerufenen Station, deinem Rufzeichen, den Worten RADIO CHECK und der Frequenz (NfL 2024-1-3266, Nr. 17)."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Altdorf Radio, Verständlichkeit fünf", "en": "{rufzeichen}, Altdorf Radio, readability five" },
+        {
+          "wer": "du",
+          "aufgabe": "Bestätige kurz und beende das Gespräch.",
+          "de": "Verstanden, {rufzeichen}",
+          "en": "Roger, {rufzeichen}",
+          "falsch": { "de": ["Kommen", "Danke und tschüss", "Wilco, Altdorf Radio"], "en": ["Over", "Thanks, bye bye", "Wilco, Altdorf Radio"] },
+          "pflicht": { "de": ["{rufzeichen}"], "en": ["{rufzeichen}"] },
+          "erklaerung": "Ein Gespräch beendest du mit deinem eigenen Rufzeichen (NfL 2024-1-3266, Nr. 18). „Kommen“/„Over“ hieße, dass du noch eine Antwort erwartest."
+        }
+      ]
+    },
+    {
+      "id": "radio-abflug",
+      "titel": "Abflug in Altdorf (RADIO)",
+      "kurz": "Rollen, Starten und Verlassen der Platzrunde an einem Platz ohne Flugverkehrsdienst.",
+      "thema": "radio",
+      "stufe": 1,
+      "station": "altdorf",
+      "karte": "platzrunde-xalt",
+      "pisten": ["25", "07"],
+      "platzrunde_rechts": ["25"],
+      "lage": "Du stehst mit deiner {muster} {rufzeichen} am Vorfeld in Altdorf. Du willst zu einem Überlandflug nach Norden starten. Altdorf Radio ({frequenz}) ist besetzt. Die Platzrunde liegt nördlich der Piste.",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Melde dich bei Altdorf Radio: Muster, Position (Vorfeld) und Absicht (Abflug nach Norden).",
+          "de": "Altdorf Radio, {rufzeichen}, {muster}, Vorfeld, zum Abflug nach Norden",
+          "en": "Altdorf Radio, {rufzeichen}, {muster}, apron, for departure to the north",
+          "falsch": {
+            "de": ["Altdorf Info, {rufzeichen}, erbitte Rollinformation", "Altdorf Radio, {rufzeichen}, abflugbereit, erbitte Startfreigabe", "{rufzeichen}, Altdorf Radio, Vorfeld"],
+            "en": ["Altdorf Info, {rufzeichen}, request taxi information", "Altdorf Radio, {rufzeichen}, ready for departure, request take-off clearance", "{rufzeichen}, Altdorf Radio, apron"]
+          },
+          "pflicht": { "de": ["Altdorf Radio", "{rufzeichen}", "Vorfeld", "Abflug"], "en": ["Altdorf Radio", "{rufzeichen}", "apron", "departure"] },
+          "reihenfolge": ["Altdorf Radio", "{rufzeichen}"],
+          "erklaerung": "Erstanruf: (Flugplatz) RADIO, Rufzeichen, Muster, Position, Absicht (NfL 2024-1-3240, Nr. 6.2). Eine RADIO-Station gibt keine Rollinformationen und keine Freigaben."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Altdorf Radio, empfehle Piste {piste}, {windradio}", "en": "{rufzeichen}, Altdorf Radio, suggest runway {piste}, {windradio}" },
+        {
+          "wer": "du",
+          "aufgabe": "Melde, dass du zum Rollhalt der empfohlenen Piste rollst.",
+          "de": "{rufzeichen}, rolle zum Rollhalt Piste {piste}",
+          "en": "{rufzeichen}, taxiing to holding point runway {piste}",
+          "falsch": {
+            "de": ["{rufzeichen}, erbitte Rollen zur Piste {piste}", "{rufzeichen}, rolle", "Altdorf Radio, {rufzeichen}, Rollfreigabe Piste {piste}"],
+            "en": ["{rufzeichen}, request taxi runway {piste}", "{rufzeichen}, taxiing", "Altdorf Radio, {rufzeichen}, taxi clearance runway {piste}"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "Rollhalt", "{piste}"], "en": ["{rufzeichen}", "holding point", "{piste}"] },
+          "erklaerung": "An einem RADIO-Platz meldest du, was du tust – du bittest nicht um Erlaubnis. Dein Rufzeichen kürzt du erst ab, wenn die Bodenstelle es abgekürzt hat."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du stehst am Rollhalt, die Checks sind fertig. Du rollst jetzt auf die Piste.",
+          "de": "{rufzeichen}, rolle zum Abflugpunkt Piste {piste}",
+          "en": "{rufzeichen}, lining up runway {piste}",
+          "falsch": {
+            "de": ["{rufzeichen}, abflugbereit Piste {piste}", "{rufzeichen}, Start nach eigenem Ermessen", "{rufzeichen}, erbitte Startfreigabe"],
+            "en": ["{rufzeichen}, ready for departure runway {piste}", "{rufzeichen}, take-off at own discretion", "{rufzeichen}, request take-off clearance"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "Abflugpunkt", "{piste}"], "en": ["{rufzeichen}", "lining up", "{piste}"] },
+          "erklaerung": "„Abflugbereit“ und „Start nach eigenem Ermessen“ kommen in den empfohlenen Sprechgruppen nicht vor. Du meldest, dass du zum Abflugpunkt rollst (NfL 2024-1-3240, Nr. 6.2)."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du beginnst den Startlauf.",
+          "de": "{rufzeichen}, starte Piste {piste}",
+          "en": "{rufzeichen}, taking off runway {piste}",
+          "falsch": {
+            "de": ["{rufzeichen}, Start frei Piste {piste}", "{rufzeichen}, abgehoben", "{rufzeichen}, los geht's"],
+            "en": ["{rufzeichen}, cleared for take-off runway {piste}", "{rufzeichen}, airborne", "{rufzeichen}, let's go"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "starte", "{piste}"], "en": ["{rufzeichen}", "taking off", "{piste}"] },
+          "tabu": { "de": ["frei", "Freigabe"], "en": ["cleared", "clearance"] },
+          "erklaerung": "„Start frei“ ist eine Freigabe – die gibt es nur vom Turm. Am RADIO-Platz meldest du: „starte Piste …“."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du verlässt die Platzrunde aus dem Querabflug nach Norden in 2500 ft.",
+          "de": "{rufzeichen}, verlasse Querabflug in nördlicher Richtung, 2500 ft",
+          "en": "{rufzeichen}, leaving crosswind in northern direction, 2500 ft",
+          "falsch": {
+            "de": ["{rufzeichen}, verlasse die Frequenz", "{rufzeichen}, Platzrunde verlassen, auf Wiederhören", "{rufzeichen}, fliege jetzt ab"],
+            "en": ["{rufzeichen}, leaving frequency", "{rufzeichen}, leaving the circuit, bye bye", "{rufzeichen}, departing now"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "verlasse", "Querabflug", "2500"], "en": ["{rufzeichen}", "leaving", "crosswind", "2500"] },
+          "erklaerung": "Platzrundenteil, Richtung und Höhe – so wissen andere, wo du bist (NfL 2024-1-3240, Nr. 6.2: „VERLASSE (Platzrundenteil) IN (Himmelsrichtung) RICHTUNG, (Höhe)“)."
+        }
+      ]
+    },
+    {
+      "id": "radio-anflug",
+      "titel": "Anflug nach Altdorf (RADIO)",
+      "kurz": "Erstanruf, Platzrunde mit Positionsmeldungen und Landung an einem Platz ohne Flugverkehrsdienst.",
+      "thema": "radio",
+      "stufe": 2,
+      "station": "altdorf",
+      "karte": "platzrunde-xalt",
+      "pisten": ["25", "07"],
+      "platzrunde_rechts": ["25"],
+      "lage": "Du fliegst mit deiner {muster} {rufzeichen} von Süden nach Altdorf zurück und bist etwa 8 NM südlich von Altdorf in 3000 ft. Du willst landen. Altdorf Radio: {frequenz}. Die Platzrunde liegt nördlich der Piste – bei Piste 25 rechts herum, bei Piste 07 links herum.",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Erstanruf bei Altdorf Radio mit Muster, Position (8 NM südlich Altdorf, 3000 ft) und Absicht.",
+          "de": "Altdorf Radio, {rufzeichen}, {muster}, Position 8 NM südlich Altdorf, 3000 ft, zur Landung",
+          "en": "Altdorf Radio, {rufzeichen}, {muster}, position 8 NM south of Altdorf, 3000 ft, for landing",
+          "falsch": {
+            "de": ["Altdorf Radio, {rufzeichen}, in 10 Minuten bei euch, erbitte Landeinformationen", "Altdorf Radio, {rufzeichen}, erbitte Landefreigabe", "Altdorf Info, {rufzeichen}, {muster}, zur Landung"],
+            "en": ["Altdorf Radio, {rufzeichen}, 10 minutes out, request landing information", "Altdorf Radio, {rufzeichen}, request landing clearance", "Altdorf Info, {rufzeichen}, {muster}, for landing"]
+          },
+          "pflicht": { "de": ["Altdorf Radio", "{rufzeichen}", "8 NM", "3000", "Landung"], "en": ["Altdorf Radio", "{rufzeichen}", "8 NM", "3000", "landing"] },
+          "reihenfolge": ["Altdorf Radio", "{rufzeichen}"],
+          "erklaerung": "Position als Entfernung und Richtung zu einem markanten Punkt – nicht als Flugzeit. Eine Landefreigabe gibt es an einem RADIO-Platz nicht (NfL 2024-1-3240, Nr. 6.2)."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Altdorf Radio, empfehle Piste {piste}, {windradio}, Segelflug südlich des Platzes", "en": "{rufzeichen}, Altdorf Radio, suggest runway {piste}, {windradio}, gliding south of the aerodrome" },
+        {
+          "wer": "du",
+          "aufgabe": "Du fliegst in den Gegenanflug der empfohlenen Piste ein. Melde das mit deiner Absicht (Landung).",
+          "de": "{rufzeichen}, fliege in {rechts_akk}Gegenanflug Piste {piste}, zur Landung",
+          "en": "{rufzeichen}, joining {rechts_en}downwind runway {piste}, for landing",
+          "falsch": {
+            "de": ["{rufzeichen}, im Anflug, erbitte Landereihenfolge", "{rufzeichen}, Platzrunde", "{rufzeichen}, erbitte Gegenanflug Piste {piste}"],
+            "en": ["{rufzeichen}, inbound, request landing sequence", "{rufzeichen}, circuit", "{rufzeichen}, request downwind runway {piste}"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "Gegenanflug", "{piste}"], "en": ["{rufzeichen}", "downwind", "{piste}"] },
+          "tabu": { "de": ["erbitte"], "en": ["request"] },
+          "erklaerung": "„Fliege in … Gegenanflug“ mit Richtung der Platzrunde (bei Rechtsplatzrunde „rechten“), Piste und Absicht. Eine RADIO-Station legt keine Landereihenfolge fest."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du drehst in den Queranflug.",
+          "de": "{rufzeichen}, {rechts_nom}Queranflug Piste {piste}, zur Landung",
+          "en": "{rufzeichen}, {rechts_en}base runway {piste}, for landing",
+          "falsch": {
+            "de": ["{rufzeichen}, kurz vor der Landung", "{rufzeichen}, Queranflug, erbitte Landung", "{rufzeichen}, gleich unten"],
+            "en": ["{rufzeichen}, about to land", "{rufzeichen}, base, request landing", "{rufzeichen}, nearly down"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "Queranflug", "{piste}"], "en": ["{rufzeichen}", "base", "{piste}"] },
+          "erklaerung": "Jeden Teil der Platzrunde meldest du mit Platzrundenteil, Piste und Absicht – bei einer Rechtsplatzrunde mit „rechter“."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist im Endanflug.",
+          "de": "{rufzeichen}, Endanflug Piste {piste}, zur Landung",
+          "en": "{rufzeichen}, final runway {piste}, for landing",
+          "falsch": {
+            "de": ["{rufzeichen}, Endanflug, erbitte Landefreigabe", "{rufzeichen}, Landung frei", "{rufzeichen}, im Endteil"],
+            "en": ["{rufzeichen}, final, request landing clearance", "{rufzeichen}, cleared to land", "{rufzeichen}, on short final, landing"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "Endanflug", "{piste}"], "en": ["{rufzeichen}", "final", "{piste}"] },
+          "erklaerung": "Auch hier: melden, nicht um Erlaubnis bitten. „Landung frei“ sagt nur ein Turm."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist gelandet, verlässt die Piste und rollst zum Vorfeld.",
+          "de": "{rufzeichen}, Piste verlassen, rolle zum Vorfeld",
+          "en": "{rufzeichen}, runway vacated, taxiing to the apron",
+          "falsch": {
+            "de": ["{rufzeichen}, gelandet", "{rufzeichen}, erbitte Rollen zum Vorfeld", "Danke, {rufzeichen}"],
+            "en": ["{rufzeichen}, landed", "{rufzeichen}, request taxi to the apron", "Thank you, {rufzeichen}"]
+          },
+          "pflicht": { "de": ["{rufzeichen}", "Piste verlassen", "Vorfeld"], "en": ["{rufzeichen}", "runway vacated", "apron"] },
+          "erklaerung": "Das Verlassen der Piste meldest du immer – andere warten vielleicht darauf (NfL 2024-1-3240, Nr. 6.2)."
+        }
+      ]
+    },
+    {
+      "id": "turm-abflug",
+      "titel": "Abflug in Musterstadt (Turm)",
+      "kurz": "Rollen, Starten und Verlassen der Kontrollzone an einem kontrollierten Flughafen.",
+      "thema": "kontrolliert",
+      "stufe": 2,
+      "station": "musterstadtTurm",
+      "karte": "sichtanflugkarte-xmus",
+      "pisten": ["27", "09"],
+      "platzrunde_rechts": ["09"],
+      "lage": "Du stehst mit deiner {muster} {rufzeichen} auf dem Vorfeld des Flughafens Musterstadt. Die ATIS meldet: Information {atis}, Piste {piste}, QNH {qnh}. Du willst VFR nach Bergen fliegen und die Kontrollzone über November verlassen. {station}: {frequenz}.",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Rufe den Turm und bitte ums Rollen: Muster, Standort, Flugregeln, Ziel und ATIS-Kennung.",
+          "de": "{station}, {rufzeichen}, {muster}, Vorfeld, VFR nach Bergen, Information {atis}, erbitte Rollen",
+          "en": "{station}, {rufzeichen}, {muster}, apron, VFR to Bergen, information {atis}, request taxi",
+          "falsch": {
+            "de": ["{station}, {rufzeichen}, rollbereit", "{station}, {rufzeichen}, erbitte Startfreigabe nach Bergen", "{station}, {rufzeichen}, {muster}, Vorfeld, erbitte Rollen"],
+            "en": ["{station}, {rufzeichen}, ready to taxi", "{station}, {rufzeichen}, request take-off clearance to Bergen", "{station}, {rufzeichen}, {muster}, apron, request taxi"]
+          },
+          "pflicht": { "de": ["{station}", "{rufzeichen}", "VFR", "Bergen", "Information {atis}", "Rollen"], "en": ["{station}", "{rufzeichen}", "VFR", "Bergen", "information {atis}", "taxi"] },
+          "reihenfolge": ["{station}", "{rufzeichen}"],
+          "erklaerung": "Nach NfL 2024-1-3266, Anlage 1, 1.4.7: [Typ] [Standort] (Flugregeln) NACH (Ziel) ERBITTE ROLLEN. Mit der ATIS-Kennung zeigst du, dass du die aktuellen Platzdaten hast."
+        },
+        { "wer": "station", "de": "{kurz}, rollen Sie zum Rollhalt Piste {piste}", "en": "{kurz}, taxi to holding point runway {piste}" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Rollanweisung zurück.",
+          "de": "Rolle zum Rollhalt Piste {piste}, {kurz}",
+          "en": "Taxi to holding point runway {piste}, {kurz}",
+          "falsch": { "de": ["Verstanden, {kurz}", "Rolle zum Rollhalt, {kurz}", "Wilco, {kurz}"], "en": ["Roger, {kurz}", "Taxi to holding point, {kurz}", "Wilco, {kurz}"] },
+          "pflicht": { "de": ["Rollhalt", "{piste}", "{kurz}|{rufzeichen}"], "en": ["holding point", "{piste}", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Rollanweisungen zu einer Piste liest du mit Pistenbezeichnung zurück (SERA.8015 e). Der Turm hat dein Rufzeichen abgekürzt – jetzt darfst du die Kurzform verwenden."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist am Rollhalt und startbereit. Melde das dem Turm.",
+          "de": "{kurz}, Rollhalt Piste {piste}, abflugbereit",
+          "en": "{kurz}, holding point runway {piste}, ready for departure",
+          "falsch": { "de": ["{kurz}, erbitte Start", "{kurz}, rolle auf die Piste", "{kurz}, Start nach eigenem Ermessen"], "en": ["{kurz}, request take-off", "{kurz}, lining up", "{kurz}, take-off at own discretion"] },
+          "pflicht": { "de": ["{kurz}|{rufzeichen}", "abflugbereit"], "en": ["{kurz}|{rufzeichen}", "ready"] },
+          "erklaerung": "Am kontrollierten Platz meldest du dich „abflugbereit“ (NfL 2024-1-3266, Anlage 1, 1.4.10) – auf die Piste rollst du erst mit Anweisung."
+        },
+        { "wer": "station", "de": "{kurz}, rollen Sie zum Abflugpunkt Piste {piste}, dort halten", "en": "{kurz}, line up runway {piste} and wait" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Anweisung zurück.",
+          "de": "Rolle zum Abflugpunkt Piste {piste}, dort halten, {kurz}",
+          "en": "Line up runway {piste} and wait, {kurz}",
+          "falsch": { "de": ["Rolle zum Abflugpunkt Piste {piste}, {kurz}", "Piste {piste}, Start frei, {kurz}", "Wilco, {kurz}"], "en": ["Line up runway {piste}, {kurz}", "Runway {piste}, cleared for take-off, {kurz}", "Wilco, {kurz}"] },
+          "pflicht": { "de": ["Abflugpunkt", "{piste}", "halten", "{kurz}|{rufzeichen}"], "en": ["line up", "{piste}", "wait", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "„Dort halten“ / „and wait“ gehört unbedingt in die Rückmeldung – starten darfst du noch nicht."
+        },
+        { "wer": "station", "de": "{kurz}, {wind}, Piste {piste}, Start frei", "en": "{kurz}, {wind}, runway {piste}, cleared for take-off" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Startfreigabe zurück.",
+          "de": "Piste {piste}, Start frei, {kurz}",
+          "en": "Runway {piste}, cleared for take-off, {kurz}",
+          "falsch": { "de": ["Start frei, {kurz}", "Verstanden, {kurz}", "{wind}, {kurz}"], "en": ["Cleared for take-off, {kurz}", "Roger, {kurz}", "{wind}, {kurz}"] },
+          "pflicht": { "de": ["{piste}", "Start frei", "{kurz}|{rufzeichen}"], "en": ["{piste}", "cleared for take-off", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Startfreigaben liest du mit Pistenbezeichnung zurück. Den Wind musst du nicht wiederholen."
+        },
+        { "wer": "station", "de": "{kurz}, verlassen Sie die Kontrollzone über November, melden Sie November", "en": "{kurz}, leave control zone via November, report November" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Anweisung zurück.",
+          "de": "Verlasse die Kontrollzone über November, melde November, {kurz}",
+          "en": "Leave control zone via November, report November, {kurz}",
+          "falsch": { "de": ["Verstanden, {kurz}", "November, {kurz}", "Verlasse die Kontrollzone, {kurz}"], "en": ["Roger, {kurz}", "November, {kurz}", "Leaving control zone, {kurz}"] },
+          "pflicht": { "de": ["Kontrollzone", "November", "melde November", "{kurz}|{rufzeichen}"], "en": ["control zone", "November", "report November", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Freigaben liest du zurück – hier mit dem Meldepunkt, über den du die Kontrollzone verlässt."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist über November in 2500 ft. Melde das.",
+          "de": "{kurz}, November, 2500 ft",
+          "en": "{kurz}, November, 2500 ft",
+          "falsch": { "de": ["{kurz}, bin draußen", "{kurz}, verlasse die Frequenz", "{kurz}, Kontrollzone verlassen, tschüss"], "en": ["{kurz}, I'm out", "{kurz}, leaving frequency", "{kurz}, leaving control zone, bye"] },
+          "pflicht": { "de": ["{kurz}|{rufzeichen}", "November", "2500"], "en": ["{kurz}|{rufzeichen}", "November", "2500"] },
+          "erklaerung": "Positionsmeldung: Rufzeichen, Meldepunkt, Höhe. Die Frequenz verlässt du an einem kontrollierten Platz erst mit Genehmigung."
+        },
+        { "wer": "station", "de": "{kurz}, rufen Sie {fis} {fis_frequenz}", "en": "{kurz}, contact {fis} {fis_frequenz}" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies den Frequenzwechsel zurück.",
+          "de": "{fis} {fis_frequenz}, {kurz}",
+          "en": "{fis} {fis_frequenz}, {kurz}",
+          "falsch": { "de": ["Wilco, {kurz}", "Tschüss, {kurz}", "{fis}, {kurz}"], "en": ["Wilco, {kurz}", "Bye bye, {kurz}", "{fis}, {kurz}"] },
+          "pflicht": { "de": ["{fis_frequenz}", "{kurz}|{rufzeichen}"], "en": ["{fis_frequenz}", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Neue Frequenzen liest du zurück (SERA.8015 e) – so fällt ein Hörfehler sofort auf."
+        }
+      ]
+    },
+    {
+      "id": "turm-anflug",
+      "titel": "Anflug nach Musterstadt (Turm)",
+      "kurz": "Einflug in die Kontrollzone über Whiskey, Platzrunde, Landung und Rollen.",
+      "thema": "kontrolliert",
+      "stufe": 3,
+      "station": "musterstadtTurm",
+      "karte": "sichtanflugkarte-xmus",
+      "pisten": ["27", "09"],
+      "platzrunde_rechts": ["09"],
+      "lage": "Du fliegst mit deiner {muster} {rufzeichen} von Westen nach Musterstadt und bist 5 NM westlich von Whiskey in 2500 ft. Die ATIS meldet: Information {atis}, Piste {piste}, QNH {qnh}. {station}: {frequenz}. Die Platzrunde liegt südlich des Platzes.",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Erstanruf beim Turm: Muster, Position, Höhe, ATIS-Kennung und Absicht.",
+          "de": "{station}, {rufzeichen}, {muster}, 5 NM westlich Whiskey, 2500 ft, Information {atis}, zur Landung",
+          "en": "{station}, {rufzeichen}, {muster}, 5 NM west of Whiskey, 2500 ft, information {atis}, for landing",
+          "falsch": {
+            "de": ["{station}, {rufzeichen}, erbitte Landung", "{station}, {rufzeichen}, {muster}, gleich bei Whiskey, erbitte Einflug", "Musterstadt Radio, {rufzeichen}, zur Landung"],
+            "en": ["{station}, {rufzeichen}, request landing", "{station}, {rufzeichen}, {muster}, almost at Whiskey, request entry", "Musterstadt Radio, {rufzeichen}, for landing"]
+          },
+          "pflicht": { "de": ["{station}", "{rufzeichen}", "Whiskey", "2500", "Information {atis}", "Landung"], "en": ["{station}", "{rufzeichen}", "Whiskey", "2500", "information {atis}", "landing"] },
+          "reihenfolge": ["{station}", "{rufzeichen}"],
+          "erklaerung": "Nach NfL 2024-1-3266, Anlage 1, 1.4.13: [Typ] (Position) (Flughöhe) ZUR LANDUNG – dazu die ATIS-Kennung."
+        },
+        { "wer": "station", "de": "{kurz}, fliegen Sie in die Kontrollzone über Whiskey in 2500 ft, QNH {qnh}, melden Sie Whiskey", "en": "{kurz}, enter control zone via Whiskey at 2500 ft, QNH {qnh}, report Whiskey" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Freigabe zurück.",
+          "de": "Fliege in die Kontrollzone über Whiskey in 2500 ft, QNH {qnh}, melde Whiskey, {kurz}",
+          "en": "Enter control zone via Whiskey at 2500 ft, QNH {qnh}, report Whiskey, {kurz}",
+          "falsch": {
+            "de": ["Fliege in die Kontrollzone über Whiskey, {kurz}", "Verstanden, Whiskey, {kurz}", "Fliege in die Kontrollzone über Whiskey in 2500 ft, melde Whiskey, {kurz}"],
+            "en": ["Enter control zone via Whiskey, {kurz}", "Roger, Whiskey, {kurz}", "Enter control zone via Whiskey at 2500 ft, report Whiskey, {kurz}"]
+          },
+          "pflicht": { "de": ["Whiskey", "2500", "QNH {qnh}", "{kurz}|{rufzeichen}"], "en": ["Whiskey", "2500", "QNH {qnh}", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Freigabe, Höhe und Höhenmesserwert (QNH) liest du vollständig zurück (SERA.8015 e)."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist über Whiskey in 2500 ft. Melde das.",
+          "de": "{kurz}, Whiskey, 2500 ft",
+          "en": "{kurz}, Whiskey, 2500 ft",
+          "falsch": { "de": ["{kurz}, bin da", "{kurz}, erbitte Landung", "Whiskey"], "en": ["{kurz}, I'm there", "{kurz}, request landing", "Whiskey"] },
+          "pflicht": { "de": ["{kurz}|{rufzeichen}", "Whiskey", "2500"], "en": ["{kurz}|{rufzeichen}", "Whiskey", "2500"] },
+          "erklaerung": "Positionsmeldung: Rufzeichen, Meldepunkt, Höhe."
+        },
+        { "wer": "station", "de": "{kurz}, fliegen Sie in den {seite_akk}Gegenanflug Piste {piste}, melden Sie Queranflug", "en": "{kurz}, join {seite_en}downwind runway {piste}, report base" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Anweisung zurück.",
+          "de": "{Seite_nom}Gegenanflug Piste {piste}, melde Queranflug, {kurz}",
+          "en": "Join {seite_en}downwind runway {piste}, report base, {kurz}",
+          "falsch": { "de": ["Verstanden, {kurz}", "Gegenanflug, {kurz}", "Wilco, Landung, {kurz}"], "en": ["Roger, {kurz}", "Downwind, {kurz}", "Wilco, landing, {kurz}"] },
+          "pflicht": { "de": ["Gegenanflug", "{piste}", "Queranflug", "{kurz}|{rufzeichen}"], "en": ["downwind", "{piste}", "base", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Anweisungen für die Platzrunde liest du mit Piste zurück; die Aufforderung, den Queranflug zu melden, bestätigst du mit."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du drehst in den Queranflug.",
+          "de": "{kurz}, Queranflug Piste {piste}",
+          "en": "{kurz}, base runway {piste}",
+          "falsch": { "de": ["{kurz}, erbitte Landung", "{kurz}, gleich unten", "{kurz}, Endanflug"], "en": ["{kurz}, request landing", "{kurz}, nearly down", "{kurz}, final"] },
+          "pflicht": { "de": ["{kurz}|{rufzeichen}", "Queranflug", "{piste}"], "en": ["{kurz}|{rufzeichen}", "base", "{piste}"] },
+          "erklaerung": "Du meldest, was der Turm verlangt hat: den Queranflug."
+        },
+        { "wer": "station", "de": "{kurz}, {wind}, Piste {piste}, Landung frei", "en": "{kurz}, {wind}, runway {piste}, cleared to land" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Landefreigabe zurück.",
+          "de": "Piste {piste}, Landung frei, {kurz}",
+          "en": "Runway {piste}, cleared to land, {kurz}",
+          "falsch": { "de": ["Landung frei, {kurz}", "Verstanden, {kurz}", "Wilco"], "en": ["Cleared to land, {kurz}", "Roger, {kurz}", "Wilco"] },
+          "pflicht": { "de": ["{piste}", "Landung frei", "{kurz}|{rufzeichen}"], "en": ["{piste}", "cleared to land", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Landefreigaben liest du mit Pistenbezeichnung zurück."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist gelandet und hast die Piste verlassen.",
+          "de": "{kurz}, Piste verlassen",
+          "en": "{kurz}, runway vacated",
+          "falsch": { "de": ["{kurz}, gelandet", "{kurz}, danke für alles", "{kurz}, erbitte Parken"], "en": ["{kurz}, landed", "{kurz}, thanks for everything", "{kurz}, request parking"] },
+          "pflicht": { "de": ["{kurz}|{rufzeichen}", "Piste verlassen"], "en": ["{kurz}|{rufzeichen}", "runway vacated"] },
+          "erklaerung": "„Piste verlassen“ / „runway vacated“ – dann weiß der Turm, dass die Piste wieder frei ist."
+        },
+        { "wer": "station", "de": "{kurz}, rollen Sie zur allgemeinen Luftfahrt", "en": "{kurz}, taxi to general aviation area" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies die Rollanweisung zurück.",
+          "de": "Rolle zur allgemeinen Luftfahrt, {kurz}",
+          "en": "Taxi to general aviation area, {kurz}",
+          "falsch": { "de": ["Verstanden, {kurz}", "Rolle, {kurz}", "Ende"], "en": ["Roger, {kurz}", "Taxiing, {kurz}", "Out"] },
+          "pflicht": { "de": ["allgemeinen Luftfahrt", "{kurz}|{rufzeichen}"], "en": ["general aviation", "{kurz}|{rufzeichen}"] },
+          "erklaerung": "Auch Rollanweisungen bestätigst du so, dass klar ist, dass du sie verstanden hast."
+        }
+      ]
+    },
+    {
+      "id": "fis",
+      "titel": "Fluginformationsdienst unterwegs",
+      "kurz": "Anmelden bei Mittelland Information, Squawk und eine Verkehrsinformation.",
+      "thema": "unterwegs",
+      "stufe": 2,
+      "station": "mittelland",
+      "karte": null,
+      "lage": "Du fliegst mit deiner {muster} {rufzeichen} VFR von Altdorf nach Bergen und bist 10 NM nördlich von Altdorf in 3500 ft. Du möchtest Verkehrsinformationen vom Fluginformationsdienst {fis} ({fis_frequenz}).",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Rufe den Fluginformationsdienst – zuerst nur mit Station und Rufzeichen.",
+          "de": "{fis}, {rufzeichen}",
+          "en": "{fis}, {rufzeichen}",
+          "falsch": {
+            "de": ["{rufzeichen}, {fis}", "{fis}, {rufzeichen}, erbitte Freigabe nach Bergen", "Mittelland Radio, {rufzeichen}"],
+            "en": ["{rufzeichen}, {fis}", "{fis}, {rufzeichen}, request clearance to Bergen", "Mittelland Radio, {rufzeichen}"]
+          },
+          "pflicht": { "de": ["{fis}", "{rufzeichen}"], "en": ["{fis}", "{rufzeichen}"] },
+          "tabu": { "de": ["Freigabe"], "en": ["clearance"] },
+          "reihenfolge": ["{fis}", "{rufzeichen}"],
+          "erklaerung": "Zuerst die gerufene Stelle, dann du (NfL 2024-1-3266, Nr. 14). Auf einer belebten Frequenz wartest du die Antwort ab, bevor du dein Anliegen nennst."
+        },
+        { "wer": "station", "de": "{rufzeichen}, {fis}", "en": "{rufzeichen}, {fis}" },
+        {
+          "wer": "du",
+          "aufgabe": "Nenne Muster, Flugregeln und Flugweg, Position, Höhe und deinen Wunsch.",
+          "de": "{muster}, VFR von Altdorf nach Bergen, 10 NM nördlich Altdorf, 3500 ft, erbitte Verkehrsinformationen",
+          "en": "{muster}, VFR from Altdorf to Bergen, 10 NM north of Altdorf, 3500 ft, request traffic information",
+          "falsch": {
+            "de": ["Erbitte Freigabe nach Bergen", "{muster}, bin unterwegs, was gibt's Neues?", "Von Altdorf nach Bergen"],
+            "en": ["Request clearance to Bergen", "{muster}, en route, anything new?", "From Altdorf to Bergen"]
+          },
+          "pflicht": { "de": ["VFR", "Bergen", "10 NM", "3500", "Verkehrsinformation"], "en": ["VFR", "Bergen", "10 NM", "3500", "traffic information"] },
+          "erklaerung": "Der Fluginformationsdienst gibt keine Freigaben – du erbittest Informationen. Ist die Verbindung hergestellt, darfst du ohne erneuten Anruf weitersprechen."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Squawk {squawk}", "en": "{rufzeichen}, squawk {squawk}" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies den Transpondercode zurück.",
+          "de": "Squawk {squawk}, {rufzeichen}",
+          "en": "Squawk {squawk}, {rufzeichen}",
+          "falsch": { "de": ["Verstanden, {rufzeichen}", "Squawk 7000, {rufzeichen}", "Wilco"], "en": ["Roger, {rufzeichen}", "Squawk 7000, {rufzeichen}", "Wilco"] },
+          "pflicht": { "de": ["{squawk}", "{rufzeichen}"], "en": ["{squawk}", "{rufzeichen}"] },
+          "erklaerung": "Transpondercodes liest du immer zurück (SERA.8015 e)."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Verkehr auf {uhr} Uhr, {nm} NM, Gegenrichtung, gleiche Höhe", "en": "{rufzeichen}, traffic {uhr} o'clock, {nm} NM, opposite direction, same level" },
+        {
+          "wer": "du",
+          "aufgabe": "Du siehst den Verkehr noch nicht und suchst ihn.",
+          "de": "{rufzeichen}, halte Ausschau",
+          "en": "{rufzeichen}, looking out",
+          "falsch": { "de": ["{rufzeichen}, Verkehr in Sicht", "{rufzeichen}, negativ", "{rufzeichen}, Wilco"], "en": ["{rufzeichen}, traffic in sight", "{rufzeichen}, negative", "{rufzeichen}, wilco"] },
+          "pflicht": { "de": ["{rufzeichen}", "Ausschau"], "en": ["{rufzeichen}", "looking out"] },
+          "erklaerung": "HALTE AUSSCHAU / LOOKING OUT – du suchst noch (NfL 2024-1-3266, Anlage 1, 1.1.7)."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Jetzt siehst du den Verkehr.",
+          "de": "{rufzeichen}, Verkehr in Sicht",
+          "en": "{rufzeichen}, traffic in sight",
+          "falsch": { "de": ["{rufzeichen}, Kontakt", "{rufzeichen}, positiv", "{rufzeichen}, gesehen, Ende"], "en": ["{rufzeichen}, contact", "{rufzeichen}, affirm", "{rufzeichen}, seen it, out"] },
+          "pflicht": { "de": ["{rufzeichen}", "in Sicht"], "en": ["{rufzeichen}", "in sight"] },
+          "erklaerung": "VERKEHR IN SICHT / TRAFFIC IN SIGHT."
+        },
+        {
+          "wer": "du",
+          "aufgabe": "Kurz vor Bergen willst du auf die Frequenz von Bergen Radio ({bergen_frequenz}) wechseln. Bitte darum.",
+          "de": "{rufzeichen}, erbitte Wechsel auf {bergen_frequenz}",
+          "en": "{rufzeichen}, request change to {bergen_frequenz}",
+          "falsch": { "de": ["{rufzeichen}, tschüss", "{rufzeichen}, bin weg", "{rufzeichen}, Ende"], "en": ["{rufzeichen}, bye bye", "{rufzeichen}, gone", "{rufzeichen}, out"] },
+          "pflicht": { "de": ["{rufzeichen}", "Wechsel", "{bergen_frequenz}"], "en": ["{rufzeichen}", "change", "{bergen_frequenz}"] },
+          "erklaerung": "ERBITTE WECHSEL AUF (Frequenz) / REQUEST CHANGE TO (frequency) – NfL 2024-1-3266, Anlage 1, 1.1.4."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Squawk 7000, Frequenzwechsel genehmigt", "en": "{rufzeichen}, squawk 7000, frequency change approved" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies zurück.",
+          "de": "Squawk 7000, Frequenzwechsel genehmigt, {rufzeichen}",
+          "en": "Squawk 7000, frequency change approved, {rufzeichen}",
+          "falsch": { "de": ["Tschüss, {rufzeichen}", "Verstanden", "Squawk {squawk}, {rufzeichen}"], "en": ["Bye bye, {rufzeichen}", "Roger", "Squawk {squawk}, {rufzeichen}"] },
+          "pflicht": { "de": ["7000", "{rufzeichen}"], "en": ["7000", "{rufzeichen}"] },
+          "erklaerung": "Den neuen Transpondercode liest du zurück. 7000 sprichst du „sieben tausend“ / „seven thousand“."
+        }
+      ]
+    },
+    {
+      "id": "rmz",
+      "titel": "Zone mit Funkpflicht (RMZ) in Bergen",
+      "kurz": "Ein- und Ausflug in eine RMZ – auch wenn niemand antwortet.",
+      "thema": "unterwegs",
+      "stufe": 2,
+      "station": "bergen",
+      "karte": null,
+      "pisten": ["21", "03"],
+      "lage": "Um den Flugplatz Bergen liegt eine RMZ (5 NM, bis 2500 ft über Grund). Du fliegst mit deiner {muster} {rufzeichen} von Süden und bist 7 NM südlich von Bergen in 3000 ft. Du willst in Bergen landen. Bergen Radio: {frequenz}.",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Melde den Einflug in die RMZ bei Bergen Radio – mit Muster, Position, Flugregeln, Höhe und Absicht.",
+          "de": "Bergen Radio, {rufzeichen}, {muster}, 7 NM südlich Bergen, VFR, 3000 ft, werde in RMZ einfliegen zur Landung in Bergen",
+          "en": "Bergen Radio, {rufzeichen}, {muster}, 7 NM south of Bergen, VFR, 3000 ft, will enter RMZ for landing at Bergen",
+          "falsch": {
+            "de": ["Bergen Radio, {rufzeichen}, erbitte Einflug in die RMZ", "Bergen Radio, {rufzeichen}, bin gleich in der RMZ", "Bergen Radio, {rufzeichen}, Blindsendung, RMZ"],
+            "en": ["Bergen Radio, {rufzeichen}, request entry into RMZ", "Bergen Radio, {rufzeichen}, almost in the RMZ", "Bergen Radio, {rufzeichen}, transmitting blind, RMZ"]
+          },
+          "pflicht": { "de": ["Bergen Radio", "{rufzeichen}", "VFR", "3000", "RMZ"], "en": ["Bergen Radio", "{rufzeichen}", "VFR", "3000", "RMZ"] },
+          "reihenfolge": ["Bergen Radio", "{rufzeichen}"],
+          "erklaerung": "Nach NfL 2024-1-3266, Anlage 1, Punkt 7: (Muster) (Position) (Flugregeln) (Höhe) FUSS, WERDE IN RMZ EINFLIEGEN [ZUR LANDUNG] [IN (Flugplatz)]. Du meldest – du bittest nicht um Erlaubnis."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Bergen Radio, empfehle Piste {piste}, {windradio}", "en": "{rufzeichen}, Bergen Radio, suggest runway {piste}, {windradio}" },
+        { "wer": "info", "text": "Du landest in Bergen, tankst und fliegst eine Stunde später wieder nach Norden ab." },
+        {
+          "wer": "du",
+          "aufgabe": "Du bist 4 NM nördlich von Bergen in 2500 ft und verlässt die RMZ. Melde das.",
+          "de": "Bergen Radio, {rufzeichen}, verlasse RMZ 4 NM nördlich Bergen, 2500 ft",
+          "en": "Bergen Radio, {rufzeichen}, leaving RMZ 4 NM north of Bergen, 2500 ft",
+          "falsch": { "de": ["Bergen Radio, {rufzeichen}, tschüss", "Bergen Radio, {rufzeichen}, erbitte Verlassen der RMZ", "{rufzeichen}, bin raus"], "en": ["Bergen Radio, {rufzeichen}, bye bye", "Bergen Radio, {rufzeichen}, request to leave RMZ", "{rufzeichen}, I'm out"] },
+          "pflicht": { "de": ["{rufzeichen}", "verlasse RMZ", "2500"], "en": ["{rufzeichen}", "leaving RMZ", "2500"] },
+          "erklaerung": "VERLASSE RMZ (Position) (Höhe) FUSS / LEAVING RMZ (position) (figures) FEET."
+        },
+        { "wer": "info", "text": "Keine Antwort – die Bodenfunkstelle ist gerade nicht besetzt. Deine Meldung war trotzdem richtig: RMZ-Meldungen gibst du auch ab, wenn niemand antwortet." }
+      ]
+    },
+    {
+      "id": "mayday",
+      "titel": "Notfall: Motorausfall (MAYDAY)",
+      "kurz": "Eine vollständige Notmeldung in der richtigen Reihenfolge.",
+      "thema": "notfall",
+      "stufe": 3,
+      "station": "mittelland",
+      "karte": null,
+      "lage": "Du fliegst mit deiner {muster} {rufzeichen} mit 2 Personen an Bord 12 NM östlich von Musterstadt in 3000 ft, Steuerkurs 090. Plötzlich fällt der Motor aus. Du entscheidest dich für eine Notlandung auf einem Feld. Du bist auf der Frequenz von {fis} ({fis_frequenz}).",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Setze die Notmeldung ab: Notsignal, Station, Rufzeichen, Art der Notlage, Absicht, Position, Höhe, Kurs – und wer an Bord ist.",
+          "de": "MAYDAY MAYDAY MAYDAY, {fis}, {rufzeichen}, Motorausfall, Notlandung auf einem Feld, 12 NM östlich Musterstadt, 3000 ft, Steuerkurs 090, 2 Personen an Bord",
+          "en": "MAYDAY MAYDAY MAYDAY, {fis}, {rufzeichen}, engine failure, forced landing in a field, 12 NM east of Musterstadt, 3000 ft, heading 090, 2 persons on board",
+          "falsch": {
+            "de": ["PAN PAN, PAN PAN, PAN PAN, {fis}, {rufzeichen}, Motorausfall", "{fis}, {rufzeichen}, Motorausfall, erbitte Hilfe", "MAYDAY, {rufzeichen}, Motor aus, irgendwo östlich"],
+            "en": ["PAN PAN, PAN PAN, PAN PAN, {fis}, {rufzeichen}, engine failure", "{fis}, {rufzeichen}, engine failure, request assistance", "MAYDAY, {rufzeichen}, engine out, somewhere east"]
+          },
+          "pflicht": { "de": ["MAYDAY", "{rufzeichen}", "Motorausfall", "Notlandung", "12 NM", "3000"], "en": ["MAYDAY", "{rufzeichen}", "engine failure", "forced landing", "12 NM", "3000"] },
+          "reihenfolge": ["MAYDAY", "{rufzeichen}"],
+          "erklaerung": "MAYDAY (am besten dreimal), dann soweit möglich: Station, Rufzeichen, Art der Notlage, Absicht, Standort, Höhe und Kurs (NfL 2024-1-3266, Nr. 22). Ein Motorausfall mit Notlandung ist eine Notlage, keine Dringlichkeit."
+        },
+        { "wer": "station", "de": "{rufzeichen}, {fis}, MAYDAY verstanden, Squawk 7700", "en": "{rufzeichen}, {fis}, roger MAYDAY, squawk 7700" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies den Transpondercode zurück.",
+          "de": "Squawk 7700, {rufzeichen}",
+          "en": "Squawk 7700, {rufzeichen}",
+          "falsch": { "de": ["Verstanden", "Squawk 7600, {rufzeichen}", "Squawk 7500, {rufzeichen}"], "en": ["Roger", "Squawk 7600, {rufzeichen}", "Squawk 7500, {rufzeichen}"] },
+          "pflicht": { "de": ["7700", "{rufzeichen}"], "en": ["7700", "{rufzeichen}"] },
+          "erklaerung": "7700 = Notfall, 7600 = Funkausfall, 7500 = widerrechtlicher Eingriff."
+        },
+        { "wer": "info", "text": "Du landest sicher auf dem Feld. Niemand ist verletzt, das Flugzeug ist unbeschädigt." },
+        {
+          "wer": "du",
+          "aufgabe": "Melde die Landung, damit die Notlage aufgehoben werden kann.",
+          "de": "{fis}, {rufzeichen}, gelandet auf einem Feld 12 NM östlich Musterstadt, niemand verletzt, Notlage aufgehoben",
+          "en": "{fis}, {rufzeichen}, landed in a field 12 NM east of Musterstadt, no injuries, cancel distress",
+          "falsch": { "de": ["{rufzeichen}, Ende", "{fis}, {rufzeichen}, alles gut, tschüss", "MAYDAY MAYDAY MAYDAY, {rufzeichen}, gelandet"], "en": ["{rufzeichen}, out", "{fis}, {rufzeichen}, all good, bye", "MAYDAY MAYDAY MAYDAY, {rufzeichen}, landed"] },
+          "pflicht": { "de": ["{rufzeichen}", "gelandet", "verletzt"], "en": ["{rufzeichen}", "landed", "injuries"] },
+          "erklaerung": "Ist ein Luftfahrzeug nicht mehr in Not, muss es eine Meldung zur Aufhebung der Notlage senden (NfL 2024-1-3266, Nr. 22). Einen festen Wortlaut schreibt die Bekanntmachung dafür nicht vor."
+        }
+      ]
+    },
+    {
+      "id": "panpan",
+      "titel": "Dringlichkeit: Orientierung verloren (PAN PAN)",
+      "kurz": "Eine Dringlichkeitsmeldung – Hilfe vom Fluginformationsdienst.",
+      "thema": "notfall",
+      "stufe": 2,
+      "station": "mittelland",
+      "karte": null,
+      "lage": "Du fliegst mit deiner {muster} {rufzeichen} in 3500 ft, Steuerkurs 180, und hast die Orientierung verloren. Du vermutest, dass du irgendwo nördlich von Bergen bist. Der Kraftstoff reicht noch für 1 Stunde. Du rufst {fis} ({fis_frequenz}).",
+      "schritte": [
+        {
+          "wer": "du",
+          "aufgabe": "Setze eine Dringlichkeitsmeldung ab: Signal, Station, Rufzeichen, Lage, vermutete Position, Höhe, Kurs, Kraftstoff und deine Bitte.",
+          "de": "PAN PAN, PAN PAN, PAN PAN, {fis}, {rufzeichen}, Orientierung verloren, vermutlich nördlich Bergen, 3500 ft, Steuerkurs 180, Kraftstoff für 1 Stunde, erbitte Hilfe",
+          "en": "PAN PAN, PAN PAN, PAN PAN, {fis}, {rufzeichen}, uncertain of position, probably north of Bergen, 3500 ft, heading 180, endurance 1 hour, request assistance",
+          "falsch": {
+            "de": ["MAYDAY MAYDAY MAYDAY, {fis}, {rufzeichen}, weiß nicht wo ich bin", "{fis}, {rufzeichen}, wo bin ich?", "PAN PAN, {rufzeichen}, Hilfe"],
+            "en": ["MAYDAY MAYDAY MAYDAY, {fis}, {rufzeichen}, don't know where I am", "{fis}, {rufzeichen}, where am I?", "PAN PAN, {rufzeichen}, help"]
+          },
+          "pflicht": { "de": ["PAN PAN", "{rufzeichen}", "Orientierung", "3500", "Hilfe"], "en": ["PAN PAN", "{rufzeichen}", "position", "3500", "assistance"] },
+          "reihenfolge": ["PAN PAN", "{rufzeichen}"],
+          "erklaerung": "Orientierungsverlust bei ausreichend Kraftstoff ist eine Dringlichkeitslage: ernst, aber keine sofortige Gefahr – also PAN PAN, nicht MAYDAY (NfL 2024-1-3266, Nr. 22)."
+        },
+        { "wer": "station", "de": "{rufzeichen}, {fis}, PAN PAN verstanden, Squawk {squawk}", "en": "{rufzeichen}, {fis}, roger PAN PAN, squawk {squawk}" },
+        {
+          "wer": "du",
+          "aufgabe": "Lies den Transpondercode zurück.",
+          "de": "Squawk {squawk}, {rufzeichen}",
+          "en": "Squawk {squawk}, {rufzeichen}",
+          "falsch": { "de": ["Verstanden, {rufzeichen}", "Squawk 7700, {rufzeichen}", "Danke"], "en": ["Roger, {rufzeichen}", "Squawk 7700, {rufzeichen}", "Thanks"] },
+          "pflicht": { "de": ["{squawk}", "{rufzeichen}"], "en": ["{squawk}", "{rufzeichen}"] },
+          "erklaerung": "Auch in einer Dringlichkeitslage liest du Transpondercodes zurück."
+        },
+        { "wer": "station", "de": "{rufzeichen}, Bergen liegt 6 NM südlich von Ihnen", "en": "{rufzeichen}, Bergen is 6 NM south of you" },
+        {
+          "wer": "du",
+          "aufgabe": "Bestätige und teile mit, dass du nach Bergen fliegst.",
+          "de": "Verstanden, fliege nach Bergen, {rufzeichen}",
+          "en": "Roger, proceeding to Bergen, {rufzeichen}",
+          "falsch": { "de": ["Wilco", "Danke, Ende", "Positiv"], "en": ["Wilco", "Thanks, out", "Affirm"] },
+          "pflicht": { "de": ["Bergen", "{rufzeichen}"], "en": ["Bergen", "{rufzeichen}"] },
+          "erklaerung": "Der Fluginformationsdienst gibt dir Informationen; was du tust, entscheidest du – und teilst es mit."
+        }
+      ]
+    }
+  ]
+}

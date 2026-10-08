@@ -1,131 +1,1843 @@
 {
-  "_hinweis": "Lexikon der Fachbegriffe. „kurz“ ist die sachliche Erklärung, „einfach“ eine Erklärung mit Alltagsvergleich für Einsteiger. „suche“ enthält die Schreibweisen, die in Texten automatisch antippbar werden (Groß-/Kleinschreibung beachten). Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_hinweis": "Lexikon der Fachbegriffe. „kurz“ ist die sachliche Erklärung, „einfach“ eine Erklärung mit Alltagsvergleich für Einsteiger. „en“ ist der englische Begriff (Sprechfunk-Begriffe nach der zweisprachigen Bekanntmachung über die Sprechfunkverfahren, NfL 2024-1-3266). „suche“ enthält die Schreibweisen, die in Texten automatisch antippbar werden (Groß-/Kleinschreibung beachten). Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
   "_geprueft": null,
   "begriffe": [
-    { "id": "metar", "begriff": "METAR", "lang": "Meteorological Aerodrome Report", "suche": ["METAR", "METARs"], "thema": "metar", "kurz": "Routinemäßige Wettermeldung eines Flugplatzes mit dem aktuellen Wetter, an großen Plätzen meist alle 30 Minuten.", "einfach": "Wie eine SMS vom Flugplatz: So ist das Wetter hier gerade – kurz, verschlüsselt und immer im gleichen Aufbau." },
-    { "id": "speci", "begriff": "SPECI", "suche": ["SPECI"], "thema": "metar", "kurz": "Sonder-Wettermeldung, die zwischen den Routinemeldungen erscheinen kann, wenn sich das Wetter deutlich ändert.", "einfach": "Eine Eilmeldung zwischendurch, wenn das Wetter plötzlich umschlägt." },
-    { "id": "taf", "begriff": "TAF", "lang": "Terminal Aerodrome Forecast", "suche": ["TAF"], "thema": "metar", "kurz": "Wettervorhersage für einen Flugplatz über mehrere Stunden, ähnlich verschlüsselt wie ein METAR.", "einfach": "Das METAR sagt, wie das Wetter jetzt ist – der TAF, wie es in den nächsten Stunden werden soll." },
-    { "id": "cavok", "begriff": "CAVOK", "lang": "Ceiling And Visibility OK", "suche": ["CAVOK"], "thema": "metar", "kurz": "Sicht 10 km oder mehr, keine Wolken unter 5000 ft (bzw. unter der höchsten Mindestsektorhöhe), keine CB oder TCU und kein signifikantes Wetter.", "einfach": "Kurz gesagt: Bestes Sichtflugwetter. Aber Vorsicht – CAVOK heißt nicht wolkenlos, weiter oben kann es Wolken geben." },
-    { "id": "nosig", "begriff": "NOSIG", "suche": ["NOSIG"], "thema": "metar", "kurz": "Trendangabe im METAR: In den nächsten 2 Stunden wird keine wesentliche Änderung erwartet.", "einfach": "„Bleibt so“ – fürs nächste Stündchen ändert sich nichts Wichtiges." },
-    { "id": "becmg", "begriff": "BECMG", "lang": "becoming", "suche": ["BECMG"], "thema": "metar", "kurz": "Trendangabe: Das Wetter ändert sich dauerhaft zu den folgenden Werten.", "einfach": "„Wird zu …“ – danach bleibt es beim neuen Wetter." },
-    { "id": "tempo", "begriff": "TEMPO", "lang": "temporary", "suche": ["TEMPO"], "thema": "metar", "kurz": "Trendangabe: Die folgenden Werte treten nur vorübergehend auf, jeweils weniger als eine Stunde und insgesamt weniger als die Hälfte des Zeitraums.", "einfach": "„Zwischendurch mal …“ – zum Beispiel ein kurzer Schauer, danach ist es wieder wie vorher." },
-    { "id": "trend", "begriff": "Trend", "suche": ["Trend"], "thema": "metar", "kurz": "Kurze Landewettervorhersage am Ende eines METARs für die nächsten 2 Stunden (NOSIG, BECMG oder TEMPO).", "einfach": "Ein kleiner Blick in die Zukunft am Ende der Wettermeldung." },
-    { "id": "utc", "begriff": "UTC", "lang": "koordinierte Weltzeit", "suche": ["UTC"], "thema": "navigation", "kurz": "Weltweit einheitliche Zeit der Luftfahrt (auch „Z“ oder „Zulu“). In Deutschland: MEZ = UTC + 1 h, MESZ = UTC + 2 h.", "einfach": "Damit Piloten auf der ganzen Welt dieselbe Uhrzeit meinen, rechnet die Luftfahrt immer in UTC – egal, welche Zeitzone gerade gilt." },
-    { "id": "qnh", "begriff": "QNH", "suche": ["QNH"], "thema": "meteorologie", "kurz": "Luftdruck, auf Meereshöhe umgerechnet. Mit dem QNH eingestellt zeigt der Höhenmesser die Höhe über dem Meeresspiegel – am Boden also die Platzhöhe.", "einfach": "Wie das Nullstellen einer Waage: Du stellst den aktuellen Luftdruck ein, damit der Höhenmesser richtig anzeigt." },
-    { "id": "qfe", "begriff": "QFE", "suche": ["QFE"], "thema": "meteorologie", "kurz": "Luftdruck in Platzhöhe. Mit dem QFE eingestellt zeigt der Höhenmesser am Boden null und im Flug die Höhe über dem Flugplatz.", "einfach": "Damit misst der Höhenmesser, wie hoch du über dem Flugplatz bist – nicht über dem Meer." },
-    { "id": "hauptwolkenuntergrenze", "begriff": "Hauptwolkenuntergrenze", "lang": "Ceiling", "suche": ["Hauptwolkenuntergrenze", "Ceiling"], "thema": "metar", "kurz": "Höhe der niedrigsten Wolkenschicht mit BKN oder OVC (mehr als die Hälfte des Himmels bedeckt) unter 20 000 ft.", "einfach": "Die „Zimmerdecke“ aus Wolken: Ab hier ist der Himmel so dicht bedeckt, dass du nicht mehr einfach hindurchfliegen darfst." },
-    { "id": "bedeckungsgrad", "begriff": "Bedeckungsgrad", "suche": ["Bedeckungsgrad", "Achtel"], "thema": "metar", "kurz": "Wie viel des Himmels von einer Wolkenschicht bedeckt ist, angegeben in Achteln: FEW 1–2, SCT 3–4, BKN 5–7, OVC 8.", "einfach": "Stell dir den Himmel wie eine Pizza mit acht Stücken vor: Die Achtel sagen, wie viele Stücke mit Wolken belegt sind." },
-    { "id": "few", "begriff": "FEW", "suche": ["FEW"], "thema": "metar", "kurz": "Wenige Wolken: 1 bis 2 Achtel des Himmels bedeckt.", "einfach": "Ein paar einzelne Wolken." },
-    { "id": "sct", "begriff": "SCT", "lang": "scattered", "suche": ["SCT"], "thema": "metar", "kurz": "Aufgelockerte Bewölkung: 3 bis 4 Achtel bedeckt.", "einfach": "Etwa halb bewölkt – aber noch mit viel Platz dazwischen." },
-    { "id": "bkn", "begriff": "BKN", "lang": "broken", "suche": ["BKN"], "thema": "metar", "kurz": "Durchbrochene Bewölkung: 5 bis 7 Achtel bedeckt. Die niedrigste BKN-Schicht ist meist die Hauptwolkenuntergrenze.", "einfach": "Mehr Wolken als Lücken – fast eine geschlossene Decke." },
-    { "id": "ovc", "begriff": "OVC", "lang": "overcast", "suche": ["OVC"], "thema": "metar", "kurz": "Bedeckt: 8 Achtel, der Himmel ist vollständig mit Wolken überzogen.", "einfach": "Komplett grau – kein Stück blauer Himmel." },
-    { "id": "cb", "begriff": "CB", "lang": "Cumulonimbus", "suche": ["CB", "Cumulonimbus"], "thema": "meteorologie", "kurz": "Gewitterwolke: mächtige Quellwolke, die bis in große Höhen reicht, oft mit Amboss. Bringt Schauer, Gewitter, Hagel, Böen und starke Turbulenz.", "einfach": "Der „Riese“ unter den Wolken – ein Turm, der oft über 10 km hoch reicht. Von ihm hält man großen Abstand." },
-    { "id": "tcu", "begriff": "TCU", "lang": "Towering Cumulus", "suche": ["TCU"], "thema": "meteorologie", "kurz": "Mächtige, hoch aufgetürmte Quellwolke – kann sich zu einem Gewitter entwickeln.", "einfach": "Eine Quellwolke, die gerade kräftig wächst – vielleicht ein Gewitter im Werden." },
-    { "id": "vertikalsicht", "begriff": "Vertikalsicht", "suche": ["Vertikalsicht", "VV"], "thema": "metar", "kurz": "Sicht senkrecht nach oben, wenn der Himmel z. B. wegen Nebel nicht erkennbar ist. Im METAR als VV in Hundert Fuß.", "einfach": "Im Nebel sieht man keine einzelnen Wolken – nur, wie weit man nach oben schauen kann." },
-    { "id": "rvr", "begriff": "Pistensichtweite (RVR)", "lang": "Runway Visual Range", "suche": ["Pistensichtweite", "RVR"], "thema": "metar", "kurz": "Wie weit ein Pilot auf der Piste die Markierungen oder Befeuerung sehen kann; gemeldet, wenn Sicht oder RVR unter 1500 m liegen.", "einfach": "Die Sicht genau dort, wo es darauf ankommt: auf der Piste beim Starten und Landen." },
-    { "id": "bodensicht", "begriff": "Bodensicht", "suche": ["Bodensicht"], "thema": "luftraum", "kurz": "Am Flugplatz beobachtete oder gemessene Sicht. Sie steht im METAR.", "einfach": "So weit sieht man am Boden auf dem Flugplatz." },
-    { "id": "flugsicht", "begriff": "Flugsicht", "suche": ["Flugsicht"], "thema": "luftraum", "kurz": "Sicht aus dem Cockpit in Flugrichtung – sie schätzt der Pilot im Flug selbst ein.", "einfach": "So weit siehst du aus deinem Cockpitfenster nach vorn." },
-    { "id": "spread", "begriff": "Spread", "suche": ["Spread"], "thema": "meteorologie", "kurz": "Abstand zwischen Temperatur und Taupunkt. Je kleiner der Spread, desto feuchter die Luft – bei sehr kleinem Spread droht Nebel.", "einfach": "Wie viel „Platz“ die Luft noch für Feuchtigkeit hat. Ist kaum noch Platz, läuft sie bald über: Nebel oder Wolken." },
-    { "id": "taupunkt", "begriff": "Taupunkt", "suche": ["Taupunkt"], "thema": "meteorologie", "kurz": "Temperatur, auf die Luft abkühlen muss, damit sie mit Wasserdampf gesättigt ist und Wasser kondensiert.", "einfach": "Wie bei einer kalten Flasche aus dem Kühlschrank, die außen beschlägt: Kühlt Luft bis zum Taupunkt ab, wird aus unsichtbarem Wasserdampf sichtbares Wasser." },
-    { "id": "boeen", "begriff": "Böen", "suche": ["Böen", "Böe"], "thema": "metar", "kurz": "Kurzzeitige Windspitzen. Im METAR gemeldet (G), wenn sie den Mittelwind um mindestens 10 kt übersteigen.", "einfach": "Plötzliche Windstöße – wie wenn jemand kurz eine Tür aufreißt." },
-    { "id": "isa", "begriff": "ISA", "lang": "ICAO-Standardatmosphäre", "suche": ["ISA", "Standardatmosphäre", "ICAO-Standardatmosphäre"], "thema": "meteorologie", "kurz": "Gedachte Normatmosphäre: 15 °C und 1013,25 hPa auf Meereshöhe, Temperaturabnahme 2 °C je 1000 ft bis etwa 11 km. Bezugsgröße für Höhenmesser und Flugleistungen.", "einfach": "Ein „Durchschnittswetter“, auf das sich alle Instrumente und Handbücher beziehen – damit man vergleichen kann." },
-    { "id": "troposphaere", "begriff": "Troposphäre", "suche": ["Troposphäre"], "thema": "meteorologie", "kurz": "Unterste Schicht der Atmosphäre, in der sich fast das ganze Wetter abspielt; reicht in unseren Breiten bis etwa 11 km.", "einfach": "Das „Erdgeschoss“ der Lufthülle – hier gibt es Wolken, Regen und Wind." },
-    { "id": "tropopause", "begriff": "Tropopause", "suche": ["Tropopause"], "thema": "meteorologie", "kurz": "Obergrenze der Troposphäre (bei uns etwa 11 km). Darüber nimmt die Temperatur nicht mehr ab.", "einfach": "Die „Decke“ über dem Wetter – Gewitterwolken breiten sich darunter zum Amboss aus." },
-    { "id": "druckhoehe", "begriff": "Druckhöhe", "suche": ["Druckhöhe"], "thema": "meteorologie", "kurz": "Höhe in der Standardatmosphäre, die zum gemessenen Luftdruck passt – der Höhenmesser zeigt sie mit 1013,25 hPa eingestellt an.", "einfach": "Die Höhe, die der Höhenmesser anzeigen würde, wenn überall Normalwetter wäre." },
-    { "id": "dichtehoehe", "begriff": "Dichtehöhe", "suche": ["Dichtehöhe"], "thema": "meteorologie", "kurz": "Druckhöhe, korrigiert um die Temperatur. Bei warmer Luft ist sie höher – das Flugzeug leistet so wenig, als wäre es höher.", "einfach": "Wie „hoch“ sich die Luft für dein Flugzeug anfühlt. An heißen Tagen fühlt sich ein Flugplatz deutlich höher an, als er ist." },
-    { "id": "adiabatisch", "begriff": "trocken- und feuchtadiabatisch", "suche": ["trockenadiabatisch", "feuchtadiabatisch"], "thema": "meteorologie", "kurz": "Aufsteigende Luft kühlt sich ab: ungesättigt (trockenadiabatisch) um 1 °C je 100 m, gesättigt (feuchtadiabatisch) um etwa 0,6 °C je 100 m.", "einfach": "Wie die Luft aus einer Fahrradpumpe, nur umgekehrt: Steigt Luft auf, dehnt sie sich aus und wird dabei kälter." },
-    { "id": "labil", "begriff": "Labile Schichtung", "suche": ["labil", "labile", "labiler"], "thema": "meteorologie", "kurz": "Luft, in der ein angestoßenes Luftpaket von selbst weiter aufsteigt. Folge: Quellwolken, Schauer, Gewitter, Turbulenz.", "einfach": "Wie ein Heißluftballon, der einmal angestoßen von allein immer weiter steigt." },
-    { "id": "isobare", "begriff": "Isobaren", "suche": ["Isobaren", "Isobare"], "thema": "meteorologie", "kurz": "Linien gleichen Luftdrucks auf der Wetterkarte. Je enger sie liegen, desto stärker der Wind.", "einfach": "Wie Höhenlinien beim Wandern – nur für den Luftdruck. Dicht beieinander heißt „steil“, also viel Wind." },
-    { "id": "coriolis", "begriff": "Corioliskraft", "suche": ["Corioliskraft"], "thema": "meteorologie", "kurz": "Scheinbare Ablenkung bewegter Luft durch die Erddrehung – auf der Nordhalbkugel nach rechts.", "einfach": "Wirfst du auf einem drehenden Karussell einen Ball, fliegt er scheinbar in einer Kurve. Genauso wird der Wind durch die drehende Erde abgelenkt." },
-    { "id": "buysballot", "begriff": "Regel von Buys-Ballot", "suche": ["Buys-Ballot"], "thema": "meteorologie", "kurz": "Auf der Nordhalbkugel gilt: Mit dem Rücken zum Wind liegt das Tief links vor dir.", "einfach": "Eine Faustregel, mit der du ohne Wetterkarte erkennst, wo das Tiefdruckgebiet liegt." },
-    { "id": "foehn", "begriff": "Föhn", "suche": ["Föhn"], "thema": "meteorologie", "kurz": "Warmer, trockener Fallwind auf der Leeseite eines Gebirges, oft mit starker Turbulenz, Rotoren und Lentikulariswolken.", "einfach": "Die Luft regnet sich auf der einen Bergseite ab und fällt auf der anderen Seite warm und trocken herunter – wie aus einem Haartrockner." },
-    { "id": "warmfront", "begriff": "Warmfront", "suche": ["Warmfront", "Warmfronten"], "thema": "meteorologie", "kurz": "Warme Luft gleitet langsam auf kältere auf. Vorher Cirrus bis Nimbostratus, breites Landregengebiet, danach wird es wärmer.", "einfach": "Warme Luft schiebt sich wie eine Decke langsam über kalte Luft – es regnet lange und gleichmäßig." },
-    { "id": "kaltfront", "begriff": "Kaltfront", "suche": ["Kaltfront", "Kaltfronten"], "thema": "meteorologie", "kurz": "Kalte Luft schiebt sich unter wärmere und hebt sie steil an: Cumulonimbus, Schauer, Gewitter und Böen, danach kälter mit guter Sicht.", "einfach": "Kalte Luft drängt sich wie ein Keil unter die warme – kurz, heftig und stürmisch, danach klart es auf." },
-    { "id": "okklusion", "begriff": "Okklusion", "suche": ["Okklusion"], "thema": "meteorologie", "kurz": "Eine Kaltfront hat die Warmfront eingeholt und die Warmluft vom Boden abgehoben.", "einfach": "Die schnellere Kaltfront hat die langsamere Warmfront „überholt“ – beide Fronten verschmelzen." },
-    { "id": "luftmasse", "begriff": "Luftmasse", "suche": ["Luftmasse", "Luftmassen"], "thema": "meteorologie", "kurz": "Großes Luftpaket mit ähnlicher Temperatur und Feuchte, benannt nach seiner Herkunft (polar/tropisch, maritim/kontinental).", "einfach": "Ein riesiger „Luftblock“, der die Eigenschaften seiner Heimat mitbringt – feucht vom Meer oder trocken vom Festland." },
-    { "id": "vergaservereisung", "begriff": "Vergaservereisung", "suche": ["Vergaservereisung"], "thema": "meteorologie", "kurz": "Eisbildung im Vergaser durch starke Abkühlung der angesaugten Luft – auch bei Außentemperaturen deutlich über 0 °C. Abhilfe: Vergaservorwärmung.", "einfach": "Wie beim Deospray, dessen Dose beim Sprühen kalt wird: Im Vergaser kühlt die Luft so stark ab, dass Feuchtigkeit gefriert." },
-    { "id": "klareis", "begriff": "Klareis", "suche": ["Klareis"], "thema": "meteorologie", "kurz": "Glasiges, schweres Eis aus großen unterkühlten Tropfen, oft zwischen 0 und −10 °C – die gefährlichste Vereisung.", "einfach": "Wie Blitzeis auf der Straße: durchsichtig, schwer zu sehen und gefährlich." },
-    { "id": "raueis", "begriff": "Raueis", "suche": ["Raueis"], "thema": "meteorologie", "kurz": "Weißes, raues Eis aus kleinen unterkühlten Tröpfchen, setzt sich vor allem an Vorderkanten an.", "einfach": "Weißer, körniger Eisbelag – wie Raureif an einem Zaun im Winter." },
-    { "id": "boeenwalze", "begriff": "Böenwalze", "suche": ["Böenwalze"], "thema": "meteorologie", "kurz": "Front der aus einem Gewitter ausfließenden Kaltluft mit plötzlichen, starken Böen – oft weit vor dem Niederschlag.", "einfach": "Der kalte „Atemstoß“ eines Gewitters, der ihm vorausläuft." },
-    { "id": "strahlungsnebel", "begriff": "Strahlungsnebel", "suche": ["Strahlungsnebel"], "thema": "meteorologie", "kurz": "Nebel, der in klaren, windschwachen Nächten entsteht, wenn der Boden auskühlt. Löst sich meist am Vormittag auf.", "einfach": "Der Morgennebel über Wiesen nach einer klaren Nacht." },
-    { "id": "advektionsnebel", "begriff": "Advektionsnebel", "suche": ["Advektionsnebel"], "thema": "meteorologie", "kurz": "Nebel, wenn feuchtwarme Luft über eine kalte Oberfläche strömt; kann auch bei Wind entstehen und lange anhalten.", "einfach": "Warme, feuchte Luft „zieht“ über kaltes Wasser oder Schnee und beschlägt dabei – wie ein Spiegel nach dem Duschen." },
-    { "id": "vfr", "begriff": "VFR", "lang": "Visual Flight Rules – Sichtflugregeln", "suche": ["VFR"], "thema": "luftraum", "kurz": "Fliegen nach Sicht: Der Pilot orientiert sich nach draußen und weicht anderem Verkehr selbst aus. Dafür müssen Sicht und Wolkenabstand ausreichen.", "einfach": "Fliegen mit Blick nach draußen – wie Autofahren nach Sicht statt nach Navi." },
-    { "id": "ifr", "begriff": "IFR", "lang": "Instrument Flight Rules – Instrumentenflugregeln", "suche": ["IFR"], "thema": "luftraum", "kurz": "Fliegen nach Instrumenten, auch in Wolken; erfordert eine eigene Berechtigung und wird von der Flugverkehrskontrolle geführt.", "einfach": "Fliegen nur nach Anzeigen, ohne Sicht nach draußen – wie Verkehrsflugzeuge." },
-    { "id": "vmc", "begriff": "VMC", "lang": "Visual Meteorological Conditions", "suche": ["VMC"], "thema": "luftraum", "kurz": "Sichtflug-Wetterbedingungen: Mindestwerte für Flugsicht und Abstand zu Wolken nach SERA.5001.", "einfach": "Das Wetter ist gut genug, um nach Sicht zu fliegen." },
-    { "id": "sondervfr", "begriff": "Sonder-VFR", "suche": ["Sonder-VFR"], "thema": "luftraum", "kurz": "VFR-Flug in einer Kontrollzone unterhalb der normalen VFR-Wetterminima, nur mit Freigabe (u. a. ab 1500 m Bodensicht und 600 ft Wolkenuntergrenze).", "einfach": "Eine Ausnahmegenehmigung, um bei etwas schlechterem Wetter doch noch in die Kontrollzone zu dürfen." },
-    { "id": "ctr", "begriff": "Kontrollzone (CTR)", "lang": "Control Zone", "suche": ["CTR", "Kontrollzone", "Kontrollzonen"], "thema": "luftraum", "kurz": "Kontrollierter Luftraum vom Boden bis zu einer festgelegten Höhe um Flugplätze mit Flugverkehrskontrolle; in Deutschland Luftraum D.", "einfach": "Der geschützte „Vorgarten“ eines Flughafens, in dem An- und Abflüge sicher geführt werden." },
-    { "id": "rmz", "begriff": "RMZ", "lang": "Radio Mandatory Zone – Funkkontaktpflichtzone", "suche": ["RMZ"], "thema": "luftraum", "kurz": "Bereich, in dem Funkkontakt Pflicht ist: vor dem Einflug melden und danach dauernd mithören. Eine Freigabe ist nicht nötig.", "einfach": "Hier sagst du beim Hereinfliegen kurz „Hallo“ per Funk und bleibst erreichbar." },
-    { "id": "tmz", "begriff": "TMZ", "lang": "Transponder Mandatory Zone", "suche": ["TMZ"], "thema": "luftraum", "kurz": "Bereich, in dem ein eingeschalteter Transponder (Modi A und C oder Modus S) Pflicht ist.", "einfach": "Hier musst du für das Radar „sichtbar“ sein – der Transponder ist wie eine Warnweste." },
-    { "id": "kontrollierter-luftraum", "begriff": "Kontrollierter Luftraum", "suche": ["kontrollierter Luftraum", "kontrollierten Luftraum"], "thema": "luftraum", "kurz": "Luftraum, in dem Flugverkehrskontrolle angeboten wird (in Deutschland die Klassen C, D und E). Für VFR braucht man nur in C und D eine Freigabe.", "einfach": "Ein Luftraum mit „Aufsicht“ – wie viel sie dich angeht, hängt von der Klasse ab." },
-    { "id": "freigabe", "begriff": "Freigabe", "suche": ["Freigabe", "Freigaben"], "thema": "luftraum", "kurz": "Erlaubnis der Flugverkehrskontrolle, unter bestimmten Bedingungen zu fliegen (z. B. in einen Luftraum einzufliegen oder zu landen).", "einfach": "Das „Ja, du darfst“ vom Lotsen – erst danach geht es los." },
-    { "id": "staffelung", "begriff": "Staffelung", "suche": ["Staffelung", "gestaffelt"], "thema": "luftraum", "kurz": "Mindestabstand, den die Flugverkehrskontrolle zwischen Luftfahrzeugen sicherstellt.", "einfach": "Der Lotse sorgt dafür, dass Flugzeuge sich nicht zu nahe kommen – wie Abstand halten auf der Autobahn, nur von außen geregelt." },
-    { "id": "fis", "begriff": "Fluginformationsdienst (FIS)", "suche": ["FIS", "Fluginformationsdienst"], "thema": "luftraum", "kurz": "Dienst, der VFR-Piloten auf Anfrage mit Informationen versorgt (Verkehr, Wetter, aktive Gebiete) – ohne Freigaben zu erteilen.", "einfach": "Eine Art Auskunft per Funk: Man kann fragen, bekommt Hinweise, entscheidet aber selbst." },
-    { "id": "flugflaeche", "begriff": "Flugfläche (FL)", "lang": "Flight Level", "suche": ["Flugfläche", "Flugflächen"], "thema": "luftraum", "kurz": "Höhe bezogen auf den Standarddruck 1013,25 hPa, in Hundert Fuß: FL 75 = 7500 ft Druckhöhe.", "einfach": "Eine Höhenangabe, bei der alle denselben Bezugswert eingestellt haben – damit sich niemand verrechnet." },
-    { "id": "uebergangshoehe", "begriff": "Übergangshöhe", "lang": "Transition Altitude", "suche": ["Übergangshöhe"], "thema": "luftraum", "kurz": "Höhe, bis zu der mit QNH (Höhe über MSL) geflogen wird; darüber gelten Flugflächen. In Deutschland meist 5000 ft MSL.", "einfach": "Die „Grenze“, ab der alle Piloten ihren Höhenmesser auf denselben Standardwert umstellen." },
-    { "id": "sera", "begriff": "SERA", "lang": "Standardised European Rules of the Air", "suche": ["SERA"], "thema": "luftraum", "kurz": "Europaweit einheitliche Luftverkehrsregeln (Durchführungsverordnung (EU) Nr. 923/2012), z. B. zu Sichtflugbedingungen, Ausweichregeln und Signalen.", "einfach": "Die „Straßenverkehrsordnung“ für den Luftraum in Europa." },
-    { "id": "notam", "begriff": "NOTAM", "lang": "Notice to Airmen", "suche": ["NOTAM"], "thema": "luftraum", "kurz": "Kurzfristige Bekanntmachung für Piloten, z. B. über aktive Sperrgebiete, gesperrte Pisten oder ausgefallene Funkfeuer.", "einfach": "Aktuelle „Verkehrsmeldungen“ für die Luftfahrt – vor jedem Flug lesen." },
-    { "id": "msl", "begriff": "MSL", "lang": "Mean Sea Level – mittlerer Meeresspiegel", "suche": ["MSL"], "thema": "luftraum", "kurz": "Höhe über dem mittleren Meeresspiegel. Mit QNH zeigt der Höhenmesser die Höhe über MSL.", "einfach": "Die Höhe gemessen vom Meer aus – unabhängig davon, wie hoch das Gelände darunter ist." },
-    { "id": "gnd", "begriff": "GND", "lang": "Ground – über Grund", "suche": ["GND"], "thema": "luftraum", "kurz": "Höhe über dem Gelände bzw. dem Boden darunter.", "einfach": "Wie hoch du über dem Boden direkt unter dir bist." },
-    { "id": "halbkreisflugregel", "begriff": "Halbkreisflugregel", "suche": ["Halbkreisflugregel"], "thema": "luftraum", "kurz": "Im Reiseflug mehr als 3000 ft über Grund: missweisender Kurs 000°–179° ungerade Tausender + 500 ft, 180°–359° gerade Tausender + 500 ft.", "einfach": "Ostwärts die ungeraden, westwärts die geraden „Stockwerke“ – so fliegen Gegenkurse nie auf derselben Höhe." },
-    { "id": "vorflug", "begriff": "Vorflug", "suche": ["Vorflug"], "thema": "luftraum", "kurz": "Das Recht, Kurs und Geschwindigkeit beizubehalten, während der andere ausweichen muss. Es entbindet nie von der Pflicht, einen Zusammenstoß zu vermeiden.", "einfach": "Die „Vorfahrt“ in der Luft." },
-    { "id": "pflichtmeldepunkt", "begriff": "Pflichtmeldepunkt", "suche": ["Pflichtmeldepunkt", "Pflichtmeldepunkte"], "thema": "luftraum", "kurz": "Veröffentlichter Punkt, an dem sich ein Pilot immer bei der Flugverkehrskontrolle melden muss (ausgefülltes Dreieck in der Karte).", "einfach": "Ein fester „Kontrollpunkt“, an dem du dich per Funk meldest." },
-    { "id": "ias", "begriff": "IAS", "lang": "Indicated Airspeed – angezeigte Fluggeschwindigkeit", "suche": ["IAS"], "thema": "aerodynamik", "kurz": "Geschwindigkeit, die der Fahrtmesser anzeigt. Sie hängt vom Staudruck ab und ist für das Flugverhalten maßgeblich.", "einfach": "Die Zahl auf deinem Tacho im Cockpit." },
-    { "id": "tas", "begriff": "TAS", "lang": "True Airspeed – Eigengeschwindigkeit", "suche": ["TAS", "Eigengeschwindigkeit"], "thema": "navigation", "kurz": "Tatsächliche Geschwindigkeit gegenüber der umgebenden Luft. In der Höhe größer als die angezeigte Geschwindigkeit.", "einfach": "Wie schnell du dich wirklich durch die Luft bewegst – ohne den Wind zu berücksichtigen." },
-    { "id": "grundgeschwindigkeit", "begriff": "Grundgeschwindigkeit (GS)", "lang": "Ground Speed", "suche": ["Grundgeschwindigkeit", "GS"], "thema": "navigation", "kurz": "Geschwindigkeit über Grund – Eigengeschwindigkeit plus oder minus Wind. Bestimmt die Flugzeit.", "einfach": "Wie schnell du am Boden vorankommst. Gegenwind bremst, Rückenwind schiebt." },
-    { "id": "nautische-meile", "begriff": "Nautische Meile (NM)", "suche": ["nautische Meile", "nautischen Meilen", "nautische Meilen", "nautischen Meile"], "thema": "navigation", "kurz": "Längeneinheit der Luft- und Seefahrt: 1 NM = 1852 m = eine Bogenminute auf einem Meridian.", "einfach": "Etwas weniger als zwei Kilometer – praktisch, weil sie genau zum Gradnetz der Erde passt." },
-    { "id": "knoten", "begriff": "Knoten (kt)", "suche": ["Knoten"], "thema": "navigation", "kurz": "Geschwindigkeitseinheit: 1 kt = 1 NM pro Stunde = 1,852 km/h.", "einfach": "Knoten mal zwei, minus zehn Prozent – dann hast du ungefähr km/h." },
-    { "id": "icao", "begriff": "ICAO", "lang": "International Civil Aviation Organization", "suche": ["ICAO"], "thema": "sprechfunk", "kurz": "Internationale Zivilluftfahrtorganisation der Vereinten Nationen; legt weltweite Standards fest, z. B. das Buchstabieralphabet und die Standardatmosphäre.", "einfach": "Die weltweite „Regel-Behörde“, damit Fliegen überall gleich funktioniert." },
-    { "id": "rufzeichen", "begriff": "Rufzeichen", "suche": ["Rufzeichen"], "thema": "sprechfunk", "kurz": "Name, mit dem sich ein Luftfahrzeug im Funk meldet – meist das Kennzeichen, z. B. D-EKLM.", "einfach": "Der „Name“ deines Flugzeugs am Funk." },
-    { "id": "transponder", "begriff": "Transponder", "suche": ["Transponder", "Transpondercode", "Transpondercodes"], "thema": "sprechfunk", "kurz": "Gerät, das auf Radarabfragen antwortet und einen vierstelligen Code (und meist die Höhe) sendet. VFR ohne zugeteilten Code: 7000.", "einfach": "Ein „Namensschild fürs Radar“: Es macht dein Flugzeug auf dem Radarschirm mit Kennung und Höhe sichtbar." },
-    { "id": "mayday", "begriff": "MAYDAY", "suche": ["MAYDAY"], "thema": "sprechfunk", "kurz": "Notsignal im Sprechfunk (dreimal gesprochen) bei schwerer, unmittelbarer Gefahr, wenn sofortige Hilfe nötig ist.", "einfach": "Der Notruf der Luftfahrt – wie die 112." },
-    { "id": "panpan", "begriff": "PAN PAN", "suche": ["PAN PAN"], "thema": "sprechfunk", "kurz": "Dringlichkeitssignal (dreimal gesprochen): Die Sicherheit ist gefährdet, sofortige Hilfe aber nicht nötig.", "einfach": "„Ich habe ein ernstes Problem, aber noch keine Lebensgefahr.“" },
-    { "id": "zuruecklesen", "begriff": "Zurücklesen", "lang": "Readback", "suche": ["zurücklesen", "Zurücklesen", "zurückgelesen"], "thema": "sprechfunk", "kurz": "Wichtige Teile von Freigaben und Anweisungen wörtlich wiederholen, damit Missverständnisse auffallen – mit dem eigenen Rufzeichen am Ende.", "einfach": "Wie beim Bestellen am Telefon: „Also zwei Pizzen, eine mit Salami?“ – so merkt man sofort, ob alles richtig angekommen ist." },
-    { "id": "atis", "begriff": "ATIS", "lang": "Automatic Terminal Information Service", "suche": ["ATIS"], "thema": "sprechfunk", "kurz": "Laufend wiederholte Bandansage eines Flughafens mit Wetter, Piste in Benutzung und wichtigen Hinweisen; jede Ausgabe hat einen Kennbuchstaben.", "einfach": "Eine Art Anrufbeantworter mit allen wichtigen Infos zum Flughafen." },
-    { "id": "rwk", "begriff": "Rechtweisender Kurs (rwK)", "lang": "True Course", "suche": ["rechtweisender Kurs", "rechtweisenden Kurs", "rwK"], "thema": "navigation", "kurz": "Kurs bezogen auf geografisch Nord – so wird er auf der Karte gemessen.", "einfach": "Die Richtung zum Ziel, gemessen am „echten“ Nordpol." },
-    { "id": "mwk", "begriff": "Missweisender Kurs (mwK)", "lang": "Magnetic Course", "suche": ["missweisender Kurs", "missweisenden Kurs", "mwK"], "thema": "navigation", "kurz": "Kurs bezogen auf magnetisch Nord: rwK minus Missweisung (Ost abziehen, West dazuzählen).", "einfach": "Die Richtung zum Ziel, so wie der Kompass „denkt“." },
-    { "id": "missweisung", "begriff": "Missweisung", "lang": "Variation", "suche": ["Missweisung"], "thema": "navigation", "kurz": "Winkel zwischen geografisch Nord und magnetisch Nord; in Deutschland derzeit wenige Grad Ost.", "einfach": "Der Kompass zeigt nicht genau zum Nordpol, sondern ein Stück daneben. Diese Abweichung heißt Missweisung." },
-    { "id": "deviation", "begriff": "Deviation", "suche": ["Deviation"], "thema": "navigation", "kurz": "Ablenkung des Magnetkompasses durch das Flugzeug selbst (Metall, Elektrik); steht in der Deviationstabelle.", "einfach": "Das Flugzeug „stört“ seinen eigenen Kompass ein wenig – wie ein Magnet in der Nähe." },
-    { "id": "isogone", "begriff": "Isogone", "suche": ["Isogone", "Isogonen"], "thema": "navigation", "kurz": "Linie gleicher Missweisung auf der Luftfahrtkarte.", "einfach": "Eine Linie auf der Karte, an der überall dieselbe Kompassabweichung gilt." },
-    { "id": "luvwinkel", "begriff": "Luvwinkel (WCA)", "lang": "Wind Correction Angle", "suche": ["Luvwinkel", "WCA"], "thema": "navigation", "kurz": "Winkel, um den man gegen den Wind vorhält, damit man trotz Seitenwind auf Kurs bleibt.", "einfach": "Wie beim Schwimmen durch einen Fluss: Du schwimmst leicht schräg gegen die Strömung, um gerade drüben anzukommen." },
-    { "id": "steuerkurs", "begriff": "Steuerkurs", "suche": ["Steuerkurs"], "thema": "navigation", "kurz": "Richtung, in die die Flugzeugnase zeigt – Kurs plus oder minus Luvwinkel.", "einfach": "Wohin die Nase zeigt – bei Seitenwind ist das nicht genau dorthin, wohin du fliegst." },
-    { "id": "grosskreis", "begriff": "Großkreis", "suche": ["Großkreis", "Großkreise", "Großkreisbogen"], "thema": "navigation", "kurz": "Kreis auf der Erdoberfläche, dessen Mittelpunkt der Erdmittelpunkt ist; sein Bogen ist die kürzeste Verbindung zweier Orte.", "einfach": "Der kürzeste Weg über eine Kugel – auf einem Globus mit einer gespannten Schnur leicht zu finden." },
-    { "id": "loxodrome", "begriff": "Loxodrome", "suche": ["Loxodrome"], "thema": "navigation", "kurz": "Linie, die alle Meridiane unter demselben Winkel schneidet – mit konstantem Kurs zu fliegen, aber etwas länger als der Großkreis.", "einfach": "Der Weg mit immer gleichem Kompasskurs – bequem, aber nicht der kürzeste." },
-    { "id": "meridian", "begriff": "Meridian", "suche": ["Meridian", "Meridiane", "Meridianen"], "thema": "navigation", "kurz": "Längenkreis von Pol zu Pol; an ihm misst man auf der Karte den Kurs.", "einfach": "Eine gedachte Linie vom Nord- zum Südpol – wie die Nähte eines Wasserballs." },
-    { "id": "vor", "begriff": "VOR", "lang": "UKW-Drehfunkfeuer", "suche": ["VOR"], "thema": "navigation", "kurz": "Funkfeuer, das jedem Kurs vom Sender weg ein eigenes Signal (Radial) zuordnet; im Cockpit sieht man, auf welchem Radial man sich befindet.", "einfach": "Wie ein Leuchtturm, der in jede Richtung eine andere „Farbe“ sendet – so weißt du, in welcher Richtung vom Turm du bist." },
-    { "id": "dme", "begriff": "DME", "lang": "Distance Measuring Equipment", "suche": ["DME"], "thema": "navigation", "kurz": "Entfernungsmessgerät: zeigt die Schrägentfernung zur Bodenstation in nautischen Meilen.", "einfach": "Ein Funk-„Maßband“ zur Bodenstation." },
-    { "id": "ndb", "begriff": "NDB", "lang": "Non-Directional Beacon", "suche": ["NDB"], "thema": "navigation", "kurz": "Ungerichtetes Funkfeuer; mit dem Radiokompass (ADF) zeigt eine Nadel die Richtung zum Sender.", "einfach": "Ein Sender, auf den eine Nadel im Cockpit einfach zeigt." },
-    { "id": "lambert", "begriff": "Lambertsche Schnittkegelprojektion", "suche": ["Lambertscher Schnittkegelprojektion", "Lambertsche Schnittkegelprojektion"], "thema": "navigation", "kurz": "Kartenprojektion der ICAO-Karte: winkeltreu, Großkreise nahezu gerade, Maßstab nahezu gleich.", "einfach": "Ein Trick, die runde Erde so flach abzubilden, dass man Kurse direkt mit dem Geodreieck messen kann." },
-    { "id": "mtom", "begriff": "Höchstzulässige Startmasse (MTOM)", "lang": "Maximum Take-Off Mass", "suche": ["MTOM", "höchstzulässige Startmasse", "höchstzulässigen Startmasse"], "thema": "masse-schwerpunkt", "kurz": "Größte Masse, mit der ein Luftfahrzeug starten darf – steht im Flughandbuch.", "einfach": "Wie das zulässige Gesamtgewicht beim Auto oder Anhänger – nur noch wichtiger." },
-    { "id": "leermasse", "begriff": "Leermasse", "suche": ["Leermasse"], "thema": "masse-schwerpunkt", "kurz": "Masse des leeren Flugzeugs laut Wägebericht; was genau dazugehört, regelt das Flughandbuch.", "einfach": "Was das Flugzeug „nackt“ wiegt, bevor Menschen, Gepäck und Sprit dazukommen." },
-    { "id": "hebelarm", "begriff": "Hebelarm", "suche": ["Hebelarm", "Hebelarme"], "thema": "masse-schwerpunkt", "kurz": "Abstand einer Last von der Bezugsebene.", "einfach": "Wie weit etwas vom Drehpunkt der Wippe entfernt sitzt." },
-    { "id": "moment", "begriff": "Moment", "suche": ["Moment", "Momente", "Momenten"], "thema": "masse-schwerpunkt", "kurz": "Masse mal Hebelarm (z. B. in kg·m) – beschreibt, wie stark eine Last das Flugzeug um die Querachse dreht.", "einfach": "Wie stark etwas die Wippe nach unten drückt – Gewicht und Abstand zusammen." },
-    { "id": "schwerpunkt", "begriff": "Schwerpunkt", "suche": ["Schwerpunkt"], "thema": "masse-schwerpunkt", "kurz": "Punkt, in dem man sich die gesamte Masse vereint denken kann. Er muss im Bereich des Flughandbuchs liegen.", "einfach": "Der Punkt, an dem das Flugzeug im Gleichgewicht wäre, wenn man es dort auf einen Finger stellen könnte." },
-    { "id": "bezugsebene", "begriff": "Bezugsebene", "suche": ["Bezugsebene"], "thema": "masse-schwerpunkt", "kurz": "Festgelegte Linie (im Flughandbuch), von der aus alle Hebelarme gemessen werden.", "einfach": "Der „Nullpunkt“ des Lineals, mit dem alle Abstände gemessen werden." },
-    { "id": "huellkurve", "begriff": "Hüllkurve", "suche": ["Hüllkurve"], "thema": "masse-schwerpunkt", "kurz": "Diagramm des zulässigen Bereichs aus Masse und Schwerpunkt; der Punkt der Beladung muss darin liegen.", "einfach": "Ein „Sicherheitsrahmen“: Liegt dein Punkt darin, ist die Beladung in Ordnung." },
-    { "id": "avgas", "begriff": "AVGAS", "suche": ["AVGAS"], "thema": "masse-schwerpunkt", "kurz": "Flugbenzin für Kolbenmotoren; Dichte etwa 0,72 kg pro Liter.", "einfach": "Das „Superbenzin“ fürs Flugzeug – ein Liter wiegt etwa 0,72 kg." },
-    { "id": "flughandbuch", "begriff": "Flughandbuch", "suche": ["Flughandbuch"], "thema": "masse-schwerpunkt", "kurz": "Verbindliches Handbuch eines Luftfahrzeugs mit Grenzwerten, Verfahren und Leistungsdaten.", "einfach": "Die Bedienungsanleitung des Flugzeugs – aber eine, die man wirklich befolgen muss." },
-    { "id": "anstellwinkel", "begriff": "Anstellwinkel", "suche": ["Anstellwinkel"], "thema": "aerodynamik", "kurz": "Winkel zwischen Profilsehne und Anströmung. Er bestimmt den Auftriebsbeiwert – bis zum kritischen Anstellwinkel.", "einfach": "Wie stark du die Hand aus dem Autofenster gegen den Fahrtwind kippst." },
-    { "id": "einstellwinkel", "begriff": "Einstellwinkel", "suche": ["Einstellwinkel"], "thema": "aerodynamik", "kurz": "Fester Winkel, mit dem der Flügel am Rumpf angebaut ist – nicht zu verwechseln mit dem Anstellwinkel.", "einfach": "Wie schräg der Flügel ab Werk angeschraubt ist." },
-    { "id": "profilsehne", "begriff": "Profilsehne", "suche": ["Profilsehne"], "thema": "aerodynamik", "kurz": "Gedachte gerade Linie von der Vorderkante zur Hinterkante des Flügelprofils.", "einfach": "Ein Lineal von vorn nach hinten durch den Flügelquerschnitt." },
-    { "id": "auftrieb", "begriff": "Auftrieb", "suche": ["Auftrieb"], "thema": "aerodynamik", "kurz": "Kraft senkrecht zur Anströmung, die am Flügel entsteht und das Flugzeug trägt: A = cA · ½ ρ v² · S.", "einfach": "Die Kraft, die das Flugzeug nach oben hält – wie die Hand, die aus dem Autofenster nach oben gedrückt wird." },
-    { "id": "auftriebsbeiwert", "begriff": "Auftriebsbeiwert (cA)", "suche": ["Auftriebsbeiwert"], "thema": "aerodynamik", "kurz": "Zahl, die angibt, wie viel Auftrieb ein Profil bei einem bestimmten Anstellwinkel erzeugt.", "einfach": "Ein „Wirkungsgrad“ des Flügels – je größer, desto mehr Auftrieb bei gleicher Geschwindigkeit." },
-    { "id": "staudruck", "begriff": "Staudruck", "suche": ["Staudruck"], "thema": "aerodynamik", "kurz": "½ ρ v² – der Druck, den die anströmende Luft ausübt. Der Fahrtmesser misst ihn.", "einfach": "Wie stark die Luft gegen das Flugzeug „drückt“ – je schneller, desto mehr." },
-    { "id": "bernoulli", "begriff": "Bernoulli", "suche": ["Bernoulli"], "thema": "aerodynamik", "kurz": "Gesetz: Wo eine Strömung schneller wird, sinkt ihr statischer Druck.", "einfach": "Schnelle Luft „drückt“ weniger zur Seite – deshalb entsteht über dem Flügel ein Sog." },
-    { "id": "induzierter-widerstand", "begriff": "Induzierter Widerstand", "suche": ["induzierter Widerstand", "induzierte Widerstand", "induzierten Widerstand", "Induzierter Widerstand"], "thema": "aerodynamik", "kurz": "Widerstand, der mit dem Auftrieb entsteht (Randwirbel). Am größten im Langsamflug bei großem Anstellwinkel.", "einfach": "Der „Preis“ fürs Tragen: Je härter der Flügel arbeiten muss, desto mehr bremst er." },
-    { "id": "schaedlicher-widerstand", "begriff": "Schädlicher Widerstand", "suche": ["schädlicher Widerstand", "schädliche Widerstand", "schädlichen Widerstand"], "thema": "aerodynamik", "kurz": "Form-, Reibungs- und Interferenzwiderstand; wächst mit dem Quadrat der Geschwindigkeit.", "einfach": "Der Luftwiderstand, den du beim schnellen Radfahren im Gesicht spürst." },
-    { "id": "randwirbel", "begriff": "Randwirbel", "suche": ["Randwirbel"], "thema": "aerodynamik", "kurz": "Wirbel an den Flügelspitzen, weil Luft von der Unter- zur Oberseite strömt; Ursache des induzierten Widerstands und der Wirbelschleppen.", "einfach": "Kleine Luftstrudel an den Flügelenden – wie Strudel hinter einem Ruderblatt im Wasser." },
-    { "id": "streckung", "begriff": "Streckung", "suche": ["Streckung"], "thema": "aerodynamik", "kurz": "Verhältnis von Spannweite zu Flügeltiefe. Große Streckung (lange, schlanke Flügel) verringert den induzierten Widerstand.", "einfach": "Wie lang und schlank ein Flügel ist – Segelflugzeuge haben besonders lange Flügel." },
-    { "id": "gleitzahl", "begriff": "Gleitzahl", "suche": ["Gleitzahl"], "thema": "aerodynamik", "kurz": "Verhältnis von Gleitstrecke zu Höhenverlust (z. B. 1 : 30); entspricht Auftrieb ÷ Widerstand.", "einfach": "Wie viele Meter du nach vorn kommst, wenn du einen Meter sinkst." },
-    { "id": "stroemungsabriss", "begriff": "Strömungsabriss", "suche": ["Strömungsabriss"], "thema": "aerodynamik", "kurz": "Beim Überschreiten des kritischen Anstellwinkels kann die Luft der Profiloberseite nicht mehr folgen: Der Auftrieb bricht ein.", "einfach": "Kippst du die Hand im Fahrtwind zu steil, wird sie nicht mehr hochgedrückt, sondern flattert nur noch." },
-    { "id": "lastvielfaches", "begriff": "Lastvielfaches", "suche": ["Lastvielfaches", "Lastvielfache", "Lastvielfachen"], "thema": "aerodynamik", "kurz": "Verhältnis von Auftrieb zu Gewicht (in g). Im Kurvenflug n = 1 ÷ cos(Querlage), bei 60° also 2.", "einfach": "Wie viel schwerer du dich fühlst – in einer steilen Kurve wirst du in den Sitz gedrückt." },
-    { "id": "trudeln", "begriff": "Trudeln", "suche": ["Trudeln", "trudelt"], "thema": "aerodynamik", "kurz": "Überzogener Flugzustand mit Drehung um die Hochachse: Das Flugzeug dreht sich in einer steilen Spirale nach unten.", "einfach": "Das Flugzeug fällt wie ein trudelndes Ahornblatt – nur mit dem richtigen Verfahren kommt man wieder heraus." },
-    { "id": "wendemoment", "begriff": "Negatives Wendemoment", "suche": ["negatives Wendemoment", "negative Wendemoment", "Negatives Wendemoment"], "thema": "aerodynamik", "kurz": "Beim Querruderausschlag giert das Flugzeug kurz gegen die Kurvenrichtung, weil das nach unten ausschlagende Ruder mehr Widerstand erzeugt.", "einfach": "Das Flugzeug „schaut“ kurz in die falsche Richtung, wenn du die Kurve beginnst – das Seitenruder korrigiert das." },
-    { "id": "trimmung", "begriff": "Trimmung", "suche": ["Trimmung"], "thema": "aerodynamik", "kurz": "Einstellung, mit der die Ruderkräfte so ausgeglichen werden, dass das Flugzeug ohne Kraft am Steuer in der gewünschten Lage bleibt.", "einfach": "Wie der Tempomat fürs Höhenruder: Einmal eingestellt, musst du nicht mehr ständig drücken oder ziehen." },
-    { "id": "bodeneffekt", "begriff": "Bodeneffekt", "suche": ["Bodeneffekt"], "thema": "aerodynamik", "kurz": "Bis etwa eine Spannweite über dem Boden sinkt der induzierte Widerstand – das Flugzeug schwebt länger.", "einfach": "Kurz über dem Boden trägt die Luft zwischen Flügel und Boden wie ein Polster." },
-    { "id": "wirbelschleppe", "begriff": "Wirbelschleppe", "suche": ["Wirbelschleppe", "Wirbelschleppen"], "thema": "aerodynamik", "kurz": "Zwei kräftige Wirbel hinter jedem Flugzeug, die absinken und mit dem Wind treiben; bei schweren, langsamen Flugzeugen besonders stark.", "einfach": "Unsichtbare Luftstrudel hinter einem Flugzeug – wie die Wellen hinter einem großen Schiff, die ein kleines Boot umwerfen können." },
-    { "id": "vx", "begriff": "Vx", "suche": ["Vx"], "thema": "aerodynamik", "kurz": "Geschwindigkeit des besten Steigwinkels – größter Höhengewinn pro Strecke, z. B. um ein Hindernis zu überfliegen.", "einfach": "Möglichst steil nach oben." },
-    { "id": "vy", "begriff": "Vy", "suche": ["Vy"], "thema": "aerodynamik", "kurz": "Geschwindigkeit der besten Steigrate – größter Höhengewinn pro Zeit.", "einfach": "Möglichst schnell nach oben." },
-    { "id": "landeklappen", "begriff": "Landeklappen", "suche": ["Landeklappen"], "thema": "aerodynamik", "kurz": "Klappen an der Flügelhinterkante, die die Wölbung vergrößern: mehr Auftrieb, mehr Widerstand, geringere Überziehgeschwindigkeit.", "einfach": "Damit macht man den Flügel „bauchiger“ – so kann man langsamer und steiler landen." },
-    { "id": "signalflaeche", "begriff": "Signalfläche", "suche": ["Signalfläche"], "thema": "signale", "kurz": "Gut aus der Luft sichtbare Fläche auf einem Flugplatz, auf der Bodensignale ausgelegt werden.", "einfach": "Das große „Hinweisschild“ am Boden für Piloten ohne Funk." }
+    {
+      "id": "metar",
+      "begriff": "METAR",
+      "lang": "Meteorological Aerodrome Report",
+      "suche": [
+        "METAR",
+        "METARs"
+      ],
+      "thema": "metar",
+      "kurz": "Routinemäßige Wettermeldung eines Flugplatzes mit dem aktuellen Wetter, an großen Plätzen meist alle 30 Minuten.",
+      "einfach": "Wie eine SMS vom Flugplatz: So ist das Wetter hier gerade – kurz, verschlüsselt und immer im gleichen Aufbau."
+    },
+    {
+      "id": "speci",
+      "begriff": "SPECI",
+      "suche": [
+        "SPECI"
+      ],
+      "thema": "metar",
+      "kurz": "Sonder-Wettermeldung, die zwischen den Routinemeldungen erscheinen kann, wenn sich das Wetter deutlich ändert.",
+      "einfach": "Eine Eilmeldung zwischendurch, wenn das Wetter plötzlich umschlägt."
+    },
+    {
+      "id": "taf",
+      "begriff": "TAF",
+      "lang": "Terminal Aerodrome Forecast",
+      "suche": [
+        "TAF"
+      ],
+      "thema": "metar",
+      "kurz": "Wettervorhersage für einen Flugplatz über mehrere Stunden, ähnlich verschlüsselt wie ein METAR.",
+      "einfach": "Das METAR sagt, wie das Wetter jetzt ist – der TAF, wie es in den nächsten Stunden werden soll."
+    },
+    {
+      "id": "cavok",
+      "begriff": "CAVOK",
+      "lang": "Ceiling And Visibility OK",
+      "suche": [
+        "CAVOK"
+      ],
+      "thema": "metar",
+      "kurz": "Sicht 10 km oder mehr, keine Wolken unter 5000 ft (bzw. unter der höchsten Mindestsektorhöhe), keine CB oder TCU und kein signifikantes Wetter.",
+      "einfach": "Kurz gesagt: Bestes Sichtflugwetter. Aber Vorsicht – CAVOK heißt nicht wolkenlos, weiter oben kann es Wolken geben."
+    },
+    {
+      "id": "nosig",
+      "begriff": "NOSIG",
+      "suche": [
+        "NOSIG"
+      ],
+      "thema": "metar",
+      "kurz": "Trendangabe im METAR: In den nächsten 2 Stunden wird keine wesentliche Änderung erwartet.",
+      "einfach": "„Bleibt so“ – fürs nächste Stündchen ändert sich nichts Wichtiges."
+    },
+    {
+      "id": "becmg",
+      "begriff": "BECMG",
+      "lang": "becoming",
+      "suche": [
+        "BECMG"
+      ],
+      "thema": "metar",
+      "kurz": "Trendangabe: Das Wetter ändert sich dauerhaft zu den folgenden Werten.",
+      "einfach": "„Wird zu …“ – danach bleibt es beim neuen Wetter."
+    },
+    {
+      "id": "tempo",
+      "begriff": "TEMPO",
+      "lang": "temporary",
+      "suche": [
+        "TEMPO"
+      ],
+      "thema": "metar",
+      "kurz": "Trendangabe: Die folgenden Werte treten nur vorübergehend auf, jeweils weniger als eine Stunde und insgesamt weniger als die Hälfte des Zeitraums.",
+      "einfach": "„Zwischendurch mal …“ – zum Beispiel ein kurzer Schauer, danach ist es wieder wie vorher."
+    },
+    {
+      "id": "trend",
+      "begriff": "Trend",
+      "suche": [
+        "Trend"
+      ],
+      "thema": "metar",
+      "kurz": "Kurze Landewettervorhersage am Ende eines METARs für die nächsten 2 Stunden (NOSIG, BECMG oder TEMPO).",
+      "einfach": "Ein kleiner Blick in die Zukunft am Ende der Wettermeldung.",
+      "en": "trend forecast"
+    },
+    {
+      "id": "utc",
+      "begriff": "UTC",
+      "lang": "koordinierte Weltzeit",
+      "suche": [
+        "UTC"
+      ],
+      "thema": "navigation",
+      "kurz": "Weltweit einheitliche Zeit der Luftfahrt (auch „Z“ oder „Zulu“). In Deutschland: MEZ = UTC + 1 h, MESZ = UTC + 2 h.",
+      "einfach": "Damit Piloten auf der ganzen Welt dieselbe Uhrzeit meinen, rechnet die Luftfahrt immer in UTC – egal, welche Zeitzone gerade gilt."
+    },
+    {
+      "id": "qnh",
+      "begriff": "QNH",
+      "suche": [
+        "QNH"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Luftdruck, auf Meereshöhe umgerechnet. Mit dem QNH eingestellt zeigt der Höhenmesser die Höhe über dem Meeresspiegel – am Boden also die Platzhöhe.",
+      "einfach": "Wie das Nullstellen einer Waage: Du stellst den aktuellen Luftdruck ein, damit der Höhenmesser richtig anzeigt."
+    },
+    {
+      "id": "qfe",
+      "begriff": "QFE",
+      "suche": [
+        "QFE"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Luftdruck in Platzhöhe. Mit dem QFE eingestellt zeigt der Höhenmesser am Boden null und im Flug die Höhe über dem Flugplatz.",
+      "einfach": "Damit misst der Höhenmesser, wie hoch du über dem Flugplatz bist – nicht über dem Meer."
+    },
+    {
+      "id": "hauptwolkenuntergrenze",
+      "begriff": "Hauptwolkenuntergrenze",
+      "lang": "Ceiling",
+      "suche": [
+        "Hauptwolkenuntergrenze",
+        "Ceiling"
+      ],
+      "thema": "metar",
+      "kurz": "Höhe der niedrigsten Wolkenschicht mit BKN oder OVC (mehr als die Hälfte des Himmels bedeckt) unter 20 000 ft.",
+      "einfach": "Die „Zimmerdecke“ aus Wolken: Ab hier ist der Himmel so dicht bedeckt, dass du nicht mehr einfach hindurchfliegen darfst.",
+      "en": "ceiling"
+    },
+    {
+      "id": "bedeckungsgrad",
+      "begriff": "Bedeckungsgrad",
+      "suche": [
+        "Bedeckungsgrad",
+        "Achtel"
+      ],
+      "thema": "metar",
+      "kurz": "Wie viel des Himmels von einer Wolkenschicht bedeckt ist, angegeben in Achteln: FEW 1–2, SCT 3–4, BKN 5–7, OVC 8.",
+      "einfach": "Stell dir den Himmel wie eine Pizza mit acht Stücken vor: Die Achtel sagen, wie viele Stücke mit Wolken belegt sind.",
+      "en": "cloud amount"
+    },
+    {
+      "id": "few",
+      "begriff": "FEW",
+      "suche": [
+        "FEW"
+      ],
+      "thema": "metar",
+      "kurz": "Wenige Wolken: 1 bis 2 Achtel des Himmels bedeckt.",
+      "einfach": "Ein paar einzelne Wolken."
+    },
+    {
+      "id": "sct",
+      "begriff": "SCT",
+      "lang": "scattered",
+      "suche": [
+        "SCT"
+      ],
+      "thema": "metar",
+      "kurz": "Aufgelockerte Bewölkung: 3 bis 4 Achtel bedeckt.",
+      "einfach": "Etwa halb bewölkt – aber noch mit viel Platz dazwischen."
+    },
+    {
+      "id": "bkn",
+      "begriff": "BKN",
+      "lang": "broken",
+      "suche": [
+        "BKN"
+      ],
+      "thema": "metar",
+      "kurz": "Durchbrochene Bewölkung: 5 bis 7 Achtel bedeckt. Die niedrigste BKN-Schicht ist meist die Hauptwolkenuntergrenze.",
+      "einfach": "Mehr Wolken als Lücken – fast eine geschlossene Decke."
+    },
+    {
+      "id": "ovc",
+      "begriff": "OVC",
+      "lang": "overcast",
+      "suche": [
+        "OVC"
+      ],
+      "thema": "metar",
+      "kurz": "Bedeckt: 8 Achtel, der Himmel ist vollständig mit Wolken überzogen.",
+      "einfach": "Komplett grau – kein Stück blauer Himmel."
+    },
+    {
+      "id": "cb",
+      "begriff": "CB",
+      "lang": "Cumulonimbus",
+      "suche": [
+        "CB",
+        "Cumulonimbus"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Gewitterwolke: mächtige Quellwolke, die bis in große Höhen reicht, oft mit Amboss. Bringt Schauer, Gewitter, Hagel, Böen und starke Turbulenz.",
+      "einfach": "Der „Riese“ unter den Wolken – ein Turm, der oft über 10 km hoch reicht. Von ihm hält man großen Abstand."
+    },
+    {
+      "id": "tcu",
+      "begriff": "TCU",
+      "lang": "Towering Cumulus",
+      "suche": [
+        "TCU"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Mächtige, hoch aufgetürmte Quellwolke – kann sich zu einem Gewitter entwickeln.",
+      "einfach": "Eine Quellwolke, die gerade kräftig wächst – vielleicht ein Gewitter im Werden."
+    },
+    {
+      "id": "vertikalsicht",
+      "begriff": "Vertikalsicht",
+      "suche": [
+        "Vertikalsicht",
+        "VV"
+      ],
+      "thema": "metar",
+      "kurz": "Sicht senkrecht nach oben, wenn der Himmel z. B. wegen Nebel nicht erkennbar ist. Im METAR als VV in Hundert Fuß.",
+      "einfach": "Im Nebel sieht man keine einzelnen Wolken – nur, wie weit man nach oben schauen kann.",
+      "en": "vertical visibility (VV)"
+    },
+    {
+      "id": "rvr",
+      "begriff": "Pistensichtweite (RVR)",
+      "lang": "Runway Visual Range",
+      "suche": [
+        "Pistensichtweite",
+        "RVR"
+      ],
+      "thema": "metar",
+      "kurz": "Wie weit ein Pilot auf der Piste die Markierungen oder Befeuerung sehen kann; gemeldet, wenn Sicht oder RVR unter 1500 m liegen.",
+      "einfach": "Die Sicht genau dort, wo es darauf ankommt: auf der Piste beim Starten und Landen.",
+      "en": "runway visual range (RVR)"
+    },
+    {
+      "id": "bodensicht",
+      "begriff": "Bodensicht",
+      "suche": [
+        "Bodensicht"
+      ],
+      "thema": "luftraum",
+      "kurz": "Am Flugplatz beobachtete oder gemessene Sicht. Sie steht im METAR.",
+      "einfach": "So weit sieht man am Boden auf dem Flugplatz.",
+      "en": "ground visibility"
+    },
+    {
+      "id": "flugsicht",
+      "begriff": "Flugsicht",
+      "suche": [
+        "Flugsicht"
+      ],
+      "thema": "luftraum",
+      "kurz": "Sicht aus dem Cockpit in Flugrichtung – sie schätzt der Pilot im Flug selbst ein.",
+      "einfach": "So weit siehst du aus deinem Cockpitfenster nach vorn.",
+      "en": "flight visibility"
+    },
+    {
+      "id": "spread",
+      "begriff": "Spread",
+      "suche": [
+        "Spread"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Abstand zwischen Temperatur und Taupunkt. Je kleiner der Spread, desto feuchter die Luft – bei sehr kleinem Spread droht Nebel.",
+      "einfach": "Wie viel „Platz“ die Luft noch für Feuchtigkeit hat. Ist kaum noch Platz, läuft sie bald über: Nebel oder Wolken.",
+      "en": "dew point spread"
+    },
+    {
+      "id": "taupunkt",
+      "begriff": "Taupunkt",
+      "suche": [
+        "Taupunkt"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Temperatur, auf die Luft abkühlen muss, damit sie mit Wasserdampf gesättigt ist und Wasser kondensiert.",
+      "einfach": "Wie bei einer kalten Flasche aus dem Kühlschrank, die außen beschlägt: Kühlt Luft bis zum Taupunkt ab, wird aus unsichtbarem Wasserdampf sichtbares Wasser.",
+      "en": "dew point"
+    },
+    {
+      "id": "boeen",
+      "begriff": "Böen",
+      "suche": [
+        "Böen",
+        "Böe"
+      ],
+      "thema": "metar",
+      "kurz": "Kurzzeitige Windspitzen. Im METAR gemeldet (G), wenn sie den Mittelwind um mindestens 10 kt übersteigen.",
+      "einfach": "Plötzliche Windstöße – wie wenn jemand kurz eine Tür aufreißt.",
+      "en": "gusts"
+    },
+    {
+      "id": "isa",
+      "begriff": "ISA",
+      "lang": "ICAO-Standardatmosphäre",
+      "suche": [
+        "ISA",
+        "Standardatmosphäre",
+        "ICAO-Standardatmosphäre"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Gedachte Normatmosphäre: 15 °C und 1013,25 hPa auf Meereshöhe, Temperaturabnahme 2 °C je 1000 ft bis etwa 11 km. Bezugsgröße für Höhenmesser und Flugleistungen.",
+      "einfach": "Ein „Durchschnittswetter“, auf das sich alle Instrumente und Handbücher beziehen – damit man vergleichen kann.",
+      "en": "International Standard Atmosphere (ISA)"
+    },
+    {
+      "id": "troposphaere",
+      "begriff": "Troposphäre",
+      "suche": [
+        "Troposphäre"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Unterste Schicht der Atmosphäre, in der sich fast das ganze Wetter abspielt; reicht in unseren Breiten bis etwa 11 km.",
+      "einfach": "Das „Erdgeschoss“ der Lufthülle – hier gibt es Wolken, Regen und Wind.",
+      "en": "troposphere"
+    },
+    {
+      "id": "tropopause",
+      "begriff": "Tropopause",
+      "suche": [
+        "Tropopause"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Obergrenze der Troposphäre (bei uns etwa 11 km). Darüber nimmt die Temperatur nicht mehr ab.",
+      "einfach": "Die „Decke“ über dem Wetter – Gewitterwolken breiten sich darunter zum Amboss aus.",
+      "en": "tropopause"
+    },
+    {
+      "id": "druckhoehe",
+      "begriff": "Druckhöhe",
+      "suche": [
+        "Druckhöhe"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Höhe in der Standardatmosphäre, die zum gemessenen Luftdruck passt – der Höhenmesser zeigt sie mit 1013,25 hPa eingestellt an.",
+      "einfach": "Die Höhe, die der Höhenmesser anzeigen würde, wenn überall Normalwetter wäre.",
+      "en": "pressure altitude"
+    },
+    {
+      "id": "dichtehoehe",
+      "begriff": "Dichtehöhe",
+      "suche": [
+        "Dichtehöhe"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Druckhöhe, korrigiert um die Temperatur. Bei warmer Luft ist sie höher – das Flugzeug leistet so wenig, als wäre es höher.",
+      "einfach": "Wie „hoch“ sich die Luft für dein Flugzeug anfühlt. An heißen Tagen fühlt sich ein Flugplatz deutlich höher an, als er ist.",
+      "en": "density altitude"
+    },
+    {
+      "id": "adiabatisch",
+      "begriff": "trocken- und feuchtadiabatisch",
+      "suche": [
+        "trockenadiabatisch",
+        "feuchtadiabatisch"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Aufsteigende Luft kühlt sich ab: ungesättigt (trockenadiabatisch) um 1 °C je 100 m, gesättigt (feuchtadiabatisch) um etwa 0,6 °C je 100 m.",
+      "einfach": "Wie die Luft aus einer Fahrradpumpe, nur umgekehrt: Steigt Luft auf, dehnt sie sich aus und wird dabei kälter.",
+      "en": "dry and saturated adiabatic lapse rate"
+    },
+    {
+      "id": "labil",
+      "begriff": "Labile Schichtung",
+      "suche": [
+        "labil",
+        "labile",
+        "labiler"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Luft, in der ein angestoßenes Luftpaket von selbst weiter aufsteigt. Folge: Quellwolken, Schauer, Gewitter, Turbulenz.",
+      "einfach": "Wie ein Heißluftballon, der einmal angestoßen von allein immer weiter steigt.",
+      "en": "unstable stratification"
+    },
+    {
+      "id": "isobare",
+      "begriff": "Isobaren",
+      "suche": [
+        "Isobaren",
+        "Isobare"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Linien gleichen Luftdrucks auf der Wetterkarte. Je enger sie liegen, desto stärker der Wind.",
+      "einfach": "Wie Höhenlinien beim Wandern – nur für den Luftdruck. Dicht beieinander heißt „steil“, also viel Wind.",
+      "en": "isobars"
+    },
+    {
+      "id": "coriolis",
+      "begriff": "Corioliskraft",
+      "suche": [
+        "Corioliskraft"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Scheinbare Ablenkung bewegter Luft durch die Erddrehung – auf der Nordhalbkugel nach rechts.",
+      "einfach": "Wirfst du auf einem drehenden Karussell einen Ball, fliegt er scheinbar in einer Kurve. Genauso wird der Wind durch die drehende Erde abgelenkt.",
+      "en": "Coriolis force"
+    },
+    {
+      "id": "buysballot",
+      "begriff": "Regel von Buys-Ballot",
+      "suche": [
+        "Buys-Ballot"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Auf der Nordhalbkugel gilt: Mit dem Rücken zum Wind liegt das Tief links vor dir.",
+      "einfach": "Eine Faustregel, mit der du ohne Wetterkarte erkennst, wo das Tiefdruckgebiet liegt.",
+      "en": "Buys Ballot's law"
+    },
+    {
+      "id": "foehn",
+      "begriff": "Föhn",
+      "suche": [
+        "Föhn"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Warmer, trockener Fallwind auf der Leeseite eines Gebirges, oft mit starker Turbulenz, Rotoren und Lentikulariswolken.",
+      "einfach": "Die Luft regnet sich auf der einen Bergseite ab und fällt auf der anderen Seite warm und trocken herunter – wie aus einem Haartrockner.",
+      "en": "foehn"
+    },
+    {
+      "id": "warmfront",
+      "begriff": "Warmfront",
+      "suche": [
+        "Warmfront",
+        "Warmfronten"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Warme Luft gleitet langsam auf kältere auf. Vorher Cirrus bis Nimbostratus, breites Landregengebiet, danach wird es wärmer.",
+      "einfach": "Warme Luft schiebt sich wie eine Decke langsam über kalte Luft – es regnet lange und gleichmäßig.",
+      "en": "warm front"
+    },
+    {
+      "id": "kaltfront",
+      "begriff": "Kaltfront",
+      "suche": [
+        "Kaltfront",
+        "Kaltfronten"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Kalte Luft schiebt sich unter wärmere und hebt sie steil an: Cumulonimbus, Schauer, Gewitter und Böen, danach kälter mit guter Sicht.",
+      "einfach": "Kalte Luft drängt sich wie ein Keil unter die warme – kurz, heftig und stürmisch, danach klart es auf.",
+      "en": "cold front"
+    },
+    {
+      "id": "okklusion",
+      "begriff": "Okklusion",
+      "suche": [
+        "Okklusion"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Eine Kaltfront hat die Warmfront eingeholt und die Warmluft vom Boden abgehoben.",
+      "einfach": "Die schnellere Kaltfront hat die langsamere Warmfront „überholt“ – beide Fronten verschmelzen.",
+      "en": "occlusion (occluded front)"
+    },
+    {
+      "id": "luftmasse",
+      "begriff": "Luftmasse",
+      "suche": [
+        "Luftmasse",
+        "Luftmassen"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Großes Luftpaket mit ähnlicher Temperatur und Feuchte, benannt nach seiner Herkunft (polar/tropisch, maritim/kontinental).",
+      "einfach": "Ein riesiger „Luftblock“, der die Eigenschaften seiner Heimat mitbringt – feucht vom Meer oder trocken vom Festland.",
+      "en": "air mass"
+    },
+    {
+      "id": "vergaservereisung",
+      "begriff": "Vergaservereisung",
+      "suche": [
+        "Vergaservereisung"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Eisbildung im Vergaser durch starke Abkühlung der angesaugten Luft – auch bei Außentemperaturen deutlich über 0 °C. Abhilfe: Vergaservorwärmung.",
+      "einfach": "Wie beim Deospray, dessen Dose beim Sprühen kalt wird: Im Vergaser kühlt die Luft so stark ab, dass Feuchtigkeit gefriert.",
+      "en": "carburettor icing"
+    },
+    {
+      "id": "klareis",
+      "begriff": "Klareis",
+      "suche": [
+        "Klareis"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Glasiges, schweres Eis aus großen unterkühlten Tropfen, oft zwischen 0 und −10 °C – die gefährlichste Vereisung.",
+      "einfach": "Wie Blitzeis auf der Straße: durchsichtig, schwer zu sehen und gefährlich.",
+      "en": "clear ice"
+    },
+    {
+      "id": "raueis",
+      "begriff": "Raueis",
+      "suche": [
+        "Raueis"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Weißes, raues Eis aus kleinen unterkühlten Tröpfchen, setzt sich vor allem an Vorderkanten an.",
+      "einfach": "Weißer, körniger Eisbelag – wie Raureif an einem Zaun im Winter.",
+      "en": "rime ice"
+    },
+    {
+      "id": "boeenwalze",
+      "begriff": "Böenwalze",
+      "suche": [
+        "Böenwalze"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Front der aus einem Gewitter ausfließenden Kaltluft mit plötzlichen, starken Böen – oft weit vor dem Niederschlag.",
+      "einfach": "Der kalte „Atemstoß“ eines Gewitters, der ihm vorausläuft.",
+      "en": "gust front (roll cloud)"
+    },
+    {
+      "id": "strahlungsnebel",
+      "begriff": "Strahlungsnebel",
+      "suche": [
+        "Strahlungsnebel"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Nebel, der in klaren, windschwachen Nächten entsteht, wenn der Boden auskühlt. Löst sich meist am Vormittag auf.",
+      "einfach": "Der Morgennebel über Wiesen nach einer klaren Nacht.",
+      "en": "radiation fog"
+    },
+    {
+      "id": "advektionsnebel",
+      "begriff": "Advektionsnebel",
+      "suche": [
+        "Advektionsnebel"
+      ],
+      "thema": "meteorologie",
+      "kurz": "Nebel, wenn feuchtwarme Luft über eine kalte Oberfläche strömt; kann auch bei Wind entstehen und lange anhalten.",
+      "einfach": "Warme, feuchte Luft „zieht“ über kaltes Wasser oder Schnee und beschlägt dabei – wie ein Spiegel nach dem Duschen.",
+      "en": "advection fog"
+    },
+    {
+      "id": "vfr",
+      "begriff": "VFR",
+      "lang": "Visual Flight Rules – Sichtflugregeln",
+      "suche": [
+        "VFR"
+      ],
+      "thema": "luftraum",
+      "kurz": "Fliegen nach Sicht: Der Pilot orientiert sich nach draußen und weicht anderem Verkehr selbst aus. Dafür müssen Sicht und Wolkenabstand ausreichen.",
+      "einfach": "Fliegen mit Blick nach draußen – wie Autofahren nach Sicht statt nach Navi."
+    },
+    {
+      "id": "ifr",
+      "begriff": "IFR",
+      "lang": "Instrument Flight Rules – Instrumentenflugregeln",
+      "suche": [
+        "IFR"
+      ],
+      "thema": "luftraum",
+      "kurz": "Fliegen nach Instrumenten, auch in Wolken; erfordert eine eigene Berechtigung und wird von der Flugverkehrskontrolle geführt.",
+      "einfach": "Fliegen nur nach Anzeigen, ohne Sicht nach draußen – wie Verkehrsflugzeuge."
+    },
+    {
+      "id": "vmc",
+      "begriff": "VMC",
+      "lang": "Visual Meteorological Conditions",
+      "suche": [
+        "VMC"
+      ],
+      "thema": "luftraum",
+      "kurz": "Sichtflug-Wetterbedingungen: Mindestwerte für Flugsicht und Abstand zu Wolken nach SERA.5001.",
+      "einfach": "Das Wetter ist gut genug, um nach Sicht zu fliegen."
+    },
+    {
+      "id": "sondervfr",
+      "begriff": "Sonder-VFR",
+      "suche": [
+        "Sonder-VFR"
+      ],
+      "thema": "luftraum",
+      "kurz": "VFR-Flug in einer Kontrollzone unterhalb der normalen VFR-Wetterminima, nur mit Freigabe (u. a. ab 1500 m Bodensicht und 600 ft Wolkenuntergrenze).",
+      "einfach": "Eine Ausnahmegenehmigung, um bei etwas schlechterem Wetter doch noch in die Kontrollzone zu dürfen.",
+      "en": "special VFR"
+    },
+    {
+      "id": "ctr",
+      "begriff": "Kontrollzone (CTR)",
+      "lang": "Control Zone",
+      "suche": [
+        "CTR",
+        "Kontrollzone",
+        "Kontrollzonen"
+      ],
+      "thema": "luftraum",
+      "kurz": "Kontrollierter Luftraum vom Boden bis zu einer festgelegten Höhe um Flugplätze mit Flugverkehrskontrolle; in Deutschland Luftraum D.",
+      "einfach": "Der geschützte „Vorgarten“ eines Flughafens, in dem An- und Abflüge sicher geführt werden.",
+      "en": "control zone (CTR)"
+    },
+    {
+      "id": "rmz",
+      "begriff": "RMZ",
+      "lang": "Radio Mandatory Zone – Funkkontaktpflichtzone",
+      "suche": [
+        "RMZ"
+      ],
+      "thema": "luftraum",
+      "kurz": "Bereich, in dem Funkkontakt Pflicht ist: vor dem Einflug melden und danach dauernd mithören. Eine Freigabe ist nicht nötig.",
+      "einfach": "Hier sagst du beim Hereinfliegen kurz „Hallo“ per Funk und bleibst erreichbar."
+    },
+    {
+      "id": "tmz",
+      "begriff": "TMZ",
+      "lang": "Transponder Mandatory Zone",
+      "suche": [
+        "TMZ"
+      ],
+      "thema": "luftraum",
+      "kurz": "Bereich, in dem ein eingeschalteter Transponder (Modi A und C oder Modus S) Pflicht ist.",
+      "einfach": "Hier musst du für das Radar „sichtbar“ sein – der Transponder ist wie eine Warnweste."
+    },
+    {
+      "id": "kontrollierter-luftraum",
+      "begriff": "Kontrollierter Luftraum",
+      "suche": [
+        "kontrollierter Luftraum",
+        "kontrollierten Luftraum"
+      ],
+      "thema": "luftraum",
+      "kurz": "Luftraum, in dem Flugverkehrskontrolle angeboten wird (in Deutschland die Klassen C, D und E). Für VFR braucht man nur in C und D eine Freigabe.",
+      "einfach": "Ein Luftraum mit „Aufsicht“ – wie viel sie dich angeht, hängt von der Klasse ab.",
+      "en": "controlled airspace"
+    },
+    {
+      "id": "freigabe",
+      "begriff": "Freigabe",
+      "suche": [
+        "Freigabe",
+        "Freigaben"
+      ],
+      "thema": "luftraum",
+      "kurz": "Erlaubnis der Flugverkehrskontrolle, unter bestimmten Bedingungen zu fliegen (z. B. in einen Luftraum einzufliegen oder zu landen).",
+      "einfach": "Das „Ja, du darfst“ vom Lotsen – erst danach geht es los.",
+      "en": "clearance"
+    },
+    {
+      "id": "staffelung",
+      "begriff": "Staffelung",
+      "suche": [
+        "Staffelung",
+        "gestaffelt"
+      ],
+      "thema": "luftraum",
+      "kurz": "Mindestabstand, den die Flugverkehrskontrolle zwischen Luftfahrzeugen sicherstellt.",
+      "einfach": "Der Lotse sorgt dafür, dass Flugzeuge sich nicht zu nahe kommen – wie Abstand halten auf der Autobahn, nur von außen geregelt.",
+      "en": "separation"
+    },
+    {
+      "id": "fis",
+      "begriff": "Fluginformationsdienst (FIS)",
+      "suche": [
+        "FIS",
+        "Fluginformationsdienst"
+      ],
+      "thema": "luftraum",
+      "kurz": "Dienst, der VFR-Piloten auf Anfrage mit Informationen versorgt (Verkehr, Wetter, aktive Gebiete) – ohne Freigaben zu erteilen.",
+      "einfach": "Eine Art Auskunft per Funk: Man kann fragen, bekommt Hinweise, entscheidet aber selbst.",
+      "en": "flight information service (FIS)"
+    },
+    {
+      "id": "flugflaeche",
+      "begriff": "Flugfläche (FL)",
+      "lang": "Flight Level",
+      "suche": [
+        "Flugfläche",
+        "Flugflächen"
+      ],
+      "thema": "luftraum",
+      "kurz": "Höhe bezogen auf den Standarddruck 1013,25 hPa, in Hundert Fuß: FL 75 = 7500 ft Druckhöhe.",
+      "einfach": "Eine Höhenangabe, bei der alle denselben Bezugswert eingestellt haben – damit sich niemand verrechnet.",
+      "en": "flight level (FL)"
+    },
+    {
+      "id": "uebergangshoehe",
+      "begriff": "Übergangshöhe",
+      "lang": "Transition Altitude",
+      "suche": [
+        "Übergangshöhe"
+      ],
+      "thema": "luftraum",
+      "kurz": "Höhe, bis zu der mit QNH (Höhe über MSL) geflogen wird; darüber gelten Flugflächen. In Deutschland meist 5000 ft MSL.",
+      "einfach": "Die „Grenze“, ab der alle Piloten ihren Höhenmesser auf denselben Standardwert umstellen.",
+      "en": "transition altitude"
+    },
+    {
+      "id": "sera",
+      "begriff": "SERA",
+      "lang": "Standardised European Rules of the Air",
+      "suche": [
+        "SERA"
+      ],
+      "thema": "luftraum",
+      "kurz": "Europaweit einheitliche Luftverkehrsregeln (Durchführungsverordnung (EU) Nr. 923/2012), z. B. zu Sichtflugbedingungen, Ausweichregeln und Signalen.",
+      "einfach": "Die „Straßenverkehrsordnung“ für den Luftraum in Europa."
+    },
+    {
+      "id": "notam",
+      "begriff": "NOTAM",
+      "lang": "Notice to Airmen",
+      "suche": [
+        "NOTAM"
+      ],
+      "thema": "luftraum",
+      "kurz": "Kurzfristige Bekanntmachung für Piloten, z. B. über aktive Sperrgebiete, gesperrte Pisten oder ausgefallene Funkfeuer.",
+      "einfach": "Aktuelle „Verkehrsmeldungen“ für die Luftfahrt – vor jedem Flug lesen."
+    },
+    {
+      "id": "msl",
+      "begriff": "MSL",
+      "lang": "Mean Sea Level – mittlerer Meeresspiegel",
+      "suche": [
+        "MSL"
+      ],
+      "thema": "luftraum",
+      "kurz": "Höhe über dem mittleren Meeresspiegel. Mit QNH zeigt der Höhenmesser die Höhe über MSL.",
+      "einfach": "Die Höhe gemessen vom Meer aus – unabhängig davon, wie hoch das Gelände darunter ist."
+    },
+    {
+      "id": "gnd",
+      "begriff": "GND",
+      "lang": "Ground – über Grund",
+      "suche": [
+        "GND"
+      ],
+      "thema": "luftraum",
+      "kurz": "Höhe über dem Gelände bzw. dem Boden darunter.",
+      "einfach": "Wie hoch du über dem Boden direkt unter dir bist."
+    },
+    {
+      "id": "halbkreisflugregel",
+      "begriff": "Halbkreisflugregel",
+      "suche": [
+        "Halbkreisflugregel"
+      ],
+      "thema": "luftraum",
+      "kurz": "Im Reiseflug mehr als 3000 ft über Grund: missweisender Kurs 000°–179° ungerade Tausender + 500 ft, 180°–359° gerade Tausender + 500 ft.",
+      "einfach": "Ostwärts die ungeraden, westwärts die geraden „Stockwerke“ – so fliegen Gegenkurse nie auf derselben Höhe.",
+      "en": "semicircular rule (table of cruising levels)"
+    },
+    {
+      "id": "vorflug",
+      "begriff": "Vorflug",
+      "suche": [
+        "Vorflug"
+      ],
+      "thema": "luftraum",
+      "kurz": "Das Recht, Kurs und Geschwindigkeit beizubehalten, während der andere ausweichen muss. Es entbindet nie von der Pflicht, einen Zusammenstoß zu vermeiden.",
+      "einfach": "Die „Vorfahrt“ in der Luft.",
+      "en": "right of way"
+    },
+    {
+      "id": "pflichtmeldepunkt",
+      "begriff": "Pflichtmeldepunkt",
+      "suche": [
+        "Pflichtmeldepunkt",
+        "Pflichtmeldepunkte"
+      ],
+      "thema": "luftraum",
+      "kurz": "Veröffentlichter Punkt, an dem sich ein Pilot immer bei der Flugverkehrskontrolle melden muss (ausgefülltes Dreieck in der Karte).",
+      "einfach": "Ein fester „Kontrollpunkt“, an dem du dich per Funk meldest.",
+      "en": "compulsory reporting point"
+    },
+    {
+      "id": "ias",
+      "begriff": "IAS",
+      "lang": "Indicated Airspeed – angezeigte Fluggeschwindigkeit",
+      "suche": [
+        "IAS"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Geschwindigkeit, die der Fahrtmesser anzeigt. Sie hängt vom Staudruck ab und ist für das Flugverhalten maßgeblich.",
+      "einfach": "Die Zahl auf deinem Tacho im Cockpit."
+    },
+    {
+      "id": "tas",
+      "begriff": "TAS",
+      "lang": "True Airspeed – Eigengeschwindigkeit",
+      "suche": [
+        "TAS",
+        "Eigengeschwindigkeit"
+      ],
+      "thema": "navigation",
+      "kurz": "Tatsächliche Geschwindigkeit gegenüber der umgebenden Luft. In der Höhe größer als die angezeigte Geschwindigkeit.",
+      "einfach": "Wie schnell du dich wirklich durch die Luft bewegst – ohne den Wind zu berücksichtigen."
+    },
+    {
+      "id": "grundgeschwindigkeit",
+      "begriff": "Grundgeschwindigkeit (GS)",
+      "lang": "Ground Speed",
+      "suche": [
+        "Grundgeschwindigkeit",
+        "GS"
+      ],
+      "thema": "navigation",
+      "kurz": "Geschwindigkeit über Grund – Eigengeschwindigkeit plus oder minus Wind. Bestimmt die Flugzeit.",
+      "einfach": "Wie schnell du am Boden vorankommst. Gegenwind bremst, Rückenwind schiebt.",
+      "en": "ground speed (GS)"
+    },
+    {
+      "id": "nautische-meile",
+      "begriff": "Nautische Meile (NM)",
+      "suche": [
+        "nautische Meile",
+        "nautischen Meilen",
+        "nautische Meilen",
+        "nautischen Meile"
+      ],
+      "thema": "navigation",
+      "kurz": "Längeneinheit der Luft- und Seefahrt: 1 NM = 1852 m = eine Bogenminute auf einem Meridian.",
+      "einfach": "Etwas weniger als zwei Kilometer – praktisch, weil sie genau zum Gradnetz der Erde passt.",
+      "en": "nautical mile (NM)"
+    },
+    {
+      "id": "knoten",
+      "begriff": "Knoten (kt)",
+      "suche": [
+        "Knoten"
+      ],
+      "thema": "navigation",
+      "kurz": "Geschwindigkeitseinheit: 1 kt = 1 NM pro Stunde = 1,852 km/h.",
+      "einfach": "Knoten mal zwei, minus zehn Prozent – dann hast du ungefähr km/h.",
+      "en": "knot (kt)"
+    },
+    {
+      "id": "icao",
+      "begriff": "ICAO",
+      "lang": "International Civil Aviation Organization",
+      "suche": [
+        "ICAO"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Internationale Zivilluftfahrtorganisation der Vereinten Nationen; legt weltweite Standards fest, z. B. das Buchstabieralphabet und die Standardatmosphäre.",
+      "einfach": "Die weltweite „Regel-Behörde“, damit Fliegen überall gleich funktioniert."
+    },
+    {
+      "id": "rufzeichen",
+      "begriff": "Rufzeichen",
+      "suche": [
+        "Rufzeichen"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Name, mit dem sich ein Luftfahrzeug im Funk meldet – meist das Kennzeichen, z. B. D-EKLM.",
+      "einfach": "Der „Name“ deines Flugzeugs am Funk.",
+      "en": "call sign"
+    },
+    {
+      "id": "transponder",
+      "begriff": "Transponder",
+      "suche": [
+        "Transponder",
+        "Transpondercode",
+        "Transpondercodes"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Gerät, das auf Radarabfragen antwortet und einen vierstelligen Code (und meist die Höhe) sendet. VFR ohne zugeteilten Code: 7000.",
+      "einfach": "Ein „Namensschild fürs Radar“: Es macht dein Flugzeug auf dem Radarschirm mit Kennung und Höhe sichtbar."
+    },
+    {
+      "id": "mayday",
+      "begriff": "MAYDAY",
+      "suche": [
+        "MAYDAY"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Notsignal im Sprechfunk (dreimal gesprochen) bei schwerer, unmittelbarer Gefahr, wenn sofortige Hilfe nötig ist.",
+      "einfach": "Der Notruf der Luftfahrt – wie die 112."
+    },
+    {
+      "id": "panpan",
+      "begriff": "PAN PAN",
+      "suche": [
+        "PAN PAN"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Dringlichkeitssignal (dreimal gesprochen): Die Sicherheit ist gefährdet, sofortige Hilfe aber nicht nötig.",
+      "einfach": "„Ich habe ein ernstes Problem, aber noch keine Lebensgefahr.“"
+    },
+    {
+      "id": "zuruecklesen",
+      "begriff": "Zurücklesen",
+      "lang": "Readback",
+      "suche": [
+        "zurücklesen",
+        "Zurücklesen",
+        "zurückgelesen"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Wichtige Teile von Freigaben und Anweisungen wörtlich wiederholen, damit Missverständnisse auffallen – mit dem eigenen Rufzeichen am Ende.",
+      "einfach": "Wie beim Bestellen am Telefon: „Also zwei Pizzen, eine mit Salami?“ – so merkt man sofort, ob alles richtig angekommen ist.",
+      "en": "read back"
+    },
+    {
+      "id": "atis",
+      "begriff": "ATIS",
+      "lang": "Automatic Terminal Information Service",
+      "suche": [
+        "ATIS"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Laufend wiederholte Bandansage eines Flughafens mit Wetter, Piste in Benutzung und wichtigen Hinweisen; jede Ausgabe hat einen Kennbuchstaben.",
+      "einfach": "Eine Art Anrufbeantworter mit allen wichtigen Infos zum Flughafen."
+    },
+    {
+      "id": "rwk",
+      "begriff": "Rechtweisender Kurs (rwK)",
+      "lang": "True Course",
+      "suche": [
+        "rechtweisender Kurs",
+        "rechtweisenden Kurs",
+        "rwK"
+      ],
+      "thema": "navigation",
+      "kurz": "Kurs bezogen auf geografisch Nord – so wird er auf der Karte gemessen.",
+      "einfach": "Die Richtung zum Ziel, gemessen am „echten“ Nordpol.",
+      "en": "true course"
+    },
+    {
+      "id": "mwk",
+      "begriff": "Missweisender Kurs (mwK)",
+      "lang": "Magnetic Course",
+      "suche": [
+        "missweisender Kurs",
+        "missweisenden Kurs",
+        "mwK"
+      ],
+      "thema": "navigation",
+      "kurz": "Kurs bezogen auf magnetisch Nord: rwK minus Missweisung (Ost abziehen, West dazuzählen).",
+      "einfach": "Die Richtung zum Ziel, so wie der Kompass „denkt“.",
+      "en": "magnetic course"
+    },
+    {
+      "id": "missweisung",
+      "begriff": "Missweisung",
+      "lang": "Variation",
+      "suche": [
+        "Missweisung"
+      ],
+      "thema": "navigation",
+      "kurz": "Winkel zwischen geografisch Nord und magnetisch Nord; in Deutschland derzeit wenige Grad Ost.",
+      "einfach": "Der Kompass zeigt nicht genau zum Nordpol, sondern ein Stück daneben. Diese Abweichung heißt Missweisung.",
+      "en": "magnetic variation"
+    },
+    {
+      "id": "deviation",
+      "begriff": "Deviation",
+      "suche": [
+        "Deviation"
+      ],
+      "thema": "navigation",
+      "kurz": "Ablenkung des Magnetkompasses durch das Flugzeug selbst (Metall, Elektrik); steht in der Deviationstabelle.",
+      "einfach": "Das Flugzeug „stört“ seinen eigenen Kompass ein wenig – wie ein Magnet in der Nähe.",
+      "en": "compass deviation"
+    },
+    {
+      "id": "isogone",
+      "begriff": "Isogone",
+      "suche": [
+        "Isogone",
+        "Isogonen"
+      ],
+      "thema": "navigation",
+      "kurz": "Linie gleicher Missweisung auf der Luftfahrtkarte.",
+      "einfach": "Eine Linie auf der Karte, an der überall dieselbe Kompassabweichung gilt.",
+      "en": "isogonic line"
+    },
+    {
+      "id": "luvwinkel",
+      "begriff": "Luvwinkel (WCA)",
+      "lang": "Wind Correction Angle",
+      "suche": [
+        "Luvwinkel",
+        "WCA"
+      ],
+      "thema": "navigation",
+      "kurz": "Winkel, um den man gegen den Wind vorhält, damit man trotz Seitenwind auf Kurs bleibt.",
+      "einfach": "Wie beim Schwimmen durch einen Fluss: Du schwimmst leicht schräg gegen die Strömung, um gerade drüben anzukommen.",
+      "en": "wind correction angle (WCA)"
+    },
+    {
+      "id": "steuerkurs",
+      "begriff": "Steuerkurs",
+      "suche": [
+        "Steuerkurs"
+      ],
+      "thema": "navigation",
+      "kurz": "Richtung, in die die Flugzeugnase zeigt – Kurs plus oder minus Luvwinkel.",
+      "einfach": "Wohin die Nase zeigt – bei Seitenwind ist das nicht genau dorthin, wohin du fliegst.",
+      "en": "heading"
+    },
+    {
+      "id": "grosskreis",
+      "begriff": "Großkreis",
+      "suche": [
+        "Großkreis",
+        "Großkreise",
+        "Großkreisbogen"
+      ],
+      "thema": "navigation",
+      "kurz": "Kreis auf der Erdoberfläche, dessen Mittelpunkt der Erdmittelpunkt ist; sein Bogen ist die kürzeste Verbindung zweier Orte.",
+      "einfach": "Der kürzeste Weg über eine Kugel – auf einem Globus mit einer gespannten Schnur leicht zu finden.",
+      "en": "great circle"
+    },
+    {
+      "id": "loxodrome",
+      "begriff": "Loxodrome",
+      "suche": [
+        "Loxodrome"
+      ],
+      "thema": "navigation",
+      "kurz": "Linie, die alle Meridiane unter demselben Winkel schneidet – mit konstantem Kurs zu fliegen, aber etwas länger als der Großkreis.",
+      "einfach": "Der Weg mit immer gleichem Kompasskurs – bequem, aber nicht der kürzeste.",
+      "en": "rhumb line"
+    },
+    {
+      "id": "meridian",
+      "begriff": "Meridian",
+      "suche": [
+        "Meridian",
+        "Meridiane",
+        "Meridianen"
+      ],
+      "thema": "navigation",
+      "kurz": "Längenkreis von Pol zu Pol; an ihm misst man auf der Karte den Kurs.",
+      "einfach": "Eine gedachte Linie vom Nord- zum Südpol – wie die Nähte eines Wasserballs."
+    },
+    {
+      "id": "vor",
+      "begriff": "VOR",
+      "lang": "UKW-Drehfunkfeuer",
+      "suche": [
+        "VOR"
+      ],
+      "thema": "navigation",
+      "kurz": "Funkfeuer, das jedem Kurs vom Sender weg ein eigenes Signal (Radial) zuordnet; im Cockpit sieht man, auf welchem Radial man sich befindet.",
+      "einfach": "Wie ein Leuchtturm, der in jede Richtung eine andere „Farbe“ sendet – so weißt du, in welcher Richtung vom Turm du bist."
+    },
+    {
+      "id": "dme",
+      "begriff": "DME",
+      "lang": "Distance Measuring Equipment",
+      "suche": [
+        "DME"
+      ],
+      "thema": "navigation",
+      "kurz": "Entfernungsmessgerät: zeigt die Schrägentfernung zur Bodenstation in nautischen Meilen.",
+      "einfach": "Ein Funk-„Maßband“ zur Bodenstation."
+    },
+    {
+      "id": "ndb",
+      "begriff": "NDB",
+      "lang": "Non-Directional Beacon",
+      "suche": [
+        "NDB"
+      ],
+      "thema": "navigation",
+      "kurz": "Ungerichtetes Funkfeuer; mit dem Radiokompass (ADF) zeigt eine Nadel die Richtung zum Sender.",
+      "einfach": "Ein Sender, auf den eine Nadel im Cockpit einfach zeigt."
+    },
+    {
+      "id": "lambert",
+      "begriff": "Lambertsche Schnittkegelprojektion",
+      "suche": [
+        "Lambertscher Schnittkegelprojektion",
+        "Lambertsche Schnittkegelprojektion"
+      ],
+      "thema": "navigation",
+      "kurz": "Kartenprojektion der ICAO-Karte: winkeltreu, Großkreise nahezu gerade, Maßstab nahezu gleich.",
+      "einfach": "Ein Trick, die runde Erde so flach abzubilden, dass man Kurse direkt mit dem Geodreieck messen kann.",
+      "en": "Lambert conformal conic projection"
+    },
+    {
+      "id": "mtom",
+      "begriff": "Höchstzulässige Startmasse (MTOM)",
+      "lang": "Maximum Take-Off Mass",
+      "suche": [
+        "MTOM",
+        "höchstzulässige Startmasse",
+        "höchstzulässigen Startmasse"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Größte Masse, mit der ein Luftfahrzeug starten darf – steht im Flughandbuch.",
+      "einfach": "Wie das zulässige Gesamtgewicht beim Auto oder Anhänger – nur noch wichtiger.",
+      "en": "maximum take-off mass (MTOM)"
+    },
+    {
+      "id": "leermasse",
+      "begriff": "Leermasse",
+      "suche": [
+        "Leermasse"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Masse des leeren Flugzeugs laut Wägebericht; was genau dazugehört, regelt das Flughandbuch.",
+      "einfach": "Was das Flugzeug „nackt“ wiegt, bevor Menschen, Gepäck und Sprit dazukommen.",
+      "en": "empty mass"
+    },
+    {
+      "id": "hebelarm",
+      "begriff": "Hebelarm",
+      "suche": [
+        "Hebelarm",
+        "Hebelarme"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Abstand einer Last von der Bezugsebene.",
+      "einfach": "Wie weit etwas vom Drehpunkt der Wippe entfernt sitzt.",
+      "en": "arm"
+    },
+    {
+      "id": "moment",
+      "begriff": "Moment",
+      "suche": [
+        "Moment",
+        "Momente",
+        "Momenten"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Masse mal Hebelarm (z. B. in kg·m) – beschreibt, wie stark eine Last das Flugzeug um die Querachse dreht.",
+      "einfach": "Wie stark etwas die Wippe nach unten drückt – Gewicht und Abstand zusammen."
+    },
+    {
+      "id": "schwerpunkt",
+      "begriff": "Schwerpunkt",
+      "suche": [
+        "Schwerpunkt"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Punkt, in dem man sich die gesamte Masse vereint denken kann. Er muss im Bereich des Flughandbuchs liegen.",
+      "einfach": "Der Punkt, an dem das Flugzeug im Gleichgewicht wäre, wenn man es dort auf einen Finger stellen könnte.",
+      "en": "centre of gravity (CG)"
+    },
+    {
+      "id": "bezugsebene",
+      "begriff": "Bezugsebene",
+      "suche": [
+        "Bezugsebene"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Festgelegte Linie (im Flughandbuch), von der aus alle Hebelarme gemessen werden.",
+      "einfach": "Der „Nullpunkt“ des Lineals, mit dem alle Abstände gemessen werden.",
+      "en": "datum"
+    },
+    {
+      "id": "huellkurve",
+      "begriff": "Hüllkurve",
+      "suche": [
+        "Hüllkurve"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Diagramm des zulässigen Bereichs aus Masse und Schwerpunkt; der Punkt der Beladung muss darin liegen.",
+      "einfach": "Ein „Sicherheitsrahmen“: Liegt dein Punkt darin, ist die Beladung in Ordnung.",
+      "en": "CG envelope"
+    },
+    {
+      "id": "avgas",
+      "begriff": "AVGAS",
+      "suche": [
+        "AVGAS"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Flugbenzin für Kolbenmotoren; Dichte etwa 0,72 kg pro Liter.",
+      "einfach": "Das „Superbenzin“ fürs Flugzeug – ein Liter wiegt etwa 0,72 kg."
+    },
+    {
+      "id": "flughandbuch",
+      "begriff": "Flughandbuch",
+      "suche": [
+        "Flughandbuch"
+      ],
+      "thema": "masse-schwerpunkt",
+      "kurz": "Verbindliches Handbuch eines Luftfahrzeugs mit Grenzwerten, Verfahren und Leistungsdaten.",
+      "einfach": "Die Bedienungsanleitung des Flugzeugs – aber eine, die man wirklich befolgen muss.",
+      "en": "aircraft flight manual (AFM)"
+    },
+    {
+      "id": "anstellwinkel",
+      "begriff": "Anstellwinkel",
+      "suche": [
+        "Anstellwinkel"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Winkel zwischen Profilsehne und Anströmung. Er bestimmt den Auftriebsbeiwert – bis zum kritischen Anstellwinkel.",
+      "einfach": "Wie stark du die Hand aus dem Autofenster gegen den Fahrtwind kippst.",
+      "en": "angle of attack (AoA)"
+    },
+    {
+      "id": "einstellwinkel",
+      "begriff": "Einstellwinkel",
+      "suche": [
+        "Einstellwinkel"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Fester Winkel, mit dem der Flügel am Rumpf angebaut ist – nicht zu verwechseln mit dem Anstellwinkel.",
+      "einfach": "Wie schräg der Flügel ab Werk angeschraubt ist.",
+      "en": "angle of incidence"
+    },
+    {
+      "id": "profilsehne",
+      "begriff": "Profilsehne",
+      "suche": [
+        "Profilsehne"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Gedachte gerade Linie von der Vorderkante zur Hinterkante des Flügelprofils.",
+      "einfach": "Ein Lineal von vorn nach hinten durch den Flügelquerschnitt.",
+      "en": "chord line"
+    },
+    {
+      "id": "auftrieb",
+      "begriff": "Auftrieb",
+      "suche": [
+        "Auftrieb"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Kraft senkrecht zur Anströmung, die am Flügel entsteht und das Flugzeug trägt: A = cA · ½ ρ v² · S.",
+      "einfach": "Die Kraft, die das Flugzeug nach oben hält – wie die Hand, die aus dem Autofenster nach oben gedrückt wird.",
+      "en": "lift"
+    },
+    {
+      "id": "auftriebsbeiwert",
+      "begriff": "Auftriebsbeiwert (cA)",
+      "suche": [
+        "Auftriebsbeiwert"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Zahl, die angibt, wie viel Auftrieb ein Profil bei einem bestimmten Anstellwinkel erzeugt.",
+      "einfach": "Ein „Wirkungsgrad“ des Flügels – je größer, desto mehr Auftrieb bei gleicher Geschwindigkeit.",
+      "en": "lift coefficient (CL)"
+    },
+    {
+      "id": "staudruck",
+      "begriff": "Staudruck",
+      "suche": [
+        "Staudruck"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "½ ρ v² – der Druck, den die anströmende Luft ausübt. Der Fahrtmesser misst ihn.",
+      "einfach": "Wie stark die Luft gegen das Flugzeug „drückt“ – je schneller, desto mehr.",
+      "en": "dynamic pressure"
+    },
+    {
+      "id": "bernoulli",
+      "begriff": "Bernoulli",
+      "suche": [
+        "Bernoulli"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Gesetz: Wo eine Strömung schneller wird, sinkt ihr statischer Druck.",
+      "einfach": "Schnelle Luft „drückt“ weniger zur Seite – deshalb entsteht über dem Flügel ein Sog.",
+      "en": "Bernoulli's principle"
+    },
+    {
+      "id": "induzierter-widerstand",
+      "begriff": "Induzierter Widerstand",
+      "suche": [
+        "induzierter Widerstand",
+        "induzierte Widerstand",
+        "induzierten Widerstand",
+        "Induzierter Widerstand"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Widerstand, der mit dem Auftrieb entsteht (Randwirbel). Am größten im Langsamflug bei großem Anstellwinkel.",
+      "einfach": "Der „Preis“ fürs Tragen: Je härter der Flügel arbeiten muss, desto mehr bremst er.",
+      "en": "induced drag"
+    },
+    {
+      "id": "schaedlicher-widerstand",
+      "begriff": "Schädlicher Widerstand",
+      "suche": [
+        "schädlicher Widerstand",
+        "schädliche Widerstand",
+        "schädlichen Widerstand"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Form-, Reibungs- und Interferenzwiderstand; wächst mit dem Quadrat der Geschwindigkeit.",
+      "einfach": "Der Luftwiderstand, den du beim schnellen Radfahren im Gesicht spürst.",
+      "en": "parasite drag"
+    },
+    {
+      "id": "randwirbel",
+      "begriff": "Randwirbel",
+      "suche": [
+        "Randwirbel"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Wirbel an den Flügelspitzen, weil Luft von der Unter- zur Oberseite strömt; Ursache des induzierten Widerstands und der Wirbelschleppen.",
+      "einfach": "Kleine Luftstrudel an den Flügelenden – wie Strudel hinter einem Ruderblatt im Wasser.",
+      "en": "wingtip vortices"
+    },
+    {
+      "id": "streckung",
+      "begriff": "Streckung",
+      "suche": [
+        "Streckung"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Verhältnis von Spannweite zu Flügeltiefe. Große Streckung (lange, schlanke Flügel) verringert den induzierten Widerstand.",
+      "einfach": "Wie lang und schlank ein Flügel ist – Segelflugzeuge haben besonders lange Flügel.",
+      "en": "aspect ratio"
+    },
+    {
+      "id": "gleitzahl",
+      "begriff": "Gleitzahl",
+      "suche": [
+        "Gleitzahl"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Verhältnis von Gleitstrecke zu Höhenverlust (z. B. 1 : 30); entspricht Auftrieb ÷ Widerstand.",
+      "einfach": "Wie viele Meter du nach vorn kommst, wenn du einen Meter sinkst.",
+      "en": "glide ratio"
+    },
+    {
+      "id": "stroemungsabriss",
+      "begriff": "Strömungsabriss",
+      "suche": [
+        "Strömungsabriss"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Beim Überschreiten des kritischen Anstellwinkels kann die Luft der Profiloberseite nicht mehr folgen: Der Auftrieb bricht ein.",
+      "einfach": "Kippst du die Hand im Fahrtwind zu steil, wird sie nicht mehr hochgedrückt, sondern flattert nur noch.",
+      "en": "stall"
+    },
+    {
+      "id": "lastvielfaches",
+      "begriff": "Lastvielfaches",
+      "suche": [
+        "Lastvielfaches",
+        "Lastvielfache",
+        "Lastvielfachen"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Verhältnis von Auftrieb zu Gewicht (in g). Im Kurvenflug n = 1 ÷ cos(Querlage), bei 60° also 2.",
+      "einfach": "Wie viel schwerer du dich fühlst – in einer steilen Kurve wirst du in den Sitz gedrückt.",
+      "en": "load factor"
+    },
+    {
+      "id": "trudeln",
+      "begriff": "Trudeln",
+      "suche": [
+        "Trudeln",
+        "trudelt"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Überzogener Flugzustand mit Drehung um die Hochachse: Das Flugzeug dreht sich in einer steilen Spirale nach unten.",
+      "einfach": "Das Flugzeug fällt wie ein trudelndes Ahornblatt – nur mit dem richtigen Verfahren kommt man wieder heraus.",
+      "en": "spin"
+    },
+    {
+      "id": "wendemoment",
+      "begriff": "Negatives Wendemoment",
+      "suche": [
+        "negatives Wendemoment",
+        "negative Wendemoment",
+        "Negatives Wendemoment"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Beim Querruderausschlag giert das Flugzeug kurz gegen die Kurvenrichtung, weil das nach unten ausschlagende Ruder mehr Widerstand erzeugt.",
+      "einfach": "Das Flugzeug „schaut“ kurz in die falsche Richtung, wenn du die Kurve beginnst – das Seitenruder korrigiert das.",
+      "en": "adverse yaw"
+    },
+    {
+      "id": "trimmung",
+      "begriff": "Trimmung",
+      "suche": [
+        "Trimmung"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Einstellung, mit der die Ruderkräfte so ausgeglichen werden, dass das Flugzeug ohne Kraft am Steuer in der gewünschten Lage bleibt.",
+      "einfach": "Wie der Tempomat fürs Höhenruder: Einmal eingestellt, musst du nicht mehr ständig drücken oder ziehen.",
+      "en": "trim"
+    },
+    {
+      "id": "bodeneffekt",
+      "begriff": "Bodeneffekt",
+      "suche": [
+        "Bodeneffekt"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Bis etwa eine Spannweite über dem Boden sinkt der induzierte Widerstand – das Flugzeug schwebt länger.",
+      "einfach": "Kurz über dem Boden trägt die Luft zwischen Flügel und Boden wie ein Polster.",
+      "en": "ground effect"
+    },
+    {
+      "id": "wirbelschleppe",
+      "begriff": "Wirbelschleppe",
+      "suche": [
+        "Wirbelschleppe",
+        "Wirbelschleppen"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Zwei kräftige Wirbel hinter jedem Flugzeug, die absinken und mit dem Wind treiben; bei schweren, langsamen Flugzeugen besonders stark.",
+      "einfach": "Unsichtbare Luftstrudel hinter einem Flugzeug – wie die Wellen hinter einem großen Schiff, die ein kleines Boot umwerfen können.",
+      "en": "wake turbulence"
+    },
+    {
+      "id": "vx",
+      "begriff": "Vx",
+      "suche": [
+        "Vx"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Geschwindigkeit des besten Steigwinkels – größter Höhengewinn pro Strecke, z. B. um ein Hindernis zu überfliegen.",
+      "einfach": "Möglichst steil nach oben.",
+      "en": "best angle of climb speed"
+    },
+    {
+      "id": "vy",
+      "begriff": "Vy",
+      "suche": [
+        "Vy"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Geschwindigkeit der besten Steigrate – größter Höhengewinn pro Zeit.",
+      "einfach": "Möglichst schnell nach oben.",
+      "en": "best rate of climb speed"
+    },
+    {
+      "id": "landeklappen",
+      "begriff": "Landeklappen",
+      "suche": [
+        "Landeklappen"
+      ],
+      "thema": "aerodynamik",
+      "kurz": "Klappen an der Flügelhinterkante, die die Wölbung vergrößern: mehr Auftrieb, mehr Widerstand, geringere Überziehgeschwindigkeit.",
+      "einfach": "Damit macht man den Flügel „bauchiger“ – so kann man langsamer und steiler landen.",
+      "en": "flaps"
+    },
+    {
+      "id": "signalflaeche",
+      "begriff": "Signalfläche",
+      "suche": [
+        "Signalfläche"
+      ],
+      "thema": "signale",
+      "kurz": "Gut aus der Luft sichtbare Fläche auf einem Flugplatz, auf der Bodensignale ausgelegt werden.",
+      "einfach": "Das große „Hinweisschild“ am Boden für Piloten ohne Funk.",
+      "en": "signal area"
+    },
+    {
+      "id": "bzf",
+      "begriff": "BZF",
+      "lang": "Beschränkt gültiges Sprechfunkzeugnis",
+      "en": "restricted radiotelephony certificate",
+      "suche": [
+        "BZF"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Flugfunkzeugnis für den Sprechfunk nach Sichtflugregeln. BZF II: nur auf Deutsch innerhalb Deutschlands, BZF I: auf Deutsch und Englisch. Ausgestellt von der Bundesnetzagentur.",
+      "einfach": "Der „Funkführerschein“ für Sichtflieger – mit dem BZF I darfst du auch auf Englisch funken."
+    },
+    {
+      "id": "bodenfunkstelle",
+      "begriff": "Bodenfunkstelle",
+      "en": "aeronautical station (ground station)",
+      "suche": [
+        "Bodenfunkstelle",
+        "Bodenfunkstellen"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Funkstelle am Boden, mit der Luftfahrzeuge sprechen – z. B. ein Turm, der Fluginformationsdienst oder die RADIO-Stelle eines kleinen Flugplatzes.",
+      "einfach": "Die Gegenstelle am Boden, mit der du am Funk sprichst."
+    },
+    {
+      "id": "radio-stelle",
+      "begriff": "RADIO-Bodenfunkstelle",
+      "en": "RADIO station (aerodrome without ATS)",
+      "suche": [
+        "RADIO-Bodenfunkstelle",
+        "RADIO-Station",
+        "RADIO-Platz",
+        "RADIO-Plätze"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Bodenfunkstelle an einem Flugplatz ohne Flugverkehrsdienst, Rufzeichen „(Flugplatz) RADIO“ (früher „Info“). Sie gibt nur Informationen – keine Freigaben und keine Anweisungen.",
+      "einfach": "Ein Helfer am Funk, der Hinweise gibt – den Verkehr regeln die Piloten selbst."
+    },
+    {
+      "id": "afis",
+      "begriff": "AFIS",
+      "lang": "Aerodrome Flight Information Service",
+      "suche": [
+        "AFIS"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Flugplatz-Fluginformationsdienst an manchen unkontrollierten Plätzen. Rufzeichen-Zusatz INFORMATION; er informiert, erteilt aber keine Freigaben.",
+      "einfach": "Wie eine Auskunftsstelle am Platz: Sie sagt dir, was los ist, entscheidet aber nicht für dich."
+    },
+    {
+      "id": "turm",
+      "begriff": "Turm",
+      "en": "tower (aerodrome control)",
+      "suche": [
+        "Turm",
+        "Tower"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Flugplatzkontrolle an einem Flugplatz mit Flugverkehrskontrolle. Der Turm erteilt Freigaben für Rollen, Start, Platzrunde und Landung.",
+      "einfach": "Der Verkehrspolizist des Flugplatzes: Ohne sein Okay geht es nicht auf die Piste."
+    },
+    {
+      "id": "rollkontrolle",
+      "begriff": "Rollkontrolle",
+      "en": "ground (ground control)",
+      "suche": [
+        "Rollkontrolle"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Kontrolle der Rollbewegungen am Boden an größeren Flughäfen. Rufzeichen-Zusatz ROLLKONTROLLE / GROUND.",
+      "einfach": "Die Stelle, die am großen Flughafen sagt, auf welchen Wegen du am Boden rollst."
+    },
+    {
+      "id": "vorfeld",
+      "begriff": "Vorfeld",
+      "en": "apron",
+      "suche": [
+        "Vorfeld"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Bereich eines Flugplatzes zum Abstellen, Be- und Entladen und Tanken von Luftfahrzeugen.",
+      "einfach": "Der Parkplatz der Flugzeuge."
+    },
+    {
+      "id": "rollhalt",
+      "begriff": "Rollhalt",
+      "en": "holding point",
+      "suche": [
+        "Rollhalt"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Markierter Haltepunkt vor einer Piste. Am kontrollierten Platz rollst du nur mit Freigabe darüber hinaus.",
+      "einfach": "Wie die Haltelinie an einer Kreuzung – hier wartest du, bis du auf die Piste darfst."
+    },
+    {
+      "id": "abflugpunkt",
+      "begriff": "Abflugpunkt",
+      "en": "line-up position (line up)",
+      "suche": [
+        "Abflugpunkt"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Startposition auf der Piste. „Rollen Sie zum Abflugpunkt … dort halten“ (line up and wait) heißt: auf die Piste rollen und auf die Startfreigabe warten.",
+      "einfach": "Die Startlinie – du stehst schon auf der Piste, aber der Startschuss fehlt noch."
+    },
+    {
+      "id": "platzrunde",
+      "begriff": "Platzrunde",
+      "en": "traffic circuit",
+      "suche": [
+        "Platzrunde",
+        "Platzrunden",
+        "Rechtsplatzrunde",
+        "Linksplatzrunde"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Festgelegter Flugweg um einen Flugplatz für An- und Abflüge: Querabflug, Gegenanflug, Queranflug und Endanflug. Ob links oder rechts herum geflogen wird, steht im Luftfahrthandbuch.",
+      "einfach": "Wie ein Kreisverkehr um den Flugplatz: Alle fliegen in dieselbe Richtung, damit jeder weiß, wo die anderen sind."
+    },
+    {
+      "id": "querabflug",
+      "begriff": "Querabflug",
+      "en": "crosswind (leg)",
+      "suche": [
+        "Querabflug"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Teil der Platzrunde nach dem Start, quer zur Piste.",
+      "einfach": "Die erste Kurve nach dem Start, weg von der Piste."
+    },
+    {
+      "id": "gegenanflug",
+      "begriff": "Gegenanflug",
+      "en": "downwind (leg)",
+      "suche": [
+        "Gegenanflug"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Teil der Platzrunde parallel zur Piste, entgegen der Landerichtung.",
+      "einfach": "Das lange Stück neben der Piste in Gegenrichtung."
+    },
+    {
+      "id": "queranflug",
+      "begriff": "Queranflug",
+      "en": "base (leg)",
+      "suche": [
+        "Queranflug"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Teil der Platzrunde quer zur Piste zwischen Gegenanflug und Endanflug.",
+      "einfach": "Die Kurve, die dich zurück zur Piste bringt."
+    },
+    {
+      "id": "endanflug",
+      "begriff": "Endanflug",
+      "en": "final (approach)",
+      "suche": [
+        "Endanflug"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Letzter Teil des Anflugs in Verlängerung der Piste.",
+      "einfach": "Das gerade Stück direkt auf die Piste zu."
+    },
+    {
+      "id": "durchstarten",
+      "begriff": "Durchstarten",
+      "en": "go-around",
+      "suche": [
+        "Durchstarten",
+        "durchstarten"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Abbrechen des Landeanflugs mit Steigflug, z. B. wenn die Piste besetzt ist. Im Funk: „Starte durch“ / „Going around“.",
+      "einfach": "Wie beim Einparken: Passt es nicht, fährst du noch eine Runde."
+    },
+    {
+      "id": "touchandgo",
+      "begriff": "Aufsetzen und Durchstarten",
+      "en": "touch-and-go",
+      "suche": [
+        "Aufsetzen und Durchstarten"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Landung mit sofortigem Wiederstart ohne anzuhalten – typisch für Übungsplatzrunden.",
+      "einfach": "Kurz die Piste berühren und gleich weiterfliegen."
+    },
+    {
+      "id": "tiefanflug",
+      "begriff": "Tiefanflug",
+      "en": "low approach",
+      "suche": [
+        "Tiefanflug"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Anflug bis in geringe Höhe über der Piste ohne aufzusetzen.",
+      "einfach": "Fast landen – aber im letzten Moment wieder hochziehen."
+    },
+    {
+      "id": "geradeausanflug",
+      "begriff": "Geradeausanflug",
+      "en": "straight-in approach",
+      "suche": [
+        "Geradeausanflug"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Anflug direkt in den Endanflug, ohne die übrige Platzrunde zu fliegen.",
+      "einfach": "Ohne Umweg direkt auf die Piste zu."
+    },
+    {
+      "id": "meldepunkt",
+      "begriff": "Meldepunkt",
+      "en": "reporting point",
+      "suche": [
+        "Meldepunkt",
+        "Meldepunkte",
+        "Meldepunkten"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Veröffentlichter Punkt, an dem du deine Position meldest – z. B. für den Ein- und Ausflug in eine Kontrollzone. Pflichtmeldepunkte meldest du immer, andere nur auf Anforderung.",
+      "einfach": "Wie eine Haltestelle, an der du kurz Bescheid gibst, dass du da bist."
+    },
+    {
+      "id": "sichtanflugkarte",
+      "begriff": "Sichtanflugkarte",
+      "en": "visual approach chart (VAC)",
+      "suche": [
+        "Sichtanflugkarte",
+        "Sichtanflugkarten"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Karte eines Flugplatzes mit Meldepunkten, Platzrunde, Lufträumen und Frequenzen, veröffentlicht im Luftfahrthandbuch AIP VFR der DFS.",
+      "einfach": "Der Stadtplan für die Anreise zum Flugplatz."
+    },
+    {
+      "id": "aip",
+      "begriff": "Luftfahrthandbuch (AIP)",
+      "lang": "Aeronautical Information Publication",
+      "en": "Aeronautical Information Publication (AIP)",
+      "suche": [
+        "Luftfahrthandbuch",
+        "Luftfahrthandbüchern",
+        "AIP"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Amtliche Veröffentlichung mit Daten zu Flugplätzen, Lufträumen, Verfahren und Frequenzen eines Staates; in Deutschland herausgegeben von der DFS.",
+      "einfach": "Das große Nachschlagewerk der Luftfahrt eines Landes."
+    },
+    {
+      "id": "nfl",
+      "begriff": "NfL",
+      "lang": "Nachrichten für Luftfahrer",
+      "suche": [
+        "NfL"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Amtliche Bekanntmachungen für die Luftfahrt in Deutschland, z. B. die Bekanntmachung über die Sprechfunkverfahren.",
+      "einfach": "Das Amtsblatt für Piloten: Hier stehen neue Regeln und Verfahren."
+    },
+    {
+      "id": "sprechgruppe",
+      "begriff": "Sprechgruppe",
+      "en": "phraseology",
+      "suche": [
+        "Sprechgruppe",
+        "Sprechgruppen"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Festgelegte Redewendung im Sprechfunk, z. B. „Rollen Sie zum Rollhalt“. Die deutschen und englischen Sprechgruppen stehen in der Bekanntmachung über die Sprechfunkverfahren.",
+      "einfach": "Feste Sätze, die jeder kennt – so gibt es am Funk keine Missverständnisse."
+    },
+    {
+      "id": "funkprobe",
+      "begriff": "Funkprobe",
+      "en": "radio check",
+      "suche": [
+        "Funkprobe",
+        "RADIO CHECK",
+        "Radio Check"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Test, ob man gehört wird: gerufene Station, Rufzeichen, die Worte RADIO CHECK und die Frequenz. Die Antwort enthält die Verständlichkeit von 1 bis 5.",
+      "einfach": "Wie „Hörst du mich?“ am Telefon – nur mit festen Worten."
+    },
+    {
+      "id": "verstaendlichkeit",
+      "begriff": "Verständlichkeit",
+      "en": "readability",
+      "suche": [
+        "Verständlichkeit"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Wie gut eine Sendung zu verstehen ist: 1 unverständlich, 2 zeitweise verständlich, 3 schwer verständlich, 4 verständlich, 5 sehr gut verständlich.",
+      "einfach": "Eine Schulnote fürs Hören – nur umgekehrt: 5 ist am besten."
+    },
+    {
+      "id": "blindsendung",
+      "begriff": "Blindsendung",
+      "en": "transmitting blind",
+      "suche": [
+        "Blindsendung",
+        "Blindsendungen",
+        "BLINDSENDUNG"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Meldung ohne bestätigte Verbindung: zweimal gesendet und mit „Blindsendung“ eingeleitet. Nicht verwechseln mit Meldungen auf der Frequenz eines unbesetzten Platzes ohne Flugverkehrsdienst.",
+      "einfach": "Wie eine Nachricht auf dem Anrufbeantworter, von der du nicht weißt, ob sie ankommt."
+    },
+    {
+      "id": "verstanden",
+      "begriff": "VERSTANDEN",
+      "en": "ROGER",
+      "suche": [
+        "VERSTANDEN",
+        "ROGER"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Standardwort: Ich habe deine letzte Meldung vollständig erhalten. Ersetzt kein Zurücklesen von Freigaben.",
+      "einfach": "Ein „Ist angekommen“ – mehr nicht."
+    },
+    {
+      "id": "wilco",
+      "begriff": "WILCO",
+      "lang": "will comply",
+      "suche": [
+        "WILCO"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Standardwort: Ich habe verstanden und werde entsprechend handeln.",
+      "einfach": "„Mach ich.“"
+    },
+    {
+      "id": "positiv",
+      "begriff": "POSITIV",
+      "en": "AFFIRM",
+      "suche": [
+        "POSITIV",
+        "AFFIRM"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Standardwort für „ja“ im Sprechfunk.",
+      "einfach": "Das „Ja“ des Funks – klingt nicht wie „nein“."
+    },
+    {
+      "id": "negativ",
+      "begriff": "NEGATIV",
+      "en": "NEGATIVE",
+      "suche": [
+        "NEGATIV",
+        "NEGATIVE"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Standardwort für „nein“ – auch: Erlaubnis nicht erteilt, nicht richtig oder nicht in der Lage.",
+      "einfach": "Das „Nein“ des Funks."
+    },
+    {
+      "id": "verkehrsinformation",
+      "begriff": "Verkehrsinformation",
+      "en": "traffic information",
+      "suche": [
+        "Verkehrsinformation",
+        "Verkehrsinformationen"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Hinweis auf anderen Verkehr, meist mit Uhrzeigerstellung, Entfernung, Flugrichtung und Höhe. Antwort: „halte Ausschau“, „Verkehr in Sicht“ oder „kein Kontakt“.",
+      "einfach": "Wie ein Beifahrer, der sagt: „Pass auf, da vorne rechts kommt einer.“"
+    },
+    {
+      "id": "uhrzeigerstellung",
+      "begriff": "Uhrzeigerstellung",
+      "en": "clock position (o'clock)",
+      "suche": [
+        "Uhrzeigerstellung"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Richtungsangabe zum Verkehr relativ zur eigenen Flugrichtung: 12 Uhr geradeaus, 3 Uhr rechts, 6 Uhr hinten, 9 Uhr links.",
+      "einfach": "Stell dir eine Uhr vor, in deren Mitte du sitzt und nach 12 schaust."
+    },
+    {
+      "id": "squawk",
+      "begriff": "Squawk",
+      "en": "squawk",
+      "suche": [
+        "Squawk",
+        "SQUAWK"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Anweisung, einen bestimmten Transpondercode einzustellen, z. B. „Squawk 4521“. Codes aus ganzen Tausendern spricht man mit „tausend“ (7000 = „sieben tausend“).",
+      "einfach": "Die Nummer, unter der dich das Radar erkennt."
+    },
+    {
+      "id": "language-proficiency",
+      "begriff": "Language Proficiency",
+      "en": "language proficiency (LP)",
+      "suche": [
+        "Language Proficiency"
+      ],
+      "thema": "sprechfunk",
+      "kurz": "Nachweis der Englischkenntnisse für den Sprechfunk auf Englisch. Die Bundesnetzagentur prüft auf Stufe 4: Hörverstehen und ein Gespräch auf Englisch.",
+      "einfach": "Der Englisch-Test, den du zusätzlich zum BZF I brauchst, wenn du auf Englisch funken willst."
+    }
   ]
 }

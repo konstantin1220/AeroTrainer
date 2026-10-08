@@ -1,8 +1,198 @@
 {
-  "_hinweis": "Lerninhalte „Sprechfunk“. Grundlage: ICAO-Sprechfunkverfahren und SERA (Abschnitt 14). Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_hinweis": "Lerninhalte „Sprechfunk (BZF I und BZF II)“. Grundlagen: Bekanntmachung über die Sprechfunkverfahren (NfL 2024-1-3266), Richtlinien für den Flugfunk auf Flugplätzen ohne Flugverkehrsdienste (NfL 2024-1-3240), SERA Abschnitt 14 und die Verordnung über Flugfunkzeugnisse. Eigene Formulierungen, keine Fragen aus den Fragenkatalogen der Bundesnetzagentur oder dem ECQB. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
   "_geprueft": null,
-  "einleitung": "Buchstabieralphabet, Zahlen, Standardwörter, Funkverfahren und Notmeldungen – die Grundlagen für BZF und den Funk im Flugalltag.",
+  "einleitung": "Vom Funkzeugnis bis zum Funkgespräch: Buchstabieralphabet, Zahlen, Standardwörter, Sprechgruppen auf Deutsch und Englisch, Plätze mit und ohne Tower, Notverfahren – und Funkgespräche zum Üben für BZF II und BZF I.",
   "kapitel": [
+    {
+      "id": "bzf",
+      "titel": "BZF I und BZF II: Zeugnisse und Prüfung",
+      "kurz": "Welches Funkzeugnis du brauchst und was in der Prüfung drankommt.",
+      "kern": [
+        "BZF II: Sprechfunk auf Deutsch nach Sichtflugregeln, nur innerhalb Deutschlands.",
+        "BZF I: Sprechfunk auf Deutsch und Englisch nach Sichtflugregeln – mit englischer Übersetzung in der Prüfung.",
+        "Prüfung bei der Bundesnetzagentur: schriftliche Kenntnisse und ein praktischer Teil mit Sprechfunkverkehr.",
+        "Verbindlich für die Theorie sind die Fragenkataloge der Bundesnetzagentur."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Wer im Luftfahrzeug funkt, braucht in Deutschland grundsätzlich ein **Flugfunkzeugnis**. Ausgestellt wird es von der **Bundesnetzagentur**; die Berechtigung kann auch von der Luftfahrtbehörde im Luftfahrerschein eingetragen werden."
+        },
+        {
+          "typ": "einfach",
+          "text": "Das Funkzeugnis ist wie ein Führerschein fürs Funkgerät: Es zeigt, dass du die Regeln und die festen Redewendungen kennst – damit dich am Funk jeder sofort versteht."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Zeugnis",
+            "Sprache",
+            "Wofür?"
+          ],
+          "zeilen": [
+            [
+              "**BZF II**",
+              "Deutsch",
+              "Sichtflug, nur innerhalb Deutschlands"
+            ],
+            [
+              "**BZF I**",
+              "Deutsch und Englisch",
+              "Sichtflug"
+            ],
+            [
+              "**BZF E**",
+              "Englisch",
+              "Sichtflug"
+            ],
+            [
+              "**AZF**",
+              "Deutsch und Englisch",
+              "Sicht- und Instrumentenflug"
+            ],
+            [
+              "**AZF E**",
+              "Englisch",
+              "Sicht- und Instrumentenflug"
+            ]
+          ],
+          "unterschrift": "Nach der Verordnung über Flugfunkzeugnisse und den Angaben der Bundesnetzagentur."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Mindestalter für BZF II, BZF I und BZF E: **15 Jahre** (spätestens drei Monate nach der Prüfung).",
+            "Das BZF I gibt es als Vollprüfung oder als Zusatzprüfung zum BZF II.",
+            "Das AZF gibt es nur als Zusatzprüfung (Mindestalter 18 Jahre)."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Was in der Prüfung drankommt"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Prüfung hat einen **schriftlichen Teil (Kenntnisse)** und einen **praktischen Teil (Fertigkeiten)**. Was genau geprüft wird, steht in Anlage 1 der Verordnung über Flugfunkzeugnisse:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Teil",
+            "Inhalt"
+          ],
+          "zeilen": [
+            [
+              "Schriftlich",
+              "Rechtliche Grundlagen des Flugfunks, Betriebsverfahren im Sprechfunk, Not- und Dringlichkeitsverfahren, Flugsicherung und Luftraum in Deutschland (mit Such- und Rettungsdienst), SERA und LuftVO für Sichtflüge, Flugsicherungsausrüstung, Funknavigation"
+            ],
+            [
+              "Praktisch",
+              "Einen Sichtflug zu einem Flugplatz mit Flugverkehrskontrolle mit amtlichen Unterlagen vorbereiten und einen Sprechfunkverkehr mit den festgelegten Redewendungen abwickeln – auch im Not- und Dringlichkeitsfall"
+            ],
+            [
+              "Nur BZF I",
+              "Den Sprechfunkverkehr auch auf Englisch abwickeln und einen englischen Text aus dem Luftfahrthandbuch (etwa 800 Zeichen) vorlesen und mündlich ins Deutsche übersetzen"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Hast du die Theorieprüfung für deine Pilotenlizenz in allen Teilen bestanden, erkennt die Bundesnetzagentur sie an. Dann bleibt nur noch der praktische Teil."
+        },
+        {
+          "typ": "achtung",
+          "text": "Verbindlich für die Theorie sind die **Fragenkataloge der Bundesnetzagentur** in der aktuellen Fassung. Diese App verwendet bewusst keine Fragen daraus – sie hilft beim Verstehen und Üben. Den Fragenkatalog stellt die Bundesnetzagentur auf ihrer Internetseite bereit."
+        },
+        {
+          "typ": "absatz",
+          "text": "Wer auf Englisch funkt, muss zusätzlich **Englischkenntnisse (Language Proficiency)** nachweisen. Die Bundesnetzagentur prüft diese auf **Stufe 4**: Hörverstehen mit kurzen Texten aus der Luftfahrt und ATIS-Lückentexten sowie ein Gespräch auf Englisch."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-bzf-01",
+          "typ": "auswahl",
+          "frage": "Welches Funkzeugnis berechtigt zum Sprechfunk auf Deutsch **und** Englisch nach Sichtflugregeln?",
+          "richtig": "BZF I",
+          "falsch": [
+            "BZF II",
+            "BZF E",
+            "AZF E"
+          ],
+          "erklaerung": "BZF I = Deutsch und Englisch, BZF II = nur Deutsch (innerhalb Deutschlands), BZF E = nur Englisch."
+        },
+        {
+          "id": "sf-bzf-02",
+          "typ": "wahrfalsch",
+          "aussage": "Mit dem BZF II darfst du auch im Ausland auf Deutsch funken.",
+          "richtig": false,
+          "erklaerung": "Das BZF II gilt für Sprechfunk in deutscher Sprache innerhalb der Bundesrepublik Deutschland."
+        },
+        {
+          "id": "sf-bzf-03",
+          "typ": "auswahl",
+          "frage": "Was kommt in der praktischen Prüfung zum BZF I gegenüber dem BZF II hinzu?",
+          "richtig": "Funkverkehr auch auf Englisch und die Übersetzung eines englischen Textes aus dem Luftfahrthandbuch",
+          "falsch": [
+            "Ein Prüfungsflug mit einem Fluglehrer",
+            "Ein Morsetest",
+            "Die Einstellung eines Transponders"
+          ],
+          "erklaerung": "Für das BZF I liest du zusätzlich einen englischen Text aus dem Luftfahrthandbuch (etwa 800 Zeichen) vor und übersetzt ihn mündlich."
+        },
+        {
+          "id": "sf-bzf-04",
+          "typ": "zahl",
+          "frage": "Wie alt musst du für das BZF II mindestens sein (spätestens drei Monate nach der Prüfung)?",
+          "loesung": 15,
+          "einheit": "Jahre",
+          "erklaerung": "Für BZF II, BZF I und BZF E gilt ein Mindestalter von 15 Jahren."
+        },
+        {
+          "id": "sf-bzf-05",
+          "typ": "auswahl",
+          "frage": "Wer nimmt die Prüfung für Flugfunkzeugnisse ab?",
+          "richtig": "Die Bundesnetzagentur",
+          "falsch": [
+            "Die DFS Deutsche Flugsicherung",
+            "Der Deutsche Wetterdienst",
+            "Der Flugplatzbetreiber"
+          ],
+          "erklaerung": "Flugfunkzeugnisse stellt die Bundesnetzagentur aus; sie nimmt auch die Prüfungen ab."
+        },
+        {
+          "id": "sf-bzf-06",
+          "typ": "wahrfalsch",
+          "aussage": "Für die schriftliche BZF-Prüfung sind die Fragenkataloge der Bundesnetzagentur verbindlich.",
+          "richtig": true,
+          "erklaerung": "Die Bundesnetzagentur gibt die verbindlichen Fragenkataloge heraus."
+        },
+        {
+          "id": "sf-bzf-07",
+          "typ": "zuordnung",
+          "frage": "Ordne jedem Zeugnis seine Berechtigung zu.",
+          "paare": [
+            [
+              "BZF II",
+              "Deutsch, Sichtflug"
+            ],
+            [
+              "BZF I",
+              "Deutsch und Englisch, Sichtflug"
+            ],
+            [
+              "BZF E",
+              "Englisch, Sichtflug"
+            ],
+            [
+              "AZF",
+              "Deutsch und Englisch, Sicht- und Instrumentenflug"
+            ]
+          ],
+          "erklaerung": "Nach der Verordnung über Flugfunkzeugnisse."
+        }
+      ]
+    },
     {
       "id": "alphabet",
       "titel": "Buchstabieralphabet",
@@ -27,13 +217,13 @@
           "kopf": [
             "Buchstabe",
             "Wort",
-            "Aussprache (ICAO) · Lesehilfe"
+            "Aussprache (ICAO) · deutsche Lesehilfe (DFS)"
           ],
           "zeilen": [
             [
               "A",
               "Alfa",
-              "**AL**-fah · ÄL-fa"
+              "**AL**-fah · AL-fa"
             ],
             [
               "B",
@@ -43,22 +233,22 @@
             [
               "C",
               "Charlie",
-              "**CHAR**-lee · TSCHAR-li"
+              "**CHAR**-lee · TSCHAHR-li"
             ],
             [
               "D",
               "Delta",
-              "**DELL**-tah · DÄLL-ta"
+              "**DELL**-tah · DEL-ta"
             ],
             [
               "E",
               "Echo",
-              "**ECK**-oh · ÄCK-o"
+              "**ECK**-oh · ECK-o"
             ],
             [
               "F",
               "Foxtrot",
-              "**FOKS**-trot · FOX-trott"
+              "**FOKS**-trot · FOX-trot"
             ],
             [
               "G",
@@ -68,17 +258,17 @@
             [
               "H",
               "Hotel",
-              "hoh-**TELL** · ho-TÄLL"
+              "hoh-**TELL** · ho-TELL"
             ],
             [
               "I",
               "India",
-              "**IN**-dee-ah · IN-di-a"
+              "**IN**-dee-ah · IN-dja"
             ],
             [
               "J",
               "Juliett",
-              "**JEW**-lee-ett · DSCHU-li-ätt"
+              "**JEW**-lee-ett · DSCHU-ljett"
             ],
             [
               "K",
@@ -93,12 +283,12 @@
             [
               "M",
               "Mike",
-              "**MIKE** · MEIK"
+              "**MIKE** · MAIK"
             ],
             [
               "N",
               "November",
-              "no-**VEM**-ber · no-WÄMM-ber"
+              "no-**VEM**-ber · no-WEMM-ba"
             ],
             [
               "O",
@@ -113,32 +303,32 @@
             [
               "Q",
               "Quebec",
-              "keh-**BECK** · ke-BÄCK"
+              "keh-**BECK** · ki-BECK"
             ],
             [
               "R",
               "Romeo",
-              "**ROW**-me-oh · RO-mi-o"
+              "**ROW**-me-oh · ROH-mio"
             ],
             [
               "S",
               "Sierra",
-              "see-**AIR**-rah · si-ÄR-ra"
+              "see-**AIR**-rah · si-ER-ra"
             ],
             [
               "T",
               "Tango",
-              "**TANG**-go · TÄNG-go"
+              "**TANG**-go · TÄN-go"
             ],
             [
               "U",
               "Uniform",
-              "**YOU**-nee-form · JU-ni-form"
+              "**YOU**-nee-form · JU-niform"
             ],
             [
               "V",
               "Victor",
-              "**VIK**-tah · WICK-ta"
+              "**VIK**-tah · WIK-tor"
             ],
             [
               "W",
@@ -148,12 +338,12 @@
             [
               "X",
               "X-ray",
-              "**ECKS**-ray · ÄCKS-reh"
+              "**ECKS**-ray · EX-re"
             ],
             [
               "Y",
               "Yankee",
-              "**YANG**-key · JÄNG-ki"
+              "**YANG**-key · JÄN-ki"
             ],
             [
               "Z",
@@ -282,15 +472,15 @@
       "titel": "Zahlen, Höhen und Frequenzen",
       "kurz": "Wie Ziffern, Höhen, Kurse, Luftdruck und Frequenzen gesprochen werden.",
       "kern": [
-        "Zahlen werden Ziffer für Ziffer gesprochen; englisch tree, fife und niner.",
-        "Im deutschen Funk heißt es „zwo“ statt „zwei“.",
-        "Höhen mit thousand und hundred: 2500 ft = two thousand five hundred feet.",
-        "Frequenzen: alle sechs Ziffern – außer die letzten beiden sind null."
+        "Zahlen werden Ziffer für Ziffer gesprochen; englisch „niner“ für 9, deutsch „zwo“ für 2.",
+        "Höhen mit „tausend/hundert“: 2500 ft = zwo tausend fünf hundert Fuß.",
+        "Ausnahmen: QNH 1000 = „ein tausend“, Squawk 7000 = „sieben tausend“.",
+        "Frequenzen: alle sechs Ziffern – außer die fünfte und sechste sind beide null."
       ],
       "theorie": [
         {
           "typ": "absatz",
-          "text": "Zahlen werden im Sprechfunk grundsätzlich **Ziffer für Ziffer** gesprochen. Im englischen Funk gibt es dafür eine eigene Aussprache, die auch über Rauschen gut zu verstehen ist – die 3 klingt wie „tree“, die 5 wie „fife“ und die 9 wie „niner“:"
+          "text": "Zahlen werden im Sprechfunk grundsätzlich **Ziffer für Ziffer** gesprochen – bei Rufzeichen, Pisten, Kursen, Wind, QNH, Transpondercodes und Frequenzen. Ausnahmen: **Höhen, Sichten und Wolkenhöhen** sprichst du mit „tausend/hundert“, **QNH 1000** heißt „ein tausend“, und **Transpondercodes aus ganzen Tausendern** sprichst du mit „tausend“. Im englischen Funk gibt es eine eigene Aussprache, die auch über Rauschen gut zu verstehen ist – die 9 heißt zum Beispiel „niner“:"
         },
         {
           "typ": "einfach",
@@ -301,7 +491,7 @@
           "kopf": [
             "Ziffer",
             "Wort",
-            "Aussprache (ICAO) · Lesehilfe"
+            "Aussprache (ICAO) · deutsche Lesehilfe (DFS)"
           ],
           "zeilen": [
             [
@@ -312,47 +502,47 @@
             [
               "1",
               "one",
-              "**WUN** · wann"
+              "**WUN** · WOAN"
             ],
             [
               "2",
               "two",
-              "**TOO** · tu"
+              "**TOO** · TUH"
             ],
             [
               "3",
               "three",
-              "**TREE** · tri"
+              "**TREE** · TRI"
             ],
             [
               "4",
               "four",
-              "**FOW**-er · FAU-er"
+              "**FOW**-er · FOHR"
             ],
             [
               "5",
               "five",
-              "**FIFE** · faif"
+              "**FIFE** · FEIF"
             ],
             [
               "6",
               "six",
-              "**SIX** · sicks"
+              "**SIX** · SIX"
             ],
             [
               "7",
               "seven",
-              "**SEV**-en · SÄW-en"
+              "**SEV**-en · SEW-en"
             ],
             [
               "8",
               "eight",
-              "**AIT** · eit"
+              "**AIT** · ÄIT"
             ],
             [
               "9",
               "niner",
-              "**NIN**-er · NEI-ner"
+              "**NIN**-er · NEIN-er"
             ]
           ],
           "unterschrift": "Dazu: decimal (**DAY**-see-mal), hundred (**HUN**-dred) und thousand (**TOU**-sand). Fett = betonte Silbe."
@@ -369,46 +559,77 @@
           "typ": "tabelle",
           "kopf": [
             "Wert",
-            "Gesprochen"
+            "Englisch",
+            "Deutsch"
           ],
           "zeilen": [
             [
               "Höhe 2500 ft",
-              "two thousand five hundred feet"
+              "two thousand five hundred feet",
+              "zwo tausend fünf hundert Fuß"
             ],
             [
               "Höhe 10 000 ft",
-              "one zero thousand feet"
+              "one zero thousand feet",
+              "eins null tausend Fuß"
             ],
             [
               "Flugfläche 75",
-              "flight level seven five"
+              "flight level seven five",
+              "Flugfläche sieben fünf"
+            ],
+            [
+              "Flugfläche 200",
+              "flight level two hundred",
+              "Flugfläche zwo hundert"
             ],
             [
               "Steuerkurs 090°",
-              "heading zero niner zero"
+              "heading zero niner zero",
+              "Steuerkurs null neun null"
             ],
             [
               "QNH 1009",
-              "QNH one zero zero niner"
+              "QNH one zero zero niner",
+              "QNH eins null null neun"
+            ],
+            [
+              "QNH 1000",
+              "QNH one thousand",
+              "QNH ein tausend"
             ],
             [
               "Wind 240° 12 kt",
-              "wind two four zero degrees one two knots"
+              "wind two four zero degrees one two knots",
+              "Wind zwo vier null Grad eins zwo Knoten"
             ],
             [
               "Frequenz 121,500",
-              "one two one decimal five"
+              "one two one decimal five",
+              "eins zwo eins komma fünf"
             ],
             [
               "Frequenz 118,050",
-              "one one eight decimal zero five zero"
+              "one one eight decimal zero five zero",
+              "eins eins acht komma null fünf null"
+            ],
+            [
+              "Transponder 4521",
+              "squawk four five two one",
+              "Squawk vier fünf zwo eins"
             ],
             [
               "Transponder 7000",
-              "squawk seven zero zero zero"
+              "squawk seven thousand",
+              "Squawk sieben tausend"
+            ],
+            [
+              "Verkehr auf 10 Uhr",
+              "traffic ten o’clock",
+              "Verkehr zehn Uhr"
             ]
-          ]
+          ],
+          "unterschrift": "Nach der Bekanntmachung über die Sprechfunkverfahren (NfL 2024-1-3266, Nr. 10 und 11)."
         },
         {
           "typ": "zwischentitel",
@@ -514,9 +735,9 @@
       "titel": "Standardwörter",
       "kurz": "Roger, Wilco, Affirm, Standby & Co. – was sie genau bedeuten.",
       "kern": [
-        "ROGER = erhalten, WILCO = wird ausgeführt, AFFIRM = ja, NEGATIVE = nein.",
-        "STANDBY = warten, SAY AGAIN = bitte wiederholen, UNABLE = geht nicht.",
-        "Freigaben und Anweisungen werden zurückgelesen – „Roger“ reicht dafür nicht."
+        "ROGER = VERSTANDEN (erhalten), WILCO = wird ausgeführt, AFFIRM = POSITIV, NEGATIVE = NEGATIV.",
+        "STANDBY = warten, SAY AGAIN = WIEDERHOLEN SIE, UNABLE = NICHT MÖGLICH, REPORT = MELDEN SIE.",
+        "Freigaben und Anweisungen werden zurückgelesen – „Verstanden“/„Roger“ reicht dafür nicht."
       ],
       "theorie": [
         {
@@ -530,83 +751,153 @@
         {
           "typ": "tabelle",
           "kopf": [
-            "Wort",
+            "Englisch",
+            "Deutsch",
             "Bedeutung"
           ],
           "zeilen": [
             [
               "**ROGER**",
-              "Ich habe deine letzte Übermittlung vollständig erhalten."
+              "**VERSTANDEN**",
+              "Ich habe deine letzte Meldung vollständig erhalten."
             ],
             [
               "**WILCO**",
-              "Verstanden, wird ausgeführt (will comply)."
+              "**WILCO**",
+              "Ich habe verstanden und werde entsprechend handeln (will comply)."
             ],
             [
               "**AFFIRM**",
+              "**POSITIV**",
               "Ja."
             ],
             [
               "**NEGATIVE**",
-              "Nein – oder: Erlaubnis nicht erteilt, das ist nicht richtig."
+              "**NEGATIV**",
+              "Nein – oder: Erlaubnis nicht erteilt, nicht richtig, nicht in der Lage."
             ],
             [
+              "**CORRECT**",
+              "**KORREKT**",
+              "Wahr oder richtig."
+            ],
+            [
+              "**STANDBY**",
               "**STANDBY**",
               "Warte, ich rufe dich wieder."
             ],
             [
               "**SAY AGAIN**",
-              "Wiederhole bitte (alles oder den genannten Teil)."
+              "**WIEDERHOLEN SIE**",
+              "Wiederhole alles oder den genannten Teil deiner Meldung."
             ],
             [
               "**I SAY AGAIN**",
-              "Ich wiederhole zur Verdeutlichung."
+              "**ICH WIEDERHOLE**",
+              "Ich wiederhole zur Klarstellung oder Betonung."
             ],
             [
               "**CORRECTION**",
-              "Ich habe mich vertan, richtig ist …"
+              "**BERICHTIGUNG**",
+              "Ich habe mich vertan, richtig heißt es …"
             ],
             [
               "**DISREGARD**",
+              "**IGNORIEREN SIE**",
               "Nicht beachten."
             ],
             [
               "**READ BACK**",
-              "Wiederhole die Nachricht genau so, wie du sie empfangen hast."
+              "**WIEDERHOLEN SIE WÖRTLICH**",
+              "Wiederhole die Meldung (oder den genannten Teil) wörtlich."
             ],
             [
               "**CONFIRM**",
-              "Bitte bestätige (z. B. ob eine Freigabe oder Angabe so gemeint ist)."
+              "**BESTÄTIGEN SIE**",
+              "Ich erbitte Bestätigung (einer Freigabe, Anweisung oder Information)."
+            ],
+            [
+              "**ACKNOWLEDGE**",
+              "**BESTÄTIGEN SIE**",
+              "Teile mit, dass du die Meldung empfangen und verstanden hast."
             ],
             [
               "**REPORT**",
-              "Melde mir …"
+              "**MELDEN SIE**",
+              "Gib mir die folgende Information."
             ],
             [
               "**REQUEST**",
-              "Ich möchte … / ich bitte um …"
+              "**ERBITTE**",
+              "Ich möchte wissen … / ich beantrage …"
             ],
             [
               "**APPROVED**",
+              "**GENEHMIGT**",
               "Die beantragte Handlung ist genehmigt."
             ],
             [
               "**CLEARED**",
+              "**FREI**",
               "Freigegeben – unter den genannten Bedingungen."
             ],
             [
               "**UNABLE**",
+              "**NICHT MÖGLICH**",
               "Ich kann dem nicht nachkommen."
             ],
             [
               "**CONTACT**",
+              "**RUFEN SIE**",
               "Nimm Funkverbindung auf mit …"
             ],
             [
               "**MONITOR**",
-              "Höre die Frequenz mit."
+              "**MONITOR**",
+              "Höre die genannte Frequenz ab."
+            ],
+            [
+              "**MAINTAIN**",
+              "**BEHALTEN SIE … BEI / BLEIBEN SIE**",
+              "Fahre gemäß den genannten Bedingungen fort."
+            ],
+            [
+              "**OVER**",
+              "**KOMMEN**",
+              "Meine Übermittlung ist beendet, ich erwarte deine Antwort."
+            ],
+            [
+              "**OUT**",
+              "**ENDE**",
+              "Meine Übermittlung ist beendet, ich erwarte keine Antwort."
+            ],
+            [
+              "**BREAK**",
+              "**TRENNUNG**",
+              "Hier trenne ich Teile meiner Meldung."
+            ],
+            [
+              "**CANCEL**",
+              "**AUFGEHOBEN**",
+              "Die vorher übermittelte Freigabe ist aufgehoben."
+            ],
+            [
+              "**HOW DO YOU READ**",
+              "**WIE VERSTEHEN SIE MICH**",
+              "Wie gut verstehst du meine Sendung?"
+            ],
+            [
+              "**SPEAK SLOWER**",
+              "**SPRECHEN SIE LANGSAMER**",
+              "Sprich langsamer."
+            ],
+            [
+              "**WORDS TWICE**",
+              "**WORTE DOPPELT**",
+              "Die Verständigung ist schwierig – jedes Wort bzw. jede Wortgruppe doppelt senden."
             ]
-          ]
+          ],
+          "unterschrift": "Nach der „Bekanntmachung über die Sprechfunkverfahren“ (NfL 2024-1-3266, Nr. 12). Bedeutungen sinngemäß zusammengefasst."
         },
         {
           "typ": "achtung",
@@ -618,7 +909,7 @@
         },
         {
           "typ": "absatz",
-          "text": "Auf „How do you read?“ antwortest du mit einer Zahl von 1 bis 5, z. B. „Readability five“ bzw. „Ich höre Sie fünf“."
+          "text": "Bei einer **Funkprobe** nennst du die gerufene Station, dein Rufzeichen, die Worte **RADIO CHECK** und die Frequenz. Die Antwort enthält dein Rufzeichen, das Rufzeichen der Station und die **Verständlichkeit von 1 bis 5**, z. B. „D-EKLM, Altdorf Radio, Verständlichkeit fünf“ bzw. „… readability five“. Die Bekanntmachung legt die Bestandteile fest, nicht den genauen Wortlaut der Antwort."
         },
         {
           "typ": "abbildung",
@@ -782,11 +1073,56 @@
         {
           "typ": "formel",
           "titel": "Beispiel",
-          "text": "„Altdorf Info, D-EKLM, Cessna 172,\n5 NM südlich, 2500 ft,\nzur Landung.“"
+          "text": "„Altdorf Radio, D-EKLM, Cessna 172,\n5 NM südlich, 2500 ft,\nzur Landung.“"
         },
         {
           "typ": "absatz",
-          "text": "Das Beispiel nutzt einen frei erfundenen Platz. Wie genau du dich meldest, hängt vom Platz und vom Luftraum ab – üblich sind zusätzlich z. B. die Information über die aktuelle ATIS-Kennung."
+          "text": "Das Beispiel nutzt einen frei erfundenen Platz ohne Flugverkehrsdienst. Solche Plätze rufst du mit **RADIO** – das frühere „Info“ gibt es nicht mehr. An kontrollierten Plätzen meldest du dich zusätzlich mit der Kennung der aktuellen ATIS, falls es eine gibt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wer ist wer? Die Bodenfunkstellen"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Rufzeichen-Zusatz",
+            "Englisch",
+            "Wer steckt dahinter?"
+          ],
+          "zeilen": [
+            [
+              "**TURM**",
+              "TOWER",
+              "Flugplatzkontrolle an einem kontrollierten Flugplatz"
+            ],
+            [
+              "**ROLLKONTROLLE**",
+              "GROUND",
+              "Kontrolle der Bewegungen am Boden"
+            ],
+            [
+              "**VORFELD**",
+              "APRON",
+              "Bewegungslenkung auf dem Vorfeld"
+            ],
+            [
+              "**ANFLUGKONTROLLE / RADAR**",
+              "APPROACH / RADAR",
+              "Anflugkontrolle bzw. Flugverkehrskontrolle mit Radar"
+            ],
+            [
+              "**INFORMATION**",
+              "INFORMATION",
+              "Fluginformationsdienst (FIS) oder AFIS-Stelle an einem Flugplatz – gibt keine Freigaben"
+            ],
+            [
+              "**RADIO**",
+              "RADIO",
+              "Bodenfunkstelle an einem Flugplatz ohne Flugverkehrsdienst – gibt nur Informationen, keine Anweisungen"
+            ]
+          ],
+          "unterschrift": "Nach NfL 2024-1-3266, Nr. 34 und 35. Die Stationen heißen meist nach dem Flugplatz oder einer nahen Stadt, z. B. „Musterstadt Turm“."
         },
         {
           "typ": "zwischentitel",
@@ -832,7 +1168,7 @@
         },
         {
           "typ": "merke",
-          "text": "Hörst du die Station noch, kannst aber nicht senden, kannst du Meldungen trotzdem **blind senden** – vielleicht kommen sie an."
+          "text": "Kommt keine Verbindung zustande, sendest du deine Meldung **zweimal** und beginnst mit **BLINDSENDUNG** / TRANSMITTING BLIND – vielleicht kommt sie an. Nicht verwechseln: An einem Platz ohne Flugverkehrsdienst, dessen Bodenfunkstelle nicht besetzt ist, gibst du deine Meldungen einfach ohne Antwort ab – dort wird das Wort „Blindsendung“ ausdrücklich **nicht** verwendet."
         }
       ],
       "fragen": [
@@ -918,6 +1254,724 @@
           "aussage": "Verkehrsinformationen musst du immer vollständig zurücklesen.",
           "richtig": false,
           "erklaerung": "Verkehrsinformationen bestätigst du – z. B. mit „Traffic in sight“ oder „Looking out“ – musst sie aber nicht zurücklesen."
+        }
+      ]
+    },
+    {
+      "id": "radio",
+      "titel": "Flugplätze ohne Flugverkehrsdienst (RADIO)",
+      "kurz": "Funken an Plätzen ohne Tower: Position und Absicht melden – die Bodenstelle informiert nur.",
+      "kern": [
+        "Die Bodenfunkstelle heißt „(Flugplatz) RADIO“ – sie gibt Informationen, aber keine Freigaben und keine Anweisungen.",
+        "Erstanruf: (Flugplatz) RADIO, Rufzeichen, Muster, Position, Absicht.",
+        "In der Platzrunde meldest du Gegenanflug, Queranflug und Endanflug – bei einer Rechtsplatzrunde mit „rechter“.",
+        "Kein QNH, keine genauen Windwerte: Wind nur als schwach, mäßig oder stark mit Richtung."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Die meisten Flugplätze haben weder Tower noch AFIS. Dort gibt es höchstens eine **Bodenfunkstelle mit dem Rufzeichen RADIO**, z. B. „Altdorf Radio“. Sie ist **kein Flugverkehrsdienst**: Sie darf keine Freigaben erteilen und keine Anweisungen geben. Ihr hilft, den Überblick zu behalten – die Verantwortung für deinen Flug liegt aber bei dir."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Funk an einem RADIO-Platz ist wie Rufen an einer unübersichtlichen Kreuzung: Jeder sagt laut, wo er ist und was er vorhat. Die Bodenstelle ist wie ein Helfer am Rand, der Hinweise gibt – den Verkehr regelt sie nicht."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Was die Bodenfunkstelle sagen darf"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Erlaubt",
+            "Nicht erlaubt"
+          ],
+          "zeilen": [
+            [
+              "Aufforderung zu Positionsmeldungen",
+              "Freigaben, Landereihenfolgen, Ausweichempfehlungen"
+            ],
+            [
+              "Allgemeine Hinweise, z. B. Segelflugbetrieb oder Vogelschwärme",
+              "Verkehrsinformationen mit Position und Höhe anderer Luftfahrzeuge"
+            ],
+            [
+              "Empfehlung der Piste, z. B. „Empfehle Piste 25“",
+              "Anweisungen, die über das Hausrecht hinausgehen"
+            ],
+            [
+              "Wind nur allgemein: **schwach** (unter 6 kt), **mäßig** (6–15 kt), **stark** (über 15 kt) mit Richtung",
+              "Genaue Windwerte in Grad und Knoten, QNH, Sicht, Bewölkung, Temperatur"
+            ],
+            [
+              "Wettererscheinungen in Platznähe, z. B. Gewitter",
+              "Freigaben oder Transpondercodes der Flugverkehrskontrolle weitergeben"
+            ]
+          ],
+          "unterschrift": "Nach den Richtlinien für die Durchführung des Flugfunks auf Flugplätzen ohne Flugverkehrsdienste (NfL 2024-1-3240), sinngemäß zusammengefasst."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Deine Meldungen"
+        },
+        {
+          "typ": "formel",
+          "titel": "Erstanruf (An- und Abflug)",
+          "text": "(Flugplatz) RADIO, (Rufzeichen), (Muster),\n(Position), (Absicht) [weitere Angaben]"
+        },
+        {
+          "typ": "formel",
+          "titel": "Beispiel Anflug",
+          "text": "Altdorf Radio, D-EKLM, Cessna 172,\nPosition 5 NM südlich Altdorf, 2500 ft,\nzur Landung"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Situation",
+            "Meldung (Beispiel)"
+          ],
+          "zeilen": [
+            [
+              "Vom Vorfeld zum Rollhalt",
+              "D-EKLM, rolle zum Rollhalt Piste 25"
+            ],
+            [
+              "Auf die Piste rollen",
+              "D-EKLM, rolle zum Abflugpunkt Piste 25"
+            ],
+            [
+              "Start",
+              "D-EKLM, starte Piste 25"
+            ],
+            [
+              "Platzrunde verlassen",
+              "D-EKLM, verlasse Gegenanflug in nördlicher Richtung, 2500 ft"
+            ],
+            [
+              "In die Platzrunde einfliegen",
+              "D-EKLM, fliege in rechten Gegenanflug Piste 25, zur Landung"
+            ],
+            [
+              "In der Platzrunde",
+              "D-EKLM, rechter Queranflug Piste 25, zur Landung"
+            ],
+            [
+              "Durchstarten",
+              "D-EKLM, starte durch"
+            ],
+            [
+              "Nach der Landung",
+              "D-EKLM, Piste verlassen, rolle zum Vorfeld"
+            ]
+          ],
+          "unterschrift": "Empfohlene Sprechgruppen nach NfL 2024-1-3240, Nr. 6.2. Bei einer Rechtsplatzrunde steht „rechter“ vor dem Platzrundenteil."
+        },
+        {
+          "typ": "abbildung",
+          "id": "platzrunde-xalt",
+          "unterschrift": "Die Teile der Platzrunde am frei erfundenen Flugplatz Altdorf. Welche Platzrunde gilt, steht für jeden echten Platz im Luftfahrthandbuch."
+        },
+        {
+          "typ": "achtung",
+          "text": "In den empfohlenen Sprechgruppen kommen Formulierungen wie „abflugbereit“, „Start nach eigenem Ermessen“ oder „erbitte Landeinformationen“ nicht vor – eine RADIO-Station darf ja auch nichts freigeben. Positionen gibst du als **Entfernung und Richtung zu einem markanten Punkt** an (oder „über“ bzw. „querab“ eines Punktes)."
+        },
+        {
+          "typ": "merke",
+          "text": "Ist die Bodenfunkstelle nicht besetzt, gibst du deine Meldungen trotzdem auf der Platzfrequenz ab – ohne eine Antwort zu erwarten. Das ist keine Blindsendung; das Wort „Blindsendung“ wird hier ausdrücklich nicht verwendet."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-rad-01",
+          "typ": "auswahl",
+          "frage": "Wie rufst du die Bodenfunkstelle des Flugplatzes Altdorf, an dem kein Flugverkehrsdienst erbracht wird?",
+          "richtig": "Altdorf Radio",
+          "falsch": [
+            "Altdorf Info",
+            "Altdorf Turm",
+            "Altdorf Information"
+          ],
+          "erklaerung": "Bodenfunkstellen an Plätzen ohne Flugverkehrsdienst tragen den Zusatz RADIO. „INFORMATION“ heißen AFIS-Stellen und der Fluginformationsdienst, „Info“ gibt es nicht mehr."
+        },
+        {
+          "id": "sf-rad-02",
+          "typ": "wahrfalsch",
+          "aussage": "Altdorf Radio darf dir die Landung freigeben.",
+          "richtig": false,
+          "erklaerung": "Eine RADIO-Bodenfunkstelle ist kein Flugverkehrsdienst und darf keine Freigaben erteilen."
+        },
+        {
+          "id": "sf-rad-03",
+          "typ": "auswahl",
+          "frage": "Welche Windangabe darf eine RADIO-Bodenfunkstelle machen?",
+          "richtig": "Mäßiger Wind aus West",
+          "falsch": [
+            "Wind 270 Grad, 12 Knoten",
+            "Wind 270 Grad, 12 Knoten, QNH 1013",
+            "Böen bis 25 Knoten aus 280 Grad"
+          ],
+          "erklaerung": "Erlaubt ist nur eine allgemeine Angabe: schwach (unter 6 kt), mäßig (6–15 kt) oder stark (über 15 kt) und die Richtung. Genaue Werte und QNH nicht."
+        },
+        {
+          "id": "sf-rad-04",
+          "typ": "zahl",
+          "frage": "Oberhalb welcher Windgeschwindigkeit spricht man nach der Empfehlung für RADIO-Stationen von „starkem“ Wind?",
+          "loesung": 15,
+          "einheit": "kt",
+          "erklaerung": "Empfehlung: unter 6 kt schwach, 6–15 kt mäßig, über 15 kt stark."
+        },
+        {
+          "id": "sf-rad-05",
+          "typ": "auswahl",
+          "frage": "In welcher Reihenfolge baust du den Erstanruf an einem RADIO-Platz auf?",
+          "richtig": "Flugplatz RADIO – Rufzeichen – Muster – Position – Absicht",
+          "falsch": [
+            "Rufzeichen – Flugplatz RADIO – Absicht – Position – Muster",
+            "Flugplatz RADIO – Absicht – Rufzeichen – Position",
+            "Muster – Rufzeichen – Position – Flugplatz RADIO"
+          ],
+          "erklaerung": "Zuerst die gerufene Stelle, dann wer du bist, dann wo du bist und was du vorhast."
+        },
+        {
+          "id": "sf-rad-06",
+          "typ": "auswahl",
+          "frage": "Du rollst in Altdorf auf die Piste 25, um zu starten. Was meldest du?",
+          "richtig": "D-EKLM, rolle zum Abflugpunkt Piste 25",
+          "falsch": [
+            "D-EKLM, abflugbereit Piste 25",
+            "D-EKLM, erbitte Startfreigabe Piste 25",
+            "D-EKLM, Start nach eigenem Ermessen"
+          ],
+          "erklaerung": "Du meldest, was du tust. Eine RADIO-Station gibt keine Startfreigabe – „abflugbereit“ oder „nach eigenem Ermessen“ sind dort nicht vorgesehen."
+        },
+        {
+          "id": "sf-rad-07",
+          "typ": "auswahl",
+          "frage": "Du fliegst eine Rechtsplatzrunde zur Piste 25 und drehst in den Queranflug. Was meldest du?",
+          "richtig": "D-EKLM, rechter Queranflug Piste 25, zur Landung",
+          "falsch": [
+            "D-EKLM, Queranflug rechts herum",
+            "D-EKLM, im Anflug",
+            "D-EKLM, kurz vor der Landung"
+          ],
+          "erklaerung": "Platzrundenteil mit „rechter“, Piste und Absicht."
+        },
+        {
+          "id": "sf-rad-08",
+          "typ": "zuordnung",
+          "frage": "Ordne die Teile der Platzrunde den englischen Begriffen zu.",
+          "paare": [
+            [
+              "Gegenanflug",
+              "downwind"
+            ],
+            [
+              "Queranflug",
+              "base"
+            ],
+            [
+              "Endanflug",
+              "final"
+            ],
+            [
+              "Querabflug",
+              "crosswind"
+            ]
+          ],
+          "erklaerung": "Diese Begriffe brauchst du auch im englischen Sprechfunk."
+        },
+        {
+          "id": "sf-rad-09",
+          "typ": "wahrfalsch",
+          "aussage": "Ist die Bodenfunkstelle nicht besetzt, beginnst du deine Meldungen mit „Blindsendung“.",
+          "richtig": false,
+          "erklaerung": "Du meldest dich ganz normal ohne Antwort. Das Wort „Blindsendung“ wird hier ausdrücklich nicht verwendet."
+        },
+        {
+          "id": "sf-rad-g1",
+          "typ": "generator",
+          "generator": "platzrundenmeldung"
+        }
+      ]
+    },
+    {
+      "id": "kontrolliert",
+      "titel": "Flugplätze mit Flugverkehrskontrolle",
+      "kurz": "Rollen, Starten, Kontrollzone und Landen – mit Freigaben vom Turm.",
+      "kern": [
+        "Am kontrollierten Platz brauchst du für Rollen, Start, Einflug in die Kontrollzone und Landung eine Freigabe.",
+        "Freigaben liest du zurück – mit deinem Rufzeichen.",
+        "Ein- und Ausflug in die Kontrollzone über die veröffentlichten Meldepunkte oder wie angewiesen.",
+        "„Rollen Sie zum Abflugpunkt … dort halten“ heißt: aufrollen und warten – starten erst mit „Start frei“."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "An einem Flugplatz mit Flugverkehrskontrolle sprichst du mit dem **Turm** – an großen Plätzen vorher mit Vorfeld oder Rollkontrolle. Um den Platz liegt meist eine **Kontrollzone (CTR)**: Für den Einflug brauchst du eine Freigabe, und du fliegst über die **Meldepunkte** aus der Sichtanflugkarte ein und aus."
+        },
+        {
+          "typ": "einfach",
+          "text": "Am kontrollierten Platz ist es wie an einer Kreuzung mit Verkehrspolizist: Du fährst erst los, wenn er dir das Zeichen gibt – und du wiederholst laut, was er gesagt hat, damit beide sicher sind, dass es richtig angekommen ist."
+        },
+        {
+          "typ": "abbildung",
+          "id": "sichtanflugkarte-xmus",
+          "unterschrift": "Frei erfundene Übungskarte. Echte Sichtanflugkarten veröffentlicht die DFS im Luftfahrthandbuch AIP VFR – sie sind urheberrechtlich geschützt und deshalb hier nicht abgebildet."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Abflug"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Wer",
+            "Meldung (Beispiel)"
+          ],
+          "zeilen": [
+            [
+              "Du",
+              "Musterstadt Turm, D-EKLM, Cessna 172, Vorfeld, VFR nach Bergen, Information Alfa, erbitte Rollen"
+            ],
+            [
+              "Turm",
+              "D-EKLM, rollen Sie zum Rollhalt Piste 27"
+            ],
+            [
+              "Du",
+              "Rolle zum Rollhalt Piste 27, D-EKLM"
+            ],
+            [
+              "Turm",
+              "D-EKLM, melden Sie abflugbereit"
+            ],
+            [
+              "Du",
+              "D-EKLM, abflugbereit"
+            ],
+            [
+              "Turm",
+              "D-EKLM, rollen Sie zum Abflugpunkt Piste 27, dort halten"
+            ],
+            [
+              "Du",
+              "Rolle zum Abflugpunkt Piste 27, dort halten, D-EKLM"
+            ],
+            [
+              "Turm",
+              "D-EKLM, Wind 260 Grad, 8 Knoten, Piste 27, Start frei"
+            ],
+            [
+              "Du",
+              "Piste 27, Start frei, D-EKLM"
+            ]
+          ],
+          "unterschrift": "Sprechgruppen nach NfL 2024-1-3266, Anlage 1, 1.4.7 bis 1.4.11. Platz, Frequenzen und ATIS-Kennung sind frei erfunden."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kontrollzone"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Wer",
+            "Meldung (Beispiel)"
+          ],
+          "zeilen": [
+            [
+              "Du",
+              "Musterstadt Turm, D-EKLM, Cessna 172, 5 NM westlich Whiskey, 2500 ft, Information Bravo, zur Landung"
+            ],
+            [
+              "Turm",
+              "D-EKLM, fliegen Sie in die Kontrollzone über Whiskey in 2500 ft, QNH 1013, melden Sie Whiskey"
+            ],
+            [
+              "Du",
+              "Fliege in die Kontrollzone über Whiskey in 2500 ft, QNH 1013, melde Whiskey, D-EKLM"
+            ],
+            [
+              "Turm (Abflug)",
+              "D-EKLM, verlassen Sie die Kontrollzone über November, melden Sie November"
+            ]
+          ],
+          "unterschrift": "Nach NfL 2024-1-3266, Anlage 1, 1.2.1 und 1.4.13."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Platzrunde und Landung"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Wer",
+            "Meldung (Beispiel)"
+          ],
+          "zeilen": [
+            [
+              "Turm",
+              "D-EKLM, fliegen Sie in den linken Gegenanflug Piste 27, melden Sie Queranflug"
+            ],
+            [
+              "Du",
+              "Linker Gegenanflug Piste 27, melde Queranflug, D-EKLM"
+            ],
+            [
+              "Du",
+              "D-EKLM, Queranflug Piste 27"
+            ],
+            [
+              "Turm",
+              "D-EKLM, Piste 27, Landung frei"
+            ],
+            [
+              "Du",
+              "Piste 27, Landung frei, D-EKLM"
+            ],
+            [
+              "Turm",
+              "D-EKLM, starten Sie durch"
+            ],
+            [
+              "Du",
+              "D-EKLM, starte durch"
+            ]
+          ],
+          "unterschrift": "Nach NfL 2024-1-3266, Anlage 1, 1.4.13 bis 1.4.18."
+        },
+        {
+          "typ": "achtung",
+          "text": "**Start frei** und **Landung frei** gibt es nur vom Turm. „Rollen Sie zum Abflugpunkt … dort halten“ ist keine Startfreigabe! Das englische Wort **take-off** wird im Funk nur in der Startfreigabe oder bei deren Aufhebung verwendet."
+        },
+        {
+          "typ": "merke",
+          "text": "Was du zurückliest, steht im Kapitel „Funkverfahren“: Freigaben und Anweisungen zur Piste, Höhenmessereinstellung, Transpondercode, neue Frequenz, Höhe, Kurs und Geschwindigkeit – immer mit deinem Rufzeichen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-ktr-01",
+          "typ": "auswahl",
+          "frage": "Der Turm sagt: „D-EKLM, rollen Sie zum Abflugpunkt Piste 27, dort halten.“ Was darfst du tun?",
+          "richtig": "Auf die Piste rollen und dort auf die Startfreigabe warten",
+          "falsch": [
+            "Sofort starten",
+            "Am Rollhalt vor der Piste warten",
+            "Die Piste überqueren und auf der anderen Seite halten"
+          ],
+          "erklaerung": "„Abflugpunkt … dort halten“ (englisch: line up and wait) heißt aufrollen und warten. Starten darfst du erst mit „Start frei“."
+        },
+        {
+          "id": "sf-ktr-02",
+          "typ": "auswahl",
+          "frage": "Der Turm sagt: „D-EKLM, Piste 27, Landung frei.“ Was antwortest du?",
+          "richtig": "Piste 27, Landung frei, D-EKLM",
+          "falsch": [
+            "Verstanden, D-EKLM",
+            "Wilco",
+            "D-EKLM, Landung"
+          ],
+          "erklaerung": "Landefreigaben liest du mit Pistenbezeichnung und Rufzeichen zurück."
+        },
+        {
+          "id": "sf-ktr-03",
+          "typ": "wahrfalsch",
+          "aussage": "Das englische Wort „take-off“ darf im Funk nur in der Startfreigabe oder bei deren Aufhebung verwendet werden.",
+          "richtig": true,
+          "erklaerung": "So steht es in der Bekanntmachung über die Sprechfunkverfahren (Nr. 12). Damit wird verhindert, dass jemand eine Startfreigabe missversteht."
+        },
+        {
+          "id": "sf-ktr-04",
+          "typ": "auswahl",
+          "frage": "Was bedeutet die Aufforderung „Melden Sie abflugbereit“?",
+          "richtig": "Sag Bescheid, sobald du startbereit bist",
+          "falsch": [
+            "Du bist zum Start freigegeben",
+            "Roll sofort auf die Piste",
+            "Verlasse die Frequenz"
+          ],
+          "erklaerung": "Du meldest dich mit „(Rufzeichen), abflugbereit“, wenn du so weit bist. Die Startfreigabe kommt danach."
+        },
+        {
+          "id": "sf-ktr-05",
+          "typ": "auswahl",
+          "frage": "Wie fliegst du als VFR-Flug in eine Kontrollzone ein?",
+          "richtig": "Mit Freigabe über die veröffentlichten Meldepunkte oder wie vom Turm angewiesen",
+          "falsch": [
+            "Auf dem kürzesten Weg, ohne Funk",
+            "Nur über dem Platz in Platzrundenhöhe",
+            "Mit Transpondercode 7700"
+          ],
+          "erklaerung": "In die Kontrollzone brauchst du eine Freigabe; ein- und ausgeflogen wird über die Meldepunkte aus der Sichtanflugkarte."
+        },
+        {
+          "id": "sf-ktr-06",
+          "typ": "zuordnung",
+          "frage": "Ordne die deutschen Sprechgruppen den englischen zu.",
+          "paare": [
+            [
+              "Rollen Sie zum Rollhalt",
+              "Taxi to holding point"
+            ],
+            [
+              "Rollen Sie zum Abflugpunkt, dort halten",
+              "Line up and wait"
+            ],
+            [
+              "Start frei",
+              "Cleared for take-off"
+            ],
+            [
+              "Landung frei",
+              "Cleared to land"
+            ],
+            [
+              "Starten Sie durch",
+              "Go around"
+            ]
+          ],
+          "erklaerung": "Nach der Bekanntmachung über die Sprechfunkverfahren, Anlage 1."
+        },
+        {
+          "id": "sf-ktr-07",
+          "typ": "auswahl",
+          "frage": "Was gehört in deine Rückmeldung auf „D-EKLM, fliegen Sie in die Kontrollzone über Whiskey in 2500 ft, QNH 1013“?",
+          "richtig": "Whiskey, 2500 ft und QNH 1013 – mit Rufzeichen",
+          "falsch": [
+            "Nur „Verstanden“ und das Rufzeichen",
+            "Nur das QNH",
+            "Nur der Meldepunkt"
+          ],
+          "erklaerung": "Freigaben, Höhen und den Höhenmesserwert liest du vollständig zurück."
+        },
+        {
+          "id": "sf-ktr-g1",
+          "typ": "generator",
+          "generator": "zuruecklesen"
+        },
+        {
+          "id": "sf-ktr-g2",
+          "typ": "generator",
+          "generator": "zuruecklesen"
+        }
+      ]
+    },
+    {
+      "id": "unterwegs",
+      "titel": "Unterwegs: FIS, Transponder und RMZ",
+      "kurz": "Fluginformationsdienst, Verkehrsinformationen, Squawk und Zonen mit Funkpflicht.",
+      "kern": [
+        "Der Fluginformationsdienst heißt „(Name) INFORMATION“ – er informiert, gibt aber keine Freigaben.",
+        "Verkehrsinformationen kommen mit Uhrzeigerstellung; du antwortest „halte Ausschau“, „Verkehr in Sicht“ oder „kein Kontakt“.",
+        "Squawk-Anweisungen liest du zurück; ganze Tausender sprichst du mit „tausend“ (7000 = „sieben tausend“).",
+        "Vor dem Einflug in eine RMZ meldest du dich – auch wenn niemand antwortet."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Unterwegs kannst du den **Fluginformationsdienst (FIS)** rufen. Er gibt dir Informationen über Verkehr, Wetter und Lufträume – aber **keine Freigaben**. Seine Rufzeichen enden auf **INFORMATION**, im Übungsgebiet z. B. „Mittelland Information“."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Fluginformationsdienst ist wie der Verkehrsfunk im Autoradio: Er sagt dir, wo es eng wird oder was auf dich zukommt – fahren musst du aber selbst."
+        },
+        {
+          "typ": "formel",
+          "titel": "Anmelden beim FIS (Beispiel)",
+          "text": "Mittelland Information, D-EKLM\n– Antwort abwarten –\nCessna 172, VFR von Altdorf nach Bergen,\n10 NM nördlich Altdorf, 3500 ft,\nerbitte Verkehrsinformationen"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Verkehrsinformationen"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Deutsch",
+            "Englisch",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "VERKEHR (Angaben)",
+              "TRAFFIC (information)",
+              "Verkehrshinweis, z. B. „Verkehr auf 2 Uhr, 3 NM, Gegenrichtung, 3000 ft“"
+            ],
+            [
+              "HALTE AUSSCHAU",
+              "LOOKING OUT",
+              "Ich suche den Verkehr."
+            ],
+            [
+              "VERKEHR IN SICHT",
+              "TRAFFIC IN SIGHT",
+              "Ich sehe den Verkehr."
+            ],
+            [
+              "KEIN KONTAKT",
+              "NEGATIVE CONTACT",
+              "Ich sehe den Verkehr nicht."
+            ],
+            [
+              "KEIN GEMELDETER VERKEHR",
+              "NO REPORTED TRAFFIC",
+              "Es ist kein Verkehr bekannt."
+            ]
+          ],
+          "unterschrift": "Nach NfL 2024-1-3266, Anlage 1, 1.1.7."
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Richtung zum Verkehr wird als **Uhrzeigerstellung** angegeben – bezogen auf deine Flugrichtung. Die Zahl sprichst du zusammen: „zehn Uhr“ / „ten o’clock“."
+        },
+        {
+          "typ": "abbildung",
+          "id": "uhrzeigerstellung",
+          "unterschrift": "12 Uhr ist geradeaus, 3 Uhr rechts, 6 Uhr hinten, 9 Uhr links."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Transponder"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Anweisung",
+            "Bedeutung",
+            "Rückmeldung (Beispiel)"
+          ],
+          "zeilen": [
+            [
+              "SQUAWK 4521",
+              "Stelle den Code 4521 ein.",
+              "Squawk 4521, D-EKLM"
+            ],
+            [
+              "SQUAWK 4521 UND IDENT",
+              "Code einstellen und die IDENT-Taste drücken.",
+              "Squawk 4521 und Ident, D-EKLM"
+            ],
+            [
+              "BESTÄTIGEN SIE SQUAWK",
+              "Nenne den eingestellten Code.",
+              "Bestätige Squawk 4521, D-EKLM"
+            ],
+            [
+              "SQUAWK STANDBY",
+              "Transponder vorübergehend auf Standby schalten.",
+              "Squawk Standby, D-EKLM"
+            ]
+          ],
+          "unterschrift": "Nach NfL 2024-1-3266, Anlage 1, 2.3. Codes sprichst du Ziffer für Ziffer, ganze Tausender mit „tausend“ (2000 = „zwo tausend“)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zonen mit Funkkommunikationspflicht (RMZ)"
+        },
+        {
+          "typ": "absatz",
+          "text": "In einer **RMZ** musst du Hörbereitschaft halten und dich vor dem Einflug melden. Wen du rufst, steht im Luftfahrthandbuch – bei einer RMZ um einen kleinen Flugplatz meist dessen Bodenfunkstelle."
+        },
+        {
+          "typ": "formel",
+          "titel": "Meldungen zur RMZ",
+          "text": "Einflug: (Muster) (Position) VFR (Höhe) Fuß,\nwerde in RMZ einfliegen [zur Landung in (Flugplatz)]\nAusflug: verlasse RMZ (Position) (Höhe) Fuß"
+        },
+        {
+          "typ": "merke",
+          "text": "Die Meldungen zur RMZ gibst du auch dann ab, wenn die Bodenfunkstelle nicht antwortet. (NfL 2024-1-3266, Anlage 1, Punkt 7)"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-unt-01",
+          "typ": "auswahl",
+          "frage": "Welche dieser Stellen gibt dir keine Freigaben, sondern nur Informationen?",
+          "richtig": "Mittelland Information",
+          "falsch": [
+            "Musterstadt Turm",
+            "Musterstadt Rollkontrolle",
+            "Musterstadt Anflugkontrolle"
+          ],
+          "erklaerung": "Stellen mit dem Zusatz INFORMATION sind Fluginformationsdienst oder AFIS – sie informieren, geben aber keine Freigaben."
+        },
+        {
+          "id": "sf-unt-02",
+          "typ": "auswahl",
+          "frage": "Du siehst den Verkehr, den dir der Fluginformationsdienst gemeldet hat. Was antwortest du?",
+          "richtig": "D-EKLM, Verkehr in Sicht",
+          "falsch": [
+            "D-EKLM, positiv",
+            "D-EKLM, Wilco",
+            "D-EKLM, Kontakt"
+          ],
+          "erklaerung": "Verkehr in Sicht / traffic in sight. Siehst du ihn noch nicht: „halte Ausschau“, siehst du ihn nicht: „kein Kontakt“."
+        },
+        {
+          "id": "sf-unt-03",
+          "typ": "auswahl",
+          "frage": "Wie sprichst du den Transpondercode 7000 auf Deutsch?",
+          "richtig": "sieben tausend",
+          "falsch": [
+            "sieben null null null",
+            "siebentausend Fuß",
+            "sieben null"
+          ],
+          "erklaerung": "Codes aus ganzen Tausendern sprichst du mit „tausend“ (NfL 2024-1-3266, Nr. 10)."
+        },
+        {
+          "id": "sf-unt-04",
+          "typ": "auswahl",
+          "frage": "Wie sprichst du den Transpondercode 4521 auf Deutsch?",
+          "richtig": "vier fünf zwo eins",
+          "falsch": [
+            "viertausendfünfhunderteinundzwanzig",
+            "fünfundvierzig einundzwanzig",
+            "vier fünf zwei eins"
+          ],
+          "erklaerung": "Ziffer für Ziffer – und „zwo“ statt „zwei“, damit es nicht mit „drei“ verwechselt wird."
+        },
+        {
+          "id": "sf-unt-05",
+          "typ": "wahrfalsch",
+          "aussage": "Die Meldung zum Einflug in eine RMZ gibst du nur ab, wenn die Bodenfunkstelle antwortet.",
+          "richtig": false,
+          "erklaerung": "Die Meldungen sind auch dann abzugeben, wenn keine Antwort kommt."
+        },
+        {
+          "id": "sf-unt-06",
+          "typ": "zuordnung",
+          "frage": "Ordne die Antworten auf eine Verkehrsinformation zu.",
+          "paare": [
+            [
+              "HALTE AUSSCHAU",
+              "LOOKING OUT"
+            ],
+            [
+              "VERKEHR IN SICHT",
+              "TRAFFIC IN SIGHT"
+            ],
+            [
+              "KEIN KONTAKT",
+              "NEGATIVE CONTACT"
+            ],
+            [
+              "KEIN GEMELDETER VERKEHR",
+              "NO REPORTED TRAFFIC"
+            ]
+          ],
+          "erklaerung": "Nach NfL 2024-1-3266, Anlage 1, 1.1.7."
+        },
+        {
+          "id": "sf-unt-g1",
+          "typ": "generator",
+          "generator": "uhrzeit"
+        },
+        {
+          "id": "sf-unt-g2",
+          "typ": "generator",
+          "generator": "zahlensprechen"
         }
       ]
     },
@@ -1110,6 +2164,200 @@
             "Funk hat im Notfall Vorrang vor allem anderen"
           ],
           "erklaerung": "Die Kontrolle über das Flugzeug kommt immer zuerst."
+        }
+      ]
+    },
+    {
+      "id": "englisch",
+      "titel": "Englisch im Sprechfunk (BZF I)",
+      "kurz": "Die wichtigsten Sprechgruppen auf Englisch – und die Übersetzungsübung aus dem Luftfahrthandbuch.",
+      "kern": [
+        "Für das BZF I funkst du auch auf Englisch – mit festen Sprechgruppen, die den deutschen genau entsprechen.",
+        "Zahlen: „niner“ für 9, „decimal“ bei Frequenzen, Höhen mit „thousand“ und „hundred“.",
+        "In der Prüfung liest du einen englischen Text aus dem Luftfahrthandbuch vor und übersetzt ihn mündlich."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Die englischen Sprechgruppen entsprechen den deutschen eins zu eins – die Bekanntmachung über die Sprechfunkverfahren stellt sie nebeneinander. Wer die Abläufe auf Deutsch kann, lernt vor allem die Wörter neu."
+        },
+        {
+          "typ": "einfach",
+          "text": "Englisch im Funk ist wie ein Baukasten: Es sind immer dieselben Bausteine in derselben Reihenfolge. Du brauchst kein perfektes Englisch – aber die Bausteine musst du sicher kennen."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Deutsch",
+            "Englisch"
+          ],
+          "zeilen": [
+            [
+              "erbitte Rollen",
+              "request taxi"
+            ],
+            [
+              "rollen Sie zum Rollhalt Piste 27",
+              "taxi to holding point runway 27"
+            ],
+            [
+              "melden Sie abflugbereit",
+              "report when ready for departure"
+            ],
+            [
+              "abflugbereit",
+              "ready (for departure)"
+            ],
+            [
+              "rollen Sie zum Abflugpunkt Piste 27, dort halten",
+              "line up runway 27 and wait"
+            ],
+            [
+              "Piste 27, Start frei",
+              "runway 27, cleared for take-off"
+            ],
+            [
+              "fliegen Sie in die Kontrollzone über Whiskey",
+              "enter control zone via Whiskey"
+            ],
+            [
+              "verlassen Sie die Kontrollzone über November",
+              "leave control zone via November"
+            ],
+            [
+              "fliegen Sie in den Gegenanflug Piste 27",
+              "join downwind runway 27"
+            ],
+            [
+              "melden Sie Queranflug",
+              "report base"
+            ],
+            [
+              "Piste 27, Landung frei",
+              "runway 27, cleared to land"
+            ],
+            [
+              "starten Sie durch",
+              "go around"
+            ],
+            [
+              "rufen Sie Rollkontrolle",
+              "contact ground"
+            ],
+            [
+              "werde in RMZ einfliegen / verlasse RMZ",
+              "will enter RMZ / leaving RMZ"
+            ]
+          ],
+          "unterschrift": "Auswahl nach NfL 2024-1-3266, Anlage 1."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zahlen auf Englisch"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Ziffern einzeln: QNH 1013 = „one zero one three“; 9 heißt „niner“.",
+            "Frequenzen mit „decimal“: 123.505 = „one two three decimal five zero five“ – die letzten beiden Ziffern entfallen nur, wenn beide null sind (118.100 = „one one eight decimal one“).",
+            "Höhen: 2500 ft = „two thousand five hundred feet“, 12 000 ft = „one two thousand feet“.",
+            "Transpondercodes aus ganzen Tausendern: 7000 = „seven thousand“."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Die Übersetzungsübung"
+        },
+        {
+          "typ": "absatz",
+          "text": "In der praktischen Prüfung zum BZF I liest du einen Text aus dem Luftfahrthandbuch (etwa 800 Zeichen) auf Englisch vor und übersetzt ihn mündlich ins Deutsche. Zum Üben gibt es hier **frei erfundene Texte im Stil des Luftfahrthandbuchs** über die Plätze des Übungsgebiets."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "uebersetzen"
+        },
+        {
+          "typ": "merke",
+          "text": "Typische Wörter im Luftfahrthandbuch: **PPR** (prior permission required – vorherige Genehmigung nötig), **traffic circuit** (Platzrunde), **noise abatement** (Lärmschutz), **hours of operation** (Betriebszeiten), **runway in use** (Piste in Benutzung)."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "sf-eng-01",
+          "typ": "auswahl",
+          "frage": "Wie heißt „Rollen Sie zum Abflugpunkt Piste 27, dort halten“ auf Englisch?",
+          "richtig": "Line up runway 27 and wait",
+          "falsch": [
+            "Taxi to holding point runway 27",
+            "Runway 27, cleared for take-off",
+            "Hold short of runway 27"
+          ],
+          "erklaerung": "„Abflugpunkt … dort halten“ = line up … and wait."
+        },
+        {
+          "id": "sf-eng-02",
+          "typ": "auswahl",
+          "frage": "Was bedeutet „Report base“?",
+          "richtig": "Melden Sie Queranflug",
+          "falsch": [
+            "Melden Sie Gegenanflug",
+            "Melden Sie Endanflug",
+            "Melden Sie über dem Platz"
+          ],
+          "erklaerung": "base = Queranflug, downwind = Gegenanflug, final = Endanflug."
+        },
+        {
+          "id": "sf-eng-03",
+          "typ": "auswahl",
+          "frage": "Wie sprichst du die Frequenz 123.505 auf Englisch?",
+          "richtig": "one two three decimal five zero five",
+          "falsch": [
+            "one two three decimal five",
+            "one hundred twenty-three decimal five zero five",
+            "one two three point five zero five"
+          ],
+          "erklaerung": "Ziffer für Ziffer mit „decimal“ – alle sechs Ziffern, weil die letzten beiden nicht beide null sind."
+        },
+        {
+          "id": "sf-eng-04",
+          "typ": "wahrfalsch",
+          "aussage": "In der praktischen Prüfung zum BZF I musst du einen englischen Text aus dem Luftfahrthandbuch übersetzen.",
+          "richtig": true,
+          "erklaerung": "Etwa 800 Zeichen vorlesen und mündlich ins Deutsche übersetzen (Verordnung über Flugfunkzeugnisse, Anlage 1)."
+        },
+        {
+          "id": "sf-eng-05",
+          "typ": "zuordnung",
+          "frage": "Ordne die englischen Begriffe zu.",
+          "paare": [
+            [
+              "holding point",
+              "Rollhalt"
+            ],
+            [
+              "traffic circuit",
+              "Platzrunde"
+            ],
+            [
+              "noise abatement",
+              "Lärmschutz"
+            ],
+            [
+              "runway in use",
+              "Piste in Benutzung"
+            ]
+          ],
+          "erklaerung": "Diese Wörter kommen in Luftfahrthandbüchern und im Funk häufig vor."
+        },
+        {
+          "id": "sf-eng-g1",
+          "typ": "generator",
+          "generator": "englischphrase"
+        },
+        {
+          "id": "sf-eng-g2",
+          "typ": "generator",
+          "generator": "zahlensprechen"
         }
       ]
     }

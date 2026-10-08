@@ -1502,6 +1502,95 @@ html[data-stufe="einsteiger"] .begriff {
   .merkliste-kachel-symbol { color: #ffb066; }
 }
 
+/* Lexikon: Sprache und Thema */
+.lexikon-werkzeuge { display: grid; gap: 0.6rem; margin-bottom: 0.5rem; }
+.lexikon-filter { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: end; }
+.lexikon-filter > * { flex: 1 1 12rem; }
+.lexikon-thema-wahl { min-height: 44px; }
+.lexikon-englisch { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 0.4rem; font-weight: 600; }
+
+/* Funkgespräche */
+.funk-lage h2 { display: flex; align-items: center; gap: 0.5rem; margin-top: 0; }
+.funk-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0; }
+.funk-chips .chip .ico { width: 0.95rem; height: 0.95rem; }
+.funk-chat { list-style: none; margin: 1rem 0; padding: 0; display: grid; gap: 0.55rem; }
+.funk-blase { display: grid; gap: 0.2rem; max-width: 88%; padding: 0.6rem 0.8rem; border-radius: 16px; line-height: 1.4; box-shadow: var(--schatten); }
+.funk-station { justify-self: start; background: var(--flaeche); border: 1px solid var(--rand); border-bottom-left-radius: 4px; }
+.funk-du { justify-self: end; background: color-mix(in srgb, var(--mf, var(--primaer)) 14%, var(--flaeche)); border: 1px solid color-mix(in srgb, var(--mf, var(--primaer)) 35%, transparent); border-bottom-right-radius: 4px; }
+.funk-du.funk-falsch { border-color: color-mix(in srgb, var(--fehler) 45%, transparent); }
+.funk-info { justify-self: center; max-width: 100%; background: transparent; box-shadow: none; color: var(--leise); font-style: italic; text-align: center; font-size: 0.92rem; }
+.funk-sprecher { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--leise); }
+.funk-sprecher .ico { width: 0.95rem; height: 0.95rem; }
+.funk-du .funk-sprecher .ico { color: var(--ok); }
+.funk-du.funk-falsch .funk-sprecher .ico { color: var(--fehler); }
+.funk-text { font-weight: 600; }
+.funk-aufgabe .frage-text { font-size: 1.08rem; }
+.funk-eingabe { width: 100%; min-height: 5.5rem; resize: vertical; font: inherit; }
+.baustein-zeile { display: flex; flex-wrap: wrap; gap: 0.4rem; min-height: 3rem; padding: 0.55rem; border: 1.5px dashed var(--rand); border-radius: var(--radius-klein); margin-bottom: 0.75rem; align-items: center; }
+.baustein-vorrat { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.baustein { min-height: 40px; padding: 0.4rem 0.75rem; border: 1px solid var(--rand); border-radius: 10px; background: var(--flaeche); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.baustein:hover { border-color: var(--mf, var(--primaer)); }
+.baustein.gelegt { background: color-mix(in srgb, var(--mf, var(--primaer)) 14%, var(--flaeche)); border-color: color-mix(in srgb, var(--mf, var(--primaer)) 40%, transparent); }
+.baustein:disabled { cursor: default; opacity: 0.75; }
+.baustein.ist-richtig { border-color: var(--ok); background: var(--ok-hell); }
+.baustein.ist-falsch { border-color: var(--fehler); background: var(--fehler-hell); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.baustein.ist-richtig:disabled, .baustein.ist-falsch:disabled { opacity: 1; }
+.fein .baustein { min-height: 38px; padding: 0.3rem 0.6rem; border-radius: 8px; }
+.option.ist-weg { opacity: 0.35; text-decoration: line-through; }
+
+/* Stufen der Funkgespräche */
+.funk-stufen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
+@media (min-width: 640px) { .funk-stufen { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.funk-stufe {
+  display: grid; justify-items: center; gap: 0.15rem; padding: 0.6rem 0.4rem 0.55rem;
+  border: 1.5px solid var(--rand); border-radius: var(--radius-klein); background: var(--flaeche);
+  color: var(--text); font: inherit; text-align: center; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.funk-stufe .ico { width: 30px; height: 30px; color: var(--leise); margin-bottom: 0.15rem; }
+.funk-stufe strong { font-size: 0.92rem; line-height: 1.2; }
+.funk-stufe-nr { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--leise); }
+.funk-stufe:hover { border-color: color-mix(in srgb, var(--mf, var(--primaer)) 50%, var(--rand)); }
+.funk-stufe[aria-checked="true"] { border-color: var(--mf, var(--primaer)); background: color-mix(in srgb, var(--mf, var(--primaer)) 12%, var(--flaeche)); }
+.funk-stufe[aria-checked="true"] .ico, .funk-stufe[aria-checked="true"] .funk-stufe-nr { color: var(--mf, var(--primaer)); }
+.funk-stufen-text { margin: 0.6rem 0 0; }
+.funk-leiter { display: flex; align-items: flex-start; gap: 0.45rem; margin: 0.5rem 0 0; font-size: 0.86rem; line-height: 1.4; color: var(--leise); }
+.funk-leiter > .ico { flex: none; width: 1.05rem; height: 1.05rem; margin-top: 0.1rem; }
+.funk-leiter.zentriert { align-items: center; }
+.funk-punkte { display: inline-flex; gap: 3px; margin-right: 0.35rem; vertical-align: middle; }
+.funk-punkte span { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--leise) 55%, transparent); }
+.funk-punkte span.angefangen { border-color: var(--mf, var(--primaer)); background: color-mix(in srgb, var(--mf, var(--primaer)) 25%, transparent); }
+.funk-punkte span.voll { border-color: var(--ok); background: var(--ok); }
+.stufen-text .stufen-stand { display: flex; flex-wrap: wrap; align-items: center; }
+
+.funk-knoepfe { display: flex; gap: 0.6rem; }
+.funk-knoepfe .knopf.gross { flex: 1; }
+.funk-knoepfe .funk-tipp { flex: none; }
+.funk-geruest { margin: 0.55rem 0 0; padding: 0.5rem 0.7rem; border-radius: var(--radius-klein); background: var(--warn-hell); border: 1px dashed var(--warn-rand); font-weight: 650; letter-spacing: 0.03em; overflow-wrap: anywhere; }
+.funk-geruest-titel { display: inline-flex; align-items: center; gap: 0.25rem; margin-right: 0.4rem; font-weight: 700; letter-spacing: 0; color: var(--leise); }
+.funk-geruest-titel .ico { width: 1rem; height: 1rem; }
+.funk-pruefliste { list-style: none; margin: 0.65rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.funk-teil { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.6rem 0.2rem 0.45rem; border: 1.5px solid; border-radius: 999px; background: var(--flaeche); font-size: 0.9rem; font-weight: 650; }
+.funk-teil .ico { width: 0.95rem; height: 0.95rem; stroke-width: 2.6; }
+.funk-teil small { font-weight: 450; color: var(--leise); }
+.funk-teil-ok { border-color: color-mix(in srgb, var(--ok) 60%, transparent); }
+.funk-teil-ok .ico { color: var(--ok); }
+.funk-teil-tippfehler { border-color: #d69e2e; }
+.funk-teil-tippfehler .ico { color: #d69e2e; }
+.funk-teil-fehlt { border-color: var(--fehler); border-style: dashed; color: var(--fehler); }
+.rueckmeldung-fast { background: var(--warn-hell); border-color: #d69e2e; }
+.rueckmeldung-fast .rueckmeldung-symbol { background: #d69e2e; }
+.rueckmeldung-fast .knopfreihe { margin: 0.4rem 0 0; }
+.funk-du.funk-hilfe .funk-sprecher .ico { color: #d69e2e; }
+
+/* Übersetzungsübung */
+.uebersetzung-text { padding: 0.8rem 0.95rem; border-radius: var(--radius-klein); background: var(--flaeche-2); border: 1px solid var(--rand); font-family: var(--mono); font-size: 0.86rem; line-height: 1.55; }
+.uebersetzung-text p { margin: 0 0 0.45rem; }
+.uebersetzung-text p:last-child { margin-bottom: 0; }
+.uebersetzung-deutsch { font-family: inherit; font-size: 0.95rem; margin-top: 0.75rem; border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+.vokabeln { display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 0.9rem; margin: 0.6rem 0 0; font-size: 0.9rem; }
+.vokabeln dt { font-weight: 700; }
+.vokabeln dd { margin: 0; color: var(--leise); }
+
 /* Quellen & Grundlagen */
 .quellen-status { white-space: nowrap; }
 .quellen-status .ico { width: 0.9rem; height: 0.9rem; }

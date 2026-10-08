@@ -65,7 +65,14 @@ test('Sprechfunk', () => {
   assert.equal(sprechweise('hoehe', '10000').text, 'one zero thousand feet');
   assert.equal(sprechweise('kurs', '0').text, 'heading three six zero');
   assert.equal(sprechweise('kurs', '90').text, 'heading zero niner zero');
-  assert.equal(sprechweise('squawk', '7000').text, 'squawk seven zero zero zero');
+  // Nach NfL 2024-1-3266, Nr. 10: ganze Tausender mit „thousand“, QNH 1000 = „one thousand“
+  assert.equal(sprechweise('squawk', '7000').text, 'squawk seven thousand');
+  assert.equal(sprechweise('squawk', '7001').text, 'squawk seven zero zero one');
+  assert.equal(sprechweise('qnh', '1000').text, 'QNH one thousand');
+  assert.equal(sprechweise('qnh', '1000', 'de').text, 'QNH ein tausend');
+  assert.equal(sprechweise('squawk', '2000', 'de').text, 'Squawk zwo tausend');
+  assert.equal(sprechweise('frequenz', '118,005', 'de').text, 'eins eins acht komma null null fünf');
+  assert.equal(sprechweise('hoehe', '3400', 'de').text, 'drei tausend vier hundert Fuß');
   assert.ok(sprechweise('squawk', '7800').fehler);
   assert.equal(sprechweise('wind', '240/12').text, 'wind two four zero degrees one two knots');
   assert.deepEqual(buchstabieren('D-EK2', 'deutsch').map((t) => t.wort), ['Delta', 'Echo', 'Kilo', 'zwo']);
