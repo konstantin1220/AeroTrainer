@@ -32,6 +32,7 @@ export default lernmodul({
     4: (el, rest, ctx) => stufe4(el, rest, ctx, daten),
   },
   uebersichtZusatz: (ctx) => stufenUebersicht(ctx, daten),
+  zusatzVorKapiteln: true,
   pruefZusatz: (ctx) => pruefZusatz(ctx, daten),
 });
 

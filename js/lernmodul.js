@@ -91,6 +91,7 @@ export function lernmodul({
   interaktiv = {},
   seiten = {},
   uebersichtZusatz = null,
+  zusatzVorKapiteln = false,
   pruefZusatz = null,
   inhaltDatei = 'content/inhalt.json',
   rundenGroesse = 10,
@@ -202,6 +203,25 @@ export function lernmodul({
       ));
     });
 
+    // Reihenfolge wie beim Lernen: erst die Kapitel, dann Übungen (z. B. Funkgespräche), dann die Werkzeuge.
+    // Ist der Zusatz der eigentliche Einstieg (METAR-Lernstufen), steht er mit zusatzVorKapiteln vorn.
+    const kapitelAbschnitt = h('section', {},
+      h('h2', { class: 'abschnitt-titel' }, icon('theorie'), 'Kapitel'),
+      h('ol', { class: 'kapitelliste' }, kapitelListe));
+    const zusatz = uebersichtZusatz?.(ctx, api, daten);
+    const abschnitte = [
+      ...(zusatzVorKapiteln ? [zusatz, kapitelAbschnitt] : [kapitelAbschnitt, zusatz]),
+      Object.keys(interaktiv).length > 0 && h('section', {},
+        h('h2', { class: 'abschnitt-titel' }, icon('ueben'), 'Zum Ausprobieren'),
+        h('ul', { class: 'werkzeugliste' }, Object.entries(interaktiv).map(([id, element]) => h('li', {},
+          h('a', { class: 'werkzeug-karte', href: ctx.link('werkzeug', id), 'data-modul': ctx.modul.id },
+            h('span', { class: 'werkzeug-symbol' }, icon(element.symbol ?? 'ueben')),
+            h('span', { class: 'werkzeug-text' }, h('strong', {}, element.titel), h('span', {}, element.kurz)),
+            icon('weiter'),
+          )))),
+      ),
+    ].filter(Boolean);
+
     anhaengen(el,
       kopf(ctx, daten.einleitung ?? ctx.modul.beschreibung),
       h('section', { class: 'karte lernkarte', 'data-modul': ctx.modul.id },
@@ -214,21 +234,22 @@ export function lernmodul({
           ? h('a', { class: 'knopf gross', href: ctx.link('lernen') }, icon('flugzeug'), 'Lernrunde')
           : h('a', { class: 'knopf gross zweitrangig', href: ctx.link('lernen') }, icon('ueben'), 'Frei üben'),
       ),
-      uebersichtZusatz?.(ctx, api, daten),
-      Object.keys(interaktiv).length > 0 && h('section', {},
-        h('h2', { class: 'abschnitt-titel' }, icon('ueben'), 'Zum Ausprobieren'),
-        h('ul', { class: 'werkzeugliste' }, Object.entries(interaktiv).map(([id, element]) => h('li', {},
-          h('a', { class: 'werkzeug-karte', href: ctx.link('werkzeug', id), 'data-modul': ctx.modul.id },
-            h('span', { class: 'werkzeug-symbol' }, icon(element.symbol ?? 'ueben')),
-            h('span', { class: 'werkzeug-text' }, h('strong', {}, element.titel), h('span', {}, element.kurz)),
-            icon('weiter'),
-          )))),
-      ),
-      h('h2', { class: 'abschnitt-titel' }, icon('theorie'), 'Kapitel'),
-      h('ol', { class: 'kapitelliste' }, kapitelListe),
+      sprungleiste(abschnitte),
+      abschnitte,
       h('p', { class: 'pruef-hinweis' }, icon('lexikon'), h('a', { href: `#/quellen/${ctx.modul.id}` }, 'Quellen und Grundlagen dieses Themas')),
       h('p', { class: 'pruef-hinweis' }, icon('pruefen'), h('a', { href: ctx.link('pruefen') }, 'Alle Inhalte zum Gegenlesen anzeigen'), ' (für Fluglehrer)'),
     );
+  }
+
+  /** Kleine Leiste mit den Abschnitten der Themenseite – ab zwei Abschnitten. Knöpfe statt Links, weil # die Seite wechselt. */
+  function sprungleiste(abschnitte) {
+    if (abschnitte.length < 2) return null;
+    return h('nav', { class: 'sprungleiste', 'aria-label': 'Abschnitte dieser Seite' }, abschnitte.map((abschnitt) => {
+      const titel = abschnitt.querySelector('h2');
+      if (!titel) return null;
+      return h('button', { type: 'button', class: 'chip sprung', onclick: () => abschnitt.scrollIntoView({ behavior: 'smooth', block: 'start' }) },
+        titel.querySelector('.ico')?.cloneNode(true), titel.textContent);
+    }));
   }
 
   function kapitelSeite(el, ctx, daten, kapitelId) {

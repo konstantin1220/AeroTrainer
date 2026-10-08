@@ -241,13 +241,32 @@ main:focus, main:focus-visible { outline: none; }
 
 .lernhilfe-hinweis {
   margin: 0;
-  padding: 0.35rem 1rem;
+  padding: 0.3rem 1rem;
   font-size: 0.78rem;
   color: var(--leise);
   background: var(--flaeche);
   border-bottom: 1px solid var(--rand);
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+.lernhilfe-hinweis a { color: inherit; text-decoration: underline dotted; text-underline-offset: 2px; }
+
+/* Fußzeile auf jeder Seite: Über die App, Quellen, Datenschutz, Impressum */
+.fusszeile {
+  max-width: 48rem;
+  margin: 1.5rem auto 0;
+  padding: 1rem 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.2rem;
+  border-top: 1px solid var(--rand);
+  font-size: 0.85rem;
+}
+.fusszeile a { color: var(--leise); text-decoration: none; }
+.fusszeile a:hover { color: var(--primaer); text-decoration: underline; }
 
 main {
   max-width: 48rem;
@@ -381,23 +400,6 @@ main {
 
 /* ================= Startseite ================= */
 
-.sicherungshinweis {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 1rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid var(--warn-rand);
-  border-radius: var(--radius-klein);
-  background: var(--warn-hell);
-  color: var(--text);
-  text-decoration: none;
-  font-size: 0.92rem;
-}
-.sicherungshinweis span { flex: 1; }
-.sicherungshinweis strong { color: var(--primaer); white-space: nowrap; }
-.sicherungshinweis .ico:first-child { color: #b7791f; }
-
 .heute {
   position: relative;
   overflow: hidden;
@@ -414,7 +416,7 @@ main {
   position: absolute;
   left: -10%;
   right: -10%;
-  bottom: -92px;
+  bottom: -112px;
   height: 130px;
   border-top: 3px solid rgb(242 140 40 / 75%);
   border-radius: 50%;
@@ -437,18 +439,66 @@ main {
 .heute-wert strong { font-size: 1.45rem; line-height: 1.1; }
 .heute-wert span { font-size: 0.72rem; opacity: 0.85; line-height: 1.2; }
 .heute .knopf { position: relative; z-index: 1; }
-.start-tipp { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 0.9rem; color: var(--leise); margin: 1rem 0 0; }
-.start-tipp .ico { color: var(--orange); flex: none; }
+.heute-text { margin: -0.5rem 0 1rem; opacity: 0.9; line-height: 1.45; }
+.heute-stufe { position: relative; z-index: 1; display: grid; gap: 0.4rem; margin-bottom: 1.1rem; }
+.heute-stufe-frage { font-weight: 650; font-size: 0.92rem; }
+.heute-stufe .segmente { background: rgb(255 255 255 / 12%); border-color: rgb(255 255 255 / 22%); }
+.heute-stufe .segment { color: rgb(255 255 255 / 85%); }
+.heute-stufe .segment:hover { color: #fff; }
+.heute-stufe .segment[aria-checked="true"] { background: #fff; color: var(--nacht); }
+.heute-stufe-text { margin: 0; font-size: 0.82rem; line-height: 1.4; opacity: 0.85; }
+.heute-sicherung {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 0.5rem;
+  margin: 0.9rem 0 0; padding-top: 0.75rem;
+  border-top: 1px solid rgb(255 255 255 / 18%);
+  color: rgb(255 255 255 / 88%); text-decoration: none; font-size: 0.86rem;
+}
+.heute-sicherung span { flex: 1; }
+.heute-sicherung strong { color: #fff; }
+.heute-sicherung .ico { width: 1.1rem; height: 1.1rem; flex: none; }
+.heute-sicherung:hover strong { text-decoration: underline; }
 
-.themen-raster { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
-@media (min-width: 640px) { .themen-raster { grid-template-columns: 1fr 1fr; } }
+/* So geht's (erster Besuch) */
+.so-gehts { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+.so-gehts li {
+  display: grid; justify-items: center; gap: 0.1rem; padding: 0.7rem 0.4rem;
+  text-align: center; border-radius: var(--radius-klein); background: var(--flaeche); border: 1px solid var(--rand);
+}
+.so-gehts .ico { width: 26px; height: 26px; color: var(--primaer); margin-bottom: 0.15rem; }
+.so-gehts strong { font-size: 0.95rem; }
+.so-gehts span { font-size: 0.78rem; color: var(--leise); line-height: 1.3; }
+
+/* Schnellzugriff: weiter, wo du warst; Merkliste */
+.schnellzugriff { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
+@media (min-width: 640px) { .schnellzugriff { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); } }
+.schnell-zeile {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.75rem 0.9rem; border-radius: var(--radius-klein);
+  background: var(--flaeche); border: 1px solid var(--rand); box-shadow: var(--schatten);
+  color: var(--text); text-decoration: none;
+}
+.schnell-zeile:hover { border-color: color-mix(in srgb, var(--mf, var(--primaer)) 50%, var(--rand)); }
+.schnell-symbol { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border-radius: 12px; color: var(--mf, var(--primaer)); background: color-mix(in srgb, var(--mf, var(--primaer)) 13%, var(--flaeche)); }
+.schnell-symbol .ico { width: 26px; height: 26px; }
+.schnell-text { flex: 1; display: grid; min-width: 0; }
+.schnell-text span { font-size: 0.8rem; color: var(--leise); }
+.schnell-text strong { line-height: 1.3; }
+.schnell-zeile > .ico { color: var(--leise); flex: none; }
+.merkliste-zeile { --mf: var(--orange); }
+.merkliste-zeile .schnell-symbol { color: #c06a14; }
+.merkliste-zeile .schnell-symbol .ico .f { opacity: 1; }
+
+.themen-raster { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+@media (min-width: 640px) { .themen-raster { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; } }
+@media (min-width: 860px) { .themen-raster { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 .themen-kachel {
   display: flex;
-  align-items: center;
-  gap: 0.9rem;
+  flex-direction: column;
+  gap: 0.45rem;
   height: 100%;
-  padding: 0.95rem 1rem;
+  padding: 0.85rem 0.85rem 0.8rem;
   background: var(--flaeche);
   border: 1px solid var(--rand);
   border-radius: var(--radius);
@@ -459,27 +509,31 @@ main {
 }
 a.themen-kachel:hover { transform: translateY(-2px); box-shadow: var(--schatten-hoch); border-color: color-mix(in srgb, var(--mf) 45%, var(--rand)); }
 .themen-kachel.geplant { opacity: 0.55; box-shadow: none; }
+.themen-kopf { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.3rem; }
 .themen-symbol {
   display: grid;
   place-items: center;
   flex: none;
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
   color: var(--mf);
   background: color-mix(in srgb, var(--mf) 12%, var(--flaeche));
 }
-.themen-symbol .ico { width: 34px; height: 34px; }
+.themen-symbol .ico { width: 30px; height: 30px; }
 .themen-symbol.klein { width: 40px; height: 40px; border-radius: 12px; }
 .themen-symbol.klein .ico { width: 26px; height: 26px; }
-.themen-text { flex: 1; display: grid; gap: 0.15rem; min-width: 0; }
-.themen-text strong { font-size: 1.05rem; }
-.themen-text > span { color: var(--leise); font-size: 0.85rem; line-height: 1.35; }
-.themen-stand { display: flex; gap: 0.35rem; margin-top: 0.2rem; }
+.themen-titel { flex: 1; font-size: 1rem; line-height: 1.25; hyphens: auto; }
+.themen-stand { display: grid; gap: 0.3rem; font-size: 0.78rem; color: var(--leise); font-weight: 600; }
 .themen-stand:empty { display: none; }
-.themen-kachel .ring-box { --mf: inherit; }
+.themen-stand .balken > span { background: var(--mf); }
 
 /* ================= Modulseiten ================= */
+.sprungleiste { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 0 0; }
+.chip.sprung { min-height: 34px; padding: 0.25rem 0.75rem; font: inherit; font-size: 0.85rem; font-weight: 650; color: var(--text); background: var(--flaeche); cursor: pointer; }
+.chip.sprung .ico { width: 1rem; height: 1rem; color: var(--mf, var(--primaer)); }
+.chip.sprung:hover { border-color: var(--mf, var(--primaer)); }
+.seite section[id], .seite section { scroll-margin-top: 1rem; }
 
 .modul-kopf { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.5rem; }
 .modul-symbol {
@@ -917,7 +971,7 @@ a.themen-kachel:hover { transform: translateY(-2px); box-shadow: var(--schatten-
 /* ================= Drucken (z. B. Prüfansicht) ================= */
 
 @media print {
-  .kopfzeile, .tabbar, .lernhilfe-hinweis, .pruef-hinweis { display: none; }
+  .kopfzeile, .tabbar, .lernhilfe-hinweis, .pruef-hinweis, .fusszeile { display: none; }
   body { background: #fff; padding: 0; }
   .karte, .pruef-frage { box-shadow: none; break-inside: avoid; }
   details > *:not(summary) { display: block; }
@@ -1401,7 +1455,6 @@ html[data-stufe="einsteiger"] .begriff {
 .stufen-umschalter .segmente { padding: 3px; }
 .stufen-umschalter .segment { min-height: 32px; padding: 0.2rem 0.75rem; font-size: 0.82rem; }
 
-.stufen-abfrage h2 { margin-top: 0; }
 .stufen-karten { display: grid; gap: 0.5rem; margin-top: 0.75rem; }
 @media (min-width: 640px) { .stufen-karten { grid-template-columns: repeat(3, 1fr); } }
 .stufen-karte-wahl {
@@ -1475,18 +1528,6 @@ html[data-stufe="einsteiger"] .begriff {
 .fehlerliste li .merk-knopf { justify-self: start; margin-top: 0.25rem; }
 .pruef-meta-zeile { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem; }
 .pruef-meta-zeile .pruef-meta { margin: 0; }
-.merkliste-kachel {
-  display: flex; align-items: center; gap: 0.85rem; margin: 1rem 0 0;
-  padding: 0.85rem 1rem; border-radius: var(--radius-klein);
-  background: var(--flaeche); border: 1px solid var(--rand); box-shadow: var(--schatten);
-  color: var(--text); text-decoration: none;
-}
-.merkliste-kachel:hover { border-color: var(--orange); }
-.merkliste-kachel-symbol { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: color-mix(in srgb, var(--orange) 16%, transparent); color: #c06a14; }
-.merkliste-kachel-symbol .ico .f { opacity: 1; }
-.merkliste-kachel-text { flex: 1; display: grid; }
-.merkliste-kachel-text span { font-size: 0.88rem; color: var(--leise); }
-.merkliste-kachel > .ico { color: var(--leise); }
 .merkliste-thema-kopf { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; }
 .merkliste-thema-kopf h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 1.1rem; }
 .knopf.klein { min-height: 36px; padding: 0.3rem 0.8rem; font-size: 0.88rem; }
@@ -1499,7 +1540,7 @@ html[data-stufe="einsteiger"] .begriff {
 .merk-entfernen .ico { width: 1.1rem; height: 1.1rem; }
 @media (prefers-color-scheme: dark) {
   .merk-knopf[aria-pressed="true"] { color: #ffb066; }
-  .merkliste-kachel-symbol { color: #ffb066; }
+  .merkliste-zeile .schnell-symbol { color: #ffb066; }
 }
 
 /* Lexikon: Sprache und Thema */
