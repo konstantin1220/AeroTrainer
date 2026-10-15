@@ -9,8 +9,17 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 
 ## Was die App kann
 
-- **9 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Flugplanung, Masse & Schwerpunkt,
-  Meteorologie, Aerodynamik, Signale – jeweils mit Theorie-Kapiteln, Abbildungen und Fragen.
+- **Geordnet nach den 9 Prüfungsfächern** (Luftrecht, Menschliches Leistungsvermögen, Meteorologie, Kommunikation,
+  Navigation, Grundlagen des Fliegens, Betriebsverfahren, Flugleistung und Flugplanung, Allgemeine Luftfahrzeugkunde).
+  Jedes Fach enthält ein oder mehrere Themen.
+- **„Ich lerne für …“**: Auf der Startseite und unter *Lernstand* lässt sich PPL/LAPL, SPL und/oder UL wählen. Kapitel,
+  Fragen und Rechner, die nur für bestimmte Scheine gelten, werden dann passend ein- oder ausgeblendet.
+  Ohne Auswahl zeigt die App alles.
+- **10 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Flugplanung, Masse & Schwerpunkt,
+  Meteorologie, Aerodynamik, Signale, Mensch im Cockpit – jeweils mit Theorie-Kapiteln, Abbildungen und Fragen.
+- **Mensch im Cockpit** (Menschliches Leistungsvermögen): Tauglichkeit und Selbstcheck, Höhe und Sauerstoff
+  (NCO.OP.190, SAO.OP.150), Druckänderungen, Sehen und Luftraumbeobachtung, Sinnestäuschungen, Stress und Müdigkeit,
+  gute Entscheidungen. Rechnungen in `modules/mensch/rechnen.js` (getestet).
 - **Flugplanung von A bis Z**: Flugvorbereitung, Wetterberatung, NOTAM, Strecke und Reiseflughöhe, Navigationsflugplan,
   Kraftstoff (Endreserve nach AMC1 NCO.OP.125(b)), Masse und Startstrecke, Flugplan und Unterlagen – dazu ein komplett
   durchgespielter Überlandflug, ein interaktiver Navigationsflugplan und ein Startstrecken-Rechner mit dem erfundenen
@@ -22,7 +31,7 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
   ist tolerant bei Groß-/Kleinschreibung, Satzzeichen und kleinen Tippfehlern, aber streng bei Zahlen und Rufzeichen.
   Sprechgruppen nach NfL 2024-1-3266 und NfL 2024-1-3240.
   Szenarien in `modules/sprechfunk/content/funkgespraeche.json`, Logik in `funklogik.js` (getestet).
-- **Lexikon** mit über 150 Begriffen, viele mit englischer Entsprechung; nach Deutsch oder Englisch sortierbar.
+- **Lexikon** mit über 180 Begriffen, viele mit englischer Entsprechung; nach Deutsch oder Englisch sortierbar.
 - **Merkliste**: Jede Frage lässt sich überall mit „Merken“ vormerken und später gezielt üben – auch erzeugte Rechenaufgaben
   (sie werden genau so gespeichert, wie sie gestellt wurden). Die Merkliste gehört zum Lernstand und wird mitgesichert.
   Fällige Fragen aller Themen lassen sich gemeinsam wiederholen.
@@ -31,11 +40,11 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 - **METAR in fünf Stufen**: Antippen & erklären → selbst entschlüsseln → rückwärts bauen (mit Bausteinen, Bausteinen
   mit Fallen oder frei getippt) → Entscheidung treffen → Fehler finden. Ein Generator erzeugt unbegrenzt viele,
   in sich stimmige METARs in fünf Schwierigkeitsstufen. Dazu ein Kapitel zum TAF mit erzeugten Übungs-TAFs.
-- **Zum Ausprobieren**: 24 interaktive, maßstäblich gezeichnete Darstellungen mit Reglern und Umschaltern – z. B. Winddreieck,
+- **Zum Ausprobieren**: 26 interaktive, maßstäblich gezeichnete Darstellungen mit Reglern und Umschaltern – z. B. Winddreieck,
   antippbare Übungskarte, Sichtflugbedingungen, Kontrollzonen-Wetter, Wer weicht aus?, Wolkenbasis,
   Höhenmesser mit Fehleinstellung, Anstellwinkel bis zum Strömungsabriss, Kurvenflug, Signalscheinwerfer,
   Buchstabieren und Zahlen sprechen (mit Anhören), Hebel-Wippe, Beladungsrechner, METAR-Baukasten, Seitenwind,
-  Standardatmosphäre, Navigationsflugplan und Startstrecke.
+  Standardatmosphäre, Navigationsflugplan, Startstrecke, Sauerstoff in der Höhe und Kollisionskurs.
   Sie stehen direkt in den Theorie-Kapiteln und gesammelt in jedem Thema unter „Zum Ausprobieren“.
 - **Lernstand**: Statistik, Lernserie, Aktivitätskalender; Sichern und Laden als Datei (`flug-lernstand.json`).
 - **Prüfansicht für Fluglehrer** in jedem Thema: alle Inhalte, Lösungen und Beispiele der Rechenaufgaben auf einer Seite.
@@ -89,10 +98,11 @@ js/lernmodul.js           Baukasten für Themenmodule (Kapitel, Lernrunden, Prü
 js/quiz.js                Fragerunde mit Rückmeldung
 js/fragen.js              Fragetypen und Auswertung
 js/srs.js                 verteilte Wiederholung (Leitner)
+js/schein.js              Auswahl „Ich lerne für …“ (PPL/LAPL, SPL, UL) und Filter für Inhalte
 js/storage.js             Lernstand speichern, sichern, laden
 js/interaktiv.js          Bausteine für interaktive Darstellungen (Regler, Umschalter, Wertanzeigen)
 js/icons.js, js/grafik.js eigene Symbole und Zeichenhelfer für Abbildungen
-modules/index.json        Liste der Themen
+modules/index.json        Prüfungsfächer und Themen
 modules/<thema>/
   module.js               bindet das Thema ein (meist 3 Zeilen)
   content/inhalt.json     Kapitel, Theorie und Fragen  ← hier wird Inhalt gepflegt
@@ -101,6 +111,7 @@ modules/<thema>/
   interaktiv.js           interaktive Darstellungen (optional)
 modules/metar/            zusätzlich: Parser, METAR-Generator, Lernstufen, Beispiele, fiktive Flugplätze
 modules/flugplanung/      zusätzlich: rechnen.js (Etappen, Kraftstoff, Startstrecke), Planungsdaten in content/flugzeug.json
+modules/mensch/           zusätzlich: rechnen.js (Sauerstoff, Tauglichkeit, Tauchen, Kollisionskurs)
 tests/                    automatische Tests
 tools/                    Entwicklungsserver, Symbol- und Abbildungsübersicht, App-Symbol, Handyvorschau
 ```
@@ -139,6 +150,11 @@ Aufbau eines Kapitels:
 }
 ```
 
+**Nur für bestimmte Scheine:** Ein Kapitel, eine Frage, eine interaktive Darstellung oder ein ganzes Thema kann
+`"scheine": ["ppl", "spl", "ul"]` (eine Auswahl davon) tragen. Ohne dieses Feld gilt der Inhalt für alle Scheine.
+Beispiel: Die Kraftstoffplanung nach Part-NCO gilt für Flugzeuge (`["ppl", "ul"]`), nicht für Segelflugzeuge,
+für die Part-SAO gilt.
+
 Die Reihenfolge der Antworten wird in der App gemischt. Nach der fachlichen Prüfung bitte `"_geprueft"`
 oben in der Datei auf Name und Datum setzen, z. B. `"_geprueft": "M. Muster, 2026-10-15"` –
 die Prüfansicht zeigt das dann an. Wichtig: Frage-IDs nie ändern, sonst geht der Lernstand dieser Frage verloren.
@@ -156,7 +172,8 @@ den Status anpassen. Der Fluglehrer-Vermerk `_geprueft` wird dort automatisch je
    export default lernmodul({});
    ```
    (Rechenaufgaben und Abbildungen wie in den anderen Modulen über `generatoren.js` und `abbildungen.js`.)
-2. Eintrag in `modules/index.json` mit `"status": "aktiv"` und `"pfad": "modules/<id>/"`.
+2. Eintrag in `modules/index.json` mit `"status": "aktiv"`, `"pfad": "modules/<id>/"` und `"fach"` (eine der
+   Fach-IDs oben in derselben Datei, z. B. `"meteorologie"`).
 3. Ein Themensymbol in `js/icons.js` (Abschnitt `THEMEN`) und eine Themenfarbe in `css/app.css` (`[data-modul="<id>"]`).
 4. `node --test` und `node tools/sw-aktualisieren.mjs` ausführen.
 

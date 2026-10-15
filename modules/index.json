@@ -1,68 +1,139 @@
 {
-  "_hinweis": "Liste aller Lernmodule. Ein neues Modul bekommt hier einen Eintrag und einen eigenen Ordner unter modules/. status: \"aktiv\" oder \"geplant\".",
-  "module": [
+  "_hinweis": "Liste aller Lernmodule. Ein neues Modul bekommt hier einen Eintrag und einen eigenen Ordner unter modules/. status: \"aktiv\" oder \"geplant\". fach: eines der Prüfungsfächer aus „faecher“ (Sachgebiete nach FCL.120/FCL.215 bzw. SFCL.135). scheine (optional): [\"ppl\", \"spl\", \"ul\"] – ohne Angabe gilt das Modul für alle Scheine.",
+  "faecher": [
     {
-      "id": "metar",
-      "titel": "METAR lesen",
-      "beschreibung": "Flugplatz-Wettermeldungen lesen, verstehen und bewerten.",
-      "pfad": "modules/metar/",
-      "status": "aktiv"
+      "id": "luftrecht",
+      "titel": "Luftrecht"
     },
+    {
+      "id": "mensch",
+      "titel": "Menschliches Leistungsvermögen"
+    },
+    {
+      "id": "meteorologie",
+      "titel": "Meteorologie"
+    },
+    {
+      "id": "kommunikation",
+      "titel": "Kommunikation"
+    },
+    {
+      "id": "navigation",
+      "titel": "Navigation"
+    },
+    {
+      "id": "grundlagen",
+      "titel": "Grundlagen des Fliegens"
+    },
+    {
+      "id": "betrieb",
+      "titel": "Betriebsverfahren"
+    },
+    {
+      "id": "planung",
+      "titel": "Flugleistung und Flugplanung"
+    },
+    {
+      "id": "technik",
+      "titel": "Allgemeine Luftfahrzeugkunde"
+    }
+  ],
+  "module": [
     {
       "id": "luftraum",
       "titel": "Luftraum & Regeln",
       "beschreibung": "Luftraumklassen, Sichtflugbedingungen, Kontrollzonen und Ausweichregeln.",
       "status": "aktiv",
-      "pfad": "modules/luftraum/"
-    },
-    {
-      "id": "sprechfunk",
-      "titel": "Sprechfunk (BZF I und II)",
-      "beschreibung": "Funkzeugnis, Buchstabieralphabet, Sprechgruppen auf Deutsch und Englisch, Funkgespräche zum Üben.",
-      "status": "aktiv",
-      "pfad": "modules/sprechfunk/"
-    },
-    {
-      "id": "navigation",
-      "titel": "Navigation",
-      "beschreibung": "Einheiten, Karte, Kurse, Winddreieck und Flugplanung – mit Übungskarte.",
-      "status": "aktiv",
-      "pfad": "modules/navigation/"
-    },
-    {
-      "id": "flugplanung",
-      "titel": "Flugplanung",
-      "beschreibung": "Wetter, NOTAM, Strecke, Kraftstoff, Startstrecke und Flugplan – ein Überlandflug von A bis Z.",
-      "status": "aktiv",
-      "pfad": "modules/flugplanung/"
-    },
-    {
-      "id": "masse-schwerpunkt",
-      "titel": "Masse & Schwerpunkt",
-      "beschreibung": "Beladung berechnen, Schwerpunkt prüfen – mit Beladungsrechner.",
-      "status": "aktiv",
-      "pfad": "modules/masse-schwerpunkt/"
-    },
-    {
-      "id": "meteorologie",
-      "titel": "Meteorologie",
-      "beschreibung": "Atmosphäre, Luftdruck, Wolken, Wind, Fronten und Wettergefahren.",
-      "status": "aktiv",
-      "pfad": "modules/meteorologie/"
-    },
-    {
-      "id": "aerodynamik",
-      "titel": "Aerodynamik",
-      "beschreibung": "Auftrieb, Widerstand, Überziehen, Stabilität und Flugleistung.",
-      "status": "aktiv",
-      "pfad": "modules/aerodynamik/"
+      "pfad": "modules/luftraum/",
+      "fach": "luftrecht"
     },
     {
       "id": "signale",
       "titel": "Signale",
       "beschreibung": "Lichtsignale, Bodensignale, Not- und Abfangsignale.",
       "status": "aktiv",
-      "pfad": "modules/signale/"
+      "pfad": "modules/signale/",
+      "fach": "luftrecht"
+    },
+    {
+      "id": "mensch",
+      "titel": "Mensch im Cockpit",
+      "beschreibung": "Fit zum Fliegen, Höhe und Sauerstoff, Sinne und Täuschungen, Stress und gute Entscheidungen.",
+      "status": "aktiv",
+      "pfad": "modules/mensch/",
+      "fach": "mensch"
+    },
+    {
+      "id": "meteorologie",
+      "titel": "Meteorologie",
+      "beschreibung": "Atmosphäre, Luftdruck, Wolken, Wind, Fronten und Wettergefahren.",
+      "status": "aktiv",
+      "pfad": "modules/meteorologie/",
+      "fach": "meteorologie"
+    },
+    {
+      "id": "metar",
+      "titel": "METAR lesen",
+      "beschreibung": "Flugplatz-Wettermeldungen lesen, verstehen und bewerten.",
+      "pfad": "modules/metar/",
+      "status": "aktiv",
+      "fach": "meteorologie"
+    },
+    {
+      "id": "sprechfunk",
+      "titel": "Sprechfunk (BZF I und II)",
+      "beschreibung": "Funkzeugnis, Buchstabieralphabet, Sprechgruppen auf Deutsch und Englisch, Funkgespräche zum Üben.",
+      "status": "aktiv",
+      "pfad": "modules/sprechfunk/",
+      "fach": "kommunikation"
+    },
+    {
+      "id": "navigation",
+      "titel": "Navigation",
+      "beschreibung": "Einheiten, Karte, Kurse, Winddreieck und Flugplanung – mit Übungskarte.",
+      "status": "aktiv",
+      "pfad": "modules/navigation/",
+      "fach": "navigation"
+    },
+    {
+      "id": "aerodynamik",
+      "titel": "Aerodynamik",
+      "beschreibung": "Auftrieb, Widerstand, Überziehen, Stabilität und Flugleistung.",
+      "status": "aktiv",
+      "pfad": "modules/aerodynamik/",
+      "fach": "grundlagen"
+    },
+    {
+      "id": "betrieb",
+      "titel": "Betriebsverfahren & Notfälle",
+      "beschreibung": "Wirbelschleppen, Windscherung, Notlandung, Brand und Störungsmeldung.",
+      "status": "geplant",
+      "pfad": "modules/betrieb/",
+      "fach": "betrieb"
+    },
+    {
+      "id": "masse-schwerpunkt",
+      "titel": "Masse & Schwerpunkt",
+      "beschreibung": "Beladung berechnen, Schwerpunkt prüfen – mit Beladungsrechner.",
+      "status": "aktiv",
+      "pfad": "modules/masse-schwerpunkt/",
+      "fach": "planung"
+    },
+    {
+      "id": "flugplanung",
+      "titel": "Flugplanung",
+      "beschreibung": "Wetter, NOTAM, Strecke, Kraftstoff, Startstrecke und Flugplan – ein Überlandflug von A bis Z.",
+      "status": "aktiv",
+      "pfad": "modules/flugplanung/",
+      "fach": "planung"
+    },
+    {
+      "id": "technik",
+      "titel": "Technik",
+      "beschreibung": "Motor, Propeller, Instrumente und Systeme des Luftfahrzeugs.",
+      "status": "geplant",
+      "pfad": "modules/technik/",
+      "fach": "technik"
     }
   ]
 }

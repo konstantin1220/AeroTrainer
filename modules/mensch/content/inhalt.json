@@ -1,0 +1,1172 @@
+{
+  "_hinweis": "Lerninhalte „Menschliches Leistungsvermögen“. Grundlagen: Part-MED, SERA, Part-NCO und Part-SAO (amtliche Texte) sowie das Pilot’s Handbook of Aeronautical Knowledge der FAA (gemeinfreies Werk der US-Regierung) für medizinische Fakten – eigene Formulierungen und Übersetzungen. Keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer und möglichst einem Fliegerarzt prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Du bist das wichtigste Bauteil im Cockpit: Tauglichkeit, Höhe und Sauerstoff, Sehen und Sinnestäuschungen, Stress und gute Entscheidungen.",
+  "kapitel": [
+    {
+      "id": "fit",
+      "titel": "Fit zum Fliegen",
+      "kurz": "Tauglichkeitszeugnis, Medikamente, Alkohol und der ehrliche Selbstcheck vor dem Flug.",
+      "kern": [
+        "Für PPL brauchst du mindestens ein Tauglichkeitszeugnis der Klasse 2, für LAPL und SPL mindestens ein LAPL-Tauglichkeitszeugnis (MED.A.030).",
+        "Bist du krank, nimmst du Medikamente, die dich beeinträchtigen können, oder wirst du behandelt, darfst du nicht fliegen (MED.A.020).",
+        "Unter dem Einfluss psychoaktiver Substanzen – auch Alkohol – darfst du nicht fliegen (SERA.2020).",
+        "Vor jedem Flug ehrlich prüfen: Krankheit, Medikamente, Stress, Alkohol, Müdigkeit, Gefühle."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Das wichtigste „Bauteil“ im Cockpit bist du. Ein Motor wird nach Plan gewartet – für dich selbst bist du verantwortlich. Die Regeln dazu stehen vor allem in **Part-MED**, dem Teil der EU-Verordnung über die flugmedizinische Tauglichkeit."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wer mit Fieber Auto fährt, ist ein Risiko. Im Flugzeug gibt es keinen Seitenstreifen zum Anhalten – deshalb gilt: Nur wer wirklich fit ist, fliegt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Das Tauglichkeitszeugnis"
+        },
+        {
+          "typ": "absatz",
+          "text": "Bevor du allein fliegen darfst, brauchst du ein Tauglichkeitszeugnis vom Fliegerarzt (MED.A.030). Für die **PPL** ist es mindestens eines der **Klasse 2**, für **LAPL** und **SPL** mindestens ein **LAPL-Tauglichkeitszeugnis**."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Zeugnis",
+            "Gültigkeit (MED.A.045)"
+          ],
+          "zeilen": [
+            [
+              "Klasse 2",
+              "60 Monate bis zum 40. Geburtstag (längstens bis zum 42.), 24 Monate zwischen 40 und 50 (längstens bis zum 51.), danach 12 Monate"
+            ],
+            [
+              "LAPL-Tauglichkeit",
+              "60 Monate bis zum 40. Geburtstag (längstens bis zum 42.), danach 24 Monate"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Untersuchung zur Verlängerung darf bis zu 45 Tage vor dem Ablauf stattfinden (MED.A.045 b)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wenn du nicht ganz fit bist"
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach **MED.A.020** darfst du die Rechte deiner Lizenz nicht ausüben – und als Flugschüler nicht allein fliegen –, wenn du weißt, dass deine Tauglichkeit eingeschränkt ist, wenn du ein Arzneimittel nimmst, das die sichere Flugdurchführung wahrscheinlich gefährdet, oder wenn du dich einer Behandlung unterziehst, die das tut. Vor dem nächsten Flug lässt du dich flugmedizinisch beraten, wenn du zum Beispiel operiert wurdest, regelmäßig ein Medikament nimmst, ernsthaft krank oder verletzt bist, schwanger bist, im Krankenhaus warst oder erstmals eine Brille brauchst."
+        },
+        {
+          "typ": "merke",
+          "titel": "Medikamente",
+          "text": "Auch freiverkäufliche Mittel gegen Erkältung, Allergie oder Reiseübelkeit können müde machen. Die FAA nennt als Faustregel: nach Medikamenten mit solchen Nebenwirkungen das Fünffache des Einnahmeabstands warten – bei Einnahme alle 6 Stunden also 30 Stunden. Im Zweifel fragst du deinen Fliegerarzt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Alkohol und andere Substanzen"
+        },
+        {
+          "typ": "absatz",
+          "text": "**SERA.2020** verbietet, unter dem Einfluss einer psychoaktiven Substanz zu fliegen, die die Leistungsfähigkeit beeinträchtigt – dazu gehören Alkohol, Drogen und manche Medikamente. Eine feste Stundenzahl nennt die Regel nicht. Die US-Luftfahrtbehörde FAA weist darauf hin, dass der Körper für ein Bier etwa drei Stunden braucht, dass man mit Kater noch unter Alkoholeinfluss steht und dass Alkohol noch nach über 16 Stunden im Körper sein kann. In der Höhe wirkt Alkohol zudem stärker."
+        },
+        {
+          "typ": "achtung",
+          "text": "Am Flugtag kein Alkohol – und nach einem Abend mit mehreren Gläsern am nächsten Morgen nicht fliegen. Ein „Ich fühle mich fit“ ist kein Maßstab."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Der Selbstcheck vor dem Flug"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die FAA empfiehlt eine kurze Checkliste, die sich auch bei uns bewährt hat (englisch **IMSAFE**). Frag dich vor jedem Flug ehrlich:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Krankheit:** Bin ich krank, erkältet, angeschlagen?",
+            "**Medikamente:** Nehme ich etwas, das mein Urteil trüben oder müde machen kann?",
+            "**Stress:** Stehe ich unter Druck – Arbeit, Familie, Geld?",
+            "**Alkohol:** Habe ich in den letzten 8 Stunden getrunken? In den letzten 24?",
+            "**Müdigkeit:** Habe ich gut geschlafen?",
+            "**Gefühle:** Bin ich aufgewühlt, wütend oder traurig?"
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Tauchen und Blutspenden"
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach dem Tauchen ist der Körper mit Stickstoff gesättigt; beim Fliegen kann er Blasen bilden (Dekompressionskrankheit). Die FAA empfiehlt: bis 8000 ft mindestens **12 Stunden** Pause nach Tauchgängen ohne Dekompressionsstopp, **24 Stunden** nach Tauchgängen mit Dekompressionsstopp – und über 8000 ft immer mindestens 24 Stunden. Auch nach einer Blutspende braucht der Körper einige Zeit, um sich zu erholen: Frag vor dem nächsten Flug deinen Fliegerarzt."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-fit-01",
+          "typ": "auswahl",
+          "frage": "Welches Tauglichkeitszeugnis brauchst du mindestens für eine PPL?",
+          "richtig": "Klasse 2",
+          "falsch": [
+            "LAPL-Tauglichkeit",
+            "Klasse 1",
+            "Ein Attest des Hausarztes"
+          ],
+          "erklaerung": "MED.A.030 c 2: PPL mindestens Klasse 2. Für LAPL und SPL reicht ein LAPL-Tauglichkeitszeugnis."
+        },
+        {
+          "id": "ml-fit-02",
+          "typ": "auswahl",
+          "frage": "Welches Tauglichkeitszeugnis brauchst du mindestens für die SPL (Segelflug)?",
+          "richtig": "LAPL-Tauglichkeitszeugnis",
+          "falsch": [
+            "Klasse 1",
+            "Klasse 2 – ohne Ausnahme",
+            "Gar keines"
+          ],
+          "erklaerung": "MED.A.030 c 1: Für LAPL und SPL mindestens ein LAPL-Tauglichkeitszeugnis. Für gewerblichen Segelflugbetrieb gilt mehr."
+        },
+        {
+          "id": "ml-fit-03",
+          "typ": "wahrfalsch",
+          "aussage": "Mit einer Erkältung und einem freiverkäuflichen Mittel, das müde macht, darfst du fliegen, wenn du dich gut fühlst.",
+          "richtig": false,
+          "erklaerung": "MED.A.020: Arzneimittel, die die sichere Flugdurchführung wahrscheinlich gefährden, schließen das Fliegen aus – auch freiverkäufliche. Und mit Erkältung drohen Ohrenschmerzen beim Sinkflug."
+        },
+        {
+          "id": "ml-fit-04",
+          "typ": "mehrfach",
+          "frage": "Wann lässt du dich vor dem nächsten Flug flugmedizinisch beraten (MED.A.020 b)?",
+          "richtig": [
+            "Nach einer Operation",
+            "Wenn du regelmäßig ein Medikament nimmst",
+            "Wenn du erstmals eine Brille brauchst"
+          ],
+          "falsch": [
+            "Nach einem Schnupfen, der seit Wochen ausgeheilt ist",
+            "Nach einem neuen Paar Fliegerschuhe"
+          ],
+          "erklaerung": "MED.A.020 b zählt unter anderem Operationen, regelmäßige Medikamente, erhebliche Verletzungen oder Erkrankungen, Schwangerschaft, Krankenhausaufenthalte und erstmalige Sehhilfen auf."
+        },
+        {
+          "id": "ml-fit-05",
+          "typ": "auswahl",
+          "frage": "Was regelt SERA.2020?",
+          "richtig": "Kein Flug unter dem Einfluss psychoaktiver Substanzen, die die Leistungsfähigkeit beeinträchtigen",
+          "falsch": [
+            "Höchstens 0,5 Promille am Steuer",
+            "Rauchverbot im Cockpit",
+            "Pflicht zu acht Stunden Schlaf vor jedem Flug"
+          ],
+          "erklaerung": "SERA.2020 verbietet sicherheitsrelevantem Personal, unter dem Einfluss psychoaktiver Substanzen zu arbeiten – eine Promillegrenze nennt die Regel nicht."
+        },
+        {
+          "id": "ml-fit-06",
+          "typ": "wahrfalsch",
+          "aussage": "Mit einem Kater am Morgen nach einer Feier steht man noch unter Alkoholeinfluss.",
+          "richtig": true,
+          "erklaerung": "Auch wenn man sich halbwegs fit fühlt, sind Reaktion und Urteil noch beeinträchtigt. Alkohol kann über 16 Stunden im Körper bleiben."
+        },
+        {
+          "id": "ml-fit-07",
+          "typ": "zuordnung",
+          "frage": "Ordne die Punkte des Selbstchecks ihrer Frage zu.",
+          "paare": [
+            [
+              "Krankheit",
+              "Bin ich krank oder angeschlagen?"
+            ],
+            [
+              "Medikamente",
+              "Nehme ich etwas, das müde macht?"
+            ],
+            [
+              "Alkohol",
+              "Habe ich in den letzten 24 Stunden getrunken?"
+            ],
+            [
+              "Müdigkeit",
+              "Habe ich gut geschlafen?"
+            ]
+          ]
+        },
+        {
+          "id": "ml-fit-08",
+          "typ": "zahl",
+          "frage": "Wie viele Tage vor dem Ablauf darfst du die Untersuchung zur Verlängerung deines Tauglichkeitszeugnisses höchstens machen?",
+          "loesung": 45,
+          "einheit": "Tage",
+          "erklaerung": "MED.A.045 b: bis zu 45 Tage vor dem Ablaufdatum – die neue Gültigkeit zählt dann ab dem Ablauf des alten Zeugnisses."
+        },
+        {
+          "id": "ml-fit-09",
+          "typ": "generator",
+          "generator": "tauglichkeit"
+        },
+        {
+          "id": "ml-fit-10",
+          "typ": "generator",
+          "generator": "tauchen"
+        }
+      ]
+    },
+    {
+      "id": "hoehe",
+      "titel": "Höhe, Sauerstoff und Atmung",
+      "kurz": "Warum die dünne Luft gefährlich ist, woran du Sauerstoffmangel erkennst und was die Regeln verlangen.",
+      "kern": [
+        "Die Luft enthält in jeder Höhe rund 21 % Sauerstoff – aber mit dem Luftdruck sinkt sein Partialdruck. In etwa 18 000 ft ist er halbiert.",
+        "Sauerstoffmangel (Hypoxie) schleicht sich ein: Oft fühlt man sich gut oder sogar euphorisch, während das Urteilsvermögen nachlässt.",
+        "Flugzeuge (NCO.OP.190 b): länger als 30 min zwischen 10 000 und 13 000 ft Sauerstoff für die Besatzung, über 13 000 ft für alle.",
+        "Kohlenmonoxid aus der Heizung bindet sich viel stärker an das Blut als Sauerstoff – bei Abgasgeruch Heizung aus und Frischluft."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Der Anteil des Sauerstoffs an der Luft ist in jeder Höhe gleich: rund 21 %. Weil der Luftdruck mit der Höhe abnimmt, sinkt aber auch der **Partialdruck** des Sauerstoffs – und der entscheidet, wie viel Sauerstoff die Lunge ins Blut bekommt. In etwa 18 000 ft ist er nur noch halb so groß wie am Meer."
+        },
+        {
+          "typ": "einfach",
+          "text": "Stell dir einen Bus vor, der Sauerstoff zu deinen Zellen fährt. In der Höhe steigen an jeder Haltestelle weniger Fahrgäste ein – der Bus fährt halb leer, und deine Zellen werden schlechter versorgt."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "sauerstoff"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Hypoxie – Sauerstoffmangel"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Hypoxische Hypoxie:** zu wenig Sauerstoff in der Atemluft – typisch für die Höhe.",
+            "**Hypämische Hypoxie:** das Blut kann den Sauerstoff nicht transportieren – zum Beispiel bei Kohlenmonoxid oder nach Blutverlust.",
+            "**Stagnierende Hypoxie:** das Blut fließt nicht richtig – etwa bei hohen g-Lasten oder Kälte in Händen und Füßen.",
+            "**Histotoxische Hypoxie:** die Zellen können den Sauerstoff nicht nutzen – zum Beispiel durch Alkohol oder Drogen."
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Anzeichen sind unter anderem Kopfschmerzen, Benommenheit, Kribbeln, verlangsamte Reaktionen, nachlassendes Urteilsvermögen, Sehstörungen, Müdigkeit und blaue Lippen oder Fingernägel. Das Tückische: Oft fühlt man sich gut oder sogar euphorisch. Gegenmittel: sofort tiefer fliegen oder Zusatzsauerstoff nehmen."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Höhe",
+            "Zeit nutzbaren Bewusstseins ohne Sauerstoff"
+          ],
+          "zeilen": [
+            [
+              "20 000 ft",
+              "30 Minuten oder mehr"
+            ],
+            [
+              "22 000 ft",
+              "5 bis 10 Minuten"
+            ],
+            [
+              "25 000 ft",
+              "3 bis 5 Minuten"
+            ],
+            [
+              "30 000 ft",
+              "1 bis 2 Minuten"
+            ],
+            [
+              "35 000 ft",
+              "30 bis 60 Sekunden"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Werte stammen aus dem Handbuch der US-Luftfahrtbehörde FAA. Sie zeigen, wie viel Zeit bleibt, um noch vernünftig zu handeln – in normalen Höhen der allgemeinen Luftfahrt ist Hypoxie eher schleichend, aber genau deshalb gefährlich."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Was die Regeln verlangen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Für **Flugzeuge** muss der verantwortliche Pilot nach **NCO.OP.190** dafür sorgen, dass die Besatzung Zusatzsauerstoff nimmt, wenn Sauerstoffmangel ihre Fähigkeiten einschränken könnte. Kann er das nicht selbst einschätzen, gilt: Besatzung Sauerstoff, wenn die Druckhöhe in der Kabine **länger als 30 Minuten zwischen 10 000 und 13 000 ft** liegt; **über 13 000 ft alle Insassen**. Flugzeuge, die so betrieben werden, brauchen eine Sauerstoffanlage (NCO.IDE.A.155). Für **Segelflugzeuge** verlangt **SAO.OP.150** Zusatzsauerstoff für alle an Bord, sobald Sauerstoffmangel ihre Fähigkeiten einschränken oder ihnen schaden könnte – wichtig in starker Thermik oder in der Welle."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Hyperventilation"
+        },
+        {
+          "typ": "absatz",
+          "text": "Wer unter Stress zu schnell und zu tief atmet, atmet zu viel Kohlendioxid ab. Die Anzeichen ähneln der Hypoxie: Benommenheit, Kribbeln, Sehstörungen, Hitze- und Kältegefühl, Muskelkrämpfe. Gegenmittel: bewusst langsamer atmen – laut sprechen hilft. Fliegst du mit Sauerstoff, prüfst du zuerst die Anlage, denn es könnte auch eine Hypoxie sein."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Kohlenmonoxid"
+        },
+        {
+          "typ": "absatz",
+          "text": "Kohlenmonoxid (CO) aus einem undichten Auspuff kann über die Kabinenheizung ins Cockpit gelangen. Es ist geruchlos und bindet sich nach Angaben der FAA etwa 200-mal leichter an das Blut als Sauerstoff; der Körper braucht bis zu 48 Stunden, um es wieder abzubauen. Auch Rauchen erhöht den CO-Gehalt im Blut – am Boden kann es wirken wie ein Flug in 8000 ft. Bei Kopfschmerzen, Schwindel oder Abgasgeruch: Heizung aus, Frischluft an, Sauerstoff nehmen, wenn vorhanden, und so bald wie möglich landen. Ein CO-Warnmelder im Cockpit kostet wenig."
+        },
+        {
+          "typ": "achtung",
+          "text": "Alkohol und Höhe verstärken sich gegenseitig: Nach der FAA kann schon ein Glas wirken, als wärst du 2000 ft höher."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-ho-01",
+          "typ": "wahrfalsch",
+          "aussage": "In 10 000 ft enthält die Luft weniger als 21 % Sauerstoff.",
+          "richtig": false,
+          "erklaerung": "Der Anteil bleibt rund 21 %. Es sinkt der Luftdruck – und damit der Partialdruck des Sauerstoffs."
+        },
+        {
+          "id": "ml-ho-02",
+          "typ": "auswahl",
+          "frage": "In welcher Höhe ist der Sauerstoff-Partialdruck etwa nur noch halb so groß wie am Meer?",
+          "richtig": "In etwa 18 000 ft",
+          "falsch": [
+            "In etwa 5000 ft",
+            "In etwa 10 000 ft",
+            "In etwa 35 000 ft"
+          ],
+          "erklaerung": "In etwa 18 000 ft (5500 m) ist der Luftdruck nach der Standardatmosphäre halbiert – und mit ihm der Sauerstoff-Partialdruck."
+        },
+        {
+          "id": "ml-ho-03",
+          "typ": "mehrfach",
+          "frage": "Welche Anzeichen können auf Sauerstoffmangel hindeuten?",
+          "richtig": [
+            "Kopfschmerzen und Benommenheit",
+            "Kribbeln in Fingern und Zehen",
+            "Euphorie und Sorglosigkeit",
+            "Blaue Lippen oder Fingernägel"
+          ],
+          "falsch": [
+            "Besonders gute Nachtsicht",
+            "Starker Hunger"
+          ],
+          "erklaerung": "Gefährlich ist besonders die Euphorie: Man fühlt sich gut, während das Urteilsvermögen nachlässt."
+        },
+        {
+          "id": "ml-ho-04",
+          "typ": "auswahl",
+          "frage": "Welche Art der Hypoxie entsteht durch Kohlenmonoxid?",
+          "richtig": "Hypämische Hypoxie – das Blut kann den Sauerstoff nicht transportieren",
+          "falsch": [
+            "Hypoxische Hypoxie – zu wenig Sauerstoff in der Luft",
+            "Histotoxische Hypoxie – die Zellen können Sauerstoff nicht nutzen",
+            "Stagnierende Hypoxie – das Blut fließt nicht"
+          ],
+          "erklaerung": "Kohlenmonoxid besetzt das Hämoglobin, das sonst den Sauerstoff transportiert."
+        },
+        {
+          "id": "ml-ho-05",
+          "typ": "auswahl",
+          "frage": "Du riechst im Winter Abgase im Cockpit. Was tust du zuerst?",
+          "richtig": "Heizung aus, Frischluft an – und bald landen",
+          "falsch": [
+            "Heizung höher stellen, damit die Luft verdünnt wird",
+            "Weiterfliegen, Abgasgeruch ist normal",
+            "Höher steigen"
+          ],
+          "erklaerung": "Die Heizung holt ihre Wärme meist vom Auspuff. Ist er undicht, kommt Kohlenmonoxid in die Kabine."
+        },
+        {
+          "id": "ml-ho-06",
+          "typ": "auswahl",
+          "frage": "Was hilft bei Hyperventilation?",
+          "richtig": "Bewusst langsamer atmen, zum Beispiel laut sprechen",
+          "falsch": [
+            "Schneller und tiefer atmen",
+            "Höher steigen",
+            "Die Kabinenheizung aufdrehen"
+          ],
+          "erklaerung": "Bei Hyperventilation hat man zu viel Kohlendioxid abgeatmet. Langsameres Atmen stellt das Gleichgewicht wieder her."
+        },
+        {
+          "id": "ml-ho-07",
+          "typ": "auswahl",
+          "frage": "Was verlangt SAO.OP.150 für Segelflugzeuge?",
+          "richtig": "Zusatzsauerstoff für alle an Bord, sobald Sauerstoffmangel ihre Fähigkeiten einschränken oder ihnen schaden könnte",
+          "falsch": [
+            "Sauerstoff erst ab FL 195",
+            "Sauerstoff nur für Fluggäste",
+            "Gar nichts – Segelflieger fliegen nie hoch genug"
+          ],
+          "erklaerung": "Feste Höhen nennt SAO.OP.150 nicht. In Wellen- oder starken Thermikflügen erreichen Segelflugzeuge aber durchaus Höhen, in denen Sauerstoff nötig ist."
+        },
+        {
+          "id": "ml-ho-08",
+          "typ": "generator",
+          "generator": "sauerstoff"
+        },
+        {
+          "id": "ml-ho-09",
+          "typ": "generator",
+          "generator": "sauerstoff"
+        },
+        {
+          "id": "ml-ho-10",
+          "typ": "generator",
+          "generator": "bewusstsein"
+        }
+      ]
+    },
+    {
+      "id": "druck",
+      "titel": "Ohren, Nebenhöhlen und Druckänderungen",
+      "kurz": "Warum es beim Sinkflug in den Ohren drückt und warum du mit Schnupfen besser am Boden bleibst.",
+      "kern": [
+        "Beim Steigen dehnt sich die Luft in Ohr und Nebenhöhlen aus und entweicht meist von selbst – beim Sinken muss Luft hinein.",
+        "Druckausgleich: schlucken, gähnen oder Nase zuhalten und sanft gegen den geschlossenen Mund drücken.",
+        "Mit Schnupfen, Ohrentzündung oder Halsschmerzen klappt der Druckausgleich oft nicht – nicht fliegen.",
+        "Nach dem Tauchen 12 bzw. 24 Stunden warten, sonst droht die Dekompressionskrankheit."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Im Mittelohr und in den Nebenhöhlen ist Luft eingeschlossen. Ändert sich der Luftdruck, muss diese Luft entweichen oder nachströmen können. Das Mittelohr ist über die **Ohrtrompete** (Eustachische Röhre) mit dem Rachen verbunden."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wie bei einer Plastikflasche im Auto über einen Pass: Oben bläht sie sich auf, unten wird sie zusammengedrückt. Dein Trommelfell ist die dünne Wand dieser Flasche."
+        },
+        {
+          "typ": "absatz",
+          "text": "Beim **Steigen** dehnt sich die Luft im Mittelohr aus und entweicht meist von selbst durch die Ohrtrompete. Beim **Sinken** muss Luft ins Mittelohr hinein – die Ohrtrompete öffnet sich dafür aber nicht von selbst. Deshalb drückt es vor allem im Sinkflug. Helfen können Schlucken, Gähnen oder Kauen – oder: Nase zuhalten, Mund schließen und sanft Luft in Richtung Nase drücken."
+        },
+        {
+          "typ": "achtung",
+          "text": "Mit Schnupfen, Ohrentzündung oder Halsschmerzen ist die Ohrtrompete oft zugeschwollen. Ein Flug kann dann sehr schmerzhaft werden und das Trommelfell schädigen. Bevor du Nasenspray oder andere Mittel nimmst, fragst du deinen Fliegerarzt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Gase im Körper"
+        },
+        {
+          "typ": "absatz",
+          "text": "Auch Gase im Magen und Darm dehnen sich in der Höhe aus – das kann drücken. In größeren Höhen können zudem im Körper gelöste Gase, vor allem Stickstoff, Bläschen bilden: die **Dekompressionskrankheit**. Sie zeigt sich zum Beispiel durch Gelenkschmerzen, Hautjucken oder Atemnot – manchmal erst nach der Landung."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Nach dem Tauchen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Beim Tauchen nimmt der Körper durch den hohen Druck viel Stickstoff auf. Fliegst du kurz danach, sinkt der Druck – und der Stickstoff kann Blasen bilden. Die FAA empfiehlt:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Tauchgang",
+            "Flug bis 8000 ft",
+            "Flug über 8000 ft"
+          ],
+          "zeilen": [
+            [
+              "ohne Dekompressionsstopp",
+              "mindestens 12 Stunden warten",
+              "mindestens 24 Stunden warten"
+            ],
+            [
+              "mit Dekompressionsstopp",
+              "mindestens 24 Stunden warten",
+              "mindestens 24 Stunden warten"
+            ]
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Die Höhen gelten für die tatsächliche Flughöhe. Gerade nach dem Tauchurlaub: Rückflug und Vereinsflug am nächsten Tag mit einplanen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-dr-01",
+          "typ": "auswahl",
+          "frage": "Wann drückt es typischerweise in den Ohren?",
+          "richtig": "Im Sinkflug",
+          "falsch": [
+            "Im Steigflug",
+            "Im Horizontalflug",
+            "Nur am Boden"
+          ],
+          "erklaerung": "Beim Sinken muss Luft ins Mittelohr hinein. Die Ohrtrompete öffnet sich dafür nicht von selbst – du musst nachhelfen."
+        },
+        {
+          "id": "ml-dr-02",
+          "typ": "mehrfach",
+          "frage": "Was hilft beim Druckausgleich im Sinkflug?",
+          "richtig": [
+            "Schlucken",
+            "Gähnen",
+            "Nase zuhalten und sanft gegen den geschlossenen Mund drücken"
+          ],
+          "falsch": [
+            "Luft anhalten",
+            "Schneller sinken"
+          ],
+          "erklaerung": "Alles, was die Ohrtrompete öffnet, hilft. Schneller zu sinken macht es schlimmer."
+        },
+        {
+          "id": "ml-dr-03",
+          "typ": "wahrfalsch",
+          "aussage": "Mit einem starken Schnupfen kann ein Flug sehr schmerzhaft werden und das Trommelfell schädigen.",
+          "richtig": true,
+          "erklaerung": "Die Ohrtrompete ist dann oft zugeschwollen, der Druckausgleich gelingt nicht."
+        },
+        {
+          "id": "ml-dr-04",
+          "typ": "auswahl",
+          "frage": "Wodurch entsteht die Dekompressionskrankheit?",
+          "richtig": "Im Körper gelöster Stickstoff bildet bei sinkendem Druck Bläschen",
+          "falsch": [
+            "Durch zu viel Sauerstoff in der Höhe",
+            "Durch Kohlenmonoxid aus der Heizung",
+            "Durch schnelles Atmen"
+          ],
+          "erklaerung": "Wie bei einer geöffneten Sprudelflasche: Sinkt der Druck, perlt das Gas aus."
+        },
+        {
+          "id": "ml-dr-05",
+          "typ": "zahl",
+          "frage": "Wie viele Stunden solltest du nach einem Tauchgang mit Dekompressionsstopp mindestens warten, bevor du fliegst (FAA)?",
+          "loesung": 24,
+          "einheit": "h",
+          "erklaerung": "Nach Tauchgängen mit Dekompressionsstopp und vor Flügen über 8000 ft immer mindestens 24 Stunden."
+        },
+        {
+          "id": "ml-dr-06",
+          "typ": "auswahl",
+          "frage": "Wie heißt die Verbindung zwischen Mittelohr und Rachen?",
+          "richtig": "Ohrtrompete (Eustachische Röhre)",
+          "falsch": [
+            "Gehörgang",
+            "Bogengang",
+            "Trommelfell"
+          ],
+          "erklaerung": "Über die Ohrtrompete gleicht sich der Druck im Mittelohr aus."
+        },
+        {
+          "id": "ml-dr-07",
+          "typ": "generator",
+          "generator": "tauchen"
+        },
+        {
+          "id": "ml-dr-08",
+          "typ": "generator",
+          "generator": "tauchen"
+        }
+      ]
+    },
+    {
+      "id": "sehen",
+      "titel": "Sehen und Luftraumbeobachtung",
+      "kurz": "Wie das Auge funktioniert, wie du andere Flugzeuge rechtzeitig entdeckst und was nachts anders ist.",
+      "kern": [
+        "Zapfen (Mitte der Netzhaut) sehen scharf und farbig bei Helligkeit, Stäbchen (Rand) sehen im Dunkeln, aber unscharf.",
+        "Die Augen brauchen rund 30 Minuten, um sich an die Dunkelheit zu gewöhnen – helles Licht macht das sofort zunichte.",
+        "Luftraum absuchen: Blicksprünge von höchstens 10°, jeden Abschnitt mindestens eine Sekunde lang ansehen.",
+        "Bleibt ein anderes Flugzeug an derselben Stelle der Frontscheibe und wird größer: Kollisionskurs!"
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Beim Sichtflug gilt „sehen und gesehen werden“ – und dafür ist das Auge das wichtigste Werkzeug. Es hat aber Grenzen, die man kennen muss."
+        },
+        {
+          "typ": "einfach",
+          "text": "Dein Auge ist wie eine Kamera mit zwei Sensoren: einem scharfen Farbsensor in der Mitte für den Tag und einem sehr empfindlichen Schwarz-Weiß-Sensor am Rand für die Nacht."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Zapfen, Stäbchen und der blinde Fleck"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Zapfen** sitzen vor allem in der Mitte der Netzhaut (Sehgrube). Sie sehen scharf und farbig – aber nur bei ausreichend Licht.",
+            "**Stäbchen** sitzen am Rand. Sie sind viel lichtempfindlicher, sehen aber unscharf und ohne Farben.",
+            "Wo der Sehnerv das Auge verlässt, gibt es keine Sinneszellen: den **blinden Fleck**. Mit beiden Augen und bewegtem Blick gleicht das Gehirn ihn aus."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Andere Flugzeuge entdecken"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein Flugzeug in einigen Kilometern Entfernung ist nur ein kleiner Punkt. Scharf sieht das Auge nur in einem engen Bereich in der Mitte. Die FAA empfiehlt deshalb, den Himmel in **kurzen, regelmäßigen Blicksprüngen von höchstens 10°** abzusuchen und jeden Abschnitt **mindestens eine Sekunde** lang anzusehen."
+        },
+        {
+          "typ": "absatz",
+          "text": "Besonders gefährlich ist ein **Kollisionskurs**: Fliegen zwei Flugzeuge geradeaus auf denselben Punkt zu, ändert sich die Richtung nicht, in der sie sich sehen. Der andere bleibt an derselben Stelle deiner Frontscheibe – er bewegt sich nicht, er wird nur langsam größer. Und gerade Dinge, die sich nicht bewegen, übersieht das Auge leicht."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "kollision"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ist über den Wolken oder im Dunst nichts zum Fokussieren da, stellen sich die Augen auf einen Abstand von wenigen Metern ein – man schaut, ohne zu sehen (**Leerfeldkurzsichtigkeit**). Gegenmittel: immer wieder bewusst auf entfernte Punkte schauen, etwa auf Wolkenränder oder die Flügelspitze und dann in die Ferne."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Sehen in der Nacht"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Stäbchen brauchen etwa **30 Minuten**, bis sie sich an die Dunkelheit gewöhnt haben; ein einziges helles Licht macht das zunichte. Weil in der Mitte der Netzhaut kaum Stäbchen sitzen, siehst du nachts schwache Lichter besser, wenn du etwa 10° daneben schaust. Und ohne Zusatzsauerstoff lässt das Nachtsehen nach der FAA schon oberhalb von etwa 4000 ft Druckhöhe messbar nach."
+        },
+        {
+          "typ": "merke",
+          "text": "Sonnenbrille tagsüber schont die Augen für einen Nachtflug. Im Cockpit nachts nur gedimmtes Licht und vor dem Start genug Zeit zur Gewöhnung einplanen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-se-01",
+          "typ": "auswahl",
+          "frage": "Welche Sinneszellen sorgen für das scharfe Farbsehen am Tag?",
+          "richtig": "Die Zapfen in der Mitte der Netzhaut",
+          "falsch": [
+            "Die Stäbchen am Rand der Netzhaut",
+            "Der blinde Fleck",
+            "Die Linse"
+          ],
+          "erklaerung": "Zapfen sehen scharf und farbig, brauchen aber Licht. Stäbchen übernehmen in der Dämmerung."
+        },
+        {
+          "id": "ml-se-02",
+          "typ": "zahl",
+          "frage": "Wie viele Minuten brauchen die Augen etwa, um sich ganz an die Dunkelheit zu gewöhnen?",
+          "loesung": 30,
+          "toleranz": 5,
+          "einheit": "min",
+          "erklaerung": "Die Stäbchen brauchen etwa 30 Minuten. Ein helles Licht macht die Gewöhnung sofort zunichte."
+        },
+        {
+          "id": "ml-se-03",
+          "typ": "auswahl",
+          "frage": "Wie suchst du den Luftraum am besten ab?",
+          "richtig": "In Blicksprüngen von höchstens 10°, jeden Abschnitt mindestens eine Sekunde lang",
+          "falsch": [
+            "Mit einem gleichmäßigen, schnellen Schwenk über den ganzen Himmel",
+            "Nur geradeaus schauen, die Seiten sind unwichtig",
+            "Nur auf Geräusche achten"
+          ],
+          "erklaerung": "Scharf sieht das Auge nur in der Mitte. Bei einem schnellen Schwenk erkennt es kleine Punkte nicht."
+        },
+        {
+          "id": "ml-se-04",
+          "typ": "wahrfalsch",
+          "aussage": "Ein Flugzeug auf Kollisionskurs bleibt an derselben Stelle der Frontscheibe und wird nur größer.",
+          "richtig": true,
+          "erklaerung": "Die Peilung ändert sich nicht. Weil sich der Punkt nicht bewegt, ist er schwer zu entdecken."
+        },
+        {
+          "id": "ml-se-05",
+          "typ": "auswahl",
+          "frage": "Nachts siehst du ein schwaches Licht. Wie erkennst du es am besten?",
+          "richtig": "Etwas daneben schauen, damit das Licht auf die Stäbchen fällt",
+          "falsch": [
+            "Genau hinschauen, damit es auf die Mitte der Netzhaut fällt",
+            "Die Cockpitbeleuchtung heller stellen",
+            "Die Augen schließen und warten"
+          ],
+          "erklaerung": "In der Mitte der Netzhaut sitzen kaum Stäbchen. Etwa 10° daneben siehst du schwache Lichter besser."
+        },
+        {
+          "id": "ml-se-06",
+          "typ": "auswahl",
+          "frage": "Was ist Leerfeldkurzsichtigkeit?",
+          "richtig": "Ohne Punkt zum Fokussieren stellen sich die Augen auf wenige Meter ein – man schaut, ohne zu sehen",
+          "falsch": [
+            "Eine Augenkrankheit älterer Piloten",
+            "Blendung durch die Sonne",
+            "Doppelbilder durch Sauerstoffmangel"
+          ],
+          "erklaerung": "Über den Wolken oder im Dunst fehlt ein Ziel. Gegenmittel: immer wieder bewusst in die Ferne schauen."
+        },
+        {
+          "id": "ml-se-07",
+          "typ": "auswahl",
+          "frage": "Warum sieht man den blinden Fleck im Alltag nicht?",
+          "richtig": "Das Gehirn gleicht ihn mit dem anderen Auge und mit Blickbewegungen aus",
+          "falsch": [
+            "Weil es ihn nur nachts gibt",
+            "Weil er durch Sonnenbrillen verschwindet",
+            "Weil er nur bei Piloten auftritt"
+          ],
+          "erklaerung": "Wo der Sehnerv das Auge verlässt, gibt es keine Sinneszellen. Mit zwei Augen und bewegtem Blick merkst du davon nichts."
+        }
+      ]
+    },
+    {
+      "id": "orientierung",
+      "titel": "Gleichgewicht und Sinnestäuschungen",
+      "kurz": "Wie das Gleichgewichtsorgan dich täuschen kann – in den Wolken und im Anflug.",
+      "kern": [
+        "Ohne Sicht nach draußen kann das Gleichgewichtsorgan Kurven, Steigen und Sinken falsch melden – deshalb: VFR heißt Abstand von den Wolken.",
+        "Langsame Drehungen unter etwa 2° pro Sekunde spürt das Innenohr nicht.",
+        "Beschleunigen fühlt sich an wie Steigen, Bremsen wie Sinken (somatogravische Täuschung).",
+        "Schmale oder ansteigende Pisten und dunkles Gelände lassen dich zu tief anfliegen; breite oder abfallende Pisten zu hoch."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Im Innenohr sitzt das Gleichgewichtsorgan. Die drei **Bogengänge** melden Drehungen, die **Otolithenorgane** lineare Beschleunigungen und die Lage zur Schwerkraft. Am Boden passt das zu dem, was die Augen sehen. In der Luft – ohne Sicht nach draußen – kann es dich gründlich täuschen."
+        },
+        {
+          "typ": "einfach",
+          "text": "Setz dich mit geschlossenen Augen in ein Auto: Eine lange, sanfte Kurve merkst du kaum, Bremsen fühlt sich an, als würde das Auto nach vorn kippen. Genau so kann dich dein Körper im Flugzeug in die Irre führen."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Täuschungen des Gleichgewichtsorgans"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Die „Leans“:** Eine langsame Kurve (unter etwa 2° pro Sekunde) bleibt unbemerkt. Rollst du dann wieder gerade, fühlt es sich an wie eine Kurve zur anderen Seite – und du lehnst dich in die ursprüngliche Richtung.",
+            "**Coriolis-Täuschung:** Bewegst du in einer anhaltenden Kurve plötzlich den Kopf, etwa um etwas aufzuheben, fühlt es sich an wie eine Drehung um eine ganz andere Achse.",
+            "**Todesspirale (graveyard spiral):** In einer anhaltenden Kurve fühlt man sich, als flöge man geradeaus. Man bemerkt nur, dass man Höhe verliert, zieht – und verengt die Spirale.",
+            "**Somatogravische Täuschung:** Starkes Beschleunigen, etwa beim Start, fühlt sich an wie Aufrichten der Nase – wer nachdrückt, fliegt in den Boden. Starkes Abbremsen wirkt umgekehrt.",
+            "**Umkehrtäuschung:** Ein abrupter Übergang vom Steigflug in den Horizontalflug kann sich anfühlen, als kippe man nach hinten."
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "In den Wolken oder bei schlechter Sicht verliert man ohne Instrumentenausbildung schnell die Orientierung. Deshalb: Abstand von den Wolken halten, rechtzeitig umkehren – und unterwegs den Instrumenten mehr glauben als dem Bauchgefühl."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Optische Täuschungen im Anflug"
+        },
+        {
+          "typ": "abbildung",
+          "id": "anflug-taeuschungen",
+          "unterschrift": "So sieht die Piste im Anflug aus – und so kann sie dich täuschen."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Schmale Piste:** wirkt, als wärst du zu hoch – Gefahr, zu tief anzufliegen.",
+            "**Breite Piste:** wirkt, als wärst du zu tief – Gefahr, zu hoch abzufangen.",
+            "**Ansteigende Piste oder ansteigendes Gelände:** wirkt zu hoch – du fliegst zu tief an. Abfallende Pisten wirken umgekehrt.",
+            "**Dunkles, strukturloses Gelände** (nachts über Wasser, Schnee): wirkt zu hoch – Gefahr, zu tief anzufliegen.",
+            "**Regen auf der Scheibe:** kann dich ebenfalls höher wirken lassen."
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Vor dem Anflug auf einen fremden Platz Pistenbreite, Neigung und Gelände ansehen (Luftfahrthandbuch, Sichtanflugkarte) – und im Anflug immer wieder den Höhenmesser und vorhandene Anflughilfen prüfen."
+        },
+        {
+          "typ": "absatz",
+          "text": "Bekommen die Sinne widersprüchliche Meldungen, kann auch **Luftkrankheit** entstehen: Unwohlsein, Übelkeit, Schwitzen, Blässe. Bei Flugschülern verschwindet sie meist nach den ersten Stunden. Frische Luft, ein Blick auf den Horizont und ruhige Bewegungen helfen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-or-01",
+          "typ": "auswahl",
+          "frage": "Was melden die Bogengänge im Innenohr?",
+          "richtig": "Drehungen",
+          "falsch": [
+            "Geräusche",
+            "Den Luftdruck",
+            "Die Temperatur"
+          ],
+          "erklaerung": "Die drei Bogengänge melden Drehungen um die drei Achsen. Lineare Beschleunigungen und die Schwerkraft melden die Otolithenorgane."
+        },
+        {
+          "id": "ml-or-02",
+          "typ": "wahrfalsch",
+          "aussage": "Eine sehr langsame Kurve kann man ohne Sicht nach draußen überhaupt nicht spüren.",
+          "richtig": true,
+          "erklaerung": "Drehungen unter etwa 2° pro Sekunde liegen unter der Wahrnehmungsschwelle der Bogengänge."
+        },
+        {
+          "id": "ml-or-03",
+          "typ": "auswahl",
+          "frage": "Starkes Beschleunigen beim Start in schlechter Sicht kann sich anfühlen wie …",
+          "richtig": "… ein Anheben der Nase – man drückt dann womöglich nach",
+          "falsch": [
+            "… eine Kurve nach links",
+            "… ein Absinken",
+            "… gar nichts"
+          ],
+          "erklaerung": "Das ist die somatogravische Täuschung: Das Otolithenorgan verwechselt Beschleunigung mit Neigung."
+        },
+        {
+          "id": "ml-or-04",
+          "typ": "auswahl",
+          "frage": "Was ist die Todesspirale (graveyard spiral)?",
+          "richtig": "In einer anhaltenden Kurve fühlt man sich geradeaus, bemerkt den Höhenverlust, zieht – und verengt die Spirale",
+          "falsch": [
+            "Eine Kunstflugfigur",
+            "Eine Windscherung im Endanflug",
+            "Ein Strömungsabriss in der Platzrunde"
+          ],
+          "erklaerung": "Ohne Sicht nach draußen fehlt das Gefühl für die Kurve. Abhilfe: Fluglage nach den Instrumenten korrigieren."
+        },
+        {
+          "id": "ml-or-05",
+          "typ": "generator",
+          "generator": "anflug"
+        },
+        {
+          "id": "ml-or-06",
+          "typ": "generator",
+          "generator": "anflug"
+        },
+        {
+          "id": "ml-or-07",
+          "typ": "auswahl",
+          "frage": "Du fliegst in einer langen Kurve und bückst dich nach der heruntergefallenen Karte. Welche Täuschung droht?",
+          "richtig": "Coriolis-Täuschung",
+          "falsch": [
+            "Leerfeldkurzsichtigkeit",
+            "Hyperventilation",
+            "Somatogravische Täuschung"
+          ],
+          "erklaerung": "Eine Kopfbewegung in einer anhaltenden Kurve bringt die Flüssigkeit in den Bogengängen durcheinander – es fühlt sich an wie eine Drehung um eine andere Achse."
+        },
+        {
+          "id": "ml-or-08",
+          "typ": "mehrfach",
+          "frage": "Was hilft gegen Luftkrankheit?",
+          "richtig": [
+            "Frische Luft",
+            "Den Blick auf den Horizont richten",
+            "Ruhige Kopfbewegungen"
+          ],
+          "falsch": [
+            "Lesen während des Flugs",
+            "Ein großes, fettes Essen kurz vor dem Start"
+          ],
+          "erklaerung": "Luftkrankheit entsteht durch widersprüchliche Sinnesmeldungen. Der Blick nach draußen bringt Augen und Gleichgewichtsorgan wieder in Einklang."
+        }
+      ]
+    },
+    {
+      "id": "belastung",
+      "titel": "Stress, Müdigkeit und Gesundheit",
+      "kurz": "Wie Stress und Müdigkeit deine Leistung verändern – und warum Trinken wichtig ist.",
+      "kern": [
+        "Ein wenig Anspannung steigert die Leistung, zu viel Stress senkt sie stark.",
+        "Müdigkeit verschlechtert Aufmerksamkeit, Koordination und Kommunikation – oft, ohne dass man es merkt.",
+        "Erstes Anzeichen von zu wenig Flüssigkeit ist Müdigkeit; bei Hitze im Cockpit regelmäßig trinken.",
+        "Wer akut oder dauerhaft überlastet ist, fliegt nicht."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "**Stress** ist die Reaktion des Körpers auf Belastung: Er schüttet Hormone wie Adrenalin aus, Herzschlag, Atmung, Blutdruck und Blutzucker steigen. Auslöser (Stressoren) können körperlich sein (Lärm, Vibration, Hitze), körperintern (Müdigkeit, Hunger) oder seelisch (Prüfungsangst, Ärger, Zeitdruck)."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein bisschen Lampenfieber macht wach und konzentriert. Zu viel davon und dir fällt nichts mehr ein – im Cockpit genauso wie bei einem Vortrag."
+        },
+        {
+          "typ": "abbildung",
+          "id": "leistungskurve",
+          "unterschrift": "Schematisch: Mittlere Belastung bringt die beste Leistung, zu wenig und zu viel verschlechtern sie."
+        },
+        {
+          "typ": "absatz",
+          "text": "Man unterscheidet **akuten** Stress (eine Situation jetzt, etwa ein unerwarteter Funkspruch) und **chronischen** Stress (dauernde Belastung durch Beruf, Familie oder Geld). Wer dauerhaft überlastet ist, fliegt nicht – und spricht mit einem Arzt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Müdigkeit"
+        },
+        {
+          "typ": "absatz",
+          "text": "Müdigkeit gehört zu den heimtückischsten Gefahren: Aufmerksamkeit und Konzentration lassen nach, die Koordination wird ungenauer, man kommuniziert schlechter – oft, ohne es selbst zu merken. **Akute** Müdigkeit nach einem langen Tag oder einer kurzen Nacht vergeht mit Erholung und gutem Schlaf. **Chronische** Müdigkeit entsteht, wenn man über lange Zeit nicht genug Erholung bekommt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Trinken, Hitze, Essen"
+        },
+        {
+          "typ": "absatz",
+          "text": "In einem heißen Cockpit, bei Wind auf dem Flugplatz oder in großer Höhe verliert der Körper viel Wasser. Kaffee, Tee und Alkohol verstärken das. Das **erste Anzeichen** von Flüssigkeitsmangel ist **Müdigkeit**, später kommen Kopfschmerzen, Schwindel und Krämpfe. Als grobe Richtschnur nennt die FAA etwa 2 bis 4 Liter am Tag. Bei Hitze helfen helle, luftige Kleidung, eine Kopfbedeckung unter der Haube und gute Belüftung."
+        },
+        {
+          "typ": "merke",
+          "text": "Nimm auf jeden Flug Wasser mit – besonders im Segelflugzeug unter der Haube. Und iss vor dem Fliegen etwas Leichtes: Hunger senkt die Konzentration."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-be-01",
+          "typ": "auswahl",
+          "frage": "Wie hängen Belastung und Leistung zusammen?",
+          "richtig": "Mittlere Belastung bringt die beste Leistung, zu wenig und zu viel verschlechtern sie",
+          "falsch": [
+            "Je mehr Stress, desto besser die Leistung",
+            "Stress hat keinen Einfluss auf die Leistung",
+            "Nur ganz ohne Belastung ist man leistungsfähig"
+          ],
+          "erklaerung": "Ein wenig Anspannung macht wach. Zu viel Stress führt dazu, dass man Wichtiges übersieht."
+        },
+        {
+          "id": "ml-be-02",
+          "typ": "auswahl",
+          "frage": "Was ist das erste Anzeichen von Flüssigkeitsmangel?",
+          "richtig": "Müdigkeit",
+          "falsch": [
+            "Gute Laune",
+            "Schnupfen",
+            "Heißhunger"
+          ],
+          "erklaerung": "Zuerst kommt Müdigkeit, später Kopfschmerzen, Schwindel und Krämpfe."
+        },
+        {
+          "id": "ml-be-03",
+          "typ": "zuordnung",
+          "frage": "Ordne die Stressoren zu.",
+          "paare": [
+            [
+              "Lärm und Vibration",
+              "körperlicher Stressor"
+            ],
+            [
+              "Hunger und Müdigkeit",
+              "körperinterner Stressor"
+            ],
+            [
+              "Prüfungsangst",
+              "seelischer Stressor"
+            ]
+          ]
+        },
+        {
+          "id": "ml-be-04",
+          "typ": "wahrfalsch",
+          "aussage": "Müdigkeit merkt man immer selbst rechtzeitig.",
+          "richtig": false,
+          "erklaerung": "Gerade das macht sie gefährlich: Fehler passieren, bevor man merkt, wie müde man ist."
+        },
+        {
+          "id": "ml-be-05",
+          "typ": "mehrfach",
+          "frage": "Was hilft bei Hitze im Cockpit?",
+          "richtig": [
+            "Regelmäßig Wasser trinken",
+            "Helle, luftige Kleidung und eine Kopfbedeckung",
+            "Gute Belüftung"
+          ],
+          "falsch": [
+            "Viel Kaffee trinken",
+            "Auf Getränke verzichten, um nicht zu müssen"
+          ],
+          "erklaerung": "Kaffee und Alkohol entziehen dem Körper zusätzlich Wasser."
+        },
+        {
+          "id": "ml-be-06",
+          "typ": "auswahl",
+          "frage": "Du hast seit Wochen Ärger im Beruf und schläfst schlecht. Was ist richtig?",
+          "richtig": "Nicht fliegen, bis es dir besser geht, und mit einem Arzt sprechen",
+          "falsch": [
+            "Fliegen hilft beim Abschalten – also gerade jetzt fliegen",
+            "Ein Kaffee vor dem Start reicht",
+            "Nur noch Platzrunden fliegen"
+          ],
+          "erklaerung": "Chronischer Stress und Schlafmangel senken die Leistung dauerhaft – auch in der Platzrunde."
+        }
+      ]
+    },
+    {
+      "id": "entscheiden",
+      "titel": "Gute Entscheidungen treffen",
+      "kurz": "Gefährliche Denkmuster erkennen, Risiken abwägen und rechtzeitig umkehren.",
+      "kern": [
+        "Fünf gefährliche Denkmuster: Gegen Autorität, Impulsivität, Unverwundbarkeit, Imponiergehabe, Resignation – jedes hat ein Gegenmittel.",
+        "Risiken vor dem Flug in vier Bereiche teilen: Pilot, Luftfahrzeug, Umgebung, äußerer Druck.",
+        "Der Druck, unbedingt anzukommen, ist einer der gefährlichsten Gegner – Umkehren ist eine Entscheidung, keine Niederlage.",
+        "Entscheidungspunkte vorher festlegen: bis wann, bei welchem Wetter, wohin."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Nach Schätzung der US-Luftfahrtbehörde FAA hängen rund 80 % aller Unfälle in der Luftfahrt mit dem Menschen zusammen, nicht mit der Technik. Gute Entscheidungen kann man lernen – vor allem, indem man typische Denkfallen kennt."
+        },
+        {
+          "typ": "einfach",
+          "text": "Jeder kennt den Gedanken „Das klappt schon“. Am Boden kostet er manchmal ein Knöllchen – in der Luft kann er viel mehr kosten."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Fünf gefährliche Denkmuster"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die US-Luftfahrtbehörde FAA beschreibt fünf Denkmuster, die immer wieder zu Unfällen führen – und für jedes einen Gegengedanken:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Denkmuster",
+            "Typischer Gedanke",
+            "Gegenmittel"
+          ],
+          "zeilen": [
+            [
+              "Gegen Autorität",
+              "„Mir sagt keiner, was ich tun soll.“",
+              "Halte dich an die Regeln – sie haben meistens recht."
+            ],
+            [
+              "Impulsivität",
+              "„Schnell, mach irgendwas!“",
+              "Nicht so schnell – erst denken."
+            ],
+            [
+              "Unverwundbarkeit",
+              "„Mir passiert das nicht.“",
+              "Es kann auch mir passieren."
+            ],
+            [
+              "Imponiergehabe",
+              "„Das schaffe ich – denen zeige ich’s.“",
+              "Unnötige Risiken einzugehen ist dumm."
+            ],
+            [
+              "Resignation",
+              "„Ist doch egal, was ich mache.“",
+              "Ich bin nicht hilflos – ich kann etwas bewirken."
+            ]
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Risiken abwägen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Vor dem Flug hilft es, Risiken in vier Bereiche zu sortieren (bei der FAA **PAVE**):"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Pilot:** Bin ich fit, geübt, erfahren genug für diesen Flug?",
+            "**Luftfahrzeug:** Ist es in Ordnung, kenne ich es, reichen Leistung und Kraftstoff?",
+            "**Umgebung:** Wetter, Gelände, Luftraum, Flugplätze, Tageslicht.",
+            "**Äußerer Druck:** Termine, wartende Fluggäste, „ich muss das Flugzeug heute zurückbringen“."
+          ]
+        },
+        {
+          "typ": "achtung",
+          "titel": "Ankommen um jeden Preis",
+          "text": "Der äußere Druck – Termine, Fluggäste, Kosten, Stolz – verleitet dazu, schlechtes Wetter oder Müdigkeit kleinzureden. Leg dir deshalb vor dem Flug klare Grenzen fest und halte dich daran. Umkehren oder Ausweichen ist eine Entscheidung, keine Niederlage."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Entscheiden in der Luft"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ändert sich unterwegs etwas, hilft ein festes Schema, zum Beispiel: Veränderung **erkennen**, ihre **Bedeutung** einschätzen, **Möglichkeiten** sammeln, die **beste** wählen, **handeln** – und **prüfen**, ob es wirkt (bei der FAA **DECIDE**). Wichtig ist, nicht zu lange zu warten: Mit jeder Minute in schlechter werdendem Wetter werden die Möglichkeiten weniger."
+        },
+        {
+          "typ": "merke",
+          "text": "Erst fliegen, dann navigieren, dann sprechen: Was auch passiert, zuerst das Flugzeug unter Kontrolle halten. Checklisten helfen, unter Stress nichts zu vergessen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "ml-en-01",
+          "typ": "zuordnung",
+          "frage": "Ordne jedem gefährlichen Denkmuster sein Gegenmittel zu.",
+          "paare": [
+            [
+              "Unverwundbarkeit",
+              "Es kann auch mir passieren."
+            ],
+            [
+              "Impulsivität",
+              "Nicht so schnell – erst denken."
+            ],
+            [
+              "Resignation",
+              "Ich bin nicht hilflos – ich kann etwas bewirken."
+            ],
+            [
+              "Gegen Autorität",
+              "Halte dich an die Regeln."
+            ]
+          ]
+        },
+        {
+          "id": "ml-en-02",
+          "typ": "auswahl",
+          "frage": "Deine Fluggäste wollen unbedingt heute noch zurück, das Wetter wird schlechter. Welcher Bereich der Risikoabwägung steckt dahinter?",
+          "richtig": "Äußerer Druck",
+          "falsch": [
+            "Luftfahrzeug",
+            "Pilot",
+            "Umgebung"
+          ],
+          "erklaerung": "Termine und wartende Fluggäste erzeugen Druck von außen – einer der gefährlichsten Faktoren."
+        },
+        {
+          "id": "ml-en-03",
+          "typ": "wahrfalsch",
+          "aussage": "Umzukehren, wenn das Wetter schlechter wird, ist ein Zeichen von schlechter Flugplanung.",
+          "richtig": false,
+          "erklaerung": "Umkehren ist eine gute Entscheidung. Schlecht ist, nicht vorher festgelegt zu haben, wann man umkehrt."
+        },
+        {
+          "id": "ml-en-04",
+          "typ": "auswahl",
+          "frage": "Was ist bei einem unerwarteten Problem in der Luft zuerst wichtig?",
+          "richtig": "Das Flugzeug unter Kontrolle halten – erst fliegen, dann navigieren, dann sprechen",
+          "falsch": [
+            "Sofort einen Notruf absetzen",
+            "Die Checkliste suchen, egal was das Flugzeug tut",
+            "Den Fluglehrer anrufen"
+          ],
+          "erklaerung": "Ohne kontrolliertes Flugzeug helfen weder Navigation noch Funk."
+        },
+        {
+          "id": "ml-en-05",
+          "typ": "mehrfach",
+          "frage": "Welche Punkte gehören zur Risikoabwägung vor dem Flug?",
+          "richtig": [
+            "Pilot – bin ich fit und geübt?",
+            "Luftfahrzeug – ist es in Ordnung?",
+            "Umgebung – Wetter, Gelände, Luftraum",
+            "Äußerer Druck – Termine, Fluggäste"
+          ],
+          "falsch": [
+            "Die Farbe des Flugzeugs",
+            "Der Preis des Mittagessens am Zielflugplatz"
+          ],
+          "erklaerung": "Pilot, Luftfahrzeug, Umgebung und äußerer Druck – bei der FAA unter dem Kürzel PAVE."
+        },
+        {
+          "id": "ml-en-06",
+          "typ": "generator",
+          "generator": "denkmuster"
+        },
+        {
+          "id": "ml-en-07",
+          "typ": "generator",
+          "generator": "denkmuster"
+        },
+        {
+          "id": "ml-en-08",
+          "typ": "generator",
+          "generator": "denkmuster"
+        }
+      ]
+    }
+  ]
+}

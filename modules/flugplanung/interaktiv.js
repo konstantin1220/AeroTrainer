@@ -77,6 +77,7 @@ export function interaktivFuer(flugzeug) {
     },
 
     startstrecke: {
+      scheine: ['ppl', 'ul'],
       titel: 'Reicht die Piste? Startstrecke berechnen',
       kurz: 'Platzhöhe, Temperatur, Masse, Wind und Belag – wie lang wird die Startstrecke des Übungsflugzeugs?',
       symbol: 'flugzeug',

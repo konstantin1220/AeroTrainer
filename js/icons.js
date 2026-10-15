@@ -180,6 +180,25 @@ const THEMEN = {
     <rect class="a" x="5" y="5" width="22" height="22" rx="1.5"/>
     <path class="gelb" d="M7 7l18 18M25 7 7 25"/>
     <rect x="5" y="5" width="22" height="22" rx="1.5"/>`,
+  // Kopf und Schultern mit Pulslinie
+  mensch: `
+    <circle class="f" cx="16" cy="9.5" r="5.5"/>
+    <circle cx="16" cy="9.5" r="5.5"/>
+    <path class="f" d="M4.5 29c0-6.4 5.1-10.5 11.5-10.5S27.5 22.6 27.5 29z"/>
+    <path d="M4.5 29c0-6.4 5.1-10.5 11.5-10.5S27.5 22.6 27.5 29"/>
+    <path class="puls" d="M8.5 25.5h3.8l1.6-3.2 2.6 6 2-4.4 1.1 1.6h3.9"/>`,
+  // Warndreieck – Notfälle und besondere Verfahren
+  betrieb: `
+    <path class="f" d="M16 4.5 29 27.5H3z"/>
+    <path d="M16 4.5 29 27.5H3z"/>
+    <path d="M16 12.5v7"/>
+    <circle class="a" cx="16" cy="23.3" r="1.7"/>`,
+  // Propeller mit Spinner und Drehrichtung
+  technik: `
+    <path class="f" d="M14.4 13.2C13.2 9 13.8 5 16 3c2.2 2 2.8 6 1.6 10.2zM14.4 18.8C13.2 23 13.8 27 16 29c2.2-2 2.8-6 1.6-10.2z"/>
+    <path d="M14.4 13.2C13.2 9 13.8 5 16 3c2.2 2 2.8 6 1.6 10.2M14.4 18.8C13.2 23 13.8 27 16 29c2.2-2 2.8-6 1.6-10.2"/>
+    <circle class="a" cx="16" cy="16" r="3"/>
+    <path d="M24.5 9.5a11 11 0 0 1 0 13M7.5 22.5a11 11 0 0 1 0-13" stroke-dasharray="2.4 2"/>`,
 };
 
 export const ICON_NAMEN = Object.keys(BEDIENUNG);

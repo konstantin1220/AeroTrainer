@@ -42,6 +42,9 @@
   --f-meteo: #0a85c2;
   --f-aero: #4251b8;
   --f-signale: #cf3434;
+  --f-mensch: #b53d86;
+  --f-betrieb: #6f7d1c;
+  --f-technik: #56677f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,6 +80,9 @@
     --f-meteo: #52baf0;
     --f-aero: #909bf3;
     --f-signale: #ff7272;
+    --f-mensch: #f07cc2;
+    --f-betrieb: #bccb5c;
+    --f-technik: #a5b5ca;
   }
 }
 
@@ -90,6 +96,9 @@
 [data-modul="meteorologie"] { --mf: var(--f-meteo); }
 [data-modul="aerodynamik"] { --mf: var(--f-aero); }
 [data-modul="signale"] { --mf: var(--f-signale); }
+[data-modul="mensch"] { --mf: var(--f-mensch); }
+[data-modul="betrieb"] { --mf: var(--f-betrieb); }
+[data-modul="technik"] { --mf: var(--f-technik); }
 
 /* ================= Grundlagen ================= */
 
@@ -146,6 +155,7 @@ main:focus, main:focus-visible { outline: none; }
 .ico .w { fill: var(--flaeche); stroke: none; }
 .ico .gelb { stroke: #f7c514; stroke-width: 3.2; }
 .ico-thema { stroke-width: 2; }
+.ico .puls { stroke-width: 1.8; }
 
 .logo { width: 34px; height: 34px; border-radius: 9px; flex: none; }
 
@@ -493,6 +503,31 @@ main {
 .merkliste-zeile { --mf: var(--orange); }
 .merkliste-zeile .schnell-symbol { color: #c06a14; }
 .merkliste-zeile .schnell-symbol .ico .f { opacity: 1; }
+
+/* Prüfungsfächer auf der Startseite */
+.pruef-faecher { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
+.fach-titel { display: flex; align-items: center; gap: 0.55rem; margin: 0 0 0.5rem; font-size: 1rem; }
+.fach-nr { display: grid; place-items: center; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--flaeche-2); border: 1px solid var(--rand); font-size: 0.8rem; font-weight: 800; color: var(--leise); }
+.fach-name { flex: 1; }
+.fach-stand { font-size: 0.8rem; font-weight: 700; color: var(--ok); }
+.fach-leer { margin: 0 0 0 2.2rem; font-size: 0.88rem; color: var(--leise); }
+
+/* Scheinauswahl (PPL/LAPL, SPL, UL) */
+.schein-wahl { display: grid; gap: 0.45rem; margin: 0.4rem 0 0; }
+.schein-wahl-titel { font-size: 0.9rem; font-weight: 650; color: var(--leise); }
+.schein-knoepfe { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.45rem; }
+.schein-knopf {
+  display: grid; justify-items: center; gap: 0.05rem; padding: 0.5rem 0.3rem;
+  border: 1.5px solid var(--rand); border-radius: var(--radius-klein); background: var(--flaeche);
+  color: var(--text); font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.schein-knopf strong { font-size: 0.95rem; }
+.schein-knopf span { font-size: 0.75rem; color: var(--leise); }
+.schein-knopf[aria-pressed="true"] { border-color: var(--primaer); background: var(--primaer-hell); }
+.schein-knopf[aria-pressed="true"] strong { color: var(--primaer); }
+.schein-wahl-hinweis { margin: 0; font-size: 0.8rem; color: var(--leise); }
+.chip.schein-chip { margin-left: 0.4rem; background: color-mix(in srgb, var(--orange) 14%, transparent); border-color: transparent; color: var(--text); vertical-align: middle; }
+.kapitel-text .chip.schein-chip { margin: 0.15rem 0 0; justify-self: start; }
 
 .themen-raster { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
 @media (min-width: 640px) { .themen-raster { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; } }

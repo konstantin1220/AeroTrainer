@@ -137,6 +137,27 @@
       "voll": "Angebote und Erläuterungen des DWD für die Luftfahrt, u. a. zum GAFOR. Es werden keine DWD-Produkte abgebildet.",
       "art": "Behördliche Veröffentlichung, online",
       "link": "https://www.dwd.de/"
+    },
+    {
+      "id": "part-med",
+      "titel": "Part-MED – Flugmedizinische Tauglichkeit",
+      "voll": "Verordnung (EU) Nr. 1178/2011 der Kommission, Anhang IV (Teil-MED), konsolidierte Fassung vom 30. April 2026",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:02011R1178-20260430"
+    },
+    {
+      "id": "part-sao",
+      "titel": "Part-SAO und Part-SFCL – Segelflug",
+      "voll": "Durchführungsverordnung (EU) 2018/1976 der Kommission mit Anhang II (Teil-SAO, Flugbetrieb mit Segelflugzeugen) und Anhang III (Teil-SFCL, Segelflugzeugpilotenlizenz), konsolidierte Fassung vom 15. November 2021",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:02018R1976-20211115"
+    },
+    {
+      "id": "faa-phak",
+      "titel": "FAA: Pilot’s Handbook of Aeronautical Knowledge",
+      "voll": "Federal Aviation Administration, Pilot’s Handbook of Aeronautical Knowledge (FAA-H-8083-25C), Kapitel 2 (Aeronautical Decision-Making), 14 (Airport Operations) und 17 (Aeromedical Factors). Werk der US-Regierung, gemeinfrei; Inhalte in eigenen Worten übersetzt.",
+      "art": "Behördliches Handbuch, frei zugänglich (englisch)",
+      "link": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
     }
   ],
   "themen": [
@@ -247,6 +268,103 @@
           "inhalt": "RMZ, TMZ, Flugbeschränkungs-, Sperr- und Gefahrengebiete",
           "quelle": "sera",
           "status": "grundlage"
+        }
+      ]
+    },
+    {
+      "modul": "mensch",
+      "punkte": [
+        {
+          "inhalt": "Prüfungsfächer für PPL, LAPL und SPL (Gliederung der Startseite)",
+          "quelle": "part-fcl",
+          "fundstelle": "FCL.120, FCL.215; SFCL.135 (Part-SFCL)",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Erforderliches Tauglichkeitszeugnis, Gültigkeit, Verlängerung",
+          "quelle": "part-med",
+          "fundstelle": "MED.A.030, MED.A.045",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Eingeschränkte Tauglichkeit, Medikamente, Pflicht zur flugmedizinischen Beratung",
+          "quelle": "part-med",
+          "fundstelle": "MED.A.020",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Verbot des Fliegens unter Einfluss psychoaktiver Substanzen",
+          "quelle": "sera",
+          "fundstelle": "SERA.2020",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Zusatzsauerstoff in Flugzeugen (10 000/13 000 ft) und Sauerstoffanlage",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.OP.190, NCO.IDE.A.155",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Zusatzsauerstoff in Segelflugzeugen",
+          "quelle": "part-sao",
+          "fundstelle": "SAO.OP.150",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Hypoxie-Arten und Anzeichen, Zeit nutzbaren Bewusstseins, Hyperventilation, Kohlenmonoxid, Alkohol, Medikamente",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 17",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Ohren und Nebenhöhlen, Dekompressionskrankheit, Wartezeiten nach dem Tauchen",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 17",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Sehen (Zapfen, Stäbchen, Dunkeladaptation, Nachtsehen, Leerfeldkurzsichtigkeit)",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 17",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Luftraumbeobachtung in Blicksprüngen von höchstens 10° und mindestens einer Sekunde",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 14",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Kollisionskurs bei gleichbleibender Peilung",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Gleichgewichtsorgan und Täuschungen, optische Täuschungen im Anflug, Luftkrankheit",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 17",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Stress, Müdigkeit, Flüssigkeitsmangel und Hitze",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 17",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Gefährliche Denkmuster mit Gegenmitteln, Selbstcheck (IMSAFE), Risikobereiche (PAVE), Entscheidungsschema (DECIDE)",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 2",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Leistungskurve und Belastung (schematische Darstellung)",
+          "quelle": "faa-phak",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Beispiele, Szenarien und Grafiken",
+          "status": "erfunden"
         }
       ]
     },
@@ -442,6 +560,12 @@
           "inhalt": "Voraussetzungen vor Flugbeginn (Lufttüchtigkeit, Masse und Schwerpunkt, Dienstfähigkeit)",
           "quelle": "part-nco",
           "fundstelle": "NCO.GEN.105 a 4 und 5",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Für Segelflugzeuge gilt Part-SAO statt Part-NCO (Flugvorbereitung, Wetterbedingungen)",
+          "quelle": "part-sao",
+          "fundstelle": "SAO.OP.120, SAO.OP.135",
           "status": "abgeglichen"
         },
         {

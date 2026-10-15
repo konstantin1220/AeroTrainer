@@ -20,7 +20,7 @@
     import { h } from '../js/ui.js';
     import { icon } from '../js/icons.js';
     const wunsch = new URLSearchParams(location.search).get('modul');
-    const module = ['metar', 'luftraum', 'sprechfunk', 'navigation', 'flugplanung', 'masse-schwerpunkt', 'meteorologie', 'aerodynamik', 'signale'];
+    const module = ['metar', 'luftraum', 'mensch', 'sprechfunk', 'navigation', 'flugplanung', 'masse-schwerpunkt', 'meteorologie', 'aerodynamik', 'signale'];
     for (const id of module.filter((m) => !wunsch || m === wunsch)) {
       const teile = await import(`../modules/${id}/interaktiv.js`);
       let liste = teile.interaktiv;

@@ -35,6 +35,11 @@
           "text": "Für nichtgewerbliche Flüge ergänzt die EASA-Verordnung **Part-NCO**: Du überzeugst dich, dass die für den Flug nötigen Einrichtungen – Flugplätze, Funk, Navigationshilfen – geeignet sind. Und für Flüge über die nähere Umgebung des Abflugorts hinaus studierst du die aktuellen Wettermeldungen und -vorhersagen und planst eine **alternative Vorgehensweise**, falls das Wetter den Flug nicht wie geplant zulässt (**NCO.OP.135**)."
         },
         {
+          "typ": "merke",
+          "titel": "Welche Regeln für welchen Schein?",
+          "text": "Part-NCO gilt für nichtgewerbliche Flüge mit **Flugzeugen** (PPL, LAPL). Für **Segelflugzeuge** – auch Motorsegler – gilt stattdessen **Part-SAO** (Verordnung (EU) 2018/1976) mit eigenen, kürzeren Regeln, etwa SAO.OP.120 zur Flugvorbereitung und SAO.OP.135 zu den Wetterbedingungen: Eine sichere Landemöglichkeit muss immer erreichbar bleiben. **Ultraleichtflugzeuge** sind national geregelt. SERA gilt für alle."
+        },
+        {
           "typ": "absatz",
           "text": "Einen Flug beginnen darfst du nach **NCO.GEN.105** nur, wenn"
         },
@@ -1235,6 +1240,10 @@
           "typ": "generator",
           "generator": "endreserve"
         }
+      ],
+      "scheine": [
+        "ppl",
+        "ul"
       ]
     },
     {
@@ -1449,6 +1458,10 @@
           "typ": "generator",
           "generator": "startstrecke"
         }
+      ],
+      "scheine": [
+        "ppl",
+        "ul"
       ]
     },
     {
@@ -1882,6 +1895,10 @@
           ],
           "erklaerung": "Der TAF sagt nur zeitweise Schauer voraus. Warten kostet nichts – ein Flug unter die Minima schon."
         }
+      ],
+      "scheine": [
+        "ppl",
+        "ul"
       ]
     }
   ]

@@ -18,6 +18,7 @@ import { STUFEN, aktuelleStufe, stufeGewaehlt, stufeSetzen, stufeAnwenden, stufe
 import { lexikonLaden, neueSeite, alleBegriffe, erklaerungKnoten } from './lexikon.js';
 import { frageText } from './merkliste.js';
 import { umschalter } from './interaktiv.js';
+import { scheinWahl, passtZumSchein } from './schein.js';
 
 const APP_VERSION = '1.0.0';
 const TAGE_BIS_SICHERUNGSHINWEIS = 7;
@@ -38,15 +39,21 @@ let navigationsNr = 0;
 
 // ---------- Module laden ----------
 
-function module() {
-  modulListe ??= ladeJSON('modules/index.json')
-    .then((daten) => daten.module)
-    .catch((fehler) => { modulListe = null; throw fehler; });
+function modulIndex() {
+  modulListe ??= ladeJSON('modules/index.json').catch((fehler) => { modulListe = null; throw fehler; });
   return modulListe;
 }
+const module = async () => (await modulIndex()).module;
+/** Die neun Prüfungsfächer (FCL.120/FCL.215, SFCL.135) – jedes Modul gehört zu einem Fach. */
+const faecher = async () => (await modulIndex()).faecher ?? [];
 
 async function aktiveModule() {
   return (await module()).filter((m) => m.status === 'aktiv');
+}
+
+/** Aktive Module, die zum gewählten Schein passen (js/schein.js). */
+async function passendeModule() {
+  return (await aktiveModule()).filter((m) => passtZumSchein(m));
 }
 
 function modulLaden(modul) {
@@ -71,7 +78,7 @@ function modulLaden(modul) {
 }
 
 async function alleFortschritte() {
-  const liste = await aktiveModule();
+  const liste = await passendeModule();
   return Promise.all(liste.map(async (modul) => {
     try {
       const { code, ctx } = await modulLaden(modul);
@@ -291,14 +298,35 @@ function themenKachel(modul, f) {
     h('span', { class: 'themen-stand' }, begonnen && [balken(f.anteil), h('span', {}, `${Math.round(f.anteil * 100)} % sicher`)])));
 }
 
+/** Ein Prüfungsfach mit seinen Themen und dem gemeinsamen Fortschritt. */
+function fachAbschnitt(fach, nr, themen, fortschritte) {
+  const werte = themen.map((m) => fortschritte.find((x) => x.modul.id === m.id)?.fortschritt).filter(Boolean);
+  const gesamt = werte.reduce((s, f) => s + f.gesamt, 0);
+  const sicher = werte.reduce((s, f) => s + f.sicher, 0);
+  const begonnen = werte.some((f) => f.gesehen > 0);
+  return h('li', { class: 'fach' },
+    h('h3', { class: 'fach-titel' },
+      h('span', { class: 'fach-nr' }, nr),
+      h('span', { class: 'fach-name' }, fach.titel),
+      begonnen && gesamt > 0 && h('span', { class: 'fach-stand' }, `${Math.round((sicher / gesamt) * 100)} %`)),
+    themen.length
+      ? h('ul', { class: 'themen-raster' }, themen.map((modul) => themenKachel(modul, fortschritte.find((x) => x.modul.id === modul.id)?.fortschritt)))
+      : h('p', { class: 'fach-leer' }, 'Dazu gibt es noch kein Thema.'));
+}
+
 async function startseite(el) {
-  const [alleModule, fortschritte] = await Promise.all([module(), alleFortschritte()]);
+  const [alleModule, fortschritte, fachListe] = await Promise.all([module(), alleFortschritte(), faecher()]);
   const neu = !lernstand.hatFortschritt();
+  const sichtbar = alleModule.filter((m) => passtZumSchein(m));
+  const ohneFach = sichtbar.filter((m) => !fachListe.some((f) => f.id === m.fach));
   anhaengen(el,
     neu ? willkommen() : heuteKarte(fortschritte),
     neu ? soGehts() : schnellzugriff(alleModule),
-    h('h2', { class: 'abschnitt-titel', id: 'themen' }, 'Themen'),
-    h('ul', { class: 'themen-raster' }, alleModule.map((modul) => themenKachel(modul, fortschritte.find((x) => x.modul.id === modul.id)?.fortschritt))),
+    h('h2', { class: 'abschnitt-titel', id: 'themen' }, 'Prüfungsfächer'),
+    scheinWahl(),
+    h('ol', { class: 'pruef-faecher' },
+      fachListe.map((fach, i) => fachAbschnitt(fach, i + 1, sichtbar.filter((m) => m.fach === fach.id), fortschritte)),
+      ohneFach.length > 0 && fachAbschnitt({ titel: 'Weitere Themen' }, '+', ohneFach, fortschritte)),
   );
 }
 
@@ -374,7 +402,7 @@ async function lexikonSeite(el, offen) {
 // ---------- Gemeinsame Wiederholung ----------
 
 async function wiederholenSeite(el) {
-  const liste = await aktiveModule();
+  const liste = await passendeModule();
   const geladen = await Promise.all(liste.map(async (modul) => {
     const { code, ctx } = await modulLaden(modul);
     const aufgaben = (await code.aufgaben?.(ctx)) ?? [];
@@ -523,6 +551,10 @@ async function lernstandSeite(el) {
     h('section', { class: 'karte' },
       h('h2', {}, icon('sprechblase'), 'Wie ausführlich soll erklärt werden?'),
       stufenKarten(),
+    ),
+    h('section', { class: 'karte' },
+      h('h2', {}, icon('lernstand'), 'Für welchen Schein lernst du?'),
+      scheinWahl({ beschriftung: 'Wähle einen oder mehrere:' }),
     ),
     h('section', { class: 'karte sicherung', id: 'sicherung' },
       h('h2', {}, icon('sichern'), 'Sichern & übertragen'),
@@ -815,6 +847,7 @@ stufeAnwenden();
 navigationAufbauen();
 window.addEventListener('hashchange', () => navigieren());
 window.addEventListener('stufe-geaendert', () => navigieren({ behalteScroll: true }));
+window.addEventListener('schein-geaendert', () => { navigieren({ behalteScroll: true }); faelligeAktualisieren(); });
 lexikonLaden().finally(() => navigieren());
 // Fußzeile auf jeder Seite: Über die App, Quellen, Datenschutz und – sobald eingetragen – das Impressum
 impressumLaden().then((daten) => {

@@ -2000,6 +2000,111 @@
       "thema": "flugplanung",
       "kurz": "Annahmefähige Nachweisverfahren der EASA: Sie zeigen, wie eine Vorschrift erfüllt werden kann – etwa die Minuten der Kraftstoff-Endreserve zu NCO.OP.125.",
       "einfach": "Die offizielle „So geht’s“-Anleitung zu einer EASA-Regel."
+    },
+    {
+      "id": "hypoxie",
+      "begriff": "Hypoxie",
+      "en": "hypoxia",
+      "suche": [
+        "Hypoxie",
+        "Sauerstoffmangel"
+      ],
+      "thema": "mensch",
+      "kurz": "Sauerstoffmangel im Körper – in der Höhe, durch Kohlenmonoxid, schlechte Durchblutung oder Alkohol. Tückisch, weil man sich oft noch gut fühlt.",
+      "einfach": "Zu wenig Sauerstoff fürs Gehirn."
+    },
+    {
+      "id": "hyperventilation",
+      "begriff": "Hyperventilation",
+      "en": "hyperventilation",
+      "suche": [
+        "Hyperventilation"
+      ],
+      "thema": "mensch",
+      "kurz": "Zu schnelles und tiefes Atmen, meist durch Stress. Man atmet zu viel Kohlendioxid ab; die Anzeichen ähneln der Hypoxie. Gegenmittel: langsamer atmen.",
+      "einfach": "Zu viel und zu schnell atmen."
+    },
+    {
+      "id": "tauglichkeitszeugnis",
+      "begriff": "Tauglichkeitszeugnis",
+      "en": "medical certificate",
+      "suche": [
+        "Tauglichkeitszeugnis",
+        "Tauglichkeitszeugnisses",
+        "Tauglichkeitszeugnisse"
+      ],
+      "thema": "mensch",
+      "kurz": "Bescheinigung des Fliegerarztes nach Part-MED: Klasse 2 für PPL, LAPL-Tauglichkeit für LAPL und SPL.",
+      "einfach": "Die ärztliche Erlaubnis zum Fliegen."
+    },
+    {
+      "id": "zeit-bewusstsein",
+      "begriff": "Zeit nutzbaren Bewusstseins",
+      "en": "time of useful consciousness",
+      "suche": [
+        "Zeit nutzbaren Bewusstseins"
+      ],
+      "thema": "mensch",
+      "kurz": "Zeit, die ohne Zusatzsauerstoff in einer bestimmten Höhe bleibt, um noch vernünftig zu handeln – in 25 000 ft etwa 3 bis 5 Minuten.",
+      "einfach": "Wie lange du in der Höhe noch klar denken kannst."
+    },
+    {
+      "id": "dekompressionskrankheit",
+      "begriff": "Dekompressionskrankheit",
+      "en": "decompression sickness",
+      "suche": [
+        "Dekompressionskrankheit"
+      ],
+      "thema": "mensch",
+      "kurz": "Im Körper gelöster Stickstoff bildet bei sinkendem Druck Bläschen – zum Beispiel beim Fliegen kurz nach dem Tauchen.",
+      "einfach": "Wie Sprudel, der beim Öffnen aufschäumt – nur im Körper."
+    },
+    {
+      "id": "kohlenmonoxid",
+      "begriff": "Kohlenmonoxid (CO)",
+      "en": "carbon monoxide",
+      "suche": [
+        "Kohlenmonoxid"
+      ],
+      "thema": "mensch",
+      "kurz": "Geruchloses Gas aus Abgasen, das sich viel stärker an das Blut bindet als Sauerstoff. Gelangt bei undichtem Auspuff über die Heizung ins Cockpit.",
+      "einfach": "Unsichtbares Gift aus dem Auspuff."
+    },
+    {
+      "id": "leerfeldkurzsichtigkeit",
+      "begriff": "Leerfeldkurzsichtigkeit",
+      "en": "empty-field myopia",
+      "suche": [
+        "Leerfeldkurzsichtigkeit"
+      ],
+      "thema": "mensch",
+      "kurz": "Ohne Punkt zum Fokussieren – über den Wolken, im Dunst – stellen sich die Augen auf wenige Meter ein: Man schaut, ohne zu sehen.",
+      "einfach": "Ins Leere starren statt hinschauen."
+    },
+    {
+      "id": "gleichgewichtsorgan",
+      "begriff": "Gleichgewichtsorgan",
+      "en": "vestibular system",
+      "suche": [
+        "Gleichgewichtsorgan",
+        "Gleichgewichtsorgans",
+        "Bogengänge"
+      ],
+      "thema": "mensch",
+      "kurz": "Organ im Innenohr: Die Bogengänge melden Drehungen, die Otolithenorgane Beschleunigungen und die Lage zur Schwerkraft. Ohne Sicht nach draußen kann es täuschen.",
+      "einfach": "Die eingebaute Wasserwaage im Ohr."
+    },
+    {
+      "id": "part-sao",
+      "begriff": "Part-SAO",
+      "lang": "Sailplane Air Operations",
+      "en": "Part-SAO",
+      "suche": [
+        "Part-SAO"
+      ],
+      "thema": "luftraum",
+      "kurz": "EU-Regeln für den Flugbetrieb mit Segelflugzeugen und Motorseglern (Verordnung (EU) 2018/1976, Anhang II) – an Stelle von Part-NCO.",
+      "einfach": "Das Regelbuch für den Segelflugbetrieb."
     }
   ]
 }

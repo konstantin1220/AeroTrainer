@@ -5,7 +5,7 @@
 // ausführen. Das trägt alle Dateien in DATEIEN ein und erhöht VERSION – dann laden alle
 // Geräte die Dateien beim nächsten Start frisch und alte Zwischenspeicher werden gelöscht.
 
-const VERSION = 'v27';
+const VERSION = 'v29';
 const CACHE = `aerotrainer-${VERSION}`;
 
 const DATEIEN = [
@@ -22,6 +22,7 @@ const DATEIEN = [
   'js/lexikon.js',
   'js/merkliste.js',
   'js/quiz.js',
+  'js/schein.js',
   'js/srs.js',
   'js/storage.js',
   'js/stufe.js',
@@ -58,6 +59,12 @@ const DATEIEN = [
   'modules/masse-schwerpunkt/interaktiv.js',
   'modules/masse-schwerpunkt/module.js',
   'modules/masse-schwerpunkt/rechnen.js',
+  'modules/mensch/abbildungen.js',
+  'modules/mensch/content/inhalt.json',
+  'modules/mensch/generatoren.js',
+  'modules/mensch/interaktiv.js',
+  'modules/mensch/module.js',
+  'modules/mensch/rechnen.js',
   'modules/metar/aufgaben.js',
   'modules/metar/content/beispiele.json',
   'modules/metar/content/gruppen.json',
