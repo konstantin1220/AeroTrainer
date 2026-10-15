@@ -1,11 +1,11 @@
 {
   "_hinweis": "Quellen und Grundlagen der Lerninhalte – angezeigt unter Info → Quellen & Grundlagen. Status: abgeglichen = Punkt für Punkt mit dem amtlichen Originaltext verglichen (Datum siehe 'abgleich'); grundlage = Inhalt beruht auf dieser Quelle, der Abgleich mit dem Originaltext steht noch aus; herleitung = physikalische oder mathematische Herleitung; erfunden = frei erfundenes Übungsbeispiel; offen = bitte prüfen. Nach einem neuen Abgleich bitte Datum und Status anpassen.",
-  "abgleich": "2026-10-06",
+  "abgleich": "2026-10-15",
   "einleitung": "Hier steht, worauf die Inhalte von AeroTrainer beruhen – und wie weit sie schon geprüft sind. So kannst du jede Regel selbst im Original nachlesen.",
   "entstehung": [
     "Alle Erklärungen, Fragen und Grafiken wurden eigens für AeroTrainer geschrieben bzw. gezeichnet – mit Unterstützung der KI Claude (Anthropic). Nichts davon ist aus Lehrbüchern, Apps oder Karten übernommen.",
     "Es werden **keine Fragen aus dem amtlichen Prüfungsfragenkatalog (ECQB)** verwendet, auch nicht umformuliert.",
-    "Die Regeln aus den Vorschriften wurden am 1. und 6. Oktober 2026 Punkt für Punkt mit dem **amtlichen Originaltext** verglichen: SERA in der konsolidierten Fassung vom 1. Mai 2025, die Luftverkehrs-Ordnung, die Verordnung über Flugfunkzeugnisse und die Bekanntmachungen zum Sprechfunk (NfL 2024-1-3266 und NfL 2024-1-3240). Dabei gefundene Abweichungen wurden korrigiert.",
+    "Die Regeln aus den Vorschriften wurden am 1., 6. und 15. Oktober 2026 Punkt für Punkt mit dem **amtlichen Originaltext** verglichen: SERA in der konsolidierten Fassung vom 1. Mai 2025, Part-NCO (Verordnung (EU) Nr. 965/2012, Fassung vom 25. Mai 2026) mit den Nachweisverfahren der EASA zur Kraftstoffreserve, Part-FCL, die Luftverkehrs-Ordnung, die Verordnung über Flugfunkzeugnisse und die Bekanntmachungen zum Sprechfunk (NfL 2024-1-3266 und NfL 2024-1-3240). Dabei gefundene Abweichungen wurden korrigiert – zum Beispiel stehen die Minuten der Kraftstoff-Endreserve seit 2022 nicht mehr in der Verordnung selbst, sondern in den AMC der EASA.",
     "Alle Beispiele – Wettermeldungen, Flugplätze, Karte und Flugzeugdaten – sind frei erfunden und nicht für die echte Flugvorbereitung geeignet.",
     "Karten aus dem Luftfahrthandbuch der DFS (z. B. Sichtanflugkarten) sind urheberrechtlich geschützt und werden deshalb **nicht** gezeigt. Alle Karten in der App sind selbst gezeichnet und zeigen ein erfundenes Übungsgebiet."
   ],
@@ -102,6 +102,41 @@
       "voll": "Zeugnisarten, Voraussetzungen, Prüfung und Englischprüfung (Language Proficiency). Die dort veröffentlichten Prüfungsfragen sind für die Prüfung verbindlich, werden in dieser App aber bewusst nicht verwendet.",
       "art": "Amtliche Informationsseite, frei zugänglich",
       "link": "https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Frequenzen/Funkzeugnisse/Flugfunk/start.html"
+    },
+    {
+      "id": "part-nco",
+      "titel": "Part-NCO – Flugbetrieb nichtgewerblich, einfache Luftfahrzeuge",
+      "voll": "Verordnung (EU) Nr. 965/2012 der Kommission, Anhang VII (Teil-NCO), konsolidierte Fassung vom 25. Mai 2026",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:02012R0965-20260525"
+    },
+    {
+      "id": "easa-amc-nco",
+      "titel": "EASA: AMC und GM zu Part-NCO",
+      "voll": "Annahmefähige Nachweisverfahren (AMC) und Anleitungen (GM) der EASA zu Teil-NCO, hier ED Decision 2022/005/R, Anhang VII (Issue 2, Amendment 12) mit AMC1 NCO.OP.125(b) zur Kraftstoff-Endreserve",
+      "art": "Veröffentlichung der EASA, frei zugänglich (englisch)",
+      "link": "https://www.easa.europa.eu/en/document-library/agency-decisions/ed-decision-2022005r"
+    },
+    {
+      "id": "part-fcl",
+      "titel": "Part-FCL – Lizenzen für Flugbesatzungen",
+      "voll": "Verordnung (EU) Nr. 1178/2011 der Kommission, Anhang I (Teil-FCL), konsolidierte Fassung vom 30. April 2026",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:02011R1178-20260430"
+    },
+    {
+      "id": "icao-annex15",
+      "titel": "ICAO Annex 15 und PANS-AIM",
+      "voll": "ICAO Annex 15 „Aeronautical Information Services“ und PANS-AIM (Doc 10066) mit dem NOTAM-Format; Abkürzungen nach ICAO Doc 8400",
+      "art": "Internationale Norm (ICAO-Dokumente sind kostenpflichtig)",
+      "link": "https://www.icao.int/"
+    },
+    {
+      "id": "dwd",
+      "titel": "Deutscher Wetterdienst (DWD) – Flugwetter",
+      "voll": "Angebote und Erläuterungen des DWD für die Luftfahrt, u. a. zum GAFOR. Es werden keine DWD-Produkte abgebildet.",
+      "art": "Behördliche Veröffentlichung, online",
+      "link": "https://www.dwd.de/"
     }
   ],
   "themen": [
@@ -115,6 +150,16 @@
         },
         {
           "inhalt": "Melderegeln, z. B. Böen erst ab 10 kt über dem Mittelwind, CAVOK, Dunst (BR) und Nebel (FG)",
+          "quelle": "icao-annex3",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Aufbau des TAF, Gültigkeit und Änderungsgruppen (BECMG, TEMPO, FM, PROB)",
+          "quelle": "icao-annex3",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Typische Fehler und Fallen in Stufe 3 und 5 (Melderegeln wie Böen, Dunst/Nebel, Wolkenreihenfolge)",
           "quelle": "icao-annex3",
           "status": "grundlage"
         },
@@ -367,7 +412,108 @@
           "status": "herleitung"
         },
         {
+          "inhalt": "Kraftstoff-Endreserve (30 bzw. 10 Minuten am Tag)",
+          "quelle": "easa-amc-nco",
+          "fundstelle": "AMC1 NCO.OP.125(b)",
+          "status": "abgeglichen"
+        },
+        {
           "inhalt": "Übungskarte „Übungsgebiet Mittelland“ mit allen Orten und Funkfeuern",
+          "status": "erfunden"
+        }
+      ]
+    },
+    {
+      "modul": "flugplanung",
+      "punkte": [
+        {
+          "inhalt": "Pflicht zur Flugvorbereitung (Informationen, Wetter, Kraftstoff, alternativer Flugverlauf)",
+          "quelle": "sera",
+          "fundstelle": "SERA.2010 b",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Flugvorbereitung für Flüge über die Umgebung des Abflugorts hinaus, Wetterbedingungen für VFR-Flüge",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.OP.135, NCO.OP.160",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Voraussetzungen vor Flugbeginn (Lufttüchtigkeit, Masse und Schwerpunkt, Dienstfähigkeit)",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.GEN.105 a 4 und 5",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Kraftstoffvorrat, Endreserve, Kraftstoff-Management im Flug (MINIMUM FUEL, MAYDAY FUEL)",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.OP.125, NCO.OP.185",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Endreserve für Flugzeuge: 10, 30 und 45 Minuten in 1500 ft über dem Ziel",
+          "quelle": "easa-amc-nco",
+          "fundstelle": "AMC1 NCO.OP.125(b)",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Betriebsgrenzen für Beladung, Masse und Schwerpunkt; ausreichende Flugleistung",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.POL.100, NCO.POL.110",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Mitzuführende Unterlagen an Bord",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.GEN.135",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Persönliche Papiere: Lizenz, Tauglichkeitszeugnis, Lichtbildausweis, Genehmigung für Allein-Überlandflüge",
+          "quelle": "part-fcl",
+          "fundstelle": "FCL.045",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Flugplanpflicht, Aufgabe, Fristen, Inhalt, Landemeldung",
+          "quelle": "sera",
+          "fundstelle": "SERA.4001, SERA.4005, SERA.4020",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Mindesthöhen und Halbkreisflugregel für VFR",
+          "quelle": "sera",
+          "fundstelle": "SERA.5005 f und g, Anlage 3",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Nachweis der Flugvorbereitung, Flugberatung, Startmeldung, Höhenmessereinstellung",
+          "quelle": "luftvo",
+          "fundstelle": "LuftVO §§ 27, 32, 35",
+          "status": "abgeglichen"
+        },
+        {
+          "inhalt": "Aufbau eines NOTAM (Q-Zeile, Felder A bis G) und Abkürzungen",
+          "quelle": "icao-annex15",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Wetterprodukte für die Flugvorbereitung, Zuständigkeit des DWD",
+          "quelle": "dwd",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "GAFOR-Kategorien C, O, D, M, X und Bezugshöhe (ohne genaue Grenzwerte)",
+          "quelle": "dwd",
+          "status": "offen"
+        },
+        {
+          "inhalt": "Navigationsflugplan, Kraftstoff- und Zeitrechnung, Druckhöhe",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Übungsflugzeug MF-4 mit Startstrecken-Tabelle, Flugplätze, NOTAM, METAR, TAF und Beispielflug",
           "status": "erfunden"
         }
       ]

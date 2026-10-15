@@ -1,7 +1,7 @@
 // Interaktive Darstellungen für „METAR lesen“: METAR-Baukasten und Seitenwind-Rechner.
 import { h } from '../../js/ui.js';
 import { regler, umschalter, wertanzeige, buehne, bedienfeld, meldung } from '../../js/interaktiv.js';
-import { svg, text, linie, pfeil, flugzeug, aufKreis } from '../../js/grafik.js';
+import { svg, text, linie, pfeil, flugzeug, aufKreis, massstab } from '../../js/grafik.js';
 import { zerlegen } from './metar.js';
 import { windKomponenten } from './aufgaben.js';
 
@@ -56,7 +56,11 @@ export function metarBauen(e) {
   return { text: teile.join(' '), hinweise };
 }
 
-function pistenBild(piste, windRichtung, staerke, k) {
+// Wind und Komponenten im selben Maßstab: 3,2 Pixel je Knoten. Der Windpfeil ist die Diagonale
+// des Rechtecks aus Gegen- bzw. Rückenwind und Seitenwind (Vektorzerlegung).
+const PX_JE_KT = 3.2;
+
+function pistenBild(piste, windRichtung, staerke, boeen, k) {
   const c = 200, cy = 170, laenge = 125;
   const kurs = piste * 10;
   const runde = (n) => Math.round(n);
@@ -67,17 +71,14 @@ function pistenBild(piste, windRichtung, staerke, k) {
   const [nx2, ny2] = aufKreis(c, cy, laenge - 22, kurs);
   // Flugzeug im Endanflug vor der Schwelle
   const [fx, fy] = aufKreis(c, cy, laenge + 26, kurs + 180);
-  // Wind: Pfeil von außen auf die Pistenmitte
-  const [wx, wy] = aufKreis(c, cy, 158, windRichtung);
-  const [wx2, wy2] = aufKreis(c, cy, 24, windRichtung);
-  // Komponenten ab der Pistenmitte, 4,5 Pixel je Knoten (höchstens 100)
-  const massstab = (kt) => Math.min(100, kt * 4.5);
-  const gegenRichtung = kurs + (k.gegen >= 0 ? 180 : 0);
-  const [gx, gy] = aufKreis(c, cy, massstab(Math.abs(k.gegen)), gegenRichtung);
-  const seitenRichtung = kurs + (k.vonRechts ? -90 : 90);
-  const [sx, sy] = aufKreis(c, cy, massstab(k.seite), seitenRichtung);
-  // Beschriftung neben einen Punkt, in Richtung (dx, dy) versetzt – der Text läuft von der Piste weg
-  // und bleibt im Bild
+  // Wind und Komponenten kommen von außen und zeigen auf die Pistenmitte
+  const [wx, wy] = aufKreis(c, cy, staerke * PX_JE_KT, windRichtung);
+  const [bx, by] = aufKreis(c, cy, Math.max(boeen, staerke) * PX_JE_KT, windRichtung);
+  const gegenSeite = kurs + (k.gegen >= 0 ? 0 : 180);
+  const [gx, gy] = aufKreis(c, cy, Math.abs(k.gegen) * PX_JE_KT, gegenSeite);
+  const querSeite = kurs + (k.vonRechts ? 90 : -90);
+  const [sx, sy] = aufKreis(c, cy, k.seite * PX_JE_KT, querSeite);
+  // Beschriftung neben einen Punkt, in Richtung (dx, dy) versetzt, und immer im Bild
   const marke = (x, y, [dx, dy], abstand, inhalt, klasse) => {
     const anker = dx > 0.3 ? 'start' : dx < -0.3 ? 'end' : 'middle';
     const breiteText = inhalt.length * 6.3;
@@ -85,11 +86,12 @@ function pistenBild(piste, windRichtung, staerke, k) {
     const links = anker === 'start' ? tx : anker === 'end' ? tx - breiteText : tx - breiteText / 2;
     tx += Math.max(0, 4 - links) - Math.max(0, links + breiteText - 396);
     const ty = Math.min(334, Math.max(12, y + dy * abstand + (anker === 'middle' ? (dy > 0 ? 8 : 0) : 4)));
-    return text(r1(tx), r1(ty), inhalt, { groesse: 11, gewicht: 800, klasse, anker });
+    return text(r1(tx), r1(ty), inhalt, { groesse: 11, gewicht: 800, klasse: `${klasse} g-halo`, anker });
   };
   const richtung = (grad) => [Math.sin(grad * RAD), -Math.cos(grad * RAD)];
-  const [gmx, gmy] = aufKreis(c, cy, massstab(Math.abs(k.gegen)) / 2, gegenRichtung);
   const gegenText = `${k.gegen >= 0 ? 'Gegenwind' : 'Rückenwind'} ${runde(Math.abs(k.gegen))} kt`;
+  const mitGegen = staerke > 0 && Math.abs(k.gegen) >= 0.5;
+  const mitSeite = staerke > 0 && k.seite >= 0.5;
   return svg(400, 340, `
     <rect width="400" height="340" class="g-f-himmel"/>
     <line x1="${r1(ax)}" y1="${r1(ay)}" x2="${r1(ex)}" y2="${r1(ey)}" stroke="#4b5563" stroke-width="34" stroke-linecap="butt"/>
@@ -97,13 +99,16 @@ function pistenBild(piste, windRichtung, staerke, k) {
     ${text(r1(nx1), r1(ny1), nummer(piste), { groesse: 14, gewicht: 800, klasse: '', extra: `fill="#fff" dominant-baseline="middle" transform="rotate(${kurs} ${r1(nx1)} ${r1(ny1)})"` })}
     ${text(r1(nx2), r1(ny2), nummer(piste + 18), { groesse: 14, gewicht: 800, klasse: '', extra: `fill="#fff" dominant-baseline="middle" transform="rotate(${kurs + 180} ${r1(nx2)} ${r1(ny2)})"` })}
     ${flugzeug(r1(fx), r1(fy), kurs, 28, 'g-f-text')}
-    ${staerke > 0 ? pfeil(wx, wy, wx2, wy2, { farbe: 'orange', breite: 2.2, spitze: 10 }) : ''}
-    ${staerke > 0 ? text(10, 24, `Wind ${drei(windRichtung)}° / ${staerke} kt`, { groesse: 13, gewicht: 800, klasse: 'g-f-orange', anker: 'start' }) : ''}
-    ${staerke > 0 && Math.abs(k.gegen) >= 0.5 ? pfeil(c, cy, gx, gy, { farbe: k.gegen >= 0 ? 'ok' : 'fehler', breite: 2.4, spitze: 9 }) : ''}
-    ${staerke > 0 && Math.abs(k.gegen) >= 0.5 ? marke(gmx, gmy, richtung(seitenRichtung + 180), 24, gegenText, k.gegen >= 0 ? 'g-f-ok' : 'g-f-fehler') : ''}
-    ${staerke > 0 && k.seite >= 0.5 ? pfeil(c, cy, sx, sy, { farbe: 'primaer', breite: 2.4, spitze: 9 }) : ''}
-    ${staerke > 0 && k.seite >= 0.5 ? marke(c, cy, richtung(seitenRichtung), Math.max(massstab(k.seite) + 8, 26), `Seitenwind ${runde(k.seite)} kt`, 'g-f-primaer') : ''}
+    ${mitGegen && mitSeite ? linie(r1(wx), r1(wy), r1(gx), r1(gy), 'g-s-leise', 1, 'stroke-dasharray="4 4"') + linie(r1(wx), r1(wy), r1(sx), r1(sy), 'g-s-leise', 1, 'stroke-dasharray="4 4"') : ''}
+    ${mitGegen ? pfeil(gx, gy, c, cy, { farbe: k.gegen >= 0 ? 'ok' : 'fehler', breite: 2.6, spitze: 9 }) : ''}
+    ${mitSeite ? pfeil(sx, sy, c, cy, { farbe: 'primaer', breite: 2.6, spitze: 9 }) : ''}
+    ${boeen > staerke && staerke > 0 ? linie(r1(bx), r1(by), r1(wx), r1(wy), 'g-s-orange', 2, 'stroke-dasharray="3 4"') : ''}
+    ${staerke > 0 ? pfeil(wx, wy, c, cy, { farbe: 'orange', breite: 2.8, spitze: 10 }) : ''}
+    ${mitGegen ? marke((gx + c) / 2, (gy + cy) / 2, richtung(querSeite + 180), 26, gegenText, k.gegen >= 0 ? 'g-f-ok' : 'g-f-fehler') : ''}
+    ${mitSeite ? marke(sx, sy, richtung(querSeite), 14, `Seitenwind ${runde(k.seite)} kt`, 'g-f-primaer') : ''}
+    ${staerke > 0 ? text(10, 24, `Wind ${drei(windRichtung)}° / ${staerke} kt${boeen > staerke ? `, Böen ${boeen} kt` : ''}`, { groesse: 13, gewicht: 800, klasse: 'g-f-orange', anker: 'start' }) : text(10, 24, 'Windstille', { groesse: 13, gewicht: 800, klasse: 'g-f-leise', anker: 'start' })}
     <circle cx="${c}" cy="${cy}" r="3" class="g-f-text"/>
+    ${massstab(12, 328, 10 * PX_JE_KT, '10 kt')}
     <g transform="translate(374 30)"><path d="M0-16l6 18-6-5-6 5z" class="g-f-text"/>${text(0, 14, 'N', { groesse: 11, gewicht: 800 })}</g>
   `, `Piste ${zwei(piste)} mit Wind aus ${windRichtung} Grad und seinen Komponenten`);
 }
@@ -166,8 +171,8 @@ export const interaktiv = {
     titel: 'Seitenwind auf der Piste',
     kurz: 'Wähle Piste und Wind – Gegen- und Seitenwindkomponente werden berechnet und gezeichnet.',
     symbol: 'metar',
-    anleitung: "Wähle die Piste und stelle den Wind ein. Die Grafik zeigt die Piste von oben, den Wind und seine Zerlegung in Gegen- bzw. Rückenwind und Seitenwind.",
-    legende: [["orange", "Wind"], ["ok", "Gegenwindanteil"], ["fehler", "Rückenwindanteil"], ["primaer", "Seitenwindanteil"]],
+    anleitung: "Wähle die Piste und stelle den Wind ein. Die Grafik zeigt die Piste von oben und den Wind als Pfeil auf die Pistenmitte – zerlegt in Gegen- bzw. Rückenwind und Seitenwind. Alle Pfeile sind im selben Maßstab gezeichnet (Leiste unten links): Mehr Wind, längere Pfeile. Gestrichelt verlängert: die Böen.",
+    legende: [["orange", "Wind (gestrichelt: Böen)"], ["ok", "Gegenwindanteil"], ["fehler", "Rückenwindanteil"], ["primaer", "Seitenwindanteil"]],
     probier: ["Bei welcher Windrichtung ist der Seitenwind auf Piste 25 am größten?", "Wind aus 280° mit 16 kt: Passt das Ergebnis zur Faustregel (30° → ½)?"],
     erstellen() {
       const bild = buehne();
@@ -180,7 +185,7 @@ export const interaktiv = {
       function zeichnen() {
         const k = windKomponenten(richtung.wert, staerke.wert, zwei(piste.wert));
         const b = windKomponenten(richtung.wert, Math.max(boeen.wert, staerke.wert), zwei(piste.wert));
-        bild.zeichnen(pistenBild(piste.wert, richtung.wert, staerke.wert, k));
+        bild.zeichnen(pistenBild(piste.wert, richtung.wert, staerke.wert, boeen.wert, k));
         werte.setzen([
           { titel: k.gegen >= 0 ? 'Gegenwind' : 'Rückenwind', wert: Math.round(Math.abs(k.gegen)), einheit: 'kt', art: k.gegen < -0.5 ? 'schlecht' : 'gut' },
           { titel: `Seitenwind ${k.seite < 0.5 ? '' : k.vonRechts ? 'von rechts' : 'von links'}`, wert: Math.round(k.seite), einheit: 'kt' },

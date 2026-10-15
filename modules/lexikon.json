@@ -1838,6 +1838,168 @@
       "thema": "sprechfunk",
       "kurz": "Nachweis der Englischkenntnisse für den Sprechfunk auf Englisch. Die Bundesnetzagentur prüft auf Stufe 4: Hörverstehen und ein Gespräch auf Englisch.",
       "einfach": "Der Englisch-Test, den du zusätzlich zum BZF I brauchst, wenn du auf Englisch funken willst."
+    },
+    {
+      "id": "flugplan",
+      "begriff": "Flugplan (ATS-Flugplan)",
+      "en": "flight plan",
+      "suche": [
+        "Flugplan",
+        "Flugplans",
+        "Flugpläne",
+        "Flugplänen"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Angaben zu einem Flug, die an die Flugverkehrsdienste übermittelt werden – vollständig für die ganze Strecke oder verkürzt per Funk, etwa für eine Freigabe.",
+      "einfach": "Die Nachricht an die Flugsicherung: wer, von wo, wohin, wann."
+    },
+    {
+      "id": "landemeldung",
+      "begriff": "Landemeldung",
+      "en": "arrival report",
+      "suche": [
+        "Landemeldung",
+        "Landemeldungen"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Meldung nach der Landung, mit der ein Flugplan geschlossen wird (SERA.4020). Ohne sie kann eine Suche nach dem Flugzeug anlaufen.",
+      "einfach": "„Bin gut angekommen“ an die Flugsicherung."
+    },
+    {
+      "id": "endreserve",
+      "begriff": "Kraftstoff-Endreserve",
+      "en": "final reserve fuel",
+      "suche": [
+        "Endreserve",
+        "Kraftstoff-Endreserve"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Kraftstoff, der nicht für den Flug verplant wird und eine sichere Landung gewährleistet. Für Flugzeuge nach AMC1 NCO.OP.125(b) am Tag 30 Minuten (in Sichtweite des Startplatzes 10), nachts 45 Minuten.",
+      "einfach": "Der Notgroschen im Tank."
+    },
+    {
+      "id": "navigationsflugplan",
+      "begriff": "Navigationsflugplan",
+      "en": "navigation log",
+      "suche": [
+        "Navigationsflugplan",
+        "Navigationsflugplans",
+        "Flugdurchführungsplan"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Tabelle für das Cockpit mit Kurs, Steuerkurs, Entfernung, Grundgeschwindigkeit, Flugzeit und Kraftstoff für jede Etappe.",
+      "einfach": "Der Spickzettel für den Flug."
+    },
+    {
+      "id": "gafor",
+      "begriff": "GAFOR",
+      "lang": "General Aviation Forecast",
+      "en": "GAFOR",
+      "suche": [
+        "GAFOR"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Gebietsvorhersage des Deutschen Wetterdienstes für die allgemeine Luftfahrt mit den Kategorien C, O, D, M und X für die Sichtflugbedingungen.",
+      "einfach": "Der Wetterbericht für die Strecke zwischen den Flugplätzen."
+    },
+    {
+      "id": "sigmet",
+      "begriff": "SIGMET",
+      "lang": "Significant Meteorological Information",
+      "en": "SIGMET",
+      "suche": [
+        "SIGMET"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Warnung vor gefährlichen Wettererscheinungen auf der Strecke, z. B. Gewitter, starke Vereisung oder Turbulenz. AIRMET warnt vor Erscheinungen, die besonders für tief fliegende Luftfahrzeuge gefährlich sind.",
+      "einfach": "Unwetterwarnung für Piloten."
+    },
+    {
+      "id": "ppr",
+      "begriff": "PPR",
+      "lang": "Prior Permission Required",
+      "en": "prior permission required",
+      "suche": [
+        "PPR"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Ein Flugplatz darf nur mit vorheriger Genehmigung angeflogen werden – meist meldet man sich telefonisch an.",
+      "einfach": "Nur nach Anmeldung."
+    },
+    {
+      "id": "bordbuch",
+      "begriff": "Bordbuch",
+      "en": "journey log",
+      "suche": [
+        "Bordbuch",
+        "Bordbuchs"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Buch des Luftfahrzeugs, in dem Flüge, Betriebszeiten und Mängel eingetragen werden. Gehört nach NCO.GEN.135 zu den Unterlagen an Bord.",
+      "einfach": "Das Fahrtenbuch des Flugzeugs."
+    },
+    {
+      "id": "ausweichflugplatz",
+      "begriff": "Ausweichflugplatz",
+      "en": "alternate aerodrome",
+      "suche": [
+        "Ausweichflugplatz",
+        "Ausweichflugplatzes",
+        "Ausweichflugplätze",
+        "Ausweichplatz"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Flugplatz, auf den du ausweichst, wenn du am Ziel nicht landen kannst – zum Beispiel wegen Wetter oder einer gesperrten Piste.",
+      "einfach": "Plan B für die Landung."
+    },
+    {
+      "id": "startstrecke",
+      "begriff": "Startstrecke",
+      "en": "take-off distance",
+      "suche": [
+        "Startstrecke",
+        "Startstrecken",
+        "Startrollstrecke"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Strecke vom Beginn des Startlaufs, bis das Flugzeug eine festgelegte Höhe erreicht, meist 15 m (50 ft). Die Startrollstrecke endet beim Abheben.",
+      "einfach": "Wie viel Piste du brauchst, bis du sicher in der Luft bist."
+    },
+    {
+      "id": "flugberatung",
+      "begriff": "Flugberatung",
+      "en": "pre-flight information",
+      "suche": [
+        "Flugberatung",
+        "Flugberatungsdienst"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Beratung vor dem Flug über Luftraum, NOTAM und Flugplan. Vor einem Flug, für den ein Flugplan zu übermitteln ist, vorgeschrieben (LuftVO § 27); in Deutschland über den Flugberatungsdienst (AIS) der DFS.",
+      "einfach": "Der Check bei der Flugsicherung vor dem Abflug."
+    },
+    {
+      "id": "eta",
+      "begriff": "ETA",
+      "lang": "Estimated Time of Arrival",
+      "en": "ETA",
+      "suche": [
+        "ETA"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Voraussichtliche Ankunfts- oder Überflugzeit. Die tatsächliche Zeit heißt ATA (Actual Time of Arrival).",
+      "einfach": "Wann du voraussichtlich da bist."
+    },
+    {
+      "id": "amc",
+      "begriff": "AMC",
+      "lang": "Acceptable Means of Compliance",
+      "en": "AMC",
+      "suche": [
+        "AMC"
+      ],
+      "thema": "flugplanung",
+      "kurz": "Annahmefähige Nachweisverfahren der EASA: Sie zeigen, wie eine Vorschrift erfüllt werden kann – etwa die Minuten der Kraftstoff-Endreserve zu NCO.OP.125.",
+      "einfach": "Die offizielle „So geht’s“-Anleitung zu einer EASA-Regel."
     }
   ]
 }

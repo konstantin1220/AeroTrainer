@@ -40,7 +40,11 @@ function vmcBild(klasse, gelaende, hoehe, m) {
     ${wolke(wolkeX, r1(yFlug - (m.frei ? 4 : 0)), 70)}
     ${m.frei
       ? `${text(wolkeX, r1(yFlug - 30), 'frei von Wolken', { groesse: 12, gewicht: 700, klasse: 'g-f-ok' })}${pfeil(xFlug, yFlug + 34, xFlug, Math.min(278, py(gelaende) - 2), { farbe: 'ok', breite: 1.4, gestrichelt: true })}${text(xFlug + 8, r1((yFlug + py(gelaende)) / 2 + 12), 'Erdsicht', { groesse: 11, gewicht: 700, klasse: 'g-f-ok', anker: 'start' })}`
-      : `${pfeil(xFlug + 22, yFlug, wolkeX - 36, yFlug, { farbe: 'orange', breite: 1.5 })}${text(r1((xFlug + wolkeX) / 2), r1(yFlug - 12), '1500 m', { groesse: 12, gewicht: 700, klasse: 'g-f-orange' })}${linie(wolkeX, r1(yFlug + 20), wolkeX, r1(Math.min(yFlug + 60, 282)), 'g-s-orange', 1.8, 'stroke-dasharray="4 4"')}${text(wolkeX + 8, r1(Math.min(yFlug + 44, 278)), '1000 ft', { groesse: 12, gewicht: 700, klasse: 'g-f-orange', anker: 'start' })}`}
+      : `${pfeil(xFlug + 22, yFlug, wolkeX - 36, yFlug, { farbe: 'orange', breite: 1.5 })}${text(r1((xFlug + wolkeX) / 2), r1(yFlug - 12), '1500 m', { groesse: 12, gewicht: 700, klasse: 'g-f-orange' })}${(() => {
+        // 1000 ft senkrecht unter der Wolke – im selben Höhenmaßstab wie Gelände und Flughöhe
+        const y1 = yFlug + 16, y2 = Math.min(y1 + (py(0) - py(1000)), 286);
+        return `${linie(wolkeX, r1(y1), wolkeX, r1(y2), 'g-s-orange', 1.8, 'stroke-dasharray="4 4"')}${linie(wolkeX - 6, r1(y2), wolkeX + 6, r1(y2), 'g-s-orange', 1.8)}${text(wolkeX + 8, r1((y1 + y2) / 2 + 4), '1000 ft', { groesse: 12, gewicht: 700, klasse: 'g-f-orange g-halo', anker: 'start' })}`;
+      })()}`}
   `, 'Seitenansicht mit Gelände, Grenze 3000 Fuß MSL bzw. 1000 Fuß über Grund, FL 100, Flugzeug und Wolke');
 }
 

@@ -1,5 +1,5 @@
 // METAR-Generator: erzeugt frei erfundene, in sich stimmige METARs in fünf Schwierigkeitsstufen.
-// Die Flugplatzkennungen sind echt, das Wetter ist ausgedacht.
+// Die Flugplätze gehören zum frei erfundenen Übungsgebiet, das Wetter ist ausgedacht.
 //
 // Eingehaltene Regeln (u. a.):
 //  - Böen werden nur gemeldet, wenn sie den Mittelwind um mindestens 10 kt übersteigen.

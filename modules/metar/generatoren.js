@@ -39,6 +39,81 @@ export const KUERZEL = [
   ['Q', 'QNH in Hektopascal folgt'],
 ];
 
+// ---------- TAF: frei erfundene Vorhersagen für die Übungsplätze ----------
+
+const zwei = (n) => String(n).padStart(2, '0');
+
+/** Erzeugt einen kurzen TAF mit einer Änderungsgruppe. Zeiten als Stunden ab Mitternacht des Ausgabetags. */
+export function tafErzeugen(z) {
+  const station = z.wahl(['XMUS', 'XALT', 'XBER']);
+  const tag = z.ganz(1, 27);
+  const beginn = z.wahl([6, 9, 12, 15, 18]);
+  const dauer = z.wahl([9, 9, 24]);
+  // Tag und Stunde; Mitternacht am Ende eines Zeitraums wird wie im TAF üblich als 24 des Vortags geschrieben
+  const ddhh = (h, ende = false) => (ende && h % 24 === 0 ? `${zwei(tag + h / 24 - 1)}24` : `${zwei(tag + Math.floor(h / 24))}${zwei(h % 24)}`);
+  const art = z.wahl(['TEMPO', 'BECMG', 'PROB30', 'PROB40', 'FM']);
+  const von = beginn + z.ganz(1, dauer - 4);
+  const bis = von + (art === 'BECMG' ? 2 : z.ganz(2, 4));
+  const wind = `${zwei(z.ganz(20, 30))}0${zwei(z.ganz(6, 14))}KT`;
+  const basis = `${wind} 9999 SCT0${z.ganz(30, 45)}`;
+  const gruppe = {
+    TEMPO: `TEMPO ${ddhh(von)}/${ddhh(bis, true)} 4000 SHRA BKN0${z.ganz(12, 18)}`,
+    BECMG: `BECMG ${ddhh(von)}/${ddhh(bis, true)} ${zwei(z.ganz(31, 35))}0${zwei(z.ganz(15, 22))}KT`,
+    PROB30: `PROB30 ${ddhh(von)}/${ddhh(bis, true)} 0800 FG BKN002`,
+    PROB40: `PROB40 TEMPO ${ddhh(von)}/${ddhh(bis, true)} 3000 TSRA BKN015CB`,
+    FM: `FM${ddhh(von)}00 ${zwei(z.ganz(31, 35))}0${zwei(z.ganz(8, 14))}KT 6000 -RA BKN0${z.ganz(15, 25)}`,
+  }[art];
+  const text = `TAF ${station} ${zwei(tag)}${zwei(beginn - 1)}00Z ${ddhh(beginn)}/${ddhh(beginn + dauer, true)} ${basis} ${gruppe}`;
+  return { text, station, tag, beginn, ende: beginn + dauer, art, von, bis: art === 'FM' ? beginn + dauer : bis, ddhh };
+}
+
+/** „vom 2. um 12:00 UTC bis zum 2. um 21:00 UTC“ */
+const zeitraumText = (tag, von, bis) => `${zeitText(tag, von).replace(/^am/, 'vom')} bis ${zeitText(tag, bis).replace(/^am/, 'zum')}`;
+const zeitText = (tag, h) => (h > 0 && h % 24 === 0 ? `am ${tag + h / 24 - 1}. um 24:00 UTC (Mitternacht)` : `am ${tag + Math.floor(h / 24)}. um ${zwei(h % 24)}:00 UTC`);
+
+function tafFrage(z) {
+  const t = tafErzeugen(z);
+  const art = z.wahl(t.art === 'BECMG' ? ['ende', 'bedeutung'] : ['ende', 'gilt', 'bedeutung']);
+  if (art === 'ende') {
+    const ende = t.ddhh(t.ende, true);
+    const richtig = zeitText(t.tag, t.ende);
+    const falsch = [...new Set([`am ${t.tag}. um ${ende.slice(0, 2)}:${ende.slice(2)} UTC`, zeitText(t.tag, t.ende - 1), zeitText(t.tag, t.ende + 1), `${t.ende - t.beginn} Stunden nach dem Abflug`])].filter((f) => f !== richtig).slice(0, 3);
+    return {
+      typ: 'auswahl', code: t.text, frage: 'Bis wann gilt dieser TAF?', richtig, falsch,
+      erklaerung: `Der Gültigkeitszeitraum steht nach der Ausgabezeit: ${t.ddhh(t.beginn)}/${ende} heißt ${zeitraumText(t.tag, t.beginn, t.ende)}. Die vier Ziffern sind Tag und Stunde – keine Uhrzeit mit Minuten.`,
+    };
+  }
+  if (art === 'gilt') {
+    const drin = z.janein();
+    const draussen = [];
+    for (let h = t.beginn; h < t.ende; h++) if (h < t.von || h > t.bis) draussen.push(h);
+    const stunde = drin || !draussen.length ? z.ganz(t.von, t.bis - 1) : z.wahl(draussen);
+    const name = t.art === 'FM' ? 'die Wetterangaben nach FM' : t.art === 'PROB40' ? 'die Gruppe PROB40 TEMPO' : `die ${t.art}-Gruppe`;
+    const imFenster = stunde >= t.von && stunde < t.bis;
+    return {
+      typ: 'wahrfalsch', code: t.text,
+      aussage: `${zeitText(t.tag, stunde).replace(/^am/, 'Am')} betrifft dich ${name}.`,
+      richtig: imFenster,
+      erklaerung: t.art === 'FM'
+        ? `FM${t.ddhh(t.von)}00 heißt: ab dem ${t.tag + Math.floor(t.von / 24)}. um ${zwei(t.von % 24)}:00 UTC gilt das neue Wetter bis zum Ende des TAF.`
+        : `Der Zeitraum ${t.ddhh(t.von)}/${t.ddhh(t.bis, true)} reicht ${zeitraumText(t.tag, t.von, t.bis)} – danach gilt wieder das Grundwetter.`,
+    };
+  }
+  const BEDEUTUNG = {
+    TEMPO: 'Im angegebenen Zeitraum zeitweise Regenschauer mit 4 km Sicht und tieferen Wolken',
+    BECMG: 'Im angegebenen Zeitraum dreht und frischt der Wind dauerhaft auf',
+    PROB30: 'Mit 30 % Wahrscheinlichkeit Nebel mit 800 m Sicht im angegebenen Zeitraum',
+    PROB40: 'Mit 40 % Wahrscheinlichkeit zeitweise Gewitter im angegebenen Zeitraum',
+    FM: 'Ab der angegebenen Zeit gilt vollständig neues Wetter mit Regen und 6 km Sicht',
+  };
+  return {
+    typ: 'auswahl', code: t.text, frage: 'Was sagt die Änderungsgruppe am Ende dieses TAF?',
+    richtig: BEDEUTUNG[t.art],
+    falsch: Object.entries(BEDEUTUNG).filter(([k]) => k !== t.art).map(([, b]) => b).slice(0, 3),
+    erklaerung: { TEMPO: 'TEMPO = vorübergehend: Die Werte treten zeitweise auf, danach gilt wieder das Grundwetter.', BECMG: 'BECMG = becoming: Das Wetter ändert sich im Zeitraum dauerhaft.', PROB30: 'PROB30 = Wahrscheinlichkeit 30 %.', PROB40: 'PROB40 TEMPO = mit 40 % Wahrscheinlichkeit vorübergehend.', FM: 'FM = from: Ab dieser Zeit ersetzt das neue Wetter alle bisherigen Angaben.' }[t.art],
+  };
+}
+
 export function erstelleGeneratoren(daten) {
   /** Eine Frage aus Stufe 2 zu einem zufälligen METAR, gefiltert nach Thema. */
   const ausMetar = (z, stufen, filter) => {
@@ -93,6 +168,8 @@ export function erstelleGeneratoren(daten) {
     wolken: (z) => ausMetar(z, [2, 3, 4, 5], markiertTyp(['wolken'])),
     temperatur: (z) => ausMetar(z, [1, 2, 3, 4, 5], markiertTyp(['temperatur', 'qnh'])),
     trend: (z) => ausMetar(z, [3, 4, 5], (f) => f.gruppen.some((g) => g.markiert && g.imTrend)),
+
+    taf: (z) => tafFrage(z),
 
     pistenwahl: (z) => entscheidung(z, 'pistenwahl'),
     seitenwind: (z) => entscheidung(z, 'seitenwind'),

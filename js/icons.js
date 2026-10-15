@@ -153,6 +153,14 @@ const THEMEN = {
     <circle cx="16" cy="16" r="12"/>
     <path class="a" d="M16 5.5l3 10.5h-6z"/>
     <path d="M16 5.5l3 10.5-3 10.5-3-10.5zM4 16h2.5M25.5 16H28"/>`,
+  // Klemmbrett mit eingezeichneter Strecke
+  flugplanung: `
+    <rect class="f" x="6" y="5" width="20" height="24" rx="2.5"/>
+    <rect x="6" y="5" width="20" height="24" rx="2.5"/>
+    <path d="M12 5V3.5h8V5"/>
+    <path d="M10.5 24l5-7 5 2 3-7" stroke-dasharray="2.4 2"/>
+    <circle class="a" cx="10.5" cy="24" r="1.8"/>
+    <circle class="a" cx="23.5" cy="12" r="1.8"/>`,
   'masse-schwerpunkt': `
     <circle class="f" cx="16" cy="16" r="11"/>
     <path class="a" d="M16 16V5A11 11 0 0 0 5 16zM16 16v11a11 11 0 0 0 11-11z"/>

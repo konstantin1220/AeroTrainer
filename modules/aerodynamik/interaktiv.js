@@ -1,7 +1,7 @@
 // Interaktive Darstellungen für „Aerodynamik“.
 import { h } from '../../js/ui.js';
 import { regler, wertanzeige, buehne, bedienfeld, meldung } from '../../js/interaktiv.js';
-import { svg, text, linie, pfeil } from '../../js/grafik.js';
+import { svg, text, linie, pfeil, stufenMaximum } from '../../js/grafik.js';
 
 const RAD = Math.PI / 180;
 const r1 = (n) => n.toFixed(1);
@@ -21,7 +21,11 @@ export function auftriebsbeiwert(alpha) {
   return punkte.at(-1)[1];
 }
 
-function profilBild(alpha) {
+// Auftriebspfeil: 28 Pixel entsprechen dem Auftrieb bei α = 4° und 90 kt (= 100 %); höchstens 132 Pixel
+const AUFTRIEB_PX = 28;
+const AUFTRIEB_MAX = 132;
+
+function profilBild(alpha, relativ) {
   const abriss = alpha > KRITISCH;
   const lx = 70, ly = 150;
   // Stromlinien: unten anliegend, oben anliegend oder abgerissen (Wirbel hinter dem Profil)
@@ -40,6 +44,16 @@ function profilBild(alpha) {
       ${linie(0, 0, 290, 0, 'g-s-flaeche', 0.8, 'stroke-dasharray="5 4"')}
     </g>
     ${linie(lx, ly, lx + 120, ly, 'g-s-leise', 1)}
+    ${(() => {
+      // Auftrieb greift etwa bei einem Viertel der Profiltiefe an und steht senkrecht zur Anströmung
+      const bx = lx + 80 * Math.cos(alpha * RAD) + 12 * Math.sin(alpha * RAD);
+      const by = ly + 80 * Math.sin(alpha * RAD) - 12 * Math.cos(alpha * RAD);
+      const laenge = Math.min(relativ * AUFTRIEB_PX, AUFTRIEB_MAX);
+      if (Math.abs(laenge) < 4) return '';
+      const farbe = abriss ? 'fehler' : 'ok';
+      const gekuerzt = relativ * AUFTRIEB_PX > AUFTRIEB_MAX ? ' (Pfeil gekürzt)' : '';
+      return `${pfeil(bx, by, bx, by - laenge, { farbe, breite: 2.6, spitze: 9 })}${text(r1(bx + 10), r1(by - laenge / 2), `Auftrieb ${Math.round(relativ * 100)} %${gekuerzt}`, { groesse: 12, gewicht: 800, klasse: `g-f-${farbe} g-halo`, anker: 'start' })}`;
+    })()}
     ${text(392, 30, `α = ${alpha}°`, { groesse: 18, gewicht: 800, klasse: abriss ? 'g-f-fehler' : 'g-f-text', anker: 'end' })}
     ${pfeil(14, 236, 60, 236, { farbe: 'leise', breite: 1.4, spitze: 7 })}
     ${text(66, 236, 'Anströmung', { groesse: 11, klasse: 'g-f-leise', anker: 'start' })}
@@ -47,8 +61,9 @@ function profilBild(alpha) {
 }
 
 function kurvenBild(querlage, n) {
-  const cx = 200, cy = 170, g = 80;
-  const laenge = Math.min(g * n, 200);
+  // g = Länge des Gewichtspfeils. Gewählt, damit der Auftrieb auch bei 75° Querlage (n ≈ 3,9) ganz ins Bild passt.
+  const cx = 200, cy = 170, g = 46;
+  const laenge = g * n;
   const spitzeX = cx - Math.sin(querlage * RAD) * laenge;
   const spitzeY = cy - Math.cos(querlage * RAD) * laenge;
   return svg(400, 300, `
@@ -67,29 +82,51 @@ function kurvenBild(querlage, n) {
       const [tx, ty] = [cx + Math.cos(querlage * RAD / 2) * 156, cy - Math.sin(querlage * RAD / 2) * 156 + 4];
       return `${linie(cx + 20, cy, cx + 168, cy, 'g-s-leise', 1, 'stroke-dasharray="4 4"')}${text(cx + 168, cy + 15, 'waagerecht', { groesse: 10, klasse: 'g-f-leise', anker: 'end' })}<path d="M${cx + rb} ${cy}A${rb} ${rb} 0 0 0 ${r1(ex)} ${r1(ey)}" class="g-s-text" stroke-width="1.2"/>${text(r1(tx), r1(ty), `${querlage}°`, { groesse: 12, gewicht: 800, anker: 'start' })}`;
     })() : ''}
-    ${pfeil(cx, cy + 4, cx, cy + 4 + g, { farbe: 'fehler', breite: 2.4, spitze: 8.6 })}
-    ${text(cx + 12, cy + 52, 'Gewicht', { groesse: 12, gewicht: 700, klasse: 'g-f-fehler', anker: 'start' })}
+    ${pfeil(cx, cy, cx, cy + g, { farbe: 'fehler', breite: 2.4, spitze: 8.6 })}
+    ${text(cx + 10, cy + g - 6, 'Gewicht', { groesse: 12, gewicht: 700, klasse: 'g-f-fehler', anker: 'start' })}
+    ${querlage > 0 ? text(cx + 8, r1((cy + spitzeY) / 2), '= Gewicht', { groesse: 10, gewicht: 700, klasse: 'g-f-ok g-halo', anker: 'start' }) : ''}
     ${text(r1(Math.max(52, spitzeX)), r1(spitzeY - 14), `Auftrieb ×${komma(n, 2)}`, { groesse: 12, gewicht: 700, klasse: 'g-f-ok' })}
   `, `Flugzeug von vorn mit ${querlage} Grad Querlage; der Auftrieb ist ${n.toFixed(2)}-mal so groß wie das Gewicht`);
 }
 
-function gleitBild(hoehe, strecke, ohneWind) {
-  const l = 30, r = 380, o = 40, u = 210;
-  const sMax = Math.max(strecke, ohneWind, 1);
+const GLEIT_HOEHE_MAX = 2000; // m – feste Achse über den ganzen Reglerbereich
+const GLEIT_STRECKEN = [5, 10, 20, 50, 100, 200]; // km – die Achse wächst in diesen Stufen
+
+function gleitBild(hoehe, strecke, ohneWind, wind) {
+  const l = 50, r = 384, o = 34, u = 206;
+  const sMax = stufenMaximum(Math.max(strecke, ohneWind) * 1.03, GLEIT_STRECKEN);
   const px = (km) => l + (km / sMax) * (r - l);
+  const py = (m) => u - (m / GLEIT_HOEHE_MAX) * (u - o);
+  const ueberhoehung = ((u - o) / GLEIT_HOEHE_MAX) / ((r - l) / (sMax * 1000));
+  let achsen = '';
+  for (let m = 0; m <= GLEIT_HOEHE_MAX; m += 500) {
+    achsen += linie(l, r1(py(m)), r, r1(py(m)), 'g-s-rand', 0.6) + text(l - 6, r1(py(m) + 4), `${m}`, { groesse: 10, klasse: 'g-f-leise', anker: 'end' });
+  }
+  for (let i = 0; i <= 5; i++) {
+    const km = (sMax / 5) * i;
+    achsen += linie(r1(px(km)), u, r1(px(km)), u + 5, 'g-s-leise', 1) + text(r1(px(km)), u + 17, `${komma(km)}`, { groesse: 10, klasse: 'g-f-leise' });
+  }
+  const yStart = py(hoehe);
+  // Wind: Pfeil oben rechts, Länge proportional zur Windgeschwindigkeit (1 px je km/h)
+  const windPfeil = wind === 0 ? '' : `${pfeil(wind < 0 ? 372 : 372 - Math.abs(wind), 18, wind < 0 ? 372 - Math.abs(wind) : 372, 18, { farbe: 'leise', breite: 2, spitze: 8 })}${text(366 - Math.abs(wind), 22, wind < 0 ? 'Gegenwind' : 'Rückenwind', { groesse: 10, gewicht: 700, klasse: 'g-f-leise', anker: 'end' })}`;
   return svg(400, 250, `
     <rect width="400" height="250" class="g-f-himmel"/>
-    <rect x="0" y="${u}" width="400" height="40" class="g-f-boden"/>
-    ${linie(l, o, r1(px(ohneWind)), u, 'g-s-leise', 1.4, 'stroke-dasharray="6 5"')}
-    ${linie(l, o, r1(px(strecke)), u, 'g-s-primaer', 2.4)}
-    ${linie(l, o, l, u, 'g-s-text', 1)}
-    <circle cx="${l}" cy="${o}" r="6" class="g-f-primaer"/>
-    <circle cx="${r1(px(strecke))}" cy="${u}" r="6" class="g-f-orange"/>
-    ${text(l + 8, o - 4, `${komma(hoehe)} m`, { groesse: 12, gewicht: 700, anker: 'start' })}
-    ${text(r1(px(strecke)), u + 18, `${komma(strecke, 1)} km`, { groesse: 13, gewicht: 800, klasse: 'g-f-orange' })}
-    ${Math.abs(strecke - ohneWind) > 0.05 ? text(r1(Math.min(px(ohneWind), 392)), u - 12, `ohne Wind ${komma(ohneWind, 1)} km`, { groesse: 10, klasse: 'g-f-leise', anker: 'end' }) : ''}
-    ${text(200, 246, 'Höhe stark überhöht dargestellt', { groesse: 10, klasse: 'g-f-leise' })}
-  `, 'Gleitpfad mit und ohne Wind');
+    <rect x="${l}" y="${u}" width="${r - l}" height="5" class="g-f-boden"/>
+    ${achsen}
+    ${linie(l, o, l, u, 'g-s-leise', 1)}
+    ${linie(l, r1(yStart), r1(px(ohneWind)), u, 'g-s-leise', 1.4, 'stroke-dasharray="6 5"')}
+    ${linie(l, r1(yStart), r1(px(strecke)), u, 'g-s-primaer', 2.4)}
+    <circle cx="${l}" cy="${r1(yStart)}" r="5.5" class="g-f-primaer"/>
+    <circle cx="${r1(px(strecke))}" cy="${u}" r="5.5" class="g-f-orange"/>
+    ${text(l + 9, r1(Math.max(o + 2, yStart - 7)), `${komma(hoehe)} m`, { groesse: 12, gewicht: 800, klasse: 'g-f-primaer g-halo', anker: 'start' })}
+    ${px(strecke) < r - 52
+      ? text(r1(px(strecke) + 9), u - 7, `${komma(strecke, 1)} km`, { groesse: 12, gewicht: 800, klasse: 'g-f-orange g-halo', anker: 'start' })
+      : text(r1(px(strecke) - 9), u - 16, `${komma(strecke, 1)} km`, { groesse: 12, gewicht: 800, klasse: 'g-f-orange g-halo', anker: 'end' })}
+    ${windPfeil}
+    ${text(l - 6, o - 12, 'Höhe (m)', { groesse: 10, klasse: 'g-f-leise', anker: 'start' })}
+    ${text(r, u + 32, 'Strecke über Grund (km)', { groesse: 10, klasse: 'g-f-leise', anker: 'end' })}
+    ${text(l, u + 32, `Höhe ${komma(ueberhoehung, 1)}-fach überhöht`, { groesse: 10, klasse: 'g-f-leise', anker: 'start' })}
+  `, `Gleitpfad aus ${hoehe} Metern: ${komma(strecke, 1)} Kilometer über Grund`);
 }
 
 export const interaktiv = {
@@ -97,8 +134,8 @@ export const interaktiv = {
     titel: 'Anstellwinkel und Strömungsabriss',
     kurz: 'Vergrößere den Anstellwinkel – bis die Strömung abreißt.',
     symbol: 'warnung',
-    anleitung: "Vergrößere mit dem oberen Regler den Anstellwinkel. Die blauen Linien zeigen die Luftströmung; ab dem kritischen Anstellwinkel löst sie sich oben vom Flügel ab (rote Wirbel).",
-    legende: [["primaer", "Luftströmung"], ["mf", "Flügelprofil"], ["fehler", "abgerissene Strömung"]],
+    anleitung: "Vergrößere mit dem oberen Regler den Anstellwinkel. Die blauen Linien zeigen die Luftströmung; ab dem kritischen Anstellwinkel löst sie sich oben vom Flügel ab (rote Wirbel). Der grüne Pfeil zeigt den Auftrieb – maßstäblich: Er wächst mit dem Anstellwinkel und mit dem Quadrat der Fahrt.",
+    legende: [["primaer", "Luftströmung"], ["mf", "Flügelprofil"], ["ok", "Auftrieb (Länge maßstäblich)"], ["fehler", "abgerissene Strömung"]],
     probier: ["Bei welchem Anstellwinkel reißt die Strömung ab?", "Halbiere die Fahrt: Wie viel Auftrieb bleibt übrig?"],
     erstellen() {
       const bild = buehne();
@@ -109,7 +146,7 @@ export const interaktiv = {
       function zeichnen() {
         const ca = auftriebsbeiwert(alpha.wert);
         const relativ = (ca * fahrt.wert ** 2) / (0.6 * 90 ** 2);
-        bild.zeichnen(profilBild(alpha.wert));
+        bild.zeichnen(profilBild(alpha.wert, relativ));
         werte.setzen([
           { titel: 'Auftriebsbeiwert cA', wert: komma(ca, 2) },
           { titel: 'Auftrieb', wert: `${Math.round(relativ * 100)} %`, hinweis: 'bezogen auf α = 4° bei 90 kt', art: alpha.wert > KRITISCH ? 'schlecht' : '' },
@@ -164,7 +201,7 @@ export const interaktiv = {
     titel: 'Wie weit gleite ich?',
     kurz: 'Gleitzahl, Höhe und Wind bestimmen, wie weit du ohne Motor kommst.',
     symbol: 'ziel',
-    anleitung: "Stelle Gleitzahl, Höhe, Fahrt und Wind ein. Die blaue Linie zeigt deinen Gleitweg bis zum Boden, die gestrichelte den Weg ohne Wind.",
+    anleitung: "Stelle Gleitzahl, Höhe, Fahrt und Wind ein. Die blaue Linie zeigt deinen Gleitweg bis zum Boden, die gestrichelte den Weg ohne Wind. Beide Achsen sind maßstäblich: Mehr Höhe hebt den Startpunkt, eine bessere Gleitzahl macht den Weg flacher und länger. Wird die Strecke zu lang, springt die Kilometer-Achse auf die nächste Stufe.",
     legende: [["primaer", "Gleitweg mit Wind"], ["leise", "Gleitweg ohne Wind"]],
     probier: ["Motorflugzeug (1 : 9) aus 600 m: Wie weit kommst du ohne Wind?", "Wie stark verkürzen 30 km/h Gegenwind die Strecke?"],
     erstellen() {
@@ -179,7 +216,7 @@ export const interaktiv = {
         const faktor = Math.max(0, (fahrt.wert + wind.wert) / fahrt.wert);
         const strecke = ohneWind * faktor;
         const sinkzeit = (ohneWind * 1000) / (fahrt.wert / 3.6) / 60;
-        bild.zeichnen(gleitBild(hoehe.wert, strecke, ohneWind));
+        bild.zeichnen(gleitBild(hoehe.wert, strecke, ohneWind, wind.wert));
         werte.setzen([
           { titel: 'Gleitstrecke über Grund', wert: komma(strecke, 1), einheit: 'km', art: 'gut' },
           { titel: 'ohne Wind', wert: komma(ohneWind, 1), einheit: 'km' },

@@ -30,6 +30,13 @@
       "pfad": "modules/navigation/"
     },
     {
+      "id": "flugplanung",
+      "titel": "Flugplanung",
+      "beschreibung": "Wetter, NOTAM, Strecke, Kraftstoff, Startstrecke und Flugplan – ein Überlandflug von A bis Z.",
+      "status": "aktiv",
+      "pfad": "modules/flugplanung/"
+    },
+    {
       "id": "masse-schwerpunkt",
       "titel": "Masse & Schwerpunkt",
       "beschreibung": "Beladung berechnen, Schwerpunkt prüfen – mit Beladungsrechner.",

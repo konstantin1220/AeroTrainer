@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Frei erfundene Beispiel-METARs, nach Schwierigkeit (1 = leicht bis 5 = schwer). Die Flugplatzkennungen sind echt, das Wetter ist ausgedacht. Fachlich vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_hinweis": "Frei erfundene Beispiel-METARs für die Übungsplätze XMUS, XALT und XBER, nach Schwierigkeit (1 = leicht bis 5 = schwer). Die IDs bleiben unverändert, weil der Lernstand an ihnen hängt. Fachlich vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
   "_geprueft": null,
   "beispiele": [
     {
@@ -33,6 +33,18 @@
       "schwierigkeit": 2
     },
     {
+      "id": "xalt-dunst",
+      "titel": "Dunstiger Hochdrucktag",
+      "metar": "METAR XALT 081320Z VRB02KT 6000 NSC 24/13 Q1027 NOSIG",
+      "schwierigkeit": 2
+    },
+    {
+      "id": "xber-westwind",
+      "titel": "Kräftiger Westwind",
+      "metar": "METAR XBER 091250Z 27018G31KT 9999 FEW030 SCT050 15/06 Q1006 NOSIG",
+      "schwierigkeit": 2
+    },
+    {
       "id": "eddn-regen",
       "titel": "Landregen mit tiefen Wolken",
       "metar": "METAR XMUS 030620Z 27012KT 4000 -RA BR BKN008 OVC015 11/10 Q1003 BECMG BKN012",
@@ -42,6 +54,18 @@
       "id": "eddn-auto",
       "titel": "Früher Morgen, automatische Station",
       "metar": "METAR XMUS 060450Z AUTO 00000KT 1500 0800NE BCFG NCD 03/02 Q1022",
+      "schwierigkeit": 3
+    },
+    {
+      "id": "xmus-niesel",
+      "titel": "Grau in grau mit Sprühregen",
+      "metar": "METAR XMUS 101050Z 22008KT 3500 -DZ BR BKN005 OVC012 09/08 Q1014 NOSIG",
+      "schwierigkeit": 3
+    },
+    {
+      "id": "xmus-speci",
+      "titel": "Sondermeldung nach einem Schauer",
+      "metar": "SPECI XMUS 101137Z 30016G28KT 2500 +SHRA BKN010CB 13/11 Q1009 BECMG NSW",
       "schwierigkeit": 3
     },
     {
@@ -72,6 +96,18 @@
       "id": "eddr-schnee",
       "titel": "Schneefall",
       "metar": "METAR XALT 051320Z 21010KT 170V240 7000 -SN SCT008 BKN012 OVC020 M01/M03 Q0998 TEMPO 1500 SN BKN005",
+      "schwierigkeit": 5
+    },
+    {
+      "id": "xalt-gefrierend",
+      "titel": "Gefrierender Sprühregen",
+      "metar": "METAR XALT 120650Z 07006KT 3000 -FZDZ BR OVC006 M01/M02 Q1019 NOSIG",
+      "schwierigkeit": 5
+    },
+    {
+      "id": "xmus-windscherung",
+      "titel": "Windscherung im Anflug",
+      "metar": "METAR XMUS 141550Z 26022G38KT 8000 -SHRA BKN020 18/12 Q1004 WS R27 TEMPO 27030G45KT",
       "schwierigkeit": 5
     }
   ]

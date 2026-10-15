@@ -37,6 +37,7 @@
   --f-luftraum: #7a4fd0;
   --f-sprechfunk: #0b8a83;
   --f-navigation: #2563c9;
+  --f-flugplanung: #2f8a4a;
   --f-masse: #b8741a;
   --f-meteo: #0a85c2;
   --f-aero: #4251b8;
@@ -71,6 +72,7 @@
     --f-luftraum: #a98bf2;
     --f-sprechfunk: #3fcdc3;
     --f-navigation: #6fa6ff;
+    --f-flugplanung: #62cf82;
     --f-masse: #e8b04b;
     --f-meteo: #52baf0;
     --f-aero: #909bf3;
@@ -83,6 +85,7 @@
 [data-modul="luftraum"] { --mf: var(--f-luftraum); }
 [data-modul="sprechfunk"] { --mf: var(--f-sprechfunk); }
 [data-modul="navigation"] { --mf: var(--f-navigation); }
+[data-modul="flugplanung"] { --mf: var(--f-flugplanung); }
 [data-modul="masse-schwerpunkt"] { --mf: var(--f-masse); }
 [data-modul="meteorologie"] { --mf: var(--f-meteo); }
 [data-modul="aerodynamik"] { --mf: var(--f-aero); }
@@ -91,6 +94,8 @@
 /* ================= Grundlagen ================= */
 
 * { box-sizing: border-box; }
+/* „hidden“ gewinnt immer – auch gegen display-Regeln von Knöpfen und Karten */
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
 
 body {
@@ -1098,6 +1103,12 @@ a.themen-kachel:hover { transform: translateY(-2px); box-shadow: var(--schatten-
 .metar .gruppe.ist-ok { background: var(--ok-hell); border-color: var(--ok); }
 .metar .gruppe.ist-falsch { background: var(--fehler-hell); border-color: var(--fehler); text-decoration: line-through; }
 .metar .gruppe.ist-fehlt { background: var(--warn-hell); border-color: #d69e2e; border-style: dashed; }
+.metar .gruppe.ist-gewaehlt { border-color: var(--orange); border-width: 2px; }
+.metar .gruppe:disabled { cursor: default; color: var(--text); opacity: 1; }
+.metar-bausteine .baustein { font-family: var(--mono); font-size: 0.95rem; letter-spacing: 0.02em; }
+.fallen-liste { margin: 0.6rem 0 0; padding-left: 1.1rem; font-size: 0.92rem; }
+.fallen-liste li { margin: 0.25rem 0; }
+.fallen-liste code { font-weight: 700; }
 
 :root { --g-meta: #eef1f6; --g-wind: #dbeafe; --g-sicht: #dcfce7; --g-wetter: #fef3c7; --g-wolken: #e5e7eb; --g-temperatur: #fee2e2; --g-qnh: #ede9fe; --g-trend: #fce7f3; }
 @media (prefers-color-scheme: dark) {
@@ -1337,7 +1348,6 @@ a.themen-kachel:hover { transform: translateY(-2px); box-shadow: var(--schatten-
 .sprechliste b { font: 800 1.15rem var(--mono); }
 .sprechliste span { font-size: 0.82rem; color: var(--leise); }
 .sprechzeile { font: 650 1.1rem/1.5 var(--mono); padding: 0.7rem 0.9rem; border-radius: 12px; background: var(--nacht); color: #e9f1ff; margin: 0.6rem 0; }
-.buehne-schmal { max-width: 320px; margin: 0 auto; }
 .isa-balken {
   --dichte: 100%;
   margin: 0.4rem 0;
@@ -1672,3 +1682,8 @@ html[data-stufe="einsteiger"] .begriff {
 .lautschrift { font: 500 0.88rem var(--mono); color: var(--mf, var(--primaer)); letter-spacing: 0.02em; }
 .lautschrift b { font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
 .sprech-deutsch { font-size: 0.76rem; color: var(--leise); }
+
+/* Navigationsflugplan (Flugplanung): kompakt, damit er aufs Handy passt */
+.tabelle.navlog, .tabelle.kompakt { font-size: 0.86rem; font-variant-numeric: tabular-nums; }
+.tabelle.navlog th, .tabelle.navlog td, .tabelle.kompakt th, .tabelle.kompakt td { padding: 0.35rem 0.4rem; white-space: nowrap; }
+.tabelle.navlog .navlog-etappe { font-weight: 650; }

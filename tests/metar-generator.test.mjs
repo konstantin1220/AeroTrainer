@@ -132,3 +132,42 @@ test('Übungs-METARs nutzen nur erfundene Plätze des Übungsgebiets', () => {
   const feste = JSON.parse(readFileSync(new URL('../modules/metar/content/beispiele.json', import.meta.url), 'utf8')).beispiele;
   for (const b of feste) assert.match(zerlegen(b.metar).find((g) => g.typ === 'station').text, /^X/, `${b.id}: echte Kennung im Beispiel-METAR`);
 });
+
+test('Stufe 3 mit Bausteinen: Lösung vollständig, Fallen fast richtig und erklärt', async () => {
+  const { bauBausteine } = await import('../modules/metar/aufgaben.js');
+  const z = zufallsquelle(424242);
+  for (let i = 0; i < 400; i++) {
+    const { text } = metarErzeugen(z, { stufe: z.ganz(1, 5) });
+    const ohne = bauBausteine(text, z, 0);
+    assert.equal(ohne.teile.join(' '), text, 'Bausteine ergeben nicht das METAR');
+    assert.equal(ohne.auswahl.length, ohne.teile.length, 'ohne Fallen darf nichts dazukommen');
+    const mit = bauBausteine(text, z, 6);
+    const fallen = mit.auswahl.filter((b) => b.grund);
+    assert.ok(fallen.length >= 2, `zu wenige Fallen für ${text}`);
+    for (const f of fallen) {
+      assert.ok(!mit.teile.includes(f.text), `Falle ${f.text} ist eigentlich richtig (${text})`);
+      assert.ok(f.grund.length > 15, `Falle ${f.text} ohne Erklärung`);
+    }
+    assert.equal(new Set(mit.auswahl.map((b) => b.text)).size + mit.teile.length - new Set(mit.teile).size, mit.auswahl.length, 'Falle doppelt');
+  }
+});
+
+test('Stufe 5: eingebaute Fehler sind echt und an der richtigen Stelle', async () => {
+  const { fehlerEinbauen, FEHLERARTEN } = await import('../modules/metar/aufgaben.js');
+  const z = zufallsquelle(777);
+  const gesehen = new Set();
+  for (let i = 0; i < 1500; i++) {
+    const { text } = metarErzeugen(z, { stufe: z.ganz(1, 5) });
+    const f = fehlerEinbauen(z, text);
+    assert.ok(f, `kein Fehler für ${text}`);
+    gesehen.add(f.art);
+    assert.notEqual(f.text, text, `${f.art}: METAR unverändert`);
+    const gruppen = zerlegen(f.text);
+    assert.ok(f.stellen.length >= 1 && f.stellen.every((s) => gruppen[s]), `${f.art}: Stelle außerhalb`);
+    assert.ok(f.grund && f.grund.length > 20, `${f.art}: Erklärung fehlt`);
+    // die markierte Gruppe muss sich vom Original unterscheiden oder neu sein
+    const original = zerlegen(text).map((g) => g.text);
+    assert.ok(f.stellen.some((s) => original[s] !== gruppen[s].text), `${f.art}: markierte Gruppe ist unverändert (${f.text})`);
+  }
+  for (const art of FEHLERARTEN) assert.ok(gesehen.has(art) || ['qnh', 'zeit'].includes(art), `Fehlerart ${art} kommt nie vor`);
+});

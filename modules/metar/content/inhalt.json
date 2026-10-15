@@ -177,6 +177,36 @@
             "Auf die höchste Erhebung im Umkreis"
           ],
           "erklaerung": "BKN012 heißt: Untergrenze 1200 ft über dem Flugplatz."
+        },
+        {
+          "id": "mt-au-11",
+          "typ": "wahrfalsch",
+          "aussage": "„AUTO“ bedeutet, dass das METAR ohne Beobachter von einer automatischen Station erstellt wurde.",
+          "richtig": true,
+          "erklaerung": "Bei AUTO hat niemand aufs Wetter geschaut – Wolkenarten wie CB oder TCU erkennt die Station oft nicht, und statt NSC steht dann NCD."
+        },
+        {
+          "id": "mt-au-12",
+          "typ": "zuordnung",
+          "frage": "Ordne jeder Gruppe ihre Bedeutung zu.",
+          "paare": [
+            [
+              "XMUS",
+              "Flugplatz"
+            ],
+            [
+              "101050Z",
+              "Tag und Uhrzeit (UTC)"
+            ],
+            [
+              "Q1014",
+              "QNH in Hektopascal"
+            ],
+            [
+              "NOSIG",
+              "Trend: keine wesentliche Änderung"
+            ]
+          ]
         }
       ]
     },
@@ -318,6 +348,38 @@
           "aussage": "„9999“ bedeutet eine Sicht von genau 9999 Metern.",
           "richtig": false,
           "erklaerung": "9999 steht für 10 km oder mehr."
+        },
+        {
+          "id": "mt-ws-09",
+          "typ": "auswahl",
+          "frage": "Was bedeutet **R27/0600U**?",
+          "richtig": "Pistensichtweite auf Piste 27: 600 m, zunehmend",
+          "falsch": [
+            "Piste 27 ist ab 06:00 UTC gesperrt",
+            "Sicht 600 m in Richtung 270°",
+            "Rückenwind auf Piste 27 mit 6 kt"
+          ],
+          "erklaerung": "R steht für Runway Visual Range (Pistensichtweite). U = upward (zunehmend), D = downward (abnehmend), N = no change."
+        },
+        {
+          "id": "mt-ws-10",
+          "typ": "zahl",
+          "frage": "Wind **18015G28KT**: Um wie viele Knoten übersteigen die Böen den Mittelwind?",
+          "loesung": 13,
+          "einheit": "kt",
+          "erklaerung": "28 kt Böen minus 15 kt Mittelwind = 13 kt. Gemeldet werden Böen erst ab 10 kt über dem Mittelwind."
+        },
+        {
+          "id": "mt-ws-11",
+          "typ": "auswahl",
+          "frage": "Was bedeutet **1500 0800NE**?",
+          "richtig": "Vorherrschende Sicht 1500 m, geringste Sicht 800 m in Richtung Nordost",
+          "falsch": [
+            "Sicht zwischen 8 und 15 km",
+            "Sicht 1500 m, Wind aus Nordost mit 8 kt",
+            "Sicht 800 m, nach Nordosten besser werdend"
+          ],
+          "erklaerung": "Ist die Sicht in einer Richtung deutlich schlechter, steht hinter der vorherrschenden Sicht die geringste Sicht mit Himmelsrichtung."
         }
       ]
     },
@@ -492,6 +554,37 @@
             "Starker Regen ohne Gewitter"
           ],
           "erklaerung": "+ = stark, TS = Gewitter, RA = Regen."
+        },
+        {
+          "id": "mt-ww-10",
+          "typ": "auswahl",
+          "frage": "Wann heißt es im METAR **BR** und wann **FG**?",
+          "richtig": "BR (Dunst) bei 1000 bis 5000 m Sicht, FG (Nebel) unter 1000 m",
+          "falsch": [
+            "BR bei Regen, FG bei Trockenheit",
+            "BR unter 1000 m, FG bei 1000 bis 5000 m",
+            "BR am Morgen, FG am Abend"
+          ],
+          "erklaerung": "Entscheidend ist die Sicht: Unter 1000 m ist es Nebel (FG), darüber feuchter Dunst (BR)."
+        },
+        {
+          "id": "mt-ww-11",
+          "typ": "wahrfalsch",
+          "aussage": "**VV002** bedeutet: Der Himmel ist nicht erkennbar, die Vertikalsicht beträgt 200 ft.",
+          "richtig": true,
+          "erklaerung": "VV = vertical visibility, in Hundert Fuß. Bei dichtem Nebel sieht man keine Wolkenuntergrenze, nur wie weit man nach oben sehen kann."
+        },
+        {
+          "id": "mt-ww-12",
+          "typ": "auswahl",
+          "frage": "Was ist der Unterschied zwischen **NSC** und **NCD**?",
+          "richtig": "NSC: keine wichtigen Wolken (Beobachter); NCD: automatische Station hat keine Wolken erkannt",
+          "falsch": [
+            "NSC: nachts, NCD: tagsüber",
+            "NSC: wolkenlos, NCD: bedeckt",
+            "Es gibt keinen Unterschied, beide bedeuten wolkenlos"
+          ],
+          "erklaerung": "NSC (no significant cloud) setzt ein Beobachter: keine Wolken unter 5000 ft und kein CB/TCU. NCD (no cloud detected) meldet eine automatische Station, die nichts erkannt hat."
         }
       ]
     },
@@ -624,6 +717,250 @@
           "loesung": -7,
           "einheit": "°C",
           "erklaerung": "M steht für minus: Temperatur −3 °C, Taupunkt −7 °C."
+        },
+        {
+          "id": "mt-tt-09",
+          "typ": "zahl",
+          "frage": "Wie groß ist der Spread bei **14/11**?",
+          "loesung": 3,
+          "einheit": "°C",
+          "erklaerung": "Spread = Temperatur minus Taupunkt = 14 − 11 = 3 °C. Je kleiner, desto feuchter die Luft."
+        },
+        {
+          "id": "mt-tt-10",
+          "typ": "auswahl",
+          "frage": "Was bedeutet der Trend **TEMPO FM1430 TL1600 4000 SHRA**?",
+          "richtig": "Zwischen 14:30 und 16:00 UTC zeitweise 4 km Sicht in Regenschauern",
+          "falsch": [
+            "Ab 14:30 UTC dauerhaft 4 km Sicht in Regenschauern",
+            "Um 14:30 und um 16:00 UTC je ein kurzer Schauer",
+            "Regenschauer mit 40 % Wahrscheinlichkeit bis 16:00 UTC"
+          ],
+          "erklaerung": "TEMPO = vorübergehend, FM = ab, TL = bis. Außerhalb dieser Zeit gilt das Wetter aus dem Hauptteil."
+        }
+      ]
+    },
+    {
+      "id": "taf",
+      "titel": "TAF – die Flugplatzvorhersage",
+      "kurz": "Wie das Wetter am Platz in den nächsten Stunden werden soll – mit BECMG, TEMPO, PROB und FM.",
+      "kern": [
+        "Das METAR beschreibt das Wetter jetzt, der TAF sagt das Wetter am Platz für die nächsten Stunden voraus.",
+        "Nach der Ausgabezeit steht der Gültigkeitszeitraum als Tag und Stunde: 1212/1306 = vom 12. um 12 UTC bis zum 13. um 06 UTC.",
+        "BECMG: dauerhafte Änderung im Zeitraum · TEMPO: vorübergehend · FM: ab dieser Zeit neues Wetter · PROB30/40: Wahrscheinlichkeit in Prozent.",
+        "Bei TEMPO und PROB planst du so, als ob das schlechtere Wetter dich treffen kann."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Für die Flugvorbereitung reicht das METAR nicht: Es zeigt nur, wie das Wetter **gerade ist**. Wie es bei deiner Ankunft sein wird, sagt der **TAF** (Terminal Aerodrome Forecast) – die Vorhersage für einen Flugplatz."
+        },
+        {
+          "typ": "einfach",
+          "text": "Das METAR ist ein Foto vom Wetter am Platz. Der TAF ist der Wetterbericht für die nächsten Stunden – mit Hinweisen, wann sich etwas ändert und wie sicher das ist."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Aufbau"
+        },
+        {
+          "typ": "absatz",
+          "text": "Wind, Sicht, Wetter und Wolken stehen im TAF genauso wie im METAR. Temperatur, Taupunkt und QNH fehlen dagegen – sie werden nicht vorhergesagt (manche TAFs nennen am Ende Höchst- und Tiefsttemperatur mit TX und TN)."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Gruppe",
+            "Beispiel",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "Kennung",
+              "TAF",
+              "Flugplatzvorhersage (TAF AMD: geändert, TAF COR: korrigiert)"
+            ],
+            [
+              "Ort",
+              "XMUS",
+              "Flugplatz"
+            ],
+            [
+              "Ausgabe",
+              "121100Z",
+              "ausgegeben am 12. um 11:00 UTC"
+            ],
+            [
+              "Gültigkeit",
+              "1212/1306",
+              "vom 12. um 12 UTC bis zum 13. um 06 UTC"
+            ],
+            [
+              "Grundwetter",
+              "24010KT 9999 SCT035",
+              "Wind, Sicht, Wetter, Wolken – gilt, solange nichts anderes folgt"
+            ],
+            [
+              "Änderungen",
+              "TEMPO, BECMG, FM, PROB",
+              "was sich wann ändert"
+            ]
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "TAF-Zeiten sind **Tag und Stunde in UTC**: 1214/1218 heißt am 12. von 14 bis 18 UTC – nicht 12:14 Uhr! Mitternacht am Ende eines Zeitraums wird als 24 geschrieben: 1218/1224 endet um Mitternacht."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Änderungsgruppen"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**BECMG** 1220/1222: Das Wetter ändert sich in diesem Zeitraum **dauerhaft** – danach gelten die neuen Werte.",
+            "**TEMPO** 1214/1218: In diesem Zeitraum **zeitweise** anderes Wetter, jeweils kürzer als eine Stunde und zusammen weniger als die Hälfte der Zeit. Danach gilt wieder das Grundwetter.",
+            "**FM**121500: Ab 15:00 UTC gilt **vollständig neues** Wetter – alle bisherigen Angaben werden ersetzt.",
+            "**PROB30** oder **PROB40**: Das Wetter tritt mit 30 bzw. 40 Prozent Wahrscheinlichkeit ein, auch kombiniert als PROB30 TEMPO."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Ein Beispiel Schritt für Schritt"
+        },
+        {
+          "typ": "formel",
+          "titel": "Frei erfundener TAF",
+          "text": "TAF XMUS 121100Z 1212/1312 24010KT 9999 SCT035\nTEMPO 1214/1218 4000 SHRA BKN020\nBECMG 1220/1222 VRB03KT\nPROB30 1302/1306 0800 FG BKN002\nBECMG 1307/1309 26008KT 9999 SCT025"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Gültig vom 12. um 12 UTC bis zum 13. um 12 UTC.",
+            "Grundwetter: Wind aus 240° mit 10 kt, Sicht 10 km oder mehr, aufgelockerte Wolken in 3500 ft.",
+            "Zwischen 14 und 18 UTC zeitweise Regenschauer mit 4 km Sicht und durchbrochener Bewölkung in 2000 ft.",
+            "Zwischen 20 und 22 UTC lässt der Wind dauerhaft nach – schwach aus wechselnden Richtungen.",
+            "In der Nacht zwischen 02 und 06 UTC mit 30 % Wahrscheinlichkeit Nebel mit 800 m Sicht und Wolken in 200 ft.",
+            "Morgens zwischen 07 und 09 UTC wieder Westwind, gute Sicht und Wolken in 2500 ft."
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Plane mit dem ungünstigsten Wetter, das dich zu deiner Zeit treffen kann. Steht für deine Ankunft TEMPO oder PROB mit Werten unter deinen Minima, brauchst du einen Plan B – etwa eine spätere Abflugzeit oder einen Ausweichflugplatz."
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein TAF gilt je nach Flugplatz für einen Zeitraum von einigen Stunden bis zu 30 Stunden und wird regelmäßig neu ausgegeben. Ändert sich die Lage stärker als vorhergesagt, erscheint ein geänderter TAF (**TAF AMD**)."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "mt-taf-01",
+          "typ": "auswahl",
+          "frage": "Was ist ein TAF?",
+          "richtig": "Eine Wettervorhersage für einen Flugplatz",
+          "falsch": [
+            "Die aktuelle Wetterbeobachtung eines Flugplatzes",
+            "Eine Warnung vor gefährlichem Wetter auf der Strecke",
+            "Ein Gebietswetterbericht für die allgemeine Luftfahrt"
+          ],
+          "erklaerung": "TAF = Terminal Aerodrome Forecast. Die Beobachtung ist das METAR, Warnungen sind SIGMET und AIRMET."
+        },
+        {
+          "id": "mt-taf-02",
+          "typ": "zahl",
+          "frage": "„TAF XMUS 121100Z **1212/1312** …“ – bis zu welcher Stunde (UTC) am 13. gilt dieser TAF?",
+          "loesung": 12,
+          "einheit": "UTC",
+          "erklaerung": "1212/1312 heißt vom 12. um 12 UTC bis zum 13. um 12 UTC."
+        },
+        {
+          "id": "mt-taf-03",
+          "typ": "auswahl",
+          "frage": "Was bedeutet **TEMPO 1214/1218 4000 SHRA**?",
+          "richtig": "Am 12. zwischen 14 und 18 UTC zeitweise 4 km Sicht in Regenschauern",
+          "falsch": [
+            "Ab 12:14 UTC dauerhaft 4 km Sicht in Regenschauern",
+            "Mit 40 % Wahrscheinlichkeit Regenschauer",
+            "Um 12:18 UTC ein kurzer Regenschauer"
+          ],
+          "erklaerung": "TEMPO = vorübergehend. 1214/1218 sind Tag und Stunde: der 12., 14 bis 18 UTC."
+        },
+        {
+          "id": "mt-taf-04",
+          "typ": "auswahl",
+          "frage": "Was bedeutet **BECMG 1220/1222 VRB03KT**?",
+          "richtig": "Zwischen 20 und 22 UTC lässt der Wind dauerhaft auf schwach und wechselnd nach",
+          "falsch": [
+            "Zwischen 20 und 22 UTC zeitweise schwacher Wind, danach wieder wie vorher",
+            "Ab 12:20 UTC Windstille",
+            "Mit 30 % Wahrscheinlichkeit drehender Wind"
+          ],
+          "erklaerung": "BECMG (becoming) beschreibt eine dauerhafte Änderung: Nach 22 UTC gilt der schwache, wechselnde Wind weiter."
+        },
+        {
+          "id": "mt-taf-05",
+          "typ": "wahrfalsch",
+          "aussage": "**PROB30** bedeutet: Das folgende Wetter tritt mit 30 Prozent Wahrscheinlichkeit ein.",
+          "richtig": true,
+          "erklaerung": "Im TAF gibt es PROB30 und PROB40. Bei höherer Wahrscheinlichkeit wird das Wetter direkt mit BECMG, TEMPO oder FM vorhergesagt."
+        },
+        {
+          "id": "mt-taf-06",
+          "typ": "auswahl",
+          "frage": "Was bedeutet **FM121500** in einem TAF?",
+          "richtig": "Ab dem 12. um 15:00 UTC gilt vollständig neues Wetter",
+          "falsch": [
+            "Am 12. bis 15:00 UTC gilt das Grundwetter, danach ist der TAF ungültig",
+            "Um 12:15 UTC kurz anderes Wetter",
+            "Vom 12. bis zum 15. des Monats"
+          ],
+          "erklaerung": "FM (from) mit Tag, Stunde und Minute: Ab dann ersetzen die folgenden Gruppen alle bisherigen Angaben."
+        },
+        {
+          "id": "mt-taf-07",
+          "typ": "wahrfalsch",
+          "aussage": "Im TAF stehen wie im METAR Temperatur, Taupunkt und QNH.",
+          "richtig": false,
+          "erklaerung": "Der TAF sagt Wind, Sicht, Wetter und Wolken voraus. Temperatur, Taupunkt und QNH stehen nicht drin."
+        },
+        {
+          "id": "mt-taf-08",
+          "typ": "zuordnung",
+          "frage": "Ordne jeder Änderungsgruppe ihre Bedeutung zu.",
+          "paare": [
+            [
+              "BECMG",
+              "Dauerhafte Änderung im Zeitraum"
+            ],
+            [
+              "TEMPO",
+              "Zeitweise anderes Wetter"
+            ],
+            [
+              "FM",
+              "Ab diesem Zeitpunkt neues Wetter"
+            ],
+            [
+              "PROB40",
+              "Wahrscheinlichkeit 40 Prozent"
+            ]
+          ]
+        },
+        {
+          "id": "mt-taf-09",
+          "typ": "generator",
+          "generator": "taf"
+        },
+        {
+          "id": "mt-taf-10",
+          "typ": "generator",
+          "generator": "taf"
+        },
+        {
+          "id": "mt-taf-11",
+          "typ": "generator",
+          "generator": "taf"
         }
       ]
     },
@@ -752,6 +1089,34 @@
           "toleranz": 1,
           "einheit": "kt",
           "erklaerung": "280° − 250° = 30° → Seitenwindanteil ½ → 8 kt."
+        },
+        {
+          "id": "mt-en-09",
+          "typ": "auswahl",
+          "frage": "XMUS liegt in einer Kontrollzone. Gemeldet sind **4000 BR BKN010**. Darfst du ohne besondere Freigabe als normaler VFR-Flug in die Platzrunde einfliegen?",
+          "richtig": "Nein – Bodensicht unter 5 km und Hauptwolkenuntergrenze unter 1500 ft",
+          "falsch": [
+            "Ja, 4 km Sicht reichen",
+            "Ja, solange du frei von Wolken bleibst",
+            "Nein, aber nur wegen des Dunstes (BR)"
+          ],
+          "erklaerung": "SERA.5005 b: Ohne Freigabe der Flugverkehrskontrolle (z. B. für einen Sonderflug nach Sichtflugregeln) braucht es in der Kontrollzone eine Hauptwolkenuntergrenze von mindestens 1500 ft und eine Bodensicht von mindestens 5 km."
+        },
+        {
+          "id": "mt-en-10",
+          "typ": "mehrfach",
+          "frage": "Welche Angaben brauchst du, um die Seitenwindkomponente auszurechnen?",
+          "richtig": [
+            "Windrichtung",
+            "Windgeschwindigkeit (und Böen)",
+            "Richtung der Piste"
+          ],
+          "falsch": [
+            "QNH",
+            "Taupunkt",
+            "Sicht"
+          ],
+          "erklaerung": "Der Seitenwind ergibt sich aus dem Winkel zwischen Wind und Piste und der Windgeschwindigkeit. Für die Böen rechnest du dasselbe mit dem Böenwert."
         }
       ]
     }

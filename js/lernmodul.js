@@ -44,9 +44,10 @@ export function theorieBlock(block, abbildung, interaktiv = () => null, stufe = 
     }
     case 'formel': return h('div', { class: 'formel' }, block.titel && h('span', { class: 'formel-titel' }, block.titel), h('code', {}, block.text));
     case 'tabelle': {
-      // Breite Tabellen werden auf schmalen Bildschirmen als gestapelte Karten gezeigt.
-      const stapeln = (block.kopf?.length ?? 0) >= 4;
-      return h('div', { class: 'tabelle-rahmen' }, h('table', { class: `tabelle ${stapeln ? 'stapeln' : ''}` },
+      // Breite Tabellen werden auf schmalen Bildschirmen als gestapelte Karten gezeigt –
+      // außer Zahlentabellen mit "kompakt": true (z. B. Navigationsflugplan), die eng gesetzt bleiben.
+      const stapeln = !block.kompakt && (block.kopf?.length ?? 0) >= 4;
+      return h('div', { class: 'tabelle-rahmen' }, h('table', { class: `tabelle ${stapeln ? 'stapeln' : ''} ${block.kompakt ? 'kompakt' : ''}` },
         block.kopf && h('thead', {}, h('tr', {}, block.kopf.map((k) => h('th', {}, formatiert(k))))),
         h('tbody', {}, block.zeilen.map((z) => h('tr', {}, z.map((zelle, i) => h('td', { 'data-label': block.kopf?.[i] }, formatiert(zelle)))))),
       ), block.unterschrift && h('p', { class: 'tabelle-unterschrift' }, formatiert(block.unterschrift)));

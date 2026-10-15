@@ -9,8 +9,12 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 
 ## Was die App kann
 
-- **8 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Masse & Schwerpunkt,
+- **9 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Flugplanung, Masse & Schwerpunkt,
   Meteorologie, Aerodynamik, Signale – jeweils mit Theorie-Kapiteln, Abbildungen und Fragen.
+- **Flugplanung von A bis Z**: Flugvorbereitung, Wetterberatung, NOTAM, Strecke und Reiseflughöhe, Navigationsflugplan,
+  Kraftstoff (Endreserve nach AMC1 NCO.OP.125(b)), Masse und Startstrecke, Flugplan und Unterlagen – dazu ein komplett
+  durchgespielter Überlandflug, ein interaktiver Navigationsflugplan und ein Startstrecken-Rechner mit dem erfundenen
+  Übungsflugzeug MF-4. Rechnungen in `modules/flugplanung/rechnen.js` (getestet, auch die Zahlen in den Kapiteln).
 - **Verteilte Wiederholung** (Leitner-Karteikasten mit 5 Fächern): Jede Frage kommt wieder, wenn sie dran ist.
 - **BZF-Trainer** (Thema Sprechfunk): Lernkapitel zu BZF I und II, Plätzen mit und ohne Tower, FIS/RMZ und Englisch,
   eine Übersetzungsübung wie in der BZF-I-Prüfung und **Funkgespräche** zum Durchspielen – auf Deutsch oder Englisch,
@@ -24,12 +28,14 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
   Fällige Fragen aller Themen lassen sich gemeinsam wiederholen.
 - **Rechenaufgaben, die jedes Mal neu entstehen**: Winddreieck, Missweisung, Schwerpunkt, Wolkenbasis,
   Lastvielfaches, Frequenzen sprechen, Kurs auf der Übungskarte messen u. v. m.
-- **METAR in vier Stufen**: Antippen & erklären → selbst entschlüsseln → rückwärts bauen → Entscheidung treffen.
-  Ein Generator erzeugt unbegrenzt viele, in sich stimmige METARs in fünf Schwierigkeitsstufen.
-- **Zum Ausprobieren**: 21 interaktive Darstellungen mit Reglern und Umschaltern – z. B. Winddreieck,
+- **METAR in fünf Stufen**: Antippen & erklären → selbst entschlüsseln → rückwärts bauen (mit Bausteinen, Bausteinen
+  mit Fallen oder frei getippt) → Entscheidung treffen → Fehler finden. Ein Generator erzeugt unbegrenzt viele,
+  in sich stimmige METARs in fünf Schwierigkeitsstufen. Dazu ein Kapitel zum TAF mit erzeugten Übungs-TAFs.
+- **Zum Ausprobieren**: 24 interaktive, maßstäblich gezeichnete Darstellungen mit Reglern und Umschaltern – z. B. Winddreieck,
   antippbare Übungskarte, Sichtflugbedingungen, Kontrollzonen-Wetter, Wer weicht aus?, Wolkenbasis,
   Höhenmesser mit Fehleinstellung, Anstellwinkel bis zum Strömungsabriss, Kurvenflug, Signalscheinwerfer,
-  Buchstabieren und Zahlen sprechen (mit Anhören), Hebel-Wippe, Beladungsrechner, METAR-Baukasten und Seitenwind.
+  Buchstabieren und Zahlen sprechen (mit Anhören), Hebel-Wippe, Beladungsrechner, METAR-Baukasten, Seitenwind,
+  Standardatmosphäre, Navigationsflugplan und Startstrecke.
   Sie stehen direkt in den Theorie-Kapiteln und gesammelt in jedem Thema unter „Zum Ausprobieren“.
 - **Lernstand**: Statistik, Lernserie, Aktivitätskalender; Sichern und Laden als Datei (`flug-lernstand.json`).
 - **Prüfansicht für Fluglehrer** in jedem Thema: alle Inhalte, Lösungen und Beispiele der Rechenaufgaben auf einer Seite.
@@ -94,6 +100,7 @@ modules/<thema>/
   abbildungen.js          selbst gezeichnete Grafiken (SVG)
   interaktiv.js           interaktive Darstellungen (optional)
 modules/metar/            zusätzlich: Parser, METAR-Generator, Lernstufen, Beispiele, fiktive Flugplätze
+modules/flugplanung/      zusätzlich: rechnen.js (Etappen, Kraftstoff, Startstrecke), Planungsdaten in content/flugzeug.json
 tests/                    automatische Tests
 tools/                    Entwicklungsserver, Symbol- und Abbildungsübersicht, App-Symbol, Handyvorschau
 ```
@@ -178,7 +185,7 @@ Branch `main`, Ordner `/ (root)` wählen. Alle Pfade sind relativ – die App l�
 - Nur eigene Inhalte. Keine Fragen aus dem Prüfungsfragenkatalog (ECQB), auch nicht umformuliert.
 - Grundlage sind frei zugängliche Vorschriften, vor allem SERA (Durchführungsverordnung (EU) Nr. 923/2012).
 - Keine Kartenausschnitte, keine fremden Grafiken. Flugplätze, Karte und Flugzeugdaten sind frei erfunden;
-  METARs verwenden echte Flugplatzkennungen mit erfundenem Wetter.
+  METARs, TAFs und NOTAM gelten für die erfundenen Übungsplätze (Kennungen mit X).
 - Fremde Bibliotheken nur mit permissiver Lizenz, eingetragen in `THIRD_PARTY_LICENSES.md` (derzeit keine).
 
 Lizenzen: Programmcode **MIT** (`LICENSE`), Lerninhalte **CC BY 4.0** (`LICENSE-INHALTE.md`).

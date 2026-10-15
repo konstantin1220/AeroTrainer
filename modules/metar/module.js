@@ -2,7 +2,7 @@
 import { lernmodul } from '../../js/lernmodul.js';
 import { erstelleGeneratoren } from './generatoren.js';
 import { interaktiv } from './interaktiv.js';
-import { STUFEN, stufenUebersicht, stufe1, stufe2, stufe3, stufe4, pruefZusatz } from './stufen.js';
+import { STUFEN, stufenUebersicht, stufe1, stufe2, stufe3, stufe4, stufe5, pruefZusatz } from './stufen.js';
 
 async function laden(datei) {
   const antwort = await fetch(new URL(datei, import.meta.url));
@@ -30,6 +30,7 @@ export default lernmodul({
     2: (el, rest, ctx) => stufe2(el, rest, ctx, daten),
     3: (el, rest, ctx) => stufe3(el, rest, ctx, daten),
     4: (el, rest, ctx) => stufe4(el, rest, ctx, daten),
+    5: (el, rest, ctx) => stufe5(el, rest, ctx),
   },
   uebersichtZusatz: (ctx) => stufenUebersicht(ctx, daten),
   zusatzVorKapiteln: true,

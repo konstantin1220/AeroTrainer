@@ -1,0 +1,34 @@
+{
+  "_hinweis": "Planungsdaten des frei erfundenen Übungsflugzeugs MF-4 (dasselbe wie im Thema Masse & Schwerpunkt) und der erfundenen Flugplätze des Übungsgebiets. Alle Werte sind ausgedacht und gehören zu keinem echten Flugzeug oder Flugplatz – für echte Flüge gelten ausschließlich das Flughandbuch und das Luftfahrthandbuch. Lizenz: CC BY 4.0.",
+  "name": "Übungsflugzeug MF-4",
+  "mtom": 1150,
+  "reiseTas": 100,
+  "verbrauch": 30,
+  "kraftstoffNutzbar": 150,
+  "kraftstoffDichte": 0.72,
+  "rollKraftstoff": 3,
+  "startstrecke": {
+    "_hinweis": "Startstrecke über ein 15-m-Hindernis in Metern bei höchstzulässiger Startmasse, trockener Asphaltpiste und Windstille. Zeilen: Druckhöhe 0, 2000 und 4000 ft; Spalten: 0, 10, 20 und 30 °C. Die Startrollstrecke ist etwa 55 % davon.",
+    "hoehen": [0, 2000, 4000],
+    "temperaturen": [0, 10, 20, 30],
+    "werte": [
+      [480, 510, 545, 580],
+      [555, 590, 630, 670],
+      [645, 685, 730, 780]
+    ],
+    "rollAnteil": 0.55,
+    "korrekturen": {
+      "gegenwindJe10kt": -0.10,
+      "rueckenwindJe2kt": 0.10,
+      "grasTrocken": 0.20,
+      "grasNass": 0.30,
+      "je100kgUnterMtom": -0.10
+    }
+  },
+  "plaetze": [
+    { "kennung": "XALT", "name": "Flugplatz Altdorf", "ort": "altdorf", "hoehe": 1450, "piste": "07/25", "laenge": 800, "belag": "asphalt", "luftraum": "G", "info": "Altdorf Radio 123,505 · Platzrunde nördlich" },
+    { "kennung": "XMUS", "name": "Flughafen Musterstadt", "ort": "musterstadt", "hoehe": 1180, "piste": "09/27", "laenge": 2200, "belag": "asphalt", "luftraum": "CTR", "info": "Musterstadt Turm 119,180 · ATIS 128,330 · Meldepunkte N und W" },
+    { "kennung": "XBER", "name": "Flugplatz Bergen", "ort": "bergen", "hoehe": 2100, "piste": "03/21", "laenge": 650, "belag": "grasTrocken", "luftraum": "RMZ", "info": "Bergen Radio 122,605 · RMZ" },
+    { "kennung": "XNEU", "name": "Segelfluggelände Neuheim", "ort": "neuheim", "hoehe": 980, "piste": "16/34", "laenge": 900, "belag": "grasTrocken", "luftraum": "G", "info": "nur mit vorheriger Genehmigung (PPR) · Windenstart" }
+  ]
+}

@@ -15,8 +15,9 @@ function wippeBild(m1, a1, m2, a2) {
   const momentDiff = m2 * a2 - m1 * a1;
   const neigung = Math.max(-12, Math.min(12, momentDiff / 4));
   const schwerpunkt = (m2 * a2 - m1 * a1) / (m1 + m2);
+  // Fläche der Kiste proportional zur Masse: doppelte Masse = doppelte Fläche
   const kiste = (x, masse, farbe) => {
-    const seite = 18 + masse * 0.32;
+    const seite = 6.2 * Math.sqrt(masse);
     return `<rect x="${r1(x - seite / 2)}" y="${r1(cy - 6 - seite)}" width="${r1(seite)}" height="${r1(seite)}" rx="5" class="${farbe}"/>${text(r1(x), r1(cy - 6 - seite / 2), `${masse}`, { groesse: 12, gewicht: 800, klasse: 'g-f-weiss' })}`;
   };
   const sx = cx + Math.max(-2.1, Math.min(2.1, schwerpunkt)) * s;

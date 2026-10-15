@@ -599,7 +599,7 @@
       "kurz": "Flugzeit, Verbrauch, Reserven und wie du unterwegs Kursfehler korrigierst.",
       "kern": [
         "Zeit = Strecke ÷ Grundgeschwindigkeit; Kraftstoff = Zeit × Verbrauch.",
-        "Flugzeuge nach Part-NCO: am Tag mindestens 30 min Reserve (in Sichtweite des Platzes 10 min).",
+        "Endreserve für Flugzeuge am Tag nach VFR (EASA, AMC1 NCO.OP.125(b)): 30 min – bei Flügen in Sichtweite des Startplatzes 10 min.",
         "1:60-Regel: 1° Kursfehler ≈ 1 NM Ablage nach 60 NM."
       ],
       "theorie": [
@@ -622,7 +622,7 @@
         },
         {
           "typ": "absatz",
-          "text": "Für nichtgewerbliche Flüge mit Flugzeugen nach EASA-Regeln (Part-NCO) gilt am Tag nach VFR: Kraftstoff für den Flug zum Zielflugplatz und danach noch für **mindestens 30 Minuten** in normaler Reiseflughöhe. Für Platzrunden und Flüge in Sichtweite des Startplatzes sind es mindestens 10 Minuten. Für andere Luftfahrzeugarten können andere Regeln gelten."
+          "text": "Für nichtgewerbliche Flüge mit Flugzeugen verlangt die EASA-Verordnung (Part-NCO, NCO.OP.125), dass genug Kraftstoff an Bord ist – einschließlich einer **Endreserve**, die du nicht anrührst. Wie groß die Endreserve sein soll, steht in den Annahmefähigen Nachweisverfahren der EASA (AMC1 NCO.OP.125(b)): am Tag nach VFR Kraftstoff für **30 Minuten** Warteflug in 1500 ft über dem Zielflugplatz. Startest und landest du am selben Platz und bleibst immer in Sichtweite, sind es 10 Minuten. Nachts sind es 45 Minuten. Für andere Luftfahrzeugarten gelten andere Werte. Mehr dazu im Thema Flugplanung."
         },
         {
           "typ": "achtung",
@@ -683,10 +683,10 @@
         {
           "id": "na-pl-07",
           "typ": "zahl",
-          "frage": "Wie viele Minuten Kraftstoffreserve sind nach Part-NCO für einen VFR-Überlandflug mit einem Flugzeug am Tag mindestens vorgeschrieben?",
+          "frage": "Für wie viele Minuten soll die Kraftstoff-Endreserve nach den EASA-Vorgaben (AMC1 NCO.OP.125(b)) bei einem VFR-Überlandflug mit einem Flugzeug am Tag mindestens reichen?",
           "loesung": 30,
           "einheit": "min",
-          "erklaerung": "Mindestens 30 Minuten in normaler Reiseflughöhe nach Erreichen des Zielflugplatzes."
+          "erklaerung": "30 Minuten Warteflug in 1500 ft über dem Zielflugplatz. Nur wer am selben Platz startet und landet und ihn immer in Sicht behält, plant 10 Minuten; nachts sind es 45 Minuten."
         },
         {
           "id": "na-pl-08",

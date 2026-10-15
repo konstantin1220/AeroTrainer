@@ -119,11 +119,21 @@ function kompassrose(x, y, r) {
   return `<circle cx="${x}" cy="${y}" r="${r}" class="g-s-primaer" stroke-width="1.2" opacity=".8"/>${striche}`;
 }
 
-export function uebungskarte({ von, nach, rose = false, markiert = [] } = {}) {
+export function uebungskarte({ von, nach, rose = false, markiert = [], route = null } = {}) {
   let zusatz = '';
   if (von && nach) {
     zusatz += pfeil(von.x, von.y, nach.x, nach.y, { farbe: 'orange', breite: 3, spitze: 12 });
     if (rose) zusatz += kompassrose(von.x, von.y, 52);
+  }
+  // Strecke mit mehreren Etappen: [{ x, y, kurz }] – Pfeil je Etappe, Wegpunkte als Ringe
+  if (route?.length > 1) {
+    for (let i = 1; i < route.length; i++) {
+      const [a, b] = [route[i - 1], route[i]];
+      const l = Math.hypot(b.x - a.x, b.y - a.y) || 1;
+      const ende = [b.x - ((b.x - a.x) / l) * 9, b.y - ((b.y - a.y) / l) * 9];
+      zusatz += pfeil(a.x, a.y, ende[0], ende[1], { farbe: 'orange', breite: 3, spitze: 11 });
+    }
+    zusatz += route.map((p) => `<circle cx="${p.x}" cy="${p.y}" r="7" class="g-s-orange" stroke-width="2.5" fill="none"/>`).join('');
   }
   return svg(400, 400, grundkarte(markiert) + zusatz, 'Übungskarte eines frei erfundenen Gebiets mit Flugplätzen, Kontrollzone, Funkfeuern und Gelände');
 }

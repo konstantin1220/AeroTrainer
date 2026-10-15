@@ -1,0 +1,1888 @@
+{
+  "_hinweis": "Lerninhalte „Flugplanung“. Alle Flugplätze, Karten, NOTAM, Wettermeldungen und Flugzeugdaten sind frei erfunden und nicht für echte Flugvorbereitung geeignet. Rechtsgrundlagen: SERA, Part-NCO (mit AMC der EASA), Part-FCL und LuftVO – siehe Info → Quellen. Eigene Formulierungen, keine Fragen aus dem Prüfungsfragenkatalog. Vor der Freigabe von einem Fluglehrer prüfen lassen. Lizenz: CC BY 4.0.",
+  "_geprueft": null,
+  "einleitung": "Von der Wetterberatung bis zur Landemeldung: alles, was zur Vorbereitung eines Überlandflugs gehört – mit Navigationsflugplan, Kraftstoffplanung und Startstrecken-Rechner.",
+  "kapitel": [
+    {
+      "id": "ueberblick",
+      "titel": "Flugvorbereitung im Überblick",
+      "kurz": "Was du vor jedem Flug klären musst – und welche Regeln dahinterstehen.",
+      "kern": [
+        "Vor jedem Flug machst du dich mit allen verfügbaren Informationen vertraut, die für den Flug von Belang sind (SERA.2010 b).",
+        "Bei Flügen über die Umgebung des Flugplatzes hinaus gehören aktuelle Wetterberichte und -vorhersagen, die Kraftstoffplanung und ein Plan B dazu.",
+        "Du startest nur mit einem lufttüchtigen, registrierten Flugzeug, dessen Masse und Schwerpunkt in den Grenzen liegen – und wenn du selbst fit bist (NCO.GEN.105).",
+        "Auf Verlangen der Luftaufsicht musst du nachweisen, dass du den Flug ordnungsgemäß vorbereitet hast (LuftVO § 27)."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Ein Flug beginnt nicht mit dem Anlassen des Motors, sondern mit der Vorbereitung am Schreibtisch oder am Tablet. Sie ist keine Formsache: Sie ist vorgeschrieben – und sie entscheidet darüber, ob du entspannt fliegst oder unterwegs von Wetter, Luftraum oder knappem Kraftstoff überrascht wirst."
+        },
+        {
+          "typ": "einfach",
+          "text": "Flugvorbereitung ist wie das Packen für eine Bergtour: Wetterbericht anschauen, Route planen, genug Proviant einpacken, Ausrüstung prüfen – und vorher überlegen, wo du umkehrst, wenn es nicht passt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Was die Regeln verlangen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach **SERA.2010 b** muss sich der verantwortliche Pilot vor Beginn eines Flugs mit allen verfügbaren Informationen vertraut machen, die für den beabsichtigten Flug von Belang sind. Geht der Flug über die Umgebung eines Flugplatzes hinaus, gehören dazu die aktuellen **Wetterberichte und -vorhersagen**, die **Kraftstoffanforderungen** und ein **alternativer Flugverlauf** für den Fall, dass der Flug nicht wie geplant durchgeführt werden kann."
+        },
+        {
+          "typ": "absatz",
+          "text": "Für nichtgewerbliche Flüge ergänzt die EASA-Verordnung **Part-NCO**: Du überzeugst dich, dass die für den Flug nötigen Einrichtungen – Flugplätze, Funk, Navigationshilfen – geeignet sind. Und für Flüge über die nähere Umgebung des Abflugorts hinaus studierst du die aktuellen Wettermeldungen und -vorhersagen und planst eine **alternative Vorgehensweise**, falls das Wetter den Flug nicht wie geplant zulässt (**NCO.OP.135**)."
+        },
+        {
+          "typ": "absatz",
+          "text": "Einen Flug beginnen darfst du nach **NCO.GEN.105** nur, wenn"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "das Luftfahrzeug lufttüchtig und ordnungsgemäß registriert ist,",
+            "die nötigen Instrumente und Ausrüstungen eingebaut und betriebsbereit sind,",
+            "Masse und Schwerpunktlage den Flug innerhalb der vorgeschriebenen Grenzen erlauben,",
+            "Ausstattung, Gepäck und Fracht richtig verladen und gesichert sind,",
+            "die Betriebsgrenzen aus dem Flughandbuch während des ganzen Flugs eingehalten werden."
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Und du selbst musst fit sein: Wer wegen Verletzung, Krankheit, Müdigkeit oder der Wirkung psychoaktiver Substanzen – dazu zählen auch Alkohol und viele Medikamente – nicht dienstfähig ist, darf keinen Flug beginnen (NCO.GEN.105 a 5)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Die Schritte der Flugvorbereitung"
+        },
+        {
+          "typ": "abbildung",
+          "id": "ablauf",
+          "unterschrift": "Die Schritte der Flugvorbereitung – am Ende steht eine klare Entscheidung."
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Reihenfolge ist nicht starr, aber das Wetter steht am Anfang: Passt es nicht, kannst du dir den Rest sparen. In diesem Thema gehst du die Schritte einzeln durch; das letzte Kapitel spielt einen kompletten Überlandflug von A bis Z durch."
+        },
+        {
+          "typ": "merke",
+          "titel": "Plan B",
+          "text": "Plane immer eine Alternative: einen Ausweichflugplatz, einen Umkehrpunkt, eine spätere Abflugzeit. Auch „Wir fliegen heute nicht“ ist ein gutes Ergebnis einer Flugvorbereitung."
+        },
+        {
+          "typ": "absatz",
+          "text": "Auf Verlangen der Luftaufsicht musst du nachweisen, dass du den Flug ordnungsgemäß vorbereitet hast, und deine Ausweise vorzeigen (**LuftVO § 27**). Der ausgefüllte Navigationsflugplan, das Wetter und die NOTAM sind dafür der beste Nachweis."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-ub-01",
+          "typ": "auswahl",
+          "frage": "Wo ist vorgeschrieben, dass du dich vor jedem Flug mit allen verfügbaren Informationen vertraut machen musst?",
+          "richtig": "In SERA.2010 b, den europäischen Luftverkehrsregeln",
+          "falsch": [
+            "Nur in der Flugplatzordnung deines Vereins",
+            "Nur für Flüge mit Flugplan",
+            "Gar nicht – das ist nur eine Empfehlung"
+          ],
+          "erklaerung": "SERA.2010 b verlangt die Flugvorbereitung für jeden Flug. Für Flüge über die Umgebung des Flugplatzes hinaus nennt sie zusätzlich Wetter, Kraftstoff und einen alternativen Flugverlauf."
+        },
+        {
+          "id": "fp-ub-02",
+          "typ": "mehrfach",
+          "frage": "Was gehört nach SERA.2010 b bei einem Überlandflug ausdrücklich zur Flugvorbereitung?",
+          "richtig": [
+            "Aktuelle Wetterberichte und -vorhersagen",
+            "Die Kraftstoffanforderungen",
+            "Ein alternativer Flugverlauf, falls der Flug nicht wie geplant geht"
+          ],
+          "falsch": [
+            "Eine Anmeldung beim Bundesaufsichtsamt für Flugsicherung",
+            "Ein Gesundheitszeugnis vom selben Tag"
+          ],
+          "erklaerung": "Genau diese drei Punkte nennt SERA.2010 b für Flüge über die Umgebung eines Flugplatzes hinaus."
+        },
+        {
+          "id": "fp-ub-03",
+          "typ": "wahrfalsch",
+          "aussage": "Für eine Platzrunde musst du dich nicht vorbereiten.",
+          "richtig": false,
+          "erklaerung": "Auch vor einer Platzrunde machst du dich mit allen Informationen vertraut, die für den Flug von Belang sind – Wetter am Platz, Piste, NOTAM, Kraftstoff. Die erweiterten Pflichten (Vorhersagen, Plan B) nennt SERA.2010 b für Flüge über die Platzumgebung hinaus."
+        },
+        {
+          "id": "fp-ub-04",
+          "typ": "mehrfach",
+          "frage": "Welche Bedingungen müssen nach NCO.GEN.105 erfüllt sein, bevor du einen Flug beginnst?",
+          "richtig": [
+            "Das Flugzeug ist lufttüchtig und registriert",
+            "Masse und Schwerpunkt liegen in den Grenzen",
+            "Gepäck und Fracht sind gesichert"
+          ],
+          "falsch": [
+            "Der Tank ist mindestens halb voll",
+            "Ein Fluglehrer hat zugestimmt"
+          ],
+          "erklaerung": "NCO.GEN.105 a 4 zählt die Voraussetzungen auf: Lufttüchtigkeit, Registrierung, betriebsbereite Ausrüstung, Masse und Schwerpunkt, gesicherte Beladung und Einhaltung der Betriebsgrenzen."
+        },
+        {
+          "id": "fp-ub-05",
+          "typ": "auswahl",
+          "frage": "Was verlangt NCO.OP.135 für Flüge über die nähere Umgebung des Abflugorts hinaus?",
+          "richtig": "Aktuelle Wettermeldungen und -vorhersagen studieren und eine alternative Vorgehensweise planen",
+          "falsch": [
+            "Einen Flugplan bei der Flugsicherung aufgeben",
+            "Einen zweiten Piloten mitnehmen",
+            "Eine Freigabe des Flugplatzhalters einholen"
+          ],
+          "erklaerung": "NCO.OP.135 b: Studium der verfügbaren aktuellen Wettermeldungen und -vorhersagen und Planung einer Alternative für den Fall, dass das Wetter den Flug nicht wie geplant zulässt."
+        },
+        {
+          "id": "fp-ub-06",
+          "typ": "wahrfalsch",
+          "aussage": "Mit einer leichten Erkältung und einem Medikament, das müde macht, darfst du fliegen, solange du dich fit fühlst.",
+          "richtig": false,
+          "erklaerung": "NCO.GEN.105 a 5: Wer wegen Krankheit, Müdigkeit oder der Wirkung psychoaktiver Substanzen nicht dienstfähig ist, darf keinen Flug beginnen. Im Zweifel nicht fliegen und den Fliegerarzt fragen."
+        },
+        {
+          "id": "fp-ub-07",
+          "typ": "auswahl",
+          "frage": "Womit zeigst du der Luftaufsicht am besten, dass du den Flug ordnungsgemäß vorbereitet hast?",
+          "richtig": "Mit Navigationsflugplan, Wetterunterlagen und NOTAM",
+          "falsch": [
+            "Mit dem Flugbuch der letzten Flüge",
+            "Mit der Telefonnummer des Flugplatzes",
+            "Gar nicht – das wird nie verlangt"
+          ],
+          "erklaerung": "Nach LuftVO § 27 musst du auf Verlangen nachweisen, dass du den Flug ordnungsgemäß vorbereitet hast."
+        },
+        {
+          "id": "fp-ub-08",
+          "typ": "auswahl",
+          "frage": "Womit beginnst du die Flugvorbereitung am sinnvollsten?",
+          "richtig": "Mit dem Wetter – passt es nicht, erübrigt sich der Rest",
+          "falsch": [
+            "Mit dem Tanken",
+            "Mit dem Eintrag ins Bordbuch",
+            "Mit der Startmeldung"
+          ],
+          "erklaerung": "Das Wetter entscheidet über Go oder No-Go. Erst wenn es passt, lohnt sich die genaue Planung von Strecke, Kraftstoff und Beladung."
+        }
+      ]
+    },
+    {
+      "id": "wetter",
+      "titel": "Wetterberatung (Briefing)",
+      "kurz": "Welche Wetterinformationen du brauchst, woher sie kommen und wie du entscheidest.",
+      "kern": [
+        "Einen VFR-Flug beginnst oder setzt du nur fort, wenn das Wetter auf der Strecke und am Ziel zur Ankunftszeit mindestens den VFR-Minima entspricht (NCO.OP.160).",
+        "Flugplatzwetter: METAR (jetzt) und TAF (Vorhersage). Gebietswetter: GAFOR. Warnungen: SIGMET und AIRMET.",
+        "Lege mit deinem Fluglehrer persönliche Minima fest, die über den gesetzlichen liegen.",
+        "Wetter ist eine Momentaufnahme: Kurz vor dem Abflug noch einmal abfragen."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Das Wetter entscheidet über fast jeden Sichtflug. Die Regel dazu ist klar: Nach **NCO.OP.160** darfst du einen VFR-Flug nur beginnen oder fortsetzen, wenn die aktuellen Wetterinformationen erkennen lassen, dass die Bedingungen **auf der Strecke und am Bestimmungsflugplatz zur voraussichtlichen Ankunftszeit** mindestens den VFR-Mindestwerten entsprechen."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein Blick aus dem Fenster reicht nicht: Du brauchst das Wetter am Startplatz, unterwegs und am Ziel – und zwar nicht nur jetzt, sondern für die Zeit, zu der du dort bist."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Woher die Informationen kommen"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Produkt",
+            "Was es zeigt",
+            "Deine Frage"
+          ],
+          "zeilen": [
+            [
+              "METAR",
+              "Beobachtetes Wetter am Flugplatz",
+              "Wie ist es jetzt am Start- und Zielplatz?"
+            ],
+            [
+              "TAF",
+              "Vorhersage für einen Flugplatz",
+              "Wie wird es dort zu meiner Zeit?"
+            ],
+            [
+              "GAFOR",
+              "Gebietsvorhersage für die allgemeine Luftfahrt in Deutschland",
+              "Ist die Strecke dazwischen nach Sicht fliegbar?"
+            ],
+            [
+              "SIGMET, AIRMET",
+              "Warnungen vor gefährlichem Wetter, z. B. Gewitter, Vereisung, Turbulenz",
+              "Gibt es Gefahren auf meiner Strecke?"
+            ],
+            [
+              "Wetterkarten",
+              "Bodenwetter, Höhenwind, Fronten, signifikantes Wetter",
+              "Wie ist die Großwetterlage?"
+            ],
+            [
+              "Radar und Satellit",
+              "Niederschlag und Bewölkung fast in Echtzeit",
+              "Wo sind Schauer und Gewitter gerade?"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "In Deutschland ist der **Deutsche Wetterdienst** (DWD) für die Flugwetterdienste zuständig und bietet Wetterinformationen und Beratung für Piloten an. Die Originalprodukte sind urheberrechtlich geschützt – diese App zeigt deshalb nur frei erfundene Beispiele. Wie METAR und TAF aufgebaut sind, lernst du im Thema METAR lesen."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "GAFOR – das Wetter für die Strecke"
+        },
+        {
+          "typ": "absatz",
+          "text": "Der **GAFOR** (General Aviation Forecast) teilt Deutschland in Gebiete mit je einer Bezugshöhe und sagt für Zeitabschnitte voraus, wie gut sich dort nach Sicht fliegen lässt. Die Einstufung richtet sich nach Bodensicht und Hauptwolkenuntergrenze über der Bezugshöhe:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**C** (Charlie) – frei: sehr gute Sicht, keine tiefe Bewölkung",
+            "**O** (Oscar) – offen: Sichtflug ohne Einschränkungen möglich",
+            "**D** (Delta) – schwierig",
+            "**M** (Mike) – kritisch",
+            "**X** (X-Ray) – geschlossen: Sichtflug nicht möglich"
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Die genauen Grenzwerte und die Zusatzziffern bei D und M stehen in den Erläuterungen des DWD. Wichtig: Teile eines Gebiets können höher liegen als die Bezugshöhe – dort ist es schlechter, als die Einstufung vermuten lässt."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Minima und persönliche Minima"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die gesetzlichen Mindestwerte für Flugsicht und Wolkenabstand stehen in **SERA.5001** (Thema Luftraum & Regeln). Sie sind das absolute Minimum, nicht das Ziel. Gerade mit wenig Erfahrung solltest du mit deinem Fluglehrer **persönliche Minima** festlegen – zum Beispiel eine Mindestsicht, eine Mindest-Wolkenuntergrenze über Grund und den größten Seitenwind, den du dir zutraust."
+        },
+        {
+          "typ": "merke",
+          "titel": "Go oder No-Go",
+          "text": "Entscheide vor dem Abflug, bei welchem Wetter du umkehrst oder ausweichst – und schreib es dir auf. Unterwegs, unter Druck, fällt diese Entscheidung viel schwerer."
+        },
+        {
+          "typ": "achtung",
+          "text": "Wetter ändert sich. Frage METAR und TAF kurz vor dem Abflug noch einmal ab und behalte das Wetter unterwegs im Blick – auch der Fluginformationsdienst gibt dir auf Anfrage Wetterinformationen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-we-01",
+          "typ": "auswahl",
+          "frage": "Unter welcher Bedingung darfst du nach NCO.OP.160 einen VFR-Flug beginnen?",
+          "richtig": "Wenn das Wetter auf der Strecke und am Ziel zur voraussichtlichen Ankunftszeit mindestens den VFR-Minima entspricht",
+          "falsch": [
+            "Wenn das Wetter am Startplatz gerade gut ist",
+            "Wenn der TAF des Zielplatzes keine Gewitter enthält",
+            "Wenn ein anderer Pilot die Strecke heute schon geflogen ist"
+          ],
+          "erklaerung": "NCO.OP.160 a: Maßgeblich sind die Bedingungen auf der Strecke und am Bestimmungsflugplatz zum voraussichtlichen Zeitpunkt der Nutzung."
+        },
+        {
+          "id": "fp-we-02",
+          "typ": "zuordnung",
+          "frage": "Ordne jedem Wetterprodukt zu, was es zeigt.",
+          "paare": [
+            [
+              "METAR",
+              "Beobachtetes Wetter am Flugplatz"
+            ],
+            [
+              "TAF",
+              "Vorhersage für einen Flugplatz"
+            ],
+            [
+              "GAFOR",
+              "Gebietsvorhersage für die allgemeine Luftfahrt"
+            ],
+            [
+              "SIGMET",
+              "Warnung vor gefährlichem Wetter"
+            ]
+          ]
+        },
+        {
+          "id": "fp-we-03",
+          "typ": "auswahl",
+          "frage": "Ein Gebiet ist im GAFOR mit **X** eingestuft. Was heißt das?",
+          "richtig": "Geschlossen – Sichtflug ist dort nicht möglich",
+          "falsch": [
+            "Frei – beste Bedingungen",
+            "Kritisch, aber mit Vorsicht fliegbar",
+            "Keine Vorhersage verfügbar"
+          ],
+          "erklaerung": "X (X-Ray) steht für geschlossen. Die Reihenfolge von gut nach schlecht: C, O, D, M, X."
+        },
+        {
+          "id": "fp-we-04",
+          "typ": "wahrfalsch",
+          "aussage": "Die gesetzlichen VFR-Minima sind ein guter Richtwert für deine persönliche Planung.",
+          "richtig": false,
+          "erklaerung": "Die Minima aus SERA.5001 sind das absolute Minimum. Für die Planung legst du persönliche Minima fest, die deutlich darüber liegen – passend zu deiner Erfahrung."
+        },
+        {
+          "id": "fp-we-05",
+          "typ": "mehrfach",
+          "frage": "Welche Wetterinformationen brauchst du für einen Überlandflug?",
+          "richtig": [
+            "METAR und TAF von Start- und Zielplatz",
+            "Das Wetter auf der Strecke, z. B. GAFOR",
+            "Warnungen wie SIGMET und AIRMET"
+          ],
+          "falsch": [
+            "Die Vorhersage für das nächste Wochenende",
+            "Die Temperatur am Zielort vom Vortag"
+          ],
+          "erklaerung": "Du brauchst das Wetter an Start und Ziel, auf der Strecke und mögliche Gefahren – jeweils für die Zeit deines Flugs."
+        },
+        {
+          "id": "fp-we-06",
+          "typ": "auswahl",
+          "frage": "Der TAF für dein Ziel zeigt für deine Ankunftszeit **TEMPO 2500 SHRA BKN008**. Was tust du?",
+          "richtig": "Ich plane so, als ob der Schauer mich treffen kann – mit Ausweichflugplatz oder anderer Abflugzeit",
+          "falsch": [
+            "Nichts – TEMPO ist ja nur vorübergehend",
+            "Ich fliege schneller, um vor dem Schauer da zu sein",
+            "Ich schaue nur aufs METAR, der TAF ist zu ungenau"
+          ],
+          "erklaerung": "Zeitweise 2,5 km Sicht und Wolken in 800 ft liegen unter den VFR-Minima vieler Lufträume. Du musst damit rechnen, dass es dich trifft."
+        },
+        {
+          "id": "fp-we-07",
+          "typ": "wahrfalsch",
+          "aussage": "Kurz vor dem Abflug noch einmal METAR und TAF abzufragen ist sinnvoll, auch wenn du morgens schon gebrieft hast.",
+          "richtig": true,
+          "erklaerung": "Das Wetter ändert sich, und TAFs werden neu ausgegeben oder geändert (TAF AMD). Die letzte Abfrage vor dem Abflug ist die wichtigste."
+        },
+        {
+          "id": "fp-we-08",
+          "typ": "auswahl",
+          "frage": "Wer ist in Deutschland für den Flugwetterdienst zuständig?",
+          "richtig": "Der Deutsche Wetterdienst (DWD)",
+          "falsch": [
+            "Die DFS Deutsche Flugsicherung",
+            "Das Luftfahrt-Bundesamt",
+            "Die Bundesnetzagentur"
+          ],
+          "erklaerung": "Der DWD liefert die Wetterinformationen für die Luftfahrt. Die DFS ist für die Flugsicherung zuständig, das Luftfahrt-Bundesamt unter anderem für Lizenzen und Luftfahrzeuge."
+        }
+      ]
+    },
+    {
+      "id": "notam",
+      "titel": "NOTAM, Luftraum & Flugplatz",
+      "kurz": "Was sich kurzfristig geändert hat – und was du über Luftraum und Zielplatz wissen musst.",
+      "kern": [
+        "NOTAM melden kurzfristige Änderungen: gesperrte Pisten, aktive Sperrgebiete, neue Hindernisse, Fallschirmsprungbetrieb.",
+        "Im NOTAM stehen A) der Ort, B) der Beginn, C) das Ende und E) der Klartext – Zeiten in UTC im Format JJMMTThhmm.",
+        "Prüfe entlang der Strecke Lufträume, Flugbeschränkungsgebiete und deren Aktivierungszeiten.",
+        "Für Start-, Ziel- und Ausweichplatz: Betriebszeiten, PPR, Frequenzen, Platzrunde, Pistenlänge – Grundlage ist das Luftfahrthandbuch (AIP)."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Das **Luftfahrthandbuch** (AIP) enthält die dauerhaften Angaben eines Staates: Lufträume, Flugplätze, Frequenzen, Verfahren. Für Sichtflieger gibt es in Deutschland das AIP VFR der DFS mit den Sichtanflugkarten. Was sich kurzfristig ändert, steht nicht im Handbuch, sondern in den **NOTAM** (Notice to Airmen)."
+        },
+        {
+          "typ": "einfach",
+          "text": "Das Luftfahrthandbuch ist wie der Straßenatlas, die NOTAM sind die Verkehrsmeldungen: Baustelle, Sperrung, Umleitung – für eine bestimmte Zeit."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Aufbau eines NOTAM"
+        },
+        {
+          "typ": "formel",
+          "titel": "Frei erfundener NOTAM",
+          "text": "A0472/26 NOTAMN\nQ) XXXX/QMRLC/IV/BO/A/000/999/\nA) XALT B) 2606121000 C) 2606121400\nE) RWY 07/25 CLSD DUE TO WIP."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Feld",
+            "Inhalt",
+            "Im Beispiel"
+          ],
+          "zeilen": [
+            [
+              "Kopf",
+              "Nummer und Art: NOTAMN neu, NOTAMR ersetzt einen anderen, NOTAMC hebt einen auf",
+              "A0472/26 NOTAMN"
+            ],
+            [
+              "Q)",
+              "Kurzzeile für die Auswertung: Gebiet, Code für Gegenstand und Zustand, Höhen",
+              "QMRLC – Piste geschlossen"
+            ],
+            [
+              "A)",
+              "Ort: Flugplatz oder Fluginformationsgebiet",
+              "XALT"
+            ],
+            [
+              "B)",
+              "Beginn: Jahr, Monat, Tag, Stunde, Minute in UTC",
+              "12. Juni 2026, 10:00 UTC"
+            ],
+            [
+              "C)",
+              "Ende (PERM = dauerhaft, EST = geschätzt)",
+              "12. Juni 2026, 14:00 UTC"
+            ],
+            [
+              "D)",
+              "Zeitplan, wenn die Änderung nur zu bestimmten Zeiten gilt",
+              "–"
+            ],
+            [
+              "E)",
+              "Klartext, meist mit englischen Abkürzungen",
+              "Piste 07/25 gesperrt wegen Bauarbeiten"
+            ],
+            [
+              "F), G)",
+              "Untere und obere Grenze, z. B. bei Sperrgebieten",
+              "–"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Viele Wörter im Klartext sind festgelegte Abkürzungen: **CLSD** (closed, geschlossen), **RWY** (Piste), **TWY** (Rollweg), **AD** (Flugplatz), **U/S** (unserviceable, außer Betrieb), **ACT** (aktiv), **PJE** (Fallschirmsprungübung), **WIP** (Bauarbeiten), **OBST** (Hindernis)."
+        },
+        {
+          "typ": "merke",
+          "text": "Lies die NOTAM für Start-, Ziel- und Ausweichplatz und für die Strecke dazwischen – auch die, die auf den ersten Blick unwichtig aussehen. Achte besonders auf die Zeiten: B) und C) stehen in UTC."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Luftraum entlang der Strecke"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Kontrollzonen und Lufträume C und D: Freigabe nötig – plane Meldepunkte und Frequenzen ein (Thema Luftraum & Regeln).",
+            "RMZ und TMZ: Funk- beziehungsweise Transponderpflicht.",
+            "Flugbeschränkungsgebiete (ED-R), Gefahrengebiete (ED-D) und zeitweise aktivierte Gebiete: Aktivierungszeiten prüfen.",
+            "Mindesthöhen über Städten und Menschenansammlungen (Kapitel Strecke & Reiseflughöhe)."
+          ]
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Start-, Ziel- und Ausweichplatz"
+        },
+        {
+          "typ": "absatz",
+          "text": "Für jeden Platz, den du anfliegen willst oder könntest, klärst du: Betriebszeiten, ob du vorher eine Genehmigung brauchst (**PPR**, prior permission required), Frequenz und Rufzeichen, Platzrunde und Pisten, Pistenlänge und Belag, Kraftstoff vor Ort und Gebühren. Die Angaben stehen im AIP VFR und beim Flugplatz selbst; bei kleinen Plätzen lohnt ein Anruf."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-no-01",
+          "typ": "auswahl",
+          "frage": "Wofür gibt es NOTAM?",
+          "richtig": "Für kurzfristige Änderungen, z. B. gesperrte Pisten oder aktivierte Sperrgebiete",
+          "falsch": [
+            "Für die dauerhaften Daten eines Flugplatzes",
+            "Für Wettervorhersagen",
+            "Für die Gebühren der Flugsicherung"
+          ],
+          "erklaerung": "Dauerhafte Angaben stehen im Luftfahrthandbuch (AIP), kurzfristige Änderungen in den NOTAM."
+        },
+        {
+          "id": "fp-no-02",
+          "typ": "auswahl",
+          "frage": "In welchem Feld eines NOTAM steht, ab wann er gilt?",
+          "richtig": "B)",
+          "falsch": [
+            "A)",
+            "C)",
+            "E)"
+          ],
+          "erklaerung": "A) Ort, B) Beginn, C) Ende, E) Klartext."
+        },
+        {
+          "id": "fp-no-03",
+          "typ": "zahl",
+          "frage": "Ein NOTAM endet mit **C) 2607151630**. Um wie viel Uhr (UTC) endet er? Gib die Stunde an.",
+          "loesung": 16,
+          "einheit": "Uhr UTC",
+          "erklaerung": "JJMMTThhmm: 26 = 2026, 07 = Juli, 15 = der 15., 16 Uhr 30 UTC."
+        },
+        {
+          "id": "fp-no-04",
+          "typ": "zuordnung",
+          "frage": "Ordne die Abkürzungen aus NOTAM ihrer Bedeutung zu.",
+          "paare": [
+            [
+              "CLSD",
+              "geschlossen"
+            ],
+            [
+              "U/S",
+              "außer Betrieb"
+            ],
+            [
+              "PJE",
+              "Fallschirmsprungübung"
+            ],
+            [
+              "WIP",
+              "Bauarbeiten"
+            ]
+          ]
+        },
+        {
+          "id": "fp-no-05",
+          "typ": "wahrfalsch",
+          "aussage": "**C) PERM** bedeutet, dass die gemeldete Änderung dauerhaft gilt.",
+          "richtig": true,
+          "erklaerung": "PERM = permanent. Solche Änderungen werden später ins Luftfahrthandbuch übernommen."
+        },
+        {
+          "id": "fp-no-06",
+          "typ": "auswahl",
+          "frage": "Was bedeutet **PPR** bei einem Flugplatz?",
+          "richtig": "Landung nur mit vorheriger Genehmigung",
+          "falsch": [
+            "Platzrunde rechts herum",
+            "Nur für Segelflugzeuge",
+            "Piste in schlechtem Zustand"
+          ],
+          "erklaerung": "PPR = prior permission required. Du meldest dich vorher an, meist telefonisch."
+        },
+        {
+          "id": "fp-no-07",
+          "typ": "mehrfach",
+          "frage": "Für welche Orte liest du vor einem Überlandflug die NOTAM?",
+          "richtig": [
+            "Startflugplatz",
+            "Zielflugplatz",
+            "Ausweichflugplatz",
+            "Die Strecke dazwischen"
+          ],
+          "falsch": [
+            "Flugplätze, die mehr als 200 NM abseits liegen",
+            "Die Heimatplätze anderer Vereinsmitglieder"
+          ],
+          "erklaerung": "Alles, was du nutzen willst oder nutzen könntest – auch den Ausweichplatz und die Lufträume auf der Strecke."
+        },
+        {
+          "id": "fp-no-08",
+          "typ": "auswahl",
+          "frage": "Auf deiner Strecke liegt ein Flugbeschränkungsgebiet (ED-R). Was prüfst du?",
+          "richtig": "Ob und wann es aktiv ist – und wie du es umfliegst oder durchfliegen darfst",
+          "falsch": [
+            "Nichts, für Sichtflieger gilt es nie",
+            "Nur, ob es auf der Karte rot eingezeichnet ist",
+            "Ob dort ein Flugplatz liegt"
+          ],
+          "erklaerung": "Viele Gebiete sind nur zu bestimmten Zeiten aktiv. Die Zeiten stehen im Luftfahrthandbuch oder werden per NOTAM bekannt gegeben."
+        },
+        {
+          "id": "fp-no-09",
+          "typ": "generator",
+          "generator": "notam"
+        },
+        {
+          "id": "fp-no-10",
+          "typ": "generator",
+          "generator": "notam"
+        }
+      ]
+    },
+    {
+      "id": "strecke",
+      "titel": "Strecke & Reiseflughöhe",
+      "kurz": "Wegpunkte wählen, Lufträume und Hindernisse beachten, die richtige Höhe planen.",
+      "kern": [
+        "Plane die Strecke über gut erkennbare Wegpunkte und so, dass Lufträume und Sperrgebiete passen.",
+        "Mindesthöhen (SERA.5005 f): über Städten und Menschenansammlungen 1000 ft über dem höchsten Hindernis im Umkreis von 600 m, sonst 500 ft über Grund oder Wasser.",
+        "Halbkreisflugregel oberhalb 3000 ft über Grund: Kurs über Grund 000°–179° ungerade Tausender + 500 ft, 180°–359° gerade Tausender + 500 ft.",
+        "Unterhalb der festgelegten Höhe stellst du das QNH des nächstgelegenen Flugplatzes mit Flugverkehrskontrollstelle ein, darüber 1013,2 hPa (LuftVO § 35)."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Die direkte Linie ist nicht immer die beste Strecke. Kontrollzonen, Sperrgebiete, hohes Gelände oder eine Stadt können im Weg liegen – und nicht jeder Punkt auf der Linie ist aus der Luft gut zu erkennen."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wie beim Wandern: Du gehst nicht querfeldein durch jeden Zaun, sondern von Wegweiser zu Wegweiser – von markanten Punkten, die du sicher wiedererkennst."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wegpunkte"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Aus der Luft gut zu erkennen: Seen, Autobahnkreuze, Flussbiegungen, markante Orte, Funkfeuer.",
+            "In regelmäßigen Abständen, zum Beispiel alle 10 bis 20 Minuten – so merkst du früh, wenn du vom Kurs abkommst.",
+            "Meldepunkte von Kontrollzonen und Pflichtmeldepunkte als feste Wegpunkte einplanen.",
+            "Gelände und Hindernisse entlang der Strecke prüfen."
+          ]
+        },
+        {
+          "typ": "abbildung",
+          "id": "route-umweg",
+          "unterschrift": "Die direkte Strecke von Altdorf nach Seefeld führt durch die Kontrollzone Musterstadt. Der Weg über das Funkfeuer BGN bleibt außerhalb. Frei erfundene Übungskarte."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Mindesthöhen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Außer bei Start und Landung oder mit Genehmigung darfst du nach **SERA.5005 f** nicht tiefer fliegen als **300 m (1000 ft)** über dem höchsten Hindernis im Umkreis von 600 m, wenn du über Städte, andere dicht besiedelte Gebiete oder Menschenansammlungen im Freien fliegst – und sonst nicht tiefer als **150 m (500 ft)** über Grund oder Wasser oder über dem höchsten Hindernis im Umkreis von 150 m."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Halbkreisflugregel"
+        },
+        {
+          "typ": "absatz",
+          "text": "Fliegst du im Horizontalflug höher als **900 m (3000 ft) über Grund oder Wasser**, wählst du die Reiseflughöhe nach dem **Kurs über Grund** aus der Tabelle in Anlage 3 von SERA (**SERA.5005 g**) – sofern Freigaben oder Vorschriften der Behörde nichts anderes bestimmen."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Kurs über Grund",
+            "VFR-Reiseflughöhen"
+          ],
+          "zeilen": [
+            [
+              "000° bis 179°",
+              "FL 035, 055, 075, 095 … (ungerade Tausender + 500 ft)"
+            ],
+            [
+              "180° bis 359°",
+              "FL 045, 065, 085, 105 … (gerade Tausender + 500 ft)"
+            ]
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Maßgeblich ist der **Kurs über Grund**, nicht der Steuerkurs. Bei Seitenwind und Kursen nahe 000° oder 180° können die beiden auf verschiedenen Seiten der Grenze liegen."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Höhenmesser einstellen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Bei Überlandflügen nach Sichtflugregeln in und unterhalb der vom Bundesaufsichtsamt für Flugsicherung festgelegten Höhe stellst du den Höhenmesser auf das **QNH des zur Flugstrecke nächstgelegenen Flugplatzes mit Flugverkehrskontrollstelle** ein; oberhalb dieser Höhe auf **1013,2 hPa** (**LuftVO § 35**). Die festgelegte Höhe steht im Luftfahrthandbuch."
+        },
+        {
+          "typ": "merke",
+          "text": "Plane die Höhe so, dass sie zu Luftraum, Wolken und Gelände passt: unter der Untergrenze eines Luftraums, für den du keine Freigabe hast, mit genug Abstand zu den Wolken und mit Reserve über Gelände und Hindernissen."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-st-01",
+          "typ": "zahl",
+          "frage": "Wie hoch musst du nach SERA.5005 f über einer Stadt mindestens über dem höchsten Hindernis im Umkreis von 600 m fliegen?",
+          "loesung": 1000,
+          "einheit": "ft",
+          "erklaerung": "300 m (1000 ft) über dem höchsten Hindernis innerhalb von 600 m um das Luftfahrzeug."
+        },
+        {
+          "id": "fp-st-02",
+          "typ": "zahl",
+          "frage": "Und in anderen Fällen – wie hoch mindestens über Grund oder Wasser (SERA.5005 f)?",
+          "loesung": 500,
+          "einheit": "ft",
+          "erklaerung": "150 m (500 ft) über Grund oder Wasser oder über dem höchsten Hindernis im Umkreis von 150 m."
+        },
+        {
+          "id": "fp-st-03",
+          "typ": "auswahl",
+          "frage": "Ab welcher Höhe gilt für VFR-Flüge im Horizontalflug die Halbkreisflugregel?",
+          "richtig": "Oberhalb 3000 ft über Grund oder Wasser",
+          "falsch": [
+            "Ab 3000 ft über dem Meeresspiegel",
+            "Ab FL 100",
+            "In jeder Höhe"
+          ],
+          "erklaerung": "SERA.5005 g: oberhalb 900 m (3000 ft) über Grund oder Wasser, sofern nichts anderes bestimmt ist."
+        },
+        {
+          "id": "fp-st-04",
+          "typ": "wahrfalsch",
+          "aussage": "Für die Halbkreisflugregel zählt der Steuerkurs.",
+          "richtig": false,
+          "erklaerung": "Es zählt der Kurs über Grund – also die Richtung, in die du dich tatsächlich bewegst."
+        },
+        {
+          "id": "fp-st-05",
+          "typ": "auswahl",
+          "frage": "Überlandflug unterhalb der festgelegten Höhe: Welches QNH stellst du nach LuftVO § 35 ein?",
+          "richtig": "Das QNH des zur Flugstrecke nächstgelegenen Flugplatzes mit Flugverkehrskontrollstelle",
+          "falsch": [
+            "Immer 1013,2 hPa",
+            "Das QNH des Startflugplatzes bis zur Landung",
+            "Das QFE des Zielflugplatzes"
+          ],
+          "erklaerung": "LuftVO § 35 Abs. 2. Oberhalb der festgelegten Höhe gilt 1013,2 hPa (Standardeinstellung)."
+        },
+        {
+          "id": "fp-st-06",
+          "typ": "mehrfach",
+          "frage": "Was macht einen guten Wegpunkt aus?",
+          "richtig": [
+            "Aus der Luft gut zu erkennen",
+            "Unverwechselbar",
+            "Liegt so, dass die Strecke Lufträume und Sperrgebiete berücksichtigt"
+          ],
+          "falsch": [
+            "Möglichst klein und unauffällig",
+            "Liegt mitten in einer Kontrollzone, für die du keine Freigabe hast"
+          ],
+          "erklaerung": "Gute Wegpunkte erkennst du sicher wieder, und sie führen dich um Lufträume herum, für die du keine Freigabe hast."
+        },
+        {
+          "id": "fp-st-07",
+          "typ": "auswahl",
+          "frage": "Warum führt die geplante Strecke von Altdorf nach Seefeld über das Funkfeuer BGN?",
+          "abbildung": "route-umweg",
+          "richtig": "Weil die direkte Strecke durch die Kontrollzone Musterstadt führen würde",
+          "falsch": [
+            "Weil Funkfeuer immer angeflogen werden müssen",
+            "Weil der Weg über BGN kürzer ist",
+            "Weil man in BGN tanken kann"
+          ],
+          "erklaerung": "Der Umweg über BGN bleibt außerhalb der Kontrollzone – ohne Freigabe vom Turm Musterstadt."
+        },
+        {
+          "id": "fp-st-08",
+          "typ": "generator",
+          "generator": "halbkreis"
+        },
+        {
+          "id": "fp-st-09",
+          "typ": "generator",
+          "generator": "halbkreis"
+        },
+        {
+          "id": "fp-st-10",
+          "typ": "generator",
+          "generator": "kontrollzone"
+        },
+        {
+          "id": "fp-st-11",
+          "typ": "generator",
+          "generator": "kontrollzone"
+        }
+      ]
+    },
+    {
+      "id": "navlog",
+      "titel": "Der Navigationsflugplan",
+      "kurz": "Kurs, Wind, Steuerkurs, Zeit und Kraftstoff – Etappe für Etappe auf einem Blatt.",
+      "kern": [
+        "Der Navigationsflugplan enthält für jede Etappe Kurs, Steuerkurs, Entfernung, Grundgeschwindigkeit, Flugzeit und Kraftstoff.",
+        "Vom rechtweisenden Kurs zum Steuerkurs: Luvwinkel dazu (Wind von rechts +, von links −), Ostmissweisung abziehen, Westmissweisung dazu.",
+        "Zeit = Entfernung ÷ Grundgeschwindigkeit.",
+        "Unterwegs trägst du die tatsächlichen Überflugzeiten ein und vergleichst sie mit dem Plan."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Im Cockpit ist keine Zeit zum Rechnen. Deshalb rechnest du vorher alles aus und schreibst es in den **Navigationsflugplan** (auch Flugdurchführungsplan): für jede Etappe den Kurs, den Steuerkurs mit Windkorrektur, die Entfernung, die Grundgeschwindigkeit, die Flugzeit und den Kraftstoff. Wie Kurse, Missweisung und Winddreieck funktionieren, lernst du im Thema Navigation."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Navigationsflugplan ist dein Spickzettel fürs Cockpit: Alles, was du unterwegs ausrechnen müsstest, steht schon da – du musst nur noch fliegen und vergleichen."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Die Spalten"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Spalte",
+            "Bedeutung"
+          ],
+          "zeilen": [
+            [
+              "Wegpunkt",
+              "Anfang und Ende der Etappe"
+            ],
+            [
+              "rwK",
+              "rechtweisender Kurs, aus der Karte gemessen"
+            ],
+            [
+              "Wind, Luvwinkel",
+              "aus dem Winddreieck: um wie viel du gegen den Wind vorhältst"
+            ],
+            [
+              "rwSK",
+              "rechtweisender Steuerkurs = rwK ± Luvwinkel"
+            ],
+            [
+              "MW",
+              "Missweisung, auf der Übungskarte 3° Ost"
+            ],
+            [
+              "mwSK",
+              "missweisender Steuerkurs – mit der Deviation wird daraus der Kompasskurs"
+            ],
+            [
+              "NM, GS",
+              "Entfernung und Grundgeschwindigkeit"
+            ],
+            [
+              "Zeit, ETA, ATA",
+              "Flugzeit, voraussichtliche und tatsächliche Überflugzeit"
+            ],
+            [
+              "Kraftstoff",
+              "Verbrauch der Etappe und Rest an Bord"
+            ]
+          ]
+        },
+        {
+          "typ": "formel",
+          "titel": "So rechnest du",
+          "text": "rwSK = rwK ± Luvwinkel\nmwSK = rwSK − Ostmissweisung (+ Westmissweisung)\nZeit = Entfernung ÷ Grundgeschwindigkeit"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Beispiel: Altdorf → Whiskey → Musterstadt"
+        },
+        {
+          "typ": "abbildung",
+          "id": "route-beispiel",
+          "unterschrift": "Strecke von Altdorf über den Meldepunkt Whiskey zum Flughafen Musterstadt. Frei erfundene Übungskarte."
+        },
+        {
+          "typ": "absatz",
+          "text": "Übungsflugzeug MF-4 mit 100 kt Eigengeschwindigkeit, Wind aus 270° mit 15 kt, Missweisung 3° Ost:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Etappe",
+            "rwK",
+            "Luvwinkel",
+            "rwSK",
+            "mwSK",
+            "NM",
+            "GS",
+            "Zeit"
+          ],
+          "zeilen": [
+            [
+              "XALT–W",
+              "036°",
+              "−7°",
+              "029°",
+              "026°",
+              "18,8",
+              "108 kt",
+              "10 min"
+            ],
+            [
+              "W–XMUS",
+              "084°",
+              "−1°",
+              "083°",
+              "080°",
+              "10,9",
+              "115 kt",
+              "6 min"
+            ],
+            [
+              "Summe",
+              "",
+              "",
+              "",
+              "",
+              "29,7",
+              "",
+              "16 min"
+            ]
+          ],
+          "kompakt": true
+        },
+        {
+          "typ": "absatz",
+          "text": "Der Wind kommt auf beiden Etappen schräg von hinten links: Du hältst nach links vor (negativer Luvwinkel) und bist schneller als mit deiner Eigengeschwindigkeit."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "navflugplan"
+        },
+        {
+          "typ": "merke",
+          "text": "Trage bei jedem Wegpunkt die tatsächliche Zeit ein. Bist du schneller oder langsamer als geplant, korrigierst du die ETA für den Rest der Strecke – und prüfst, ob der Kraftstoff noch passt."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-nl-01",
+          "typ": "auswahl",
+          "frage": "Wie kommst du vom rechtweisenden Kurs zum missweisenden Steuerkurs?",
+          "richtig": "Luvwinkel berücksichtigen, dann Ostmissweisung abziehen bzw. Westmissweisung dazuzählen",
+          "falsch": [
+            "Missweisung dazuzählen und den Wind weglassen",
+            "Nur die Deviation abziehen",
+            "Nur den Luvwinkel berücksichtigen"
+          ],
+          "erklaerung": "Erst der Wind (rwK → rwSK), dann die Missweisung (rwSK → mwSK). Mit der Deviation wird daraus der Kompasskurs."
+        },
+        {
+          "id": "fp-nl-02",
+          "typ": "zahl",
+          "frage": "rwK 090°, Luvwinkel 6° nach rechts, Missweisung 3° Ost. Welcher missweisende Steuerkurs?",
+          "loesung": 93,
+          "einheit": "°",
+          "erklaerung": "rwSK = 090° + 6° = 096°. mwSK = 096° − 3° = 093°."
+        },
+        {
+          "id": "fp-nl-03",
+          "typ": "zahl",
+          "frage": "rwK 210°, Luvwinkel 8° nach links, Missweisung 3° Ost. Welcher missweisende Steuerkurs?",
+          "loesung": 199,
+          "einheit": "°",
+          "erklaerung": "rwSK = 210° − 8° = 202°. mwSK = 202° − 3° = 199°."
+        },
+        {
+          "id": "fp-nl-04",
+          "typ": "wahrfalsch",
+          "aussage": "Kommt der Wind von links, ist der Luvwinkel negativ – du hältst nach links vor.",
+          "richtig": true,
+          "erklaerung": "Du drehst die Nase in den Wind. Bei Wind von links wird der Steuerkurs also kleiner als der Kurs."
+        },
+        {
+          "id": "fp-nl-05",
+          "typ": "auswahl",
+          "frage": "Was trägst du unterwegs in den Navigationsflugplan ein?",
+          "richtig": "Die tatsächlichen Überflugzeiten der Wegpunkte",
+          "falsch": [
+            "Die geplanten Kurse noch einmal",
+            "Die Startmasse",
+            "Das Wetter vom Vortag"
+          ],
+          "erklaerung": "Mit den tatsächlichen Zeiten (ATA) erkennst du, ob du schneller oder langsamer bist, und korrigierst ETA und Kraftstoffplanung."
+        },
+        {
+          "id": "fp-nl-06",
+          "typ": "zuordnung",
+          "frage": "Ordne die Abkürzungen ihrer Bedeutung zu.",
+          "paare": [
+            [
+              "rwK",
+              "Kurs aus der Karte"
+            ],
+            [
+              "rwSK",
+              "Kurs mit Luvwinkel"
+            ],
+            [
+              "mwSK",
+              "Steuerkurs bezogen auf missweisend Nord"
+            ],
+            [
+              "GS",
+              "Geschwindigkeit über Grund"
+            ]
+          ]
+        },
+        {
+          "id": "fp-nl-07",
+          "typ": "auswahl",
+          "frage": "Im Beispiel Altdorf → Whiskey ist die Grundgeschwindigkeit größer als die Eigengeschwindigkeit. Warum?",
+          "richtig": "Der Wind kommt schräg von hinten",
+          "falsch": [
+            "Weil das Flugzeug sinkt",
+            "Weil die Missweisung östlich ist",
+            "Weil der Luvwinkel negativ ist"
+          ],
+          "erklaerung": "Wind aus 270° bei einem Kurs von 036°: Der Wind kommt von hinten links und schiebt mit."
+        },
+        {
+          "id": "fp-nl-08",
+          "typ": "generator",
+          "generator": "etappe"
+        },
+        {
+          "id": "fp-nl-09",
+          "typ": "generator",
+          "generator": "etappe"
+        },
+        {
+          "id": "fp-nl-10",
+          "typ": "generator",
+          "generator": "etappe"
+        },
+        {
+          "id": "fp-nl-11",
+          "typ": "generator",
+          "generator": "eta"
+        }
+      ]
+    },
+    {
+      "id": "kraftstoff",
+      "titel": "Kraftstoffplanung",
+      "kurz": "Wie viel Kraftstoff du brauchst – und welche Reserve du nie anrührst.",
+      "kern": [
+        "Genug Kraftstoff für Wetter, Flugleistung, Verspätungen und Unvorhergesehenes – plus eine Endreserve, die du schützt (NCO.OP.125).",
+        "Endreserve für Flugzeuge (AMC1 NCO.OP.125(b)): am Tag 30 min, bei Start und Landung am selben Platz in Sichtweite 10 min, nachts 45 min.",
+        "Kraftstoff = Rollen + Strecke + Zuschlag + Endreserve (+ Weg zum Ausweichflugplatz, wenn nötig).",
+        "Unterwegs überwachst du den Vorrat. Im kontrollierten Flug meldest du rechtzeitig MINIMUM FUEL oder MAYDAY FUEL (NCO.OP.185)."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Nach **NCO.OP.125** muss der verantwortliche Pilot sicherstellen, dass genug Kraftstoff an Bord ist – unter Berücksichtigung des Wetters, aller Faktoren, die die Flugleistung beeinflussen, erwarteter Verspätungen und unvorhergesehener Ereignisse. Außerdem plant er eine **Endreserve** ein, die eine sichere Landung gewährleistet und die er schützt. Einen Flug beginnen darfst du nur, wenn der Kraftstoff bis zum Ziel – und wenn nötig bis zum Ausweichflugplatz – plus Endreserve reicht."
+        },
+        {
+          "typ": "einfach",
+          "text": "Die Endreserve ist wie der Notgroschen im Portemonnaie: Du planst ihn nie für den Einkauf ein. Wenn du ihn anbrechen musst, ist etwas schiefgelaufen."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wie groß ist die Endreserve?"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Verordnung selbst nennt keine Minuten. Die stehen in den **Annahmefähigen Nachweisverfahren** der EASA (AMC1 NCO.OP.125(b)) – das sind die Wege, mit denen man die Vorschrift erfüllt, und mit diesen Werten plant man in der Praxis. Für **Flugzeuge** soll die Endreserve mindestens reichen für:"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Art des Flugs",
+            "Endreserve"
+          ],
+          "zeilen": [
+            [
+              "Am Tag, Start und Landung am selben Platz, immer in Sichtweite",
+              "10 Minuten bei höchster Dauerleistung, 1500 ft über dem Platz"
+            ],
+            [
+              "Am Tag, alle anderen VFR-Flüge",
+              "30 Minuten Warteflug, 1500 ft über dem Ziel"
+            ],
+            [
+              "Nachts nach VFR und nach IFR",
+              "45 Minuten Warteflug, 1500 ft über Ziel oder Ausweichflugplatz"
+            ]
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Für Hubschrauber nennt dasselbe AMC andere Werte; für Ultraleichtflugzeuge gelten nationale Regeln."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "So rechnest du"
+        },
+        {
+          "typ": "formel",
+          "titel": "Kraftstoffbedarf",
+          "text": "Kraftstoff = Rollen + Strecke + Zuschlag + Endreserve\nStrecke = Flugzeit × Verbrauch\nEndreserve (Tag, Überland) = 0,5 h × Verbrauch"
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel mit dem Übungsflugzeug MF-4 (30 l/h): 40 Minuten Flugzeit ergeben 20 l für die Strecke. Dazu 10 % Zuschlag (2 l), die Endreserve von 0,5 h × 30 l/h = 15 l und 3 l zum Rollen. Zusammen **40 l**. Mit 60 l an Bord bleiben 20 l Spielraum für Umwege."
+        },
+        {
+          "typ": "abbildung",
+          "id": "kraftstoff-beispiel",
+          "unterschrift": "Der Kraftstoff im Maßstab des Tanks: 40 l benötigt, 60 l an Bord. Frei erfundenes Übungsflugzeug."
+        },
+        {
+          "typ": "absatz",
+          "text": "Einen festen Prozentsatz für den Zuschlag schreibt die Verordnung nicht vor – du berücksichtigst Wetter, Flugleistung, Verspätungen und Unvorhergesehenes (NCO.OP.125 a). 10 % sind ein verbreiteter Ansatz. Bei Gegenwind, Umwegen, unsicherem Wetter oder einem Ausweichflugplatz planst du mehr."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Liter, Kilogramm, Minuten"
+        },
+        {
+          "typ": "absatz",
+          "text": "Für Masse und Schwerpunkt brauchst du Kilogramm: AVGAS wiegt rund **0,72 kg je Liter**. Rechne auch rückwärts: Wie lange reicht der Kraftstoff an Bord? Diese Höchstflugdauer gehört auch in den Flugplan (SERA.4005)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Unterwegs"
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach **NCO.OP.185** überwachst du den Kraftstoff während des Flugs. Er darf nicht unter die Menge sinken, die du brauchst, um einen Flugplatz für eine sichere Landung zu erreichen. Im **kontrollierten Flug** meldest du **MINIMUM FUEL**, wenn du auf einen bestimmten Landeplatz festgelegt bist und jede Änderung der Freigabe oder jede Verzögerung dazu führen kann, dass du mit weniger als der Endreserve landest. Ist absehbar, dass du selbst am nächsten geeigneten Platz mit weniger als der Endreserve landen wirst, erklärst du mit **MAYDAY MAYDAY MAYDAY FUEL** eine Notlage."
+        },
+        {
+          "typ": "achtung",
+          "text": "Rechnest du unterwegs damit, die Endreserve anzugreifen, handelst du sofort: früher landen und tanken. „Wird schon reichen“ ist keine Planung."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-kr-01",
+          "typ": "wahrfalsch",
+          "aussage": "Die Minuten der Endreserve (10, 30, 45) stehen direkt im Text von NCO.OP.125.",
+          "richtig": false,
+          "erklaerung": "Seit der Änderung durch die Verordnung (EU) 2021/1296 verlangt NCO.OP.125 eine Endreserve, nennt aber keine Minuten. Die Werte stehen in AMC1 NCO.OP.125(b) der EASA."
+        },
+        {
+          "id": "fp-kr-02",
+          "typ": "zahl",
+          "frage": "Überlandflug am Tag, Verbrauch 28 l/h. Wie viele Liter Endreserve planst du mindestens?",
+          "loesung": 14,
+          "einheit": "l",
+          "erklaerung": "30 Minuten = 0,5 h × 28 l/h = 14 l."
+        },
+        {
+          "id": "fp-kr-03",
+          "typ": "auswahl",
+          "frage": "Wofür ist die Endreserve gedacht?",
+          "richtig": "Für eine sichere Landung, wenn Unvorhergesehenes passiert – sie wird nicht für den Flug verplant",
+          "falsch": [
+            "Für den Steigflug nach dem Start",
+            "Für einen Rundflug am Ziel",
+            "Für das Rollen nach der Landung"
+          ],
+          "erklaerung": "Die Endreserve schützt du (NCO.OP.125 b). Für Rollen, Steigflug und Umwege planst du extra."
+        },
+        {
+          "id": "fp-kr-04",
+          "typ": "auswahl",
+          "frage": "Wann meldest du in einem kontrollierten Flug **MINIMUM FUEL**?",
+          "richtig": "Wenn du auf einen bestimmten Landeplatz festgelegt bist und jede Verzögerung dazu führen kann, dass du mit weniger als der Endreserve landest",
+          "falsch": [
+            "Sobald der Tank halb leer ist",
+            "Wenn du die Endreserve schon angreifen musst",
+            "Vor jedem Landeanflug"
+          ],
+          "erklaerung": "NCO.OP.185 b. Musst du die Endreserve angreifen, ist es eine Notlage: MAYDAY MAYDAY MAYDAY FUEL (NCO.OP.185 c)."
+        },
+        {
+          "id": "fp-kr-05",
+          "typ": "zahl",
+          "frage": "Wie viel wiegen **80 l AVGAS** (0,72 kg/l)?",
+          "loesung": 57.6,
+          "toleranz": 0.5,
+          "einheit": "kg",
+          "erklaerung": "80 l × 0,72 kg/l = 57,6 kg."
+        },
+        {
+          "id": "fp-kr-06",
+          "typ": "mehrfach",
+          "frage": "Was gehört in die Kraftstoffplanung?",
+          "richtig": [
+            "Kraftstoff zum Rollen",
+            "Kraftstoff für die Strecke",
+            "Zuschlag für Unvorhergesehenes",
+            "Endreserve"
+          ],
+          "falsch": [
+            "Der Rückflug in der nächsten Woche",
+            "Der Kraftstoffpreis am Zielflugplatz"
+          ],
+          "erklaerung": "Rollen, Strecke, Zuschlag und Endreserve – und wenn nötig der Weg zum Ausweichflugplatz."
+        },
+        {
+          "id": "fp-kr-07",
+          "typ": "auswahl",
+          "frage": "Unterwegs merkst du: Wegen Gegenwind kommst du am Ziel mit weniger als der Endreserve an. Was tust du?",
+          "richtig": "Früher landen und tanken",
+          "falsch": [
+            "Weiterfliegen – die Reserve ist ja dafür da",
+            "Höher steigen, dann reicht es schon",
+            "Schneller fliegen, um Zeit zu sparen"
+          ],
+          "erklaerung": "Die Endreserve wird nicht verplant. Schneller fliegen erhöht den Verbrauch meist sogar."
+        },
+        {
+          "id": "fp-kr-08",
+          "typ": "generator",
+          "generator": "kraftstoffbedarf"
+        },
+        {
+          "id": "fp-kr-09",
+          "typ": "generator",
+          "generator": "kraftstoffbedarf"
+        },
+        {
+          "id": "fp-kr-10",
+          "typ": "generator",
+          "generator": "flugzeitMoeglich"
+        },
+        {
+          "id": "fp-kr-11",
+          "typ": "generator",
+          "generator": "endreserve"
+        },
+        {
+          "id": "fp-kr-12",
+          "typ": "generator",
+          "generator": "endreserve"
+        }
+      ]
+    },
+    {
+      "id": "leistung",
+      "titel": "Masse, Schwerpunkt & Startstrecke",
+      "kurz": "Ist das Flugzeug richtig beladen – und reicht die Piste heute?",
+      "kern": [
+        "Beladung, Masse und Schwerpunkt müssen in jeder Flugphase in den Grenzen des Flughandbuchs liegen (NCO.POL.100).",
+        "Die Flugleistung muss für Strecke, Luftraum und Flugplätze ausreichen – geprüft mit den Tabellen des Flughandbuchs (NCO.POL.110).",
+        "Hoch, heiß, schwer, Gras und Rückenwind verlängern die Startstrecke; Gegenwind verkürzt sie.",
+        "Druckhöhe ≈ Platzhöhe + (1013 − QNH) × 30 ft."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Bevor du startest, müssen Masse und Schwerpunktlage den Flug innerhalb der Grenzen erlauben (NCO.GEN.105) – und zwar **in jeder Flugphase** (**NCO.POL.100**). Weil du unterwegs Kraftstoff verbrauchst, verschiebt sich der Schwerpunkt bis zur Landung. Wie du rechnest, lernst du im Thema Masse & Schwerpunkt mit dem Beladungsrechner."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein voll beladenes Flugzeug an einem heißen Tag auf einem hoch gelegenen Grasplatz ist wie ein Radfahrer mit schwerem Rucksack bergauf im Sand: Es dauert viel länger, bis er in Fahrt kommt."
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach **NCO.POL.110** darfst du nur fliegen, wenn die Flugleistung – unter Berücksichtigung der Genauigkeit der Tabellen und Diagramme – für Strecke, Luftraum und Flugplätze ausreicht. Am wichtigsten ist dabei oft die Frage: Reicht die Piste?"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Was die Startstrecke verlängert"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Höhe und Temperatur:** dünnere Luft bringt weniger Motorleistung und weniger Auftrieb. Maßgeblich ist die Dichtehöhe (Thema Meteorologie).",
+            "**Masse:** Ein schwereres Flugzeug braucht eine höhere Abhebegeschwindigkeit und beschleunigt langsamer.",
+            "**Wind:** Gegenwind verkürzt die Strecke, schon wenig Rückenwind verlängert sie deutlich.",
+            "**Pistenbelag:** Gras, nasses Gras, weicher Boden oder Schnee bremsen.",
+            "**Neigung:** bergauf wird die Strecke länger, bergab kürzer."
+          ]
+        },
+        {
+          "typ": "formel",
+          "titel": "Druckhöhe",
+          "text": "Druckhöhe ≈ Platzhöhe + (1013 − QNH) × 30 ft"
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Das Flughandbuch des Übungsflugzeugs"
+        },
+        {
+          "typ": "absatz",
+          "text": "Jedes Flughandbuch enthält Tabellen oder Diagramme für die Start- und Landestrecke. Für das frei erfundene Übungsflugzeug MF-4 nutzt diese App die folgende Tabelle: Startstrecke über ein 15-m-Hindernis bei 1150 kg, trockener Asphaltpiste und Windstille. Zwischenwerte werden geradlinig gemittelt."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Druckhöhe",
+            "0 °C",
+            "10 °C",
+            "20 °C",
+            "30 °C"
+          ],
+          "zeilen": [
+            [
+              "0 ft",
+              "480 m",
+              "510 m",
+              "545 m",
+              "580 m"
+            ],
+            [
+              "2000 ft",
+              "555 m",
+              "590 m",
+              "630 m",
+              "670 m"
+            ],
+            [
+              "4000 ft",
+              "645 m",
+              "685 m",
+              "730 m",
+              "780 m"
+            ]
+          ],
+          "kompakt": true
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "je 100 kg unter 1150 kg: −10 %",
+            "je 10 kt Gegenwind: −10 %; je 2 kt Rückenwind: +10 %",
+            "trockenes Gras: +20 %; nasses Gras: +30 %",
+            "Die Startrollstrecke ist etwa 55 % der Startstrecke über 15 m."
+          ]
+        },
+        {
+          "typ": "achtung",
+          "text": "Diese Werte sind frei erfunden. Für dein Flugzeug gelten nur die Tabellen in seinem Flughandbuch – mit seinen eigenen Korrekturen und Hinweisen."
+        },
+        {
+          "typ": "absatz",
+          "text": "Beispiel: Bergen (2100 ft, 650 m trockenes Gras), 25 °C, QNH 1013 hPa, 1100 kg, 5 kt Gegenwind. Die Tabelle liefert etwa 655 m. Korrekturen: −5 % für die Masse, −5 % für den Wind, +20 % für das Gras. Ergebnis: rund **710 m** – die Piste ist mit 650 m zu kurz!"
+        },
+        {
+          "typ": "abbildung",
+          "id": "startstrecke-beispiel",
+          "unterschrift": "Startstrecke und Pistenlänge im selben Maßstab: In Bergen reicht die Piste an diesem Tag nicht."
+        },
+        {
+          "typ": "absatz",
+          "text": "Lösungen: weniger Kraftstoff oder Gepäck mitnehmen (wenn es für den Flug reicht), früh am kühlen Morgen starten – oder gar nicht erst in Bergen landen, wenn du dort nicht wieder wegkommst."
+        },
+        {
+          "typ": "merke",
+          "text": "Prüfe die Startstrecke nicht nur am Startplatz, sondern auch am Zielplatz – für den Rückflug. Und lege vorher fest, an welchem Punkt du den Start abbrichst, wenn das Flugzeug nicht wie erwartet beschleunigt."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "startstrecke"
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-le-01",
+          "typ": "mehrfach",
+          "frage": "Was verlängert die Startstrecke?",
+          "richtig": [
+            "Hohe Temperatur",
+            "Ein hoch gelegener Flugplatz",
+            "Nasses Gras",
+            "Rückenwind"
+          ],
+          "falsch": [
+            "Gegenwind",
+            "Weniger Zuladung"
+          ],
+          "erklaerung": "Dünne Luft (hoch, heiß), weicher oder nasser Belag und Rückenwind verlängern die Strecke. Gegenwind und weniger Masse verkürzen sie."
+        },
+        {
+          "id": "fp-le-02",
+          "typ": "wahrfalsch",
+          "aussage": "Gegenwind verkürzt die Startstrecke.",
+          "richtig": true,
+          "erklaerung": "Mit Gegenwind erreichst du die nötige Fahrt gegenüber der Luft bei geringerer Geschwindigkeit über Grund."
+        },
+        {
+          "id": "fp-le-03",
+          "typ": "auswahl",
+          "frage": "Was verlangt NCO.POL.100?",
+          "richtig": "Beladung, Masse und Schwerpunkt müssen in jeder Flugphase in den Grenzen des Flughandbuchs liegen",
+          "falsch": [
+            "Das Flugzeug muss jährlich gewogen werden",
+            "Der Tank muss vor jedem Flug voll sein",
+            "Gepäck darf nur hinten geladen werden"
+          ],
+          "erklaerung": "NCO.POL.100 a: in jeder Betriebsphase innerhalb der festgelegten Betriebsgrenzen."
+        },
+        {
+          "id": "fp-le-04",
+          "typ": "zahl",
+          "frage": "Platzhöhe 1450 ft, QNH 1003 hPa. Wie groß ist die Druckhöhe ungefähr (1 hPa ≈ 30 ft)?",
+          "loesung": 1750,
+          "toleranz": 30,
+          "einheit": "ft",
+          "erklaerung": "(1013 − 1003) × 30 ft = 300 ft. 1450 ft + 300 ft = 1750 ft."
+        },
+        {
+          "id": "fp-le-05",
+          "typ": "auswahl",
+          "frage": "Warum verschiebt sich der Schwerpunkt während des Flugs?",
+          "richtig": "Weil Kraftstoff verbraucht wird",
+          "falsch": [
+            "Weil die Luft dünner wird",
+            "Weil der Wind dreht",
+            "Weil der Motor wärmer wird"
+          ],
+          "erklaerung": "Der Kraftstoff hat einen eigenen Hebelarm. Wird er weniger, wandert der Schwerpunkt – deshalb prüfst du Start und Landung."
+        },
+        {
+          "id": "fp-le-06",
+          "typ": "auswahl",
+          "frage": "In Bergen reicht die Piste heute nicht für den Start mit voller Beladung. Welche Idee ist **keine** gute Lösung?",
+          "richtig": "Trotzdem starten und auf Reserven in den Tabellen hoffen",
+          "falsch": [
+            "Weniger Kraftstoff tanken, wenn er für den Flug reicht",
+            "Früh am kühlen Morgen starten",
+            "Einen Fluggast auf anderem Weg nach Hause schicken"
+          ],
+          "erklaerung": "Die Werte im Flughandbuch gelten für ein neues Flugzeug und einen geübten Piloten. Ist die Strecke länger als die Piste, wird nicht gestartet."
+        },
+        {
+          "id": "fp-le-07",
+          "typ": "zahl",
+          "frage": "Tabelle: 545 m Startstrecke (0 ft, 20 °C, 1150 kg). Es weht 10 kt Gegenwind (−10 %). Wie lang ist die Startstrecke?",
+          "loesung": 491,
+          "toleranz": 5,
+          "einheit": "m",
+          "erklaerung": "545 m × 0,9 = 490,5 m ≈ 491 m."
+        },
+        {
+          "id": "fp-le-08",
+          "typ": "generator",
+          "generator": "startstrecke"
+        },
+        {
+          "id": "fp-le-09",
+          "typ": "generator",
+          "generator": "startstrecke"
+        },
+        {
+          "id": "fp-le-10",
+          "typ": "generator",
+          "generator": "startstrecke"
+        }
+      ]
+    },
+    {
+      "id": "flugplan",
+      "titel": "Flugplan, Unterlagen & Landemeldung",
+      "kurz": "Wann ein Flugplan nötig ist, was drinsteht, welche Papiere an Bord gehören – und wie der Flug endet.",
+      "kern": [
+        "Ein Flugplan ist unter anderem nötig für Flüge mit Flugverkehrskontrolle, über Staatsgrenzen und bei Nacht über die Platzumgebung hinaus (SERA.4001 b).",
+        "Vor einem Flug, für den ein Flugplan zu übermitteln ist, holst du eine Flugberatung ein (LuftVO § 27 Abs. 2).",
+        "Nach der Landung schließt du den Flugplan mit einer Landemeldung (SERA.4020) – sonst wird irgendwann nach dir gesucht.",
+        "An Bord: unter anderem Flughandbuch, Eintragungsschein und Lufttüchtigkeitszeugnis im Original, Versicherungsnachweis, Bordbuch und aktuelle Karten (NCO.GEN.135) – und deine Lizenz, dein Tauglichkeitszeugnis und ein Lichtbildausweis (FCL.045)."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Mit einem **Flugplan** übermittelst du den Flugverkehrsdiensten die Angaben zu deinem Flug. Der Begriff meint sowohl den vollständigen Flugplan für die ganze Strecke als auch die wenigen Angaben, die du zum Beispiel per Funk übermittelst, um eine Freigabe für einen kurzen Abschnitt zu bekommen – etwa für Start oder Landung auf einem kontrollierten Flugplatz (**SERA.4001 a**)."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein Flugplan ist wie die Nachricht nach Hause: „Ich fahre heute von A nach B und bin um 15 Uhr da.“ Kommst du nicht an, weiß jemand, wo man suchen muss."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wann ist ein Flugplan nötig?"
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach **SERA.4001 b** ist vor folgenden Flügen ein Flugplan abzugeben:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Flüge oder Flugabschnitte, die der Flugverkehrskontrolle unterliegen,",
+            "Flüge nach Instrumentenflugregeln im Flugverkehrsberatungsluftraum,",
+            "Flüge in Gebieten oder auf Strecken, die die Behörde festgelegt hat, um Fluginformation, Flugalarmdienst und Suche und Rettung zu erleichtern,",
+            "Flüge in Gebieten oder auf Strecken, die die Behörde zur Koordinierung mit militärischen Stellen oder Nachbarstaaten festgelegt hat,",
+            "Flüge über Staatsgrenzen, sofern die betroffenen Staaten nichts anderes geregelt haben,",
+            "Flüge bei Nacht, soweit sie über die Umgebung des Flugplatzes hinausführen."
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Für den Einflug in eine Kontrollzone genügen in der Regel die Angaben, die du dem Turm per Funk übermittelst. Einen vollständigen Flugplan für einen Inlandsflug am Tag im Luftraum G verlangt SERA nicht – viele Piloten geben trotzdem einen auf, weil dann jemand nach ihnen sucht, wenn sie nicht ankommen. Welche Regeln in Deutschland im Einzelnen gelten, steht im Luftfahrthandbuch; im Zweifel hilft die Flugberatung."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Aufgeben und Inhalt"
+        },
+        {
+          "typ": "absatz",
+          "text": "Den Flugplan gibst du vor dem Abflug bei einer Meldestelle für Flugverkehrsdienste auf – in Deutschland über den Flugberatungsdienst (AIS) der DFS – oder während des Flugs per Funk an die zuständige Stelle (SERA.4001 c). Vorher holst du eine **Flugberatung** ein (**LuftVO § 27 Abs. 2**). Für Flüge über Staatsgrenzen oder mit Flugverkehrskontrolle gilt: spätestens **60 Minuten vor dem Abflug**, sofern die Behörde für Inlands-VFR-Flüge keine kürzere Frist festgelegt hat (SERA.4001 d)."
+        },
+        {
+          "typ": "absatz",
+          "text": "In den Flugplan gehören unter anderem: Kennung, Flugregeln, Muster und Ausrüstung, Startplatz und Abblockzeit, Reisegeschwindigkeit und -höhe, Strecke, Ziel und Flugdauer, Ausweichflugplatz, Höchstflugdauer mit dem Kraftstoff an Bord, Personen an Bord und Notausrüstung (**SERA.4005**)."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Start- und Landemeldung"
+        },
+        {
+          "typ": "absatz",
+          "text": "Hast du einen Flugplan abgegeben, übermittelst du nach dem Start die tatsächliche Startzeit – außer bei Starts von Flugplätzen mit Flugverkehrskontrollstelle (**LuftVO § 32**). Nach der Landung schickst du unverzüglich eine **Landemeldung** an die zuständige Flugverkehrsdienststelle: Kennung, Startplatz, Zielplatz (nur bei Ausweichlandung), Landeplatz und Landezeit. Nicht nötig ist sie nach einer Landung auf einem Flugplatz mit Flugverkehrsdienst, wenn die Landung dort per Funk oder Sicht mitbekommen wurde (**SERA.4020**)."
+        },
+        {
+          "typ": "achtung",
+          "text": "Vergisst du die Landemeldung, gilt dein Flug irgendwann als überfällig – dann laufen Alarm- und Suchmaßnahmen an. Melde dich also immer, auch nach einer Landung auf einem anderen Platz als geplant."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Diese Unterlagen gehören an Bord"
+        },
+        {
+          "typ": "absatz",
+          "text": "Nach **NCO.GEN.135** sind auf jedem Flug mitzuführen – im Original oder als Kopie, sofern nichts anderes angegeben ist:"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "das Flughandbuch (AFM),",
+            "das Original des Eintragungsscheins und das Original des Lufttüchtigkeitszeugnisses,",
+            "Lärmzeugnis, Verzeichnis der Sondergenehmigungen und Lizenz für die Flugfunkstelle, soweit zutreffend,",
+            "der Haftpflichtversicherungsschein und das Bordbuch,",
+            "Einzelheiten des aufgegebenen Flugplans, soweit zutreffend,",
+            "aktuelle Luftfahrtkarten für die Strecke und für mögliche Umleitungen,",
+            "Informationen über Verfahren und Signale beim Abfangen von Luftfahrzeugen,",
+            "die MEL oder CDL, soweit zutreffend, und sonstige verlangte Unterlagen."
+          ]
+        },
+        {
+          "typ": "absatz",
+          "text": "Bei Flügen mit Start und Landung am selben Platz – oder innerhalb des von der Behörde festgelegten Gebiets – dürfen Eintragungsschein, Lufttüchtigkeitszeugnis, Lärmzeugnis, Sondergenehmigungen, Funklizenz, Versicherungsschein und Bordbuch stattdessen am Flugplatz bleiben (NCO.GEN.135 b). Deine eigenen Papiere hast du immer dabei: gültige Lizenz, gültiges Tauglichkeitszeugnis und einen Lichtbildausweis. Als Flugschüler führst du bei Allein-Überlandflügen den Nachweis der Genehmigung deines Fluglehrers mit (**FCL.045**)."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-fp-01",
+          "typ": "mehrfach",
+          "frage": "Für welche Flüge ist nach SERA.4001 b ein Flugplan abzugeben?",
+          "richtig": [
+            "Flüge, die der Flugverkehrskontrolle unterliegen",
+            "Flüge über Staatsgrenzen, sofern nichts anderes geregelt ist",
+            "Nachtflüge über die Umgebung des Flugplatzes hinaus"
+          ],
+          "falsch": [
+            "Jeder Überlandflug am Tag im Luftraum G",
+            "Jeder Flug mit Fluggästen"
+          ],
+          "erklaerung": "SERA.4001 b zählt die Fälle auf. Ein Inlandsflug am Tag im Luftraum G gehört nicht dazu."
+        },
+        {
+          "id": "fp-fp-02",
+          "typ": "auswahl",
+          "frage": "Was ist nach LuftVO § 27 vor einem Flug einzuholen, für den ein Flugplan zu übermitteln ist?",
+          "richtig": "Eine Flugberatung bei einer Flugberatungsstelle",
+          "falsch": [
+            "Eine Genehmigung der Landesluftfahrtbehörde",
+            "Eine Wetterberatung beim Flugplatzhalter",
+            "Eine Freigabe des Luftfahrt-Bundesamts"
+          ],
+          "erklaerung": "LuftVO § 27 Abs. 2. Ausgenommen sind Flüge, bei denen der Flugplan erst während des Flugs übermittelt wird."
+        },
+        {
+          "id": "fp-fp-03",
+          "typ": "auswahl",
+          "frage": "Was passiert, wenn du nach einem Flug mit Flugplan die Landemeldung vergisst?",
+          "richtig": "Dein Flug gilt als überfällig, Alarm- und Suchmaßnahmen können anlaufen",
+          "falsch": [
+            "Nichts, der Flugplan schließt sich automatisch",
+            "Der nächste Flugplan wird abgelehnt",
+            "Du bekommst eine Mahnung per Post"
+          ],
+          "erklaerung": "Der Flugplan sorgt dafür, dass nach dir gesucht wird, wenn du nicht ankommst – deshalb musst du ihn mit der Landemeldung schließen (SERA.4020)."
+        },
+        {
+          "id": "fp-fp-04",
+          "typ": "wahrfalsch",
+          "aussage": "Landest du auf einem Flugplatz mit Flugverkehrsdienst und hat der Turm deine Landung über Funk mitbekommen, brauchst du keine eigene Landemeldung.",
+          "richtig": true,
+          "erklaerung": "SERA.4020 a 1: Die Landemeldung entfällt, wenn aus dem Funkverkehr oder durch Sicht hervorgeht, dass die Landung wahrgenommen wurde."
+        },
+        {
+          "id": "fp-fp-05",
+          "typ": "mehrfach",
+          "frage": "Welche Unterlagen gehören nach NCO.GEN.135 auf einem Überlandflug an Bord?",
+          "richtig": [
+            "Flughandbuch",
+            "Original des Eintragungsscheins",
+            "Original des Lufttüchtigkeitszeugnisses",
+            "Aktuelle Luftfahrtkarten"
+          ],
+          "falsch": [
+            "Der Kaufvertrag des Flugzeugs",
+            "Die Wartungsrechnungen der letzten Jahre"
+          ],
+          "erklaerung": "NCO.GEN.135 a zählt die Unterlagen auf. Kaufvertrag und Rechnungen gehören nicht dazu."
+        },
+        {
+          "id": "fp-fp-06",
+          "typ": "auswahl",
+          "frage": "Wie früh musst du einen Flugplan für einen VFR-Flug über eine Staatsgrenze spätestens aufgeben, wenn keine kürzere Frist festgelegt ist?",
+          "richtig": "60 Minuten vor dem Abflug",
+          "falsch": [
+            "10 Minuten vor dem Abflug",
+            "3 Stunden vor dem Abflug",
+            "24 Stunden vor dem Abflug"
+          ],
+          "erklaerung": "SERA.4001 d 3: mindestens 60 Minuten vor dem Abflug (3 Stunden gelten für Flüge, die der Verkehrsflussregelung unterliegen können)."
+        },
+        {
+          "id": "fp-fp-07",
+          "typ": "auswahl",
+          "frage": "Was bedeutet die Angabe „Höchstflugdauer“ im Flugplan?",
+          "richtig": "Wie lange du mit dem Kraftstoff an Bord fliegen kannst",
+          "falsch": [
+            "Die geplante Dauer des Flugs",
+            "Die Zeit bis Sonnenuntergang",
+            "Die erlaubte Flugzeit pro Tag"
+          ],
+          "erklaerung": "SERA.4005 nennt die kraftstoffbedingte Höchstflugdauer. Sie hilft dem Such- und Rettungsdienst einzuschätzen, wie lange du in der Luft sein könntest."
+        },
+        {
+          "id": "fp-fp-08",
+          "typ": "wahrfalsch",
+          "aussage": "Bei Platzrunden am Heimatplatz dürfen Eintragungsschein und Lufttüchtigkeitszeugnis im Vereinsheim bleiben.",
+          "richtig": true,
+          "erklaerung": "NCO.GEN.135 b: Bei Start und Landung am selben Platz dürfen diese Unterlagen am Flugplatz aufbewahrt werden."
+        },
+        {
+          "id": "fp-fp-09",
+          "typ": "mehrfach",
+          "frage": "Welche eigenen Papiere musst du als Pilot nach FCL.045 immer dabeihaben?",
+          "richtig": [
+            "Gültige Lizenz",
+            "Gültiges Tauglichkeitszeugnis",
+            "Ausweis mit Lichtbild"
+          ],
+          "falsch": [
+            "Geburtsurkunde",
+            "Nachweis über die letzte Prüfung"
+          ],
+          "erklaerung": "FCL.045 a und b. Flugschüler führen bei Allein-Überlandflügen zusätzlich den Nachweis der Genehmigung mit."
+        }
+      ]
+    },
+    {
+      "id": "beispiel",
+      "titel": "Ein Überlandflug von A bis Z",
+      "kurz": "Von Altdorf nach Musterstadt: Wetter, NOTAM, Strecke, Kraftstoff, Beladung, Flugplan – einmal komplett durchgespielt.",
+      "kern": [
+        "Erst das Wetter, dann NOTAM und Luftraum, dann rechnen: Zeiten, Kraftstoff, Masse, Startstrecke.",
+        "Musterstadt liegt in einer Kontrollzone: Einflug über den Meldepunkt Whiskey, mit Freigabe vom Turm.",
+        "Am Ende steht eine klare Entscheidung – mit Plan B."
+      ],
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "**Die Lage (frei erfunden):** Samstag, 14. Juni. Du willst mit dem Übungsflugzeug MF-4 und einem Fluggast von Altdorf (XALT) zum Flughafen Musterstadt (XMUS) fliegen, dort zu Mittag essen und am frühen Nachmittag zurückfliegen. Abflug geplant um 10:00 UTC."
+        },
+        {
+          "typ": "einfach",
+          "text": "Hier siehst du, wie die Kapitel dieses Themas zusammenspielen – so gehst du später bei jedem Überlandflug vor."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "1. Wetter"
+        },
+        {
+          "typ": "formel",
+          "titel": "METAR und TAF (frei erfunden)",
+          "text": "METAR XALT 140920Z 26012KT 9999 SCT040 18/09 Q1016 NOSIG\nMETAR XMUS 140920Z 27014KT 9999 FEW035 SCT050 19/08 Q1016 NOSIG\nTAF XMUS 140800Z 1409/1418 27014KT 9999 SCT040\n  TEMPO 1414/1418 4000 SHRA BKN020"
+        },
+        {
+          "typ": "absatz",
+          "text": "Am Vormittag gutes Wetter, Wind aus Westen mit 12 bis 14 kt. Ab 14 UTC in Musterstadt zeitweise Regenschauer mit 4 km Sicht und Wolken in 2000 ft über dem Platz. Für den Hinflug kein Problem. Für den Rückflug heißt das: möglichst vor 14 UTC zurück – oder einplanen, dass ein Schauer den Abflug verzögert."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "2. NOTAM und Luftraum"
+        },
+        {
+          "typ": "formel",
+          "titel": "NOTAM (frei erfunden)",
+          "text": "A0318/26 NOTAMN\nQ) XXXX/QOBCE/IV/M/A/000/003/\nA) XMUS B) 2606010600 C) 2606302000\nE) CRANE ERECTED 1NM NORTH OF THR 27, HGT 250FT AGL."
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein 250 ft hoher Kran 1 NM nördlich der Schwelle 27 – merken für den Anflug. Musterstadt liegt in einer Kontrollzone: Einflug über den Meldepunkt Whiskey in 2500 ft, vorher die ATIS hören, Freigabe vom Turm. Wie das klingt, übst du im Thema Sprechfunk im Funkgespräch „Anflug nach Musterstadt“."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "3. Strecke und Navigationsflugplan"
+        },
+        {
+          "typ": "abbildung",
+          "id": "route-beispiel",
+          "unterschrift": "Altdorf – Whiskey – Musterstadt. Frei erfundene Übungskarte."
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Etappe",
+            "rwK",
+            "Luvwinkel",
+            "mwSK",
+            "NM",
+            "GS",
+            "Zeit"
+          ],
+          "zeilen": [
+            [
+              "XALT–W",
+              "036°",
+              "−7°",
+              "026°",
+              "18,8",
+              "108 kt",
+              "10 min"
+            ],
+            [
+              "W–XMUS",
+              "084°",
+              "−1°",
+              "080°",
+              "10,9",
+              "115 kt",
+              "6 min"
+            ],
+            [
+              "Summe",
+              "",
+              "",
+              "",
+              "29,7",
+              "",
+              "16 min"
+            ]
+          ],
+          "kompakt": true
+        },
+        {
+          "typ": "absatz",
+          "text": "TAS 100 kt, Wind aus 270° mit 15 kt, Missweisung 3° Ost. Die Strecke ist kurz und führt in die Kontrollzone: Du bleibst unter 3000 ft über Grund, die Halbkreisflugregel greift also nicht. Geplant sind 2500 ft – passend zum Meldepunkt Whiskey."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "4. Kraftstoff"
+        },
+        {
+          "typ": "absatz",
+          "text": "16 Minuten Flugzeit, mit An- und Abflug aufgerundet auf 25 Minuten. Mit 30 l/h: Strecke 12,5 l, Zuschlag 10 % ≈ 1,3 l, Endreserve 15 l, Rollen 3 l – zusammen rund 32 l. Für Hin- und Rückflug ohne Tanken in Musterstadt: 2 × 3 l Rollen, 2 × 12,5 l Strecke, 2,5 l Zuschlag und einmal 15 l Endreserve – **rund 49 l**. Du tankst 80 l: Das gibt Spielraum, um einem Schauer auszuweichen."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "5. Masse, Schwerpunkt und Startstrecke"
+        },
+        {
+          "typ": "absatz",
+          "text": "Pilot 82 kg und Fluggast 75 kg vorn, 10 kg Gepäck, 80 l Kraftstoff (57,6 kg). Mit der Leermasse von 735 kg ergibt das **959,6 kg** – weit unter 1150 kg. Der Schwerpunkt liegt bei etwa 0,99 m und damit in der Hüllkurve (Beladungsrechner im Thema Masse & Schwerpunkt)."
+        },
+        {
+          "typ": "absatz",
+          "text": "Startstrecke in Altdorf: Druckhöhe 1450 ft + (1013 − 1016) × 30 ft = 1360 ft, 18 °C → Tabelle etwa 595 m. Korrekturen: −19 % für die geringere Masse, −12 % für 12 kt Gegenwind → rund **425 m** bei 800 m Asphalt. In Musterstadt (2200 m Asphalt) ist der Rückflug ohnehin kein Problem."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "6. Flugplan und Unterlagen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Ein vollständiger Flugplan ist nicht vorgeschrieben: Der Flug bleibt im Inland, am Tag, und für die Kontrollzone holst du die Freigabe per Funk ein. Unterlagen nach NCO.GEN.135 an Bord, dazu Navigationsflugplan, Karte, Wetter und NOTAM – ausgedruckt oder auf dem Tablet."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "7. Entscheidung"
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "Go für den Hinflug um 10:00 UTC.",
+            "Rückflug möglichst bis 13:30 UTC, bevor die Schauer kommen können.",
+            "Plan B: Zieht ein Schauer über Musterstadt, wartest du am Boden ab – laut TAF nur zeitweise (TEMPO).",
+            "Kehrst du unterwegs um, ist Altdorf dein Ausweichplatz – Kraftstoff ist genug an Bord."
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Schreib deine Entscheidungspunkte vor dem Abflug auf: bis wann du spätestens zurückfliegst, bei welchem Wetter du umkehrst und wohin. Dann musst du unterwegs nicht mehr überlegen, sondern nur noch handeln."
+        }
+      ],
+      "fragen": [
+        {
+          "id": "fp-bs-01",
+          "typ": "auswahl",
+          "frage": "Was bedeutet der TAF für Musterstadt für deinen Rückflug?",
+          "richtig": "Ab 14 UTC sind zeitweise Schauer mit 4 km Sicht und Wolken in 2000 ft möglich – besser vorher zurück oder Warten einplanen",
+          "falsch": [
+            "Ab 14 UTC ist der Flughafen geschlossen",
+            "Ab 14 UTC gibt es dauerhaft Regen",
+            "Der TAF betrifft den Rückflug nicht, er gilt nur bis 14 UTC"
+          ],
+          "erklaerung": "TEMPO 1414/1418: am 14. zwischen 14 und 18 UTC zeitweise. Du planst so, als ob es dich treffen kann."
+        },
+        {
+          "id": "fp-bs-02",
+          "typ": "auswahl",
+          "frage": "Über welchen Meldepunkt fliegst du in die Kontrollzone Musterstadt ein?",
+          "richtig": "Whiskey",
+          "falsch": [
+            "November",
+            "Direkt zum Flughafen, ohne Meldepunkt",
+            "Über das Funkfeuer BGN"
+          ],
+          "erklaerung": "Von Altdorf aus liegt der Meldepunkt Whiskey westlich der Kontrollzone direkt auf dem Weg."
+        },
+        {
+          "id": "fp-bs-03",
+          "typ": "zahl",
+          "frage": "Wie lange dauert der Flug laut Navigationsflugplan, ohne An- und Abflug?",
+          "loesung": 16,
+          "toleranz": 1,
+          "einheit": "min",
+          "erklaerung": "10 min bis Whiskey plus 6 min bis Musterstadt."
+        },
+        {
+          "id": "fp-bs-04",
+          "typ": "zahl",
+          "frage": "Wie viel Kraftstoff brauchst du für Hin- und Rückflug ohne Tanken in Musterstadt (gerundet)?",
+          "loesung": 49,
+          "toleranz": 2,
+          "einheit": "l",
+          "erklaerung": "2 × 3 l Rollen + 2 × 12,5 l Strecke + 2,5 l Zuschlag + 15 l Endreserve ≈ 49 l."
+        },
+        {
+          "id": "fp-bs-05",
+          "typ": "wahrfalsch",
+          "aussage": "Für diesen Flug ist ein vollständiger Flugplan vorgeschrieben.",
+          "richtig": false,
+          "erklaerung": "Inlandsflug am Tag – die Freigabe für die Kontrollzone holst du per Funk ein. Die Angaben dafür gelten als verkürzter Flugplan (SERA.4001 a)."
+        },
+        {
+          "id": "fp-bs-06",
+          "typ": "auswahl",
+          "frage": "Was sagt der NOTAM für Musterstadt?",
+          "richtig": "Ein 250 ft hoher Kran steht 1 NM nördlich der Schwelle 27",
+          "falsch": [
+            "Die Piste 27 ist geschlossen",
+            "Nördlich des Flughafens wird Fallschirm gesprungen",
+            "Der Turm ist nur bis 20 Uhr besetzt"
+          ],
+          "erklaerung": "OBST/Kran: CRANE ERECTED 1NM NORTH OF THR 27, HGT 250FT AGL – gültig vom 1. bis 30. Juni."
+        },
+        {
+          "id": "fp-bs-07",
+          "typ": "zahl",
+          "frage": "Wie groß ist die Startmasse in Altdorf (gerundet auf ganze Kilogramm)?",
+          "loesung": 960,
+          "toleranz": 2,
+          "einheit": "kg",
+          "erklaerung": "735 kg + 82 kg + 75 kg + 10 kg + 57,6 kg = 959,6 kg."
+        },
+        {
+          "id": "fp-bs-08",
+          "typ": "auswahl",
+          "frage": "Als du zurückwillst, hängt ein Schauer über Musterstadt. Was ist dein Plan B?",
+          "richtig": "Am Boden warten, bis der Schauer durchgezogen ist",
+          "falsch": [
+            "Trotzdem starten – der Schauer ist ja nur vorübergehend",
+            "Unter den Wolken in 500 ft durchfliegen",
+            "Ohne Freigabe aus der Kontrollzone ausfliegen"
+          ],
+          "erklaerung": "Der TAF sagt nur zeitweise Schauer voraus. Warten kostet nichts – ein Flug unter die Minima schon."
+        }
+      ]
+    }
+  ]
+}

@@ -51,3 +51,19 @@ export function aufKreis(cx, cy, r, grad) {
   const w = ((grad - 90) * Math.PI) / 180;
   return [cx + r * Math.cos(w), cy + r * Math.sin(w)];
 }
+
+// ---------- Maßstab ----------
+// Interaktive Grafiken zeichnen maßstäblich: Ein Wert, der sich ändert, ändert auch die Grafik.
+// Achsen wachsen nur in runden Stufen mit, damit Längen innerhalb einer Stufe vergleichbar bleiben.
+
+/** Kleinste Stufe aus der Liste, die mindestens wert ist (sonst die größte). */
+export function stufenMaximum(wert, stufen) {
+  return stufen.find((s) => s >= wert) ?? stufen.at(-1);
+}
+
+/** Maßstabsleiste mit Endstrichen ab (x, y), laenge in Pixeln, Beschriftung darüber. */
+export function massstab(x, y, laenge, beschriftung, klasse = 'leise') {
+  const r = (n) => Math.round(n * 10) / 10;
+  return `<path d="M${r(x)} ${r(y - 4)}V${r(y)}H${r(x + laenge)}V${r(y - 4)}" class="g-s-${klasse}" stroke-width="1.4" fill="none"/>`
+    + text(r(x + laenge / 2), r(y - 7), beschriftung, { groesse: 10, gewicht: 700, klasse: `g-f-${klasse}` });
+}
