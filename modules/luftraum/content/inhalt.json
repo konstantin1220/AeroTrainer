@@ -886,16 +886,9 @@
           "text": "Wie im Straßenverkehr gilt „rechts vor links“ – und wer wendiger ist, weicht dem Schwerfälligeren aus. Ein Ballon kann kaum lenken, ein Segelflugzeug kann nicht einfach Gas geben – deshalb weicht das Motorflugzeug aus."
         },
         {
-          "typ": "abbildung",
-          "id": "ausweichen-gegenflug"
-        },
-        {
-          "typ": "abbildung",
-          "id": "ausweichen-kreuzen"
-        },
-        {
-          "typ": "abbildung",
-          "id": "ausweichen-ueberholen"
+          "typ": "animation",
+          "id": "ausweichregeln",
+          "unterschrift": "Von oben gesehen, schematisch. Orange: muss ausweichen, Blau: hat Vorflug (SERA.3210)."
         },
         {
           "typ": "zwischentitel",

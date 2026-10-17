@@ -22,26 +22,28 @@ import { zufall } from './zufall.js';
 import { textMitBegriffen } from './lexikon.js';
 import { aktuelleStufe, stufenUmschalter } from './stufe.js';
 import { passtZumSchein, scheinHinweis } from './schein.js';
+import { animationAbspieler, animationStandbilder } from './animation.js';
+import { einstellung } from './storage.js';
 
 // ---------- Theorie-Blöcke ----------
 // Das Erklär-Level (js/stufe.js) bestimmt, wie „Einfach erklärt“-Kästen erscheinen:
 // Einsteiger offen, Standard aufklappbar, Kompakt ausgeblendet.
 
-export function theorieBlock(block, abbildung, interaktiv = () => null, stufe = aktuelleStufe()) {
+export function theorieBlock(block, abbildung, interaktiv = () => null, stufe = aktuelleStufe(), animation = () => null) {
   const text = textMitBegriffen;
   switch (block.typ) {
     case 'absatz': return h('p', {}, text(block.text));
     case 'zwischentitel': return h('h3', { class: 'theorie-zwischentitel' }, block.text);
     case 'liste': return h('ul', { class: 'theorie-liste' }, block.punkte.map((p) => h('li', {}, text(p))));
-    case 'merke': return h('aside', { class: 'merke' }, h('span', { class: 'merke-symbol' }, icon('lampe')), h('div', {}, h('strong', {}, block.titel ?? 'Merke'), h('p', {}, text(block.text))));
+    case 'merke': return h('aside', { class: 'merke' }, h('span', { class: 'merke-symbol' }, icon('merken')), h('div', {}, h('strong', {}, block.titel ?? 'Merke'), h('p', {}, text(block.text))));
     case 'achtung': return h('aside', { class: 'merke achtung' }, h('span', { class: 'merke-symbol' }, icon('warnung')), h('div', {}, h('strong', {}, block.titel ?? 'Achtung'), h('p', {}, text(block.text))));
     case 'einfach': {
       if (stufe === 'kompakt') return null;
       const titel = block.titel ?? 'Einfach erklärt';
       if (stufe === 'standard') {
-        return h('details', { class: 'einfach-box' }, h('summary', {}, icon('sprechblase'), titel), h('p', {}, text(block.text)));
+        return h('details', { class: 'einfach-box' }, h('summary', {}, icon('lampe'), titel), h('p', {}, text(block.text)));
       }
-      return h('aside', { class: 'einfach-box offen' }, h('span', { class: 'einfach-symbol' }, icon('sprechblase')), h('div', {}, h('strong', {}, titel), h('p', {}, text(block.text))));
+      return h('aside', { class: 'einfach-box offen' }, h('span', { class: 'einfach-symbol' }, icon('lampe')), h('div', {}, h('strong', {}, titel), h('p', {}, text(block.text))));
     }
     case 'formel': return h('div', { class: 'formel' }, block.titel && h('span', { class: 'formel-titel' }, block.titel), h('code', {}, block.text));
     case 'tabelle': {
@@ -55,11 +57,12 @@ export function theorieBlock(block, abbildung, interaktiv = () => null, stufe = 
     }
     case 'abbildung': return abbildung(block.id, block.unterschrift) ?? h('p', { class: 'fehlerton' }, `Abbildung „${block.id}“ fehlt`);
     case 'interaktiv': return interaktiv(block.id) ?? h('p', { class: 'fehlerton' }, `Interaktives Element „${block.id}“ fehlt`);
+    case 'animation': return animation(block.id, block.unterschrift) ?? h('p', { class: 'fehlerton' }, `Animation „${block.id}“ fehlt`);
     default: return h('p', { class: 'fehlerton' }, `Unbekannter Block „${block.typ}“`);
   }
 }
 
-export const THEORIE_BLOCKTYPEN = ['absatz', 'zwischentitel', 'liste', 'merke', 'achtung', 'einfach', 'formel', 'tabelle', 'abbildung', 'interaktiv'];
+export const THEORIE_BLOCKTYPEN = ['absatz', 'zwischentitel', 'liste', 'merke', 'achtung', 'einfach', 'formel', 'tabelle', 'abbildung', 'interaktiv', 'animation'];
 
 /** Hilfen zu einem interaktiven Element: Anleitung, Farblegende und „Probier mal“-Aufgaben. */
 export function interaktivHilfe(element, stufe = aktuelleStufe()) {
@@ -91,6 +94,7 @@ export function lernmodul({
   generatoren = {},
   abbildungen = {},
   interaktiv = {},
+  animationen = {},
   seiten = {},
   uebersichtZusatz = null,
   zusatzVorKapiteln = false,
@@ -141,6 +145,10 @@ export function lernmodul({
     );
   }
 
+  /** Animation in der Theorie (js/animation.js); in der Prüfansicht als Standbilder. */
+  const animationEinbetten = (id, unterschrift) => (animationen[id] ? animationAbspieler(animationen[id], { unterschrift }) : null);
+  const animationStandbild = (id, unterschrift) => (animationen[id] ? animationStandbilder(animationen[id], unterschrift) : null);
+
   const karten = (ctx) => ctx.stand().karten ?? {};
 
   function aufgabe(ctx, id, daten) {
@@ -175,15 +183,52 @@ export function lernmodul({
   // ---------- Seiten ----------
 
   function kopf(ctx, untertitel) {
-    const { modul } = ctx;
+    const { modul, fach } = ctx;
     return h('header', { class: 'modul-kopf', 'data-modul': modul.id },
+      brotkrumen(['Start', '#/'], [modul.titel]),
       h('div', { class: 'modul-symbol' }, themenIcon(modul.id)),
       h('div', { class: 'modul-kopf-text' },
-        brotkrumen(['Start', '#/'], [modul.titel]),
+        fach && h('p', { class: 'seiten-marke' }, `Fach ${fach.nr} · ${fach.titel}`),
         h('h1', {}, modul.titel),
         untertitel && h('p', { class: 'einleitung' }, untertitel),
       ),
     );
+  }
+
+  /**
+   * Die Kapitel als Lernpfad: Knoten mit Zustand (fertig, begonnen, neu) und ein hervorgehobenes
+   * Kapitel zum Weitermachen – das zuletzt gelesene, sonst das erste, das noch nicht sicher sitzt.
+   */
+  function lernpfad(ctx, daten, kartenStand) {
+    const liste = sichtbareKapitel(daten);
+    const werte = liste.map((k) => statistik(kapitelIds(daten, k), kartenStand));
+    const fertig = (s) => s.gesamt > 0 && s.sicher === s.gesamt;
+    const begonnen = werte.some((s) => s.gesehen > 0);
+    const zuletzt = einstellung('zuletzt');
+    let aktuell = liste.findIndex((k) => zuletzt?.hash === ctx.link('kapitel', k.id));
+    if (aktuell >= 0 && fertig(werte[aktuell])) aktuell = liste.findIndex((k, i) => i > aktuell && !fertig(werte[i]));
+    if (aktuell < 0) aktuell = werte.findIndex((s) => !fertig(s));
+
+    return h('ol', { class: 'lernpfad', 'aria-label': 'Kapitel dieses Themas' }, liste.map((kapitel, i) => {
+      const s = werte[i];
+      const zustand = fertig(s) ? 'fertig' : s.gesehen > 0 ? 'begonnen' : 'neu';
+      const knoten = zustand === 'fertig'
+        ? icon('haken')
+        : h('span', { class: 'pfad-nr' }, i + 1);
+      const stand = s.gesamt === 0 ? null
+        : zustand === 'fertig' ? `Alle ${s.gesamt} Fragen sicher`
+          : zustand === 'begonnen' ? `${s.sicher} von ${s.gesamt} Fragen sicher`
+            : `${mehrzahl(s.gesamt, 'Frage', 'Fragen')} · neu`;
+      return h('li', { class: `pfad-punkt ${zustand}${i === aktuell ? ' aktuell' : ''}` },
+        h('span', { class: 'pfad-knoten', 'aria-hidden': 'true', style: { '--anteil': `${s.gesamt ? Math.round((s.sicher / s.gesamt) * 100) : 0}%` } }, knoten),
+        h('a', { class: 'pfad-karte', href: ctx.link('kapitel', kapitel.id) },
+          i === aktuell && h('span', { class: 'pfad-marke' }, begonnen ? 'Hier weitermachen' : 'Hier anfangen'),
+          h('strong', { class: 'pfad-titel' }, `${i + 1}. ${kapitel.titel}`),
+          zustand !== 'fertig' && kapitel.kurz && h('span', { class: 'kapitel-kurz' }, kapitel.kurz),
+          scheinHinweis(kapitel) && h('span', { class: 'chip schein-chip' }, scheinHinweis(kapitel)),
+          stand && h('span', { class: 'pfad-stand' }, stand),
+          i === aktuell && h('span', { class: 'pfad-los' }, 'Kapitel lesen', icon('weiter'))));
+    }));
   }
 
   // ---------- Filter nach Schein (js/schein.js) ----------
@@ -197,27 +242,11 @@ export function lernmodul({
     const kartenStand = karten(ctx);
     const s = statistik(sichtbareIds(daten), kartenStand);
     const lernbar = Math.min(rundenGroesse, s.faellig + Math.min(s.neu, 5));
-    const kapitelListe = sichtbareKapitel(daten).map((kapitel, i) => {
-      const ks = statistik(kapitelIds(daten, kapitel), kartenStand);
-      return h('li', {}, h('a', { class: 'kapitel-karte', href: ctx.link('kapitel', kapitel.id) },
-        h('span', { class: 'kapitel-nr' }, i + 1),
-        h('span', { class: 'kapitel-text' },
-          h('strong', {}, kapitel.titel),
-          kapitel.kurz && h('span', { class: 'kapitel-kurz' }, kapitel.kurz),
-          scheinHinweis(kapitel) && h('span', { class: 'chip schein-chip' }, scheinHinweis(kapitel)),
-          ks.gesamt > 0 && h('span', { class: 'kapitel-stand' },
-            balken(ks.gesamt ? ks.sicher / ks.gesamt : 0),
-            h('span', {}, `${ks.sicher}/${ks.gesamt} sicher`)),
-        ),
-        icon('weiter'),
-      ));
-    });
-
     // Reihenfolge wie beim Lernen: erst die Kapitel, dann Übungen (z. B. Funkgespräche), dann die Werkzeuge.
     // Ist der Zusatz der eigentliche Einstieg (METAR-Lernstufen), steht er mit zusatzVorKapiteln vorn.
     const kapitelAbschnitt = h('section', {},
       h('h2', { class: 'abschnitt-titel' }, icon('theorie'), 'Kapitel'),
-      h('ol', { class: 'kapitelliste' }, kapitelListe));
+      lernpfad(ctx, daten, kartenStand));
     const zusatz = uebersichtZusatz?.(ctx, api, daten);
     const abschnitte = [
       ...(zusatzVorKapiteln ? [zusatz, kapitelAbschnitt] : [kapitelAbschnitt, zusatz]),
@@ -241,7 +270,7 @@ export function lernmodul({
           h('span', { class: 'leise' }, `${s.faellig} fällig · ${s.neu} neu`),
         ),
         lernbar > 0
-          ? h('a', { class: 'knopf gross', href: ctx.link('lernen') }, icon('flugzeug'), 'Lernrunde')
+          ? h('a', { class: 'knopf gross', href: ctx.link('lernen') }, icon('flugzeug'), 'Lernrunde starten')
           : h('a', { class: 'knopf gross zweitrangig', href: ctx.link('lernen') }, icon('ueben'), 'Frei üben'),
       ),
       sprungleiste(abschnitte),
@@ -272,13 +301,17 @@ export function lernmodul({
     const nachher = liste[index + 1];
     const ids = kapitelIds(daten, kapitel);
     const stufe = aktuelleStufe();
-    const theorie = h('article', { class: 'theorie' }, (kapitel.theorie ?? []).map((block) => theorieBlock(block, abbildung, interaktivEinbetten, stufe)));
+    const theorie = h('article', { class: 'theorie' }, (kapitel.theorie ?? []).map((block) => theorieBlock(block, abbildung, interaktivEinbetten, stufe, animationEinbetten)));
     const kern = kapitel.kern?.length > 0 && h('section', { class: 'kern' },
-      h('h2', {}, icon('ziel'), stufe === 'kompakt' ? 'Das Wichtigste' : 'Das Wichtigste in Kürze'),
-      h('ul', {}, kapitel.kern.map((punkt) => h('li', {}, textMitBegriffen(punkt)))));
+      h('h2', {}, stufe === 'kompakt' ? 'Das Wichtigste' : 'Das Wichtigste in Kürze'),
+      h('ul', {}, kapitel.kern.map((punkt) => h('li', {}, icon('haken'), h('span', {}, textMitBegriffen(punkt))))));
+    const position = `Kapitel ${index + 1} von ${liste.length}`;
+    const blaetterLink = (ziel, richtung) => h('a', { class: `blaettern-link ${richtung}`, href: ctx.link('kapitel', ziel.id) },
+      h('span', { class: 'leise' }, richtung === 'zurueck' ? '‹ Vorheriges' : 'Nächstes ›'), h('strong', {}, ziel.titel));
     anhaengen(el,
       h('header', { class: 'seitenkopf', 'data-modul': ctx.modul.id },
-        brotkrumen(['Start', '#/'], [ctx.modul.titel, ctx.link()], [`Kapitel ${index + 1}`]),
+        brotkrumen(['Start', '#/'], [ctx.modul.titel, ctx.link()], [position]),
+        h('p', { class: 'seiten-marke' }, position),
         h('h1', {}, kapitel.titel),
         kapitel.kurz && h('p', { class: 'einleitung' }, kapitel.kurz),
         scheinHinweis(kapitel) && h('p', {}, h('span', { class: 'chip schein-chip' }, scheinHinweis(kapitel))),
@@ -289,12 +322,13 @@ export function lernmodul({
         ? [kern, h('details', { class: 'theorie-ausfuehrlich' }, h('summary', {}, icon('theorie'), 'Ausführliche Erklärung lesen'), theorie)]
         : [theorie, kern],
       ids.length > 0 && h('div', { class: 'karte kapitel-aktion', 'data-modul': ctx.modul.id },
-        h('div', {}, h('strong', {}, 'Verstanden?'), h('p', { class: 'leise' }, `Teste dich mit ${mehrzahl(ids.length, 'Frage', 'Fragen')} zu diesem Kapitel.`)),
+        h('div', {}, h('strong', {}, 'Verstanden?'), h('p', {}, `Teste dich mit ${mehrzahl(ids.length, 'Frage', 'Fragen')} zu diesem Kapitel.`)),
         h('a', { class: 'knopf gross', href: ctx.link('ueben', kapitel.id) }, icon('ueben'), 'Fragen üben'),
       ),
-      h('nav', { class: 'blaettern' },
-        vorher ? h('a', { class: 'knopf zweitrangig', href: ctx.link('kapitel', vorher.id) }, icon('zurueck'), 'Vorheriges') : h('span'),
-        nachher ? h('a', { class: 'knopf zweitrangig', href: ctx.link('kapitel', nachher.id) }, 'Nächstes', icon('weiter')) : h('a', { class: 'knopf zweitrangig', href: ctx.link() }, 'Übersicht'),
+      h('nav', { class: 'blaettern', 'aria-label': 'Kapitel blättern' },
+        vorher ? blaetterLink(vorher, 'zurueck') : h('span'),
+        nachher ? blaetterLink(nachher, 'vor')
+          : h('a', { class: 'blaettern-link vor', href: ctx.link() }, h('span', { class: 'leise' }, 'Geschafft ›'), h('strong', {}, 'Zur Übersicht')),
       ),
     );
   }
@@ -365,7 +399,7 @@ export function lernmodul({
         h('details', { class: 'pruef-theorie' }, h('summary', {}, 'Theorie anzeigen'),
           h('div', { class: 'theorie' }, (kapitel.theorie ?? []).map((block) => (block.typ === 'interaktiv'
             ? h('p', { class: 'leise' }, `[Interaktives Element: ${interaktiv[block.id]?.titel ?? block.id}]`)
-            : theorieBlock(block, abbildung, undefined, 'einsteiger'))),
+            : theorieBlock(block, abbildung, undefined, 'einsteiger', animationStandbild))),
           kapitel.kern?.length > 0 && h('section', { class: 'kern' }, h('h2', {}, 'Das Wichtigste'), h('ul', {}, kapitel.kern.map((p) => h('li', {}, formatiert(p))))))),
         h('h3', {}, `Fragen (${kapitel.fragen?.length ?? 0})`),
         fragen,

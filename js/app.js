@@ -59,9 +59,12 @@ async function passendeModule() {
 function modulLaden(modul) {
   if (!geladeneModule.has(modul.id)) {
     const basis = new URL(modul.pfad, document.baseURI);
-    const ladevorgang = import(new URL('module.js', basis).href).then((code) => {
+    const ladevorgang = import(new URL('module.js', basis).href).then(async (code) => {
+      const liste = await faecher().catch(() => []);
+      const nr = liste.findIndex((f) => f.id === modul.fach);
       const ctx = {
         modul,
+        fach: nr >= 0 ? { nr: nr + 1, titel: liste[nr].titel } : null,
         h,
         inhalt: (datei) => ladeJSON(new URL(datei, basis)),
         stand: () => lernstand.modulStand(modul.id),
@@ -95,6 +98,8 @@ async function alleFortschritte() {
 function navigationAufbauen() {
   const markenLink = document.querySelector('.marke');
   markenLink.prepend(logo());
+  document.querySelector('.kopf-zurueck')?.prepend(icon('zurueck'));
+  document.querySelector('.lernhilfe-marke')?.prepend(icon('info'));
   for (const container of document.querySelectorAll('[data-navigation]')) {
     container.replaceChildren(...NAVIGATION.map((eintrag) => h('a', { href: `#/${eintrag.ziel}`, 'data-ziel': eintrag.ziel },
       h('span', { class: 'nav-symbol' }, icon(eintrag.symbol), eintrag.ziel === 'wiederholen' && h('span', { class: 'nav-zahl', hidden: true })),
@@ -110,6 +115,34 @@ function navigationMarkieren(seite) {
     const aktiv = link.dataset.ziel === (seite ?? '') || (modulSeite && link.dataset.ziel === '');
     if (aktiv) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
   }
+}
+
+/**
+ * Kopfzeile an die Seite anpassen: Auf Unterseiten führt ein Zurück-Pfeil zur übergeordneten Seite.
+ * Ziel und Text kommen aus den Brotkrumen der Seite (der letzte Link darin).
+ */
+function kopfzeileAnpassen(inhalt) {
+  const kopf = document.querySelector('.kopfzeile');
+  const zurueck = kopf.querySelector('.kopf-zurueck');
+  const eltern = [...inhalt.querySelectorAll('.brotkrumen a')].at(-1);
+  zurueck.hidden = !eltern;
+  kopf.classList.toggle('mit-zurueck', Boolean(eltern));
+  if (eltern) {
+    zurueck.href = eltern.getAttribute('href');
+    zurueck.querySelector('.kopf-zurueck-text').textContent = eltern.textContent;
+    zurueck.setAttribute('aria-label', `Zurück zu: ${eltern.textContent}`);
+  }
+  if (inhalt.dataset.modul) kopf.dataset.modul = inhalt.dataset.modul; else delete kopf.dataset.modul;
+}
+
+/** Dünner Balken unter der Kopfzeile: wie weit du in einem Kapitel schon gelesen hast. */
+const lesefortschritt = document.querySelector('.lesefortschritt');
+function leseStandZeigen() {
+  const kapitel = hauptbereich.querySelector('article.theorie');
+  lesefortschritt.hidden = !kapitel;
+  if (!kapitel) return;
+  const weg = document.documentElement.scrollHeight - window.innerHeight;
+  lesefortschritt.firstElementChild.style.width = `${weg > 0 ? Math.min(100, (window.scrollY / weg) * 100) : 100}%`;
 }
 
 async function faelligeAktualisieren() {
@@ -144,7 +177,9 @@ async function navigieren({ behalteScroll = false } = {}) {
   }
   if (nr !== navigationsNr) return; // inzwischen wurde schon weiter navigiert
 
+  if (!behalteScroll) inhalt.classList.add('seite-neu');
   hauptbereich.replaceChildren(inhalt);
+  kopfzeileAnpassen(inhalt);
   if (behalteScroll) {
     window.scrollTo(0, scroll);
   } else if (seite === 'lexikon' && rest[0]) {
@@ -157,6 +192,7 @@ async function navigieren({ behalteScroll = false } = {}) {
     window.scrollTo(0, 0);
   }
   hauptbereich.focus({ preventScroll: true });
+  leseStandZeigen();
 }
 
 async function modulSeite(el, id, rest) {
@@ -168,8 +204,8 @@ async function modulSeite(el, id, rest) {
 }
 
 // ---------- Startseite ----------
-// Aufbau: eine große Karte oben (neu: Willkommen und Erklär-Level, sonst: heute fällig),
-// darunter der Schnellzugriff (weiter, wo du warst; Merkliste) und die Themen als Kacheln.
+// Aufbau: Begrüßung und eine Karte oben (neu: Schein und Erklär-Level einrichten, sonst: heute fällig
+// mit „Weiter, wo du warst“), darunter die Scheinauswahl und die Prüfungsfächer als Listen mit ihren Themen.
 
 const SICHERUNG_AB_LERNTAGEN = 2;
 
@@ -179,9 +215,10 @@ function sicherungsHinweis() {
   const tage = lernstand.tageSeitSicherung();
   if (tage === null && Object.keys(lernstand.tagesStatistik()).length < SICHERUNG_AB_LERNTAGEN) return null;
   if (tage !== null && tage < TAGE_BIS_SICHERUNGSHINWEIS) return null;
-  return h('a', { class: 'heute-sicherung', href: '#/lernstand' },
-    icon('sichern'), h('span', {}, tage === null ? 'Lernstand noch nicht gesichert' : `Zuletzt gesichert vor ${tage} Tagen`),
-    h('strong', {}, 'Sichern'), icon('weiter'));
+  return h('a', { class: 'karten-zeile sicherung-zeile', href: '#/lernstand' },
+    h('span', { class: 'zeilen-symbol' }, icon('sichern')),
+    h('span', { class: 'zeilen-text' }, h('span', {}, tage === null ? 'Lernstand noch nicht gesichert' : `Zuletzt gesichert vor ${tage} Tagen`), h('strong', {}, 'Jetzt sichern')),
+    icon('weiter'));
 }
 
 function gruss() {
@@ -194,39 +231,58 @@ function gruss() {
 
 const zuDenThemen = () => document.getElementById('themen')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-/** Erster Besuch: kurz erklären, worum es geht, und das Erklär-Level wählen lassen. */
+function begruessung(gruss, titel, text) {
+  return h('section', { class: 'begruessung' },
+    h('p', { class: 'begruessung-gruss' }, gruss),
+    h('h1', {}, titel),
+    text && h('p', { class: 'einleitung' }, text));
+}
+
+/** Erster Besuch: in zwei Schritten einrichten – Schein und Erklär-Level. */
 function willkommen() {
   const aktuell = aktuelleStufe();
-  return h('section', { class: 'heute willkommen' },
-    h('p', { class: 'heute-gruss' }, `${gruss()} – willkommen an Bord!`),
-    h('h1', {}, 'Bereit für die Theorie?'),
-    h('p', { class: 'heute-text' }, 'Lerne für SPL, UL und PPL in kleinen Schritten – auch unterwegs und ohne Internet.'),
-    h('div', { class: 'heute-stufe' },
-      h('span', { class: 'heute-stufe-frage' }, 'Wie ausführlich soll ich erklären?'),
-      h('div', { class: 'segmente', role: 'radiogroup', 'aria-label': 'Wie ausführlich soll erklärt werden?' },
-        Object.entries(STUFEN).map(([schluessel, stufe]) => h('button', {
-          type: 'button', role: 'radio', class: 'segment', 'aria-checked': String(schluessel === aktuell),
-          onclick: () => stufeSetzen(schluessel),
-        }, stufe.titel))),
-      h('p', { class: 'heute-stufe-text' }, STUFEN[aktuell].text, ' Änderbar in jedem Kapitel.'),
+  const schritt = (nr, titel) => h('h2', { class: 'einrichten-titel' }, h('span', { class: 'schritt-nr' }, nr), titel);
+  return [
+    begruessung('Willkommen an Bord', 'Flugtheorie in kleinen Schritten', 'Für PPL, SPL und UL – auch unterwegs und ohne Internet.'),
+    h('section', { class: 'karte einrichten' },
+      h('div', { class: 'einrichten-schritt' }, schritt(1, 'Für welchen Schein lernst du?'), scheinWahl({ beschriftung: null })),
+      h('div', { class: 'einrichten-schritt' }, schritt(2, 'Wie ausführlich soll ich erklären?'),
+        h('div', { class: 'segmente', role: 'radiogroup', 'aria-label': 'Wie ausführlich soll erklärt werden?' },
+          Object.entries(STUFEN).map(([schluessel, stufe]) => h('button', {
+            type: 'button', role: 'radio', class: 'segment', 'aria-checked': String(schluessel === aktuell),
+            onclick: () => stufeSetzen(schluessel),
+          }, stufe.titel))),
+        h('p', { class: 'hinweis-klein' }, STUFEN[aktuell].text, ' Änderbar in jedem Kapitel.')),
+      h('button', { type: 'button', class: 'knopf gross breit', onclick: zuDenThemen }, 'Los geht’s', icon('weiter')),
     ),
-    h('button', { type: 'button', class: 'knopf gross hell', onclick: zuDenThemen }, icon('flugzeug'), 'Thema aussuchen'),
-  );
+    soGehts(),
+  ];
 }
 
 /** So funktioniert die App – in drei Schritten (nur beim ersten Besuch). */
 function soGehts() {
   const schritte = [
-    ['theorie', 'Lesen', 'Kapitel für Kapitel'],
-    ['ueben', 'Üben', 'Fragen zum Kapitel'],
-    ['wiederholen', 'Wiederholen', 'wenn sie fällig sind'],
+    ['Lesen', 'Kapitel mit Animationen'],
+    ['Üben', 'Fragen zum Kapitel'],
+    ['Wiederholen', 'wenn es fällig ist'],
   ];
-  return h('ol', { class: 'so-gehts', 'aria-label': 'So lernst du hier' }, schritte.map(([symbol, titel, text]) => h('li', {},
-    icon(symbol), h('strong', {}, titel), h('span', {}, text))));
+  return h('ol', { class: 'so-gehts', 'aria-label': 'So lernst du hier' }, schritte.map(([titel, text], i) => h('li', {},
+    h('span', { class: 'so-gehts-nr' }, `Schritt ${i + 1}`), h('strong', {}, titel), h('span', {}, text))));
+}
+
+/** „Weiter, wo du warst“ – die zuletzt geöffnete Seite eines Themas. */
+function weiterZeile(alleModule) {
+  const zuletzt = lernstand.einstellung('zuletzt');
+  const modul = zuletzt && alleModule.find((m) => m.id === zuletzt.modul && m.status === 'aktiv');
+  if (!modul) return null;
+  return h('a', { class: 'karten-zeile', href: zuletzt.hash, 'data-modul': modul.id },
+    h('span', { class: 'zeilen-symbol' }, themenIcon(modul.id)),
+    h('span', { class: 'zeilen-text' }, h('span', {}, 'Weiter, wo du warst'), h('strong', {}, `${modul.titel} · ${zuletzt.titel}`)),
+    icon('weiter'));
 }
 
 /** Tagesübersicht für alle, die schon gelernt haben. */
-function heuteKarte(fortschritte) {
+function heuteKarte(fortschritte, alleModule) {
   const faellig = fortschritte.reduce((s, f) => s + (f.fortschritt?.faellig ?? 0), 0);
   const gesamt = fortschritte.reduce((s, f) => s + (f.fortschritt?.gesamt ?? 0), 0);
   const sicher = fortschritte.reduce((s, f) => s + (f.fortschritt?.sicher ?? 0), 0);
@@ -237,22 +293,25 @@ function heuteKarte(fortschritte) {
   const vorschlag = fortschritte.filter((f) => f.fortschritt?.neu > 0)
     .sort((a, b) => (b.fortschritt.gesehen - a.fortschritt.gesehen))[0];
   const aktion = faellig > 0
-    ? h('a', { class: 'knopf gross hell', href: '#/wiederholen' }, icon('wiederholen'), `${mehrzahl(faellig, 'Frage', 'Fragen')} wiederholen`)
+    ? h('a', { class: 'knopf gross breit', href: '#/wiederholen' }, icon('wiederholen'), `${mehrzahl(faellig, 'Frage', 'Fragen')} wiederholen`)
     : vorschlag
-      ? h('a', { class: 'knopf gross hell', href: `#/${vorschlag.modul.id}/lernen` }, icon('flugzeug'), `Weiter mit ${vorschlag.modul.titel}`)
-      : h('a', { class: 'knopf gross hell', href: '#/wiederholen' }, icon('ueben'), 'Frei üben');
+      ? h('a', { class: 'knopf gross breit', href: `#/${vorschlag.modul.id}/lernen` }, icon('flugzeug'), `Weiter mit ${vorschlag.modul.titel}`)
+      : h('a', { class: 'knopf gross breit', href: '#/wiederholen' }, icon('ueben'), 'Frei üben');
+  const anteil = gesamt ? sicher / gesamt : 0;
 
-  return h('section', { class: 'heute' },
-    h('p', { class: 'heute-gruss' }, gruss()),
-    h('h1', {}, faellig > 0 ? `Heute ${faellig > 1 ? 'warten' : 'wartet'} ${mehrzahl(faellig, 'Wiederholung', 'Wiederholungen')}` : 'Für heute ist alles wiederholt'),
-    h('div', { class: 'heute-werte' },
-      h('div', { class: 'heute-wert' }, icon('thermik'), h('strong', {}, serie), h('span', {}, serie === 1 ? 'Lerntag in Folge' : 'Lerntage in Folge')),
-      h('div', { class: 'heute-wert' }, icon('haken'), h('strong', {}, heute), h('span', {}, 'Antworten heute')),
-      h('div', { class: 'heute-wert' }, icon('ziel'), h('strong', {}, `${gesamt ? Math.round((sicher / gesamt) * 100) : 0}%`), h('span', {}, 'sicher gelernt')),
+  return [
+    begruessung(gruss(), 'Was lernst du heute?'),
+    h('section', { class: 'karte heute-karte' },
+      h('div', { class: 'heute-kopf' },
+        ring(anteil, `${Math.round(anteil * 100)} Prozent aller Fragen sicher gelernt`),
+        h('div', { class: 'heute-kopf-text' },
+          h('strong', {}, faellig > 0 ? `${mehrzahl(faellig, 'Frage ist', 'Fragen sind')} fällig` : 'Für heute ist alles wiederholt'),
+          h('span', { class: 'leise' }, `${mehrzahl(serie, 'Lerntag', 'Lerntage')} in Folge · ${mehrzahl(heute, 'Antwort', 'Antworten')} heute`))),
+      aktion,
+      weiterZeile(alleModule),
+      sicherungsHinweis(),
     ),
-    aktion,
-    sicherungsHinweis(),
-  );
+  ];
 }
 
 /** Zuletzt geöffnete Seite eines Themas merken (Kapitel, Funkgespräche, Werkzeuge) – für „Weiter, wo du warst“. */
@@ -263,42 +322,34 @@ function zuletztMerken(seite, rest, inhalt) {
   if (titel) lernstand.einstellungSetzen('zuletzt', { hash: location.hash, modul: seite, titel });
 }
 
-/** Schnellzugriff: weiter, wo du warst, und die Merkliste. */
-function schnellzugriff(alleModule) {
-  const zuletzt = lernstand.einstellung('zuletzt');
-  const modul = zuletzt && alleModule.find((m) => m.id === zuletzt.modul && m.status === 'aktiv');
+/** Die Merkliste als eigene Zeile, sobald etwas gemerkt ist. */
+function merklisteZeile() {
   const anzahl = lernstand.merkliste().length;
-  const zeilen = [
-    modul && h('li', {}, h('a', { class: 'schnell-zeile', href: zuletzt.hash, 'data-modul': modul.id, title: modul.titel },
-      h('span', { class: 'schnell-symbol' }, themenIcon(modul.id)),
-      h('span', { class: 'schnell-text' }, h('span', {}, 'Weiter, wo du warst'), h('strong', {}, zuletzt.titel)),
-      icon('weiter'))),
-    anzahl > 0 && h('li', {}, h('a', { class: 'schnell-zeile merkliste-zeile', href: '#/merkliste' },
-      h('span', { class: 'schnell-symbol' }, icon('merken')),
-      h('span', { class: 'schnell-text' }, h('span', {}, 'Deine Merkliste'), h('strong', {}, mehrzahl(anzahl, 'gemerkte Frage', 'gemerkte Fragen'))),
-      icon('weiter'))),
-  ].filter(Boolean);
-  return zeilen.length > 0 && h('ul', { class: 'schnellzugriff' }, zeilen);
+  return anzahl > 0 && h('a', { class: 'karten-zeile merkliste-zeile karte', href: '#/merkliste' },
+    h('span', { class: 'zeilen-symbol' }, icon('merken')),
+    h('span', { class: 'zeilen-text' }, h('span', {}, 'Deine Merkliste'), h('strong', {}, mehrzahl(anzahl, 'gemerkte Frage', 'gemerkte Fragen'))),
+    icon('weiter'));
 }
 
-/** Themen als kompakte Kacheln: Symbol, Titel, Fortschritt – die Beschreibung steht auf der Themenseite. */
-function themenKachel(modul, f) {
+/** Ein Thema als Zeile in der Liste seines Prüfungsfachs: Symbol, Titel, Fortschritt. */
+function themenZeile(modul, f) {
   if (modul.status !== 'aktiv') {
-    return h('li', {}, h('div', { class: 'themen-kachel geplant', 'data-modul': modul.id },
+    return h('li', {}, h('div', { class: 'themen-zeile geplant', 'data-modul': modul.id },
       h('span', { class: 'themen-symbol' }, themenIcon(modul.id)),
-      h('strong', { class: 'themen-titel' }, modul.titel),
-      h('span', { class: 'themen-stand' }, 'in Vorbereitung')));
+      h('span', { class: 'themen-zeile-text' }, h('strong', {}, modul.titel)),
+      h('span', { class: 'chip' }, 'bald')));
   }
   const begonnen = f && f.gesehen > 0;
-  return h('li', {}, h('a', { class: 'themen-kachel', href: `#/${modul.id}`, 'data-modul': modul.id, title: modul.beschreibung },
-    h('span', { class: 'themen-kopf' },
-      h('span', { class: 'themen-symbol' }, themenIcon(modul.id)),
-      f?.faellig > 0 && h('span', { class: 'chip chip-faellig' }, `${f.faellig} fällig`)),
-    h('strong', { class: 'themen-titel' }, modul.titel),
-    h('span', { class: 'themen-stand' }, begonnen && [balken(f.anteil), h('span', {}, `${Math.round(f.anteil * 100)} % sicher`)])));
+  return h('li', {}, h('a', { class: 'themen-zeile', href: `#/${modul.id}`, 'data-modul': modul.id, title: modul.beschreibung },
+    h('span', { class: 'themen-symbol' }, themenIcon(modul.id)),
+    h('span', { class: 'themen-zeile-text' },
+      h('span', { class: 'themen-zeile-titel' }, h('strong', {}, modul.titel), f?.faellig > 0 && h('span', { class: 'chip chip-faellig' }, `${f.faellig} fällig`)),
+      begonnen
+        ? h('span', { class: 'themen-zeile-stand' }, balken(f.anteil), h('span', {}, `${Math.round(f.anteil * 100)} %`))
+        : h('span', { class: 'themen-zeile-info' }, f ? `${mehrzahl(f.gesamt, 'Frage', 'Fragen')} · noch nicht begonnen` : 'noch nicht begonnen')),
+    icon('weiter')));
 }
 
-/** Ein Prüfungsfach mit seinen Themen und dem gemeinsamen Fortschritt. */
 function fachAbschnitt(fach, nr, themen, fortschritte) {
   const werte = themen.map((m) => fortschritte.find((x) => x.modul.id === m.id)?.fortschritt).filter(Boolean);
   const gesamt = werte.reduce((s, f) => s + f.gesamt, 0);
@@ -306,11 +357,10 @@ function fachAbschnitt(fach, nr, themen, fortschritte) {
   const begonnen = werte.some((f) => f.gesehen > 0);
   return h('li', { class: 'fach' },
     h('h3', { class: 'fach-titel' },
-      h('span', { class: 'fach-nr' }, nr),
-      h('span', { class: 'fach-name' }, fach.titel),
+      h('span', { class: 'fach-name' }, `${nr} · ${fach.titel}`),
       begonnen && gesamt > 0 && h('span', { class: 'fach-stand' }, `${Math.round((sicher / gesamt) * 100)} %`)),
     themen.length
-      ? h('ul', { class: 'themen-raster' }, themen.map((modul) => themenKachel(modul, fortschritte.find((x) => x.modul.id === modul.id)?.fortschritt)))
+      ? h('ul', { class: 'themen-gruppe' }, themen.map((modul) => themenZeile(modul, fortschritte.find((x) => x.modul.id === modul.id)?.fortschritt)))
       : h('p', { class: 'fach-leer' }, 'Dazu gibt es noch kein Thema.'));
 }
 
@@ -320,10 +370,10 @@ async function startseite(el) {
   const sichtbar = alleModule.filter((m) => passtZumSchein(m));
   const ohneFach = sichtbar.filter((m) => !fachListe.some((f) => f.id === m.fach));
   anhaengen(el,
-    neu ? willkommen() : heuteKarte(fortschritte),
-    neu ? soGehts() : schnellzugriff(alleModule),
-    h('h2', { class: 'abschnitt-titel', id: 'themen' }, 'Prüfungsfächer'),
-    scheinWahl(),
+    neu ? willkommen() : [heuteKarte(fortschritte, alleModule), merklisteZeile(), h('section', { class: 'schein-bereich' }, scheinWahl())],
+    h('div', { class: 'abschnitt-kopf', id: 'themen' },
+      h('h2', {}, 'Prüfungsfächer'),
+      h('span', { class: 'leise' }, mehrzahl(fachListe.length, 'Fach', 'Fächer'))),
     h('ol', { class: 'pruef-faecher' },
       fachListe.map((fach, i) => fachAbschnitt(fach, i + 1, sichtbar.filter((m) => m.fach === fach.id), fortschritte)),
       ohneFach.length > 0 && fachAbschnitt({ titel: 'Weitere Themen' }, '+', ohneFach, fortschritte)),
@@ -846,6 +896,7 @@ async function quellenSeite(el) {
 stufeAnwenden();
 navigationAufbauen();
 window.addEventListener('hashchange', () => navigieren());
+window.addEventListener('scroll', leseStandZeigen, { passive: true });
 window.addEventListener('stufe-geaendert', () => navigieren({ behalteScroll: true }));
 window.addEventListener('schein-geaendert', () => { navigieren({ behalteScroll: true }); faelligeAktualisieren(); });
 lexikonLaden().finally(() => navigieren());

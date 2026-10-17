@@ -1372,6 +1372,11 @@
           "unterschrift": "Die Teile der Platzrunde am frei erfundenen Flugplatz Altdorf. Welche Platzrunde gilt, steht für jeden echten Platz im Luftfahrthandbuch."
         },
         {
+          "typ": "animation",
+          "id": "platzrunde",
+          "unterschrift": "Frei erfundener Flugplatz Altdorf, rechte Platzrunde Piste 25. Meldungen als Beispiele nach NfL 2024-1-3240, Nr. 6.2."
+        },
+        {
           "typ": "achtung",
           "text": "In den empfohlenen Sprechgruppen kommen Formulierungen wie „abflugbereit“, „Start nach eigenem Ermessen“ oder „erbitte Landeinformationen“ nicht vor – eine RADIO-Station darf ja auch nichts freigeben. Positionen gibst du als **Entfernung und Richtung zu einem markanten Punkt** an (oder „über“ bzw. „querab“ eines Punktes)."
         },

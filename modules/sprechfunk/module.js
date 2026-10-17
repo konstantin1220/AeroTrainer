@@ -6,6 +6,7 @@ import { icon } from '../../js/icons.js';
 import { generatoren } from './generatoren.js';
 import { abbildungen } from './abbildungen.js';
 import { interaktiv } from './interaktiv.js';
+import { animationen } from './animationen.js';
 import { funkSeite } from './funk.js';
 
 function funkKarte(ctx) {
@@ -26,6 +27,7 @@ export default lernmodul({
   generatoren,
   abbildungen,
   interaktiv,
+  animationen,
   seiten: { funk: (el, rest, ctx) => funkSeite(el, rest, ctx) },
   uebersichtZusatz: (ctx) => funkKarte(ctx),
 });

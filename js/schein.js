@@ -37,7 +37,7 @@ export function scheinHinweis(eintrag) {
 }
 
 /** Auswahl als Knöpfe zum An- und Abwählen (mehrere möglich). */
-export function scheinWahl({ beschriftung = 'Ich lerne für:' } = {}) {
+export function scheinWahl({ beschriftung = 'Ich lerne für' } = {}) {
   const gewaehlt = gewaehlteScheine();
   const knoepfe = Object.entries(SCHEINE).map(([id, s]) => h('button', {
     type: 'button', class: 'schein-knopf', 'aria-pressed': String(gewaehlt.includes(id)), title: s.text,
@@ -47,7 +47,7 @@ export function scheinWahl({ beschriftung = 'Ich lerne für:' } = {}) {
     },
   }, h('strong', {}, s.titel), h('span', {}, s.text)));
   return h('div', { class: 'schein-wahl', role: 'group', 'aria-label': 'Für welchen Schein lernst du?' },
-    h('span', { class: 'schein-wahl-titel' }, beschriftung), h('div', { class: 'schein-knoepfe' }, knoepfe),
+    beschriftung && h('span', { class: 'schein-wahl-titel' }, beschriftung), h('div', { class: 'schein-knoepfe' }, knoepfe),
     h('p', { class: 'schein-wahl-hinweis' }, gewaehlt.length
       ? `Inhalte, die nur für andere Scheine gelten, sind ausgeblendet.${gewaehlt.includes('ul') ? ' Für UL gelten teils nationale Regeln – die App zeigt die gemeinsamen Grundlagen.' : ''}`
       : 'Nichts gewählt: Die App zeigt alle Inhalte.'));

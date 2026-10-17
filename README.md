@@ -24,6 +24,11 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
   Kraftstoff (Endreserve nach AMC1 NCO.OP.125(b)), Masse und Startstrecke, Flugplan und Unterlagen – dazu ein komplett
   durchgespielter Überlandflug, ein interaktiver Navigationsflugplan und ein Startstrecken-Rechner mit dem erfundenen
   Übungsflugzeug MF-4. Rechnungen in `modules/flugplanung/rechnen.js` (getestet, auch die Zahlen in den Kapiteln).
+- **Animationen in Kapiteln**: Bilder, die sich Schritt für Schritt aufbauen – mit kurzem Text zu jedem Schritt,
+  Abspielen/Anhalten und Springen. Bisher: wie eine Quellwolke entsteht, Ausweichregeln, Strömung am Flügel bis zum
+  Strömungsabriss, Platzrunde mit Funkmeldungen. Wer am Gerät „Bewegung reduzieren“ eingestellt hat, sieht ruhige Standbilder.
+- **Klare Oberfläche**: helle Kopfzeile mit Zurück-Pfeil, Themen als Listen je Prüfungsfach, Kapitel als Lernpfad
+  („Hier weitermachen“), Lesefortschritt im Kapitel, kurze Rückmeldungs-Animationen in den Fragerunden.
 - **Verteilte Wiederholung** (Leitner-Karteikasten mit 5 Fächern): Jede Frage kommt wieder, wenn sie dran ist.
 - **BZF-Trainer** (Thema Sprechfunk): Lernkapitel zu BZF I und II, Plätzen mit und ohne Tower, FIS/RMZ und Englisch,
   eine Übersetzungsübung wie in der BZF-I-Prüfung und **Funkgespräche** zum Durchspielen – auf Deutsch oder Englisch,
@@ -101,6 +106,7 @@ js/srs.js                 verteilte Wiederholung (Leitner)
 js/schein.js              Auswahl „Ich lerne für …“ (PPL/LAPL, SPL, UL) und Filter für Inhalte
 js/storage.js             Lernstand speichern, sichern, laden
 js/interaktiv.js          Bausteine für interaktive Darstellungen (Regler, Umschalter, Wertanzeigen)
+js/animation.js           Abspieler für Animationen in Kapiteln (Schritte, Abspielen, Standbilder für die Prüfansicht)
 js/icons.js, js/grafik.js eigene Symbole und Zeichenhelfer für Abbildungen
 modules/index.json        Prüfungsfächer und Themen
 modules/<thema>/
@@ -109,6 +115,7 @@ modules/<thema>/
   generatoren.js          Rechenaufgaben mit wechselnden Werten
   abbildungen.js          selbst gezeichnete Grafiken (SVG)
   interaktiv.js           interaktive Darstellungen (optional)
+  animationen.js          Animationen in Kapiteln (optional)
 modules/metar/            zusätzlich: Parser, METAR-Generator, Lernstufen, Beispiele, fiktive Flugplätze
 modules/flugplanung/      zusätzlich: rechnen.js (Etappen, Kraftstoff, Startstrecke), Planungsdaten in content/flugzeug.json
 modules/mensch/           zusätzlich: rechnen.js (Sauerstoff, Tauglichkeit, Tauchen, Kollisionskurs)
@@ -137,7 +144,8 @@ Aufbau eines Kapitels:
     { "typ": "achtung", "text": "…" },
     { "typ": "formel", "titel": "…", "text": "…" },
     { "typ": "abbildung", "id": "name", "unterschrift": "…" },
-    { "typ": "interaktiv", "id": "name-in-interaktiv.js" }
+    { "typ": "interaktiv", "id": "name-in-interaktiv.js" },
+    { "typ": "animation", "id": "name-in-animationen.js", "unterschrift": "…" }
   ],
   "fragen": [
     { "id": "eindeutige-id", "typ": "auswahl", "frage": "…", "richtig": "…", "falsch": ["…", "…"], "erklaerung": "…" },

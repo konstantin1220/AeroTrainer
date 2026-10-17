@@ -14,7 +14,10 @@ export function h(tag, attribute = {}, ...kinder) {
     if (wert == null || wert === false) continue;
     if (name.startsWith('on') && typeof wert === 'function') el.addEventListener(name.slice(2), wert);
     else if (name === 'class') el.className = wert;
-    else if (name === 'style' && typeof wert === 'object') Object.assign(el.style, wert);
+    else if (name === 'style' && typeof wert === 'object') {
+      // CSS-Variablen (--name) gehen nur über setProperty
+      for (const [k, v] of Object.entries(wert)) if (k.startsWith('--')) el.style.setProperty(k, v); else el.style[k] = v;
+    }
     else el.setAttribute(name, wert === true ? '' : wert);
   }
   for (const kind of kinder.flat(Infinity)) {

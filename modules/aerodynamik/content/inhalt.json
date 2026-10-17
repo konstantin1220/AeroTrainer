@@ -32,6 +32,11 @@
           "id": "profil"
         },
         {
+          "typ": "animation",
+          "id": "stroemung",
+          "unterschrift": "Schematisch: Stromlinien und Auftrieb am Profil. Die Striche wandern oben schneller als unten."
+        },
+        {
           "typ": "tabelle",
           "kopf": [
             "Begriff",

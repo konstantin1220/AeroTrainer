@@ -126,6 +126,19 @@ const BEDIENUNG = {
     <rect class="f" x="2.5" y="5.5" width="19" height="13" rx="2.5"/>
     <rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/>
     <path d="M5.5 10h7M5.5 14h4M15.5 8.5v7M14 8.5h3M14 15.5h3"/>`,
+  // Bedienung der Animationen in Kapiteln
+  animation: `
+    <rect class="f" x="3" y="5" width="18" height="14" rx="3"/>
+    <rect x="3" y="5" width="18" height="14" rx="3"/>
+    <path class="a" d="M10 9.2v5.6l4.8-2.8z"/>`,
+  abspielen: `
+    <path class="a" d="M8.5 5.8v12.4a.8.8 0 0 0 1.2.7l9.8-6.2a.8.8 0 0 0 0-1.4L9.7 5.1a.8.8 0 0 0-1.2.7z"/>`,
+  anhalten: `
+    <rect class="a" x="6.5" y="5" width="4" height="14" rx="1.2"/>
+    <rect class="a" x="13.5" y="5" width="4" height="14" rx="1.2"/>`,
+  nochmal: `
+    <path d="M4.8 12.5a7.3 7.3 0 1 0 2.4-5.9"/>
+    <path d="M6.5 3.5v3.6h3.6"/>`,
   tipp: `
     <path class="f" d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9v.7h5v-.7c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"/>
     <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9v.7h5v-.7c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3zM9.5 19.5h5M10.5 22h3M12 6.5a2.5 2.5 0 0 0-2.5 2.5"/>`,

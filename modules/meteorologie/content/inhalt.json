@@ -319,6 +319,11 @@
           "text": "Aufsteigende Luft kühlt ab"
         },
         {
+          "typ": "animation",
+          "id": "quellwolke",
+          "unterschrift": "Schematisch: Start mit 20 °C und Taupunkt 12 °C am Boden. Die Höhen sind maßstäblich."
+        },
+        {
           "typ": "tabelle",
           "kopf": [
             "Vorgang",

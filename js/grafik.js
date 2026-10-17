@@ -67,3 +67,69 @@ export function massstab(x, y, laenge, beschriftung, klasse = 'leise') {
   return `<path d="M${r(x)} ${r(y - 4)}V${r(y)}H${r(x + laenge)}V${r(y - 4)}" class="g-s-${klasse}" stroke-width="1.4" fill="none"/>`
     + text(r(x + laenge / 2), r(y - 7), beschriftung, { groesse: 10, gewicht: 700, klasse: `g-f-${klasse}` });
 }
+
+// ---------- Bewegung (für Animationen, js/animation.js) ----------
+// Alles reine Rechnungen: Eine Animation zeichnet für jeden Zeitpunkt t (0 bis 1) ein ganzes Bild.
+
+/** Weicher Übergang: 0 → 1 mit sanftem Anfahren und Abbremsen. */
+export function sanft(t) {
+  const x = Math.max(0, Math.min(1, t));
+  return x * x * (3 - 2 * x);
+}
+
+/** Wie weit t im Abschnitt von a bis b ist: 0 davor, 1 danach. */
+export function abschnitt(t, a, b) {
+  return Math.max(0, Math.min(1, (t - a) / (b - a)));
+}
+
+/** Linear zwischen a und b. */
+export function zwischen(a, b, t) {
+  return a + (b - a) * t;
+}
+
+/** Glatter Weg durch alle Punkte (Catmull-Rom), als dichte Liste von [x, y]. Jeder Eckpunkt liegt bei Index i * proAbschnitt. */
+export function glatterWeg(punkte, proAbschnitt = 12) {
+  const weg = [];
+  for (let i = 0; i < punkte.length - 1; i++) {
+    const p0 = punkte[Math.max(0, i - 1)], p1 = punkte[i], p2 = punkte[i + 1], p3 = punkte[Math.min(punkte.length - 1, i + 2)];
+    for (let k = 0; k < proAbschnitt; k++) {
+      const t = k / proAbschnitt, t2 = t * t, t3 = t2 * t;
+      weg.push([0, 1].map((a) => 0.5 * ((2 * p1[a]) + (-p0[a] + p2[a]) * t + (2 * p0[a] - 5 * p1[a] + 4 * p2[a] - p3[a]) * t2 + (-p0[a] + 3 * p1[a] - 3 * p2[a] + p3[a]) * t3)));
+    }
+  }
+  weg.push([...punkte.at(-1)]);
+  return weg;
+}
+
+/** Bisher zurückgelegte Länge bis zu jedem Punkt des Wegs. */
+export function weglaengen(weg) {
+  const laengen = [0];
+  for (let i = 1; i < weg.length; i++) laengen.push(laengen[i - 1] + Math.hypot(weg[i][0] - weg[i - 1][0], weg[i][1] - weg[i - 1][1]));
+  return laengen;
+}
+
+/** Ort und Kurs (0 = Norden/oben, im Uhrzeigersinn) beim Anteil s (0 bis 1) der Weglänge. */
+export function aufWeg(weg, s, laengen = weglaengen(weg)) {
+  const ziel = Math.max(0, Math.min(1, s)) * laengen.at(-1);
+  let i = 1;
+  while (i < weg.length - 1 && laengen[i] < ziel) i++;
+  const a = weg[i - 1], b = weg[i];
+  const stueck = laengen[i] - laengen[i - 1];
+  const f = stueck > 0 ? (ziel - laengen[i - 1]) / stueck : 0;
+  return {
+    x: zwischen(a[0], b[0], f),
+    y: zwischen(a[1], b[1], f),
+    winkel: (Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180) / Math.PI,
+  };
+}
+
+/** SVG-Pfad (Attribut d) für den Weg vom Anteil von bis zum Anteil bis. */
+export function wegPfad(weg, von = 0, bis = 1, laengen = weglaengen(weg)) {
+  const r = (n) => Math.round(n * 10) / 10;
+  const gesamt = laengen.at(-1);
+  const anfang = aufWeg(weg, von, laengen);
+  const ende = aufWeg(weg, bis, laengen);
+  let d = `M${r(anfang.x)} ${r(anfang.y)}`;
+  weg.forEach((p, i) => { if (laengen[i] > von * gesamt && laengen[i] < bis * gesamt) d += `L${r(p[0])} ${r(p[1])}`; });
+  return `${d}L${r(ende.x)} ${r(ende.y)}`;
+}

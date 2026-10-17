@@ -5,7 +5,7 @@
 // ausführen. Das trägt alle Dateien in DATEIEN ein und erhöht VERSION – dann laden alle
 // Geräte die Dateien beim nächsten Start frisch und alte Zwischenspeicher werden gelöscht.
 
-const VERSION = 'v29';
+const VERSION = 'v31';
 const CACHE = `aerotrainer-${VERSION}`;
 
 const DATEIEN = [
@@ -13,6 +13,7 @@ const DATEIEN = [
   'index.html',
   'manifest.webmanifest',
   'css/app.css',
+  'js/animation.js',
   'js/app.js',
   'js/fragen.js',
   'js/grafik.js',
@@ -33,6 +34,7 @@ const DATEIEN = [
   'icons/icon-512.png',
   'icons/icon.svg',
   'modules/aerodynamik/abbildungen.js',
+  'modules/aerodynamik/animationen.js',
   'modules/aerodynamik/content/inhalt.json',
   'modules/aerodynamik/generatoren.js',
   'modules/aerodynamik/interaktiv.js',
@@ -48,6 +50,7 @@ const DATEIEN = [
   'modules/index.json',
   'modules/lexikon.json',
   'modules/luftraum/abbildungen.js',
+  'modules/luftraum/animationen.js',
   'modules/luftraum/content/inhalt.json',
   'modules/luftraum/generatoren.js',
   'modules/luftraum/interaktiv.js',
@@ -77,6 +80,7 @@ const DATEIEN = [
   'modules/metar/module.js',
   'modules/metar/stufen.js',
   'modules/meteorologie/abbildungen.js',
+  'modules/meteorologie/animationen.js',
   'modules/meteorologie/content/inhalt.json',
   'modules/meteorologie/generatoren.js',
   'modules/meteorologie/interaktiv.js',
@@ -93,6 +97,7 @@ const DATEIEN = [
   'modules/signale/interaktiv.js',
   'modules/signale/module.js',
   'modules/sprechfunk/abbildungen.js',
+  'modules/sprechfunk/animationen.js',
   'modules/sprechfunk/aussprache.js',
   'modules/sprechfunk/content/funkgespraeche.json',
   'modules/sprechfunk/content/inhalt.json',
