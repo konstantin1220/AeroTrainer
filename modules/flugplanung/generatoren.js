@@ -1,14 +1,48 @@
 // Rechenaufgaben für „Flugplanung“ – jedes Mal mit neuen Zahlen.
 // Flugzeug- und Platzdaten (frei erfunden) kommen aus content/flugzeug.json.
 import { uebungskarte } from '../navigation/abbildungen.js';
-import { winddreieck } from '../navigation/generatoren.js';
-import { WEGPUNKTE, kursEntfernung, durchKontrollzone, kraftstoffPlan, endreserveMinuten, reiseflughoehen, startstrecke, MISSWEISUNG } from './rechnen.js';
+import { winddreieck, steuerkursWeg, grundgeschwindigkeitWeg } from '../navigation/generatoren.js';
+import { WEGPUNKTE, kursEntfernung, durchKontrollzone, kraftstoffPlan, endreserveMinuten, reiseflughoehen, startstrecke, tabellenWeg, MISSWEISUNG } from './rechnen.js';
 
 const grad3 = (g) => String(Math.round(((g % 360) + 360) % 360) || 360).padStart(3, '0');
 const komma = (n, s = 0) => Number(n.toFixed(s)).toLocaleString('de-DE', { minimumFractionDigits: s, maximumFractionDigits: s });
 const runden = (n, s = 0) => Number(n.toFixed(s));
+/** Ergebnis wie in der Lösung: höchstens s Nachkommastellen, ohne „,0“. */
+const ergebnis = (n, s = 1) => runden(n, s).toLocaleString('de-DE', { maximumFractionDigits: s, useGrouping: false });
 const uhr = (min) => { const m = ((Math.round(min) % 1440) + 1440) % 1440; return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`; };
 const zwei = (n) => String(n).padStart(2, '0');
+
+/** Rechenweg der Startstrecke: Tabellenwert, dann jede Korrektur nacheinander. */
+function startstreckeWeg(e, hoehe, temperatur, flugzeug) {
+  const t = flugzeug.startstrecke;
+  const tw = tabellenWeg(t, hoehe, temperatur);
+  const schritte = [];
+  if (t.hoehen.includes(hoehe) && t.temperaturen.includes(temperatur)) {
+    schritte.push(`Tabelle für ${hoehe} ft und ${temperatur} °C: **${Math.round(e.basis)} m**.`);
+  } else {
+    const [h0, h1] = tw.hoehen, [t0, t1] = tw.temperaturen;
+    schritte.push(`Aus der Tabelle: ${h0} ft → ${tw.werte[0][0]} m (${t0} °C) und ${tw.werte[0][1]} m (${t1} °C); ${h1} ft → ${tw.werte[1][0]} m und ${tw.werte[1][1]} m.`);
+    schritte.push(`Anteilig für ${temperatur} °C: ${h0} ft ≈ ${Math.round(tw.oben)} m, ${h1} ft ≈ ${Math.round(tw.unten)} m. Dann anteilig für ${hoehe} ft: **${Math.round(e.basis)} m**.`);
+  }
+  let wert = e.basis;
+  for (const k of e.korrekturen) {
+    const neu = wert * (1 + k.anteil);
+    schritte.push(`${k.text}: ${k.anteil > 0 ? '+' : '−'}${Math.round(Math.abs(k.anteil) * 100)} % → ${Math.round(wert)} m × ${komma(1 + k.anteil, 2)} = **${Math.round(neu)} m**.`);
+    wert = neu;
+  }
+  if (!e.korrekturen.length) schritte.push('Keine Korrekturen – Asphalt, Windstille und höchstzulässige Startmasse.');
+  return schritte;
+}
+
+/** Halbkreisflugregel als Rechenweg. */
+function halbkreisWeg(kurs, ergebnis) {
+  const ost = ((kurs % 360) + 360) % 360 < 180;
+  return [
+    `Kurs über Grund ${grad3(kurs)}° liegt ${ost ? 'zwischen 000° und 179°' : 'zwischen 180° und 359°'}.`,
+    ost ? 'Dafür gilt: **ungerade Tausender plus 500 ft** – FL 035, 055, 075, 095 …' : 'Dafür gilt: **gerade Tausender plus 500 ft** – FL 045, 065, 085, 105 …',
+    `Passend ist hier: **${ergebnis}**.`,
+  ];
+}
 
 export function erstelleGeneratoren(flugzeug) {
   const plaetze = flugzeug.plaetze;
@@ -26,7 +60,13 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(p.gesamt, 1),
         toleranz: runden(Math.max(1, p.gesamt * 0.04), 1),
         einheit: 'l',
-        erklaerung: `Flugzeit ${nm} ÷ ${gs} × 60 ≈ ${komma(minuten)} min → Strecke ${komma(p.strecke, 1)} l, Zuschlag ${komma(p.zuschlag, 1)} l, Endreserve 0,5 h × ${verbrauch} = ${komma(p.reserve, 1)} l, Rollen ${flugzeug.rollKraftstoff} l. Zusammen ≈ ${komma(p.gesamt, 1)} l.`,
+        rechenweg: [
+          `Flugzeit: ${nm} NM ÷ ${gs} kt = ${komma(minuten / 60, 3)} h ≈ **${komma(minuten)} min**.`,
+          `Strecke: ${komma(minuten / 60, 3)} h × ${verbrauch} l/h ≈ **${komma(p.strecke, 1)} l**.`,
+          `Zuschlag 10 %: ${komma(p.strecke, 1)} l × 0,1 ≈ **${komma(p.zuschlag, 1)} l**.`,
+          `Endreserve 30 min: 0,5 h × ${verbrauch} l/h = **${komma(p.reserve, 1)} l**.`,
+          `Dazu ${flugzeug.rollKraftstoff} l zum Rollen. Zusammen: ${flugzeug.rollKraftstoff} + ${komma(p.strecke, 1)} + ${komma(p.zuschlag, 1)} + ${komma(p.reserve, 1)} ≈ **${ergebnis(p.gesamt)} l**.`,
+        ],
       };
     },
 
@@ -44,7 +84,11 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: Math.round(minuten),
         toleranz: Math.max(2, Math.round(minuten * 0.03)),
         einheit: 'min',
-        erklaerung: `(${liter} − ${flugzeug.rollKraftstoff}) ÷ ${verbrauch} × 60 ≈ ${Math.round(minuten + 30)} min Flugzeit insgesamt. Minus 30 min Endreserve bleiben ${Math.round(minuten)} min.`,
+        rechenweg: [
+          `Für den Flug bleiben: ${liter} l − ${flugzeug.rollKraftstoff} l Rollen = **${liter - flugzeug.rollKraftstoff} l**.`,
+          `So lange reicht das: ${liter - flugzeug.rollKraftstoff} l ÷ ${verbrauch} l/h = ${komma((liter - flugzeug.rollKraftstoff) / verbrauch, 2)} h ≈ **${Math.round(minuten + 30)} min**.`,
+          `Die letzten 30 min sind die Endreserve: ${Math.round(minuten + 30)} − 30 = **${Math.round(minuten)} min**.`,
+        ],
       };
     },
 
@@ -61,7 +105,11 @@ export function erstelleGeneratoren(flugzeug) {
         frage: `Für welche Flugzeit soll die Kraftstoff-Endreserve deines Flugzeugs mindestens reichen? **${fall.text}**.`,
         richtig: `${fall.min} Minuten`,
         falsch: ['10 Minuten', '30 Minuten', '45 Minuten', '60 Minuten'].filter((t) => t !== `${fall.min} Minuten`).slice(0, 3),
-        erklaerung: 'Nach AMC1 NCO.OP.125(b) (Flugzeuge): 10 Minuten bei Start und Landung am selben Platz, wenn du ihn immer in Sicht behältst; sonst am Tag 30 Minuten; nachts 45 Minuten – jeweils für den Warteflug in 1500 ft über dem Ziel.',
+        rechenweg: [
+          'Nach AMC1 NCO.OP.125(b) für Flugzeuge: **10 min**, wenn Start und Landung am selben Platz sind und du ihn immer in Sicht behältst · **30 min** bei allen anderen Flügen am Tag · **45 min** nachts.',
+          `Hier: ${fall.text} → **${fall.min} Minuten**.`,
+        ],
+        erklaerung: 'Gemeint ist jeweils die Zeit für einen Warteflug in 1500 ft über dem Ziel.',
       };
     },
 
@@ -78,7 +126,7 @@ export function erstelleGeneratoren(flugzeug) {
         frage: `Du fliegst VFR mit einem Kurs über Grund von **${grad3(kurs)}°** mehr als 3000 ft über Grund. Welche dieser Reiseflughöhen passt zur Halbkreisflugregel?`,
         richtig: fl(richtig),
         falsch,
-        erklaerung: `Kurs über Grund 000° bis 179°: ungerade Tausender plus 500 ft (FL 035, 055, 075 …); 180° bis 359°: gerade Tausender plus 500 ft (FL 045, 065, 085 …). ${grad3(kurs)}° → ${kurs % 360 < 180 ? 'ungerade' : 'gerade'} + 500.`,
+        rechenweg: halbkreisWeg(kurs, fl(richtig)),
       };
     },
 
@@ -94,11 +142,25 @@ export function erstelleGeneratoren(flugzeug) {
       const { luv, gs } = winddreieck(rwk, tas, windR, windS);
       const frageArt = z.wahl(['gs', 'mwsk', 'zeit']);
       const kopf = `Etappe **${a.name} → ${b.name}**: rechtweisender Kurs ${grad3(rwk)}°, ${komma(nm, 1)} NM. TAS ${tas} kt, Wind aus ${grad3(windR)}° mit ${windS} kt, Missweisung ${MISSWEISUNG}° Ost.`;
-      if (frageArt === 'gs') return { typ: 'zahl', frage: `${kopf} Wie groß ist die Grundgeschwindigkeit?`, loesung: Math.round(gs), toleranz: 3, einheit: 'kt', erklaerung: `Mit dem Winddreieck: Luvwinkel ${Math.abs(Math.round(luv))}° ${luv >= 0 ? 'nach rechts' : 'nach links'}, Grundgeschwindigkeit ≈ ${Math.round(gs)} kt.` };
+      if (frageArt === 'gs') return { typ: 'zahl', frage: `${kopf} Wie groß ist die Grundgeschwindigkeit?`, loesung: Math.round(gs), toleranz: 3, einheit: 'kt', rechenweg: grundgeschwindigkeitWeg(rwk, tas, windR, windS) };
       const mwsk = rwk + luv - MISSWEISUNG;
-      if (frageArt === 'mwsk') return { typ: 'zahl', frage: `${kopf} Welchen missweisenden Steuerkurs steuerst du?`, loesung: Math.round(((mwsk % 360) + 360) % 360) || 360, toleranz: 2, einheit: '°', kreis: true, erklaerung: `Luvwinkel ${luv >= 0 ? '+' : '−'}${Math.abs(Math.round(luv))}° → rwSK ${grad3(rwk + luv)}°. Ostmissweisung abziehen: ${grad3(rwk + luv)}° − ${MISSWEISUNG}° = ${grad3(mwsk)}°.` };
+      if (frageArt === 'mwsk') {
+        return {
+          typ: 'zahl', frage: `${kopf} Welchen missweisenden Steuerkurs steuerst du?`, loesung: Math.round(((mwsk % 360) + 360) % 360) || 360, toleranz: 2, einheit: '°', kreis: true,
+          rechenweg: [
+            ...steuerkursWeg(rwk, tas, windR, windS),
+            `Ostmissweisung abziehen: mwSK = rwSK − MW = ${grad3(rwk + luv)}° − ${MISSWEISUNG}° = **${grad3(mwsk)}°**.`,
+          ],
+        };
+      }
       const min = (nm / gs) * 60;
-      return { typ: 'zahl', frage: `${kopf} Wie lange dauert die Etappe?`, loesung: Math.round(min), toleranz: Math.max(1, Math.round(min * 0.06)), einheit: 'min', erklaerung: `Grundgeschwindigkeit ≈ ${Math.round(gs)} kt (Winddreieck). ${komma(nm, 1)} NM ÷ ${Math.round(gs)} kt × 60 ≈ ${Math.round(min)} min.` };
+      return {
+        typ: 'zahl', frage: `${kopf} Wie lange dauert die Etappe?`, loesung: Math.round(min), toleranz: Math.max(1, Math.round(min * 0.06)), einheit: 'min',
+        rechenweg: [
+          ...grundgeschwindigkeitWeg(rwk, tas, windR, windS),
+          `Zeit = Strecke ÷ GS × 60 = ${komma(nm, 1)} NM ÷ ${Math.round(gs)} kt × 60 ≈ **${Math.round(min)} min**.`,
+        ],
+      };
     },
 
     /** Voraussichtliche Ankunftszeit */
@@ -112,7 +174,10 @@ export function erstelleGeneratoren(flugzeug) {
         frage: `Abflug um **${uhr(ab)} UTC**, ${nm} NM bei ${gs} kt Grundgeschwindigkeit. Wann bist du voraussichtlich am Ziel (ETA)?`,
         richtig: `${uhr(ab + min)} UTC`,
         falsch: [...new Set([uhr(ab + min + 10), uhr(ab + min - 10), uhr(ab + (nm / (gs * 1.852)) * 60), uhr(ab + min + 60)])].filter((t) => t !== uhr(ab + min)).slice(0, 3).map((t) => `${t} UTC`),
-        erklaerung: `Flugzeit ${nm} ÷ ${gs} × 60 ≈ ${Math.round(min)} min. ${uhr(ab)} + ${Math.round(min)} min = ${uhr(ab + min)} UTC.`,
+        rechenweg: [
+          `Flugzeit = Strecke ÷ GS × 60 = ${nm} NM ÷ ${gs} kt × 60 ≈ **${Math.round(min)} min**.`,
+          `ETA = Abflug + Flugzeit: ${uhr(ab)} + ${Math.round(min)} min = **${uhr(ab + min)} UTC**.`,
+        ],
       };
     },
 
@@ -133,14 +198,18 @@ export function erstelleGeneratoren(flugzeug) {
           loesung: Math.round(e.startstrecke),
           toleranz: Math.round(e.startstrecke * 0.04),
           einheit: 'm',
-          erklaerung: `Tabelle für ${p.hoehe} ft und ${temperatur} °C: ≈ ${Math.round(e.basis)} m. Korrekturen: ${e.schritte.join(', ') || 'keine'} → ≈ ${Math.round(e.startstrecke)} m.`,
+          rechenweg: [...startstreckeWeg(e, p.hoehe, temperatur, flugzeug), `Startstrecke über 15 m ≈ **${Math.round(e.startstrecke)} m**.`],
         };
       }
       return {
         typ: 'wahrfalsch',
         aussage: `${flugzeug.name}: ${lage} Die Piste mit ${p.laenge} m reicht für die Startstrecke über 15 m.`,
         richtig: e.startstrecke <= p.laenge,
-        erklaerung: `Tabelle ≈ ${Math.round(e.basis)} m, Korrekturen: ${e.schritte.join(', ') || 'keine'} → Startstrecke ≈ ${Math.round(e.startstrecke)} m bei ${p.laenge} m Piste.`,
+        rechenweg: [
+          ...startstreckeWeg(e, p.hoehe, temperatur, flugzeug),
+          `Vergleich mit der Piste: ${Math.round(e.startstrecke)} m ${e.startstrecke <= p.laenge ? '≤' : '>'} ${p.laenge} m → **${e.startstrecke <= p.laenge ? 'reicht' : 'reicht nicht'}**.`,
+        ],
+        erklaerung: 'Plane zusätzlich eine Sicherheitsreserve ein – die Werte im Flughandbuch gelten für ein neues Flugzeug und gute Technik.',
       };
     },
 
@@ -183,7 +252,11 @@ export function erstelleGeneratoren(flugzeug) {
           typ: 'wahrfalsch', code: text,
           aussage: `Am ${tag}.${monat}. um ${zwei(stunde)}:30 UTC gilt dieser NOTAM.`,
           richtig: stunde >= von && stunde < bis,
-          erklaerung: `B) ist der Beginn, C) das Ende – im Format JJMMTThhmm in UTC: vom ${tag}.${monat}. ${zwei(von)}:00 bis ${zwei(bis)}:00 UTC.`,
+          rechenweg: [
+            'B) ist der Beginn, C) das Ende – jeweils im Format **JJMMTThhmm** in UTC.',
+            `B) ${datum(von)} → ${tag}.${monat}. um ${zwei(von)}:00 UTC · C) ${datum(bis)} → ${tag}.${monat}. um ${zwei(bis)}:00 UTC.`,
+            `${zwei(stunde)}:30 UTC liegt ${stunde >= von && stunde < bis ? '**innerhalb** – der NOTAM gilt' : '**außerhalb** – der NOTAM gilt dann nicht'}.`,
+          ],
         };
       }
       return {

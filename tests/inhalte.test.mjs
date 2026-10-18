@@ -47,6 +47,16 @@ function frageVollstaendigPruefen(frage, ort, abbildungen) {
   if (frage.svg) assert.match(frage.svg, /^<svg[\s\S]*<\/svg>$/, `${ort}: svg ist keine SVG-Grafik`);
   if (frage.typ === 'auswahl') assert.ok(frage.falsch.every((f) => !bewerten(frage, f)), `${ort}: eine falsche Antwort gilt als richtig`);
   if (frage.typ === 'zahl') assert.ok(!bewerten(frage, String(frage.loesung + (frage.toleranz ?? 0) + Math.max(1, Math.abs(frage.loesung) * 0.2))), `${ort}: Toleranz zu groß`);
+  if (frage.rechenweg) {
+    const weg = frage.rechenweg.join(' ');
+    assert.doesNotMatch(weg, /NaN|undefined|Infinity|null|\[object/, `${ort}: Rechenweg enthält ungültige Werte`);
+    // Der Rechenweg muss beim Ergebnis ankommen: Eine fett gedruckte Zahl ist genau die Lösung.
+    if (frage.typ === 'zahl') {
+      const fett = [...weg.matchAll(/\*\*[+]?(−?\d+(?:,\d+)?)/g)].map((m) => Number(m[1].replace('−', '-').replace(',', '.')));
+      const gleich = (x) => Math.abs(x - frage.loesung) < 1e-9 || (frage.kreis && (x % 360) === (frage.loesung % 360));
+      assert.ok(fett.some(gleich), `${ort}: Rechenweg kommt nicht beim Ergebnis ${frage.loesung} an: ${weg}`);
+    }
+  }
 }
 
 const alleIds = new Set();
@@ -101,6 +111,8 @@ for (const modul of aktiv) {
           for (let i = 0; i < 300; i++) {
             const frage = generator(z, quelle);
             frageVollstaendigPruefen(frage, `${quelle.id} (Durchlauf ${i})`, abbildungen);
+            // Rechenaufgaben erklären immer, wie man auf das Ergebnis kommt.
+            if (frage.typ === 'zahl') assert.ok(frage.rechenweg, `${quelle.id}: Zahlenaufgabe ohne Rechenweg`);
             // Gemerkte Rechenaufgaben werden als JSON gespeichert – das muss verlustfrei gehen.
             assert.deepStrictEqual(JSON.parse(JSON.stringify(frage)), frage, `${quelle.id}: erzeugte Frage lässt sich nicht verlustfrei speichern`);
           }

@@ -79,8 +79,11 @@ export function reiseflughoehen(kursUeberGrund) {
   return liste;
 }
 
-/** Lineare Interpolation in einer Tabelle (Zeilen: hoehen, Spalten: temperaturen), außerhalb wird begrenzt. */
-function tabelle(t, hoehe, temperatur) {
+/**
+ * Lineare Interpolation in einer Tabelle (Zeilen: hoehen, Spalten: temperaturen), außerhalb wird begrenzt.
+ * Liefert auch die Zwischenwerte – für den Rechenweg: erst die Temperatur in beiden Zeilen, dann die Höhe.
+ */
+export function tabellenWeg(t, hoehe, temperatur) {
   const stelle = (achse, wert) => {
     const w = Math.max(achse[0], Math.min(achse.at(-1), wert));
     let i = 0;
@@ -92,8 +95,15 @@ function tabelle(t, hoehe, temperatur) {
   const w = (z, s) => t.werte[z][s];
   const oben = w(zi, si) + (w(zi, si + 1) - w(zi, si)) * sa;
   const unten = w(zi + 1, si) + (w(zi + 1, si + 1) - w(zi + 1, si)) * sa;
-  return oben + (unten - oben) * za;
+  return {
+    hoehen: [t.hoehen[zi], t.hoehen[zi + 1]],
+    temperaturen: [t.temperaturen[si], t.temperaturen[si + 1]],
+    werte: [[w(zi, si), w(zi, si + 1)], [w(zi + 1, si), w(zi + 1, si + 1)]],
+    oben, unten, wert: oben + (unten - oben) * za,
+  };
 }
+
+const tabelle = (t, hoehe, temperatur) => tabellenWeg(t, hoehe, temperatur).wert;
 
 /**
  * Startstrecke nach dem (erfundenen) Flughandbuch des MF-4.
@@ -105,15 +115,22 @@ export function startstrecke(flugzeug, { hoehe, temperatur, masse, wind = 0, bel
   const k = t.korrekturen;
   const basis = tabelle(t, hoehe, temperatur);
   const schritte = [];
+  const korrekturen = []; // { text, anteil } – für den Rechenweg
   let faktor = 1;
-  const anwenden = (anteil, text) => { if (Math.abs(anteil) > 1e-9) { faktor *= 1 + anteil; schritte.push(`${text}: ${anteil > 0 ? '+' : '−'}${Math.round(Math.abs(anteil) * 100)} %`); } };
+  const anwenden = (anteil, text) => {
+    if (Math.abs(anteil) > 1e-9) {
+      faktor *= 1 + anteil;
+      schritte.push(`${text}: ${anteil > 0 ? '+' : '−'}${Math.round(Math.abs(anteil) * 100)} %`);
+      korrekturen.push({ text, anteil });
+    }
+  };
   if (masse < flugzeug.mtom) anwenden(((flugzeug.mtom - masse) / 100) * k.je100kgUnterMtom, `${flugzeug.mtom - masse} kg unter MTOM`);
   if (wind > 0) anwenden((wind / 10) * k.gegenwindJe10kt, `${wind} kt Gegenwind`);
   if (wind < 0) anwenden((-wind / 2) * k.rueckenwindJe2kt, `${-wind} kt Rückenwind`);
   if (belag === 'grasTrocken') anwenden(k.grasTrocken, 'trockenes Gras');
   if (belag === 'grasNass') anwenden(k.grasNass, 'nasses Gras');
   const strecke = basis * faktor;
-  return { basis, faktor, startstrecke: strecke, rollstrecke: strecke * t.rollAnteil, schritte };
+  return { basis, faktor, startstrecke: strecke, rollstrecke: strecke * t.rollAnteil, schritte, korrekturen };
 }
 
 /** Druckhöhe aus Platzhöhe und QNH (1 hPa ≈ 30 ft). */

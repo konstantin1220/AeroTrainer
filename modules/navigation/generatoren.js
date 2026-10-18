@@ -15,6 +15,24 @@ export function winddreieck(kurs, tas, windRichtung, windStaerke) {
   return { luv, gs };
 }
 
+const komma = (n, s = 1) => runden(n, s).toLocaleString('de-DE', { useGrouping: false }).replace('-', '−');
+const vz = (n) => (n > 0 ? `+${n}` : String(n).replace('-', '−'));
+/** Windeinfallswinkel: −180 … +180°, positiv = Wind von rechts. */
+const einfall = (windRichtung, kurs) => ((windRichtung - kurs + 540) % 360) - 180;
+
+/** Rechenweg für Kurs minus Korrektur (Missweisung, Deviation) – mit Übertrag über 360°. */
+function kursMinus(kurs, wert, name) {
+  const roh = kurs - wert;
+  const ergebnis = roh <= 0 ? roh + 360 : roh > 360 ? roh - 360 : roh;
+  const teile = [wert > 0 ? `${grad3(kurs)}° − ${wert}°` : `${grad3(kurs)}° − (−${-wert}°) = ${grad3(kurs)}° + ${-wert}°`];
+  if (roh <= 0) teile.push(`${vz(roh)}° → plus 360°`);
+  if (roh > 360) teile.push(`${roh}° → minus 360°`);
+  return [
+    `${name} ${Math.abs(wert)}° ${wert > 0 ? 'Ost' : 'West'} → **${vz(wert)}°** (Ost zählt positiv, West negativ).`,
+    `${teile.join(' = ')} = **${grad3(ergebnis)}°**.`,
+  ];
+}
+
 function missweisungText(mw) {
   return mw >= 0 ? `${mw}° Ost (+${mw}°)` : `${-mw}° West (${mw}°)`;
 }
@@ -24,27 +42,66 @@ function uhrzeit(minuten) {
   return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
 }
 
+/** Steuerkurs mit der Faustformel – und dem genauen Wert, falls er davon abweicht. */
+export function steuerkursWeg(kurs, tas, windRichtung, windStaerke) {
+  const d = einfall(windRichtung, kurs);
+  const seite = d > 0 ? 'rechts' : 'links';
+  const groesster = (60 * windStaerke) / tas;
+  const anteil = Math.abs(Math.sin(d * RAD));
+  const faust = groesster * anteil;
+  const { luv } = winddreieck(kurs, tas, windRichtung, windStaerke);
+  const genau = (kurs + luv + 360) % 360;
+  const ueberschlag = (kurs + (d > 0 ? 1 : -1) * Math.round(faust) + 360) % 360;
+  return [
+    `Windeinfallswinkel: Wind aus ${grad3(windRichtung)}°, Kurs ${grad3(kurs)}° → der Wind kommt **${Math.abs(d)}° von ${seite}**.`,
+    `Größter Luvwinkel ≈ 60 × Wind ÷ TAS = 60 × ${windStaerke} ÷ ${tas} ≈ **${komma(groesster)}°**.`,
+    `Seitenwindanteil bei ${Math.abs(d)}°: × ${komma(anteil, 2)} (Faustwerte: 30° → 0,5 · 45° → 0,7 · 60° → 0,9 · 90° → 1) → Luvwinkel ≈ **${Math.round(faust)}°**.`,
+    `Nase in den Wind, also nach ${seite}: ${grad3(kurs)}° ${d > 0 ? '+' : '−'} ${Math.round(faust)}° = **${grad3(ueberschlag)}°**`
+      + (grad3(ueberschlag) === grad3(genau) ? '.' : ` – genau gerechnet **${grad3(genau)}°**, beides gilt als richtig.`),
+  ];
+}
+
+/** Grundgeschwindigkeit: Gegen- oder Rückenwindanteil, bei viel Seitenwind etwas weniger durch das Vorhalten. */
+export function grundgeschwindigkeitWeg(kurs, tas, windRichtung, windStaerke) {
+  const d = einfall(windRichtung, kurs);
+  const cos = Math.cos(d * RAD);
+  const gegen = windStaerke * cos;
+  const { luv, gs } = winddreieck(kurs, tas, windRichtung, windStaerke);
+  const grob = tas - gegen;
+  const schritte = [
+    `Windeinfallswinkel: Wind aus ${grad3(windRichtung)}°, Kurs ${grad3(kurs)}° → **${Math.abs(d)}°** ${Math.abs(d) < 90 ? 'von vorn' : Math.abs(d) > 90 ? 'von hinten' : 'genau von der Seite'}.`,
+    Math.abs(d) === 90
+      ? 'Genau von der Seite: kein Gegen- und kein Rückenwindanteil.'
+      : `${gegen > 0 ? 'Gegenwindanteil' : 'Rückenwindanteil'} = Wind × cos ${Math.abs(d)}° = ${windStaerke} × ${komma(Math.abs(cos), 2)} ≈ **${Math.round(Math.abs(gegen))} kt** (Faustwerte: 30° → 0,9 · 45° → 0,7 · 60° → 0,5 · 90° → 0).`,
+    `GS ≈ TAS ${gegen >= 0 ? '−' : '+'} ${gegen >= 0 ? 'Gegenwind' : 'Rückenwind'} = ${tas} ${gegen >= 0 ? '−' : '+'} ${Math.round(Math.abs(gegen))} = **${Math.round(grob)} kt**.`,
+  ];
+  if (Math.round(grob) !== Math.round(gs)) {
+    schritte.push(`Weil du ${Math.abs(Math.round(luv))}° vorhältst, geht noch etwas verloren (TAS × cos Luvwinkel): genau **${Math.round(gs)} kt**.`);
+  }
+  return schritte;
+}
+
 export const generatoren = {
   einheiten(z) {
     const art = z.wahl(['nm-km', 'km-nm', 'ft-m', 'm-ft', 'kt-kmh']);
     if (art === 'nm-km') {
       const nm = z.ganz(5, 80);
-      return { typ: 'zahl', frage: `Wie viele Kilometer sind **${nm} NM**?`, loesung: runden(nm * 1.852, 1), toleranz: runden(Math.max(1, nm * 1.852 * 0.02), 1), einheit: 'km', erklaerung: `1 NM = 1,852 km → ${nm} × 1,852 ≈ ${runden(nm * 1.852, 1).toLocaleString('de-DE')} km. Faustregel: NM × 2 minus 10 %.` };
+      return { typ: 'zahl', frage: `Wie viele Kilometer sind **${nm} NM**?`, loesung: runden(nm * 1.852, 1), toleranz: runden(Math.max(1, nm * 1.852 * 0.02), 1), einheit: 'km', rechenweg: ['1 NM = **1,852 km**.', `${nm} × 1,852 = **${komma(nm * 1.852)} km**.`, `Zum Überschlagen: × 2 und 10 % weg → ${nm * 2} − ${komma(nm * 0.2)} ≈ ${komma(nm * 1.8)} km.`] };
     }
     if (art === 'km-nm') {
       const km = z.ganz(10, 150, 5);
-      return { typ: 'zahl', frage: `Wie viele nautische Meilen sind **${km} km**?`, loesung: runden(km / 1.852, 1), toleranz: runden(Math.max(1, (km / 1.852) * 0.02), 1), einheit: 'NM', erklaerung: `km ÷ 1,852 → ${km} ÷ 1,852 ≈ ${runden(km / 1.852, 1).toLocaleString('de-DE')} NM.` };
+      return { typ: 'zahl', frage: `Wie viele nautische Meilen sind **${km} km**?`, loesung: runden(km / 1.852, 1), toleranz: runden(Math.max(1, (km / 1.852) * 0.02), 1), einheit: 'NM', rechenweg: ['1 NM = 1,852 km – also teilst du durch **1,852**.', `${km} ÷ 1,852 = **${komma(km / 1.852)} NM**.`, `Zum Überschlagen: halbieren und 10 % dazu → ${komma(km / 2)} + ${komma(km / 20)} ≈ ${komma(km * 0.55)} NM.`] };
     }
     if (art === 'ft-m') {
       const ft = z.ganz(5, 100) * 100;
-      return { typ: 'zahl', frage: `Wie viele Meter sind **${ft} ft**?`, loesung: Math.round(ft * 0.3048), toleranz: Math.round(Math.max(10, ft * 0.3048 * 0.02)), einheit: 'm', erklaerung: `1 ft = 0,3048 m → ${ft} × 0,3048 ≈ ${Math.round(ft * 0.3048)} m. Faustregel: ft × 3 ÷ 10.` };
+      return { typ: 'zahl', frage: `Wie viele Meter sind **${ft} ft**?`, loesung: Math.round(ft * 0.3048), toleranz: Math.round(Math.max(10, ft * 0.3048 * 0.02)), einheit: 'm', rechenweg: ['1 ft = **0,3048 m**.', `${ft} × 0,3048 ≈ **${Math.round(ft * 0.3048)} m**.`, `Zum Überschlagen: × 3 ÷ 10 → ${ft} × 3 ÷ 10 = ${ft * 3 / 10} m.`] };
     }
     if (art === 'm-ft') {
       const m = z.ganz(1, 40) * 100;
-      return { typ: 'zahl', frage: `Wie viele Fuß sind **${m} m**?`, loesung: Math.round(m / 0.3048), toleranz: Math.round(Math.max(30, (m / 0.3048) * 0.02)), einheit: 'ft', erklaerung: `m ÷ 0,3048 → ${m} ÷ 0,3048 ≈ ${Math.round(m / 0.3048)} ft. Faustregel: m × 3,3.` };
+      return { typ: 'zahl', frage: `Wie viele Fuß sind **${m} m**?`, loesung: Math.round(m / 0.3048), toleranz: Math.round(Math.max(30, (m / 0.3048) * 0.02)), einheit: 'ft', rechenweg: ['1 ft = 0,3048 m – also teilst du durch **0,3048** (das ist dasselbe wie × 3,28).', `${m} ÷ 0,3048 ≈ **${Math.round(m / 0.3048)} ft**.`, `Zum Überschlagen: × 3,3 → ${m} × 3,3 = ${komma(m * 3.3, 0)} ft.`] };
     }
     const kt = z.ganz(40, 150, 5);
-    return { typ: 'zahl', frage: `Wie viele km/h sind **${kt} kt**?`, loesung: Math.round(kt * 1.852), toleranz: Math.round(Math.max(2, kt * 1.852 * 0.02)), einheit: 'km/h', erklaerung: `1 kt = 1 NM/h = 1,852 km/h → ${kt} × 1,852 ≈ ${Math.round(kt * 1.852)} km/h.` };
+    return { typ: 'zahl', frage: `Wie viele km/h sind **${kt} kt**?`, loesung: Math.round(kt * 1.852), toleranz: Math.round(Math.max(2, kt * 1.852 * 0.02)), einheit: 'km/h', rechenweg: ['1 kt = 1 NM pro Stunde = **1,852 km/h**.', `${kt} × 1,852 ≈ **${Math.round(kt * 1.852)} km/h**.`, `Zum Überschlagen: × 2 und 10 % weg → ${kt * 2} − ${komma(kt * 0.2, 0)} ≈ ${komma(kt * 1.8, 0)} km/h.`] };
   },
 
   zeitzone(z) {
@@ -63,7 +120,11 @@ export const generatoren = {
       frage: zuUtc ? `Es ist **${gegeben} ${zone}**. Wie spät ist es in UTC?` : `Es ist **${gegeben} UTC**. Wie spät ist es in ${zone} (${sommer ? 'Sommerzeit' : 'Winterzeit'})?`,
       richtig,
       falsch: [...new Set(falsch)].filter((f) => f !== richtig),
-      erklaerung: `${zone} = UTC + ${versatz} h. ${zuUtc ? `Also ${versatz} h abziehen.` : `Also ${versatz} h dazuzählen.`}`,
+      rechenweg: [
+        `${zone} (${sommer ? 'Sommerzeit' : 'Winterzeit'}) = **UTC + ${versatz} h**.`,
+        zuUtc ? `Von ${zone} nach UTC: ${versatz} h **abziehen**.` : `Von UTC nach ${zone}: ${versatz} h **dazuzählen**.`,
+        `${gegeben} ${zuUtc ? '−' : '+'} ${versatz}:00 = **${richtig}${zuUtc ? ' UTC' : ` ${zone}`}**.`,
+      ],
     };
   },
 
@@ -77,7 +138,8 @@ export const generatoren = {
       loesung: mwk === 0 ? 360 : mwk,
       einheit: '°',
       kreis: true,
-      erklaerung: `mwK = rwK − MW = ${grad3(rwk)}° − (${mw > 0 ? '+' : ''}${mw}°) = ${grad3(mwk)}°. Merksatz: Ostmissweisung abziehen, Westmissweisung dazuzählen.`,
+      rechenweg: ['Formel: **mwK = rwK − MW**.', ...kursMinus(rwk, mw, 'Missweisung')],
+      erklaerung: 'Merksatz: Ostmissweisung abziehen, Westmissweisung dazuzählen.',
     };
   },
 
@@ -91,7 +153,7 @@ export const generatoren = {
       loesung: kk === 0 ? 360 : kk,
       einheit: '°',
       kreis: true,
-      erklaerung: `KK = mwK − Dev = ${grad3(mwk)}° − (${dev > 0 ? '+' : ''}${dev}°) = ${grad3(kk)}°. Die Deviation wird genauso behandelt wie die Missweisung.`,
+      rechenweg: ['Formel: **KK = mwK − Dev** – die Deviation wird genauso behandelt wie die Missweisung.', ...kursMinus(mwk, dev, 'Deviation')],
     };
   },
 
@@ -110,7 +172,7 @@ export const generatoren = {
       einheit: '°',
       kreis: true,
       hinweis: 'Faustformel: größter Luvwinkel ≈ 60 × Windgeschwindigkeit ÷ TAS, davon der Anteil je nach Windeinfallswinkel.',
-      erklaerung: `Der Wind kommt von ${luv > 0 ? 'rechts' : 'links'}, also hältst du ${luv > 0 ? 'rechts' : 'links'} vor: Luvwinkel ≈ ${Math.abs(runden(luv))}°. rwSK ≈ ${grad3(sk)}°.`,
+      rechenweg: steuerkursWeg(kurs, tas, windRichtung, windStaerke),
     };
   },
 
@@ -126,7 +188,7 @@ export const generatoren = {
       loesung: Math.round(gs),
       toleranz: 3,
       einheit: 'kt',
-      erklaerung: `Gegenwindanteil = Wind × cos(Windeinfallswinkel). Hier ergibt sich eine GS von etwa ${Math.round(gs)} kt.`,
+      rechenweg: grundgeschwindigkeitWeg(kurs, tas, windRichtung, windStaerke),
     };
   },
 
@@ -140,7 +202,12 @@ export const generatoren = {
       loesung: Math.round(minuten),
       toleranz: 1,
       einheit: 'min',
-      erklaerung: `Zeit = Strecke ÷ GS = ${strecke} ÷ ${gs} h ≈ ${runden(minuten, 1).toLocaleString('de-DE')} min.`,
+      rechenweg: [
+        'Formel: **Zeit = Strecke ÷ Grundgeschwindigkeit**. Knoten sind NM pro Stunde – das Ergebnis ist also in Stunden.',
+        `${strecke} NM ÷ ${gs} kt = **${komma(strecke / gs, 3)} h**.`,
+        `In Minuten: ${komma(strecke / gs, 3)} h × 60 ≈ **${Math.round(minuten)} min**.`,
+      ],
+      erklaerung: `Kopfrechnen geht auch so: ${gs} kt sind ${komma(gs / 60, 2)} NM pro Minute → ${strecke} ÷ ${komma(gs / 60, 2)} ≈ ${Math.round(minuten)} min.`,
     };
   },
 
@@ -156,7 +223,11 @@ export const generatoren = {
       loesung: runden(gesamt, 1),
       toleranz: 1,
       einheit: 'l',
-      erklaerung: `${minuten} min = ${runden(minuten / 60, 2).toLocaleString('de-DE')} h × ${verbrauch} l/h = ${runden(liter, 1).toLocaleString('de-DE')} l${reserve ? ` + 30 min Reserve (${runden(verbrauch / 2, 1).toLocaleString('de-DE')} l) = ${runden(gesamt, 1).toLocaleString('de-DE')} l` : ''}.`,
+      rechenweg: [
+        `Flugzeit in Stunden: ${minuten} min ÷ 60 = **${komma(minuten / 60, 2)} h**.`,
+        `Kraftstoff = Flugzeit × Verbrauch = ${komma(minuten / 60, 2)} h × ${verbrauch} l/h = **${komma(liter)} l**.`,
+        ...(reserve ? [`Dazu 30 min Reserve: 0,5 h × ${verbrauch} l/h = ${komma(verbrauch / 2)} l → ${komma(liter)} + ${komma(verbrauch / 2)} = **${komma(gesamt)} l**.`] : []),
+      ],
     };
   },
 
@@ -170,7 +241,11 @@ export const generatoren = {
       loesung: runden(fehler, 1),
       toleranz: 0.5,
       einheit: '°',
-      erklaerung: `1:60-Regel: Kursfehler = Ablage × 60 ÷ Strecke = ${ablage} × 60 ÷ ${geflogen} = ${runden(fehler, 1).toLocaleString('de-DE')}°.`,
+      rechenweg: [
+        '1:60-Regel: **1 NM Ablage nach 60 NM ≈ 1° Kursfehler**.',
+        `Kursfehler = Ablage × 60 ÷ geflogene Strecke = ${ablage} × 60 ÷ ${geflogen}.`,
+        `${ablage * 60} ÷ ${geflogen} = **${komma(fehler)}°**.`,
+      ],
     };
   },
 
@@ -183,7 +258,11 @@ export const generatoren = {
       loesung: runden(km, 1),
       toleranz: 0.5,
       einheit: 'km',
-      erklaerung: `1 : 500 000 bedeutet 1 cm = 500 000 cm = 5 km. ${cm.toLocaleString('de-DE')} × 5 = ${runden(km, 1).toLocaleString('de-DE')} km.`,
+      rechenweg: [
+        '1 : 500 000 heißt: **1 cm** auf der Karte sind **500 000 cm** in der Wirklichkeit.',
+        '500 000 cm = 5000 m = **5 km** – jeder Zentimeter sind also 5 km.',
+        `${komma(cm)} cm × 5 km = **${komma(km)} km**.`,
+      ],
     };
   },
 
@@ -199,7 +278,11 @@ export const generatoren = {
       toleranz: 3,
       einheit: '°',
       kreis: true,
-      erklaerung: `Der rechtweisende Kurs beträgt etwa ${grad3(kurs)}° (±3° Messgenauigkeit).`,
+      rechenweg: [
+        'Lege die Mitte des Kursdreiecks (Winkelmessers) auf die Kurslinie und richte es an einer **Nord-Süd-Linie** aus.',
+        'Lies den Winkel **von Norden im Uhrzeigersinn** bis zur Kurslinie ab – in Flugrichtung, nicht zurück.',
+        `Ergebnis: rechtweisender Kurs ≈ **${grad3(kurs)}°** (±3° Messgenauigkeit).`,
+      ],
     };
   },
 
@@ -214,7 +297,11 @@ export const generatoren = {
       loesung: Math.round(entfernung),
       toleranz: Math.max(2, Math.round(entfernung * 0.06)),
       einheit: 'NM',
-      erklaerung: `Die Entfernung beträgt etwa ${Math.round(entfernung)} NM.`,
+      rechenweg: [
+        'Nimm die Länge der Linie zwischen beiden Orten ab – mit Zirkel, Lineal oder einem Papierstreifen.',
+        'Lege sie an die Maßstabsleiste an oder zähle die Gitterlinien: Sie haben **10 NM** Abstand.',
+        `Ergebnis: etwa **${Math.round(entfernung)} NM**.`,
+      ],
     };
   },
 

@@ -28,7 +28,17 @@ export const generatoren = {
       frage: `Das (frei erfundene) Übungsflugzeug MF-4 hat diese Markierungen: weißer Bogen ${m.vs0}–${m.vfe} kt, grüner Bogen ${m.vs1}–${m.vno} kt, gelber Bogen ${m.vno}–${m.vne} kt, roter Strich ${m.vne} kt. Der Fahrtmesser zeigt ${ias} kt. Wo bist du?`,
       richtig,
       falsch: Object.entries(BEREICH_TEXT).filter(([k]) => k !== bereich && k !== 'unter' && k !== 'rot').map(([, t]) => t).slice(0, 3),
-      erklaerung: `Weiß ist der Bereich für ausgefahrene Klappen (VS0 bis VFE), Grün der Normalbereich (VS1 bis VNO), Gelb der Vorsichtsbereich bis zum roten Strich VNE. ${ias} kt liegt ${richtig}.`,
+      rechenweg: [
+        `Die Bögen: **weiß** ${m.vs0}–${m.vfe} kt (Klappen erlaubt) · **grün** ${m.vs1}–${m.vno} kt (normal) · **gelb** ${m.vno}–${m.vne} kt (Vorsicht) · **rot** ${m.vne} kt.`,
+        {
+          weiss: `${ias} kt ist mindestens ${m.vs0} kt (VS0), aber unter ${m.vs1} kt (VS1) – also nur im **weißen** Bogen.`,
+          'gruen-weiss': `${ias} kt liegt zwischen ${m.vs1} kt (VS1) und ${m.vfe} kt (VFE) – dort überlappen sich der **weiße** und der **grüne** Bogen.`,
+          gruen: `${ias} kt liegt über ${m.vfe} kt (VFE) und höchstens bei ${m.vno} kt (VNO) – nur im **grünen** Bogen.`,
+          gelb: `${ias} kt liegt über ${m.vno} kt (VNO) und unter ${m.vne} kt (VNE) – im **gelben** Bogen.`,
+        }[bereich],
+        `Also: **${richtig}**.`,
+      ],
+      erklaerung: 'Weiß ist der Bereich für ausgefahrene Klappen (VS0 bis VFE), Grün der Normalbereich (VS1 bis VNO), Gelb der Vorsichtsbereich bis zum roten Strich VNE.',
     };
   },
 
@@ -57,7 +67,12 @@ export const generatoren = {
       frage: `Außentemperatur ${temperatur} °C, relative Feuchte ${feuchte} %. Wie groß ist die Gefahr der Vergaservereisung (vereinfacht nach dem Pilot’s Handbook of Aeronautical Knowledge)?`,
       richtig: GEFAHR_TEXT[gefahr],
       falsch: Object.entries(GEFAHR_TEXT).filter(([k]) => k !== gefahr).map(([, t]) => t).concat(['Vergaservereisung gibt es nur unter 0 °C']).slice(0, 3),
-      erklaerung: 'Am größten ist die Gefahr unter etwa 21 °C bei mehr als 80 % Feuchte, möglich bis 38 °C schon ab 50 % Feuchte. Auch außerhalb dieser Bereiche kann sich Eis bilden.',
+      rechenweg: [
+        'Vereinfachte Bereiche: **hohe Gefahr** bei −7 bis 21 °C und mindestens 80 % Feuchte · **möglich** bei −7 bis 38 °C und mindestens 50 % Feuchte · sonst **gering**.',
+        `Hier: ${temperatur} °C ${temperatur <= 21 ? 'liegt im Temperaturbereich für hohe Gefahr' : temperatur <= 38 ? 'ist zu warm für hohe Gefahr, aber noch im Bereich „möglich“' : 'ist sehr warm'}, ${feuchte} % Feuchte ${feuchte >= 80 ? 'reicht für hohe Gefahr' : feuchte >= 50 ? 'reicht für „möglich“' : 'ist unter 50 %'}.`,
+        `Also: **${GEFAHR_TEXT[gefahr]}**.`,
+      ],
+      erklaerung: 'Auch außerhalb dieser Bereiche kann sich Eis bilden – im Zweifel Vergaservorwärmung ziehen.',
     };
   },
 };

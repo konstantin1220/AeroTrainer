@@ -1,7 +1,9 @@
 // Aufgaben mit wechselnden Werten für „Betriebsverfahren & Notfälle“.
 import { gleitstreckeKm } from './rechnen.js';
 
-const komma = (n, s = 1) => Number(n.toFixed(s)).toLocaleString('de-DE', { minimumFractionDigits: s, maximumFractionDigits: s });
+const komma = (n, s = 1) => Number(n.toFixed(s)).toLocaleString('de-DE', { minimumFractionDigits: s, maximumFractionDigits: s, useGrouping: false });
+/** Ganze Zahlen ohne, andere mit einer Nachkommastelle. */
+const kurz = (n) => komma(n, Number.isInteger(n) ? 0 : 1);
 
 export const generatoren = {
   /** Umkehrkurve: Zeit und Höhenverlust bei fester Kurvenrate und Sinkrate – wie im Beispiel der FAA. */
@@ -18,8 +20,13 @@ export const generatoren = {
       loesung: verlust,
       toleranz: Math.round(verlust * 0.05),
       einheit: 'ft',
-      erklaerung: `Zeit: ${reaktion} s + ${winkel}° ÷ ${rate}° pro s = ${komma(zeit, 0)} s. Höhenverlust: ${komma(zeit, 0)} s × ${sink} ft ÷ 60 s ≈ ${verlust} ft. `
-        + 'Vereinfacht wie im Beispiel der FAA – in der Kurve sinkt ein Flugzeug sogar etwas schneller als geradeaus.',
+      rechenweg: [
+        `Reaktionszeit: **${reaktion} s** – in dieser Zeit sinkst du schon.`,
+        `Dauer der Kurve: ${winkel}° ÷ ${rate}° pro s = **${kurz(winkel / rate)} s**.`,
+        `Zeit insgesamt: ${reaktion} s + ${kurz(winkel / rate)} s = **${kurz(zeit)} s**.`,
+        `Höhenverlust = Zeit × Sinkrate: ${kurz(zeit)} s × ${sink} ft ÷ 60 s ≈ **${verlust} ft**.`,
+      ],
+      erklaerung: 'Vereinfacht wie im Beispiel der FAA – in der Kurve sinkt ein Flugzeug sogar etwas schneller als geradeaus.',
     };
   },
 
@@ -34,8 +41,12 @@ export const generatoren = {
       loesung: Number(km.toFixed(1)),
       toleranz: Math.max(0.2, Number((km * 0.05).toFixed(1))),
       einheit: 'km',
-      erklaerung: `${hoehe} ft sind etwa ${Math.round(hoehe * 0.3048)} m. Mal Gleitzahl ${gleitzahl} ergibt ${Math.round(hoehe * 0.3048 * gleitzahl)} m ≈ ${komma(km)} km. `
-        + 'Plane mit Reserve: Gegenwind, Kurven und Sinken in Abwinden verkürzen die Strecke.',
+      rechenweg: [
+        `Höhe in Metern: ${hoehe} ft × 0,3048 = **${komma(hoehe * 0.3048, 0)} m**.`,
+        `Gleitstrecke = Höhe × Gleitzahl = ${komma(hoehe * 0.3048, 0)} m × ${gleitzahl} ≈ **${komma(hoehe * 0.3048 * gleitzahl, 0)} m**.`,
+        `${komma(hoehe * 0.3048 * gleitzahl, 0)} m ÷ 1000 ≈ **${kurz(Number(km.toFixed(1)))} km**.`,
+      ],
+      erklaerung: 'Plane mit Reserve: Gegenwind, Kurven und Sinken in Abwinden verkürzen die Strecke.',
     };
   },
 };

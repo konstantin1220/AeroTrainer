@@ -1,7 +1,7 @@
 // Rechenaufgaben für „Aerodynamik“: Lastvielfaches, Überziehgeschwindigkeit, Gleitflug, Auftrieb.
 
 const RAD = Math.PI / 180;
-const komma = (wert, stellen) => Number(wert.toFixed(stellen)).toLocaleString('de-DE');
+const komma = (wert, stellen) => Number(wert.toFixed(stellen)).toLocaleString('de-DE', { useGrouping: false });
 
 export const generatoren = {
   lastvielfaches(z) {
@@ -13,7 +13,12 @@ export const generatoren = {
       loesung: Number(n.toFixed(2)),
       toleranz: 0.05,
       einheit: 'g',
-      erklaerung: `n = 1 ÷ cos ${querlage}° = ${komma(n, 2)}. Merkwerte: 30° → 1,15 · 45° → 1,41 · 60° → 2.`,
+      rechenweg: [
+        'In der Kurve muss der Auftrieb das Gewicht tragen **und** das Flugzeug um die Kurve ziehen. Dafür gilt: **n = 1 ÷ cos(Querlage)**.',
+        `cos ${querlage}° ≈ ${komma(Math.cos(querlage * RAD), 3)}.`,
+        `n = 1 ÷ ${komma(Math.cos(querlage * RAD), 3)} ≈ **${komma(n, 2)} g**.`,
+      ],
+      erklaerung: 'Merkwerte: 30° → 1,15 · 45° → 1,41 · 60° → 2.',
     };
   },
 
@@ -28,7 +33,11 @@ export const generatoren = {
       loesung: Math.round(vsk),
       toleranz: 1,
       einheit: 'kt',
-      erklaerung: `Lastvielfaches n = ${komma(n, 2)} → Überziehgeschwindigkeit × √n = ${vs} × ${komma(Math.sqrt(n), 3)} ≈ ${Math.round(vsk)} kt.`,
+      rechenweg: [
+        `Lastvielfaches in der Kurve: n = 1 ÷ cos ${querlage}° ≈ **${komma(n, 2)}**.`,
+        'Die Überziehgeschwindigkeit steigt mit der **Wurzel** des Lastvielfachen: **vS Kurve = vS × √n**.',
+        `√${komma(n, 2)} ≈ ${komma(Math.sqrt(n), 3)} → ${vs} kt × ${komma(Math.sqrt(n), 3)} ≈ **${Math.round(vsk)} kt**.`,
+      ],
     };
   },
 
@@ -43,7 +52,12 @@ export const generatoren = {
       loesung: Math.round(vs2),
       toleranz: 1,
       einheit: 'kt',
-      erklaerung: `Die Überziehgeschwindigkeit ändert sich mit der Wurzel des Massenverhältnisses: ${vs} × √(${m2} ÷ ${m1}) ≈ ${Math.round(vs2)} kt.`,
+      rechenweg: [
+        'Die Überziehgeschwindigkeit ändert sich mit der **Wurzel des Massenverhältnisses**: vS neu = vS × √(Masse neu ÷ Masse alt).',
+        `${m2} ÷ ${m1} ≈ ${komma(m2 / m1, 3)} → √${komma(m2 / m1, 3)} ≈ **${komma(Math.sqrt(m2 / m1), 3)}**.`,
+        `${vs} kt × ${komma(Math.sqrt(m2 / m1), 3)} ≈ **${Math.round(vs2)} kt**.`,
+      ],
+      erklaerung: m2 > m1 ? 'Schwerer heißt: Der Flügel braucht mehr Auftrieb – du überziehst schon bei höherer Fahrt.' : 'Leichter heißt: Der Flügel braucht weniger Auftrieb – du überziehst erst bei geringerer Fahrt.',
     };
   },
 
@@ -58,7 +72,12 @@ export const generatoren = {
         loesung: Number(km.toFixed(1)),
         toleranz: Math.max(0.3, Number((km * 0.03).toFixed(1))),
         einheit: 'km',
-        erklaerung: `Gleitstrecke = Höhe × Gleitzahl = ${hoehe} m × ${gleitzahl} = ${komma(hoehe * gleitzahl, 0)} m = ${komma(km, 1)} km. In der Praxis plant man mit deutlicher Sicherheitsreserve.`,
+        rechenweg: [
+          `Gleitzahl 1 : ${gleitzahl} heißt: Aus **1 m** Höhe kommst du **${gleitzahl} m** weit.`,
+          `Gleitstrecke = Höhe × Gleitzahl = ${hoehe} m × ${gleitzahl} = **${komma(hoehe * gleitzahl, 0)} m**.`,
+          `${komma(hoehe * gleitzahl, 0)} m ÷ 1000 = **${komma(km, 1)} km**.`,
+        ],
+        erklaerung: 'In der Praxis plant man mit deutlicher Sicherheitsreserve – Gegenwind und Abwind verkürzen die Strecke.',
       };
     }
     const gleitzahl = z.wahl([8, 9, 10]);
@@ -71,22 +90,30 @@ export const generatoren = {
       loesung: Number(nm.toFixed(1)),
       toleranz: 0.3,
       einheit: 'NM',
-      erklaerung: `${hoehe} ft × ${gleitzahl} = ${hoehe * gleitzahl} ft ≈ ${komma(nm, 1)} NM.`,
+      rechenweg: [
+        `Gleitzahl 1 : ${gleitzahl} heißt: Aus **1 ft** Höhe kommst du **${gleitzahl} ft** weit.`,
+        `${hoehe} ft × ${gleitzahl} = **${hoehe * gleitzahl} ft**.`,
+        `In NM: ${hoehe * gleitzahl} ft ÷ 6076 ft ≈ **${komma(nm, 1)} NM**.`,
+      ],
     };
   },
 
   auftriebGeschwindigkeit(z) {
-    const [faktor, richtig, falsch] = z.wahl([
-      ['verdoppelst', 'Er wird viermal so groß', ['Er wird doppelt so groß', 'Er bleibt gleich', 'Er wird halb so groß']],
-      ['verdreifachst', 'Er wird neunmal so groß', ['Er wird dreimal so groß', 'Er wird sechsmal so groß', 'Er bleibt gleich']],
-      ['halbierst', 'Er sinkt auf ein Viertel', ['Er sinkt auf die Hälfte', 'Er bleibt gleich', 'Er wird doppelt so groß']],
+    const [faktor, richtig, falsch, quadrat] = z.wahl([
+      ['verdoppelst', 'Er wird viermal so groß', ['Er wird doppelt so groß', 'Er bleibt gleich', 'Er wird halb so groß'], '2² = 2 × 2 = **4**'],
+      ['verdreifachst', 'Er wird neunmal so groß', ['Er wird dreimal so groß', 'Er wird sechsmal so groß', 'Er bleibt gleich'], '3² = 3 × 3 = **9**'],
+      ['halbierst', 'Er sinkt auf ein Viertel', ['Er sinkt auf die Hälfte', 'Er bleibt gleich', 'Er wird doppelt so groß'], '(½)² = ½ × ½ = **¼**'],
     ]);
     return {
       typ: 'auswahl',
       frage: `Du ${faktor} die Geschwindigkeit bei gleichem Anstellwinkel. Wie ändert sich der Auftrieb?`,
       richtig,
       falsch,
-      erklaerung: 'Der Auftrieb wächst mit dem Quadrat der Geschwindigkeit (A = cA · ½ ρ v² · S).',
+      rechenweg: [
+        'Formel: **A = cA · ½ ρ v² · S** – die Geschwindigkeit v steht im **Quadrat**, alles andere bleibt gleich.',
+        `Geschwindigkeit mal Faktor → Auftrieb mal Faktor²: ${quadrat}.`,
+        `Also: **${richtig}**.`,
+      ],
     };
   },
 };

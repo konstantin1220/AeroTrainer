@@ -53,6 +53,11 @@
   --f-betrieb: #6f7d1c;
   --f-technik: #56677f;
   --f-tim: #b07d00;
+  /* Lernstufen: fertig, fortgeschritten, angefangen, ungelernt */
+  --stufe-fertig: var(--ok);
+  --stufe-fortgeschritten: var(--primaer);
+  --stufe-angefangen: #e0a10b;
+  --stufe-ungelernt: var(--rand);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -78,6 +83,7 @@
     --warn-hell: #2f2610;
     --warn-rand: #7a6326;
     --warn-text: #ffc57a;
+    --stufe-angefangen: #f2c14e;
     --einfach: #5fd3ae;
     --einfach-hell: #0f2e28;
     --schatten: 0 1px 2px rgb(0 0 0 / 30%);
@@ -441,6 +447,25 @@ main {
 .ring-box-gross .ring-zahl { font-size: 1.9rem; }
 .ring-box-gross .ring-wert { stroke: var(--ok); }
 
+/* Lernfortschritt in vier Stufen */
+.stufen-balken { display: flex; height: 8px; border-radius: 999px; background: var(--stufe-ungelernt); overflow: hidden; }
+.stufen-balken.klein { height: 6px; }
+.stufen-balken > span { height: 100%; transition: width 0.4s ease; }
+.stufen-balken > span + span { box-shadow: inset 1.5px 0 0 var(--flaeche); }
+.stufe-fertig { background: var(--stufe-fertig); }
+.stufe-fortgeschritten { background: var(--stufe-fortgeschritten); }
+.stufe-angefangen { background: var(--stufe-angefangen); }
+.stufe-ungelernt { background: var(--rand-stark); }
+.stufen-legende { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.2rem 0.75rem; font-size: 0.82rem; color: var(--leise); }
+.stufen-legende li { display: inline-flex; align-items: center; gap: 0.35rem; }
+.stufen-punkt { width: 0.62rem; height: 0.62rem; border-radius: 50%; flex: none; }
+.ring-stufe { fill: none; stroke-width: 4.5; animation: ring-einblenden 0.6s ease both; }
+.ring-stufe.stufe-fertig { stroke: var(--stufe-fertig); background: none; }
+.ring-stufe.stufe-fortgeschritten { stroke: var(--stufe-fortgeschritten); background: none; }
+.ring-stufe.stufe-angefangen { stroke: var(--stufe-angefangen); background: none; }
+.ring-spur { stroke: var(--stufe-ungelernt); }
+@keyframes ring-einblenden { from { opacity: 0; } }
+
 .brotkrumen { font-size: 0.82rem; color: var(--leise); display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
 .brotkrumen a { color: var(--leise); text-decoration: none; }
 .brotkrumen a:hover { color: var(--primaer); text-decoration: underline; }
@@ -581,6 +606,7 @@ a.themen-zeile:active { background: color-mix(in srgb, var(--mf) 8%, var(--flaec
 .themen-zeile-stand { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.6rem; font-size: 0.8rem; color: var(--leise); font-weight: 600; }
 .themen-zeile-stand .balken { height: 5px; }
 .themen-zeile-stand .balken > span { background: var(--mf); }
+.themen-zeile-stand .stufen-balken { height: 6px; }
 .themen-zeile-info { font-size: 0.82rem; color: var(--leise); }
 
 .themen-symbol {
@@ -635,6 +661,8 @@ a.themen-zeile:active { background: color-mix(in srgb, var(--mf) 8%, var(--flaec
 }
 .lernkarte-text { flex: 1; min-width: 10rem; display: grid; gap: 0.1rem; }
 .lernkarte-text strong { font-size: 1.08rem; }
+.lernkarte-text .stufen-legende { margin-top: 0.15rem; }
+.lernkarte > .stufen-balken { flex: 1 1 100%; }
 .lernkarte .knopf { flex: 1 1 100%; }
 @media (min-width: 560px) { .lernkarte .knopf { flex: none; } }
 .lernkarte .ring-wert { stroke: var(--mf); }
@@ -659,7 +687,7 @@ a.themen-zeile:active { background: color-mix(in srgb, var(--mf) 8%, var(--flaec
 .pfad-punkt.fertig .pfad-knoten .ico { width: 20px; height: 20px; stroke-width: 2.8; }
 .pfad-punkt.begonnen .pfad-knoten {
   border: 0;
-  background: conic-gradient(var(--mf) var(--anteil), var(--rand) 0);
+  background: conic-gradient(var(--stufe-fertig) 0 var(--p1), var(--stufe-fortgeschritten) 0 var(--p2), var(--stufe-angefangen) 0 var(--p3), var(--stufe-ungelernt) 0);
   color: var(--text);
 }
 .pfad-punkt.begonnen .pfad-nr { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--flaeche); }
@@ -686,6 +714,7 @@ a.themen-zeile:active { background: color-mix(in srgb, var(--mf) 8%, var(--flaec
 .pfad-punkt.fertig .pfad-titel { color: var(--leise); font-weight: 600; }
 .kapitel-kurz { color: var(--leise); font-size: 0.88rem; line-height: 1.4; }
 .pfad-stand { font-size: 0.8rem; color: var(--leise); font-weight: 600; }
+.pfad-stand.mit-balken { display: grid; grid-template-columns: minmax(4rem, 1fr) auto; align-items: center; gap: 0.6rem; }
 .pfad-punkt.fertig .pfad-stand { color: var(--ok); }
 .pfad-los { display: inline-flex; align-items: center; gap: 0.2rem; margin-top: 0.2rem; color: var(--primaer); font-weight: 650; font-size: 0.95rem; }
 .pfad-karte .chip.schein-chip { margin: 0; justify-self: start; }
@@ -985,6 +1014,17 @@ a.themen-zeile:active { background: color-mix(in srgb, var(--mf) 8%, var(--flaec
 .rueckmeldung-falsch .rueckmeldung-kopf strong { color: var(--fehler); }
 .rueckmeldung-loesung { margin: 0.6rem 0 0; }
 .rueckmeldung-erklaerung { margin: 0.6rem 0 0; font-size: 0.95rem; }
+/* „So rechnest du“: Rechenweg in nummerierten Schritten */
+.rechenweg { margin: 0.75rem 0 0; padding: 0.7rem 0.85rem; border-radius: var(--radius-klein); background: var(--flaeche); border: 1px solid var(--rand); }
+.rechenweg-titel { display: flex; align-items: center; gap: 0.45rem; margin: 0; font-size: 0.92rem; font-weight: 700; color: var(--primaer); }
+.rechenweg-titel .ico { width: 18px; height: 18px; }
+details.rechenweg > summary { min-height: 32px; cursor: pointer; list-style: none; }
+details.rechenweg > summary::-webkit-details-marker { display: none; }
+details.rechenweg > summary::after { content: "Aufklappen"; margin-left: auto; font-size: 0.78rem; font-weight: 600; opacity: 0.75; }
+details.rechenweg[open] > summary::after { content: "Zuklappen"; }
+.rechenweg-schritte { display: grid; gap: 0.35rem; margin: 0.5rem 0 0; padding-left: 1.35rem; font-size: 0.95rem; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.rechenweg-schritte li::marker { color: var(--primaer); font-weight: 700; }
+.pruef-rechenweg { margin: 0.4rem 0 0; padding-left: 1.35rem; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
 .rueckmeldung .knopf { margin-top: 0.9rem; }
 .rueckmeldung-richtig .knopf { background: var(--ok); border-color: var(--ok); color: #fff; }
 .rueckmeldung-falsch .knopf { background: var(--fehler); border-color: var(--fehler); color: #fff; }
@@ -1854,3 +1894,15 @@ html[data-stufe="einsteiger"] .begriff {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Lernstand: Gesamtfortschritt und Erklärung der vier Stufen */
+.gesamt-fortschritt { display: grid; gap: 0.6rem; margin: 0.25rem 0 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rand); }
+.gesamt-fortschritt-kopf { display: flex; align-items: center; gap: 0.9rem; }
+.gesamt-fortschritt-kopf > div { display: grid; gap: 0.2rem; }
+.gesamt-fortschritt-kopf strong { font-size: 1.08rem; }
+.stufen-hilfe summary { cursor: pointer; color: var(--primaer); font-weight: 600; font-size: 0.9rem; }
+.stufen-hilfe .leise { font-size: 0.85rem; margin: 0.5rem 0 0; }
+.stufen-erklaerung { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 0.4rem; font-size: 0.9rem; }
+.stufen-erklaerung li { display: grid; grid-template-columns: auto auto 1fr; align-items: baseline; gap: 0.45rem; }
+.stufen-erklaerung .stufen-punkt { align-self: center; }
+.modul-fortschritt-text .stufen-balken { height: 6px; }

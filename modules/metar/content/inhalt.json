@@ -371,7 +371,11 @@
           "frage": "Wind **18015G28KT**: Um wie viele Knoten übersteigen die Böen den Mittelwind?",
           "loesung": 13,
           "einheit": "kt",
-          "erklaerung": "28 kt Böen minus 15 kt Mittelwind = 13 kt. Gemeldet werden Böen erst ab 10 kt über dem Mittelwind."
+          "rechenweg": [
+            "18015G28KT: Mittelwind **15 kt**, Böen (**G**) **28 kt**.",
+            "28 kt − 15 kt = **13 kt**."
+          ],
+          "erklaerung": "Gemeldet werden Böen erst ab 10 kt über dem Mittelwind."
         },
         {
           "id": "mt-ws-11",
@@ -728,7 +732,11 @@
           "frage": "Wie groß ist der Spread bei **14/11**?",
           "loesung": 3,
           "einheit": "°C",
-          "erklaerung": "Spread = Temperatur minus Taupunkt = 14 − 11 = 3 °C. Je kleiner, desto feuchter die Luft."
+          "rechenweg": [
+            "14/11: Temperatur **14 °C**, Taupunkt **11 °C**.",
+            "Spread = Temperatur − Taupunkt = 14 − 11 = **3 °C**."
+          ],
+          "erklaerung": "Je kleiner der Spread, desto feuchter die Luft – ist er am Abend klein, droht Nebel."
         },
         {
           "id": "mt-tt-10",
@@ -1092,7 +1100,11 @@
           "loesung": 8,
           "toleranz": 1,
           "einheit": "kt",
-          "erklaerung": "280° − 250° = 30° → Seitenwindanteil ½ → 8 kt."
+          "rechenweg": [
+            "Piste 25 zeigt nach **250°**, der Wind kommt aus **280°** – Unterschied 280° − 250° = **30°**.",
+            "Faustregel: bei 30° ist der Seitenwind etwa die **Hälfte** der Windgeschwindigkeit.",
+            "16 kt × ½ = **8 kt**."
+          ]
         },
         {
           "id": "mt-en-09",

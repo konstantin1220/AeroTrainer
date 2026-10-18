@@ -7,7 +7,9 @@
 //   wahrfalsch  { aussage, richtig: true | false }
 //   zahl        { frage, loesung: 12, toleranz: 1, einheit: "kt" }      – Zahleneingabe (kreis: true bei Kursen)
 //   zuordnung   { frage, paare: [["links", "rechts"], …] }              – Paare zuordnen
-// Alle Typen können zusätzlich haben: erklaerung, abbildung (Name einer Abbildung).
+// Alle Typen können zusätzlich haben: erklaerung, abbildung (Name einer Abbildung) und
+// rechenweg: ["Schritt 1", "Schritt 2", …] – bei Rechenaufgaben der Weg zum Ergebnis, Schritt für Schritt
+// (Überschrift „So rechnest du“ bzw. „So kommst du drauf“, mit wegTitel z. B. „So liest du es“).
 
 export const FRAGETYPEN = ['auswahl', 'mehrfach', 'wahrfalsch', 'zahl', 'zuordnung'];
 
@@ -72,6 +74,10 @@ export function frageProblem(frage) {
   const text = frage.typ === 'wahrfalsch' ? frage.aussage : frage.frage;
   if (typeof text !== 'string' || !text.trim()) return 'Fragetext fehlt';
   const doppelt = (liste) => new Set(liste).size !== liste.length;
+  if (frage.rechenweg !== undefined
+    && (!Array.isArray(frage.rechenweg) || frage.rechenweg.length < 2 || frage.rechenweg.some((s) => typeof s !== 'string' || !s.trim()))) {
+    return 'Rechenweg braucht mindestens zwei Schritte als Text';
+  }
 
   switch (frage.typ) {
     case 'auswahl':

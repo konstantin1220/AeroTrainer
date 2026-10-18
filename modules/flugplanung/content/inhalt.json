@@ -524,7 +524,11 @@
           "frage": "Ein NOTAM endet mit **C) 2607151630**. Um wie viel Uhr (UTC) endet er? Gib die Stunde an.",
           "loesung": 16,
           "einheit": "Uhr UTC",
-          "erklaerung": "JJMMTThhmm: 26 = 2026, 07 = Juli, 15 = der 15., 16 Uhr 30 UTC."
+          "rechenweg": [
+            "Das Format ist **JJMMTThhmm** in UTC.",
+            "26 = 2026 · 07 = Juli · 15 = der 15. · **16**30 = 16:30 Uhr.",
+            "Die Stunde ist also **16**."
+          ]
         },
         {
           "id": "fp-no-04",
@@ -957,7 +961,10 @@
           "frage": "rwK 090°, Luvwinkel 6° nach rechts, Missweisung 3° Ost. Welcher missweisende Steuerkurs?",
           "loesung": 93,
           "einheit": "°",
-          "erklaerung": "rwSK = 090° + 6° = 096°. mwSK = 096° − 3° = 093°."
+          "rechenweg": [
+            "Luvwinkel nach rechts wird **dazugezählt**: rwSK = 090° + 6° = **096°**.",
+            "Ostmissweisung wird **abgezogen**: mwSK = 096° − 3° = **093°**."
+          ]
         },
         {
           "id": "fp-nl-03",
@@ -965,7 +972,10 @@
           "frage": "rwK 210°, Luvwinkel 8° nach links, Missweisung 3° Ost. Welcher missweisende Steuerkurs?",
           "loesung": 199,
           "einheit": "°",
-          "erklaerung": "rwSK = 210° − 8° = 202°. mwSK = 202° − 3° = 199°."
+          "rechenweg": [
+            "Luvwinkel nach links wird **abgezogen**: rwSK = 210° − 8° = **202°**.",
+            "Ostmissweisung wird **abgezogen**: mwSK = 202° − 3° = **199°**."
+          ]
         },
         {
           "id": "fp-nl-04",
@@ -1156,7 +1166,10 @@
           "frage": "Überlandflug am Tag, Verbrauch 28 l/h. Wie viele Liter Endreserve planst du mindestens?",
           "loesung": 14,
           "einheit": "l",
-          "erklaerung": "30 Minuten = 0,5 h × 28 l/h = 14 l."
+          "rechenweg": [
+            "Am Tag (Überlandflug) sind es **30 Minuten** Endreserve = **0,5 h**.",
+            "Endreserve = 0,5 h × 28 l/h = **14 l**."
+          ]
         },
         {
           "id": "fp-kr-03",
@@ -1189,7 +1202,10 @@
           "loesung": 57.6,
           "toleranz": 0.5,
           "einheit": "kg",
-          "erklaerung": "80 l × 0,72 kg/l = 57,6 kg."
+          "rechenweg": [
+            "Masse = Liter × Dichte (AVGAS etwa **0,72 kg je Liter**).",
+            "80 l × 0,72 kg/l = **57,6 kg**."
+          ]
         },
         {
           "id": "fp-kr-06",
@@ -1412,7 +1428,11 @@
           "loesung": 1750,
           "toleranz": 30,
           "einheit": "ft",
-          "erklaerung": "(1013 − 1003) × 30 ft = 300 ft. 1450 ft + 300 ft = 1750 ft."
+          "rechenweg": [
+            "Formel: **Druckhöhe ≈ Platzhöhe + (1013 − QNH) × 30 ft**.",
+            "1013 − 1003 = **10 hPa** → 10 × 30 ft = **300 ft**.",
+            "1450 ft + 300 ft = **1750 ft**."
+          ]
         },
         {
           "id": "fp-le-05",
@@ -1445,7 +1465,10 @@
           "loesung": 491,
           "toleranz": 5,
           "einheit": "m",
-          "erklaerung": "545 m × 0,9 = 490,5 m ≈ 491 m."
+          "rechenweg": [
+            "10 kt Gegenwind verkürzen um **10 %** – es bleiben 90 % = **× 0,9**.",
+            "545 m × 0,9 = 490,5 m ≈ **491 m**."
+          ]
         },
         {
           "id": "fp-le-08",
@@ -1848,7 +1871,10 @@
           "loesung": 16,
           "toleranz": 1,
           "einheit": "min",
-          "erklaerung": "10 min bis Whiskey plus 6 min bis Musterstadt."
+          "rechenweg": [
+            "Im Navigationsflugplan stehen die Zeiten je Etappe: **10 min** bis Whiskey, **6 min** bis Musterstadt.",
+            "10 min + 6 min = **16 min**."
+          ]
         },
         {
           "id": "fp-bs-04",
@@ -1857,7 +1883,12 @@
           "loesung": 49,
           "toleranz": 2,
           "einheit": "l",
-          "erklaerung": "2 × 3 l Rollen + 2 × 12,5 l Strecke + 2,5 l Zuschlag + 15 l Endreserve ≈ 49 l."
+          "rechenweg": [
+            "Rollen zweimal: 2 × 3 l = **6 l**. Strecke zweimal: 2 × 12,5 l = **25 l**.",
+            "Zuschlag 10 % auf die Strecke: 25 l × 0,1 = **2,5 l**. Endreserve nur einmal: **15 l**.",
+            "6 + 25 + 2,5 + 15 = 48,5 l ≈ **49 l**."
+          ],
+          "erklaerung": "Die Endreserve brauchst du nur einmal – sie soll am Ende des Rückflugs noch im Tank sein."
         },
         {
           "id": "fp-bs-05",
@@ -1885,7 +1916,11 @@
           "loesung": 960,
           "toleranz": 2,
           "einheit": "kg",
-          "erklaerung": "735 kg + 82 kg + 75 kg + 10 kg + 57,6 kg = 959,6 kg."
+          "rechenweg": [
+            "Kraftstoff in kg: 80 l × 0,72 kg/l = **57,6 kg**.",
+            "Leermasse 735 kg + Pilot 82 kg + Fluggast 75 kg + Gepäck 10 kg + Kraftstoff 57,6 kg = **959,6 kg**.",
+            "Gerundet: **960 kg** – weit unter der höchstzulässigen Startmasse von 1150 kg."
+          ]
         },
         {
           "id": "fp-bs-08",

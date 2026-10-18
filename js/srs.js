@@ -37,6 +37,22 @@ export function karteBewerten(karte, richtig, heute = tagText()) {
 export const istFaellig = (karte, heute = tagText()) => Boolean(karte) && karte.f <= heute;
 export const istSicher = (karte) => Boolean(karte) && karte.b >= SICHER_AB_BOX;
 
+// ---------- Lernstufen für die Fortschrittsanzeige ----------
+// ungelernt       – noch nie beantwortet
+// angefangen      – Fach 1: einmal beantwortet oder zuletzt falsch
+// fortgeschritten – Fach 2 und 3: zwei- bis dreimal hintereinander richtig
+// fertig          – ab Fach 4 (SICHER_AB_BOX): mindestens viermal hintereinander richtig
+export const LERNSTUFEN = ['ungelernt', 'angefangen', 'fortgeschritten', 'fertig'];
+
+export function lernstufe(karte) {
+  if (!karte) return 'ungelernt';
+  if (karte.b >= SICHER_AB_BOX) return 'fertig';
+  return karte.b >= 2 ? 'fortgeschritten' : 'angefangen';
+}
+
+/** Anteil einer Frage am Lernfortschritt: jedes Fach bis „fertig“ ist ein Viertel (Fach 1 = ¼ … ab Fach 4 = ganz). */
+export const fortschrittsPunkte = (karte) => (karte ? Math.min(Math.max(karte.b, 1), SICHER_AB_BOX) / SICHER_AB_BOX : 0);
+
 function mischen(liste, zufall) {
   const kopie = [...liste];
   for (let i = kopie.length - 1; i > 0; i--) {
@@ -66,15 +82,32 @@ export function uebungsrunde(ids, karten, { anzahl = 10, zufall = Math.random } 
     .slice(0, anzahl);
 }
 
+/**
+ * Zahlen für die Anzeige: gesamt, neu (= ungelernt), fällig, je Lernstufe, sicher (= fertig)
+ * und der Lernfortschritt 0–1 (punkte ÷ gesamt; punkte lassen sich über Themen addieren).
+ */
 export function statistik(ids, karten, heute = tagText()) {
-  let neu = 0, faellig = 0, sicher = 0;
+  let neu = 0, faellig = 0, angefangen = 0, fortgeschritten = 0, fertig = 0, punkte = 0;
   for (const id of ids) {
     const karte = karten[id];
-    if (!karte) neu++;
-    else {
-      if (istFaellig(karte, heute)) faellig++;
-      if (istSicher(karte)) sicher++;
-    }
+    if (!karte) { neu++; continue; }
+    if (istFaellig(karte, heute)) faellig++;
+    const stufe = lernstufe(karte);
+    if (stufe === 'fertig') fertig++;
+    else if (stufe === 'fortgeschritten') fortgeschritten++;
+    else angefangen++;
+    punkte += fortschrittsPunkte(karte);
   }
-  return { gesamt: ids.length, neu, faellig, sicher, gesehen: ids.length - neu };
+  return {
+    gesamt: ids.length, neu, faellig, gesehen: ids.length - neu,
+    ungelernt: neu, angefangen, fortgeschritten, fertig, sicher: fertig,
+    punkte, fortschritt: ids.length ? punkte / ids.length : 0,
+  };
+}
+
+/** Zählt die Werte mehrerer Statistiken zusammen (z. B. alle Themen eines Fachs). */
+export function statistikSumme(liste) {
+  const summe = { gesamt: 0, neu: 0, faellig: 0, gesehen: 0, ungelernt: 0, angefangen: 0, fortgeschritten: 0, fertig: 0, sicher: 0, punkte: 0 };
+  for (const s of liste) for (const k of Object.keys(summe)) summe[k] += s?.[k] ?? 0;
+  return { ...summe, fortschritt: summe.gesamt ? summe.punkte / summe.gesamt : 0 };
 }

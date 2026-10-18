@@ -12,7 +12,7 @@
 // Rechenaufgaben, die jedes Mal neu erzeugt werden, stehen in der Inhaltsdatei als
 // { "id": "…", "typ": "generator", "generator": "<name>" } und werden im Modul-Code definiert.
 
-import { h, anhaengen, formatiert, ring, balken, abbildungKnoten, brotkrumen, leerzustand, mehrzahl } from './ui.js';
+import { h, anhaengen, formatiert, abbildungKnoten, brotkrumen, leerzustand, mehrzahl, stufenBalken, stufenLegende, stufenRing } from './ui.js';
 import { icon, themenIcon } from './icons.js';
 import { fragerunde, frageKopf } from './quiz.js';
 import { merkKnopf } from './merkliste.js';
@@ -197,12 +197,13 @@ export function lernmodul({
 
   /**
    * Die Kapitel als Lernpfad: Knoten mit Zustand (fertig, begonnen, neu) und ein hervorgehobenes
-   * Kapitel zum Weitermachen – das zuletzt gelesene, sonst das erste, das noch nicht sicher sitzt.
+   * Kapitel zum Weitermachen – das zuletzt gelesene, sonst das erste, das noch nicht fertig ist.
+   * Der Ring um den Knoten zeigt die vier Lernstufen der Fragen (fertig, fortgeschritten, angefangen, ungelernt).
    */
   function lernpfad(ctx, daten, kartenStand) {
     const liste = sichtbareKapitel(daten);
     const werte = liste.map((k) => statistik(kapitelIds(daten, k), kartenStand));
-    const fertig = (s) => s.gesamt > 0 && s.sicher === s.gesamt;
+    const fertig = (s) => s.gesamt > 0 && s.fertig === s.gesamt;
     const begonnen = werte.some((s) => s.gesehen > 0);
     const zuletzt = einstellung('zuletzt');
     let aktuell = liste.findIndex((k) => zuletzt?.hash === ctx.link('kapitel', k.id));
@@ -215,18 +216,22 @@ export function lernmodul({
       const knoten = zustand === 'fertig'
         ? icon('haken')
         : h('span', { class: 'pfad-nr' }, i + 1);
+      const prozent = (n) => `${s.gesamt ? Math.round((n / s.gesamt) * 100) : 0}%`;
       const stand = s.gesamt === 0 ? null
-        : zustand === 'fertig' ? `Alle ${s.gesamt} Fragen sicher`
-          : zustand === 'begonnen' ? `${s.sicher} von ${s.gesamt} Fragen sicher`
-            : `${mehrzahl(s.gesamt, 'Frage', 'Fragen')} · neu`;
+        : zustand === 'fertig' ? h('span', { class: 'pfad-stand' }, `Alle ${s.gesamt} Fragen fertig`)
+          : zustand === 'begonnen' ? h('span', { class: 'pfad-stand mit-balken' }, stufenBalken(s, 'klein'), h('span', {}, `${Math.round(s.fortschritt * 100)} % gelernt`))
+            : h('span', { class: 'pfad-stand' }, `${mehrzahl(s.gesamt, 'Frage', 'Fragen')} · neu`);
       return h('li', { class: `pfad-punkt ${zustand}${i === aktuell ? ' aktuell' : ''}` },
-        h('span', { class: 'pfad-knoten', 'aria-hidden': 'true', style: { '--anteil': `${s.gesamt ? Math.round((s.sicher / s.gesamt) * 100) : 0}%` } }, knoten),
+        h('span', {
+          class: 'pfad-knoten', 'aria-hidden': 'true',
+          style: { '--p1': prozent(s.fertig), '--p2': prozent(s.fertig + s.fortgeschritten), '--p3': prozent(s.fertig + s.fortgeschritten + s.angefangen) },
+        }, knoten),
         h('a', { class: 'pfad-karte', href: ctx.link('kapitel', kapitel.id) },
           i === aktuell && h('span', { class: 'pfad-marke' }, begonnen ? 'Hier weitermachen' : 'Hier anfangen'),
           h('strong', { class: 'pfad-titel' }, `${i + 1}. ${kapitel.titel}`),
           zustand !== 'fertig' && kapitel.kurz && h('span', { class: 'kapitel-kurz' }, kapitel.kurz),
           scheinHinweis(kapitel) && h('span', { class: 'chip schein-chip' }, scheinHinweis(kapitel)),
-          stand && h('span', { class: 'pfad-stand' }, stand),
+          stand,
           i === aktuell && h('span', { class: 'pfad-los' }, 'Kapitel lesen', icon('weiter'))));
     }));
   }
@@ -264,10 +269,11 @@ export function lernmodul({
     anhaengen(el,
       kopf(ctx, daten.einleitung ?? ctx.modul.beschreibung),
       h('section', { class: 'karte lernkarte', 'data-modul': ctx.modul.id },
-        ring(s.gesamt ? s.sicher / s.gesamt : 0, `${s.sicher} von ${s.gesamt} Fragen sicher`),
+        stufenRing(s),
         h('div', { class: 'lernkarte-text' },
-          h('strong', {}, `${s.sicher} von ${s.gesamt} Fragen sicher`),
-          h('span', { class: 'leise' }, `${s.faellig} fällig · ${s.neu} neu`),
+          h('strong', {}, s.gesehen ? `${Math.round(s.fortschritt * 100)} % gelernt` : 'Noch nicht begonnen'),
+          stufenLegende(s),
+          s.faellig > 0 && h('span', { class: 'leise' }, `${mehrzahl(s.faellig, 'Frage ist', 'Fragen sind')} heute fällig`),
         ),
         lernbar > 0
           ? h('a', { class: 'knopf gross', href: ctx.link('lernen') }, icon('flugzeug'), 'Lernrunde starten')
@@ -442,7 +448,7 @@ export function lernmodul({
     async fortschritt(ctx) {
       const daten = await laden(ctx);
       const s = statistik(sichtbareIds(daten), karten(ctx));
-      return { ...s, anteil: s.gesamt ? s.sicher / s.gesamt : 0 };
+      return { ...s, anteil: s.fortschritt };
     },
 
     /** Alle Aufgaben des Moduls – für die modulübergreifende Wiederholung. */
@@ -467,6 +473,7 @@ function loesungsBlock(frage) {
   }
   return h('div', {},
     h('ul', { class: 'pruef-antworten' }, zeilen),
+    frage.rechenweg && h('ol', { class: 'pruef-rechenweg', 'aria-label': 'Rechenweg' }, frage.rechenweg.map((s) => h('li', {}, formatiert(s)))),
     frage.erklaerung && h('p', { class: 'pruef-erklaerung' }, formatiert(frage.erklaerung)),
   );
 }

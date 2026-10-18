@@ -2,6 +2,10 @@
 // Wolkenbasis ≈ Spread × 400 ft, ISA: 15 °C − 2 °C je 1000 ft, 1 hPa ≈ 30 ft.
 
 const vorzeichen = (n) => (n > 0 ? `+${n}` : String(n).replace('-', '−'));
+const komma = (n, s = 1) => Number(n.toFixed(s)).toLocaleString('de-DE', { useGrouping: false }).replace('-', '−');
+const zahl = (n) => komma(n);
+/** Negative Zahlen in Klammern, damit „− (−2)“ lesbar bleibt. */
+const klammer = (n) => (n < 0 ? `(${zahl(n)})` : zahl(n));
 
 export const generatoren = {
   wolkenbasis(z) {
@@ -15,7 +19,12 @@ export const generatoren = {
       loesung: spread * 400,
       toleranz: Math.max(100, spread * 400 * 0.05),
       einheit: 'ft',
-      erklaerung: `Spread = ${vorzeichen(temperatur)} − (${vorzeichen(taupunkt)}) = ${spread} °C → ${spread} × 400 ft = ${spread * 400} ft über Grund.`,
+      rechenweg: [
+        'Faustformel: **Wolkenbasis ≈ Spread × 400 ft** über Grund.',
+        `Spread = Temperatur − Taupunkt = ${zahl(temperatur)} − ${klammer(taupunkt)} = **${spread} °C**.`,
+        `Wolkenbasis ≈ ${spread} × 400 ft = **${spread * 400} ft** über Grund.`,
+      ],
+      erklaerung: 'Warum 400 ft? Steigende, ungesättigte Luft kühlt um etwa 3 °C je 1000 ft ab, ihr Taupunkt nur um etwa 0,6 °C. Der Spread schrumpft also um rund 2,5 °C je 1000 ft – jedes Grad Spread reicht für etwa 400 ft. Ist er aufgebraucht, kondensiert der Wasserdampf: Dort beginnt die Wolke. Nicht verwechseln: Die 2 °C je 1000 ft der Standardatmosphäre beschreiben die umgebende Luft im Durchschnitt, nicht ein aufsteigendes Luftpaket.',
     };
   },
 
@@ -28,7 +37,11 @@ export const generatoren = {
       loesung: isa,
       toleranz: 0.5,
       einheit: '°C',
-      erklaerung: `15 °C − 2 °C × ${hoehe / 1000} = ${vorzeichen(isa)} °C.`,
+      rechenweg: [
+        'In der Standardatmosphäre hat es auf Meereshöhe **15 °C**, und je **1000 ft** wird es **2 °C** kälter.',
+        `${hoehe} ft sind ${hoehe / 1000} × 1000 ft → ${hoehe / 1000} × 2 °C = **${2 * hoehe / 1000} °C** kälter.`,
+        `15 °C − ${2 * hoehe / 1000} °C = **${zahl(isa)} °C**.`,
+      ],
     };
   },
 
@@ -43,7 +56,11 @@ export const generatoren = {
       loesung: abweichung,
       toleranz: 0.5,
       einheit: '°C',
-      erklaerung: `ISA in ${hoehe} ft: ${vorzeichen(isa)} °C. Gemessen ${vorzeichen(gemessen)} °C → ISA ${vorzeichen(abweichung)} °C.`,
+      rechenweg: [
+        `Zuerst die ISA-Temperatur in ${hoehe} ft: 15 °C − ${hoehe / 1000} × 2 °C = **${zahl(isa)} °C**.`,
+        `Abweichung = gemessen − ISA = ${zahl(gemessen)} − ${klammer(isa)} = **${vorzeichen(abweichung)} °C**.`,
+        `Die Luft ist also ${Math.abs(abweichung)} °C ${abweichung > 0 ? 'wärmer' : 'kälter'} als die Standardatmosphäre: **ISA ${vorzeichen(abweichung)}**.`,
+      ],
     };
   },
 
@@ -59,7 +76,15 @@ export const generatoren = {
       loesung: wahr,
       toleranz: 30,
       einheit: 'ft',
-      erklaerung: `${eingestellt > richtig ? 'Zu hoch' : 'Zu niedrig'} eingestellt um ${Math.abs(eingestellt - richtig)} hPa ≈ ${Math.abs(eingestellt - richtig) * 30} ft. Der Höhenmesser zeigt also ${eingestellt > richtig ? 'zu viel' : 'zu wenig'}: wahre Höhe ≈ ${wahr} ft.`,
+      rechenweg: [
+        `Unterschied der Einstellung: ${eingestellt} − ${richtig} = **${zahl(eingestellt - richtig)} hPa** – also ${Math.abs(eingestellt - richtig)} hPa zu ${eingestellt > richtig ? 'hoch' : 'niedrig'} eingestellt.`,
+        `1 hPa ≈ 30 ft → ${Math.abs(eingestellt - richtig)} × 30 ft = **${Math.abs(eingestellt - richtig) * 30} ft**.`,
+        eingestellt > richtig
+          ? 'Zu hoch eingestellt heißt: Der Höhenmesser zeigt **zu viel** – du bist tiefer. Also abziehen.'
+          : 'Zu niedrig eingestellt heißt: Der Höhenmesser zeigt **zu wenig** – du bist höher. Also dazuzählen.',
+        `${anzeige} ft ${eingestellt > richtig ? '−' : '+'} ${Math.abs(eingestellt - richtig) * 30} ft = **${wahr} ft** über MSL.`,
+      ],
+      erklaerung: 'Merksatz: Höhenmesser zu hoch eingestellt → zeigt zu hoch an. Gefährlich ist das, wenn du dadurch tiefer fliegst, als du glaubst.',
     };
   },
 
@@ -74,7 +99,12 @@ export const generatoren = {
       loesung: druckhoehe,
       toleranz: 30,
       einheit: 'ft',
-      erklaerung: `${platz} + (1013 − ${qnh}) × 30 = ${platz} ${qnh <= 1013 ? '+' : '−'} ${Math.abs(1013 - qnh) * 30} = ${druckhoehe} ft.`,
+      rechenweg: [
+        'Formel: **Druckhöhe ≈ Platzhöhe + (1013 − QNH) × 30 ft**.',
+        `1013 − ${qnh} = **${zahl(1013 - qnh)} hPa** ${qnh < 1013 ? '(tiefer Druck – die Druckhöhe ist größer als die Platzhöhe)' : qnh > 1013 ? '(hoher Druck – die Druckhöhe ist kleiner als die Platzhöhe)' : '(Standarddruck)'}.`,
+        `${zahl(1013 - qnh)} × 30 ft = **${zahl((1013 - qnh) * 30)} ft**.`,
+        `${platz} ft ${qnh <= 1013 ? '+' : '−'} ${Math.abs(1013 - qnh) * 30} ft = **${zahl(druckhoehe)} ft** Druckhöhe.`,
+      ],
     };
   },
 
@@ -90,7 +120,14 @@ export const generatoren = {
       loesung: Math.round(dichtehoehe),
       toleranz: Math.max(100, Math.round(dichtehoehe * 0.04)),
       einheit: 'ft',
-      erklaerung: `ISA in ${druckhoehe} ft: ${vorzeichen(Number(isa.toFixed(1)))} °C. Abweichung ${vorzeichen(Number((temperatur - isa).toFixed(1)))} °C × 120 ft ≈ ${Math.round(120 * (temperatur - isa))} ft → Dichtehöhe ≈ ${Math.round(dichtehoehe)} ft. Das Flugzeug „fühlt“ sich so, als wäre es höher.`,
+      rechenweg: [
+        'Formel: **Dichtehöhe ≈ Druckhöhe + 120 ft × (Temperatur − ISA-Temperatur)**.',
+        `ISA-Temperatur in ${druckhoehe} ft: 15 °C − ${komma(druckhoehe / 1000)} × 2 °C = **${komma(isa)} °C**.`,
+        `Temperatur − ISA = ${zahl(temperatur)} − ${klammer(Number(isa.toFixed(1)))} = **${komma(temperatur - isa)} °C** wärmer als Standard.`,
+        `120 ft × ${komma(temperatur - isa)} = **${Math.round(120 * (temperatur - isa))} ft**.`,
+        `${druckhoehe} ft + ${Math.round(120 * (temperatur - isa))} ft ≈ **${Math.round(dichtehoehe)} ft** Dichtehöhe.`,
+      ],
+      erklaerung: 'Warme Luft ist dünner: Das Flugzeug verhält sich so, als wäre es höher – längere Startstrecke, schlechteres Steigen.',
     };
   },
 };

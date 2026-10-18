@@ -80,6 +80,11 @@ function tafFrage(z) {
     const falsch = [...new Set([`am ${t.tag}. um ${ende.slice(0, 2)}:${ende.slice(2)} UTC`, zeitText(t.tag, t.ende - 1), zeitText(t.tag, t.ende + 1), `${t.ende - t.beginn} Stunden nach dem Abflug`])].filter((f) => f !== richtig).slice(0, 3);
     return {
       typ: 'auswahl', code: t.text, frage: 'Bis wann gilt dieser TAF?', richtig, falsch,
+      rechenweg: [
+        'Der Gültigkeitszeitraum steht direkt nach der Ausgabezeit: zweimal **Tag und Stunde** (UTC) – keine Minuten.',
+        `${t.ddhh(t.beginn)}/${ende}: Beginn am ${t.ddhh(t.beginn).slice(0, 2)}. um ${t.ddhh(t.beginn).slice(2)} Uhr, Ende am ${ende.slice(0, 2)}. um ${ende.slice(2)} Uhr.`,
+        `Ende der Gültigkeit: **${richtig}**.`,
+      ],
       erklaerung: `Der Gültigkeitszeitraum steht nach der Ausgabezeit: ${t.ddhh(t.beginn)}/${ende} heißt ${zeitraumText(t.tag, t.beginn, t.ende)}. Die vier Ziffern sind Tag und Stunde – keine Uhrzeit mit Minuten.`,
     };
   }
@@ -94,6 +99,9 @@ function tafFrage(z) {
       typ: 'wahrfalsch', code: t.text,
       aussage: `${zeitText(t.tag, stunde).replace(/^am/, 'Am')} betrifft dich ${name}.`,
       richtig: imFenster,
+      rechenweg: t.art === 'FM'
+        ? [`FM${t.ddhh(t.von)}00 heißt: **ab** dem ${t.tag + Math.floor(t.von / 24)}. um ${zwei(t.von % 24)}:00 UTC bis zum Ende des TAF.`, `${zwei(stunde % 24)}:00 UTC liegt ${imFenster ? '**danach** – die Gruppe betrifft dich' : '**davor** – noch gilt das Grundwetter'}.`]
+        : [`Der Zeitraum der Gruppe: ${t.ddhh(t.von)}/${t.ddhh(t.bis, true)} → ${zeitraumText(t.tag, t.von, t.bis)}.`, `${zeitText(t.tag, stunde).replace(/^am /, '')} liegt ${imFenster ? '**innerhalb** – die Gruppe betrifft dich' : '**außerhalb** – dann gilt das Grundwetter'}.`],
       erklaerung: t.art === 'FM'
         ? `FM${t.ddhh(t.von)}00 heißt: ab dem ${t.tag + Math.floor(t.von / 24)}. um ${zwei(t.von % 24)}:00 UTC gilt das neue Wetter bis zum Ende des TAF.`
         : `Der Zeitraum ${t.ddhh(t.von)}/${t.ddhh(t.bis, true)} reicht ${zeitraumText(t.tag, t.von, t.bis)} – danach gilt wieder das Grundwetter.`,

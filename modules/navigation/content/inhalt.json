@@ -122,7 +122,10 @@
           "frage": "Wie viele nautische Meilen entsprechen 1° geografischer Breite?",
           "loesung": 60,
           "einheit": "NM",
-          "erklaerung": "1° = 60 Bogenminuten = 60 NM."
+          "rechenweg": [
+            "1° hat **60 Bogenminuten**.",
+            "Auf einem Meridian ist 1 Bogenminute = **1 NM** → 60 × 1 NM = **60 NM**."
+          ]
         },
         {
           "id": "na-gr-08",
@@ -142,7 +145,10 @@
           "frage": "Um wie viel Grad geografischer Länge dreht sich die Erde in einer Stunde?",
           "loesung": 15,
           "einheit": "°",
-          "erklaerung": "360° in 24 Stunden = 15° pro Stunde."
+          "rechenweg": [
+            "Die Erde dreht sich einmal (**360°**) in **24 Stunden**.",
+            "360° ÷ 24 h = **15° pro Stunde**."
+          ]
         },
         {
           "id": "na-gr-10",
@@ -569,7 +575,10 @@
           "loesung": 10,
           "toleranz": 0.5,
           "einheit": "°",
-          "erklaerung": "60 × 20 ÷ 120 = 10°."
+          "rechenweg": [
+            "Faustformel: **größter Luvwinkel ≈ 60 × Wind ÷ TAS** – genau von der Seite gilt der volle Wert.",
+            "60 × 20 = 1200 → 1200 ÷ 120 = **10°**."
+          ]
         },
         {
           "id": "na-wi-07",

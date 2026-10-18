@@ -293,7 +293,11 @@
             "C",
             "D"
           ],
-          "erklaerung": "G reicht hier bis 800 + 2500 = 3300 ft MSL. In 4500 ft bist du darüber, also im Luftraum E – unterhalb von FL 100."
+          "rechenweg": [
+            "Ohne Kontrollzone und Instrumentenverkehr reicht G bis **2500 ft über Grund**: 800 + 2500 = **3300 ft MSL**.",
+            "Darüber liegt **E** bis FL 100.",
+            "4500 ft liegt zwischen 3300 ft und FL 100 → **Luftraum E**."
+          ]
         },
         {
           "id": "lr-kl-14",
@@ -850,7 +854,11 @@
             "3500 ft MSL",
             "FL 100"
           ],
-          "erklaerung": "Maßgebend ist der höhere Wert aus 5000 ft MSL und 3500 ft über Grund: 2000 + 3500 = 5500 ft MSL."
+          "rechenweg": [
+            "Transponderpflicht ab dem **höheren** Wert aus 5000 ft MSL und 3500 ft über Grund.",
+            "3500 ft über Grund: 2000 + 3500 = **5500 ft MSL**.",
+            "5500 ft ist höher als 5000 ft → **5500 ft MSL**."
+          ]
         },
         {
           "id": "lr-zo-09",

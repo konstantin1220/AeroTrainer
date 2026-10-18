@@ -1,8 +1,25 @@
 // Rechenaufgaben für „Masse & Schwerpunkt“ mit dem Übungsflugzeug aus content/flugzeug.json.
-import { beladungRechnen, bewertung, runden, BEWERTUNG_TEXT } from './rechnen.js';
+import { beladungRechnen, bewertung, grenzen, runden, BEWERTUNG_TEXT } from './rechnen.js';
 import { huellkurve } from './abbildungen.js';
 
-const komma = (wert, stellen = 2) => runden(wert, stellen).toLocaleString('de-DE', { minimumFractionDigits: stellen, maximumFractionDigits: stellen });
+const komma = (wert, stellen = 2) => runden(wert, stellen).toLocaleString('de-DE', { minimumFractionDigits: stellen, maximumFractionDigits: stellen, useGrouping: false });
+
+/** Ganze Zahlen ohne, sonst mit einer Nachkommastelle (für Massen und Momente). */
+const zahl = (n) => komma(n, Number.isInteger(runden(n, 1)) ? 0 : 1);
+
+/** Rechenschritte für Masse und Schwerpunkt einer Beladung (ohne Zeilen mit 0 kg). */
+function beladungsWeg(flugzeug, beladung, e, { schwerpunkt = true } = {}) {
+  const zeilen = e.zeilen.filter((z) => z.masse > 0);
+  const schritte = [`Kraftstoff in kg: ${beladung.kraftstoff} l × ${komma(flugzeug.kraftstoffDichte)} kg/l = **${zahl(beladung.kraftstoff * flugzeug.kraftstoffDichte)} kg**.`];
+  if (schwerpunkt) {
+    schritte.push(`Moment je Zeile = Masse × Hebelarm: ${zeilen.map((z) => `${zahl(z.masse)} × ${komma(z.arm)} = ${zahl(z.moment)}`).join(' · ')}.`);
+    schritte.push(`Summe der Massen: **${zahl(e.masse)} kg** · Summe der Momente: **${zahl(e.moment)} kg·m**.`);
+    schritte.push(`Schwerpunkt = Momente ÷ Masse = ${zahl(e.moment)} ÷ ${zahl(e.masse)} = **${komma(e.schwerpunkt, 3)} m**.`);
+  } else {
+    schritte.push(`Alle Massen addieren: ${zeilen.map((z) => zahl(z.masse)).join(' + ')} = **${zahl(e.masse)} kg**.`);
+  }
+  return schritte;
+}
 
 function zufallsBeladung(z, flugzeug) {
   const s = Object.fromEntries(flugzeug.stationen.map((st) => [st.id, st]));
@@ -35,7 +52,11 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(moment, 1),
         toleranz: 0.5,
         einheit: 'kg·m',
-        erklaerung: `Moment = Masse × Hebelarm = ${masse} kg × ${komma(station.arm)} m = ${komma(moment, 1)} kg·m.`,
+        rechenweg: [
+          'Formel: **Moment = Masse × Hebelarm**.',
+          `${masse} kg × ${komma(station.arm)} m = **${zahl(moment)} kg·m**.`,
+        ],
+        erklaerung: 'Je weiter hinten eine Last liegt, desto größer ist ihr Moment – und desto stärker schiebt sie den Schwerpunkt nach hinten.',
       };
     },
 
@@ -48,7 +69,10 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(kg, 1),
         toleranz: 0.5,
         einheit: 'kg',
-        erklaerung: `${liter} l × ${komma(flugzeug.kraftstoffDichte)} kg/l = ${komma(kg, 1)} kg.`,
+        rechenweg: [
+          `AVGAS wiegt etwa **${komma(flugzeug.kraftstoffDichte)} kg je Liter**: Masse = Liter × Dichte.`,
+          `${liter} l × ${komma(flugzeug.kraftstoffDichte)} kg/l = **${zahl(kg)} kg**.`,
+        ],
       };
     },
 
@@ -63,7 +87,7 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(e.masse, 1),
         toleranz: 1,
         einheit: 'kg',
-        erklaerung: `Summe aller Massen (Kraftstoff ${beladung.kraftstoff} l = ${komma(beladung.kraftstoff * flugzeug.kraftstoffDichte, 1)} kg): ${komma(e.masse, 1)} kg.`,
+        rechenweg: beladungsWeg(flugzeug, beladung, e, { schwerpunkt: false }),
       };
     },
 
@@ -78,7 +102,7 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(e.schwerpunkt, 3),
         toleranz: 0.01,
         einheit: 'm',
-        erklaerung: `Gesamtmoment ${komma(e.moment, 1)} kg·m ÷ Gesamtmasse ${komma(e.masse, 1)} kg = ${komma(e.schwerpunkt, 3)} m.`,
+        rechenweg: beladungsWeg(flugzeug, beladung, e),
       };
     },
 
@@ -101,7 +125,17 @@ export function erstelleGeneratoren(flugzeug) {
         hinweis: `Kraftstoff: ${komma(flugzeug.kraftstoffDichte)} kg/l.`,
         richtig: BEWERTUNG_TEXT[ergebnis],
         falsch: Object.entries(BEWERTUNG_TEXT).filter(([k]) => k !== ergebnis).map(([, t]) => t),
-        erklaerung: `Masse ${komma(e.masse, 1)} kg, Schwerpunkt ${komma(e.schwerpunkt, 3)} m.`,
+        rechenweg: (() => {
+          const schritte = beladungsWeg(flugzeug, beladung, e);
+          schritte.push(`Höchstzulässige Startmasse ${flugzeug.mtom} kg: ${e.masse <= flugzeug.mtom ? 'eingehalten' : `**um ${zahl(e.masse - flugzeug.mtom)} kg überschritten**`}.`);
+          const g = e.masse <= flugzeug.mtom ? grenzen(flugzeug.huellkurve, e.masse) : null;
+          if (g) {
+            const lage = e.schwerpunkt < g.vorn ? '**zu weit vorn**' : e.schwerpunkt > g.hinten ? '**zu weit hinten**' : '**innerhalb**';
+            schritte.push(`Bei ${zahl(e.masse)} kg erlaubt die Hüllkurve ${komma(g.vorn, 3)} bis ${komma(g.hinten, 3)} m – ${komma(e.schwerpunkt, 3)} m liegt ${lage}.`);
+          }
+          schritte.push(`Also: **${BEWERTUNG_TEXT[ergebnis]}**.`);
+          return schritte;
+        })(),
       };
     },
 
@@ -116,7 +150,12 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(aenderung * 100, 1),
         toleranz: 0.3,
         einheit: 'cm',
-        erklaerung: `Schwerpunktänderung = verlagerte Masse × Weg ÷ Gesamtmasse = ${masse} × ${komma(weg)} ÷ ${gesamt} = ${komma(aenderung, 4)} m ≈ ${komma(aenderung * 100, 1)} cm nach hinten.`,
+        rechenweg: [
+          'Formel: **Änderung = verlagerte Masse × Weg ÷ Gesamtmasse** – die Gesamtmasse bleibt dabei gleich.',
+          `${masse} kg × ${komma(weg)} m = **${komma(masse * weg, 2)} kg·m**.`,
+          `${komma(masse * weg, 2)} kg·m ÷ ${gesamt} kg = **${komma(aenderung, 4)} m**.`,
+          `In Zentimetern: × 100 = **${komma(aenderung * 100, 1)} cm** nach hinten.`,
+        ],
       };
     },
 
@@ -137,7 +176,10 @@ export function erstelleGeneratoren(flugzeug) {
         loesung: runden(rest, 1),
         toleranz: 1,
         einheit: 'kg',
-        erklaerung: `${flugzeug.mtom} kg − ${komma(e.masse, 1)} kg = ${komma(rest, 1)} kg.`,
+        rechenweg: [
+          ...beladungsWeg(flugzeug, beladung, e, { schwerpunkt: false }),
+          `Rest bis zur höchstzulässigen Startmasse: ${flugzeug.mtom} − ${zahl(e.masse)} = **${zahl(rest)} kg**.`,
+        ],
       };
     },
   };

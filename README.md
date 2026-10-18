@@ -43,6 +43,10 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 - **Klare Oberfläche**: helle Kopfzeile mit Zurück-Pfeil, Themen als Listen je Prüfungsfach, Kapitel als Lernpfad
   („Hier weitermachen“), Lesefortschritt im Kapitel, kurze Rückmeldungs-Animationen in den Fragerunden.
 - **Verteilte Wiederholung** (Leitner-Karteikasten mit 5 Fächern): Jede Frage kommt wieder, wenn sie dran ist.
+- **Fortschritt in vier Stufen**: Jede Frage ist *ungelernt* (grau), *angefangen* (gelb, einmal beantwortet oder zuletzt
+  falsch), *fortgeschritten* (blau, zwei- bis dreimal hintereinander richtig) oder *fertig* (grün, mindestens viermal
+  hintereinander richtig). Ringe und Balken auf Startseite, Themenseite, im Lernpfad und unter *Lernstand* zeigen das;
+  die Prozentzahl wächst schon mit der ersten richtigen Antwort (jede Stufe ein Viertel).
 - **BZF-Trainer** (Thema Sprechfunk): Lernkapitel zu BZF I und II, Plätzen mit und ohne Tower, FIS/RMZ und Englisch,
   eine Übersetzungsübung wie in der BZF-I-Prüfung und **Funkgespräche** zum Durchspielen – auf Deutsch oder Englisch,
   in vier Stufen: auswählen, große Bausteine, kleine Bausteine (Wort für Wort) und frei tippen. Die freie Eingabe
@@ -54,7 +58,9 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
   (sie werden genau so gespeichert, wie sie gestellt wurden). Die Merkliste gehört zum Lernstand und wird mitgesichert.
   Fällige Fragen aller Themen lassen sich gemeinsam wiederholen.
 - **Rechenaufgaben, die jedes Mal neu entstehen**: Winddreieck, Missweisung, Schwerpunkt, Wolkenbasis,
-  Lastvielfaches, Frequenzen sprechen, Kurs auf der Übungskarte messen u. v. m.
+  Lastvielfaches, Frequenzen sprechen, Kurs auf der Übungskarte messen u. v. m. Nach jeder Antwort zeigt
+  **„So rechnest du“** den Rechenweg Schritt für Schritt – Formel, eingesetzte Zahlen, Ergebnis (nach einer falschen
+  Antwort offen, sonst zum Aufklappen). Bei Regel- und Ablesefragen heißt der Block „So kommst du drauf“ bzw. „So liest du es“.
 - **METAR in fünf Stufen**: Antippen & erklären → selbst entschlüsseln → rückwärts bauen (mit Bausteinen, Bausteinen
   mit Fallen oder frei getippt) → Entscheidung treffen → Fehler finden. Ein Generator erzeugt unbegrenzt viele,
   in sich stimmige METARs in fünf Schwierigkeitsstufen. Dazu ein Kapitel zum TAF mit erzeugten Übungs-TAFs.
@@ -96,7 +102,8 @@ node --test
 Benötigt Node.js 22 oder neuer. Die Tests prüfen u. a.:
 
 - jede Frage aller Themen (Aufbau, Lösung wird als richtig erkannt, falsche Antworten nicht),
-- jede Rechenaufgabe mit 300 zufälligen Durchläufen,
+- jede Rechenaufgabe mit 300 zufälligen Durchläufen – Zahlenaufgaben brauchen einen Rechenweg, der fett beim Ergebnis ankommt,
+- die Lernstufen und den Fortschritt (`tests/srs.test.mjs`),
 - dass jede verwendete Abbildung existiert,
 - den METAR-Parser und 3000 erzeugte METARs gegen die Melderegeln,
 - die Rechenlogik der interaktiven Darstellungen (Sichtflugbedingungen, Ausweichregeln, Sprechweise u. a.),
@@ -174,7 +181,8 @@ Aufbau eines Kapitels:
     { "id": "eindeutige-id", "typ": "auswahl", "frage": "…", "richtig": "…", "falsch": ["…", "…"], "erklaerung": "…" },
     { "id": "…", "typ": "mehrfach", "frage": "…", "richtig": ["…"], "falsch": ["…"] },
     { "id": "…", "typ": "wahrfalsch", "aussage": "…", "richtig": true },
-    { "id": "…", "typ": "zahl", "frage": "…", "loesung": 1500, "toleranz": 0, "einheit": "ft" },
+    { "id": "…", "typ": "zahl", "frage": "…", "loesung": 1500, "toleranz": 0, "einheit": "ft",
+      "rechenweg": ["Formel: **…**", "Zahlen einsetzen …", "= **1500 ft**"] },
     { "id": "…", "typ": "zuordnung", "frage": "…", "paare": [["links", "rechts"]] },
     { "id": "…", "typ": "generator", "generator": "name-in-generatoren.js" }
   ]

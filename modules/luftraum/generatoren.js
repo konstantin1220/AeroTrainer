@@ -11,6 +11,22 @@ function sichtText(meter) {
 
 import { grenzen, luftraumAn } from './luftraeume.js';
 
+/** Sicht und Wolkenuntergrenze in der Kontrollzone prüfen: erst VFR, dann Sonder-VFR (auch für das Thema METAR). */
+export function ctrWeg(sicht, decke, ergebnis) {
+  const deckeOk = (wert) => decke === null || decke >= wert;
+  const deckeText = decke === null ? 'keine Hauptwolkenuntergrenze' : `Wolken ab ${decke} ft`;
+  const schritte = [
+    'VFR in der Kontrollzone: mindestens **5 km Bodensicht** und **1500 ft Hauptwolkenuntergrenze**.',
+    `Hier: Sicht ${sicht === null ? 'nicht gemeldet' : sichtText(sicht)} (${sicht >= 5000 ? 'reicht' : 'zu wenig'}), ${deckeText} (${deckeOk(1500) ? 'reicht' : 'zu tief'}).`,
+  ];
+  if (!(sicht >= 5000 && deckeOk(1500))) {
+    schritte.push('Sonder-VFR (nur mit Freigabe): mindestens **1500 m Bodensicht** und **600 ft Hauptwolkenuntergrenze**.');
+    schritte.push(`Hier: Sicht ${sicht >= 1500 ? 'reicht' : 'zu wenig'}, Wolken ${deckeOk(600) ? 'reichen' : 'zu tief'}.`);
+  }
+  schritte.push(`Also: **${ergebnis}**.`);
+  return schritte;
+}
+
 export const generatoren = {
   /** In welchem Luftraum bist du? Gelände, Gebiet und Höhe wechseln (Grundmuster nach AIP VFR ENR 1-1). */
   luftraumhoehe(z) {
@@ -28,8 +44,13 @@ export const generatoren = {
       frage: `Gelände ${gelaende} ft MSL, ${ort}. In welchem Luftraum fliegst du in ${hoehe} ft MSL (außerhalb der Alpen)?`,
       richtig: `Luftraum ${klasse}`,
       falsch: ['G', 'E', 'C', 'D'].filter((k) => k !== klasse).slice(0, 3).map((k) => `Luftraum ${k}`),
-      erklaerung: `G reicht hier bis ${gelaende} + ${gebiet === 'flugplatz' ? 1000 : 2500} = ${g.gOben} ft MSL, E bis FL 100 (etwa 10 000 ft). `
-        + (klasse === 'G' ? `In ${hoehe} ft bist du darunter – im Luftraum G.` : klasse === 'E' ? `In ${hoehe} ft bist du dazwischen – im Luftraum E.` : `In ${hoehe} ft bist du über FL 100 – im Luftraum C, dafür brauchst du eine Freigabe.`),
+      rechenweg: [
+        `Obergrenze von G: Gelände + ${gebiet === 'flugplatz' ? 1000 : 2500} ft = ${gelaende} + ${gebiet === 'flugplatz' ? 1000 : 2500} = **${g.gOben} ft MSL**.`,
+        'Darüber liegt Luftraum **E** bis **FL 100** (rund 10 000 ft), darüber **C**.',
+        klasse === 'G' ? `${hoehe} ft liegt unter ${g.gOben} ft → **Luftraum G**.`
+          : klasse === 'E' ? `${hoehe} ft liegt zwischen ${g.gOben} ft und FL 100 → **Luftraum E**.`
+            : `${hoehe} ft liegt über FL 100 → **Luftraum C** – dafür brauchst du eine Freigabe.`,
+      ],
     };
   },
 
@@ -48,11 +69,13 @@ export const generatoren = {
       frage: `Gelände ${gelaende} ft MSL. Du fliegst in ${hoehe} ft MSL im Luftraum ${klasse}. Welcher Mindestabstand zu Wolken gilt?`,
       richtig: frei ? ABSTAND_FREI : ABSTAND_KONTROLLIERT,
       falsch: [frei ? ABSTAND_KONTROLLIERT : ABSTAND_FREI, '1000 m waagerecht, 500 ft senkrecht', 'Kein Mindestabstand vorgeschrieben'],
-      erklaerung: `Die Grenze liegt bei ${grenze} ft MSL – dem höheren Wert aus 3000 ft MSL und 1000 ft über Grund (${gelaende + 1000} ft MSL). `
-        + `Du fliegst ${unten ? 'darunter' : 'darüber'}. `
-        + (frei
-          ? 'Im Luftraum G gilt dort „frei von Wolken, mit Erdsicht“.'
-          : `${klasse === 'G' ? 'Auch im Luftraum G' : `Im Luftraum ${klasse}`} gilt deshalb: 1500 m waagerecht und 1000 ft senkrecht.`),
+      rechenweg: [
+        `Die Grenze ist der **höhere** Wert aus 3000 ft MSL und 1000 ft über Grund: ${gelaende} + 1000 = ${gelaende + 1000} ft MSL → Grenze **${grenze} ft MSL**.`,
+        `Du fliegst in ${hoehe} ft – also **${unten ? 'darunter' : 'darüber'}**.`,
+        frei
+          ? 'Unter der Grenze gilt im Luftraum G: **frei von Wolken, mit Erdsicht**.'
+          : `${klasse === 'G' ? (unten ? '' : 'Über der Grenze gilt auch im Luftraum G') : `Im Luftraum ${klasse} gilt immer`}: **1500 m waagerecht, 1000 ft senkrecht**.`,
+      ],
     };
   },
 
@@ -71,8 +94,7 @@ export const generatoren = {
       code: `Bodensicht:              ${sichtText(sicht)}\nHauptwolkenuntergrenze:  ${deckeText}`,
       richtig,
       falsch: antworten.filter((a) => a !== richtig),
-      erklaerung: 'VFR braucht in der Kontrollzone mindestens 5 km Bodensicht und 1500 ft Hauptwolkenuntergrenze. '
-        + 'Darunter kann ATC Sonder-VFR freigeben – aber nur bei mindestens 1500 m Bodensicht und 600 ft Hauptwolkenuntergrenze.',
+      rechenweg: ctrWeg(sicht, decke, richtig),
     };
   },
 
@@ -89,9 +111,11 @@ export const generatoren = {
       frage: `Du fliegst nach VFR mit einem missweisenden Kurs über Grund von ${kursText}° mehr als 3000 ft über Grund. Welche Reiseflughöhe passt zur Halbkreisflugregel?`,
       richtig: z.wahl(passend),
       falsch: [...z.ziehen(unpassend, 2), z.wahl(['FL 60', 'FL 70', '5000 ft MSL'])],
-      erklaerung: ostwaerts
-        ? 'Kurse von 000° bis 179°: ungerade Tausender plus 500 ft (z. B. 3500 ft, FL 55, FL 75).'
-        : 'Kurse von 180° bis 359°: gerade Tausender plus 500 ft (z. B. 4500 ft, FL 65, FL 85).',
+      rechenweg: [
+        `Kurs ${kursText}° liegt ${ostwaerts ? 'zwischen 000° und 179°' : 'zwischen 180° und 359°'}.`,
+        ostwaerts ? 'Dafür gilt: **ungerade Tausender plus 500 ft** – 3500 ft, FL 55, FL 75, FL 95 …' : 'Dafür gilt: **gerade Tausender plus 500 ft** – 4500 ft, FL 65, FL 85, FL 105 …',
+        'Unter den Antworten passt nur eine Höhe zu dieser Reihe.',
+      ],
     };
   },
 };

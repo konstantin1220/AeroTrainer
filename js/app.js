@@ -4,14 +4,14 @@
 // Ein Modul wird in modules/index.json eingetragen und liegt in einem eigenen Ordner
 // mit einer Datei module.js. Diese exportiert ein Objekt mit:
 //   anzeigen(element, pfadTeile, ctx)  – zeichnet das Modul in das Element (Pflicht)
-//   fortschritt(ctx)                   – { anteil, faellig, neu, gesamt, sicher } (optional)
+//   fortschritt(ctx)                   – Statistik aus srs.js: gesamt, faellig, neu, Lernstufen, fortschritt (optional)
 //   aufgaben(ctx)                      – alle Fragen für die gemeinsame Wiederholung (optional)
 // Die meisten Module nutzen dafür den Baukasten in js/lernmodul.js.
 
-import { h, anhaengen, ladeJSON, fehlerAnzeige, datumText, ring, balken, leerzustand, mehrzahl, formatiert, brotkrumen } from './ui.js';
+import { h, anhaengen, ladeJSON, fehlerAnzeige, datumText, leerzustand, mehrzahl, formatiert, brotkrumen, stufenBalken, stufenLegende, stufenRing } from './ui.js';
 import { icon, themenIcon, logo } from './icons.js';
 import { fragerunde } from './quiz.js';
-import { tagText, tagPlus, istFaellig, ABSTAND_TAGE, SICHER_AB_BOX } from './srs.js';
+import { tagText, tagPlus, istFaellig, statistikSumme, ABSTAND_TAGE, SICHER_AB_BOX } from './srs.js';
 import { zufall } from './zufall.js';
 import * as lernstand from './storage.js';
 import { STUFEN, aktuelleStufe, stufeGewaehlt, stufeSetzen, stufeAnwenden, stufenUmschalter } from './stufe.js';
@@ -290,9 +290,8 @@ function weiterZeile(alleModule) {
 
 /** Tagesübersicht für alle, die schon gelernt haben. */
 function heuteKarte(fortschritte, alleModule) {
-  const faellig = fortschritte.reduce((s, f) => s + (f.fortschritt?.faellig ?? 0), 0);
-  const gesamt = fortschritte.reduce((s, f) => s + (f.fortschritt?.gesamt ?? 0), 0);
-  const sicher = fortschritte.reduce((s, f) => s + (f.fortschritt?.sicher ?? 0), 0);
+  const summe = statistikSumme(fortschritte.map((f) => f.fortschritt));
+  const { faellig } = summe;
   const heute = lernstand.tagesStatistik()[tagText()]?.a ?? 0;
   const serie = lernstand.serie();
 
@@ -304,16 +303,15 @@ function heuteKarte(fortschritte, alleModule) {
     : vorschlag
       ? h('a', { class: 'knopf gross breit', href: `#/${vorschlag.modul.id}/lernen` }, icon('flugzeug'), `Weiter mit ${vorschlag.modul.titel}`)
       : h('a', { class: 'knopf gross breit', href: '#/wiederholen' }, icon('ueben'), 'Frei üben');
-  const anteil = gesamt ? sicher / gesamt : 0;
 
   return [
     begruessung(gruss(), 'Was lernst du heute?'),
     h('section', { class: 'karte heute-karte' },
       h('div', { class: 'heute-kopf' },
-        ring(anteil, `${Math.round(anteil * 100)} Prozent aller Fragen sicher gelernt`),
+        stufenRing(summe),
         h('div', { class: 'heute-kopf-text' },
           h('strong', {}, faellig > 0 ? `${mehrzahl(faellig, 'Frage ist', 'Fragen sind')} fällig` : 'Für heute ist alles wiederholt'),
-          h('span', { class: 'leise' }, `${mehrzahl(serie, 'Lerntag', 'Lerntage')} in Folge · ${mehrzahl(heute, 'Antwort', 'Antworten')} heute`))),
+          h('span', { class: 'leise' }, `${Math.round(summe.fortschritt * 100)} % aller Fragen gelernt · ${mehrzahl(serie, 'Lerntag', 'Lerntage')} in Folge · ${mehrzahl(heute, 'Antwort', 'Antworten')} heute`))),
       aktion,
       weiterZeile(alleModule),
       sicherungsHinweis(),
@@ -352,23 +350,44 @@ function themenZeile(modul, f) {
     h('span', { class: 'themen-zeile-text' },
       h('span', { class: 'themen-zeile-titel' }, h('strong', {}, modul.titel), f?.faellig > 0 && h('span', { class: 'chip chip-faellig' }, `${f.faellig} fällig`)),
       begonnen
-        ? h('span', { class: 'themen-zeile-stand' }, balken(f.anteil), h('span', {}, `${Math.round(f.anteil * 100)} %`))
+        ? h('span', { class: 'themen-zeile-stand' }, stufenBalken(f), h('span', {}, `${Math.round(f.fortschritt * 100)} %`))
         : h('span', { class: 'themen-zeile-info' }, f ? `${mehrzahl(f.gesamt, 'Frage', 'Fragen')} · noch nicht begonnen` : 'noch nicht begonnen')),
     icon('weiter')));
 }
 
 function fachAbschnitt(fach, nr, themen, fortschritte) {
   const werte = themen.map((m) => fortschritte.find((x) => x.modul.id === m.id)?.fortschritt).filter(Boolean);
-  const gesamt = werte.reduce((s, f) => s + f.gesamt, 0);
-  const sicher = werte.reduce((s, f) => s + f.sicher, 0);
-  const begonnen = werte.some((f) => f.gesehen > 0);
+  const summe = statistikSumme(werte);
+  const begonnen = summe.gesehen > 0;
   return h('li', { class: 'fach' },
     h('h3', { class: 'fach-titel' },
       h('span', { class: 'fach-name' }, `${nr} · ${fach.titel}`),
-      begonnen && gesamt > 0 && h('span', { class: 'fach-stand' }, `${Math.round((sicher / gesamt) * 100)} %`)),
+      begonnen && summe.gesamt > 0 && h('span', { class: 'fach-stand' }, `${Math.round(summe.fortschritt * 100)} %`)),
     themen.length
       ? h('ul', { class: 'themen-gruppe' }, themen.map((modul) => themenZeile(modul, fortschritte.find((x) => x.modul.id === modul.id)?.fortschritt)))
       : h('p', { class: 'fach-leer' }, 'Dazu gibt es noch kein Thema.'));
+}
+
+/** Was die vier Farben des Fortschritts bedeuten (Fächer aus js/srs.js). */
+function stufenErklaerung() {
+  const punkt = (stufe) => h('span', { class: `stufen-punkt stufe-${stufe}`, 'aria-hidden': 'true' });
+  return h('ul', { class: 'stufen-erklaerung' },
+    h('li', {}, punkt('ungelernt'), h('strong', {}, 'ungelernt'), h('span', {}, 'noch nie beantwortet')),
+    h('li', {}, punkt('angefangen'), h('strong', {}, 'angefangen'), h('span', {}, 'einmal beantwortet oder zuletzt falsch (Fach 1)')),
+    h('li', {}, punkt('fortgeschritten'), h('strong', {}, 'fortgeschritten'), h('span', {}, `zwei- bis dreimal hintereinander richtig (Fach 2 und 3)`)),
+    h('li', {}, punkt('fertig'), h('strong', {}, 'fertig'), h('span', {}, `mindestens viermal hintereinander richtig (ab Fach ${SICHER_AB_BOX})`)));
+}
+
+/** Gesamtstand über alle Themen: Ring, Legende und was die Farben bedeuten. */
+function gesamtFortschritt(summe) {
+  return h('div', { class: 'gesamt-fortschritt' },
+    h('div', { class: 'gesamt-fortschritt-kopf' },
+      stufenRing(summe),
+      h('div', {},
+        h('strong', {}, `${Math.round(summe.fortschritt * 100)} % gelernt`),
+        stufenLegende(summe))),
+    h('details', { class: 'stufen-hilfe' }, h('summary', {}, 'Was bedeuten die Farben?'), stufenErklaerung(),
+      h('p', { class: 'leise' }, 'Jede Stufe bringt dich ein Viertel weiter: angefangen zählt ¼, fortgeschritten ½ bis ¾, fertig ganz. Eine falsche Antwort setzt die Frage auf „angefangen“ zurück.')));
 }
 
 async function startseite(el) {
@@ -593,13 +612,16 @@ async function lernstandSeite(el) {
     h('section', { class: 'karte' }, h('h2', {}, 'Aktivität'), aktivitaetsKalender(tage)),
     h('section', { class: 'karte' },
       h('h2', {}, 'Themen'),
+      gesamtFortschritt(statistikSumme(fortschritte.map((f) => f.fortschritt))),
       h('ul', { class: 'modul-fortschritte' }, fortschritte.map(({ modul, fortschritt: f }) => h('li', { 'data-modul': modul.id },
         h('a', { href: `#/${modul.id}` },
           h('span', { class: 'themen-symbol klein' }, themenIcon(modul.id)),
           h('span', { class: 'modul-fortschritt-text' },
             h('strong', {}, modul.titel),
-            f ? h('span', { class: 'leise' }, `${f.sicher} von ${f.gesamt} sicher · ${f.faellig} fällig`) : null,
-            f ? balken(f.anteil, 'modulfarbe') : null),
+            f ? h('span', { class: 'leise' }, f.gesehen
+              ? `${Math.round(f.fortschritt * 100)} % gelernt · ${f.fertig} von ${f.gesamt} fertig${f.faellig ? ` · ${f.faellig} fällig` : ''}`
+              : `${mehrzahl(f.gesamt, 'Frage', 'Fragen')} · noch nicht begonnen`) : null,
+            f ? stufenBalken(f) : null),
         )))),
     ),
     h('section', { class: 'karte' },
@@ -688,7 +710,8 @@ function infoSeite(el, impressum = null) {
       h('ul', { class: 'faecher' }, ABSTAND_TAGE.slice(1).map((tage, i) => h('li', { class: i + 1 >= SICHER_AB_BOX ? 'sicher' : '' },
         h('strong', {}, `Fach ${i + 1}`), h('span', {}, `nach ${mehrzahl(tage, 'Tag', 'Tagen')}`)))),
       h('p', {}, 'Richtig beantwortet rückt die Frage ein Fach weiter und kommt erst später wieder. Falsch beantwortet geht sie zurück in Fach 1. '
-        + `Ab Fach ${SICHER_AB_BOX} gilt eine Frage als „sicher“. So übst du genau das, was du noch nicht kannst – und vergisst das Gelernte nicht.`),
+        + 'So übst du genau das, was du noch nicht kannst – und vergisst das Gelernte nicht.'),
+      stufenErklaerung(),
       h('p', {}, 'Rechenaufgaben (z. B. Winddreieck oder Schwerpunkt) werden jedes Mal mit neuen Zahlen erzeugt.'),
     ),
     h('section', { class: 'karte', id: 'datenschutz' },

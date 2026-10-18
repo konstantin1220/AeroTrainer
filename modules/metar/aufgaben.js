@@ -4,6 +4,7 @@
 //   szenarioErzeugen()      Stufe 4: Entscheidungsfragen zu einem fiktiven Flugplatz
 import { zerlegen, auswerten, wetterText } from './metar.js';
 import { metarErzeugen, LAGEN } from './erzeugen.js';
+import { ctrWeg } from '../luftraum/generatoren.js';
 
 const RAD = Math.PI / 180;
 
@@ -25,9 +26,12 @@ function verschiedene(richtig, kandidaten, anzahl = 3) {
 
 // ---------- Stufe 2: Entschlüsseln ----------
 
+const minus = (n) => String(n).replace('-', '−');
+
 export function entschluesselnFragen(z, text) {
   const a = auswerten(text);
   const g = a.gruppen;
+  const lesen = (rechenweg) => ({ rechenweg, wegTitel: 'So liest du es' });
   const index = (typ) => g.findIndex((x) => x.typ === typ && !x.imTrend);
   const fragen = [];
   const neu = (markiert, frage) => fragen.push({ gruppen: gruppenAnzeige(g, markiert), ...frage });
@@ -38,11 +42,11 @@ export function entschluesselnFragen(z, text) {
     neu([wi], { typ: 'auswahl', frage: 'Wie ist der Wind?', richtig: 'Windstille', falsch: ['Wind aus wechselnden Richtungen', 'Wind aus Norden mit 10 kt', 'Wind nicht gemessen'], erklaerung: '00000KT bedeutet Windstille.' });
   } else if (w?.vrb) {
     neu([wi], { typ: 'auswahl', frage: 'Woher weht der Wind?', richtig: 'Aus wechselnden Richtungen', falsch: ['Aus Norden', 'Aus Süden', 'Aus Westen'], erklaerung: 'VRB steht für variable – wechselnde Windrichtung, meist bei schwachem Wind.' });
-    neu([wi], { typ: 'zahl', frage: 'Mit welcher mittleren Geschwindigkeit weht der Wind?', loesung: w.staerke, einheit: 'kt' });
+    neu([wi], { typ: 'zahl', frage: 'Mit welcher mittleren Geschwindigkeit weht der Wind?', loesung: w.staerke, einheit: 'kt', ...lesen(['Nach **VRB** (wechselnde Richtung) folgen zwei Ziffern für die mittlere Geschwindigkeit, dann **KT** für Knoten.', `${g[wi].text} → **${w.staerke} kt**.`]) });
   } else if (w) {
-    neu([wi], { typ: 'zahl', frage: 'Aus welcher Richtung weht der Wind?', loesung: w.richtung, einheit: '°', kreis: true, erklaerung: `Die ersten drei Ziffern: Wind aus ${String(w.richtung).padStart(3, '0')}° (rechtweisend).` });
-    neu([wi], { typ: 'zahl', frage: 'Mit welcher mittleren Geschwindigkeit weht der Wind?', loesung: w.staerke, einheit: 'kt' });
-    if (w.boeen) neu([wi], { typ: 'zahl', frage: 'Wie stark sind die Böen?', loesung: w.boeen, einheit: 'kt', erklaerung: 'Die Zahl nach dem G gibt die Spitzenböen an.' });
+    neu([wi], { typ: 'zahl', frage: 'Aus welcher Richtung weht der Wind?', loesung: w.richtung, einheit: '°', kreis: true, ...lesen([`In der Windgruppe sind die **ersten drei Ziffern** die Richtung, aus der der Wind kommt (rechtweisend).`, `${g[wi].text} → **${String(w.richtung).padStart(3, '0')}°**.`]) });
+    neu([wi], { typ: 'zahl', frage: 'Mit welcher mittleren Geschwindigkeit weht der Wind?', loesung: w.staerke, einheit: 'kt', ...lesen(['Nach den drei Ziffern der Richtung folgen **zwei Ziffern** für die mittlere Geschwindigkeit, am Ende **KT** für Knoten.', `${g[wi].text} → **${w.staerke} kt**.`]) });
+    if (w.boeen) neu([wi], { typ: 'zahl', frage: 'Wie stark sind die Böen?', loesung: w.boeen, einheit: 'kt', ...lesen(['Hinter dem **G** (gusts) stehen die Spitzenböen.', `${g[wi].text} → G${w.boeen} → **${w.boeen} kt**.`]) });
   }
 
   if (a.windvariabel) {
@@ -56,7 +60,7 @@ export function entschluesselnFragen(z, text) {
   } else if (a.sicht >= 10000) {
     neu([index('sicht')], { typ: 'auswahl', frage: 'Wie groß ist die Sicht?', richtig: '10 km oder mehr', falsch: ['9999 m – knapp unter 10 km', 'Unter 10 km', 'Sicht nicht gemessen'], erklaerung: '9999 steht für 10 km oder mehr.' });
   } else if (a.sicht !== null) {
-    neu([index('sicht')], { typ: 'zahl', frage: 'Wie groß ist die vorherrschende Sicht?', loesung: a.sicht, einheit: 'm' });
+    neu([index('sicht')], { typ: 'zahl', frage: 'Wie groß ist die vorherrschende Sicht?', loesung: a.sicht, einheit: 'm', ...lesen(['Die Sicht steht als **vierstellige Zahl in Metern** – 9999 hieße 10 km oder mehr.', `${g[index('sicht')].text} → **${a.sicht} m**.`]) });
   }
 
   const ri = index('rvr');
@@ -71,9 +75,17 @@ export function entschluesselnFragen(z, text) {
   const wolkenIdx = g.map((x, i) => (x.typ === 'wolken' && !x.imTrend ? i : -1)).filter((i) => i >= 0);
   const vv = a.wolken.find((x) => x.menge === 'VV');
   if (vv) {
-    neu(wolkenIdx, { typ: 'zahl', frage: 'Der Himmel ist nicht erkennbar. Wie groß ist die Vertikalsicht?', loesung: vv.hoehe, einheit: 'ft', erklaerung: 'VV gibt die Vertikalsicht in Hundert Fuß an.' });
+    const vvText = g.find((x) => x.typ === 'wolken' && !x.imTrend && x.text.startsWith('VV'))?.text ?? 'VV';
+    neu(wolkenIdx, { typ: 'zahl', frage: 'Der Himmel ist nicht erkennbar. Wie groß ist die Vertikalsicht?', loesung: vv.hoehe, einheit: 'ft', ...lesen(['**VV** heißt Vertikalsicht – die drei Ziffern sind **Hundert Fuß**.', `${vvText} → ${vvText.slice(2, 5)} × 100 = **${vv.hoehe} ft**.`]) });
   } else if (a.hauptwolkenuntergrenze !== null) {
-    neu(wolkenIdx, { typ: 'zahl', frage: 'Wo liegt die Hauptwolkenuntergrenze (über Platzhöhe)?', loesung: a.hauptwolkenuntergrenze, einheit: 'ft', erklaerung: 'Die niedrigste Schicht mit BKN oder OVC ist die Hauptwolkenuntergrenze. Die drei Ziffern sind Hundert Fuß.' });
+    const schicht = g.find((x) => x.typ === 'wolken' && !x.imTrend && /^(BKN|OVC)\d{3}/.test(x.text) && Number(x.text.slice(3, 6)) * 100 === a.hauptwolkenuntergrenze);
+    neu(wolkenIdx, {
+      typ: 'zahl', frage: 'Wo liegt die Hauptwolkenuntergrenze (über Platzhöhe)?', loesung: a.hauptwolkenuntergrenze, einheit: 'ft',
+      ...lesen([
+        'Suche die **tiefste Schicht mit BKN oder OVC** – FEW und SCT zählen nicht.',
+        schicht ? `${schicht.text} → ${schicht.text.slice(3, 6)} × 100 = **${a.hauptwolkenuntergrenze} ft** über Platzhöhe.` : `Die drei Ziffern sind Hundert Fuß → **${a.hauptwolkenuntergrenze} ft** über Platzhöhe.`,
+      ]),
+    });
   } else if (a.wolken.some((x) => ['FEW', 'SCT'].includes(x.menge))) {
     const richtig = 'Keine – es gibt keine Schicht mit BKN oder OVC';
     neu(wolkenIdx, { typ: 'auswahl', frage: 'Wo liegt die Hauptwolkenuntergrenze?', richtig, falsch: verschiedene(richtig, a.wolken.filter((x) => x.hoehe).map((x) => `Bei ${x.hoehe} ft`).concat(['Bei 1500 ft', 'Bei 5000 ft'])), erklaerung: 'FEW und SCT bedecken höchstens 4 Achtel – sie zählen nicht als Hauptwolkenuntergrenze.' });
@@ -81,12 +93,12 @@ export function entschluesselnFragen(z, text) {
 
   const ti = index('temperatur');
   if (ti >= 0) {
-    neu([ti], { typ: 'zahl', frage: 'Wie hoch ist die Temperatur?', loesung: a.temperatur, einheit: '°C', erklaerung: 'Die Zahl vor dem Schrägstrich; M bedeutet minus.' });
-    neu([ti], { typ: 'zahl', frage: 'Wie hoch ist der Taupunkt?', loesung: a.taupunkt, einheit: '°C', erklaerung: 'Die Zahl nach dem Schrägstrich; M bedeutet minus.' });
+    neu([ti], { typ: 'zahl', frage: 'Wie hoch ist die Temperatur?', loesung: a.temperatur, einheit: '°C', ...lesen(['**Vor** dem Schrägstrich steht die Temperatur, dahinter der Taupunkt. **M** heißt minus.', `${g[ti].text} → **${minus(a.temperatur)} °C**.`]) });
+    neu([ti], { typ: 'zahl', frage: 'Wie hoch ist der Taupunkt?', loesung: a.taupunkt, einheit: '°C', ...lesen(['Vor dem Schrägstrich steht die Temperatur, **dahinter der Taupunkt**. **M** heißt minus.', `${g[ti].text} → **${minus(a.taupunkt)} °C**.`]) });
   }
 
   const qi = index('qnh');
-  if (qi >= 0) neu([qi], { typ: 'zahl', frage: 'Welches QNH ist gemeldet?', loesung: a.qnh, einheit: 'hPa' });
+  if (qi >= 0) neu([qi], { typ: 'zahl', frage: 'Welches QNH ist gemeldet?', loesung: a.qnh, einheit: 'hPa', ...lesen(['**Q** steht für das QNH in Hektopascal.', `${g[qi].text} → **${a.qnh} hPa**.`]) });
 
   const tri = g.findIndex((x) => x.typ === 'trend');
   if (tri >= 0) {
@@ -352,6 +364,15 @@ export function szenarioMetar(z, platz) {
 }
 
 /** Einzelne Entscheidungsfragen; art: pistenwahl | seitenwind | boeen | luftraum | qnh | gewitter */
+const drei = (g) => String(g).padStart(3, '0');
+const komma2 = (n) => n.toFixed(2).replace('.', ',');
+/** Winkel zwischen Wind und Piste (0–180°) und Pistenrichtung in Grad. */
+function pistenWinkel(windRichtung, piste) {
+  const richtung = parseInt(piste, 10) * 10;
+  const d = Math.abs(((windRichtung - richtung + 540) % 360) - 180);
+  return { richtung, d };
+}
+
 export function entscheidungsFrage(art, platz, flugzeug, metar) {
   const a = auswerten(metar);
   // Jede Frage zeigt den Flugplatz (Textblock) und das METAR (Gruppen-Chips).
@@ -367,27 +388,68 @@ export function entscheidungsFrage(art, platz, flugzeug, metar) {
       if (!windNutzbar) return null;
       const [p1, p2] = platz.pisten;
       if (Math.abs(komponenten[p1].gegen - komponenten[p2].gegen) < 3) return null;
-      return { typ: 'auswahl', code, gruppen, frage: 'Welche Piste wählst du für die Landung?', richtig: `Piste ${beste}`, falsch: platz.pisten.filter((p) => p !== beste).map((p) => `Piste ${p}`), erklaerung: `Wind aus ${String(w.richtung).padStart(3, '0')}°: Auf Piste ${beste} hast du Gegenwind (${Math.round(komponenten[beste].gegen)} kt). Man landet und startet möglichst gegen den Wind.` };
+      return {
+        typ: 'auswahl', code, gruppen, frage: 'Welche Piste wählst du für die Landung?', richtig: `Piste ${beste}`, falsch: platz.pisten.filter((p) => p !== beste).map((p) => `Piste ${p}`),
+        rechenweg: [
+          'Man startet und landet möglichst **gegen den Wind** – die Pistennummer ist die Richtung in Zehnergrad.',
+          `Wind aus ${drei(w.richtung)}°: ${platz.pisten.map((p) => { const { richtung, d } = pistenWinkel(w.richtung, p); return `Piste ${p} (${drei(richtung)}°) → ${d}° Unterschied`; }).join(' · ')}.`,
+          `Der kleinere Unterschied heißt Gegenwind (hier ${Math.round(komponenten[beste].gegen)} kt) → **Piste ${beste}**.`,
+        ],
+      };
     }
     case 'seitenwind': {
       if (!windNutzbar) return null;
       const k = komponenten[beste];
-      return { typ: 'zahl', code, gruppen, frage: `Wie groß ist die Seitenwindkomponente des mittleren Windes auf Piste ${beste}?`, loesung: Math.round(k.seite), toleranz: 2, einheit: 'kt', hinweis: 'Missweisung vernachlässigen. Faustregel: Winkel 30° → ½, 45° → 0,7, 60° → 0,9 der Windgeschwindigkeit.', erklaerung: `Winkel zwischen Wind (${String(w.richtung).padStart(3, '0')}°) und Piste (${parseInt(beste, 10) * 10}°) → Seitenwind ≈ ${Math.round(k.seite)} kt von ${k.vonRechts ? 'rechts' : 'links'}.` };
+      const { richtung, d } = pistenWinkel(w.richtung, beste);
+      return {
+        typ: 'zahl', code, gruppen, frage: `Wie groß ist die Seitenwindkomponente des mittleren Windes auf Piste ${beste}?`, loesung: Math.round(k.seite), toleranz: 2, einheit: 'kt', hinweis: 'Missweisung vernachlässigen. Faustregel: Winkel 30° → ½, 45° → 0,7, 60° → 0,9 der Windgeschwindigkeit.',
+        rechenweg: [
+          `Piste ${beste} zeigt nach **${drei(richtung)}°**, der Wind kommt aus **${drei(w.richtung)}°** mit ${w.staerke} kt.`,
+          `Winkel zwischen Wind und Piste: **${d}°**.`,
+          `Seitenwind = Wind × sin ${d}° = ${w.staerke} kt × ${komma2(Math.abs(Math.sin(d * RAD)))} ≈ **${Math.round(k.seite)} kt** von ${k.vonRechts ? 'rechts' : 'links'}.`,
+        ],
+        erklaerung: 'Zum Kopfrechnen: bei 30° die Hälfte, bei 45° etwa 0,7, bei 60° etwa 0,9 und ab 90° die ganze Windgeschwindigkeit.',
+      };
     }
     case 'boeen': {
       if (!windNutzbar || !w.boeen) return null;
       const seite = Math.abs(w.boeen * Math.sin((w.richtung - parseInt(beste, 10) * 10) * RAD));
       const innerhalb = seite <= flugzeug.seitenwind;
-      return { typ: 'auswahl', code, gruppen, frage: `Du landest auf Piste ${beste}. Liegt die Seitenwindkomponente **in den Böen** innerhalb der nachgewiesenen Seitenwindkomponente deines Flugzeugs (${flugzeug.seitenwind} kt)?`, richtig: innerhalb ? 'Ja, sie liegt innerhalb' : 'Nein, sie liegt darüber', falsch: [innerhalb ? 'Nein, sie liegt darüber' : 'Ja, sie liegt innerhalb'], erklaerung: `In den Böen (${w.boeen} kt) beträgt die Seitenwindkomponente etwa ${Math.round(seite)} kt. Der nachgewiesene Wert ist keine feste Grenze, aber ein wichtiger Anhaltspunkt – entscheidend sind auch deine Erfahrung und die Regeln deines Vereins.` };
+      const { d } = pistenWinkel(w.richtung, beste);
+      return {
+        typ: 'auswahl', code, gruppen, frage: `Du landest auf Piste ${beste}. Liegt die Seitenwindkomponente **in den Böen** innerhalb der nachgewiesenen Seitenwindkomponente deines Flugzeugs (${flugzeug.seitenwind} kt)?`, richtig: innerhalb ? 'Ja, sie liegt innerhalb' : 'Nein, sie liegt darüber', falsch: [innerhalb ? 'Nein, sie liegt darüber' : 'Ja, sie liegt innerhalb'],
+        rechenweg: [
+          `Rechne mit den **Böen** (${w.boeen} kt), nicht mit dem Mittelwind. Winkel zwischen Wind und Piste ${beste}: **${d}°**.`,
+          `Seitenwind in den Böen = ${w.boeen} kt × sin ${d}° = ${w.boeen} × ${komma2(Math.abs(Math.sin(d * RAD)))} ≈ **${Math.round(seite)} kt**.`,
+          `${Math.round(seite)} kt ${innerhalb ? '≤' : '>'} ${flugzeug.seitenwind} kt → **${innerhalb ? 'innerhalb' : 'darüber'}**.`,
+        ],
+        erklaerung: 'Der nachgewiesene Wert ist keine feste Grenze, aber ein wichtiger Anhaltspunkt – entscheidend sind auch deine Erfahrung und die Regeln deines Vereins.',
+      };
     }
     case 'luftraum': {
       if (platz.luftraum === 'CTR') {
         const ergebnis = ctrEntscheidung(a.sicht, a.hauptwolkenuntergrenze ?? (a.wolken.find((x) => x.menge === 'VV')?.hoehe ?? null));
-        return { typ: 'auswahl', code, gruppen, frage: `Du willst in ${platz.name} nach VFR starten. Was ist bei diesem Wetter möglich?`, richtig: CTR_TEXT[ergebnis], falsch: Object.values(CTR_TEXT).filter((t) => t !== CTR_TEXT[ergebnis]), erklaerung: 'In der Kontrollzone: VFR ab 5 km Bodensicht und 1500 ft Hauptwolkenuntergrenze. Sonder-VFR ab 1500 m Bodensicht und 600 ft Hauptwolkenuntergrenze.' };
+        const decke = a.hauptwolkenuntergrenze ?? (a.wolken.find((x) => x.menge === 'VV')?.hoehe ?? null);
+        return {
+          typ: 'auswahl', code, gruppen, frage: `Du willst in ${platz.name} nach VFR starten. Was ist bei diesem Wetter möglich?`, richtig: CTR_TEXT[ergebnis], falsch: Object.values(CTR_TEXT).filter((t) => t !== CTR_TEXT[ergebnis]),
+          rechenweg: ctrWeg(a.sicht, decke, CTR_TEXT[ergebnis]),
+          erklaerung: 'Hauptwolkenuntergrenze ist die tiefste Wolkenschicht mit BKN oder OVC unter 20 000 ft.',
+        };
       }
       const decke = a.hauptwolkenuntergrenze;
       const richtig = decke === null ? 'Es ist keine Hauptwolkenuntergrenze gemeldet' : decke > platz.platzrunde ? 'Ja, sie liegt darüber' : 'Nein, sie liegt auf oder unter Platzrundenhöhe';
-      return { typ: 'auswahl', code, gruppen, frage: `Liegt die gemeldete Hauptwolkenuntergrenze über der Platzrundenhöhe von ${platz.platzrunde} ft über Grund?`, richtig, falsch: ['Ja, sie liegt darüber', 'Nein, sie liegt auf oder unter Platzrundenhöhe', 'Es ist keine Hauptwolkenuntergrenze gemeldet'].filter((t) => t !== richtig), erklaerung: decke === null ? 'Es gibt keine Schicht mit BKN oder OVC (oder CAVOK).' : `Hauptwolkenuntergrenze ${decke} ft über Platzhöhe. In der Platzrunde musst du frei von Wolken bleiben – plane nach oben ausreichend Abstand ein.` };
+      const schicht = a.wolken.find((x) => x.hoehe === decke && ['BKN', 'OVC'].includes(x.menge));
+      return {
+        typ: 'auswahl', code, gruppen, frage: `Liegt die gemeldete Hauptwolkenuntergrenze über der Platzrundenhöhe von ${platz.platzrunde} ft über Grund?`, richtig, falsch: ['Ja, sie liegt darüber', 'Nein, sie liegt auf oder unter Platzrundenhöhe', 'Es ist keine Hauptwolkenuntergrenze gemeldet'].filter((t) => t !== richtig),
+        rechenweg: decke === null
+          ? ['Hauptwolkenuntergrenze = die **tiefste Schicht mit BKN oder OVC**.', `Im METAR gibt es keine solche Schicht${a.cavok ? ' (CAVOK)' : ''} → **keine Hauptwolkenuntergrenze gemeldet**.`]
+          : [
+            'Hauptwolkenuntergrenze = die **tiefste Schicht mit BKN oder OVC**. Die Zahl dahinter sind Hundert Fuß über dem Platz.',
+            `${schicht ? `${schicht.menge}${String(decke / 100).padStart(3, '0')}` : 'Die tiefste solche Schicht'} → ${String(decke / 100).padStart(3, '0')} × 100 = **${decke} ft** über dem Platz.`,
+            `${decke} ft ${decke > platz.platzrunde ? '>' : '≤'} ${platz.platzrunde} ft Platzrundenhöhe → **${decke > platz.platzrunde ? 'darüber' : 'auf oder darunter'}**.`,
+          ],
+        erklaerung: decke === null ? 'Wenige oder aufgelockerte Wolken (FEW, SCT) zählen nicht als Hauptwolkenuntergrenze.' : 'In der Platzrunde musst du frei von Wolken bleiben – plane nach oben ausreichend Abstand ein.',
+      };
     }
     case 'qnh':
       return { typ: 'zahl', code, gruppen, frage: 'Du stellst vor dem Start das gemeldete QNH ein. Was zeigt dein Höhenmesser am Boden an?', loesung: platz.hoehe, toleranz: 20, einheit: 'ft', erklaerung: `Mit QNH zeigt der Höhenmesser die Höhe über MSL – am Boden also die Platzhöhe von ${platz.hoehe} ft.` };

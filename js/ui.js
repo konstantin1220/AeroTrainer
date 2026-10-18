@@ -76,6 +76,54 @@ export function ring(anteil, beschriftung, groesse = 'normal') {
     el, h('span', { class: 'ring-zahl' }, `${Math.round(wert * 100)}%`));
 }
 
+// ---------- Lernfortschritt in vier Stufen (js/srs.js: lernstufe) ----------
+// fertig grün · fortgeschritten blau · angefangen gelb · ungelernt grau
+
+export const STUFEN_NAMEN = { fertig: 'fertig', fortgeschritten: 'fortgeschritten', angefangen: 'angefangen', ungelernt: 'ungelernt' };
+const STUFEN_REIHE = ['fertig', 'fortgeschritten', 'angefangen'];
+
+/** „5 fertig, 8 fortgeschritten, 12 angefangen, 30 ungelernt“ – für Vorlesehilfen. */
+export function stufenText(s) {
+  return Object.keys(STUFEN_NAMEN).map((stufe) => `${s[stufe] ?? 0} ${STUFEN_NAMEN[stufe]}`).join(', ');
+}
+
+/** Gestapelter Balken: fertig, fortgeschritten, angefangen – der Rest (grau) ist ungelernt. */
+export function stufenBalken(s, klasse = '') {
+  const breite = (n) => `${s.gesamt ? (n / s.gesamt) * 100 : 0}%`;
+  return h('span', { class: `stufen-balken ${klasse}`, role: 'img', 'aria-label': stufenText(s) },
+    STUFEN_REIHE.map((stufe) => s[stufe] > 0 && h('span', { class: `stufe-${stufe}`, style: { width: breite(s[stufe]) } })));
+}
+
+/** Legende mit Anzahl je Stufe; leere Stufen lässt sie weg (außer ungelernt, wenn noch nichts begonnen ist). */
+export function stufenLegende(s) {
+  const stufen = Object.keys(STUFEN_NAMEN).filter((stufe) => s[stufe] > 0);
+  return h('ul', { class: 'stufen-legende' }, stufen.map((stufe) => h('li', {},
+    h('span', { class: `stufen-punkt stufe-${stufe}`, 'aria-hidden': 'true' }), `${s[stufe]} ${STUFEN_NAMEN[stufe]}`)));
+}
+
+/** Ring in vier Stufen, in der Mitte der Lernfortschritt in Prozent. */
+export function stufenRing(s, groesse = 'normal') {
+  const r = 16;
+  const umfang = 2 * Math.PI * r;
+  let start = 0;
+  const boegen = STUFEN_REIHE.map((stufe) => {
+    const laenge = s.gesamt ? (s[stufe] / s.gesamt) * umfang : 0;
+    const bogen = laenge > 0
+      ? `<circle class="ring-stufe stufe-${stufe}" cx="20" cy="20" r="${r}" stroke-dasharray="${laenge.toFixed(2)} ${umfang.toFixed(2)}" stroke-dashoffset="${(-start).toFixed(2)}" transform="rotate(-90 20 20)"/>`
+      : '';
+    start += laenge;
+    return bogen;
+  }).join('');
+  const el = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  el.setAttribute('viewBox', '0 0 40 40');
+  el.setAttribute('class', `ring ring-${groesse}`);
+  el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = `<circle class="ring-spur" cx="20" cy="20" r="${r}"/>${boegen}`;
+  const prozent = Math.round((s.fortschritt ?? 0) * 100);
+  return h('span', { class: `ring-box ring-box-${groesse}`, role: 'img', 'aria-label': `${prozent} Prozent gelernt: ${stufenText(s)}` },
+    el, h('span', { class: 'ring-zahl' }, `${prozent}%`));
+}
+
 export function balken(anteil, klasse = '') {
   const prozent = `${Math.round(Math.max(0, Math.min(1, anteil || 0)) * 100)}%`;
   return h('span', { class: `balken ${klasse}`, role: 'presentation' }, h('span', { style: { width: prozent } }));

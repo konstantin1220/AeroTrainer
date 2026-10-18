@@ -449,7 +449,12 @@
             "1,41",
             "3"
           ],
-          "erklaerung": "1 ÷ cos 60° = 2. Das Flugzeug und alle Insassen wiegen „doppelt so viel“."
+          "rechenweg": [
+            "In der horizontalen Kurve gilt: **n = 1 ÷ cos(Querlage)**.",
+            "cos 60° = **0,5**.",
+            "n = 1 ÷ 0,5 = **2**."
+          ],
+          "erklaerung": "Das Flugzeug und alle Insassen wiegen in dieser Kurve „doppelt so viel“."
         },
         {
           "id": "ae-ue-09",

@@ -7,9 +7,24 @@ import { bewerten, loesungText, zahlLesen } from './fragen.js';
 import { zufall } from './zufall.js';
 import { textMitBegriffen } from './lexikon.js';
 import { merkKnopf } from './merkliste.js';
+import { aktuelleStufe } from './stufe.js';
 
 const LOB = ['Richtig!', 'Genau so.', 'Sauber gelöst.', 'Stimmt.', 'Sehr gut.'];
 const BUCHSTABEN = 'ABCDEFGH';
+
+/**
+ * „So rechnest du“ / „So kommst du drauf“: der Lösungsweg einer Aufgabe in Schritten.
+ * Offen nach einer falschen Antwort und im Level „Einsteiger“, sonst zum Aufklappen.
+ */
+export function rechenwegKnoten(frage, { offen = true } = {}) {
+  if (!frage.rechenweg?.length) return null;
+  const schritte = h('ol', { class: 'rechenweg-schritte' }, frage.rechenweg.map((schritt) => h('li', {}, textMitBegriffen(schritt))));
+  // Zahlenaufgaben werden gerechnet, bei Auswahlfragen führt der Weg über Regeln und Vergleiche zur Antwort.
+  const titel = [icon('rechner'), h('span', {}, frage.wegTitel ?? (frage.typ === 'zahl' ? 'So rechnest du' : 'So kommst du drauf'))];
+  return offen
+    ? h('div', { class: 'rechenweg' }, h('p', { class: 'rechenweg-titel' }, ...titel), schritte)
+    : h('details', { class: 'rechenweg' }, h('summary', { class: 'rechenweg-titel' }, ...titel), schritte);
+}
 
 // ---------- Eingabe je Fragetyp ----------
 // Jede Funktion liefert { knoten, wert(), aufloesen(richtig) } und meldet über bereit(),
@@ -225,6 +240,7 @@ export function fragerunde(el, { aufgaben, zurueck, nochmal, amEnde, titel, vors
         ),
         !richtig && frage.typ !== 'auswahl' && frage.typ !== 'mehrfach' && frage.typ !== 'zuordnung'
           && h('p', { class: 'rueckmeldung-loesung' }, 'Richtig ist: ', h('strong', {}, loesungText(frage))),
+        rechenwegKnoten(frage, { offen: !richtig || aktuelleStufe() === 'einsteiger' }),
         frage.erklaerung && h('p', { class: 'rueckmeldung-erklaerung' }, textMitBegriffen(frage.erklaerung)),
         !richtig && !eintrag.wiederholung && h('p', { class: 'hinweis-klein' }, 'Diese Frage kommt am Ende der Runde noch einmal.'),
         weiter,

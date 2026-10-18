@@ -44,7 +44,14 @@ export const generatoren = {
       frage: `Flugzeug ohne Druckkabine: **${minuten} Minuten** in einer Druckhöhe von **${komma(hoehe)} ft**. Was verlangt NCO.OP.190 b, wenn du nicht selbst einschätzen kannst, wie sich Sauerstoffmangel auswirkt?`,
       richtig: text[pflicht],
       falsch: Object.values(text).filter((t) => t !== text[pflicht]).concat('Nur Fluggäste brauchen Sauerstoff').slice(0, 3),
-      erklaerung: 'NCO.OP.190 b: Besatzung Sauerstoff, wenn die Druckhöhe länger als 30 Minuten zwischen 10 000 und 13 000 ft liegt; über 13 000 ft alle Insassen.',
+      rechenweg: [
+        'NCO.OP.190 b: Über **13 000 ft** brauchen **alle Insassen** Sauerstoff. Zwischen **10 000 und 13 000 ft** braucht ihn die **Besatzung**, wenn es **länger als 30 Minuten** dauert.',
+        hoehe > 13000 ? `${komma(hoehe)} ft liegt über 13 000 ft.`
+          : hoehe > 10000 ? `${komma(hoehe)} ft liegt zwischen 10 000 und 13 000 ft, und ${minuten} Minuten sind ${minuten > 30 ? '**länger** als 30 Minuten' : '**nicht länger** als 30 Minuten'}.`
+            : `${komma(hoehe)} ft liegt unter 10 000 ft.`,
+        `Also: **${text[pflicht]}**.`,
+      ],
+      erklaerung: 'Auch ohne feste Pflicht kann Sauerstoff schon tiefer sinnvoll sein – besonders nachts, bei Müdigkeit oder für Raucher.',
     };
   },
 
@@ -59,9 +66,12 @@ export const generatoren = {
       frage: `Du bist **${alter} Jahre** alt und bekommst ein neues ${name}. Wie lange ist es gültig?`,
       richtig: `${monate} Monate`,
       falsch: ['12 Monate', '24 Monate', '60 Monate', '36 Monate'].filter((t) => t !== `${monate} Monate`).slice(0, 3),
-      erklaerung: klasse === 'lapl'
-        ? 'MED.A.045: LAPL-Tauglichkeit 60 Monate bis zum 40. Geburtstag (längstens bis zum 42.), danach 24 Monate.'
-        : 'MED.A.045: Klasse 2 – 60 Monate bis zum 40. Geburtstag (längstens bis zum 42.), 24 Monate zwischen 40 und 50 (längstens bis zum 51.), danach 12 Monate.',
+      rechenweg: [
+        klasse === 'lapl'
+          ? 'MED.A.045 für die LAPL-Tauglichkeit: **60 Monate** bis zum 40. Geburtstag (längstens bis zum 42.), danach **24 Monate**.'
+          : 'MED.A.045 für Klasse 2: **60 Monate** bis zum 40. Geburtstag (längstens bis zum 42.), **24 Monate** zwischen 40 und 50 (längstens bis zum 51.), danach **12 Monate**.',
+        `Du bist ${alter}: ${alter < 40 ? 'noch keine 40' : klasse === 'lapl' || alter <= 50 ? (klasse === 'lapl' ? '40 oder älter' : 'zwischen 40 und 50') : 'älter als 50'} → **${monate} Monate**.`,
+      ],
     };
   },
 
@@ -75,7 +85,10 @@ export const generatoren = {
       frage: `Du warst im Urlaub tauchen${dekompression ? ', mit Dekompressionsstopps' : ', ohne Dekompressionsstopps'}. Wie lange solltest du mindestens warten, bevor du auf ${komma(hoehe)} ft fliegst?`,
       richtig: `${stunden} Stunden`,
       falsch: ['2 Stunden', '6 Stunden', '12 Stunden', '24 Stunden'].filter((t) => t !== `${stunden} Stunden`).slice(0, 3),
-      erklaerung: 'Empfehlung der FAA: bis 8000 ft mindestens 12 Stunden nach Tauchgängen ohne Dekompressionsstopp, 24 Stunden nach Tauchgängen mit Dekompressionsstopp; über 8000 ft immer mindestens 24 Stunden.',
+      rechenweg: [
+        'Empfehlung der FAA: bis 8000 ft mindestens **12 Stunden** nach Tauchgängen ohne Dekompressionsstopp, **24 Stunden** nach Tauchgängen mit Dekompressionsstopp; über 8000 ft immer **24 Stunden**.',
+        `Hier: ${dekompression ? 'mit' : 'ohne'} Dekompressionsstopps, Flug auf ${komma(hoehe)} ft (${hoehe > 8000 ? 'über' : 'bis'} 8000 ft) → **${stunden} Stunden**.`,
+      ],
     };
   },
 
