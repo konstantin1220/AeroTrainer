@@ -27,9 +27,9 @@
     {
       "id": "aip",
       "titel": "Luftfahrthandbuch Deutschland (AIP)",
-      "voll": "Luftfahrthandbuch der DFS Deutsche Flugsicherung, insbesondere AIP VFR mit den Sichtanflugkarten. Wird nur als Verweis genannt – Karten daraus sind urheberrechtlich geschützt und werden nicht abgebildet.",
+      "voll": "Luftfahrthandbuch der DFS Deutsche Flugsicherung, insbesondere AIP VFR (frei zugängliche Basisausgabe, gültig ab 15. Oktober 2026) mit den Sichtanflugkarten. Wird nur als Verweis genannt – Karten und Grafiken daraus sind urheberrechtlich geschützt und werden nicht abgebildet; alle Grafiken der App sind selbst gezeichnet.",
       "art": "Amtliche Veröffentlichung, online einsehbar",
-      "link": "https://aip.dfs.de/"
+      "link": "https://aip.dfs.de/BasicVFR/"
     },
     {
       "id": "icao-annex3",
@@ -158,6 +158,34 @@
       "voll": "Federal Aviation Administration, Pilot’s Handbook of Aeronautical Knowledge (FAA-H-8083-25C), Kapitel 2 (Aeronautical Decision-Making), 14 (Airport Operations) und 17 (Aeromedical Factors). Werk der US-Regierung, gemeinfrei; Inhalte in eigenen Worten übersetzt.",
       "art": "Behördliches Handbuch, frei zugänglich (englisch)",
       "link": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak"
+    },
+    {
+      "id": "luftvg",
+      "titel": "Luftverkehrsgesetz (LuftVG)",
+      "voll": "Luftverkehrsgesetz in der Fassung der Bekanntmachung vom 10. Mai 2007",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://www.gesetze-im-internet.de/luftvg/"
+    },
+    {
+      "id": "eu-376",
+      "titel": "Verordnung (EU) Nr. 376/2014 – Ereignismeldungen",
+      "voll": "Verordnung (EU) Nr. 376/2014 über die Meldung, Analyse und Weiterverfolgung von Ereignissen in der Zivilluftfahrt",
+      "art": "Amtlicher Text, frei zugänglich",
+      "link": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:32014R0376"
+    },
+    {
+      "id": "faa-afh",
+      "titel": "FAA: Airplane Flying Handbook",
+      "voll": "Federal Aviation Administration, Airplane Flying Handbook (FAA-H-8083-3), Kapitel 18 „Emergency Procedures“ – Werk der US-Bundesverwaltung, gemeinfrei",
+      "art": "Amtliches Handbuch, gemeinfrei",
+      "link": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/airplane_handbook"
+    },
+    {
+      "id": "faa-gfh",
+      "titel": "FAA: Glider Flying Handbook",
+      "voll": "Federal Aviation Administration, Glider Flying Handbook, Kapitel 2 „Components & Systems“ und Kapitel 8 „Abnormal & Emergency Procedures“ – gemeinfrei",
+      "art": "Amtliches Handbuch, gemeinfrei",
+      "link": "https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/glider_handbook"
     }
   ],
   "themen": [
@@ -255,8 +283,9 @@
         {
           "inhalt": "Umstellhöhe 5000 ft MSL bzw. 2000 ft über Grund",
           "quelle": "aip",
-          "status": "offen",
-          "hinweis": "Zahlenwerte bitte im aktuellen AIP VFR prüfen."
+          "status": "abgeglichen",
+          "fundstelle": "AIP VFR ENR 1-14 (NfL I-190/01)",
+          "abgleich": "2026-10-17"
         },
         {
           "inhalt": "Ausweichregeln (Gegenflug, Kreuzen, Überholen, Landung)",
@@ -268,6 +297,32 @@
           "inhalt": "RMZ, TMZ, Flugbeschränkungs-, Sperr- und Gefahrengebiete",
           "quelle": "sera",
           "status": "grundlage"
+        },
+        {
+          "inhalt": "Höhen der Lufträume: G bis 2500 ft bzw. 1000 ft über Grund, E bis FL 100 (Alpen FL 130), C bis FL 660, Kontrollzonen D",
+          "quelle": "aip",
+          "fundstelle": "AIP VFR ENR 1-1 (Luftraumstruktur in Deutschland)",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Transponderpflicht für motorgetriebene Luftfahrzeuge oberhalb 5000 ft MSL bzw. 3500 ft über Grund, Code 7000 mit Höhenübermittlung",
+          "quelle": "aip",
+          "fundstelle": "AIP VFR ENR 1-17 (NfL 1-1869-20)",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Luftraumklassen C, D (CTR und nicht CTR), E, G: Dienste, Funk, Freigabe, Sichtflugwerte (Übersicht)",
+          "quelle": "aip",
+          "fundstelle": "AIP VFR ENR 1-3",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Luftraum-Check und Steigflug-Animation: Flugflächen vereinfacht in Fuß umgerechnet (FL 100 ≈ 10 000 ft), ohne Kontrollzonen und Nahverkehrsbereiche",
+          "quelle": "physik",
+          "status": "herleitung"
         }
       ]
     },
@@ -745,6 +800,188 @@
           "inhalt": "Boden-Luft-Sichtzeichen (V, X, N, Y, Pfeil)",
           "quelle": "icao-annex12",
           "status": "grundlage"
+        }
+      ]
+    },
+    {
+      "modul": "tim",
+      "punkte": [
+        {
+          "inhalt": "Vereinfachte Zusammenfassung der großen Themen – alle Aussagen stammen aus deren Inhalten und Quellen",
+          "quelle": "physik",
+          "status": "herleitung"
+        },
+        {
+          "inhalt": "Lufträume als Stockwerke (G, E, C), Freigabe für C und Kontrollzonen",
+          "quelle": "aip",
+          "fundstelle": "AIP VFR ENR 1-1",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Ausweichregeln und Mindesthöhen",
+          "quelle": "sera",
+          "fundstelle": "SERA.3210, SERA.5005 f",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Kein Fliegen unter Alkoholeinfluss; Zusatzsauerstoff oberhalb 13 000 ft (Flugzeuge)",
+          "quelle": "part-nco",
+          "fundstelle": "SERA.2020, NCO.OP.190",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Sinnestäuschungen, Luftraumbeobachtung, Notfall-Grundsätze",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 2, 14, 17",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Buchstabieralphabet, MAYDAY und PAN PAN, Platzrunde",
+          "quelle": "nfl-sprechfunk",
+          "status": "grundlage"
+        },
+        {
+          "inhalt": "Kraftstoff mit Endreserve",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.OP.125",
+          "status": "grundlage"
+        }
+      ]
+    },
+    {
+      "modul": "betrieb",
+      "punkte": [
+        {
+          "inhalt": "Pflichten des verantwortlichen Piloten: Verantwortung, Klarlisten, Lufttüchtigkeit, Masse und Schwerpunkt, Ladung, Dienstfähigkeit, Bordbuch, Meldung gefährlicher Bedingungen",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.GEN.105",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Unterweisung der Fluggäste, Rauchen, Simulation außergewöhnlicher Zustände, Lärmminderung",
+          "quelle": "part-nco",
+          "fundstelle": "NCO.OP.130, NCO.OP.155, NCO.OP.180, NCO.OP.120",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Wirbelschleppen: Entstehung, Verhalten am Boden (2–3 kt nach außen), Seitenwind, Vermeidung, 2 Minuten warten",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 14 „Wake Turbulence“",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Notlandung und Sicherheitslandung, Motorausfall nach dem Start, Umkehrkurve (Beispiel 300 ft, 79 s, 1316 ft), Feldwahl, Anflug, Motor und Kraftstoff vor dem Aufsetzen aus",
+          "quelle": "faa-afh",
+          "fundstelle": "Kapitel 18",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Motorbrand, elektrischer Brand, Kabinenbrand, offene Tür",
+          "quelle": "faa-afh",
+          "fundstelle": "Kapitel 18",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Seilriss im F-Schlepp und an der Winde, Entscheidungshöhen 2000/1500/1000 ft, Landeeinteilung, Feldbeurteilung, 50 ft Hindernis ≈ 500 ft",
+          "quelle": "faa-gfh",
+          "fundstelle": "Kapitel 8",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Außenlandung ohne Erlaubnis bei nicht vorausbestimmbarem Landeort (Segelflugzeuge, Motorsegler außer Reisemotorseglern); Landung aus Sicherheitsgründen; Auskunftspflicht",
+          "quelle": "luftvg",
+          "fundstelle": "§ 25 Abs. 2 LuftVG; § 18 Abs. 3 LuftVO",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Meldung von Unfällen und schweren Störungen an die BFU; Luftsportgeräte an den Beauftragten nach § 31c LuftVG",
+          "quelle": "luftvo",
+          "fundstelle": "§ 7 LuftVO",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Meldepflichtige Ereignisse binnen 72 Stunden, freiwillige Meldungen, Redlichkeitskultur",
+          "quelle": "eu-376",
+          "fundstelle": "Art. 2 Nr. 12, Art. 4, Art. 5",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Umkehrkurven-Rechner und Wirbelschleppen-Grafik: vereinfachte Modelle (Sinkrate ∝ n^1,5, Wirbelbewegung linear)",
+          "quelle": "physik",
+          "status": "herleitung"
+        }
+      ]
+    },
+    {
+      "modul": "technik",
+      "punkte": [
+        {
+          "inhalt": "Viertakt- und Zweitaktmotor, Boxermotor, Doppelzündung mit zwei Magneten, Magnetcheck, Gefahr am Propeller, Öl, Klopfen und Frühzündung",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 7",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "AVGAS und Jet A-1, Kraftstoffsystem, Entwässern, Tankanzeigen, Gemisch, Vergaservereisung (21 °C/80 %, bis 38 °C/50 %), Vorwärmung bis 15 % Leistung, Einspritzung",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 7",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Propeller: Verwindung, Fest- und Verstellpropeller, Ladedruck",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 7",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Bordnetz 14/28 V, Lichtmaschine, Batterie, Sicherungen, Amperemeter, Heizung und Kohlenmonoxid",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 7",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Staudrucksystem, Farbbögen am Fahrtmesser, Verstopfungen, Ersatz-Druckquelle, Verzögerung des Variometers",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 8",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Kreiselinstrumente: Raumfestigkeit, Präzession, Kurskreisel alle 15 Minuten nachstellen, Standardkurve 3°/s, Unterdruck 4,5–5,5 inHg",
+          "quelle": "faa-phak",
+          "fundstelle": "Kapitel 8",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Segelflugzeug: Störklappen, Bremsklappen, Wölbklappen, Leitwerksformen, Schleppkupplungen, Fahrwerk, Radbremse, Motorsegler und Heimkehrhilfe",
+          "quelle": "faa-gfh",
+          "fundstelle": "Kapitel 2",
+          "status": "abgeglichen",
+          "abgleich": "2026-10-17"
+        },
+        {
+          "inhalt": "Fahrtmesser-Markierungen des Übungsflugzeugs MF-4",
+          "quelle": "physik",
+          "status": "erfunden"
+        },
+        {
+          "inhalt": "Staudruck-Simulation (Standardatmosphäre, ohne Kompressibilität), Vergaser-Diagramm (vereinfachte Bereiche, Magnus-Formel), Kurbeltrieb",
+          "quelle": "physik",
+          "status": "herleitung"
         }
       ]
     }

@@ -84,7 +84,7 @@ function kurvenBild(querlage, n) {
     })() : ''}
     ${pfeil(cx, cy, cx, cy + g, { farbe: 'fehler', breite: 2.4, spitze: 8.6 })}
     ${text(cx + 10, cy + g - 6, 'Gewicht', { groesse: 12, gewicht: 700, klasse: 'g-f-fehler', anker: 'start' })}
-    ${querlage > 0 ? text(cx + 8, r1((cy + spitzeY) / 2), '= Gewicht', { groesse: 10, gewicht: 700, klasse: 'g-f-ok g-halo', anker: 'start' }) : ''}
+    ${querlage > 0 ? `${linie(16, 284, 34, 284, 'g-s-ok', 1.6, 'stroke-dasharray="4 4"')}${text(40, 284, 'senkrechter Anteil des Auftriebs = Gewicht', { groesse: 10.5, gewicht: 700, klasse: 'g-f-ok', anker: 'start' })}` : ''}
     ${text(r1(Math.max(52, spitzeX)), r1(spitzeY - 14), `Auftrieb ×${komma(n, 2)}`, { groesse: 12, gewicht: 700, klasse: 'g-f-ok' })}
   `, `Flugzeug von vorn mit ${querlage} Grad Querlage; der Auftrieb ist ${n.toFixed(2)}-mal so groß wie das Gewicht`);
 }

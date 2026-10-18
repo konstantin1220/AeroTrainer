@@ -28,11 +28,11 @@ function wolkenbasisBild(t, td) {
   const tOben = tBasis - ((hMax - basis) / 100) * 0.6;
   let raster = '';
   for (let m = 0; m <= hMax; m += 1000) raster += linie(l, r1(py(m)), r, r1(py(m)), 'g-s-rand', 0.8) + text(l - 5, r1(py(m)), `${m / 1000} km`, { groesse: 10, anker: 'end', klasse: 'g-f-leise' });
-  for (let g = -30; g <= 40; g += 10) raster += linie(r1(px(g)), o, r1(px(g)), u, 'g-s-rand', 0.8) + text(r1(px(g)), u + 13, `${g}°`, { groesse: 10, klasse: 'g-f-leise' });
+  for (let g = -30; g <= 40; g += 10) raster += linie(r1(px(g)), o, r1(px(g)), u, 'g-s-rand', 0.8) + text(r1(px(g)), u + 13, `${g}°`, { groesse: 10, klasse: 'g-f-leise', anker: g === 40 ? 'end' : 'middle' });
   return svg(400, 290, `
     <rect x="${l}" y="${o}" width="${r - l}" height="${u - o}" class="g-f-himmel"/>
     ${raster}
-    <rect x="${l}" y="${r1(py(basis) - 3)}" width="${r - l}" height="${r1(py(basis) - py(Math.min(hMax, basis + 600)) + 3)}" class="g-f-wolke" opacity=".7"/>
+    <rect x="${l}" y="${r1(py(Math.min(hMax, basis + 600)))}" width="${r - l}" height="${r1(py(basis) - py(Math.min(hMax, basis + 600)) + 3)}" class="g-f-wolke" opacity=".7"/>
     ${wolke(r1((px(tBasis) + r) / 2 + 30), r1(py(basis) - 16), 80)}
     <path d="M${r1(px(t))} ${u}L${r1(px(tBasis))} ${r1(py(basis))}" class="g-s-orange" stroke-width="2.3"/>
     <path d="M${r1(px(tBasis))} ${r1(py(basis))}L${r1(px(tOben))} ${r1(py(hMax))}" class="g-s-orange" stroke-width="2.3" stroke-dasharray="7 5"/>
@@ -40,7 +40,9 @@ function wolkenbasisBild(t, td) {
     <circle cx="${r1(px(tBasis))}" cy="${r1(py(basis))}" r="6" class="g-f-text"/>
     ${text(r1(Math.min(px(t) + 4, r - 64)), u - 12, 'Temperatur', { groesse: 11, gewicht: 700, klasse: 'g-f-orange g-halo', anker: 'start' })}
     ${text(r1(Math.max(px(td) - 4, l + 52)), u - 12, 'Taupunkt', { groesse: 11, gewicht: 700, klasse: 'g-f-primaer g-halo', anker: 'end' })}
-    ${text(r1(px(tBasis) - 10), r1(py(basis) + 14), 'Wolkenbasis', { groesse: 11, gewicht: 800, anker: 'end' })}
+    ${py(basis) > u - 40
+    ? text(r1(Math.min(Math.max(px(tBasis), l + 40), r - 40)), r1(py(basis) - 32), 'Wolkenbasis', { groesse: 11, gewicht: 800, klasse: 'g-f-text g-halo' })
+    : text(r1(px(tBasis) - 10), r1(py(basis) + 14), 'Wolkenbasis', { groesse: 11, gewicht: 800, anker: 'end', klasse: 'g-f-text g-halo' })}
     ${text(200, 286, 'Temperatur →', { groesse: 10, klasse: 'g-f-leise' })}
   `, 'Aufsteigende Luft kühlt um 1 Grad je 100 Meter ab, der Taupunkt um 0,2 Grad; wo sich die Linien treffen, liegt die Wolkenbasis');
 }

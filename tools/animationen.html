@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Zeigt alle Animationen aller Module als Standbilder (fünf Zeitpunkte je Schritt) – zum Prüfen und Gegenlesen.
+     Beschriftungen, die aus dem Bild oder ihrem Kasten laufen oder sich überdecken, werden rot markiert. Mit ?modul=luftraum nur ein Modul. -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AeroTrainer – alle Animationen</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>
+    body { padding: 1rem; }
+    .raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1rem; }
+    .raster figure { margin: 0; }
+    .raster h3 { font-size: 0.85rem; font-family: var(--mono); margin: 0 0 0.3rem; color: var(--leise); }
+  </style>
+</head>
+<body>
+  <h1>Alle Animationen</h1>
+  <div id="inhalt"></div>
+  <script type="module">
+    import { abbildungKnoten, h } from '../js/ui.js';
+    import { textProbleme } from './textpruefung.js';
+    const wunsch = new URLSearchParams(location.search).get('modul');
+    const module = ['luftraum', 'signale', 'mensch', 'meteorologie', 'metar', 'sprechfunk', 'navigation', 'aerodynamik', 'betrieb', 'masse-schwerpunkt', 'flugplanung', 'technik'];
+    let anzahl = 0;
+    for (const id of module.filter((m) => !wunsch || m === wunsch)) {
+      const teile = await import(`../modules/${id}/animationen.js`).catch(() => null);
+      if (!teile) continue;
+      const bereich = h('section', { 'data-modul': id }, h('h2', {}, id));
+      // Themen mit Flugzeugdaten (Masse & Schwerpunkt, Flugplanung) bauen ihre Animationen aus content/flugzeug.json
+      const animationen = teile.animationen ?? teile.animationenFuer(await fetch(`../modules/${id}/content/flugzeug.json`).then((r) => r.json()));
+      for (const [name, anim] of Object.entries(animationen)) {
+        const raster = h('div', { class: 'raster' });
+        anim.schritte.forEach((schritt, i) => {
+          for (const t of [0, 0.25, 0.5, 0.75, 1]) raster.append(h('div', { 'data-name': `${name} ${i + 1}/${t}` }, h('h3', {}, `${name} · Schritt ${i + 1} · t=${t}`), abbildungKnoten(anim.bild(i, t))));
+        });
+        bereich.append(h('h3', {}, anim.titel), raster);
+      }
+      document.getElementById('inhalt').append(bereich);
+    }
+    for (const figur of document.querySelectorAll('.raster > div')) {
+      const probleme = textProbleme(figur.querySelector('svg'));
+      if (!probleme.length) continue;
+      anzahl += probleme.length;
+      figur.style.outline = '3px solid #c2372f';
+      figur.append(h('ul', { class: 'fehlerton', 'data-probleme': '' }, probleme.map((p) => h('li', {}, `${p.art}: ${p.text}`))));
+    }
+    document.querySelector('h1').append(` – ${anzahl ? `${anzahl} Text-Probleme` : 'Beschriftungen in Ordnung'}`);
+  </script>
+</body>
+</html>

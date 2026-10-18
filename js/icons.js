@@ -193,6 +193,10 @@ const THEMEN = {
     <rect class="a" x="5" y="5" width="22" height="22" rx="1.5"/>
     <path class="gelb" d="M7 7l18 18M25 7 7 25"/>
     <rect x="5" y="5" width="22" height="22" rx="1.5"/>`,
+  // Papierflieger – Extra-Thema „Fliegen ganz einfach“
+  tim: `
+    <path class="f" d="M3 15.5 28.5 4.5 21 27l-6.2-7.4z"/>
+    <path d="M3 15.5 28.5 4.5 21 27l-6.2-7.4zM28.5 4.5 14.8 19.6l-1.3 6.9 4-4.2"/>`,
   // Kopf und Schultern mit Pulslinie
   mensch: `
     <circle class="f" cx="16" cy="9.5" r="5.5"/>

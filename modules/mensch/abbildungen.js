@@ -51,7 +51,7 @@ export function leistungskurve() {
 
 /** Draufsicht und Blick durch die Frontscheibe: Bleibt der andere an derselben Stelle, ist es ein Kollisionskurs. */
 export function kollisionsBild(eigen, anderer, t, dauer) {
-  const NM_PX = 22, cx = 200, cy = 196;
+  const NM_PX = 22, cx = 200, cy = 150;
   const P = (p) => [cx + p.x * NM_PX, cy - p.y * NM_PX];
   const jetzt = lage(eigen, anderer, t);
   let spuren = '';

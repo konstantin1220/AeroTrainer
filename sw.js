@@ -5,7 +5,7 @@
 // ausführen. Das trägt alle Dateien in DATEIEN ein und erhöht VERSION – dann laden alle
 // Geräte die Dateien beim nächsten Start frisch und alte Zwischenspeicher werden gelöscht.
 
-const VERSION = 'v31';
+const VERSION = 'v41';
 const CACHE = `aerotrainer-${VERSION}`;
 
 const DATEIEN = [
@@ -39,7 +39,15 @@ const DATEIEN = [
   'modules/aerodynamik/generatoren.js',
   'modules/aerodynamik/interaktiv.js',
   'modules/aerodynamik/module.js',
+  'modules/betrieb/abbildungen.js',
+  'modules/betrieb/animationen.js',
+  'modules/betrieb/content/inhalt.json',
+  'modules/betrieb/generatoren.js',
+  'modules/betrieb/interaktiv.js',
+  'modules/betrieb/module.js',
+  'modules/betrieb/rechnen.js',
   'modules/flugplanung/abbildungen.js',
+  'modules/flugplanung/animationen.js',
   'modules/flugplanung/content/flugzeug.json',
   'modules/flugplanung/content/inhalt.json',
   'modules/flugplanung/generatoren.js',
@@ -54,8 +62,10 @@ const DATEIEN = [
   'modules/luftraum/content/inhalt.json',
   'modules/luftraum/generatoren.js',
   'modules/luftraum/interaktiv.js',
+  'modules/luftraum/luftraeume.js',
   'modules/luftraum/module.js',
   'modules/masse-schwerpunkt/abbildungen.js',
+  'modules/masse-schwerpunkt/animationen.js',
   'modules/masse-schwerpunkt/content/flugzeug.json',
   'modules/masse-schwerpunkt/content/inhalt.json',
   'modules/masse-schwerpunkt/generatoren.js',
@@ -63,11 +73,13 @@ const DATEIEN = [
   'modules/masse-schwerpunkt/module.js',
   'modules/masse-schwerpunkt/rechnen.js',
   'modules/mensch/abbildungen.js',
+  'modules/mensch/animationen.js',
   'modules/mensch/content/inhalt.json',
   'modules/mensch/generatoren.js',
   'modules/mensch/interaktiv.js',
   'modules/mensch/module.js',
   'modules/mensch/rechnen.js',
+  'modules/metar/animationen.js',
   'modules/metar/aufgaben.js',
   'modules/metar/content/beispiele.json',
   'modules/metar/content/gruppen.json',
@@ -86,12 +98,14 @@ const DATEIEN = [
   'modules/meteorologie/interaktiv.js',
   'modules/meteorologie/module.js',
   'modules/navigation/abbildungen.js',
+  'modules/navigation/animationen.js',
   'modules/navigation/content/inhalt.json',
   'modules/navigation/generatoren.js',
   'modules/navigation/interaktiv.js',
   'modules/navigation/module.js',
   'modules/quellen.json',
   'modules/signale/abbildungen.js',
+  'modules/signale/animationen.js',
   'modules/signale/content/inhalt.json',
   'modules/signale/generatoren.js',
   'modules/signale/interaktiv.js',
@@ -109,6 +123,17 @@ const DATEIEN = [
   'modules/sprechfunk/interaktiv.js',
   'modules/sprechfunk/module.js',
   'modules/sprechfunk/uebungsgebiet.js',
+  'modules/technik/abbildungen.js',
+  'modules/technik/animationen.js',
+  'modules/technik/content/inhalt.json',
+  'modules/technik/generatoren.js',
+  'modules/technik/interaktiv.js',
+  'modules/technik/module.js',
+  'modules/technik/rechnen.js',
+  'modules/tim/abbildungen.js',
+  'modules/tim/animationen.js',
+  'modules/tim/content/inhalt.json',
+  'modules/tim/module.js',
 ];
 
 self.addEventListener('install', (event) => {

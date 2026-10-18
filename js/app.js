@@ -51,9 +51,15 @@ async function aktiveModule() {
   return (await module()).filter((m) => m.status === 'aktiv');
 }
 
-/** Aktive Module, die zum gewählten Schein passen (js/schein.js). */
+/**
+ * Versteckte Extra-Themen ("versteckt": true, z. B. „für Tim“) erscheinen erst, nachdem sie auf
+ * diesem Gerät einmal über ihren Link geöffnet wurden.
+ */
+const freigeschaltet = (m) => !m.versteckt || lernstand.einstellung('extra', []).includes(m.id);
+
+/** Aktive Module, die zum gewählten Schein passen (js/schein.js) – ohne noch nicht geöffnete Extra-Themen. */
 async function passendeModule() {
-  return (await aktiveModule()).filter((m) => passtZumSchein(m));
+  return (await aktiveModule()).filter((m) => passtZumSchein(m) && freigeschaltet(m));
 }
 
 function modulLaden(modul) {
@@ -200,6 +206,7 @@ async function modulSeite(el, id, rest) {
   if (!modul || modul.status !== 'aktiv') throw new Error('Dieses Modul gibt es (noch) nicht.');
   const { code, ctx } = await modulLaden(modul);
   el.dataset.modul = modul.id;
+  if (!freigeschaltet(modul)) lernstand.einstellungSetzen('extra', [...lernstand.einstellung('extra', []), modul.id]);
   await code.anzeigen(el, rest, ctx);
 }
 
@@ -367,10 +374,14 @@ function fachAbschnitt(fach, nr, themen, fortschritte) {
 async function startseite(el) {
   const [alleModule, fortschritte, fachListe] = await Promise.all([module(), alleFortschritte(), faecher()]);
   const neu = !lernstand.hatFortschritt();
-  const sichtbar = alleModule.filter((m) => passtZumSchein(m));
+  const sichtbar = alleModule.filter((m) => passtZumSchein(m) && !m.versteckt);
   const ohneFach = sichtbar.filter((m) => !fachListe.some((f) => f.id === m.fach));
+  const extra = alleModule.filter((m) => m.versteckt && m.status === 'aktiv' && freigeschaltet(m));
   anhaengen(el,
     neu ? willkommen() : [heuteKarte(fortschritte, alleModule), merklisteZeile(), h('section', { class: 'schein-bereich' }, scheinWahl())],
+    extra.length > 0 && h('section', { class: 'extra-bereich' },
+      h('h2', { class: 'fach-titel' }, h('span', { class: 'fach-name' }, 'Extra für dich')),
+      h('ul', { class: 'themen-gruppe' }, extra.map((m) => themenZeile(m, fortschritte.find((x) => x.modul.id === m.id)?.fortschritt)))),
     h('div', { class: 'abschnitt-kopf', id: 'themen' },
       h('h2', {}, 'Prüfungsfächer'),
       h('span', { class: 'leise' }, mehrzahl(fachListe.length, 'Fach', 'Fächer'))),

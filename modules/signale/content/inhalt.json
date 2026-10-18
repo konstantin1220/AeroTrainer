@@ -417,6 +417,10 @@
           ]
         },
         {
+          "typ": "animation",
+          "id": "abfangen"
+        },
+        {
           "typ": "zwischentitel",
           "text": "Zeichen von Überlebenden für Suchflugzeuge"
         },

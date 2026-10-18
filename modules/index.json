@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Liste aller Lernmodule. Ein neues Modul bekommt hier einen Eintrag und einen eigenen Ordner unter modules/. status: \"aktiv\" oder \"geplant\". fach: eines der Prüfungsfächer aus „faecher“ (Sachgebiete nach FCL.120/FCL.215 bzw. SFCL.135). scheine (optional): [\"ppl\", \"spl\", \"ul\"] – ohne Angabe gilt das Modul für alle Scheine.",
+  "_hinweis": "Liste aller Lernmodule. Ein neues Modul bekommt hier einen Eintrag und einen eigenen Ordner unter modules/. status: \"aktiv\" oder \"geplant\". fach: eines der Prüfungsfächer aus „faecher“ (Sachgebiete nach FCL.120/FCL.215 bzw. SFCL.135). scheine (optional): [\"ppl\", \"spl\", \"ul\"] – ohne Angabe gilt das Modul für alle Scheine. Themen mit \"versteckt\": true stehen nicht auf der Startseite; sie sind über ihren Link (#/<id>) erreichbar und erscheinen danach auf diesem Gerät unter „Extra für dich“.",
   "faecher": [
     {
       "id": "luftrecht",
@@ -106,8 +106,8 @@
     {
       "id": "betrieb",
       "titel": "Betriebsverfahren & Notfälle",
-      "beschreibung": "Wirbelschleppen, Windscherung, Notlandung, Brand und Störungsmeldung.",
-      "status": "geplant",
+      "beschreibung": "Verantwortung und Checklisten, Wirbelschleppen, Motorausfall und Notlandefeld, Segelflug-Notfälle und Außenlandung, Feuer und Rauch, Meldungen.",
+      "status": "aktiv",
       "pfad": "modules/betrieb/",
       "fach": "betrieb"
     },
@@ -130,10 +130,19 @@
     {
       "id": "technik",
       "titel": "Technik",
-      "beschreibung": "Motor, Propeller, Instrumente und Systeme des Luftfahrzeugs.",
-      "status": "geplant",
+      "beschreibung": "Zelle und Fahrwerk, Kolbenmotor, Kraftstoff und Vergaser, Propeller, Elektrik, Staudruck- und Kreiselinstrumente, Segelflugzeug.",
+      "status": "aktiv",
       "pfad": "modules/technik/",
       "fach": "technik"
+    },
+    {
+      "id": "tim",
+      "titel": "Fliegen ganz einfach – für Tim",
+      "beschreibung": "Alle neun Prüfungsfächer in ganz einfacher Sprache – ein kurzes Kapitel pro Fach.",
+      "status": "aktiv",
+      "pfad": "modules/tim/",
+      "fach": null,
+      "versteckt": true
     }
   ]
 }

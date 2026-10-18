@@ -9,7 +9,7 @@ const komma = (n, s = 0) => Number(n.toFixed(s)).toLocaleString('de-DE', { minim
 /** Ablauf der Flugvorbereitung: acht Schritte und am Ende die Entscheidung. */
 export function ablauf() {
   const schritte = ['Wetter', 'NOTAM & Luftraum', 'Strecke & Höhe', 'Navigationsflugplan', 'Kraftstoff', 'Masse & Leistung', 'Flugplan & Unterlagen', 'Persönliche Verfassung'];
-  const b = 160, hh = 34, xl = 24, xr = 216;
+  const b = 174, hh = 34, xl = 14, xr = 212;
   let inhalt = '';
   schritte.forEach((titel, i) => {
     const spalte = i % 2;
@@ -18,7 +18,7 @@ export function ablauf() {
     const y = 16 + zeile * 56;
     inhalt += `<rect x="${x}" y="${y}" width="${b}" height="${hh}" rx="9" class="g-f-flaeche g-s-mf" stroke-width="1.6"/>`;
     inhalt += `<circle cx="${x + 18}" cy="${y + hh / 2}" r="10" class="g-f-mf"/>${text(x + 18, y + hh / 2 + 4, String(i + 1), { groesse: 11, gewicht: 800, klasse: 'g-f-weiss' })}`;
-    inhalt += text(x + 34, y + hh / 2 + 4, titel, { groesse: 12, gewicht: 700, anker: 'start' });
+    inhalt += text(x + 33, y + hh / 2 + 4, titel, { groesse: 11.5, gewicht: 700, anker: 'start' });
     if (spalte === 0) inhalt += pfeil(x + b + 2, y + hh / 2, xr - 4, y + hh / 2, { farbe: 'leise', breite: 1.4, spitze: 7 });
     else if (i < schritte.length - 1) inhalt += pfeil(xr + b / 2, y + hh + 2, xl + b / 2, y + 56 - 3, { farbe: 'leise', breite: 1.2, spitze: 7 });
   });

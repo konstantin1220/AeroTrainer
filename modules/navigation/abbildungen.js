@@ -88,7 +88,7 @@ function grundkarte(markiert = []) {
     ${SYMBOLE.bedarfsmeldepunkt.zeichnen(o.musterstadt.x - 72, o.musterstadt.y + 8, 0.8)}
     ${text(o.musterstadt.x - 72, o.musterstadt.y + 24, 'W', { groesse: 10, gewicht: 800, klasse: 'g-f-luft' })}
     ${SYMBOLE.vordme.zeichnen(o.musterstadt.x - 30, o.musterstadt.y + 34, 0.7)}
-    ${text(o.musterstadt.x - 30, o.musterstadt.y + 50, 'MST', { groesse: 9, gewicht: 700, klasse: 'g-f-luft g-halo' })}
+    ${text(o.musterstadt.x - 21, o.musterstadt.y + 35, 'MST', { groesse: 9, gewicht: 700, klasse: 'g-f-luft g-halo', anker: 'start' })}
     ${SYMBOLE.hindernisLicht.zeichnen(262, 300, 0.7)}
     ${SYMBOLE.ndb.zeichnen(150, 120, 0.7)}
     ${text(162, 120, 'BGN', { groesse: 9, gewicht: 700, klasse: 'g-f-luft g-halo', anker: 'start' })}

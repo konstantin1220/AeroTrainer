@@ -740,6 +740,10 @@
           ]
         },
         {
+          "typ": "animation",
+          "id": "leans"
+        },
+        {
           "typ": "achtung",
           "text": "In den Wolken oder bei schlechter Sicht verliert man ohne Instrumentenausbildung schnell die Orientierung. Deshalb: Abstand von den Wolken halten, rechtzeitig umkehren – und unterwegs den Instrumenten mehr glauben als dem Bauchgefühl."
         },

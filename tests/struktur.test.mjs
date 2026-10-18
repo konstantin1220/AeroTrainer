@@ -13,7 +13,8 @@ test('Prüfungsfächer: neun Sachgebiete, jedes Modul gehört zu einem', () => {
   assert.equal(index.faecher.length, 9, 'FCL.120/FCL.215 und SFCL.135 nennen neun Sachgebiete');
   const faecher = new Set(index.faecher.map((f) => f.id));
   for (const m of index.module) {
-    assert.ok(faecher.has(m.fach), `${m.id}: Fach „${m.fach}“ unbekannt`);
+    // Versteckte Extra-Themen (z. B. „für Tim“) gehören zu keinem Fach
+    if (!m.versteckt) assert.ok(faecher.has(m.fach), `${m.id}: Fach „${m.fach}“ unbekannt`);
     for (const s of m.scheine ?? []) assert.ok(SCHEINE[s], `${m.id}: Schein „${s}“ unbekannt`);
     if (m.status === 'aktiv') assert.ok(existsSync(new URL(`../${m.pfad}module.js`, import.meta.url)), `${m.id}: module.js fehlt`);
   }

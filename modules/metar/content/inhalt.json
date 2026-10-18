@@ -91,6 +91,10 @@
           "text": "Alle Zeiten sind in **UTC**, Wolkenhöhen in **Hundert Fuß über Platzhöhe**, die Windrichtung bezieht sich auf **rechtweisend Nord**."
         },
         {
+          "typ": "animation",
+          "id": "gruppen"
+        },
+        {
           "typ": "interaktiv",
           "id": "baukasten"
         },

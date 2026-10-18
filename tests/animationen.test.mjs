@@ -8,8 +8,12 @@ const module = readdirSync(new URL('../modules/', import.meta.url), { withFileTy
   .filter((e) => e.isDirectory() && existsSync(new URL(`../modules/${e.name}/animationen.js`, import.meta.url)))
   .map((e) => e.name);
 
+/** Animationen eines Themas; Themen mit Flugzeugdaten exportieren animationenFuer(flugzeug). */
 async function animationenVon(modul) {
-  return (await import(`../modules/${modul}/animationen.js`)).animationen;
+  const teile = await import(`../modules/${modul}/animationen.js`);
+  if (teile.animationen) return teile.animationen;
+  const flugzeug = JSON.parse(readFileSync(new URL(`../modules/${modul}/content/flugzeug.json`, import.meta.url), 'utf8'));
+  return teile.animationenFuer(flugzeug);
 }
 
 function inhaltBloecke(modul) {
@@ -107,4 +111,60 @@ test('Strömung: Auftrieb wächst bis zum kritischen Anstellwinkel, danach reiß
   assert.ok(auftriebsbeiwert(20) < auftriebsbeiwert(15));
   assert.equal(abriss(10), 0);
   assert.equal(abriss(19), 1);
+});
+
+test('Leans: nach dem Zurückrollen fühlt sich der Geradeausflug wie eine Kurve zur anderen Seite an', async () => {
+  const { LEANS } = await import('../modules/mensch/animationen.js');
+  const kurve = LEANS[1].wirklich[1];
+  assert.equal(LEANS[1].gefuehlt[1], 0, 'die langsame Kurve bleibt unbemerkt');
+  assert.equal(LEANS[2].wirklich[1], 0, 'wieder geradeaus');
+  assert.ok(Math.sign(LEANS[2].gefuehlt[1]) === -Math.sign(kurve), 'gefühlte Kurve zur Gegenseite');
+});
+
+test('Winddreieck-Animation: Werte im Text stammen aus der Rechnung des Themas', async () => {
+  const { BEISPIEL, ERGEBNIS, animationen } = await import('../modules/navigation/animationen.js');
+  const { winddreieck } = await import('../modules/navigation/generatoren.js');
+  const { luv, gs } = winddreieck(BEISPIEL.kurs, BEISPIEL.tas, BEISPIEL.windRichtung, BEISPIEL.windStaerke);
+  assert.equal(ERGEBNIS.gs, Math.round(gs));
+  assert.equal(ERGEBNIS.seite, 'links', 'Wind von links: Nase nach links');
+  assert.match(animationen.winddreieck.schritte[3].text, new RegExp(`${Math.round(Math.abs(luv))}° nach links`));
+});
+
+test('Abfangen: beim Abdrehen kreuzt das Militärflugzeug deinen Weg nicht', async () => {
+  const { DU, ABDREHEN } = await import('../modules/signale/animationen.js');
+  for (const [x] of ABDREHEN) assert.ok(x < DU[0] - 30, 'bleibt links von dir');
+});
+
+test('METAR-Animation: zeigt genau das Beispiel aus dem Kapitel und markiert nur vorhandene Gruppen', async () => {
+  const { ZEILEN, SCHRITTE, animationen } = await import('../modules/metar/animationen.js');
+  const beispiel = inhaltBloecke('metar').find((b) => b.typ === 'formel').text.replace(/\n/g, ' ');
+  assert.equal(ZEILEN.join(' '), beispiel);
+  const woerter = ZEILEN.join(' ').split(' ');
+  for (const s of SCHRITTE) for (const g of s.gruppen) assert.ok(woerter.includes(g), g);
+  assert.equal(SCHRITTE.length, animationen.gruppen.schritte.length);
+});
+
+test('Beladen: Ergebnis wie in der Beispieltabelle, alle Punkte in der Hüllkurve', async () => {
+  const flugzeug = JSON.parse(readFileSync(new URL('../modules/masse-schwerpunkt/content/flugzeug.json', import.meta.url), 'utf8'));
+  const { BELADUNGEN } = await import('../modules/masse-schwerpunkt/animationen.js');
+  const { beladungRechnen, bewertung } = await import('../modules/masse-schwerpunkt/rechnen.js');
+  const start = beladungRechnen(flugzeug, BELADUNGEN[4]);
+  assert.equal(Math.round(start.masse), 1057);
+  assert.equal(start.schwerpunkt.toFixed(3), '1.061');
+  for (const b of BELADUNGEN) assert.equal(bewertung(flugzeug, beladungRechnen(flugzeug, b)), 'ok');
+  const landung = beladungRechnen(flugzeug, BELADUNGEN[5]);
+  assert.ok(landung.schwerpunkt < start.schwerpunkt, 'Tank hinter dem Schwerpunkt: zur Landung wandert er nach vorn');
+});
+
+test('Kraftstoff-Animation: Zahlen wie im Kapitel, Umweg würde die Endreserve angreifen', async () => {
+  const flugzeug = JSON.parse(readFileSync(new URL('../modules/flugplanung/content/flugzeug.json', import.meta.url), 'utf8'));
+  const { animationenFuer } = await import('../modules/flugplanung/animationen.js');
+  const schritte = animationenFuer(flugzeug).kraftstoff.schritte.map((s) => s.text);
+  assert.match(schritte[0], /zusammen \*\*40 l\*\*/);
+  assert.match(schritte[0], /20 l Spielraum/);
+  assert.match(schritte[1], /landest mit 37 l/);
+  assert.match(schritte[3], /nur \*\*12 l\*\*/);
+  const kapitel = inhaltBloecke('flugplanung').map((b) => b.text ?? '').join(' ');
+  assert.match(kapitel, /Zusammen \*\*40 l\*\*/);
+  assert.match(kapitel, /20 l Spielraum/);
 });

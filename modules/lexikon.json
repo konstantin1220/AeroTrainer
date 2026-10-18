@@ -2105,6 +2105,263 @@
       "thema": "luftraum",
       "kurz": "EU-Regeln für den Flugbetrieb mit Segelflugzeugen und Motorseglern (Verordnung (EU) 2018/1976, Anhang II) – an Stelle von Part-NCO.",
       "einfach": "Das Regelbuch für den Segelflugbetrieb."
+    },
+    {
+      "id": "notlandung",
+      "begriff": "Notlandung",
+      "en": "forced landing",
+      "suche": [
+        "Notlandung",
+        "Notlandungen"
+      ],
+      "thema": "betrieb",
+      "kurz": "Landung, die sofort nötig ist, weil nicht weitergeflogen werden kann – etwa nach einem Motorausfall. Zuerst Nase senken und Fahrt halten, dann ein Feld wählen.",
+      "einfach": "Der Motor schweigt – jetzt wird gelandet, nicht erst später."
+    },
+    {
+      "id": "sicherheitslandung",
+      "begriff": "Sicherheitslandung",
+      "en": "precautionary landing",
+      "suche": [
+        "Sicherheitslandung",
+        "Sicherheitslandungen"
+      ],
+      "thema": "betrieb",
+      "kurz": "Landung außerhalb der Planung, obwohl Weiterfliegen noch möglich wäre – weil es nicht ratsam ist, etwa bei schlechter werdendem Wetter, Orientierungsverlust, knappem Kraftstoff oder einem Motor, der langsam schlechter läuft.",
+      "einfach": "Mit dem kränkelnden Auto lieber rechtzeitig auf den Parkplatz als bis zur Panne auf die Autobahn."
+    },
+    {
+      "id": "aussenlandung",
+      "begriff": "Außenlandung",
+      "en": "outlanding",
+      "suche": [
+        "Außenlandung",
+        "Außenlandungen"
+      ],
+      "thema": "betrieb",
+      "kurz": "Landung außerhalb eines Flugplatzes. Im Segelflug ein geübter Teil des Überlandflugs: Entscheidungshöhen vorher festlegen, gegen den Wind landen, das Feld in der Landeeinteilung von allen Seiten ansehen.",
+      "einfach": "Ein Acker statt der Piste – für Segelflieger kein Drama, sondern gut vorbereitet."
+    },
+    {
+      "id": "umkehrkurve",
+      "begriff": "Umkehrkurve",
+      "en": "impossible turn",
+      "suche": [
+        "Umkehrkurve",
+        "Umkehrkurven"
+      ],
+      "thema": "betrieb",
+      "kurz": "Der Versuch, nach einem Motorausfall kurz nach dem Start zur Piste zurückzukurven. Die Kurve kostet viel mehr Höhe als gedacht; in geringer Höhe ist geradeaus oder mit kleiner Richtungsänderung landen meist sicherer.",
+      "einfach": "Umdrehen klingt einfach – aber auf dem Rückweg fehlt meist die Höhe."
+    },
+    {
+      "id": "bfu",
+      "begriff": "BFU",
+      "lang": "Bundesstelle für Flugunfalluntersuchung",
+      "suche": [
+        "BFU"
+      ],
+      "thema": "betrieb",
+      "kurz": "Bundesbehörde, die Unfälle und schwere Störungen in der zivilen Luftfahrt untersucht. Der verantwortliche Luftfahrzeugführer meldet ihr Unfälle und schwere Störungen unverzüglich (§ 7 LuftVO).",
+      "einfach": "Die „Unfallforscher“ der Luftfahrt: Sie klären, was passiert ist, damit es nicht wieder passiert."
+    },
+    {
+      "id": "redlichkeitskultur",
+      "begriff": "Redlichkeitskultur",
+      "en": "just culture",
+      "suche": [
+        "Redlichkeitskultur",
+        "Just Culture"
+      ],
+      "thema": "betrieb",
+      "kurz": "Grundsatz der Verordnung (EU) Nr. 376/2014: Wer ein Ereignis meldet, wird für Handlungen, die seiner Erfahrung und Ausbildung entsprechen, nicht bestraft. Grobe Fahrlässigkeit und Vorsatz sind ausgenommen.",
+      "einfach": "Fehler offen erzählen, damit alle daraus lernen – ohne Angst vor Strafe."
+    },
+    {
+      "id": "doppelzuendung",
+      "begriff": "Doppelzündung",
+      "en": "dual ignition",
+      "suche": [
+        "Doppelzündung",
+        "Magnete",
+        "Magnetcheck"
+      ],
+      "thema": "technik",
+      "kurz": "Zwei Magnetzündungen mit getrennten Kabeln und zwei Zündkerzen je Zylinder. Fällt ein Magnet aus, läuft der Motor mit dem anderen weiter. Magnete erzeugen ihren Strom selbst, unabhängig vom Bordnetz.",
+      "einfach": "Zwei Feuerzeuge für jeden Zylinder – falls eines versagt, zündet das andere."
+    },
+    {
+      "id": "klopfen",
+      "begriff": "Klopfen",
+      "en": "detonation",
+      "suche": [
+        "Klopfen"
+      ],
+      "thema": "technik",
+      "kurz": "Explosionsartige, unkontrollierte Verbrennung im Zylinder – etwa durch Kraftstoff mit zu niedriger Klopffestigkeit oder ein zu mageres Gemisch bei hoher Leistung. Schadet dem Motor.",
+      "einfach": "Statt gleichmäßig zu brennen, knallt das Gemisch – wie ein Schlag mit dem Hammer auf den Kolben."
+    },
+    {
+      "id": "verstellpropeller",
+      "begriff": "Verstellpropeller",
+      "en": "constant speed propeller",
+      "suche": [
+        "Verstellpropeller",
+        "Festpropeller"
+      ],
+      "thema": "technik",
+      "kurz": "Propeller, dessen Blattwinkel ein Regler im Flug so verstellt, dass die mit dem Propellerhebel gewählte Drehzahl gleich bleibt. Die Leistung regelst du mit dem Gashebel über den Ladedruck. Beim Festpropeller ist der Blattwinkel fest.",
+      "einfach": "Wie eine Gangschaltung am Fahrrad: Der Propeller „schaltet“ selbst, damit der Motor immer im besten Drehzahlbereich läuft."
+    },
+    {
+      "id": "staurohr",
+      "begriff": "Staurohr",
+      "en": "pitot tube",
+      "suche": [
+        "Staurohr",
+        "Staurohrs"
+      ],
+      "thema": "technik",
+      "kurz": "Nach vorn offenes Rohr, das den Gesamtdruck der anströmenden Luft aufnimmt. Der Fahrtmesser vergleicht ihn mit dem statischen Druck. Vor dem Flug Schutzhülle abnehmen.",
+      "einfach": "Ein Röhrchen, das in den Fahrtwind schaut: Je schneller du fliegst, desto stärker drückt die Luft hinein."
+    },
+    {
+      "id": "statische-oeffnung",
+      "begriff": "Statische Öffnung",
+      "en": "static port",
+      "suche": [
+        "statische Öffnung",
+        "statischen Öffnung",
+        "statische Öffnungen",
+        "statischen Öffnungen"
+      ],
+      "thema": "technik",
+      "kurz": "Öffnung meist seitlich am Rumpf, die den Luftdruck der Umgebung abnimmt – für Höhenmesser, Variometer und Fahrtmesser.",
+      "einfach": "Ein kleines Loch, das fühlt, wie viel Luftdruck gerade herrscht – daraus wird die Höhe."
+    },
+    {
+      "id": "variometer",
+      "begriff": "Variometer",
+      "en": "vertical speed indicator",
+      "suche": [
+        "Variometer"
+      ],
+      "thema": "technik",
+      "kurz": "Zeigt, wie schnell das Luftfahrzeug steigt oder sinkt. Es braucht nur den statischen Druck; die Tendenz zeigt es sofort, den genauen Wert erst nach einigen Sekunden.",
+      "einfach": "Der „Fahrstuhl-Anzeiger“: Geht es gerade nach oben oder nach unten – und wie schnell?"
+    },
+    {
+      "id": "vs0",
+      "begriff": "VS0",
+      "lang": "stall speed in landing configuration",
+      "suche": [
+        "VS0"
+      ],
+      "thema": "technik",
+      "kurz": "Überziehgeschwindigkeit in Landekonfiguration; untere Grenze des weißen Bogens am Fahrtmesser.",
+      "einfach": "So langsam darfst du mit Klappen höchstens werden – darunter trägt der Flügel nicht mehr."
+    },
+    {
+      "id": "vs1",
+      "begriff": "VS1",
+      "lang": "stall speed in a specified configuration",
+      "suche": [
+        "VS1"
+      ],
+      "thema": "technik",
+      "kurz": "Überziehgeschwindigkeit ohne Klappen; untere Grenze des grünen Bogens am Fahrtmesser.",
+      "einfach": "Die Mindestgeschwindigkeit, wenn die Klappen eingefahren sind."
+    },
+    {
+      "id": "vfe",
+      "begriff": "VFE",
+      "lang": "maximum flap extended speed",
+      "suche": [
+        "VFE"
+      ],
+      "thema": "technik",
+      "kurz": "Höchste Geschwindigkeit mit ausgefahrenen Landeklappen; obere Grenze des weißen Bogens am Fahrtmesser.",
+      "einfach": "Schneller als das, und die Klappen könnten Schaden nehmen."
+    },
+    {
+      "id": "vno",
+      "begriff": "VNO",
+      "lang": "maximum structural cruising speed",
+      "suche": [
+        "VNO"
+      ],
+      "thema": "technik",
+      "kurz": "Höchste Reisegeschwindigkeit; obere Grenze des grünen Bogens. Im gelben Bogen darüber nur in ruhiger Luft und mit Vorsicht fliegen.",
+      "einfach": "Bis hierhin ist alles normal – darüber nur, wenn die Luft ganz ruhig ist."
+    },
+    {
+      "id": "vne",
+      "begriff": "VNE",
+      "lang": "never exceed speed",
+      "suche": [
+        "VNE"
+      ],
+      "thema": "technik",
+      "kurz": "Höchstzulässige Geschwindigkeit, die nie überschritten werden darf; roter Strich am Fahrtmesser.",
+      "einfach": "Die rote Linie – wie der rote Bereich am Drehzahlmesser im Auto, nur strenger."
+    },
+    {
+      "id": "kuenstlicher-horizont",
+      "begriff": "Künstlicher Horizont",
+      "en": "attitude indicator",
+      "suche": [
+        "künstliche Horizont",
+        "künstlichen Horizont",
+        "Künstlicher Horizont",
+        "Fluglageanzeiger"
+      ],
+      "thema": "technik",
+      "kurz": "Kreiselinstrument, das die Fluglage zeigt: Der Horizontbalken bleibt dank Raumfestigkeit waagerecht, das Flugzeug dreht sich um den Kreisel.",
+      "einfach": "Ein Ersatz-Horizont im Cockpit, falls du den echten nicht siehst."
+    },
+    {
+      "id": "kurskreisel",
+      "begriff": "Kurskreisel",
+      "en": "heading indicator",
+      "suche": [
+        "Kurskreisel"
+      ],
+      "thema": "technik",
+      "kurz": "Kreiselinstrument, das die Flugrichtung ruhig und ohne die Fehler des Magnetkompasses zeigt. Er wandert mit der Zeit und wird etwa alle 15 Minuten im ruhigen Geradeausflug nach dem Kompass nachgestellt.",
+      "einfach": "Ein ruhiger Kompass, der aber ab und zu nachgestellt werden will – wie eine Uhr, die etwas nachgeht."
+    },
+    {
+      "id": "wendezeiger",
+      "begriff": "Wendezeiger",
+      "en": "turn indicator",
+      "suche": [
+        "Wendezeiger"
+      ],
+      "thema": "technik",
+      "kurz": "Kreiselinstrument, das zeigt, wie schnell und in welche Richtung das Flugzeug dreht. Die Marke für die Standardkurve bedeutet 3° pro Sekunde, ein Vollkreis in zwei Minuten. Die Querneigung zeigt er nicht.",
+      "einfach": "Er sagt dir nicht, wie schräg du fliegst, sondern wie schnell du dich drehst."
+    },
+    {
+      "id": "schwerpunktkupplung",
+      "begriff": "Schwerpunktkupplung",
+      "en": "CG hook",
+      "suche": [
+        "Schwerpunktkupplung"
+      ],
+      "thema": "technik",
+      "kurz": "Kupplung unter dem Schwerpunkt des Segelflugzeugs für den Windenstart. Für den F-Schlepp nur, wenn das Flughandbuch es vorsieht – sonst wird die Bugkupplung benutzt.",
+      "einfach": "Der Haken in der Mitte, damit die Winde das Segelflugzeug steil nach oben ziehen kann."
+    },
+    {
+      "id": "bugkupplung",
+      "begriff": "Bugkupplung",
+      "en": "nose hook",
+      "suche": [
+        "Bugkupplung"
+      ],
+      "thema": "technik",
+      "kurz": "Kupplung vorn am Segelflugzeug für den F-Schlepp.",
+      "einfach": "Der Haken an der Nase, an dem das Schleppseil hängt."
     }
   ]
 }

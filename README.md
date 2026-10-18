@@ -15,8 +15,19 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 - **„Ich lerne für …“**: Auf der Startseite und unter *Lernstand* lässt sich PPL/LAPL, SPL und/oder UL wählen. Kapitel,
   Fragen und Rechner, die nur für bestimmte Scheine gelten, werden dann passend ein- oder ausgeblendet.
   Ohne Auswahl zeigt die App alles.
-- **10 Themen**: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Flugplanung, Masse & Schwerpunkt,
-  Meteorologie, Aerodynamik, Signale, Mensch im Cockpit – jeweils mit Theorie-Kapiteln, Abbildungen und Fragen.
+- **12 Themen** mit 85 Kapiteln und fast 700 Fragen: METAR lesen, Luftraum & Regeln, Sprechfunk, Navigation, Flugplanung,
+  Masse & Schwerpunkt, Meteorologie, Aerodynamik, Signale, Mensch im Cockpit, Betriebsverfahren & Notfälle und Technik –
+  jeweils mit Theorie-Kapiteln, Abbildungen, Fragen, interaktiven Darstellungen und mindestens einer Animation.
+- **Luftraum mit Höhen**: Wo in Deutschland welcher Luftraum liegt (G bis 2500 ft über Grund bzw. 1000 ft an Flugplätzen,
+  C ab FL 100, in den Alpen ab FL 130, Transponderpflicht ab 5000 ft MSL bzw. 3500 ft über Grund) – als Tabelle,
+  Animation „Steigflug durch die Lufträume“ und interaktiver Luftraum-Check. Grundlage: AIP VFR ENR 1-1, 1-3, 1-14
+  und 1-17; Rechnung in `modules/luftraum/luftraeume.js` (getestet).
+- **Betriebsverfahren & Notfälle**: Grundsätze nach Part-NCO, Wirbelschleppen, Motorausfall und Notlandung (mit
+  Umkehrkurven-Rechner nach dem Beispiel der FAA), Feldauswahl, Segelflug (Seilriss, Außenlandung), Feuer und Rauch,
+  Melden nach VO (EU) 376/2014 und § 7 LuftVO. Rechnungen in `modules/betrieb/rechnen.js` (getestet).
+- **Technik** (Allgemeine Luftfahrzeugkunde): Zelle und Ruder, Kolbenmotor und Doppelzündung, Kraftstoffsystem und
+  Vergaservereisung, Propeller, Elektrik, Fahrtmesser/Höhenmesser/Variometer mit Verstopfungen, Kreiselinstrumente,
+  das Segelflugzeug. Rechnungen in `modules/technik/rechnen.js` (getestet).
 - **Mensch im Cockpit** (Menschliches Leistungsvermögen): Tauglichkeit und Selbstcheck, Höhe und Sauerstoff
   (NCO.OP.190, SAO.OP.150), Druckänderungen, Sehen und Luftraumbeobachtung, Sinnestäuschungen, Stress und Müdigkeit,
   gute Entscheidungen. Rechnungen in `modules/mensch/rechnen.js` (getestet).
@@ -24,9 +35,11 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
   Kraftstoff (Endreserve nach AMC1 NCO.OP.125(b)), Masse und Startstrecke, Flugplan und Unterlagen – dazu ein komplett
   durchgespielter Überlandflug, ein interaktiver Navigationsflugplan und ein Startstrecken-Rechner mit dem erfundenen
   Übungsflugzeug MF-4. Rechnungen in `modules/flugplanung/rechnen.js` (getestet, auch die Zahlen in den Kapiteln).
-- **Animationen in Kapiteln**: Bilder, die sich Schritt für Schritt aufbauen – mit kurzem Text zu jedem Schritt,
-  Abspielen/Anhalten und Springen. Bisher: wie eine Quellwolke entsteht, Ausweichregeln, Strömung am Flügel bis zum
-  Strömungsabriss, Platzrunde mit Funkmeldungen. Wer am Gerät „Bewegung reduzieren“ eingestellt hat, sieht ruhige Standbilder.
+- **15 Animationen in Kapiteln**: Bilder, die sich Schritt für Schritt aufbauen – mit kurzem Text zu jedem Schritt,
+  Abspielen/Anhalten und Springen. Steigflug durch die Lufträume, Ausweichregeln, Abfangen, die „Leans“, Quellwolke,
+  ein METAR Gruppe für Gruppe, Platzrunde mit Funkmeldungen, Winddreieck, Strömung bis zum Strömungsabriss,
+  Motorausfall im Reiseflug, Außenlandung mit dem Segelflugzeug, Beladen und Schwerpunkt, Kraftstoff unterwegs,
+  Viertaktmotor und Vergaservereisung. Wer am Gerät „Bewegung reduzieren“ eingestellt hat, sieht ruhige Standbilder.
 - **Klare Oberfläche**: helle Kopfzeile mit Zurück-Pfeil, Themen als Listen je Prüfungsfach, Kapitel als Lernpfad
   („Hier weitermachen“), Lesefortschritt im Kapitel, kurze Rückmeldungs-Animationen in den Fragerunden.
 - **Verteilte Wiederholung** (Leitner-Karteikasten mit 5 Fächern): Jede Frage kommt wieder, wenn sie dran ist.
@@ -36,7 +49,7 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
   ist tolerant bei Groß-/Kleinschreibung, Satzzeichen und kleinen Tippfehlern, aber streng bei Zahlen und Rufzeichen.
   Sprechgruppen nach NfL 2024-1-3266 und NfL 2024-1-3240.
   Szenarien in `modules/sprechfunk/content/funkgespraeche.json`, Logik in `funklogik.js` (getestet).
-- **Lexikon** mit über 180 Begriffen, viele mit englischer Entsprechung; nach Deutsch oder Englisch sortierbar.
+- **Lexikon** mit über 200 Begriffen, viele mit englischer Entsprechung; nach Deutsch oder Englisch sortierbar.
 - **Merkliste**: Jede Frage lässt sich überall mit „Merken“ vormerken und später gezielt üben – auch erzeugte Rechenaufgaben
   (sie werden genau so gespeichert, wie sie gestellt wurden). Die Merkliste gehört zum Lernstand und wird mitgesichert.
   Fällige Fragen aller Themen lassen sich gemeinsam wiederholen.
@@ -45,14 +58,18 @@ Lernapp für die Flugtheorie (SPL, UL, PPL/LAPL) für die Nutzung im Fliegervere
 - **METAR in fünf Stufen**: Antippen & erklären → selbst entschlüsseln → rückwärts bauen (mit Bausteinen, Bausteinen
   mit Fallen oder frei getippt) → Entscheidung treffen → Fehler finden. Ein Generator erzeugt unbegrenzt viele,
   in sich stimmige METARs in fünf Schwierigkeitsstufen. Dazu ein Kapitel zum TAF mit erzeugten Übungs-TAFs.
-- **Zum Ausprobieren**: 26 interaktive, maßstäblich gezeichnete Darstellungen mit Reglern und Umschaltern – z. B. Winddreieck,
+- **Zum Ausprobieren**: 32 interaktive, maßstäblich gezeichnete Darstellungen mit Reglern und Umschaltern – z. B. Winddreieck,
   antippbare Übungskarte, Sichtflugbedingungen, Kontrollzonen-Wetter, Wer weicht aus?, Wolkenbasis,
   Höhenmesser mit Fehleinstellung, Anstellwinkel bis zum Strömungsabriss, Kurvenflug, Signalscheinwerfer,
   Buchstabieren und Zahlen sprechen (mit Anhören), Hebel-Wippe, Beladungsrechner, METAR-Baukasten, Seitenwind,
-  Standardatmosphäre, Navigationsflugplan, Startstrecke, Sauerstoff in der Höhe und Kollisionskurs.
+  Standardatmosphäre, Navigationsflugplan, Startstrecke, Sauerstoff in der Höhe, Kollisionskurs, Luftraum-Check,
+  Umkehrkurve, Wirbelschleppe, Fahrtmesser, Staudrucksystem und Vergaservereisung.
   Sie stehen direkt in den Theorie-Kapiteln und gesammelt in jedem Thema unter „Zum Ausprobieren“.
 - **Lernstand**: Statistik, Lernserie, Aktivitätskalender; Sichern und Laden als Datei (`flug-lernstand.json`).
 - **Prüfansicht für Fluglehrer** in jedem Thema: alle Inhalte, Lösungen und Beispiele der Rechenaufgaben auf einer Seite.
+- **Versteckte Zusatzthemen**: Ein Thema mit `"versteckt": true` in `modules/index.json` erscheint nicht auf der
+  Startseite. Wer den Link (`#/<id>`) einmal öffnet, sieht es danach unter „Extra für dich“. Beispiel: ein Einsteigerkurs,
+  der alle Fächer ganz einfach erklärt (`modules/tim/`).
 - PWA: offline nutzbar, auf dem Home-Bildschirm installierbar, helles und dunkles Farbschema.
 - Kein Server, keine Konten, kein Tracking. Alle Symbole und Grafiken sind selbst gezeichnet.
 
@@ -83,6 +100,8 @@ Benötigt Node.js 22 oder neuer. Die Tests prüfen u. a.:
 - dass jede verwendete Abbildung existiert,
 - den METAR-Parser und 3000 erzeugte METARs gegen die Melderegeln,
 - die Rechenlogik der interaktiven Darstellungen (Sichtflugbedingungen, Ausweichregeln, Sprechweise u. a.),
+- jede Animation zu 21 Zeitpunkten je Schritt und ihre fachlichen Aussagen (z. B. Wolkenbasis, Schwerpunkt, Kraftstoff),
+- die Rechnungen zu Luftraumhöhen, Umkehrkurve, Gleiten, Wirbelschleppen, Fahrtmesser, Viertakt und Vergaservereisung,
 - dass der Service Worker alle Dateien kennt.
 
 ### Vor dem Veröffentlichen
@@ -119,6 +138,10 @@ modules/<thema>/
 modules/metar/            zusätzlich: Parser, METAR-Generator, Lernstufen, Beispiele, fiktive Flugplätze
 modules/flugplanung/      zusätzlich: rechnen.js (Etappen, Kraftstoff, Startstrecke), Planungsdaten in content/flugzeug.json
 modules/mensch/           zusätzlich: rechnen.js (Sauerstoff, Tauglichkeit, Tauchen, Kollisionskurs)
+modules/luftraum/         zusätzlich: luftraeume.js (Luftraumhöhen und Transponderpflicht nach AIP VFR)
+modules/betrieb/          zusätzlich: rechnen.js (Kurven, Umkehrkurve, Gleiten, Wirbelschleppen)
+modules/technik/          zusätzlich: rechnen.js (Fahrtmesser-Bögen, Viertakt, Vergaservereisung, Staudrucksystem)
+modules/tim/              verstecktes Zusatzthema: alle Fächer ganz einfach erklärt (nutzt Grafiken anderer Themen)
 tests/                    automatische Tests
 tools/                    Entwicklungsserver, Symbol- und Abbildungsübersicht, App-Symbol, Handyvorschau
 ```
@@ -188,7 +211,11 @@ den Status anpassen. Der Fluglehrer-Vermerk `_geprueft` wird dort automatisch je
 ## Gestaltung
 
 - Alle Symbole und Grafiken sind selbst gezeichnet (`js/icons.js`, `modules/*/abbildungen.js`).
-  Übersichten: `tools/symbole.html`, `tools/abbildungen.html` und `tools/interaktiv.html`.
+  Übersichten: `tools/symbole.html`, `tools/abbildungen.html`, `tools/interaktiv.html`, `tools/animationen.html`
+  (alle Animationen als Standbilder) und `tools/generatoren.html?anzahl=50` (Grafiken der Rechenaufgaben).
+- **Texte bleiben in ihren Kästen:** `tools/textpruefung.js` prüft jede Grafik auf Text, der über den Bildrand oder aus
+  seinem Kasten läuft oder anderen Text überdeckt. Die Übersichtsseiten markieren solche Stellen rot – vor dem
+  Veröffentlichen sollte dort nichts rot sein.
 - `tools/grafiktest.html?modul=navigation&element=winddreieck&werte=[[90,100,30,20],[270,150,90,40]]` zeigt
   eine interaktive Grafik mit mehreren Reglerstellungen nebeneinander – gut für Grenzfälle (Beschriftungen am Rand).
 - Das App-Symbol entsteht aus `logoSvg()` in `js/icons.js`. Die PNG-Dateien in `icons/` werden mit

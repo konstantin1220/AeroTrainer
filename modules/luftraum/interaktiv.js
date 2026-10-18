@@ -2,6 +2,7 @@
 import { h } from '../../js/ui.js';
 import { regler, umschalter, wertanzeige, buehne, bedienfeld, meldung } from '../../js/interaktiv.js';
 import { svg, text, linie, pfeil, flugzeug, wolke, aufKreis } from '../../js/grafik.js';
+import { grenzen, luftraumAn, transponderAb, transponderPflicht, REGELN } from './luftraeume.js';
 
 const RAD = Math.PI / 180;
 const r1 = (n) => n.toFixed(1);
@@ -17,6 +18,27 @@ export function vmcMinima(klasse, gelaende, hoehe) {
   return { band: `bis ${grenze} ft MSL`, sicht: '5 km', abstand: '1500 m waagerecht, 1000 ft senkrecht', frei: false, grenze };
 }
 
+/**
+ * Beschriftung der Grenze 3000 ft MSL / 1000 ft GND: rechts über der Linie, sonst links oder darunter –
+ * je nachdem, wo sie weder die Höhe des Flugzeugs noch die Angabe „1000 ft“ an der Wolke verdeckt.
+ */
+function grenzLabel(m, py, yFlug, xFlug, wolkeX) {
+  const inhalt = m.grenze > 3000 ? `1000 ft GND = ${m.grenze} ft MSL` : '3000 ft MSL';
+  const breite = inhalt.length * 6.4;
+  const yg = py(m.grenze);
+  // belegte Bereiche: Höhenangabe links vom Flugzeug, „1000 ft“ rechts der Wolke (nur ohne „frei von Wolken“)
+  const y1 = yFlug + 16, y2 = Math.min(y1 + (py(0) - py(1000)), 286);
+  const belegt = [{ l: xFlug - 90, r: xFlug - 20, y: yFlug }, { l: xFlug - 20, r: xFlug + 22, y: yFlug }];
+  if (!m.frei) belegt.push({ l: wolkeX + 4, r: wolkeX + 64, y: (y1 + y2) / 2 + 4 }, { l: wolkeX - 40, r: wolkeX + 40, y: yFlug });
+  const plaetze = [[394, yg - 9, 'end'], [8, yg - 9, 'start'], [394, yg + 13, 'end'], [8, yg + 13, 'start']];
+  const frei = ([x, y, anker]) => {
+    const l = anker === 'end' ? x - breite : x, r = anker === 'end' ? x : x + breite;
+    return belegt.every((b) => Math.abs(b.y - y) > 15 || b.r < l || b.l > r);
+  };
+  const [x, y, anker] = plaetze.find(frei) ?? plaetze[0];
+  return text(x, r1(y), inhalt, { groesse: 11, anker, gewicht: 700, klasse: 'g-f-mf g-halo' });
+}
+
 function vmcBild(klasse, gelaende, hoehe, m) {
   // Höhenbereich passend zur Lage wählen, damit tiefe Flüge nicht gequetscht werden
   const oben = hoehe >= 8000 ? 12000 : Math.ceil(Math.max(6000, hoehe + 2000, m.grenze + 1500) / 1000) * 1000;
@@ -30,7 +52,7 @@ function vmcBild(klasse, gelaende, hoehe, m) {
     ${linie(0, r1(py(10000)), 400, r1(py(10000)), 'g-s-leise', 1, 'stroke-dasharray="6 5"')}
     ${text(394, r1(py(10000) - 9), 'FL 100', { groesse: 11, anker: 'end', klasse: 'g-f-leise', gewicht: 700 })}` : ''}
     ${linie(0, r1(py(m.grenze)), 400, r1(py(m.grenze)), 'g-s-mf', 1.4, 'stroke-dasharray="8 6"')}
-    ${text(394, r1(py(m.grenze) - 9), m.grenze > 3000 ? `1000 ft GND = ${m.grenze} ft MSL` : '3000 ft MSL', { groesse: 11, anker: 'end', gewicht: 700, klasse: 'g-f-mf' })}
+    ${grenzLabel(m, py, yFlug, xFlug, wolkeX)}
     <rect x="0" y="${r1(py(gelaende))}" width="400" height="${r1(290 - py(gelaende))}" class="g-f-boden"/>
     ${linie(0, r1(py(gelaende)), 400, r1(py(gelaende)), 'g-s-leise', 1)}
     ${text(8, r1(Math.min(282, py(gelaende) + 14)), `Gelände ${gelaende} ft`, { groesse: 11, anker: 'start', gewicht: 600 })}
@@ -46,6 +68,43 @@ function vmcBild(klasse, gelaende, hoehe, m) {
         return `${linie(wolkeX, r1(y1), wolkeX, r1(y2), 'g-s-orange', 1.8, 'stroke-dasharray="4 4"')}${linie(wolkeX - 6, r1(y2), wolkeX + 6, r1(y2), 'g-s-orange', 1.8)}${text(wolkeX + 8, r1((y1 + y2) / 2 + 4), '1000 ft', { groesse: 12, gewicht: 700, klasse: 'g-f-orange g-halo', anker: 'start' })}`;
       })()}`}
   `, 'Seitenansicht mit Gelände, Grenze 3000 Fuß MSL bzw. 1000 Fuß über Grund, FL 100, Flugzeug und Wolke');
+}
+
+// ---------- Luftraum-Check: Höhen der Lufträume (AIP VFR ENR 1-1) ----------
+
+const LR_ACHSE = 14000; // ft – feste Achse, damit jede Änderung maßstäblich sichtbar ist
+const komma = (n) => String(Math.round(n));
+
+function luftraumBild(gelaende, hoehe, gebiet, motor) {
+  const g = grenzen(gelaende, gebiet);
+  const py = (ft) => 284 - (Math.min(ft, LR_ACHSE) / LR_ACHSE) * 266;
+  const klasse = luftraumAn(hoehe, gelaende, gebiet);
+  const tp = transponderAb(gelaende);
+  const xFlug = 196;
+  let achse = '';
+  for (let ft = 0; ft <= LR_ACHSE; ft += 2000) achse += linie(334, r1(py(ft)), 340, r1(py(ft)), 'g-s-leise', 1) + text(344, r1(py(ft)), ft ? komma(ft) : '0 ft', { groesse: 10.5, klasse: 'g-f-leise', anker: 'start' });
+  const band = (von, bis, klasseCss, deckkraft) => `<rect x="0" y="${r1(py(bis))}" width="334" height="${r1(Math.max(0, py(von) - py(bis)))}" class="${klasseCss}" opacity="${deckkraft}"/>`;
+  const fl = gebiet === 'alpen' ? 'FL 130' : 'FL 100';
+  const gText = `G · bis ${gebiet === 'flugplatz' ? '1000' : '2500'} ft über Grund`;
+  return svg(400, 300, `
+    <rect width="400" height="300" class="g-f-himmel"/>
+    ${band(g.cUnten, LR_ACHSE, 'g-f-primaer', 0.22)}
+    ${band(g.gOben, g.cUnten, 'g-f-primaer', 0.08)}
+    ${band(gelaende, g.gOben, 'g-f-weiss', 0.75)}
+    ${linie(0, r1(py(g.cUnten)), 334, r1(py(g.cUnten)), 'g-s-primaer', 1.6)}
+    ${linie(0, r1(py(g.gOben)), 334, r1(py(g.gOben)), 'g-s-primaer', 1.2, 'stroke-dasharray="6 4"')}
+    ${text(10, r1(py(g.cUnten) - 12), `C · ab ${fl} – Freigabe nötig`, { groesse: 12.5, gewicht: 800, klasse: 'g-f-primaer g-halo', anker: 'start' })}
+    ${text(10, r1((py(g.cUnten) + py(g.gOben)) / 2), 'E · kontrolliert, ohne Freigabe', { groesse: 12.5, gewicht: 700, klasse: 'g-f-primaer g-halo', anker: 'start' })}
+    ${py(g.gOben) < py(gelaende) - 26 ? text(10, r1(py(g.gOben) + 13), gText, { groesse: 12, gewicht: 700, klasse: 'g-f-text g-halo', anker: 'start' }) : ''}
+    ${motor ? `${linie(0, r1(py(tp)), 334, r1(py(tp)), 'g-s-orange', 1.4, 'stroke-dasharray="3 4"')}${text(330, r1(py(tp) + (Math.abs(py(hoehe) - py(tp) + 10) < 18 ? 13 : -9)), `Transponder ab ${komma(tp)} ft`, { groesse: 11, gewicht: 700, klasse: 'g-f-orange g-halo', anker: 'end' })}` : ''}
+    <rect x="0" y="${r1(py(gelaende))}" width="334" height="${r1(300 - py(gelaende))}" class="g-f-boden"/>
+    ${linie(0, r1(py(gelaende)), 334, r1(py(gelaende)), 'g-s-leise', 1)}
+    ${text(10, r1(Math.min(292, py(gelaende) + 12)), `Gelände ${komma(gelaende)} ft`, { groesse: 11.5, gewicht: 600, anker: 'start' })}
+    ${linie(334, 18, 334, 284, 'g-s-leise', 1)}
+    ${achse}
+    ${flugzeug(xFlug, r1(py(hoehe)), 90, 30, klasse === 'C' ? 'g-f-fehler' : 'g-f-primaer')}
+    ${text(xFlug + 22, r1(py(hoehe) - (Math.abs(py(hoehe) - py(tp)) < 14 && motor ? 10 : 0)), `${komma(hoehe)} ft · ${klasse}`, { groesse: 12.5, gewicht: 800, klasse: `${klasse === 'C' ? 'g-f-fehler' : 'g-f-primaer'} g-halo`, anker: 'start' })}
+  `, `Luftraumschnitt: Gelände ${gelaende} Fuß, Luftraum G bis ${g.gOben} Fuß, E bis ${g.cUnten} Fuß, darüber C. Dein Flugzeug in ${hoehe} Fuß im Luftraum ${klasse}`);
 }
 
 // ---------- Kontrollzone: VFR oder Sonder-VFR ----------
@@ -155,6 +214,48 @@ function halbkreisBild(kurs) {
 }
 
 export const interaktiv = {
+  luftraumcheck: {
+    titel: 'In welchem Luftraum bin ich?',
+    kurz: 'Stelle Gelände und Flughöhe ein – die App zeigt maßstäblich, ob du in G, E oder C bist und was dort gilt.',
+    symbol: 'stufen',
+    anleitung: 'Stelle das Gebiet, die Geländehöhe und deine Flughöhe ein. Die Grafik ist ein maßstäblicher Schnitt von 0 bis 14 000 ft: weiß Luftraum G, hellblau E, dunkler blau C. Darunter steht, ob du eine Freigabe, Funk oder einen Transponder brauchst und welche Sicht- und Wolkenwerte gelten.',
+    legende: [['primaer', 'Grenzen der Lufträume (gestrichelt: Obergrenze von G)'], ['orange', 'ab hier Transponder für Motorflugzeuge'], ['fehler', 'im Luftraum C: Freigabe nötig']],
+    probier: ['Gelände 500 ft: Bis zu welcher Höhe bist du im Luftraum G?', 'Schalte auf „Flugplatz mit IFR“: Wie tief beginnt jetzt E?', 'Steig mit dem Motorflugzeug auf 5500 ft: Brauchst du einen Transponder? Und mit dem Segelflugzeug?', 'Wähle „Alpen“: Bis zu welcher Flugfläche reicht E dort?'],
+    erstellen() {
+      const bild = buehne();
+      const werte = wertanzeige();
+      const hinweis = meldung();
+      const gebiet = umschalter({ name: 'Gebiet', optionen: [['normal', 'Flachland'], ['flugplatz', 'Flugplatz mit IFR'], ['alpen', 'Alpen']], wert: 'normal', beiAenderung: zeichnen });
+      const art = umschalter({ name: 'Luftfahrzeug', optionen: [['motor', 'Motorflugzeug'], ['segel', 'Segelflugzeug']], wert: 'motor', beiAenderung: zeichnen });
+      const gelaende = regler({ name: 'Gelände', min: 0, max: 6000, schritt: 100, wert: 600, format: (w) => `${komma(w)} ft MSL`, beiAenderung: zeichnen });
+      const hoehe = regler({ name: 'Flughöhe', min: 500, max: 13500, schritt: 100, wert: 2500, format: (w) => `${komma(w)} ft MSL`, beiAenderung: zeichnen });
+      function zeichnen() {
+        const h0 = Math.max(hoehe.wert, gelaende.wert + 300);
+        const klasse = luftraumAn(h0, gelaende.wert, gebiet.wert);
+        const regel = REGELN[klasse];
+        const motor = art.wert === 'motor';
+        const tp = transponderPflicht(h0, gelaende.wert, motor);
+        const m = vmcMinima(klasse, gelaende.wert, h0);
+        bild.zeichnen(luftraumBild(gelaende.wert, h0, gebiet.wert, motor));
+        werte.setzen([
+          { titel: 'Luftraum', wert: `${klasse}`, hinweis: regel.kontrolliert ? 'kontrolliert' : 'unkontrolliert' },
+          { titel: 'Freigabe', wert: regel.freigabe ? 'nötig' : 'nicht nötig', art: regel.freigabe ? 'schlecht' : 'gut' },
+          { titel: 'Funk', wert: regel.funk ? 'dauernd' : 'keine Pflicht' },
+          { titel: 'Transponder', wert: tp ? 'Pflicht' : motor ? 'noch nicht' : 'ausgenommen', hinweis: tp ? 'Code 7000 mit Höhe' : motor ? `ab ${komma(transponderAb(gelaende.wert))} ft` : 'Segelflugbetrieb', art: tp ? 'schlecht' : '' },
+          { titel: 'Flugsicht', wert: m.sicht },
+          { titel: 'Wolken', wert: m.abstand },
+        ]);
+        if (h0 - gelaende.wert < 500) hinweis.setzen('Unter 500 ft über Grund – das ist unter der Mindesthöhe (außer bei Start und Landung).', 'fehler');
+        else if (klasse === 'C') hinweis.setzen('Luftraum C: Für den Einflug brauchst du eine Freigabe der Flugverkehrskontrolle und dauernde Funkverbindung. Ohne Freigabe bleibst du darunter.', 'fehler');
+        else if (klasse === 'E') hinweis.setzen('Luftraum E ist kontrolliert – nach Sichtflugregeln fliegst du hier aber ohne Freigabe und ohne Funkpflicht.', '');
+        else hinweis.setzen('Luftraum G ist unkontrolliert. Achte auf die Sichtflugbedingungen und auf anderen Verkehr.', '');
+      }
+      zeichnen();
+      return h('div', {}, bild.el, bedienfeld(h('div', { class: 'breit' }, gebiet.el), h('div', { class: 'breit' }, art.el), gelaende.el, hoehe.el), werte.el, hinweis.el,
+        h('p', { class: 'interaktiv-erklaerung' }, 'Vereinfacht nach der Luftraumstruktur im Luftfahrthandbuch (AIP VFR, ENR 1-1): Flugflächen sind mit Standarddruck in Fuß umgerechnet (FL 100 ≈ 10 000 ft). Kontrollzonen (D), Luftraum D (nicht CTR), Nahverkehrsbereiche (C), RMZ und TMZ sind hier nicht dargestellt – ihre Grenzen stehen für jeden Ort auf der Luftfahrtkarte.'));
+    },
+  },
+
   vmc: {
     titel: 'Welche Sichtflugbedingungen gelten?',
     kurz: 'Wähle Luftraum, Gelände und Flughöhe – die App zeigt Flugsicht und Wolkenabstand.',

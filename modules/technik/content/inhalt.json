@@ -1,0 +1,213 @@
+{
+  "_hinweis": "Lerninhalte „Technik“ (Allgemeine Luftfahrzeugkunde). Grundlagen: Pilot’s Handbook of Aeronautical Knowledge der FAA, Kapitel 7 (Systeme) und 8 (Fluginstrumente), sowie Glider Flying Handbook, Kapitel 2 (gemeinfrei). Werte des Übungsflugzeugs MF-4 sind frei erfunden. Maßgeblich ist immer das Flughandbuch deines Musters. Frage-IDs nie ändern.",
+  "_geprueft": null,
+  "einleitung": "Was in deinem Luftfahrzeug steckt und wie es funktioniert: Zelle und Fahrwerk, Kolbenmotor, Kraftstoff und Vergaser, Propeller, Elektrik, die Instrumente am Staudrucksystem und die Kreiselinstrumente – und was beim Segelflugzeug anders ist.",
+  "kapitel": [
+    {
+      "id": "zelle",
+      "titel": "Zelle, Leitwerk und Fahrwerk",
+      "kurz": "Woraus ein Flugzeug besteht, welche Ruder es hat und wie es auf dem Boden rollt.",
+      "theorie": [
+        { "typ": "absatz", "text": "Ein Flugzeug besteht aus **Rumpf**, **Tragflächen**, **Leitwerk** und **Fahrwerk**. Im Rumpf sitzen die Insassen und die Steuerung; Flächen und Leitwerk sind daran befestigt. Gebaut wird aus Aluminium, Stahlrohr mit Bespannung, Holz – und heute oft aus **Faserverbund** (Glas- oder Kohlefaser)." },
+        { "typ": "einfach", "text": "Das Leitwerk wirkt wie die Federn an einem Pfeil: Die festen Flächen halten das Flugzeug auf geradem Kurs, die beweglichen Ruder lenken es." },
+        { "typ": "abbildung", "id": "bauteile" },
+        { "typ": "zwischentitel", "text": "Leitwerk und Ruder" },
+        { "typ": "liste", "punkte": ["**Höhenflosse und Seitenflosse** sind fest und stabilisieren.", "Das **Höhenruder** hebt oder senkt die Nase; Nase hoch heißt langsamer, Nase runter schneller. Manche Muster haben ein **Pendelruder** – die ganze Höhenflosse bewegt sich.", "Das **Seitenruder** (Pedale) steuert um die Hochachse und hilft, Kurven sauber zu fliegen.", "Die **Querruder** an den Flügelenden lassen das Flugzeug rollen.", "Eine **Trimmung** – oft eine kleine Klappe am Höhenruder – nimmt dir die Steuerkräfte ab.", "Leitwerksformen: normales Leitwerk, **T-Leitwerk** (Höhenflosse oben auf der Seitenflosse) und **V-Leitwerk** (zwei Flächen übernehmen Höhen- und Seitenruder)."] },
+        { "typ": "zwischentitel", "text": "Fahrwerk" },
+        { "typ": "absatz", "text": "Das Fahrwerk trägt das Flugzeug beim Rollen, Starten und Landen. Mit einem Rad unter dem Heck spricht man von **Spornradfahrwerk**, mit einem Rad unter der Nase von **Bugradfahrwerk**. Ein lenkbares Bug- oder Spornrad hilft beim Rollen; gebremst wird meist mit **Radbremsen** an den Haupträdern." },
+        { "typ": "merke", "text": "Die Grundlagen zu Achsen, Rudern und Stabilität findest du im Thema Aerodynamik. Hier geht es darum, **wo** die Bauteile sitzen und **wie** sie gebaut sind." }
+      ],
+      "kern": ["Rumpf, Tragflächen, Leitwerk, Fahrwerk.", "Höhenruder (Nase hoch/runter), Seitenruder (Pedale), Querruder (rollen), Trimmung (Kräfte abnehmen).", "Spornrad oder Bugrad; Radbremsen an den Haupträdern."],
+      "fragen": [
+        { "id": "te-ze-01", "typ": "auswahl", "frage": "Wozu dient die Trimmung?", "richtig": "Sie nimmt dir die Steuerkräfte ab", "falsch": ["Sie bremst das Flugzeug am Boden", "Sie verstellt die Propellerblätter", "Sie misst die Fahrt"], "erklaerung": "Mit der Trimmung – meist einer kleinen Klappe am Höhenruder – musst du die Steuerung nicht dauernd festhalten." },
+        { "id": "te-ze-02", "typ": "zuordnung", "frage": "Ordne das Ruder seiner Wirkung zu:", "paare": [["Höhenruder", "Nase hoch oder runter"], ["Querruder", "Rollen um die Längsachse"], ["Seitenruder", "Drehen um die Hochachse"]] },
+        { "id": "te-ze-03", "typ": "auswahl", "frage": "Was ist ein Spornradfahrwerk?", "richtig": "Zwei Haupträder vorn und ein kleines Rad unter dem Heck", "falsch": ["Ein Rad unter der Nase und zwei Haupträder", "Ein einziges Rad in der Mitte", "Schwimmer statt Rädern"], "erklaerung": "Beim Spornradfahrwerk sitzt das dritte Rad hinten; beim Bugradfahrwerk unter der Nase." },
+        { "id": "te-ze-04", "typ": "wahrfalsch", "aussage": "Beim V-Leitwerk übernehmen zwei schräge Flächen die Aufgaben von Höhen- und Seitenruder.", "richtig": true, "erklaerung": "Die beiden Flächen bewegen sich gemeinsam (Höhenruder) oder gegensinnig (Seitenruder)." },
+        { "id": "te-ze-05", "typ": "auswahl", "frage": "Was passiert, wenn du die Nase mit dem Höhenruder senkst?", "richtig": "Das Flugzeug wird schneller", "falsch": ["Das Flugzeug wird langsamer", "Das Flugzeug rollt nach rechts", "Es ändert sich nichts"], "erklaerung": "Nase runter – die Fahrt nimmt zu. Nase hoch – die Fahrt nimmt ab." },
+        { "id": "te-ze-06", "typ": "auswahl", "frage": "Was ist ein Pendelruder?", "richtig": "Eine Höhenflosse, die sich als Ganzes bewegt", "falsch": ["Ein Seitenruder mit Gewicht", "Ein Querruder, das beidseitig ausschlägt", "Eine Bremsklappe am Rumpf"], "erklaerung": "Beim Pendelruder ist die ganze Höhenleitwerksfläche beweglich." }
+      ]
+    },
+    {
+      "id": "motor",
+      "titel": "Der Kolbenmotor",
+      "kurz": "Vier Takte, zwei Zündanlagen, Magnetcheck und warum der Propeller immer „scharf“ ist.",
+      "theorie": [
+        { "typ": "absatz", "text": "Die meisten kleinen Flugzeuge haben einen **Kolbenmotor**. Häufig liegen die Zylinder einander gegenüber (**Boxermotor**): Er ist flach, hat wenig Stirnfläche und wird meist mit Luft gekühlt. Im Zylinder wird Kraftstoff verbrannt, der Druck schiebt den Kolben, und die Kurbelwelle dreht den Propeller." },
+        { "typ": "einfach", "text": "Wie beim Fahrradfahren: Die Beine drücken nacheinander auf die Pedale, die Kurbel macht daraus eine Drehung. Im Motor drücken die Kolben – angetrieben von kleinen Explosionen." },
+        { "typ": "zwischentitel", "text": "Die vier Takte" },
+        { "typ": "animation", "id": "viertakt" },
+        { "typ": "liste", "punkte": ["**Ansaugen:** Der Kolben geht nach unten, das Einlassventil ist offen – Kraftstoff-Luft-Gemisch strömt ein.", "**Verdichten:** Das Einlassventil schließt, der Kolben drückt das Gemisch zusammen.", "**Arbeiten:** Die Zündkerzen zünden, der Druck treibt den Kolben nach unten – das ist der Takt, der Kraft liefert.", "**Ausstoßen:** Das Auslassventil öffnet, der Kolben schiebt die Abgase hinaus."] },
+        { "typ": "absatz", "text": "Für die vier Takte dreht sich die Kurbelwelle **zweimal**. Ein **Zweitaktmotor** schafft alles in einer Umdrehung: Er hat einen Arbeitstakt pro Umdrehung und ist leichter für die gleiche Leistung." },
+        { "typ": "zwischentitel", "text": "Zündung: zwei Magnete" },
+        { "typ": "absatz", "text": "Zugelassene Flugmotoren haben meist eine **Doppelzündung**: zwei **Magnete**, getrennte Kabel und **zwei Zündkerzen pro Zylinder**. Jeder Magnet zündet eine Kerze je Zylinder. Fällt ein Magnet aus, läuft der Motor mit dem anderen weiter – mit etwas weniger Leistung. Magnete erzeugen ihren Strom selbst – **unabhängig vom Bordnetz**." },
+        { "typ": "abbildung", "id": "zuendung" },
+        { "typ": "absatz", "text": "Beim **Magnetcheck** vor dem Start schaltest du von BEIDE auf RECHTS und von BEIDE auf LINKS. Ein **kleiner Drehzahlabfall ist normal** (der zulässige Wert steht im Flughandbuch). Fällt die Drehzahl zu stark ab oder geht der Motor aus, fliegst du nicht. Auch **gar kein Abfall** ist **nicht normal** – dann fliegst du ebenfalls nicht." },
+        { "typ": "achtung", "text": "Behandle jeden Propeller als **„scharf“**. Bleibt die Zündung eingeschaltet oder ist das Massekabel eines Magneten unterbrochen, kann der Motor anspringen, wenn jemand den Propeller bewegt – auch bei ausgeschaltetem Hauptschalter." },
+        { "typ": "zwischentitel", "text": "Öl und Temperatur" },
+        { "typ": "absatz", "text": "Das **Öl** schmiert die Teile, kühlt, dichtet zwischen Kolben und Zylinder ab und nimmt Schmutz mit. Der **Öldruckmesser** zeigt den Normalbereich grün, die Grenzen rot. Zu hohe Temperaturen und Druck im Zylinder führen zum **Klopfen** (Detonation): Das Gemisch verbrennt explosionsartig – etwa durch Kraftstoff mit zu niedriger Klopffestigkeit oder ein zu mageres Gemisch bei hoher Leistung. **Frühzündung** ist eine Entzündung vor dem Zündfunken, meist durch eine glühende Stelle. Beides kann den Motor schwer beschädigen." }
+      ],
+      "kern": ["Ansaugen, Verdichten, Arbeiten, Ausstoßen – zwei Umdrehungen.", "Doppelzündung mit zwei Magneten, unabhängig vom Bordnetz; Magnetcheck: kleiner Abfall normal, kein Abfall nicht normal.", "Propeller ist immer „scharf“."],
+      "fragen": [
+        { "id": "te-mo-01", "typ": "auswahl", "frage": "In welchem Takt liefert der Motor Kraft?", "richtig": "Im Arbeitstakt", "falsch": ["Im Ansaugtakt", "Im Verdichtungstakt", "Im Ausstoßtakt"], "erklaerung": "Nach der Zündung drückt der Verbrennungsdruck den Kolben nach unten – das ist der Arbeitstakt." },
+        { "id": "te-mo-02", "typ": "zuordnung", "frage": "Bring die Takte in die richtige Reihenfolge:", "paare": [["1.", "Ansaugen"], ["2.", "Verdichten"], ["3.", "Arbeiten"], ["4.", "Ausstoßen"]] },
+        { "id": "te-mo-03", "typ": "wahrfalsch", "aussage": "Die Magnetzündung braucht den Strom aus der Batterie.", "richtig": false, "erklaerung": "Magnete erzeugen ihren Zündstrom selbst – der Motor läuft auch bei ausgefallenem Bordnetz weiter." },
+        { "id": "te-mo-04", "typ": "auswahl", "frage": "Beim Magnetcheck fällt die Drehzahl beim Umschalten auf einen Magneten überhaupt nicht ab. Was bedeutet das?", "richtig": "Das ist nicht normal – nicht fliegen", "falsch": ["Der Motor ist besonders gut eingestellt", "Das ist bei kaltem Motor normal", "Du musst einfach länger warten"], "erklaerung": "Ein kleiner Abfall ist normal. Gar kein Abfall deutet auf einen Fehler in der Zündanlage hin – nicht fliegen." },
+        { "id": "te-mo-05", "typ": "auswahl", "frage": "Warum haben Flugmotoren zwei Zündkerzen pro Zylinder?", "richtig": "Fällt ein Magnet aus, läuft der Motor mit dem anderen weiter", "falsch": ["Damit der Motor doppelt so schnell dreht", "Damit er ohne Kraftstoff läuft", "Damit er leiser ist"], "erklaerung": "Zwei unabhängige Zündkreise erhöhen die Zuverlässigkeit und verbessern die Verbrennung." },
+        { "id": "te-mo-06", "typ": "wahrfalsch", "aussage": "Bei ausgeschaltetem Hauptschalter kann ein Motor nicht anspringen, wenn man den Propeller dreht.", "richtig": false, "erklaerung": "Ist die Zündung an oder das Massekabel unterbrochen, kann der Motor anspringen – die Magnete brauchen kein Bordnetz." },
+        { "id": "te-mo-07", "typ": "auswahl", "frage": "Was kann Klopfen (Detonation) auslösen?", "richtig": "Kraftstoff mit zu niedriger Klopffestigkeit", "falsch": ["Zu viel Öl im Motor", "Eine zu niedrige Leistung im Leerlauf", "Kalte Außenluft"], "erklaerung": "Klopfen entsteht unter anderem durch zu schlechten Kraftstoff, zu mageres Gemisch bei hoher Leistung und Überhitzung." },
+        { "id": "te-mo-08", "typ": "auswahl", "frage": "Wie viele Umdrehungen macht die Kurbelwelle für alle vier Takte?", "richtig": "Zwei", "falsch": ["Eine", "Vier", "Eine halbe"], "erklaerung": "Jeder Takt ist ein Kolbenhub, also eine halbe Umdrehung – zusammen zwei Umdrehungen." }
+      ]
+    },
+    {
+      "id": "kraftstoff",
+      "titel": "Kraftstoff, Gemisch und Vergaser",
+      "kurz": "AVGAS und Kerosin, Kraftstoffsystem, Gemisch in der Höhe und Vergaservereisung.",
+      "theorie": [
+        { "typ": "absatz", "text": "Kolbenmotoren tanken **Flugbenzin (AVGAS)**. Die Zahl gibt die Klopffestigkeit an; **AVGAS 100LL** („low lead“, bleiarm) ist **blau** eingefärbt. **Jet A-1** ist Kerosin für Turbinen – es riecht nach Petroleum. Der falsche Kraftstoff kann den Motor zerstören; nimm nur, was im Flughandbuch steht." },
+        { "typ": "einfach", "text": "Kraftstoff ist wie das Essen für den Motor: Nicht jede Sorte bekommt ihm, und ein Tropfen Wasser im Tank ist wie ein Stein im Magen." },
+        { "typ": "zwischentitel", "text": "Das Kraftstoffsystem" },
+        { "typ": "abbildung", "id": "kraftstoffsystem" },
+        { "typ": "liste", "punkte": ["Bei **Hochdeckern** liegen die Tanks über dem Motor: Der Kraftstoff fließt durch die **Schwerkraft** (Fallbenzin).", "Bei **Tiefdeckern** fördert eine **Pumpe** – meist mit einer **elektrischen Zusatzpumpe** für den Start und als Reserve.", "Mit dem **Tankwahlschalter** wählst du LINKS, RECHTS, BEIDE oder AUS.", "Die Tanks sind **belüftet**; eine verstopfte Belüftung kann die Kraftstoffzufuhr stoppen.", "Vor jedem Flug **entwässerst** du Tanks und Filter und prüfst die Probe auf **Wasser und Schmutz** – Wasser ist schwerer und sammelt sich unten.", "Tankanzeigen müssen nur bei „leer“ genau sein. Prüfe den Vorrat auch selbst."] },
+        { "typ": "zwischentitel", "text": "Das Gemisch" },
+        { "typ": "absatz", "text": "Mit der Höhe wird die Luft dünner, das Gemisch also **reicher**. Mit dem **Gemischregler** magerst du in der Höhe ab (weniger Kraftstoff). Im Sinkflug musst du wieder **anreichern**, sonst wird es zu mager – das führt zu Klopfen, unruhigem Lauf und Überhitzung. Wie genau, steht im Flughandbuch." },
+        { "typ": "zwischentitel", "text": "Vergaservereisung" },
+        { "typ": "absatz", "text": "Im **Vergaser** strömt die Luft durch eine Engstelle (Venturi). Unterdruck und verdunstender Kraftstoff kühlen sie stark ab – um bis zu etwa 38 °C. Ist die Luft feucht, bildet sich **Eis an der Drosselklappe**. Am wahrscheinlichsten ist das **unter etwa 21 °C bei mehr als 80 % relativer Feuchte** – möglich aber **bis 38 °C** und schon ab **50 %** Feuchte." },
+        { "typ": "interaktiv", "id": "vergaser" },
+        { "typ": "animation", "id": "vergaservereisung" },
+        { "typ": "liste", "punkte": ["Erstes Anzeichen beim **Festpropeller**: **Drehzahl fällt**, später läuft der Motor rau.", "Beim **Verstellpropeller**: der **Ladedruck fällt**, die Drehzahl bleibt.", "Abhilfe: **Vergaservorwärmung** voll ziehen. Sie kostet bis zu etwa **15 % Leistung** und macht das Gemisch reicher.", "War Eis da, **fällt die Drehzahl erst weiter** – dann **steigt sie**, wenn das Eis schmilzt."] },
+        { "typ": "merke", "text": "Eine **Einspritzanlage** vereist weniger leicht als ein Vergaser. Aber auch dort kann Eis von außen den Lufteinlass verstopfen." }
+      ],
+      "kern": ["AVGAS 100LL ist blau, Jet A-1 ist Kerosin – nur der Kraftstoff laut Flughandbuch.", "Vor jedem Flug entwässern und auf Wasser prüfen; Gemisch in der Höhe abmagern.", "Vergaservereisung bis 38 °C möglich: Drehzahl fällt – Vergaservorwärmung, Drehzahl fällt erst weiter, dann steigt sie."],
+      "fragen": [
+        { "id": "te-kr-01", "typ": "auswahl", "frage": "Welche Farbe hat AVGAS 100LL?", "richtig": "Blau", "falsch": ["Rot", "Farblos", "Grün"], "erklaerung": "AVGAS 100LL ist zur Unterscheidung blau eingefärbt." },
+        { "id": "te-kr-02", "typ": "wahrfalsch", "aussage": "Vergaservereisung kann auch bei 25 °C Außentemperatur auftreten.", "richtig": true, "erklaerung": "Im Vergaser kühlt die Luft stark ab. Bei feuchter Luft ist Vereisung bis etwa 38 °C möglich." },
+        { "id": "te-kr-03", "typ": "auswahl", "frage": "Woran merkst du Vergaservereisung bei einem Festpropeller zuerst?", "richtig": "Die Drehzahl fällt", "falsch": ["Der Öldruck steigt", "Die Tankanzeige fällt", "Der Fahrtmesser zeigt 0"], "erklaerung": "Eis verengt den Vergaser, der Motor bekommt weniger Gemisch – die Drehzahl fällt, später läuft er rau." },
+        { "id": "te-kr-04", "typ": "auswahl", "frage": "Du ziehst bei Vereisung die Vergaservorwärmung. Was zeigt der Drehzahlmesser?", "richtig": "Erst fällt die Drehzahl weiter, dann steigt sie, wenn das Eis schmilzt", "falsch": ["Die Drehzahl steigt sofort stark an", "Die Drehzahl bleibt völlig gleich", "Der Motor geht sofort aus"], "erklaerung": "Warme Luft ist weniger dicht, und das Schmelzwasser geht durch den Motor – erst sinkt die Drehzahl, dann erholt sie sich." },
+        { "id": "te-kr-05", "typ": "auswahl", "frage": "Warum entwässerst du vor dem Flug die Tanks?", "richtig": "Um Wasser und Schmutz zu finden, die sich unten sammeln", "falsch": ["Um den Tank zu kühlen", "Um den Kraftstoffverbrauch zu messen", "Um den Motor vorzuwärmen"], "erklaerung": "Wasser ist schwerer als Kraftstoff und sammelt sich unten. Bei Kälte kann es gefrieren und Leitungen verstopfen." },
+        { "id": "te-kr-06", "typ": "auswahl", "frage": "Was machst du mit dem Gemisch, wenn du in große Höhe steigst?", "richtig": "Abmagern – weniger Kraftstoff", "falsch": ["Anreichern – mehr Kraftstoff", "Nichts", "Auf Abstellen stellen"], "erklaerung": "Die Luft wird dünner, das Gemisch also zu reich. Mit dem Gemischregler magerst du ab." },
+        { "id": "te-kr-07", "typ": "wahrfalsch", "aussage": "Tankanzeigen müssen nach den Zulassungsregeln über den ganzen Bereich genau sein.", "richtig": false, "erklaerung": "Genau sein müssen sie nur bei „leer“. Prüfe den Vorrat deshalb auch selbst." },
+        { "id": "te-kr-08", "typ": "generator", "generator": "vergaser" }
+      ]
+    },
+    {
+      "id": "propeller",
+      "titel": "Propeller",
+      "kurz": "Warum das Blatt verdreht ist und was Fest- und Verstellpropeller unterscheidet.",
+      "theorie": [
+        { "typ": "absatz", "text": "Ein Propellerblatt ist ein **gedrehter Flügel**: Es erzeugt Vortrieb wie ein Flügel Auftrieb. Das Blatt ist **verwunden** – innen an der Nabe steht es steiler, außen an der Spitze flacher. Der Grund: Die Spitze bewegt sich viel schneller als die Nabe. So arbeitet das Blatt über die ganze Länge gleichmäßig." },
+        { "typ": "einfach", "text": "Wie bei einem Karussell: Wer außen sitzt, legt in derselben Zeit einen viel längeren Weg zurück als jemand in der Mitte. Deshalb braucht die Blattspitze einen flacheren Winkel." },
+        { "typ": "abbildung", "id": "propellerblatt" },
+        { "typ": "zwischentitel", "text": "Festpropeller und Verstellpropeller" },
+        { "typ": "liste", "punkte": ["Beim **Festpropeller** ist der Blattwinkel fest eingestellt – ein Kompromiss, der weder für den Steigflug noch für den Reiseflug ideal ist. Mit dem Gashebel regelst du die **Drehzahl**.", "Beim **Verstellpropeller** (Constant Speed) stellst du mit dem Propellerhebel die **Drehzahl** ein; ein Regler verstellt den Blattwinkel so, dass sie gleich bleibt. Mit dem Gashebel regelst du den **Ladedruck**, den der Ladedruckmesser anzeigt.", "Steigt die Fahrt, wird der Blattwinkel beim Verstellpropeller größer – sinkt sie, wird er kleiner."] },
+        { "typ": "achtung", "text": "Vor dem Anlassen: Niemand im Bereich des Propellers, Bremsen gezogen oder Räder blockiert, und kein Kies oder Staub, den der Propeller aufwirbelt." }
+      ],
+      "kern": ["Propellerblatt ist verwunden: innen steil, außen flach.", "Festpropeller: Gas regelt die Drehzahl.", "Verstellpropeller: Propellerhebel regelt die Drehzahl, Gas den Ladedruck."],
+      "fragen": [
+        { "id": "te-pr-01", "typ": "auswahl", "frage": "Warum ist ein Propellerblatt verwunden?", "richtig": "Weil sich die Spitze schneller bewegt als die Nabe", "falsch": ["Damit es leichter ist", "Damit es leiser ist", "Damit es sich nicht verbiegt"], "erklaerung": "Die Spitze legt pro Umdrehung den längsten Weg zurück. Mit flacherem Winkel arbeitet das Blatt über die ganze Länge gleichmäßig." },
+        { "id": "te-pr-02", "typ": "auswahl", "frage": "Was regelst du bei einem Verstellpropeller mit dem Propellerhebel?", "richtig": "Die Drehzahl", "falsch": ["Den Ladedruck", "Das Gemisch", "Die Vergaservorwärmung"], "erklaerung": "Der Propellerhebel stellt die Drehzahl ein, der Regler hält sie durch Verstellen des Blattwinkels." },
+        { "id": "te-pr-03", "typ": "auswahl", "frage": "Welches Instrument zeigt beim Verstellpropeller die Leistung an, die du mit dem Gashebel einstellst?", "richtig": "Der Ladedruckmesser", "falsch": ["Der Drehzahlmesser", "Das Variometer", "Der Öldruckmesser"], "erklaerung": "Beim Verstellpropeller bleibt die Drehzahl gleich; die Leistung siehst du am Ladedruck." },
+        { "id": "te-pr-04", "typ": "wahrfalsch", "aussage": "Ein Festpropeller ist im Steigflug und im Reiseflug gleich gut.", "richtig": false, "erklaerung": "Er ist ein Kompromiss – für keinen der beiden Fälle ideal." },
+        { "id": "te-pr-05", "typ": "auswahl", "frage": "Was prüfst du direkt vor dem Anlassen des Motors?", "richtig": "Dass niemand im Bereich des Propellers ist", "falsch": ["Den Kompass", "Die Funkfrequenz für den Endanflug", "Das Höhenruder auf volle Ausschläge"], "erklaerung": "Eine der wichtigsten Sicherheitsregeln: Propellerbereich frei, Bremsen gezogen." },
+        { "id": "te-pr-06", "typ": "auswahl", "frage": "Die Fahrt nimmt zu. Wie reagiert der Regler eines Verstellpropellers?", "richtig": "Er vergrößert den Blattwinkel, damit die Drehzahl gleich bleibt", "falsch": ["Er verkleinert den Blattwinkel", "Er stellt den Motor ab", "Er erhöht den Ladedruck"], "erklaerung": "Mehr Fahrt würde die Drehzahl erhöhen. Ein größerer Blattwinkel belastet den Propeller stärker und hält die Drehzahl." }
+      ]
+    },
+    {
+      "id": "elektrik",
+      "titel": "Elektrik und Bordsysteme",
+      "kurz": "Batterie, Lichtmaschine, Sicherungen, Amperemeter – und die Heizung.",
+      "theorie": [
+        { "typ": "absatz", "text": "Die meisten Flugzeuge haben ein **Gleichstrom-Bordnetz mit 14 oder 28 Volt**. Die **Lichtmaschine** (Generator) wird vom Motor angetrieben, versorgt die Verbraucher und lädt die **Batterie**. Die Batterie liefert den Strom zum Anlassen und eine begrenzte Reserve, falls die Lichtmaschine ausfällt." },
+        { "typ": "einfach", "text": "Wie beim Auto: Die Batterie startet den Motor, danach liefert die Lichtmaschine den Strom. Fällt sie aus, hält die Batterie nur eine Weile durch." },
+        { "typ": "liste", "punkte": ["Der **Hauptschalter** schaltet Batterie und Lichtmaschine (oft zwei Hälften).", "**Sicherungen** und **Sicherungsautomaten** schützen die Leitungen bei Überlast. Ein Automat lässt sich wieder eindrücken. Springt er erneut heraus, liegt ein Fehler vor – lass ihn draußen und halte dich an das Flughandbuch.", "Das **Amperemeter** zeigt in der Mitte null: **Plus** heißt, die Batterie wird geladen. **Minus** heißt, es wird mehr Strom verbraucht als erzeugt. Voll im Minus: Lichtmaschine defekt; voll im Plus: Regler defekt.", "Manche Flugzeuge haben statt Amperemeter einen **Lastmesser** oder eine **Warnlampe** für die Lichtmaschine."] },
+        { "typ": "achtung", "text": "Die **Kabinenheizung** wird meist mit der Wärme des Auspuffs betrieben. Ein Riss im Auspuff kann **Kohlenmonoxid** in die Kabine bringen – geruchlos, farblos und tödlich." },
+        { "typ": "merke", "text": "Fällt das Bordnetz aus, läuft der Motor weiter – die Magnetzündung braucht keinen Strom. Funk, Transponder und elektrische Instrumente fallen aber aus. Dann: unnötige Verbraucher aus und bald landen." }
+      ],
+      "kern": ["14 oder 28 V Gleichstrom; Lichtmaschine versorgt und lädt, Batterie startet.", "Amperemeter: Plus = Laden, Minus = Entladen.", "Heizung über den Auspuff – Gefahr durch Kohlenmonoxid."],
+      "fragen": [
+        { "id": "te-el-01", "typ": "auswahl", "frage": "Das Amperemeter zeigt dauerhaft ins Minus. Was bedeutet das?", "richtig": "Es wird mehr Strom verbraucht, als die Lichtmaschine liefert", "falsch": ["Die Batterie ist voll geladen", "Der Motor läuft zu schnell", "Alles ist normal"], "erklaerung": "Minus heißt Entladen. Voll im Minus deutet auf eine ausgefallene Lichtmaschine hin." },
+        { "id": "te-el-02", "typ": "wahrfalsch", "aussage": "Fällt die Lichtmaschine aus, geht nach kurzer Zeit auch der Motor aus.", "richtig": false, "erklaerung": "Der Motor läuft weiter – die Magnetzündung ist unabhängig. Funk und elektrische Instrumente leben dann von der Batterie." },
+        { "id": "te-el-03", "typ": "auswahl", "frage": "Welche Spannung haben die Bordnetze der meisten Kleinflugzeuge?", "richtig": "14 oder 28 Volt Gleichstrom", "falsch": ["230 Volt Wechselstrom", "5 Volt Gleichstrom", "400 Volt Drehstrom"], "erklaerung": "Üblich sind 14- oder 28-Volt-Gleichstromsysteme." },
+        { "id": "te-el-04", "typ": "auswahl", "frage": "Wozu dient die Batterie im Flug vor allem?", "richtig": "Als begrenzte Reserve, wenn die Lichtmaschine ausfällt", "falsch": ["Um die Zündung zu versorgen", "Um den Propeller anzutreiben", "Um den Kraftstoff zu heizen"], "erklaerung": "Die Batterie startet den Motor und überbrückt eine begrenzte Zeit bei Ausfall der Lichtmaschine." },
+        { "id": "te-el-05", "typ": "wahrfalsch", "aussage": "Kohlenmonoxid aus der Heizung erkennst du am Geruch.", "richtig": false, "erklaerung": "Kohlenmonoxid ist geruch- und farblos. Ein CO-Warner hilft." },
+        { "id": "te-el-06", "typ": "auswahl", "frage": "Ein Sicherungsautomat springt heraus. Was ist sinnvoll?", "richtig": "Nach Flughandbuch vorgehen – springt er erneut heraus, draußen lassen", "falsch": ["Festhalten, damit er drin bleibt", "Immer wieder eindrücken, bis er hält", "Mit Klebeband sichern"], "erklaerung": "Ein auslösender Automat zeigt eine Überlast oder einen Kurzschluss. Wiederholtes Eindrücken kann einen Brand verursachen." }
+      ]
+    },
+    {
+      "id": "staudruck",
+      "titel": "Fahrtmesser, Höhenmesser und Variometer",
+      "kurz": "Staurohr und statische Öffnung, die Farbbögen am Fahrtmesser und was bei Verstopfung passiert.",
+      "theorie": [
+        { "typ": "absatz", "text": "Drei Instrumente hängen am **Staudrucksystem**: Das **Staurohr** misst den Gesamtdruck der anströmenden Luft, die **statische Öffnung** den Luftdruck der Umgebung. Der **Fahrtmesser** vergleicht beide, der **Höhenmesser** und das **Variometer** brauchen nur den statischen Druck." },
+        { "typ": "einfach", "text": "Halte die Hand aus dem fahrenden Auto: Je schneller du fährst, desto stärker drückt die Luft. Genau diesen Druck misst das Staurohr – der Fahrtmesser macht daraus eine Geschwindigkeit." },
+        { "typ": "abbildung", "id": "pitotstatik" },
+        { "typ": "zwischentitel", "text": "Die Farbbögen am Fahrtmesser" },
+        { "typ": "interaktiv", "id": "fahrtmesser" },
+        { "typ": "tabelle", "kopf": ["Markierung", "Bedeutung"], "zeilen": [["**weißer Bogen**", "Bereich für ausgefahrene Landeklappen: unten **VS0** (Überziehgeschwindigkeit in Landekonfiguration), oben **VFE** (höchste Geschwindigkeit mit Klappen)"], ["**grüner Bogen**", "normaler Betriebsbereich: unten **VS1** (Überziehgeschwindigkeit ohne Klappen), oben **VNO** (höchste Reisegeschwindigkeit – darüber nur in ruhiger Luft)"], ["**gelber Bogen**", "Vorsichtsbereich – nur in ruhiger Luft und mit Vorsicht"], ["**roter Strich**", "**VNE** – darf nie überschritten werden"]] },
+        { "typ": "absatz", "text": "Die **Manövergeschwindigkeit VA** ist nicht markiert – sie steht im Flughandbuch und auf Schildern im Cockpit. Oberhalb von VA können volle Ruderausschläge oder starke Böen die Struktur überlasten. VA hängt von der Masse ab." },
+        { "typ": "zwischentitel", "text": "Wenn etwas verstopft ist" },
+        { "typ": "interaktiv", "id": "staudruck" },
+        { "typ": "liste", "punkte": ["**Staurohr verstopft, Ablauf offen:** Der Fahrtmesser fällt auf **null**.", "**Staurohr und Ablauf verstopft:** Der Fahrtmesser reagiert nicht mehr auf die Fahrt – er wirkt wie ein **Höhenmesser**: beim Steigen mehr, beim Sinken weniger.", "**Statische Öffnung verstopft:** Der **Höhenmesser bleibt stehen**, das **Variometer zeigt null**. Der Fahrtmesser zeigt beim Steigen **zu wenig**, beim Sinken **zu viel**.", "**Ersatz-Druckquelle** in der Kabine: Der Druck dort ist etwas geringer – Höhenmesser und Fahrtmesser zeigen **etwas zu viel**, das Variometer kurz ein Steigen."] },
+        { "typ": "merke", "text": "Vor dem Flug: **Schutzhülle vom Staurohr** abnehmen und Staurohr und statische Öffnungen auf Schmutz, Insekten oder Eis prüfen. Das Variometer zeigt eine Änderung sofort an (Tendenz), den genauen Wert aber erst nach **6 bis 9 Sekunden**." }
+      ],
+      "kern": ["Staurohr: Gesamtdruck; statische Öffnung: Umgebungsdruck.", "Weiß = Klappenbereich, Grün = normal, Gelb = Vorsicht, Rot = VNE.", "Statisch verstopft: Höhenmesser steht, Vario null; Staurohr und Ablauf zu: Fahrtmesser wie ein Höhenmesser."],
+      "fragen": [
+        { "id": "te-st-01", "typ": "auswahl", "frage": "Welches Instrument braucht den Druck aus dem Staurohr?", "richtig": "Der Fahrtmesser", "falsch": ["Der Höhenmesser", "Das Variometer", "Der Kompass"], "erklaerung": "Nur der Fahrtmesser vergleicht Gesamt- und statischen Druck. Höhenmesser und Variometer nutzen nur den statischen Druck." },
+        { "id": "te-st-02", "typ": "auswahl", "frage": "Was bedeutet der rote Strich am Fahrtmesser?", "richtig": "VNE – diese Geschwindigkeit darf nie überschritten werden", "falsch": ["Die Überziehgeschwindigkeit", "Die beste Gleitgeschwindigkeit", "Die höchste Geschwindigkeit mit Klappen"], "erklaerung": "VNE (never exceed) ist der rote Strich." },
+        { "id": "te-st-03", "typ": "auswahl", "frage": "Die statische Öffnung ist zugefroren. Was zeigt der Höhenmesser beim Steigen?", "richtig": "Er bleibt auf der Höhe stehen, in der die Öffnung zufror", "falsch": ["Er zeigt zu viel an", "Er dreht sich sehr schnell", "Er zeigt null"], "erklaerung": "Der eingeschlossene Druck ändert sich nicht – der Höhenmesser friert ein, das Variometer zeigt null." },
+        { "id": "te-st-04", "typ": "auswahl", "frage": "Staurohr und Ablauf sind verstopft. Du steigst. Was zeigt der Fahrtmesser?", "richtig": "Er zeigt immer mehr an – obwohl du nicht schneller wirst", "falsch": ["Er fällt auf null", "Er bleibt genau gleich", "Er zeigt die richtige Fahrt"], "erklaerung": "Der Druck im Staurohr ist eingeschlossen, der statische Druck sinkt beim Steigen – der Unterschied wächst. Der Fahrtmesser verhält sich wie ein Höhenmesser." },
+        { "id": "te-st-05", "typ": "wahrfalsch", "aussage": "Die Manövergeschwindigkeit VA ist am Fahrtmesser als Bogen markiert.", "richtig": false, "erklaerung": "VA ist nicht markiert. Sie steht im Flughandbuch und auf Schildern." },
+        { "id": "te-st-06", "typ": "auswahl", "frage": "Du schaltest auf die Ersatz-Druckquelle in der Kabine. Was zeigt der Höhenmesser?", "richtig": "Etwas mehr Höhe als tatsächlich", "falsch": ["Etwas weniger Höhe", "Genau die richtige Höhe", "Null"], "erklaerung": "Der Druck in der Kabine ist durch die Umströmung etwas geringer – das wirkt wie mehr Höhe." },
+        { "id": "te-st-07", "typ": "zahl", "frage": "Nach wie vielen Sekunden zeigt das Variometer nach einer Änderung etwa den genauen Wert? Nenne die obere Grenze.", "loesung": 9, "toleranz": 0, "einheit": "s", "erklaerung": "Die Tendenz kommt sofort, der genaue Wert nach etwa 6 bis 9 Sekunden (PHAK)." },
+        { "id": "te-st-08", "typ": "generator", "generator": "fahrtbogen" },
+        { "id": "te-st-09", "typ": "generator", "generator": "verstopfung" }
+      ]
+    },
+    {
+      "id": "kreisel",
+      "titel": "Kreiselinstrumente",
+      "kurz": "Künstlicher Horizont, Kurskreisel und Wendezeiger – und was sie antreibt.",
+      "theorie": [
+        { "typ": "absatz", "text": "Ein schnell drehender **Kreisel** hat zwei wichtige Eigenschaften: Er behält seine Lage im Raum bei (**Raumfestigkeit**) – und wenn man ihn doch kippt, weicht er seitlich aus (**Präzession**). Diese Eigenschaften nutzen drei Instrumente." },
+        { "typ": "einfach", "text": "Ein Fahrrad fällt im Stand sofort um – fährt es, bleibt es aufrecht. Die drehenden Räder wirken wie Kreisel." },
+        { "typ": "liste", "punkte": ["Der **künstliche Horizont** (Fluglageanzeiger) nutzt die Raumfestigkeit: Der Horizontbalken bleibt waagerecht, das Flugzeug dreht sich um den Kreisel. Er zeigt sofort jede Lageänderung.", "Der **Kurskreisel** zeigt die Flugrichtung ruhig und ohne die Fehler des Magnetkompasses. Er **wandert** aber mit der Zeit: Etwa **alle 15 Minuten** stellst du ihn im ruhigen Geradeausflug nach dem **Kompass** nach.", "Der **Wendezeiger** zeigt, wie schnell und in welche Richtung du drehst. Die Marke für die **Standardkurve** bedeutet **3° pro Sekunde** – ein Vollkreis in zwei Minuten. Die Querneigung zeigt er nicht.", "Die **Libelle** (Kugel) zeigt, ob du sauber fliegst: Kugel in der Mitte – koordiniert."] },
+        { "typ": "absatz", "text": "Angetrieben werden die Kreisel elektrisch oder durch Unterdruck. Eine **Unterdruckpumpe** am Motor saugt Luft durch die Instrumente; üblich sind etwa **4,5 bis 5,5 Zoll Quecksilbersäule**. Ist der Unterdruck zu gering, werden Horizont und Kurskreisel ungenau. Meist gibt es **zwei Energiequellen**, damit wenigstens eine Querneigungsanzeige übrig bleibt." },
+        { "typ": "merke", "text": "Moderne Cockpits zeigen die Fluglage auf Bildschirmen (Glascockpit). Die Daten kommen dann von einem **Lage- und Kursreferenzsystem (AHRS)** statt von mechanischen Kreiseln. Die Fehler des Magnetkompasses findest du im Thema Navigation." }
+      ],
+      "kern": ["Raumfestigkeit und Präzession.", "Kurskreisel etwa alle 15 Minuten nach dem Kompass nachstellen.", "Standardkurve: 3° pro Sekunde; Libelle in der Mitte = koordiniert."],
+      "fragen": [
+        { "id": "te-kz-01", "typ": "auswahl", "frage": "Wie oft stellst du den Kurskreisel ungefähr nach dem Magnetkompass nach?", "richtig": "Etwa alle 15 Minuten", "falsch": ["Nur einmal vor dem Start", "Jede Minute", "Nie, er wandert nicht"], "erklaerung": "Der Kurskreisel wandert durch Reibung und Präzession. Etwa alle 15 Minuten im ruhigen Geradeausflug nachstellen." },
+        { "id": "te-kz-02", "typ": "zahl", "frage": "Mit wie vielen Grad pro Sekunde drehst du in einer Standardkurve?", "loesung": 3, "toleranz": 0, "einheit": "° pro s", "erklaerung": "Standardkurve: 3° pro Sekunde, ein Vollkreis dauert zwei Minuten." },
+        { "id": "te-kz-03", "typ": "auswahl", "frage": "Welche Kreiseleigenschaft nutzt der künstliche Horizont?", "richtig": "Die Raumfestigkeit", "falsch": ["Die Präzession", "Den Magnetismus", "Den Staudruck"], "erklaerung": "Der Kreisel behält seine Lage – der Horizontbalken bleibt waagerecht, das Flugzeug dreht sich darum." },
+        { "id": "te-kz-04", "typ": "wahrfalsch", "aussage": "Der Wendezeiger zeigt dir die genaue Querneigung in Grad.", "richtig": false, "erklaerung": "Er zeigt Drehrate und Richtung, nicht die Querneigung." },
+        { "id": "te-kz-05", "typ": "auswahl", "frage": "Die Unterdruckanzeige ist zu niedrig. Was folgt daraus?", "richtig": "Horizont und Kurskreisel können ungenau werden", "falsch": ["Der Fahrtmesser fällt aus", "Der Motor verliert Leistung", "Nichts, das ist normal"], "erklaerung": "Zu wenig Unterdruck – die Kreisel drehen langsamer und werden ungenau. Mit anderen Instrumenten vergleichen." },
+        { "id": "te-kz-06", "typ": "auswahl", "frage": "Die Kugel der Libelle ist in einer Kurve nicht in der Mitte. Was bedeutet das?", "richtig": "Die Kurve ist nicht koordiniert geflogen", "falsch": ["Der Kompass ist defekt", "Du fliegst zu hoch", "Der Motor läuft unrund"], "erklaerung": "Die Libelle zeigt, ob du sauber fliegst. Mit dem Seitenruder bringst du die Kugel in die Mitte." }
+      ]
+    },
+    {
+      "id": "segelflugzeug",
+      "titel": "Das Segelflugzeug",
+      "kurz": "Bremsklappen, Wölbklappen, Schleppkupplungen, Fahrwerk – und Segelflugzeuge mit Motor.",
+      "scheine": ["spl"],
+      "theorie": [
+        { "typ": "absatz", "text": "Segelflugzeuge sind auf **wenig Widerstand** gebaut: lange, schlanke Flügel, ein glatter Rumpf, meist aus **Faserverbund**. Um trotzdem steil anfliegen zu können, haben sie Hilfen, die gezielt **Widerstand** erzeugen." },
+        { "typ": "einfach", "text": "Ein Segelflugzeug ist wie ein Rennrad: gebaut, um mit wenig Kraft weit zu rollen. Die Bremsklappen sind die Bremsen – ohne sie käme es kaum herunter." },
+        { "typ": "liste", "punkte": ["**Störklappen** fahren aus der Oberseite der Flügel und stören die Strömung – das Segelflugzeug sinkt steiler.", "**Bremsklappen** fahren oben und unten aus und erzeugen viel Widerstand. Manche Muster haben eine Höchstgeschwindigkeit für das Ausfahren.", "**Wölbklappen** an der Hinterkante kennen drei Stellungen: neutral, positiv (nach unten – mehr Auftrieb und Widerstand) und negativ (weniger Auftrieb und Widerstand für schnelles Fliegen)."] },
+        { "typ": "zwischentitel", "text": "Schleppkupplungen" },
+        { "typ": "absatz", "text": "Für den **Flugzeugschlepp** sitzt die Kupplung meist an oder unter der **Nase**. Für den **Windenstart** liegt sie **unter dem Schwerpunkt**. Ein F-Schlepp an der Schwerpunktkupplung ist nur erlaubt, wenn das Flughandbuch es vorsieht: Das Segelflugzeug dreht dann leichter in den Seitenwind und kann beim Start leichter **über das Schleppflugzeug steigen** – gefährlich für den Schlepppiloten." },
+        { "typ": "zwischentitel", "text": "Fahrwerk und Bremse" },
+        { "typ": "absatz", "text": "Meist gibt es ein **Hauptrad**, dazu Bugrad oder Kufe, Spornrad oder Sporn. Leistungssegelflugzeuge haben oft ein **Einziehfahrwerk** – „Fahrwerk ausgefahren?“ gehört in die Checkliste vor der Landung. Ein typischer Fehler: das Fahrwerk nach dem Start vergessen und es dann vor der Landung versehentlich **einfahren**. Gebremst wird mit einer **Radbremse**, oft hydraulisch." },
+        { "typ": "zwischentitel", "text": "Segelflugzeuge mit Motor" },
+        { "typ": "liste", "punkte": ["**Reisemotorsegler** haben einen Motor in der Nase und einen Propeller, der sich in Segelstellung bringen lässt.", "**Eigenstarter** können mit einem einklappbaren Motor selbst starten.", "Eine **Heimkehrhilfe** (Turbo) hält das Segelflugzeug in der Luft, reicht aber **nicht zum Starten** – und manchmal nicht einmal gegen starkes Sinken."] }
+      ],
+      "kern": ["Störklappen oben, Bremsklappen oben und unten; Wölbklappen neutral, positiv, negativ.", "Bugkupplung für den F-Schlepp, Schwerpunktkupplung für die Winde.", "Einziehfahrwerk: in die Checkliste – Heimkehrhilfe reicht nicht zum Starten."],
+      "fragen": [
+        { "id": "te-se-01", "typ": "auswahl", "frage": "Wo sitzt die Kupplung für den Windenstart?", "richtig": "Unter dem Schwerpunkt", "falsch": ["An der Nase", "Am Heck", "An der Flügelspitze"], "erklaerung": "Für den Windenstart liegt die Kupplung unter dem Schwerpunkt, für den F-Schlepp meist an der Nase." },
+        { "id": "te-se-02", "typ": "auswahl", "frage": "Was unterscheidet Bremsklappen von Störklappen?", "richtig": "Bremsklappen fahren oben und unten aus, Störklappen nur oben", "falsch": ["Störklappen sitzen am Leitwerk", "Bremsklappen erhöhen den Auftrieb", "Es gibt keinen Unterschied"], "erklaerung": "Störklappen stören die Strömung auf der Oberseite; Bremsklappen fahren oben und unten aus und erzeugen mehr Widerstand." },
+        { "id": "te-se-03", "typ": "wahrfalsch", "aussage": "Mit einer Heimkehrhilfe kann ein Segelflugzeug selbst starten.", "richtig": false, "erklaerung": "Eine Heimkehrhilfe hält das Segelflugzeug nur in der Luft. Selbst starten können Eigenstarter und Reisemotorsegler." },
+        { "id": "te-se-04", "typ": "auswahl", "frage": "Warum ist ein F-Schlepp an der Schwerpunktkupplung heikel?", "richtig": "Das Segelflugzeug kann leichter über das Schleppflugzeug steigen", "falsch": ["Die Kupplung löst nicht aus", "Das Seil wird zu kurz", "Der Funk fällt aus"], "erklaerung": "Mit der Schwerpunktkupplung dreht das Segelflugzeug leichter in den Wind und steigt leichter über den Schlepper. Nur wenn das Flughandbuch es erlaubt." },
+        { "id": "te-se-05", "typ": "auswahl", "frage": "Welche Wölbklappenstellung wählst du für schnelles Vorfliegen?", "richtig": "Negativ – weniger Auftrieb und Widerstand", "falsch": ["Positiv – nach unten", "Voll ausgefahren", "Die Stellung ist egal"], "erklaerung": "Negative Wölbklappen verringern Auftrieb und Widerstand – gut für hohe Geschwindigkeit." },
+        { "id": "te-se-06", "typ": "auswahl", "frage": "Was ist ein typischer Fehler mit dem Einziehfahrwerk?", "richtig": "Das Fahrwerk nach dem Start vergessen und vor der Landung versehentlich einfahren", "falsch": ["Das Fahrwerk im Schlepp ausfahren", "Das Fahrwerk zu früh vor dem Start ausfahren", "Das Fahrwerk am Boden prüfen"], "erklaerung": "Wer vergisst, das Fahrwerk nach dem Start einzufahren, fährt es vor der Landung leicht „aus Gewohnheit“ ein. Deshalb: Fahrwerk in die Landecheckliste." }
+      ]
+    }
+  ]
+}

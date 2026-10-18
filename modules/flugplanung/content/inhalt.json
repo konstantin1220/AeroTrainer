@@ -1134,6 +1134,10 @@
           "text": "Nach **NCO.OP.185** überwachst du den Kraftstoff während des Flugs. Er darf nicht unter die Menge sinken, die du brauchst, um einen Flugplatz für eine sichere Landung zu erreichen. Im **kontrollierten Flug** meldest du **MINIMUM FUEL**, wenn du auf einen bestimmten Landeplatz festgelegt bist und jede Änderung der Freigabe oder jede Verzögerung dazu führen kann, dass du mit weniger als der Endreserve landest. Ist absehbar, dass du selbst am nächsten geeigneten Platz mit weniger als der Endreserve landen wirst, erklärst du mit **MAYDAY MAYDAY MAYDAY FUEL** eine Notlage."
         },
         {
+          "typ": "animation",
+          "id": "kraftstoff"
+        },
+        {
           "typ": "achtung",
           "text": "Rechnest du unterwegs damit, die Endreserve anzugreifen, handelst du sofort: früher landen und tanken. „Wird schon reichen“ ist keine Planung."
         }

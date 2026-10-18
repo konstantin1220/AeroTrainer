@@ -11,7 +11,8 @@
         "In Deutschland gibt es vor allem die Klassen C, D, E (kontrolliert) und G (unkontrolliert).",
         "Eine Freigabe brauchen VFR-Flüge in C und D – nicht in E und G.",
         "Unter FL 100 gilt für VFR höchstens 250 kt IAS.",
-        "Kontrollzonen (CTR) sind Luftraum D."
+        "Kontrollzonen (CTR) sind Luftraum D.",
+        "G reicht meist bis 2500 ft über Grund, E bis FL 100 (Alpen FL 130), darüber liegt C bis FL 660."
       ],
       "theorie": [
         {
@@ -66,6 +67,63 @@
             ]
           ],
           "unterschrift": "¹ außer in einer Funkkontaktpflichtzone (RMZ). Werte nach SERA, Anlage 4."
+        },
+        {
+          "typ": "zwischentitel",
+          "text": "Wo liegt welcher Luftraum? Die Höhen in Deutschland"
+        },
+        {
+          "typ": "absatz",
+          "text": "Die Lufträume liegen wie Stockwerke übereinander. Wo genau die Grenzen verlaufen, steht auf der Luftfahrtkarte – das Grundmuster ist aber überall gleich (Luftfahrthandbuch, AIP VFR ENR 1-1):"
+        },
+        {
+          "typ": "tabelle",
+          "kopf": [
+            "Luftraum",
+            "von",
+            "bis"
+          ],
+          "zeilen": [
+            [
+              "**G**",
+              "Grund",
+              "meist **2500 ft über Grund**; um manche Flugplätze nur **1000 ft über Grund**"
+            ],
+            [
+              "**E**",
+              "Obergrenze von G",
+              "**FL 100** – im Alpengebiet **FL 130**"
+            ],
+            [
+              "**C**",
+              "FL 100 (Alpen: FL 130)",
+              "**FL 660**; um große Verkehrsflughäfen beginnt C schon tiefer"
+            ],
+            [
+              "**D (CTR)**",
+              "Grund",
+              "Obergrenze der Kontrollzone laut Karte"
+            ],
+            [
+              "**D (nicht CTR)**",
+              "über manchen Kontrollzonen",
+              "Grenzen laut Karte"
+            ]
+          ],
+          "unterschrift": "„Über Grund“ (GND, AGL) misst von der Erdoberfläche aus, „MSL“ vom Meeresspiegel. Flugflächen (FL) beziehen sich auf den Standarddruck 1013,25 hPa: FL 100 entspricht etwa 10 000 ft."
+        },
+        {
+          "typ": "animation",
+          "id": "steigflug",
+          "unterschrift": "Maßstäblich, frei erfundener Flugplatz Altdorf. Höhen nach AIP VFR ENR 1-1 und ENR 1-17."
+        },
+        {
+          "typ": "interaktiv",
+          "id": "luftraumcheck"
+        },
+        {
+          "typ": "merke",
+          "text": "**2500 ft über Grund** (G), **FL 100** (C, in den Alpen FL 130) – dazwischen liegt E. Für C brauchst du eine Freigabe, für E und G nicht."
         },
         {
           "typ": "abbildung",
@@ -193,6 +251,89 @@
           "aussage": "Auch mit Freigabe im Luftraum D bleibt der Pilot beim Sichtflug selbst für das Ausweichen verantwortlich.",
           "richtig": true,
           "erklaerung": "VFR-Flüge werden in D nicht gestaffelt. Es gilt „sehen und ausweichen“ – Verkehrsinformationen helfen dabei."
+        },
+        {
+          "id": "lr-kl-10",
+          "typ": "auswahl",
+          "frage": "Bis zu welcher Höhe reicht der Luftraum G in Deutschland meistens?",
+          "richtig": "2500 ft über Grund",
+          "falsch": [
+            "1000 ft MSL",
+            "FL 100",
+            "5000 ft MSL"
+          ],
+          "erklaerung": "G reicht meist bis 2500 ft über Grund – um manche Flugplätze nur bis 1000 ft über Grund. Darüber beginnt E."
+        },
+        {
+          "id": "lr-kl-11",
+          "typ": "auswahl",
+          "frage": "Ab welcher Höhe beginnt außerhalb der Alpen der Luftraum C?",
+          "richtig": "FL 100",
+          "falsch": [
+            "2500 ft über Grund",
+            "FL 65",
+            "FL 195"
+          ],
+          "erklaerung": "Oberhalb von FL 100 liegt Luftraum C (bis FL 660). Um große Verkehrsflughäfen beginnt C auch tiefer – das steht auf der Karte."
+        },
+        {
+          "id": "lr-kl-12",
+          "typ": "wahrfalsch",
+          "aussage": "Im Alpengebiet reicht der Luftraum E bis FL 130, erst darüber beginnt C.",
+          "richtig": true,
+          "erklaerung": "Wegen der hohen Berge ist die Untergrenze von C im Alpengebiet auf FL 130 angehoben."
+        },
+        {
+          "id": "lr-kl-13",
+          "typ": "auswahl",
+          "frage": "Das Gelände liegt bei 800 ft MSL, keine Kontrollzone und kein Flugplatz mit Instrumentenverkehr in der Nähe. In welchem Luftraum fliegst du in 4500 ft MSL?",
+          "richtig": "E",
+          "falsch": [
+            "G",
+            "C",
+            "D"
+          ],
+          "erklaerung": "G reicht hier bis 800 + 2500 = 3300 ft MSL. In 4500 ft bist du darüber, also im Luftraum E – unterhalb von FL 100."
+        },
+        {
+          "id": "lr-kl-14",
+          "typ": "auswahl",
+          "frage": "Um manche Flugplätze beginnt der Luftraum E schon tiefer. Wie tief?",
+          "richtig": "1000 ft über Grund",
+          "falsch": [
+            "500 ft über Grund",
+            "1500 ft MSL",
+            "direkt am Boden"
+          ],
+          "erklaerung": "An solchen Stellen reicht G nur bis 1000 ft über Grund – darüber ist schon E. Die Luftfahrtkarte zeigt, wo das gilt."
+        },
+        {
+          "id": "lr-kl-15",
+          "typ": "zuordnung",
+          "frage": "Ordne zu: Wo liegt welcher Luftraum (Grundmuster, ohne Kontrollzonen)?",
+          "paare": [
+            [
+              "vom Boden bis meist 2500 ft über Grund",
+              "Luftraum G"
+            ],
+            [
+              "darüber bis FL 100",
+              "Luftraum E"
+            ],
+            [
+              "ab FL 100 bis FL 660",
+              "Luftraum C"
+            ],
+            [
+              "vom Boden um einen Flughafen mit Tower",
+              "Kontrollzone (D)"
+            ]
+          ]
+        },
+        {
+          "id": "lr-kl-16",
+          "typ": "generator",
+          "generator": "luftraumhoehe"
         }
       ]
     },
@@ -537,7 +678,8 @@
       "kern": [
         "RMZ: vor dem Einflug melden und dauernd mithören – eine Freigabe ist nicht nötig.",
         "TMZ: Der Transponder muss eingeschaltet sein.",
-        "P = Luftsperrgebiet, R = Flugbeschränkungsgebiet, D = Gefahrengebiet; ob sie aktiv sind, steht in den NOTAM."
+        "P = Luftsperrgebiet, R = Flugbeschränkungsgebiet, D = Gefahrengebiet; ob sie aktiv sind, steht in den NOTAM.",
+        "Transponder für Motorflugzeuge oberhalb 5000 ft MSL bzw. 3500 ft über Grund (höherer Wert); VFR-Code 7000."
       ],
       "theorie": [
         {
@@ -573,6 +715,10 @@
         {
           "typ": "absatz",
           "text": "In einer **TMZ** (Transponder Mandatory Zone) muss jedes Luftfahrzeug einen eingeschalteten Transponder mitführen, der in den Modi A und C oder im Modus S arbeitet. So sieht die Flugsicherung dich auf dem Radar mit Höhe."
+        },
+        {
+          "typ": "absatz",
+          "text": "Auch außerhalb einer TMZ gilt: **Motorflugzeuge** brauchen **oberhalb 5000 ft MSL oder oberhalb 3500 ft über Grund** – der höhere Wert ist maßgebend – einen Transponder (Segelflugbetrieb ist ausgenommen). Ist ein betriebsfähiger Transponder an Bord, schaltest du ihn bei Sichtflügen immer ein: **Code 7000** mit Höhenübermittlung (AIP VFR ENR 1-17)."
         },
         {
           "typ": "zwischentitel",
@@ -693,6 +839,25 @@
           "aussage": "In einer RMZ musst du die Frequenz dauernd mithören, solange du dich darin aufhältst.",
           "richtig": true,
           "erklaerung": "Erstanruf vor dem Einflug, danach dauernde Hörbereitschaft auf der Frequenz."
+        },
+        {
+          "id": "lr-zo-08",
+          "typ": "auswahl",
+          "frage": "Du fliegst mit einem Motorflugzeug über Gelände von 2000 ft MSL. Oberhalb welcher Höhe brauchst du einen Transponder (außerhalb einer TMZ)?",
+          "richtig": "5500 ft MSL",
+          "falsch": [
+            "5000 ft MSL",
+            "3500 ft MSL",
+            "FL 100"
+          ],
+          "erklaerung": "Maßgebend ist der höhere Wert aus 5000 ft MSL und 3500 ft über Grund: 2000 + 3500 = 5500 ft MSL."
+        },
+        {
+          "id": "lr-zo-09",
+          "typ": "wahrfalsch",
+          "aussage": "Ein Segelflugzeug im Segelflugbetrieb braucht oberhalb von 5000 ft MSL immer einen Transponder.",
+          "richtig": false,
+          "erklaerung": "Die allgemeine Transponderpflicht oberhalb 5000 ft MSL bzw. 3500 ft über Grund gilt für motorgetriebene Luftfahrzeuge – ausgenommen ist der Segelflugbetrieb. In einer TMZ gilt die Pflicht aber für alle."
         }
       ]
     },

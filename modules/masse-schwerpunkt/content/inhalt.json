@@ -275,6 +275,10 @@
           "unterschrift": "Hüllkurve des frei erfundenen Übungsflugzeugs MF-4."
         },
         {
+          "typ": "animation",
+          "id": "beladen"
+        },
+        {
           "typ": "merke",
           "text": "Kraftstoff wird in Litern getankt, aber in Kilogramm gerechnet: **AVGAS ≈ 0,72 kg/l**. Prüfe den Schwerpunkt auch für die **Landung** – dann ist weniger Kraftstoff an Bord."
         }

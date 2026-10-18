@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- Erzeugt jede Rechenaufgabe mit Grafik viele Male und prüft die Beschriftungen (tools/textpruefung.js).
+     Zeigt nur die Aufgaben mit Problemen. Mit ?modul=navigation nur ein Modul, ?anzahl=60 für mehr Durchläufe. -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AeroTrainer – Rechenaufgaben prüfen</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <style>body { padding: 1rem; } .raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 1rem; }</style>
+</head>
+<body>
+  <h1>Rechenaufgaben mit Grafik</h1>
+  <div id="inhalt" class="raster"></div>
+  <script type="module">
+    import { abbildungKnoten, h } from '../js/ui.js';
+    import { zufallsquelle } from '../js/zufall.js';
+    import { textProbleme } from './textpruefung.js';
+    const p = new URLSearchParams(location.search);
+    const anzahl = Number(p.get('anzahl') ?? 40);
+    const module = ['luftraum', 'signale', 'mensch', 'meteorologie', 'metar', 'sprechfunk', 'navigation', 'aerodynamik', 'betrieb', 'masse-schwerpunkt', 'flugplanung', 'technik'];
+    const ziel = document.getElementById('inhalt');
+    let gesamt = 0, mitProblem = 0;
+    for (const id of module.filter((m) => !p.get('modul') || m === p.get('modul'))) {
+      const teile = await import(`../modules/${id}/generatoren.js`).catch(() => null);
+      if (!teile) continue;
+      let liste = teile.generatoren;
+      if (!liste && teile.erstelleGeneratoren) {
+        const daten = await fetch(`../modules/${id}/content/flugzeug.json`).then((r) => r.json()).catch(() => null);
+        if (!daten) continue;
+        liste = teile.erstelleGeneratoren(daten);
+      }
+      for (const [name, erzeugen] of Object.entries(liste ?? {})) {
+        for (let i = 0; i < anzahl; i++) {
+          const zufall = zufallsquelle(1000 + i);
+          let aufgabe;
+          try { aufgabe = erzeugen(zufall, {}); } catch { continue; }
+          if (!aufgabe?.svg) continue;
+          gesamt++;
+          const knoten = abbildungKnoten(aufgabe.svg);
+          const kasten = h('div', { 'data-name': `${id}/${name} #${i}` }, h('h3', {}, `${id}/${name} #${i}`), knoten);
+          ziel.append(kasten);
+          const probleme = textProbleme(knoten.querySelector('svg'));
+          if (!probleme.length) { kasten.remove(); continue; }
+          mitProblem++;
+          kasten.append(h('ul', { class: 'fehlerton', 'data-probleme': '' }, probleme.map((x) => h('li', {}, `${x.art}: ${x.text}`))));
+        }
+      }
+    }
+    document.querySelector('h1').append(` – ${gesamt} Grafiken geprüft, ${mitProblem} mit Problemen`);
+  </script>
+</body>
+</html>

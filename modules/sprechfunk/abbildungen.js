@@ -11,8 +11,8 @@ export function transponder(code) {
     <rect x="4" y="4" width="392" height="142" rx="16" fill="#1d2532" stroke="#3a4558" stroke-width="2"/>
     <text x="28" y="34" fill="#9fb0c8" font-size="14" font-weight="700" dominant-baseline="middle">XPDR</text>
     <rect x="96" y="40" width="208" height="72" rx="8" fill="#0b0f15" stroke="#3a4558"/>
-    <text x="200" y="78" fill="#ffb547" font-size="48" font-weight="700" font-family="ui-monospace, Menlo, monospace" text-anchor="middle" dominant-baseline="middle" letter-spacing="8">${esc(code)}</text>
-    <text x="112" y="56" fill="#5dd39e" font-size="11" font-weight="700" dominant-baseline="middle">ALT</text>
+    <text x="212" y="80" fill="#ffb547" font-size="46" font-weight="700" font-family="ui-monospace, Menlo, monospace" text-anchor="middle" dominant-baseline="middle" letter-spacing="6">${esc(code)}</text>
+    <text x="104" y="52" fill="#5dd39e" font-size="10" font-weight="700" dominant-baseline="middle">ALT</text>
     <circle cx="48" cy="96" r="18" fill="#2b3546" stroke="#56647a" stroke-width="2"/>
     <text x="48" y="96" fill="#d5deea" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="middle">MODE</text>
     <rect x="320" y="68" width="60" height="34" rx="8" fill="#2b3546" stroke="#56647a" stroke-width="2"/>

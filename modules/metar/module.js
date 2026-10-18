@@ -2,6 +2,7 @@
 import { lernmodul } from '../../js/lernmodul.js';
 import { erstelleGeneratoren } from './generatoren.js';
 import { interaktiv } from './interaktiv.js';
+import { animationen } from './animationen.js';
 import { STUFEN, stufenUebersicht, stufe1, stufe2, stufe3, stufe4, stufe5, pruefZusatz } from './stufen.js';
 
 async function laden(datei) {
@@ -25,6 +26,7 @@ const daten = {
 export default lernmodul({
   generatoren: erstelleGeneratoren(plaetze),
   interaktiv,
+  animationen,
   seiten: {
     1: (el, rest, ctx) => stufe1(el, rest, ctx, daten),
     2: (el, rest, ctx) => stufe2(el, rest, ctx, daten),

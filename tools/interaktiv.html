@@ -20,9 +20,10 @@
     import { h } from '../js/ui.js';
     import { icon } from '../js/icons.js';
     const wunsch = new URLSearchParams(location.search).get('modul');
-    const module = ['metar', 'luftraum', 'mensch', 'sprechfunk', 'navigation', 'flugplanung', 'masse-schwerpunkt', 'meteorologie', 'aerodynamik', 'signale'];
+    const module = ['luftraum', 'signale', 'mensch', 'meteorologie', 'metar', 'sprechfunk', 'navigation', 'aerodynamik', 'betrieb', 'masse-schwerpunkt', 'flugplanung', 'technik'];
     for (const id of module.filter((m) => !wunsch || m === wunsch)) {
-      const teile = await import(`../modules/${id}/interaktiv.js`);
+      const teile = await import(`../modules/${id}/interaktiv.js`).catch(() => null);
+      if (!teile) continue;
       let liste = teile.interaktiv;
       if (!liste && teile.interaktivFuer) {
         const daten = await fetch(`../modules/${id}/content/flugzeug.json`).then((r) => r.json());

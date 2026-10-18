@@ -52,6 +52,7 @@
   --f-mensch: #b53d86;
   --f-betrieb: #6f7d1c;
   --f-technik: #56677f;
+  --f-tim: #b07d00;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -94,6 +95,7 @@
     --f-mensch: #f07cc2;
     --f-betrieb: #bccb5c;
     --f-technik: #a5b5ca;
+    --f-tim: #f2c94c;
   }
 }
 
@@ -110,6 +112,7 @@
 [data-modul="mensch"] { --mf: var(--f-mensch); }
 [data-modul="betrieb"] { --mf: var(--f-betrieb); }
 [data-modul="technik"] { --mf: var(--f-technik); }
+[data-modul="tim"] { --mf: var(--f-tim); }
 
 /* ================= Grundlagen ================= */
 
@@ -537,11 +540,14 @@ main {
 }
 .schein-knopf:active { transform: scale(0.97); }
 .schein-knopf strong { font-size: 0.95rem; }
-.schein-knopf span { font-size: 0.72rem; color: var(--leise); }
+.schein-knopf span { max-width: 100%; font-size: 0.72rem; line-height: 1.25; color: var(--leise); text-align: center; overflow-wrap: anywhere; hyphens: manual; }
 .schein-knopf[aria-pressed="true"] { border-color: var(--primaer); background: var(--primaer-hell); }
 .schein-knopf[aria-pressed="true"] strong { color: var(--primaer); }
 .schein-wahl-hinweis { margin: 0; font-size: 0.8rem; color: var(--leise); }
 .chip.schein-chip { margin-left: 0.4rem; background: var(--warn-hell); border-color: transparent; color: var(--warn-text); vertical-align: middle; }
+
+/* Extra-Themen (versteckt, über Link freigeschaltet) */
+.extra-bereich { margin: 1.25rem 0 0; }
 
 /* Prüfungsfächer: je Fach eine Liste seiner Themen */
 .pruef-faecher { list-style: none; margin: 0.75rem 0 0; padding: 0; display: grid; gap: 1.25rem; }

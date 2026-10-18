@@ -9,7 +9,7 @@ import { einstellung, einstellungSetzen } from './storage.js';
 export const SCHEINE = {
   ppl: { titel: 'PPL / LAPL', text: 'Flugzeug' },
   spl: { titel: 'SPL', text: 'Segelflugzeug' },
-  ul: { titel: 'UL', text: 'Ultraleichtflugzeug' },
+  ul: { titel: 'UL', text: 'Ultraleicht\u00ADflugzeug' }, // weiches Trennzeichen: bricht auf schmalen Handys um
 };
 
 export function gewaehlteScheine() {

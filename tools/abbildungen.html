@@ -19,10 +19,12 @@
   <div id="inhalt"></div>
   <script type="module">
     import { abbildungKnoten, h } from '../js/ui.js';
+    import { textProbleme } from './textpruefung.js';
     const wunsch = new URLSearchParams(location.search).get('modul');
-    const module = ['luftraum', 'sprechfunk', 'navigation', 'masse-schwerpunkt', 'meteorologie', 'aerodynamik', 'signale'];
+    const module = ['luftraum', 'signale', 'mensch', 'meteorologie', 'sprechfunk', 'navigation', 'aerodynamik', 'betrieb', 'masse-schwerpunkt', 'flugplanung', 'technik'];
     for (const id of module.filter((m) => !wunsch || m === wunsch)) {
-      const teile = await import(`../modules/${id}/abbildungen.js`);
+      const teile = await import(`../modules/${id}/abbildungen.js`).catch(() => null);
+      if (!teile) continue;
       let liste = teile.abbildungen;
       if (!liste && teile.abbildungenFuer) {
         const daten = await fetch(`../modules/${id}/content/flugzeug.json`).then((r) => r.json());
@@ -34,6 +36,16 @@
       bereich.append(raster);
       document.getElementById('inhalt').append(bereich);
     }
+    // Beschriftungen prüfen: Texte, die aus dem Bild oder ihrem Kasten laufen oder sich überdecken, rot markieren
+    let anzahl = 0;
+    for (const figur of document.querySelectorAll('.raster > div')) {
+      const probleme = textProbleme(figur.querySelector('svg'));
+      if (!probleme.length) continue;
+      anzahl += probleme.length;
+      figur.style.outline = '3px solid #c2372f';
+      figur.append(h('ul', { class: 'fehlerton', 'data-probleme': '' }, probleme.map((p) => h('li', {}, `${p.art}: ${p.text}`))));
+    }
+    document.querySelector('h1').append(` – ${anzahl ? `${anzahl} Text-Probleme` : 'Beschriftungen in Ordnung'}`);
   </script>
 </body>
 </html>

@@ -463,6 +463,10 @@
           "text": "Stell dir vor, du schwimmst quer über einen Fluss: Schwimmst du einfach geradeaus, treibt dich die Strömung ab. Damit du genau gegenüber ankommst, schwimmst du leicht schräg gegen die Strömung. Genau das macht der Luvwinkel beim Wind."
         },
         {
+          "typ": "animation",
+          "id": "winddreieck"
+        },
+        {
           "typ": "abbildung",
           "id": "winddreieck"
         },

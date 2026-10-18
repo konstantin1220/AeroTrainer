@@ -1,0 +1,696 @@
+{
+  "_hinweis": "Extra-Thema „Fliegen ganz einfach – für Tim“: die neun Prüfungsfächer in ganz einfacher Sprache. Steht nicht auf der Startseite, sondern ist über den Link #/tim erreichbar. Alle Aussagen stammen aus den ausführlichen Themen der App und ihren Quellen (Info → Quellen & Grundlagen). Frage-IDs nie ändern.",
+  "_geprueft": null,
+  "einleitung": "Hallo Tim! Hier bekommst du die ganze Flugtheorie einmal ganz einfach erklärt – ein Kapitel für jedes Prüfungsfach. Danach weißt du, worum es geht, und kannst in den großen Themen in die Tiefe gehen.",
+  "kapitel": [
+    {
+      "id": "start",
+      "titel": "Hallo Tim – so lernst du hier",
+      "kurz": "Was dich erwartet und wie du am besten vorgehst.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Für deinen Flugschein lernst du **neun Fächer** – vom Wetter über den Funk bis zur Technik. Das klingt viel, aber jedes Fach beginnt mit ganz einfachen Ideen. Genau die findest du hier: **ein kurzes Kapitel pro Fach**, ohne Fachchinesisch."
+        },
+        {
+          "typ": "einfach",
+          "text": "Die neun Fächer sind wie neun Werkzeugkisten: Du musst nicht alles auf einmal können – du öffnest eine nach der anderen."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Lies** ein Kapitel in Ruhe – es dauert nur ein paar Minuten.",
+            "**Beantworte** danach die drei Fragen. Falsch ist nicht schlimm: Die Frage kommt später noch einmal.",
+            "**Wiederhole**, wenn die App dich daran erinnert. So bleibt das Wissen hängen.",
+            "Wenn dich ein Fach interessiert, öffne das **große Thema** dazu auf der Startseite."
+          ]
+        },
+        {
+          "typ": "merke",
+          "titel": "Tipp",
+          "text": "Stell oben bei „Erklärung“ auf **Ausführlich** (Einsteiger). Dann erklärt dir die App in allen Themen jeden Schritt mit Vergleichen aus dem Alltag. Fachbegriffe mit gepunkteter Linie kannst du antippen."
+        },
+        {
+          "typ": "achtung",
+          "text": "Diese App ist eine **Lernhilfe**. Was wirklich gilt, lernst du bei deinem Fluglehrer und in den gültigen Vorschriften."
+        }
+      ],
+      "kern": [
+        "Neun Fächer, jedes mit einem einfachen Kapitel hier.",
+        "Lesen, Fragen beantworten, wiederholen.",
+        "Für mehr Tiefe: das große Thema auf der Startseite."
+      ],
+      "fragen": [
+        {
+          "id": "tim-st-01",
+          "typ": "auswahl",
+          "frage": "Wie viele Prüfungsfächer gibt es in der Theorie zum Flugschein?",
+          "richtig": "9",
+          "falsch": [
+            "3",
+            "5",
+            "12"
+          ],
+          "erklaerung": "Es sind neun Fächer – von Luftrecht bis Technik. Jedes hat hier ein eigenes Kapitel."
+        },
+        {
+          "id": "tim-st-02",
+          "typ": "auswahl",
+          "frage": "Was passiert mit einer Frage, die du falsch beantwortest?",
+          "richtig": "Sie kommt später noch einmal",
+          "falsch": [
+            "Sie verschwindet für immer",
+            "Die App schließt sich",
+            "Du musst von vorn anfangen"
+          ],
+          "erklaerung": "Falsch beantwortete Fragen kommen am Ende der Runde und später bei der Wiederholung noch einmal – so lernst du sie sicher."
+        },
+        {
+          "id": "tim-st-03",
+          "typ": "wahrfalsch",
+          "aussage": "Diese App ersetzt die Ausbildung bei deinem Fluglehrer.",
+          "richtig": false,
+          "erklaerung": "Nein – sie ist eine Lernhilfe. Was gilt, lernst du bei deinem Fluglehrer und in den gültigen Vorschriften."
+        }
+      ]
+    },
+    {
+      "id": "luftrecht",
+      "titel": "Luftrecht: die Verkehrsregeln in der Luft",
+      "kurz": "Lufträume wie Stockwerke, wer wem ausweicht und wie tief du fliegen darfst.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Auch in der Luft gibt es Verkehrsregeln. Die wichtigste für dich: Beim **Sichtflug** (VFR) musst du draußen genug sehen – damit du andere Flugzeuge, Wolken und den Boden erkennst. **Sehen und gesehen werden** ist die Grundidee."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wie im Straßenverkehr: Es gibt Vorfahrtsregeln, Mindestabstände und Bereiche, in die man nur mit Erlaubnis darf – nur eben in drei Dimensionen."
+        },
+        {
+          "typ": "absatz",
+          "text": "Der Himmel ist in **Lufträume** eingeteilt, wie die Stockwerke eines Hauses. Unten liegt **Luftraum G** – meist bis 2500 ft über dem Boden. Darüber kommt **E** bis etwa 10 000 ft (FL 100). In G und E fliegst du nach Sichtflugregeln ohne Erlaubnis. Noch höher liegt **C** – dort brauchst du eine **Freigabe** vom Fluglotsen. Um große Flughäfen gibt es **Kontrollzonen**: Auch dort nur mit Freigabe."
+        },
+        {
+          "typ": "animation",
+          "id": "steigflug",
+          "unterschrift": "Maßstäblich: ein Steigflug vom Übungsflugplatz Altdorf durch die Lufträume."
+        },
+        {
+          "typ": "absatz",
+          "text": "Kommen sich zwei Flugzeuge entgegen, weichen **beide nach rechts** aus. Kreuzen sich die Wege, weicht aus, wer den anderen **rechts** von sich sieht – wie „rechts vor links“ auf der Straße. Und wer überholt, fliegt **rechts** vorbei."
+        },
+        {
+          "typ": "animation",
+          "id": "ausweichregeln"
+        },
+        {
+          "typ": "merke",
+          "text": "Über Städten mindestens **1000 ft** über dem höchsten Hindernis, sonst mindestens **500 ft** über Grund – damit du im Notfall noch landen kannst, ohne jemanden zu gefährden."
+        }
+      ],
+      "kern": [
+        "Sichtflug: sehen und gesehen werden.",
+        "Unten G, darüber E, ab FL 100 C (nur mit Freigabe).",
+        "Gegenflug: beide nach rechts; wer den anderen rechts sieht, weicht aus."
+      ],
+      "fragen": [
+        {
+          "id": "tim-lr-01",
+          "typ": "auswahl",
+          "frage": "Zwei Flugzeuge fliegen frontal aufeinander zu. Was tun sie?",
+          "richtig": "Beide weichen nach rechts aus",
+          "falsch": [
+            "Beide weichen nach links aus",
+            "Das schnellere steigt",
+            "Das langsamere sinkt"
+          ],
+          "erklaerung": "Beim Gegenflug weichen beide nach rechts aus – so gibt es kein Missverständnis."
+        },
+        {
+          "id": "tim-lr-02",
+          "typ": "wahrfalsch",
+          "aussage": "Für den Luftraum C brauchst du eine Freigabe vom Fluglotsen.",
+          "richtig": true,
+          "erklaerung": "In C (und in Kontrollzonen) brauchst du eine Freigabe. In E und G nach Sichtflugregeln nicht."
+        },
+        {
+          "id": "tim-lr-03",
+          "typ": "auswahl",
+          "frage": "Wie hoch musst du über einer Stadt mindestens fliegen?",
+          "richtig": "1000 ft über dem höchsten Hindernis",
+          "falsch": [
+            "300 ft über Grund",
+            "So tief, wie du willst",
+            "Genau 2500 ft"
+          ],
+          "erklaerung": "Über Städten und Menschenansammlungen gilt: mindestens 1000 ft über dem höchsten Hindernis im Umkreis von 600 m."
+        }
+      ]
+    },
+    {
+      "id": "mensch",
+      "titel": "Mensch: dein Körper fliegt mit",
+      "kurz": "Fit sein, dünne Luft in der Höhe und Sinne, die dich täuschen können.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Das wichtigste Teil im Flugzeug bist **du**. Fliege nur, wenn du dich gut fühlst: nicht krank, nicht übermüdet, nicht gestresst. **Alkohol und Fliegen passen nie zusammen** – auch nicht „ein kleines Bier“. Bei Medikamenten fragst du vorher deinen Fliegerarzt."
+        },
+        {
+          "typ": "einfach",
+          "text": "Dein Körper ist wie ein zusätzliches Instrument im Cockpit: Wenn er nicht richtig funktioniert, zeigt er falsche Werte an – und du merkst es oft nicht."
+        },
+        {
+          "typ": "absatz",
+          "text": "Je höher du fliegst, desto **dünner ist die Luft** – du bekommst mit jedem Atemzug weniger Sauerstoff. Das Gemeine: Sauerstoffmangel merkt man kaum, man fühlt sich sogar gut. Deshalb gibt es feste Grenzen: In Flugzeugen brauchen oberhalb von **13 000 ft** alle an Bord Zusatzsauerstoff."
+        },
+        {
+          "typ": "absatz",
+          "text": "Deine Sinne können dich täuschen. Ohne Sicht nach draußen – zum Beispiel in einer Wolke – meldet dein **Gleichgewichtssinn** manchmal Kurven, die es gar nicht gibt. Genau deshalb bleibt man beim Sichtflug **aus den Wolken heraus**."
+        },
+        {
+          "typ": "abbildung",
+          "id": "anflug-taeuschungen",
+          "unterschrift": "Auch die Augen täuschen sich: Eine schmale Piste wirkt, als wärst du zu hoch."
+        },
+        {
+          "typ": "merke",
+          "text": "Schau beim Fliegen viel nach draußen – in kleinen Abschnitten, jeweils kurz anhalten. So entdeckst du andere Flugzeuge rechtzeitig."
+        }
+      ],
+      "kern": [
+        "Nur fit fliegen – Alkohol nie.",
+        "In der Höhe weniger Sauerstoff – im Flugzeug über 13 000 ft für alle Zusatzsauerstoff.",
+        "Die Sinne täuschen ohne Sicht – raus aus den Wolken."
+      ],
+      "fragen": [
+        {
+          "id": "tim-me-01",
+          "typ": "wahrfalsch",
+          "aussage": "Sauerstoffmangel merkt man immer sofort, weil man sich schlecht fühlt.",
+          "richtig": false,
+          "erklaerung": "Leider nicht: Oft fühlt man sich sogar gut, während das Denken langsamer wird. Deshalb gibt es feste Höhengrenzen."
+        },
+        {
+          "id": "tim-me-02",
+          "typ": "auswahl",
+          "frage": "Warum bleibt man beim Sichtflug aus den Wolken heraus?",
+          "richtig": "Ohne Sicht nach draußen kann der Gleichgewichtssinn täuschen",
+          "falsch": [
+            "Weil Wolken das Flugzeug nass machen",
+            "Weil der Motor in Wolken ausgeht",
+            "Weil Wolken immer Gewitter sind"
+          ],
+          "erklaerung": "Ohne Blick nach draußen meldet der Gleichgewichtssinn falsche Kurven. Sichtflieger bleiben deshalb in Sicht."
+        },
+        {
+          "id": "tim-me-03",
+          "typ": "auswahl",
+          "frage": "Du hast am Vorabend gefeiert und fühlst dich am Morgen verkatert. Was ist richtig?",
+          "richtig": "Heute nicht fliegen",
+          "falsch": [
+            "Mit viel Kaffee geht es",
+            "Nur eine kurze Platzrunde fliegen",
+            "Fliegen, aber den Fluglehrer nicht informieren"
+          ],
+          "erklaerung": "Mit Kater steht man noch unter Alkoholeinfluss. Dann wird nicht geflogen."
+        }
+      ]
+    },
+    {
+      "id": "wetter",
+      "titel": "Meteorologie: Wetter verstehen wie ein Pilot",
+      "kurz": "Warum Wolken entstehen, was Wind macht und warum man Gewitter meidet.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Warme Luft ist leichter und **steigt auf**. Beim Steigen kühlt sie ab. Ist sie kalt genug, wird aus dem unsichtbaren Wasserdampf eine **Wolke** – so wie ein kaltes Glas im Sommer beschlägt."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wolken entstehen wie der Dampf über einer heißen Tasse Tee im Winter: Warme, feuchte Luft kühlt ab, und das Wasser wird sichtbar."
+        },
+        {
+          "typ": "animation",
+          "id": "quellwolke"
+        },
+        {
+          "typ": "absatz",
+          "text": "**Wind** entsteht, weil die Luft vom Hoch zum Tief strömt. Für dich wichtig: Gestartet und gelandet wird möglichst **gegen den Wind** – dann bist du über dem Boden langsamer und brauchst eine kürzere Strecke."
+        },
+        {
+          "typ": "achtung",
+          "text": "**Gewitter** sind für kleine Flugzeuge gefährlich: starke Auf- und Abwinde, Hagel, Blitz. Man umfliegt sie mit großem Abstand oder bleibt am Boden."
+        },
+        {
+          "typ": "merke",
+          "text": "Das Wetter am Flugplatz steht im **METAR** – einer kurzen Wettermeldung in fester Reihenfolge. Wie man sie liest, lernst du im Thema „METAR lesen“."
+        }
+      ],
+      "kern": [
+        "Warme Luft steigt, kühlt ab – es entsteht eine Wolke.",
+        "Starten und landen gegen den Wind.",
+        "Gewitter weit umfliegen."
+      ],
+      "fragen": [
+        {
+          "id": "tim-we-01",
+          "typ": "auswahl",
+          "frage": "Was passiert mit aufsteigender Luft?",
+          "richtig": "Sie kühlt ab – irgendwann entsteht eine Wolke",
+          "falsch": [
+            "Sie wird immer wärmer",
+            "Sie bleibt genau gleich warm",
+            "Sie wird schwerer und fällt sofort"
+          ],
+          "erklaerung": "Aufsteigende Luft dehnt sich aus und kühlt ab. Am Taupunkt kondensiert der Wasserdampf zur Wolke."
+        },
+        {
+          "id": "tim-we-02",
+          "typ": "auswahl",
+          "frage": "In welche Richtung startest du am liebsten?",
+          "richtig": "Gegen den Wind",
+          "falsch": [
+            "Mit dem Wind von hinten",
+            "Quer zum Wind",
+            "Das ist egal"
+          ],
+          "erklaerung": "Gegenwind verkürzt die Startstrecke, weil du schon bei kleinerer Geschwindigkeit über Grund genug Fahrt hast."
+        },
+        {
+          "id": "tim-we-03",
+          "typ": "wahrfalsch",
+          "aussage": "Unter einem Gewitter kann man gut durchfliegen, wenn es nicht regnet.",
+          "richtig": false,
+          "erklaerung": "Nein – unter und neben Gewittern gibt es heftige Fallböen und Turbulenz. Gewitter werden weiträumig umflogen."
+        }
+      ]
+    },
+    {
+      "id": "funk",
+      "titel": "Kommunikation: funken kurz und klar",
+      "kurz": "Erst denken, dann drücken – und wie eine Platzrunde mit Funk aussieht.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Im Funk hören viele mit, und es darf immer nur einer sprechen. Deshalb gilt: **erst denken, dann die Sprechtaste drücken** – kurz, klar und in fester Reihenfolge. Dein Flugzeug nennst du mit seinem **Rufzeichen**, zum Beispiel D-EKLM."
+        },
+        {
+          "typ": "einfach",
+          "text": "Funk ist wie ein Telefonat mit vielen Zuhörern auf derselben Leitung: Wer redet, blockiert alle anderen – also kurz und klar."
+        },
+        {
+          "typ": "absatz",
+          "text": "Buchstaben buchstabierst du mit dem **Buchstabieralphabet**: Alfa, Bravo, Charlie, Delta, Echo … So versteht man dich auch, wenn es rauscht."
+        },
+        {
+          "typ": "animation",
+          "id": "platzrunde"
+        },
+        {
+          "typ": "merke",
+          "titel": "Im Notfall",
+          "text": "Bei echter Gefahr rufst du **MAYDAY** (dreimal). Erst fliegen, dann navigieren, dann funken: **Aviate – Navigate – Communicate**."
+        }
+      ],
+      "kern": [
+        "Erst denken, dann drücken – kurz und klar.",
+        "Buchstaben mit dem Buchstabieralphabet.",
+        "Notruf MAYDAY – aber erst fliegen."
+      ],
+      "fragen": [
+        {
+          "id": "tim-fu-01",
+          "typ": "auswahl",
+          "frage": "Wie buchstabierst du im Funk den Buchstaben D?",
+          "richtig": "Delta",
+          "falsch": [
+            "Dora",
+            "David",
+            "Dampf"
+          ],
+          "erklaerung": "Im Luftfahrt-Funk gilt das internationale Buchstabieralphabet: D = Delta."
+        },
+        {
+          "id": "tim-fu-02",
+          "typ": "auswahl",
+          "frage": "Was rufst du bei einer echten Notlage?",
+          "richtig": "MAYDAY MAYDAY MAYDAY",
+          "falsch": [
+            "HILFE HILFE HILFE",
+            "PAN PAN PAN",
+            "SOS SOS SOS"
+          ],
+          "erklaerung": "MAYDAY ist der Notruf im Sprechfunk. PAN PAN nimmt man für dringende, aber nicht lebensbedrohliche Lagen."
+        },
+        {
+          "id": "tim-fu-03",
+          "typ": "wahrfalsch",
+          "aussage": "Im Notfall funkst du zuerst und fliegst danach weiter.",
+          "richtig": false,
+          "erklaerung": "Zuerst fliegst du das Flugzeug sicher, dann navigierst du, dann funkst du: Aviate – Navigate – Communicate."
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "titel": "Navigation: den Weg finden",
+      "kurz": "Karte, Kompass und warum der Wind dich zur Seite schiebt.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Vor dem Flug zeichnest du deine Strecke auf der **Luftfahrtkarte** ein und misst den **Kurs** – die Richtung in Grad, 360 ist Norden, 90 Osten. Mit der Entfernung und deiner Geschwindigkeit rechnest du aus, **wie lange** du fliegst."
+        },
+        {
+          "typ": "einfach",
+          "text": "Navigation ist wie Wandern mit Karte: Du planst den Weg vorher, achtest unterwegs auf markante Punkte und prüfst immer wieder, wo du bist."
+        },
+        {
+          "typ": "absatz",
+          "text": "Der **Kompass** zeigt nicht genau zum geografischen Nordpol, sondern zum magnetischen. Den kleinen Unterschied nennt man **Missweisung** – in Deutschland nur wenige Grad."
+        },
+        {
+          "typ": "abbildung",
+          "id": "nordrichtungen"
+        },
+        {
+          "typ": "absatz",
+          "text": "Der **Wind** schiebt dein Flugzeug zur Seite – wie die Strömung ein Boot auf dem Fluss. Damit du trotzdem dein Ziel erreichst, drehst du die Nase ein Stück **in den Wind**. Das heißt **Luvwinkel** (Vorhaltewinkel)."
+        },
+        {
+          "typ": "merke",
+          "text": "Unterwegs vergleichst du die Karte mit dem, was du siehst: Seen, Autobahnen, Städte. So weißt du immer, wo du bist."
+        }
+      ],
+      "kern": [
+        "Kurs in Grad: 360 Norden, 90 Osten, 180 Süden, 270 Westen.",
+        "Kompass zeigt magnetisch Nord – Missweisung beachten.",
+        "Gegen den Seitenwind vorhalten (Luvwinkel)."
+      ],
+      "fragen": [
+        {
+          "id": "tim-na-01",
+          "typ": "auswahl",
+          "frage": "Welcher Kurs führt genau nach Osten?",
+          "richtig": "090°",
+          "falsch": [
+            "180°",
+            "270°",
+            "360°"
+          ],
+          "erklaerung": "Norden ist 360°, Osten 90°, Süden 180° und Westen 270°."
+        },
+        {
+          "id": "tim-na-02",
+          "typ": "auswahl",
+          "frage": "Der Wind kommt von links. Wohin drehst du die Nase, um auf Kurs zu bleiben?",
+          "richtig": "Etwas nach links, in den Wind",
+          "falsch": [
+            "Etwas nach rechts",
+            "Gar nicht",
+            "Nach oben"
+          ],
+          "erklaerung": "Du hältst gegen den Wind vor: Die Nase zeigt etwas in die Richtung, aus der der Wind kommt."
+        },
+        {
+          "id": "tim-na-03",
+          "typ": "wahrfalsch",
+          "aussage": "Der Kompass zeigt genau zum geografischen Nordpol.",
+          "richtig": false,
+          "erklaerung": "Er zeigt zum magnetischen Nordpol. Der Unterschied heißt Missweisung."
+        }
+      ]
+    },
+    {
+      "id": "fliegen",
+      "titel": "Grundlagen: warum ein Flugzeug fliegt",
+      "kurz": "Vier Kräfte, der Flügel und was beim Strömungsabriss passiert.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Auf ein Flugzeug wirken **vier Kräfte**: Der **Auftrieb** zieht nach oben, das **Gewicht** nach unten, der **Schub** des Propellers nach vorn und der **Widerstand** der Luft nach hinten."
+        },
+        {
+          "typ": "einfach",
+          "text": "Ein Flugzeug wird von der Luft getragen wie ein Wasserskifahrer vom Wasser: nur solange es schnell genug ist und richtig angestellt."
+        },
+        {
+          "typ": "abbildung",
+          "id": "kraefte"
+        },
+        {
+          "typ": "absatz",
+          "text": "Der Auftrieb entsteht am **Flügel**: Er ist so geformt und leicht schräg angestellt, dass die Luft oben schneller strömt als unten. Oben entsteht ein Sog – der Flügel wird nach oben gezogen. Halte die flache Hand aus dem Autofenster und kippe sie leicht: Genau das spürst du dann."
+        },
+        {
+          "typ": "animation",
+          "id": "stroemung"
+        },
+        {
+          "typ": "achtung",
+          "text": "Stellst du den Flügel zu steil an, **reißt die Strömung ab** und der Auftrieb bricht ein – das heißt **Überziehen**. Abhilfe: Nase etwas nach unten, damit der Flügel wieder richtig angeströmt wird."
+        }
+      ],
+      "kern": [
+        "Auftrieb, Gewicht, Schub, Widerstand.",
+        "Oben strömt die Luft schneller – Sog – Auftrieb.",
+        "Zu steil angestellt: Strömungsabriss."
+      ],
+      "fragen": [
+        {
+          "id": "tim-fl-01",
+          "typ": "auswahl",
+          "frage": "Welche Kraft hält das Flugzeug in der Luft?",
+          "richtig": "Der Auftrieb",
+          "falsch": [
+            "Der Widerstand",
+            "Das Gewicht",
+            "Der Rückenwind"
+          ],
+          "erklaerung": "Der Auftrieb am Flügel trägt das Flugzeug. Das Gewicht zieht nach unten."
+        },
+        {
+          "id": "tim-fl-02",
+          "typ": "wahrfalsch",
+          "aussage": "An der Oberseite des Flügels strömt die Luft schneller als an der Unterseite.",
+          "richtig": true,
+          "erklaerung": "Oben strömt die Luft schneller – dort entsteht ein Sog, der den größten Teil des Auftriebs liefert."
+        },
+        {
+          "id": "tim-fl-03",
+          "typ": "auswahl",
+          "frage": "Was passiert, wenn der Flügel zu steil angestellt wird?",
+          "richtig": "Die Strömung reißt ab, der Auftrieb bricht ein",
+          "falsch": [
+            "Das Flugzeug steigt immer schneller",
+            "Der Motor wird lauter",
+            "Gar nichts"
+          ],
+          "erklaerung": "Über dem kritischen Anstellwinkel reißt die Strömung ab. Nase nach unten bringt sie wieder zum Anliegen."
+        }
+      ]
+    },
+    {
+      "id": "betrieb",
+      "titel": "Betriebsverfahren: wenn etwas schiefgeht",
+      "kurz": "Ruhig bleiben, das Flugzeug fliegen und einen guten Landeplatz suchen.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Notfälle sind selten – aber wer vorbereitet ist, bleibt ruhig. Die wichtigste Regel heißt: **Fliege das Flugzeug!** Alles andere kommt danach."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wie bei einer Feuerübung in der Schule: Wer den Ablauf vorher geübt hat, bleibt im Ernstfall ruhig und macht die richtigen Schritte."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Fahrt halten:** Fällt der Motor aus, senkst du die Nase und fliegst mit der Geschwindigkeit, mit der das Flugzeug am weitesten gleitet.",
+            "**Feld suchen:** möglichst groß, eben, ohne Hindernisse wie Stromleitungen und am besten **gegen den Wind**.",
+            "**Kurz nach dem Start** in niedriger Höhe nicht zurück zum Platz kurven, sondern **geradeaus** oder leicht seitlich landen.",
+            "**Checkliste** aus dem Flughandbuch abarbeiten und einen **Notruf** absetzen, wenn Zeit dafür ist."
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Segelflieger landen manchmal auf einem Feld, wenn die Thermik nicht reicht – eine **Außenlandung**. Auch dafür sucht man sich rechtzeitig, noch hoch genug, ein gutes Feld aus."
+        }
+      ],
+      "kern": [
+        "Zuerst das Flugzeug fliegen.",
+        "Fahrt halten, Feld gegen den Wind suchen.",
+        "Tief nach dem Start: geradeaus landen, nicht umkehren."
+      ],
+      "fragen": [
+        {
+          "id": "tim-be-01",
+          "typ": "auswahl",
+          "frage": "Der Motor fällt kurz nach dem Start in geringer Höhe aus. Was ist meist am sichersten?",
+          "richtig": "Geradeaus oder leicht seitlich landen",
+          "falsch": [
+            "Sofort umkehren zur Piste",
+            "Hochziehen, um Höhe zu gewinnen",
+            "Steil kurven und suchen"
+          ],
+          "erklaerung": "Eine Umkehrkurve in niedriger Höhe kostet zu viel Höhe und Zeit. Geradeaus landen unter Kontrolle ist meist die beste Wahl."
+        },
+        {
+          "id": "tim-be-02",
+          "typ": "wahrfalsch",
+          "aussage": "Bei einem Notfall kümmerst du dich zuerst darum, das Flugzeug sicher zu fliegen.",
+          "richtig": true,
+          "erklaerung": "Genau: Fliegen geht immer vor – dann navigieren, dann funken."
+        },
+        {
+          "id": "tim-be-03",
+          "typ": "auswahl",
+          "frage": "Welches Feld wählst du für eine Notlandung am liebsten?",
+          "richtig": "Groß, eben, ohne Hindernisse, Landung gegen den Wind",
+          "falsch": [
+            "Klein, aber nah an der Straße",
+            "Ein Feld mit hohem Mais",
+            "Ein Feld bergab mit Rückenwind"
+          ],
+          "erklaerung": "Groß, eben und frei von Hindernissen – und gegen den Wind, damit du langsam aufsetzt."
+        }
+      ]
+    },
+    {
+      "id": "planung",
+      "titel": "Flugplanung: gut vorbereitet losfliegen",
+      "kurz": "Wetter, Kraftstoff mit Reserve und das Gewicht richtig verteilt.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Ein guter Flug beginnt am Boden. Vor jedem Flug prüfst du das **Wetter**, die aktuellen Meldungen über Sperrgebiete und Baustellen (**NOTAM**), deine **Strecke** und wie viel **Kraftstoff** du brauchst."
+        },
+        {
+          "typ": "einfach",
+          "text": "Wie vor einer Autofahrt in den Urlaub: Wetter prüfen, Route planen, tanken – nur dass man in der Luft nicht einfach rechts ranfahren kann."
+        },
+        {
+          "typ": "absatz",
+          "text": "Beim Kraftstoff rechnest du immer eine **Reserve** dazu, die du nie anrührst – für den Fall, dass etwas länger dauert. Mit leerem Tank in der Luft zu sein, ist einer der vermeidbarsten Fehler überhaupt."
+        },
+        {
+          "typ": "absatz",
+          "text": "Das Flugzeug ist wie eine **Wippe**: Gepäck, Insassen und Kraftstoff müssen so verteilt sein, dass der **Schwerpunkt** im erlaubten Bereich liegt. Und das Flugzeug darf nicht schwerer sein als erlaubt."
+        },
+        {
+          "typ": "merke",
+          "text": "An heißen Tagen, auf hoch gelegenen Plätzen und auf nassem Gras braucht das Flugzeug eine **längere Startstrecke**. Das rechnest du vorher aus."
+        }
+      ],
+      "kern": [
+        "Wetter, NOTAM, Strecke und Kraftstoff vor jedem Flug.",
+        "Kraftstoff immer mit Reserve.",
+        "Schwerpunkt im erlaubten Bereich – wie bei einer Wippe."
+      ],
+      "fragen": [
+        {
+          "id": "tim-pl-01",
+          "typ": "wahrfalsch",
+          "aussage": "Beim Kraftstoff planst du immer eine Reserve ein, die du nicht verbrauchst.",
+          "richtig": true,
+          "erklaerung": "Die Endreserve ist dein Polster für Unvorhergesehenes – sie wird geschützt."
+        },
+        {
+          "id": "tim-pl-02",
+          "typ": "auswahl",
+          "frage": "Was verlängert die Startstrecke?",
+          "richtig": "Hitze, ein hoch gelegener Platz und nasses Gras",
+          "falsch": [
+            "Kalte Luft und Gegenwind",
+            "Ein leeres Flugzeug",
+            "Eine trockene Asphaltpiste"
+          ],
+          "erklaerung": "Heiße, dünne Luft und weicher, nasser Untergrund machen den Start länger. Gegenwind macht ihn kürzer."
+        },
+        {
+          "id": "tim-pl-03",
+          "typ": "auswahl",
+          "frage": "Warum prüfst du vor dem Flug den Schwerpunkt?",
+          "richtig": "Weil das Flugzeug sonst schlecht oder gar nicht steuerbar sein kann",
+          "falsch": [
+            "Damit der Kraftstoff schneller fließt",
+            "Damit das Flugzeug schöner aussieht",
+            "Das ist nur bei Regen nötig"
+          ],
+          "erklaerung": "Liegt der Schwerpunkt außerhalb des erlaubten Bereichs, kann man das Flugzeug nicht mehr sicher steuern."
+        }
+      ]
+    },
+    {
+      "id": "technik",
+      "titel": "Technik: was im Flugzeug steckt",
+      "kurz": "Motor, Propeller und die Instrumente vor dir.",
+      "theorie": [
+        {
+          "typ": "absatz",
+          "text": "Die meisten kleinen Flugzeuge haben einen **Kolbenmotor**, ähnlich wie ein Auto. Er dreht den **Propeller**, und der zieht das Flugzeug nach vorn. Damit der Motor sicher läuft, hat er meist **zwei Zündanlagen** – fällt eine aus, läuft er mit der anderen weiter."
+        },
+        {
+          "typ": "einfach",
+          "text": "Der Flugmotor ist ein Verwandter des Automotors – aber ganz auf Zuverlässigkeit gebaut: doppelte Zündung, einfache Technik, gut zu prüfen."
+        },
+        {
+          "typ": "achtung",
+          "text": "Im Vergaser kann sich **Eis** bilden – sogar bei +15 °C, wenn die Luft feucht ist. Dann verliert der Motor Leistung. Dagegen hilft die **Vergaservorwärmung**."
+        },
+        {
+          "typ": "liste",
+          "punkte": [
+            "**Fahrtmesser:** wie schnell du durch die Luft fliegst.",
+            "**Höhenmesser:** wie hoch du bist – er misst dafür den Luftdruck.",
+            "**Variometer:** ob du steigst oder sinkst.",
+            "**Kompass** und **Kurskreisel:** in welche Richtung du fliegst."
+          ]
+        },
+        {
+          "typ": "merke",
+          "text": "Vor jedem Flug gehst du einmal ums Flugzeug herum und prüfst es nach der **Checkliste** – vom Kraftstoff bis zur Abdeckung am Staurohr."
+        }
+      ],
+      "kern": [
+        "Motor dreht den Propeller, zwei Zündanlagen.",
+        "Vergaservereisung auch bei Plusgraden – Vergaservorwärmung.",
+        "Fahrtmesser, Höhenmesser, Variometer, Kompass."
+      ],
+      "fragen": [
+        {
+          "id": "tim-te-01",
+          "typ": "wahrfalsch",
+          "aussage": "Vergaservereisung kann auch bei +15 °C auftreten.",
+          "richtig": true,
+          "erklaerung": "Im Vergaser kühlt die Luft stark ab. Bei feuchter Luft kann sich dort Eis bilden, auch an warmen Tagen."
+        },
+        {
+          "id": "tim-te-02",
+          "typ": "auswahl",
+          "frage": "Welches Instrument zeigt dir, ob du steigst oder sinkst?",
+          "richtig": "Das Variometer",
+          "falsch": [
+            "Der Fahrtmesser",
+            "Der Kompass",
+            "Der Drehzahlmesser"
+          ],
+          "erklaerung": "Das Variometer zeigt die Steig- oder Sinkgeschwindigkeit."
+        },
+        {
+          "id": "tim-te-03",
+          "typ": "auswahl",
+          "frage": "Warum haben Flugmotoren meist zwei Zündanlagen?",
+          "richtig": "Damit der Motor weiterläuft, wenn eine ausfällt",
+          "falsch": [
+            "Damit er doppelt so schnell dreht",
+            "Damit er weniger Kraftstoff braucht",
+            "Damit er leiser ist"
+          ],
+          "erklaerung": "Zwei unabhängige Zündanlagen machen den Motor zuverlässiger – fällt eine aus, läuft er weiter."
+        }
+      ]
+    }
+  ]
+}

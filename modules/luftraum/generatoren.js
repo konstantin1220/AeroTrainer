@@ -9,7 +9,30 @@ function sichtText(meter) {
   return meter >= 5000 ? `${meter / 1000} km` : `${meter} m`;
 }
 
+import { grenzen, luftraumAn } from './luftraeume.js';
+
 export const generatoren = {
+  /** In welchem Luftraum bist du? Gelände, Gebiet und Höhe wechseln (Grundmuster nach AIP VFR ENR 1-1). */
+  luftraumhoehe(z) {
+    const gelaende = z.ganz(0, 2400, 100);
+    const gebiet = z.wahl(['normal', 'normal', 'flugplatz']);
+    const g = grenzen(gelaende, gebiet);
+    const fall = z.wahl(['G', 'E', 'E', 'C']);
+    const hoehe = fall === 'G' ? z.ganz(gelaende + 500, g.gOben - 100, 100)
+      : fall === 'E' ? z.ganz(g.gOben + 100, 9500, 100)
+        : z.ganz(10500, 12500, 500);
+    const klasse = luftraumAn(hoehe, gelaende, gebiet);
+    const ort = gebiet === 'flugplatz' ? 'in der Nähe eines Flugplatzes, an dem E schon ab 1000 ft über Grund beginnt' : 'ohne Kontrollzone und Nahverkehrsbereich in der Nähe';
+    return {
+      typ: 'auswahl',
+      frage: `Gelände ${gelaende} ft MSL, ${ort}. In welchem Luftraum fliegst du in ${hoehe} ft MSL (außerhalb der Alpen)?`,
+      richtig: `Luftraum ${klasse}`,
+      falsch: ['G', 'E', 'C', 'D'].filter((k) => k !== klasse).slice(0, 3).map((k) => `Luftraum ${k}`),
+      erklaerung: `G reicht hier bis ${gelaende} + ${gebiet === 'flugplatz' ? 1000 : 2500} = ${g.gOben} ft MSL, E bis FL 100 (etwa 10 000 ft). `
+        + (klasse === 'G' ? `In ${hoehe} ft bist du darunter – im Luftraum G.` : klasse === 'E' ? `In ${hoehe} ft bist du dazwischen – im Luftraum E.` : `In ${hoehe} ft bist du über FL 100 – im Luftraum C, dafür brauchst du eine Freigabe.`),
+    };
+  },
+
   /** Welcher Wolkenabstand gilt in Höhe X über Gelände Y im Luftraum Z? */
   wolkenabstand(z) {
     const gelaende = z.wahl([200, 500, 900, 1400, 1900, 2400]);

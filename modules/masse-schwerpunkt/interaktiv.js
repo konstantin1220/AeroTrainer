@@ -27,7 +27,7 @@ function wippeBild(m1, a1, m2, a2) {
     <path d="M${cx} ${cy + 6}l-22 76h44z" class="g-f-leise"/>
     <g transform="rotate(${r1(neigung)} ${cx} ${cy})">
       <rect x="${cx - 190}" y="${cy - 6}" width="380" height="12" rx="4" class="g-f-mf"/>
-      ${[-2, -1, 1, 2].map((m) => linie(cx + m * s, cy - 6, cx + m * s, cy + 6, 'g-s-flaeche', 1) + text(cx + m * s, cy + 18, `${Math.abs(m)} m`, { groesse: 10, klasse: 'g-f-leise' })).join('')}
+      ${[-2, -1, 1, 2].map((m) => linie(cx + m * s, cy - 6, cx + m * s, cy + 6, 'g-s-flaeche', 1) + (Math.abs(cx + m * s - sx) < 40 ? '' : text(cx + m * s, cy + 18, `${Math.abs(m)} m`, { groesse: 10, klasse: 'g-f-leise' }))).join('')}
       ${kiste(cx - a1 * s, m1, 'g-f-primaer')}
       ${kiste(cx + a2 * s, m2, 'g-f-orange')}
       ${linie(r1(sx), cy + 10, r1(sx), cy + 24, 'g-s-text', 1)}
